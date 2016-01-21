@@ -60,7 +60,7 @@ extension UINavigationController {
 
 extension UISplitViewController {
     @warn_unused_result
-    final func wrappedInNavigationTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> SplitViewTransitionsHandler {
+    final func wrappedInSplitViewTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> SplitViewTransitionsHandler {
         return wrapper.wrapInSplitViewTransitionsHandler(self)
     }
 }

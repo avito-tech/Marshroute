@@ -25,45 +25,42 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         presenter.viewInput = tabBarController
         interactor.output = presenter
         
-        let tabControllers = createTabControllers()
-        var tabTransitionHandlers = [TransitionsHandler]()
-        for viewController in tabControllers {
-            if let transitionsHandler = viewController.wrappedInTransitionsHandler() {
-                tabTransitionHandlers.append(transitionsHandler)
-            }
-            else { assert(false) }
-        }
-        tabBarController.viewControllers = createTabControllers()
+        let controllersAndHandlers = createTabControllers()
+        tabBarController.viewControllers = controllersAndHandlers.0
         
-        let transitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
-        router.transitionsHandler = transitionsHandler
-        transitionsHandler.tabTransitionHandlers = tabTransitionHandlers
-        NavigationRootsHolder.instance.rootTransitionsHandler = transitionsHandler
+        let tabTransitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
+        router.transitionsHandler = tabTransitionsHandler
+        tabTransitionsHandler.tabTransitionHandlers = controllersAndHandlers.1
+        NavigationRootsHolder.instance.rootTransitionsHandler = tabTransitionsHandler
         
         return (tabBarController, presenter)
     }
     
-    private func createTabControllers() -> [UIViewController] {
+    private func createTabControllers() ->  ([UIViewController], [TransitionsHandler]) {
         return (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
-            ? createTabControllersIphad()
+            ? createTabControllersIpad()
             : createTabControllersIphone()
     }
     
-    private func createTabControllersIphone() -> [UIViewController] {
+    private func createTabControllersIphone() -> ([UIViewController], [TransitionsHandler]) {
         let first = UIViewController()
         let firstNavigation = first.wrappedInNavigationController()
         firstNavigation.tabBarItem.title = "1"
+        let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
         
         let second = UIViewController()
         let secondNavigation = second.wrappedInNavigationController()
         secondNavigation.tabBarItem.title = "2"
+        let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
         
-        return [firstNavigation, secondNavigation]
+        let controllers = [firstNavigation, secondNavigation]
+        let transitionHandlers = [firstTransitionHandler, secondTransitionHandler]
+        return (controllers, transitionHandlers)
     }
     
-    private func createTabControllersIphad() -> [UIViewController] {
-        let first = UISplitViewController()
-        
+    private func createTabControllersIpad() -> ([UIViewController], [TransitionsHandler]) {
+        let firstSplit = UISplitViewController()
+        let firstSplitTransitionHandler = firstSplit.wrappedInSplitViewTransitionsHandler()
         do {
             let master = UIViewController()
             let detail = UIViewController()
@@ -71,11 +68,16 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
             let masterNavigation = master.wrappedInNavigationController()
             let detailNavigation = detail.wrappedInNavigationController()
             
-            first.viewControllers = [masterNavigation, detailNavigation]
-            first.tabBarItem.title = "1"
+            firstSplit.viewControllers = [masterNavigation, detailNavigation]
+            firstSplit.tabBarItem.title = "1"
+            
+            firstSplitTransitionHandler.masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
+            firstSplitTransitionHandler.detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
         }
         
-        return [first]
+        let controllers = [firstSplit]
+        let transitionHandlers = [firstSplitTransitionHandler]
+        return (controllers, transitionHandlers)
     }
     
 }

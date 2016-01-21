@@ -6,6 +6,9 @@ class SplitViewTransitionsHandler {
     init(splitViewController: UISplitViewController) {
         self.splitViewController = splitViewController
     }
+    
+    var masterTransitionsHandler: TransitionsHandler?
+    var detailTransitionsHandler: TransitionsHandler?
 }
 
 // MARK: - TransitionsHandler

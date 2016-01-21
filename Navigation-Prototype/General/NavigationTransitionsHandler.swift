@@ -51,6 +51,13 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         undoChainedTransitionAndCommit()
         undoAllTransitionsAndCommit()
     }
+    
+    func undoAllTransitionsAndResetWithTransition(context: ForwardTransitionContext) {
+        forwardUndoingAllChainedTransitions()
+        undoChainedTransitionAndCommit()
+        undoAllTransitionsAndCommit()
+        resetAllTransitionsAndCommit(withContext: context)
+    }
 }
 
 // MARK: - private transitions perfroming and undoing
@@ -111,6 +118,14 @@ private extension NavigationTransitionsHandler {
             undoTransitionImpl(context: overalRestoredTransition)
             commitUndoneTransitions()
         }
+    }
+    
+    func resetAllTransitionsAndCommit(withContext context: ForwardTransitionContext) {
+        assert(lastRestoredChainedTransition == nil, "you must undo chained transitions first")
+        if let animationContext = createAnimationContextForForwardTransition(context: context) {
+            context.animator.animateResettingWithTransition(animationContext: animationContext)
+        }
+        commitUndoneTransitions()
     }
 }
 

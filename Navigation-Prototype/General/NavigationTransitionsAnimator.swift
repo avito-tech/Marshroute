@@ -41,4 +41,16 @@ extension NavigationTranstionsAnimator: TransitionsAnimator {
             context.navigationController.dismissViewControllerAnimated(true, completion: nil)
         }
     }
+    
+    func animateResettingWithTransition(animationContext context: TransitionAnimationContext) {
+        guard let context = context as? NavigationAnimationContext
+            else { assert(false, "bad animation context"); return }
+        
+        switch context.animationStyle {
+        case .Push:
+            context.navigationController.setViewControllers(context.targetViewController, animated: true)
+        case .Modal:
+            assert(false, "must not be called")
+        }
+    }
 }

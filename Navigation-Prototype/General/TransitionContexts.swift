@@ -30,7 +30,7 @@ struct ForwardTransitionContext {
             self.targetViewController = targetViewController
             self.targetTransitionsHandler = targetTransitionsHandler
             self.transitionStyle = .Push
-            self.animationTargetParameters = nil
+            self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
             self.storableParameters = nil
             self.animator = animator
     }

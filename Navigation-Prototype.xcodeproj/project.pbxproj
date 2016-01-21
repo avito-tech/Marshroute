@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCD404351C5135DF008FBDD3 /* FirstAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404261C5135DF008FBDD3 /* FirstAssembly.swift */; };
+		CCD404361C5135DF008FBDD3 /* FirstAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404271C5135DF008FBDD3 /* FirstAssemblyImpl.swift */; };
+		CCD404371C5135DF008FBDD3 /* FirstInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404281C5135DF008FBDD3 /* FirstInteractor.swift */; };
+		CCD404381C5135DF008FBDD3 /* FirstInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404291C5135DF008FBDD3 /* FirstInteractorImpl.swift */; };
+		CCD404391C5135DF008FBDD3 /* FirstPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD4042A1C5135DF008FBDD3 /* FirstPresenter.swift */; };
+		CCD4043A1C5135DF008FBDD3 /* FirstRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD4042B1C5135DF008FBDD3 /* FirstRouter.swift */; };
+		CCD4043B1C5135DF008FBDD3 /* FirstRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD4042C1C5135DF008FBDD3 /* FirstRouterImpl.swift */; };
+		CCD4043C1C5135DF008FBDD3 /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD4042D1C5135DF008FBDD3 /* FirstView.swift */; };
+		CCD4043D1C5135DF008FBDD3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD4042E1C5135DF008FBDD3 /* FirstViewController.swift */; };
+		CCD4043E1C5135DF008FBDD3 /* FirstViewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD4042F1C5135DF008FBDD3 /* FirstViewImpl.swift */; };
+		CCD404401C5135DF008FBDD3 /* FirstModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404311C5135DF008FBDD3 /* FirstModuleInput.swift */; };
+		CCD404411C5135DF008FBDD3 /* FirstModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404321C5135DF008FBDD3 /* FirstModuleOutput.swift */; };
+		CCD404421C5135DF008FBDD3 /* FirstOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404331C5135DF008FBDD3 /* FirstOutput.swift */; };
+		CCD404431C5135DF008FBDD3 /* FirstViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404341C5135DF008FBDD3 /* FirstViewInput.swift */; };
 		CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EF91C50ECBA00909924 /* AppDelegate.swift */; };
 		CCE12F031C50ECBA00909924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F021C50ECBA00909924 /* Assets.xcassets */; };
 		CCE12F061C50ECBA00909924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */; };
@@ -78,6 +92,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CCD404261C5135DF008FBDD3 /* FirstAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAssembly.swift; sourceTree = "<group>"; };
+		CCD404271C5135DF008FBDD3 /* FirstAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstAssemblyImpl.swift; sourceTree = "<group>"; };
+		CCD404281C5135DF008FBDD3 /* FirstInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstInteractor.swift; sourceTree = "<group>"; };
+		CCD404291C5135DF008FBDD3 /* FirstInteractorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstInteractorImpl.swift; sourceTree = "<group>"; };
+		CCD4042A1C5135DF008FBDD3 /* FirstPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstPresenter.swift; sourceTree = "<group>"; };
+		CCD4042B1C5135DF008FBDD3 /* FirstRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRouter.swift; sourceTree = "<group>"; };
+		CCD4042C1C5135DF008FBDD3 /* FirstRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRouterImpl.swift; sourceTree = "<group>"; };
+		CCD4042D1C5135DF008FBDD3 /* FirstView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		CCD4042E1C5135DF008FBDD3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		CCD4042F1C5135DF008FBDD3 /* FirstViewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewImpl.swift; sourceTree = "<group>"; };
+		CCD404311C5135DF008FBDD3 /* FirstModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstModuleInput.swift; sourceTree = "<group>"; };
+		CCD404321C5135DF008FBDD3 /* FirstModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstModuleOutput.swift; sourceTree = "<group>"; };
+		CCD404331C5135DF008FBDD3 /* FirstOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOutput.swift; sourceTree = "<group>"; };
+		CCD404341C5135DF008FBDD3 /* FirstViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewInput.swift; sourceTree = "<group>"; };
 		CCE12EF61C50ECBA00909924 /* Navigation-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navigation-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE12EF91C50ECBA00909924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE12F021C50ECBA00909924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +189,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CCD404251C5135A1008FBDD3 /* FirstModule */ = {
+			isa = PBXGroup;
+			children = (
+				CCD404261C5135DF008FBDD3 /* FirstAssembly.swift */,
+				CCD404271C5135DF008FBDD3 /* FirstAssemblyImpl.swift */,
+				CCD404281C5135DF008FBDD3 /* FirstInteractor.swift */,
+				CCD404291C5135DF008FBDD3 /* FirstInteractorImpl.swift */,
+				CCD4042A1C5135DF008FBDD3 /* FirstPresenter.swift */,
+				CCD4042B1C5135DF008FBDD3 /* FirstRouter.swift */,
+				CCD4042C1C5135DF008FBDD3 /* FirstRouterImpl.swift */,
+				CCD4042D1C5135DF008FBDD3 /* FirstView.swift */,
+				CCD4042E1C5135DF008FBDD3 /* FirstViewController.swift */,
+				CCD4042F1C5135DF008FBDD3 /* FirstViewImpl.swift */,
+				CCD404311C5135DF008FBDD3 /* FirstModuleInput.swift */,
+				CCD404321C5135DF008FBDD3 /* FirstModuleOutput.swift */,
+				CCD404331C5135DF008FBDD3 /* FirstOutput.swift */,
+				CCD404341C5135DF008FBDD3 /* FirstViewInput.swift */,
+			);
+			name = FirstModule;
+			path = ApplicationNavigationModule;
+			sourceTree = "<group>";
+		};
 		CCE12EED1C50ECBA00909924 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +235,7 @@
 				CCE12F8B1C50F19300909924 /* Transitions */,
 				CCE12F2F1C50F0A500909924 /* ApplicationModule */,
 				CCE12F301C50F0A500909924 /* ApplicationNavigationModule */,
+				CCD404251C5135A1008FBDD3 /* FirstModule */,
 				CCE12F021C50ECBA00909924 /* Assets.xcassets */,
 				CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */,
 				CCE12F071C50ECBA00909924 /* Info.plist */,
@@ -363,6 +414,7 @@
 				CCE12F6C1C50F0C500909924 /* ApplicationNavigationModuleViewInput.swift in Sources */,
 				CCE12F5F1C50F0C500909924 /* ApplicationNavigationModuleAssemblyImpl.swift in Sources */,
 				CCE12FCC1C50F38F00909924 /* TransitionContextsStack.swift in Sources */,
+				CCD404381C5135DF008FBDD3 /* FirstInteractorImpl.swift in Sources */,
 				CCE12FB31C50F38F00909924 /* NavigationAnimationContext.swift in Sources */,
 				CCE12FC61C50F38F00909924 /* TransitionAnimationContext.swift in Sources */,
 				CCE12F601C50F0C500909924 /* ApplicationNavigationModuleInteractor.swift in Sources */,
@@ -372,7 +424,10 @@
 				CCE12FB71C50F38F00909924 /* NavigationTransitionsAnimator.swift in Sources */,
 				CCE12FB51C50F38F00909924 /* NavigationAnimationSourceParameters.swift in Sources */,
 				CCE12F891C50F0D000909924 /* ApplicationModuleOutput.swift in Sources */,
+				CCD4043C1C5135DF008FBDD3 /* FirstView.swift in Sources */,
+				CCD404411C5135DF008FBDD3 /* FirstModuleOutput.swift in Sources */,
 				CCE12FB21C50F38F00909924 /* BaseRouterObjc.swift in Sources */,
+				CCD4043E1C5135DF008FBDD3 /* FirstViewImpl.swift in Sources */,
 				CCE12FB81C50F38F00909924 /* NavigationTransitionsHandler.swift in Sources */,
 				CCE12F671C50F0C500909924 /* ApplicationNavigationModuleViewImpl.swift in Sources */,
 				CCE12FC01C50F38F00909924 /* PopoverTransitionStyleConverter.swift in Sources */,
@@ -384,21 +439,27 @@
 				CCE12FC91C50F38F00909924 /* TransitionAnimationTargetParameters.swift in Sources */,
 				CCE12FC31C50F38F00909924 /* RouterDismisable.swift in Sources */,
 				CCE12FB61C50F38F00909924 /* NavigationAnimationStyle.swift in Sources */,
+				CCD4043A1C5135DF008FBDD3 /* FirstRouter.swift in Sources */,
 				CCE12F7E1C50F0D000909924 /* ApplicationModuleInteractor.swift in Sources */,
+				CCD404371C5135DF008FBDD3 /* FirstInteractor.swift in Sources */,
 				CCE12F6A1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift in Sources */,
+				CCD404351C5135DF008FBDD3 /* FirstAssembly.swift in Sources */,
 				CCE12FC71C50F38F00909924 /* TransitionAnimationContextCreator.swift in Sources */,
 				CCE12F611C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift in Sources */,
 				CCE12FC81C50F38F00909924 /* TransitionAnimationSourceParameters.swift in Sources */,
 				CCE12F621C50F0C500909924 /* ApplicationNavigationModulePresenter.swift in Sources */,
 				CCE12F861C50F0D000909924 /* ApplicationModuleModule.swift in Sources */,
+				CCD4043B1C5135DF008FBDD3 /* FirstRouterImpl.swift in Sources */,
 				CCE12F881C50F0D000909924 /* ApplicationModuleModuleOutput.swift in Sources */,
 				CCE12FBD1C50F38F00909924 /* PopoverAnimationSourceParameters.swift in Sources */,
 				CCE12F821C50F0D000909924 /* ApplicationModuleRouterImpl.swift in Sources */,
 				CCE12F851C50F0D000909924 /* ApplicationModuleViewImpl.swift in Sources */,
+				CCD4043D1C5135DF008FBDD3 /* FirstViewController.swift in Sources */,
 				CCE12F841C50F0D000909924 /* ApplicationModuleViewController.swift in Sources */,
 				CCE12FD31C50F38F00909924 /* UIViewController+Wrapping.swift in Sources */,
 				CCE12F631C50F0C500909924 /* ApplicationNavigationModuleRouter.swift in Sources */,
 				CCE12F811C50F0D000909924 /* ApplicationModuleRouter.swift in Sources */,
+				CCD404361C5135DF008FBDD3 /* FirstAssemblyImpl.swift in Sources */,
 				CCE12FCB1C50F38F00909924 /* TransitionContexts.swift in Sources */,
 				CCE12F5E1C50F0C500909924 /* ApplicationNavigationModuleAssembly.swift in Sources */,
 				CCE12FCA1C50F38F00909924 /* TransitionContextConverter.swift in Sources */,
@@ -413,6 +474,9 @@
 				CCE12F801C50F0D000909924 /* ApplicationModulePresenter.swift in Sources */,
 				CCE12F6B1C50F0C500909924 /* ApplicationNavigationModuleOutput.swift in Sources */,
 				CCE12FC41C50F38F00909924 /* SplitViewTransitionsHandler.swift in Sources */,
+				CCD404401C5135DF008FBDD3 /* FirstModuleInput.swift in Sources */,
+				CCD404421C5135DF008FBDD3 /* FirstOutput.swift in Sources */,
+				CCD404431C5135DF008FBDD3 /* FirstViewInput.swift in Sources */,
 				CCE12F2E1C50F02A00909924 /* AssemblyFactory.swift in Sources */,
 				CCE12F641C50F0C500909924 /* ApplicationNavigationModuleRouterImpl.swift in Sources */,
 				CCE12FCD1C50F38F00909924 /* TransitionsAnimator.swift in Sources */,
@@ -422,6 +486,7 @@
 				CCE12FB41C50F38F00909924 /* NavigationAnimationContextCreator.swift in Sources */,
 				CCE12FBA1C50F38F00909924 /* NavigationTransitionStyleConverter.swift in Sources */,
 				CCE12FC51C50F38F00909924 /* TabBarTransitionsHandler.swift in Sources */,
+				CCD404391C5135DF008FBDD3 /* FirstPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

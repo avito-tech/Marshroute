@@ -43,15 +43,18 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
     }
     
     private func createTabControllersIphone() -> ([UIViewController], [TransitionsHandler]) {
-        let first = UIViewController()
-        let firstNavigation = first.wrappedInNavigationController()
-        firstNavigation.tabBarItem.title = "1"
+        let firstNavigation = UINavigationController()
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
+
+        let first = AssemblyFactory.firstModuleAssembly().module("1", parentRouter: nil, transitionsHandler: firstTransitionHandler).0
+        firstNavigation.viewControllers = [first]
+        firstNavigation.tabBarItem.title = "1"
         
         let second = UIViewController()
-        let secondNavigation = second.wrappedInNavigationController()
-        secondNavigation.tabBarItem.title = "2"
+        let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
+        secondNavigation.viewControllers = [second]
+        secondNavigation.tabBarItem.title = "2"
         
         let controllers = [firstNavigation, secondNavigation]
         return (controllers, [firstTransitionHandler, secondTransitionHandler])

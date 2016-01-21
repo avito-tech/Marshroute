@@ -3,4 +3,8 @@ class AssemblyFactory {
         return ApplicationNavigationModuleAssemblyImpl()
     }
     
+    static func firstModuleAssembly() -> FirstAssembly {
+        return FirstAssemblyImpl()
+    }
+    
 }

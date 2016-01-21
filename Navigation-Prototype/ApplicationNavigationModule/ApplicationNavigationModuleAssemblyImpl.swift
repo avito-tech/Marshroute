@@ -54,8 +54,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
         
         let controllers = [firstNavigation, secondNavigation]
-        let transitionHandlers = [firstTransitionHandler, secondTransitionHandler]
-        return (controllers, transitionHandlers)
+        return (controllers, [firstTransitionHandler, secondTransitionHandler])
     }
     
     private func createTabControllersIpad() -> ([UIViewController], [TransitionsHandler]) {

@@ -25,11 +25,19 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         presenter.viewInput = tabBarController
         interactor.output = presenter
         
-        
+        let tabControllers = createTabControllers()
+        var tabTransitionHandlers = [TransitionsHandler]()
+        for viewController in tabControllers {
+            if let transitionsHandler = viewController.wrappedInTransitionsHandler() {
+                tabTransitionHandlers.append(transitionsHandler)
+            }
+            else { assert(false) }
+        }
         tabBarController.viewControllers = createTabControllers()
         
         let transitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
         router.transitionsHandler = transitionsHandler
+        transitionsHandler.tabTransitionHandlers = tabTransitionHandlers
         NavigationRootsHolder.instance.rootTransitionsHandler = transitionsHandler
         
         return (tabBarController, presenter)
@@ -43,22 +51,29 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
     
     private func createTabControllersIphone() -> [UIViewController] {
         let first = UIViewController()
-        first.tabBarItem.title = "1"
+        let firstNavigation = first.wrappedInNavigationController()
+        firstNavigation.tabBarItem.title = "1"
         
-        return [first]
+        let second = UIViewController()
+        let secondNavigation = second.wrappedInNavigationController()
+        secondNavigation.tabBarItem.title = "2"
+        
+        return [firstNavigation, secondNavigation]
     }
     
     private func createTabControllersIphad() -> [UIViewController] {
         let first = UISplitViewController()
         
-        let master = UIViewController()
-        let detail = UIViewController()
-        
-        let masterNavigation = master.wrappedInNavigationController()
-        let detailNavigation = detail.wrappedInNavigationController()
-        
-        first.viewControllers = [masterNavigation, detailNavigation]
-        first.tabBarItem.title = "1"
+        do {
+            let master = UIViewController()
+            let detail = UIViewController()
+            
+            let masterNavigation = master.wrappedInNavigationController()
+            let detailNavigation = detail.wrappedInNavigationController()
+            
+            first.viewControllers = [masterNavigation, detailNavigation]
+            first.tabBarItem.title = "1"
+        }
         
         return [first]
     }

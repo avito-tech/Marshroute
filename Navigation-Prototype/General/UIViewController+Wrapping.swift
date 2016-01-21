@@ -53,21 +53,21 @@ final class ViewControllerInTransitionsHandlerWrapperImpl: ViewControllerInTrans
 //MARK: - удобные расширения
 extension UINavigationController {
     @warn_unused_result
-    final func wrappedInNavigationTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> TransitionsHandler {
+    final func wrappedInNavigationTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> NavigationTransitionsHandler {
         return wrapper.wrapInNavigationTransitionsHandler(self)
     }
 }
 
 extension UISplitViewController {
     @warn_unused_result
-    final func wrappedInNavigationTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> TransitionsHandler {
+    final func wrappedInNavigationTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> SplitViewTransitionsHandler {
         return wrapper.wrapInSplitViewTransitionsHandler(self)
     }
 }
 
 extension UITabBarController {
     @warn_unused_result
-    final func wrappedInTabBarTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> TransitionsHandler {
+    final func wrappedInTabBarTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> TabBarTransitionsHandler {
         return wrapper.wrapInTabBarTransitionsHandler(self)
     }
 }

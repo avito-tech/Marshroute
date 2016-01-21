@@ -8,22 +8,146 @@
 
 /* Begin PBXBuildFile section */
 		CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EF91C50ECBA00909924 /* AppDelegate.swift */; };
-		CCE12EFC1C50ECBA00909924 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EFB1C50ECBA00909924 /* FirstViewController.swift */; };
-		CCE12EFE1C50ECBA00909924 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EFD1C50ECBA00909924 /* SecondViewController.swift */; };
-		CCE12F011C50ECBA00909924 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE12EFF1C50ECBA00909924 /* Main.storyboard */; };
 		CCE12F031C50ECBA00909924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F021C50ECBA00909924 /* Assets.xcassets */; };
 		CCE12F061C50ECBA00909924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */; };
+		CCE12F2E1C50F02A00909924 /* AssemblyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */; };
+		CCE12F5E1C50F0C500909924 /* ApplicationNavigationModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F4F1C50F0C500909924 /* ApplicationNavigationModuleAssembly.swift */; };
+		CCE12F5F1C50F0C500909924 /* ApplicationNavigationModuleAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F501C50F0C500909924 /* ApplicationNavigationModuleAssemblyImpl.swift */; };
+		CCE12F601C50F0C500909924 /* ApplicationNavigationModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F511C50F0C500909924 /* ApplicationNavigationModuleInteractor.swift */; };
+		CCE12F611C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F521C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift */; };
+		CCE12F621C50F0C500909924 /* ApplicationNavigationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F531C50F0C500909924 /* ApplicationNavigationModulePresenter.swift */; };
+		CCE12F631C50F0C500909924 /* ApplicationNavigationModuleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F541C50F0C500909924 /* ApplicationNavigationModuleRouter.swift */; };
+		CCE12F641C50F0C500909924 /* ApplicationNavigationModuleRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F551C50F0C500909924 /* ApplicationNavigationModuleRouterImpl.swift */; };
+		CCE12F651C50F0C500909924 /* ApplicationNavigationModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F561C50F0C500909924 /* ApplicationNavigationModuleView.swift */; };
+		CCE12F661C50F0C500909924 /* ApplicationNavigationModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F571C50F0C500909924 /* ApplicationNavigationModuleViewController.swift */; };
+		CCE12F671C50F0C500909924 /* ApplicationNavigationModuleViewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F581C50F0C500909924 /* ApplicationNavigationModuleViewImpl.swift */; };
+		CCE12F691C50F0C500909924 /* ApplicationNavigationModuleModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F5A1C50F0C500909924 /* ApplicationNavigationModuleModuleInput.swift */; };
+		CCE12F6A1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F5B1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift */; };
+		CCE12F6B1C50F0C500909924 /* ApplicationNavigationModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F5C1C50F0C500909924 /* ApplicationNavigationModuleOutput.swift */; };
+		CCE12F6C1C50F0C500909924 /* ApplicationNavigationModuleViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F5D1C50F0C500909924 /* ApplicationNavigationModuleViewInput.swift */; };
+		CCE12F7C1C50F0D000909924 /* ApplicationModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F6D1C50F0D000909924 /* ApplicationModuleAssembly.swift */; };
+		CCE12F7D1C50F0D000909924 /* ApplicationModuleAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F6E1C50F0D000909924 /* ApplicationModuleAssemblyImpl.swift */; };
+		CCE12F7E1C50F0D000909924 /* ApplicationModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F6F1C50F0D000909924 /* ApplicationModuleInteractor.swift */; };
+		CCE12F7F1C50F0D000909924 /* ApplicationModuleInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F701C50F0D000909924 /* ApplicationModuleInteractorImpl.swift */; };
+		CCE12F801C50F0D000909924 /* ApplicationModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F711C50F0D000909924 /* ApplicationModulePresenter.swift */; };
+		CCE12F811C50F0D000909924 /* ApplicationModuleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F721C50F0D000909924 /* ApplicationModuleRouter.swift */; };
+		CCE12F821C50F0D000909924 /* ApplicationModuleRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F731C50F0D000909924 /* ApplicationModuleRouterImpl.swift */; };
+		CCE12F831C50F0D000909924 /* ApplicationModuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F741C50F0D000909924 /* ApplicationModuleView.swift */; };
+		CCE12F841C50F0D000909924 /* ApplicationModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F751C50F0D000909924 /* ApplicationModuleViewController.swift */; };
+		CCE12F851C50F0D000909924 /* ApplicationModuleViewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F761C50F0D000909924 /* ApplicationModuleViewImpl.swift */; };
+		CCE12F861C50F0D000909924 /* ApplicationModuleModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F771C50F0D000909924 /* ApplicationModuleModule.swift */; };
+		CCE12F871C50F0D000909924 /* ApplicationModuleModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F781C50F0D000909924 /* ApplicationModuleModuleInput.swift */; };
+		CCE12F881C50F0D000909924 /* ApplicationModuleModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F791C50F0D000909924 /* ApplicationModuleModuleOutput.swift */; };
+		CCE12F891C50F0D000909924 /* ApplicationModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F7A1C50F0D000909924 /* ApplicationModuleOutput.swift */; };
+		CCE12F8A1C50F0D000909924 /* ApplicationModuleViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F7B1C50F0D000909924 /* ApplicationModuleViewInput.swift */; };
+		CCE12FB11C50F38F00909924 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F8D1C50F38F00909924 /* BaseRouter.swift */; };
+		CCE12FB21C50F38F00909924 /* BaseRouterObjc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F8E1C50F38F00909924 /* BaseRouterObjc.swift */; };
+		CCE12FB31C50F38F00909924 /* NavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F8F1C50F38F00909924 /* NavigationAnimationContext.swift */; };
+		CCE12FB41C50F38F00909924 /* NavigationAnimationContextCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F901C50F38F00909924 /* NavigationAnimationContextCreator.swift */; };
+		CCE12FB51C50F38F00909924 /* NavigationAnimationSourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F911C50F38F00909924 /* NavigationAnimationSourceParameters.swift */; };
+		CCE12FB61C50F38F00909924 /* NavigationAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F921C50F38F00909924 /* NavigationAnimationStyle.swift */; };
+		CCE12FB71C50F38F00909924 /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F931C50F38F00909924 /* NavigationTransitionsAnimator.swift */; };
+		CCE12FB81C50F38F00909924 /* NavigationTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F941C50F38F00909924 /* NavigationTransitionsHandler.swift */; };
+		CCE12FB91C50F38F00909924 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F951C50F38F00909924 /* NavigationTransitionStorableParameters.swift */; };
+		CCE12FBA1C50F38F00909924 /* NavigationTransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F961C50F38F00909924 /* NavigationTransitionStyleConverter.swift */; };
+		CCE12FBB1C50F38F00909924 /* PopoverAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F971C50F38F00909924 /* PopoverAnimationContext.swift */; };
+		CCE12FBC1C50F38F00909924 /* PopoverAnimationContextCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F981C50F38F00909924 /* PopoverAnimationContextCreator.swift */; };
+		CCE12FBD1C50F38F00909924 /* PopoverAnimationSourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F991C50F38F00909924 /* PopoverAnimationSourceParameters.swift */; };
+		CCE12FBE1C50F38F00909924 /* PopoverAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F9A1C50F38F00909924 /* PopoverAnimationStyle.swift */; };
+		CCE12FBF1C50F38F00909924 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F9B1C50F38F00909924 /* PopoverTransitionStorableParameters.swift */; };
+		CCE12FC01C50F38F00909924 /* PopoverTransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F9C1C50F38F00909924 /* PopoverTransitionStyleConverter.swift */; };
+		CCE12FC11C50F38F00909924 /* PopoverTranstionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F9D1C50F38F00909924 /* PopoverTranstionsAnimator.swift */; };
+		CCE12FC21C50F38F00909924 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F9E1C50F38F00909924 /* Router.swift */; };
+		CCE12FC31C50F38F00909924 /* RouterDismisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F9F1C50F38F00909924 /* RouterDismisable.swift */; };
+		CCE12FC41C50F38F00909924 /* SplitViewTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA01C50F38F00909924 /* SplitViewTransitionsHandler.swift */; };
+		CCE12FC51C50F38F00909924 /* TabBarTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA11C50F38F00909924 /* TabBarTransitionsHandler.swift */; };
+		CCE12FC61C50F38F00909924 /* TransitionAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA21C50F38F00909924 /* TransitionAnimationContext.swift */; };
+		CCE12FC71C50F38F00909924 /* TransitionAnimationContextCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA31C50F38F00909924 /* TransitionAnimationContextCreator.swift */; };
+		CCE12FC81C50F38F00909924 /* TransitionAnimationSourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA41C50F38F00909924 /* TransitionAnimationSourceParameters.swift */; };
+		CCE12FC91C50F38F00909924 /* TransitionAnimationTargetParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA51C50F38F00909924 /* TransitionAnimationTargetParameters.swift */; };
+		CCE12FCA1C50F38F00909924 /* TransitionContextConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA61C50F38F00909924 /* TransitionContextConverter.swift */; };
+		CCE12FCB1C50F38F00909924 /* TransitionContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA71C50F38F00909924 /* TransitionContexts.swift */; };
+		CCE12FCC1C50F38F00909924 /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA81C50F38F00909924 /* TransitionContextsStack.swift */; };
+		CCE12FCD1C50F38F00909924 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA91C50F38F00909924 /* TransitionsAnimator.swift */; };
+		CCE12FCE1C50F38F00909924 /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAA1C50F38F00909924 /* TransitionsHandler.swift */; };
+		CCE12FCF1C50F38F00909924 /* TransitionsHandlerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorage.swift */; };
+		CCE12FD01C50F38F00909924 /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAC1C50F38F00909924 /* TransitionStorableParameters.swift */; };
+		CCE12FD11C50F38F00909924 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */; };
+		CCE12FD21C50F38F00909924 /* TransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */; };
+		CCE12FD31C50F38F00909924 /* UIViewController+Wrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAF1C50F38F00909924 /* UIViewController+Wrapping.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CCE12EF61C50ECBA00909924 /* Navigation-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navigation-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE12EF91C50ECBA00909924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CCE12EFB1C50ECBA00909924 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		CCE12EFD1C50ECBA00909924 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		CCE12F001C50ECBA00909924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCE12F021C50ECBA00909924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCE12F051C50ECBA00909924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCE12F071C50ECBA00909924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyFactory.swift; sourceTree = "<group>"; };
+		CCE12F4F1C50F0C500909924 /* ApplicationNavigationModuleAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleAssembly.swift; sourceTree = "<group>"; };
+		CCE12F501C50F0C500909924 /* ApplicationNavigationModuleAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleAssemblyImpl.swift; sourceTree = "<group>"; };
+		CCE12F511C50F0C500909924 /* ApplicationNavigationModuleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleInteractor.swift; sourceTree = "<group>"; };
+		CCE12F521C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleInteractorImpl.swift; sourceTree = "<group>"; };
+		CCE12F531C50F0C500909924 /* ApplicationNavigationModulePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModulePresenter.swift; sourceTree = "<group>"; };
+		CCE12F541C50F0C500909924 /* ApplicationNavigationModuleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleRouter.swift; sourceTree = "<group>"; };
+		CCE12F551C50F0C500909924 /* ApplicationNavigationModuleRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleRouterImpl.swift; sourceTree = "<group>"; };
+		CCE12F561C50F0C500909924 /* ApplicationNavigationModuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleView.swift; sourceTree = "<group>"; };
+		CCE12F571C50F0C500909924 /* ApplicationNavigationModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleViewController.swift; sourceTree = "<group>"; };
+		CCE12F581C50F0C500909924 /* ApplicationNavigationModuleViewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleViewImpl.swift; sourceTree = "<group>"; };
+		CCE12F5A1C50F0C500909924 /* ApplicationNavigationModuleModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleModuleInput.swift; sourceTree = "<group>"; };
+		CCE12F5B1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleModuleOutput.swift; sourceTree = "<group>"; };
+		CCE12F5C1C50F0C500909924 /* ApplicationNavigationModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleOutput.swift; sourceTree = "<group>"; };
+		CCE12F5D1C50F0C500909924 /* ApplicationNavigationModuleViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationNavigationModuleViewInput.swift; sourceTree = "<group>"; };
+		CCE12F6D1C50F0D000909924 /* ApplicationModuleAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleAssembly.swift; sourceTree = "<group>"; };
+		CCE12F6E1C50F0D000909924 /* ApplicationModuleAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleAssemblyImpl.swift; sourceTree = "<group>"; };
+		CCE12F6F1C50F0D000909924 /* ApplicationModuleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleInteractor.swift; sourceTree = "<group>"; };
+		CCE12F701C50F0D000909924 /* ApplicationModuleInteractorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleInteractorImpl.swift; sourceTree = "<group>"; };
+		CCE12F711C50F0D000909924 /* ApplicationModulePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModulePresenter.swift; sourceTree = "<group>"; };
+		CCE12F721C50F0D000909924 /* ApplicationModuleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleRouter.swift; sourceTree = "<group>"; };
+		CCE12F731C50F0D000909924 /* ApplicationModuleRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleRouterImpl.swift; sourceTree = "<group>"; };
+		CCE12F741C50F0D000909924 /* ApplicationModuleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleView.swift; sourceTree = "<group>"; };
+		CCE12F751C50F0D000909924 /* ApplicationModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleViewController.swift; sourceTree = "<group>"; };
+		CCE12F761C50F0D000909924 /* ApplicationModuleViewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleViewImpl.swift; sourceTree = "<group>"; };
+		CCE12F771C50F0D000909924 /* ApplicationModuleModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleModule.swift; sourceTree = "<group>"; };
+		CCE12F781C50F0D000909924 /* ApplicationModuleModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleModuleInput.swift; sourceTree = "<group>"; };
+		CCE12F791C50F0D000909924 /* ApplicationModuleModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleModuleOutput.swift; sourceTree = "<group>"; };
+		CCE12F7A1C50F0D000909924 /* ApplicationModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleOutput.swift; sourceTree = "<group>"; };
+		CCE12F7B1C50F0D000909924 /* ApplicationModuleViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleViewInput.swift; sourceTree = "<group>"; };
+		CCE12F8D1C50F38F00909924 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		CCE12F8E1C50F38F00909924 /* BaseRouterObjc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterObjc.swift; sourceTree = "<group>"; };
+		CCE12F8F1C50F38F00909924 /* NavigationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationContext.swift; sourceTree = "<group>"; };
+		CCE12F901C50F38F00909924 /* NavigationAnimationContextCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationContextCreator.swift; sourceTree = "<group>"; };
+		CCE12F911C50F38F00909924 /* NavigationAnimationSourceParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationSourceParameters.swift; sourceTree = "<group>"; };
+		CCE12F921C50F38F00909924 /* NavigationAnimationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationStyle.swift; sourceTree = "<group>"; };
+		CCE12F931C50F38F00909924 /* NavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCE12F941C50F38F00909924 /* NavigationTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCE12F951C50F38F00909924 /* NavigationTransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionStorableParameters.swift; sourceTree = "<group>"; };
+		CCE12F961C50F38F00909924 /* NavigationTransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionStyleConverter.swift; sourceTree = "<group>"; };
+		CCE12F971C50F38F00909924 /* PopoverAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationContext.swift; sourceTree = "<group>"; };
+		CCE12F981C50F38F00909924 /* PopoverAnimationContextCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationContextCreator.swift; sourceTree = "<group>"; };
+		CCE12F991C50F38F00909924 /* PopoverAnimationSourceParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationSourceParameters.swift; sourceTree = "<group>"; };
+		CCE12F9A1C50F38F00909924 /* PopoverAnimationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationStyle.swift; sourceTree = "<group>"; };
+		CCE12F9B1C50F38F00909924 /* PopoverTransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionStorableParameters.swift; sourceTree = "<group>"; };
+		CCE12F9C1C50F38F00909924 /* PopoverTransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionStyleConverter.swift; sourceTree = "<group>"; };
+		CCE12F9D1C50F38F00909924 /* PopoverTranstionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTranstionsAnimator.swift; sourceTree = "<group>"; };
+		CCE12F9E1C50F38F00909924 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CCE12F9F1C50F38F00909924 /* RouterDismisable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismisable.swift; sourceTree = "<group>"; };
+		CCE12FA01C50F38F00909924 /* SplitViewTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCE12FA11C50F38F00909924 /* TabBarTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCE12FA21C50F38F00909924 /* TransitionAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationContext.swift; sourceTree = "<group>"; };
+		CCE12FA31C50F38F00909924 /* TransitionAnimationContextCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationContextCreator.swift; sourceTree = "<group>"; };
+		CCE12FA41C50F38F00909924 /* TransitionAnimationSourceParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationSourceParameters.swift; sourceTree = "<group>"; };
+		CCE12FA51C50F38F00909924 /* TransitionAnimationTargetParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationTargetParameters.swift; sourceTree = "<group>"; };
+		CCE12FA61C50F38F00909924 /* TransitionContextConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextConverter.swift; sourceTree = "<group>"; };
+		CCE12FA71C50F38F00909924 /* TransitionContexts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContexts.swift; sourceTree = "<group>"; };
+		CCE12FA81C50F38F00909924 /* TransitionContextsStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack.swift; sourceTree = "<group>"; };
+		CCE12FA91C50F38F00909924 /* TransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCE12FAA1C50F38F00909924 /* TransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandler.swift; sourceTree = "<group>"; };
+		CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerStorage.swift; sourceTree = "<group>"; };
+		CCE12FAC1C50F38F00909924 /* TransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStorableParameters.swift; sourceTree = "<group>"; };
+		CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
+		CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyleConverter.swift; sourceTree = "<group>"; };
+		CCE12FAF1C50F38F00909924 /* UIViewController+Wrapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Wrapping.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +181,109 @@
 			isa = PBXGroup;
 			children = (
 				CCE12EF91C50ECBA00909924 /* AppDelegate.swift */,
-				CCE12EFB1C50ECBA00909924 /* FirstViewController.swift */,
-				CCE12EFD1C50ECBA00909924 /* SecondViewController.swift */,
-				CCE12EFF1C50ECBA00909924 /* Main.storyboard */,
+				CCE12F2C1C50F00E00909924 /* General */,
+				CCE12F8B1C50F19300909924 /* Transitions */,
+				CCE12F2F1C50F0A500909924 /* ApplicationModule */,
+				CCE12F301C50F0A500909924 /* ApplicationNavigationModule */,
 				CCE12F021C50ECBA00909924 /* Assets.xcassets */,
 				CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */,
 				CCE12F071C50ECBA00909924 /* Info.plist */,
 			);
 			path = "Navigation-Prototype";
+			sourceTree = "<group>";
+		};
+		CCE12F2C1C50F00E00909924 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CCE12F2F1C50F0A500909924 /* ApplicationModule */ = {
+			isa = PBXGroup;
+			children = (
+				CCE12F6D1C50F0D000909924 /* ApplicationModuleAssembly.swift */,
+				CCE12F6E1C50F0D000909924 /* ApplicationModuleAssemblyImpl.swift */,
+				CCE12F6F1C50F0D000909924 /* ApplicationModuleInteractor.swift */,
+				CCE12F701C50F0D000909924 /* ApplicationModuleInteractorImpl.swift */,
+				CCE12F711C50F0D000909924 /* ApplicationModulePresenter.swift */,
+				CCE12F721C50F0D000909924 /* ApplicationModuleRouter.swift */,
+				CCE12F731C50F0D000909924 /* ApplicationModuleRouterImpl.swift */,
+				CCE12F741C50F0D000909924 /* ApplicationModuleView.swift */,
+				CCE12F751C50F0D000909924 /* ApplicationModuleViewController.swift */,
+				CCE12F761C50F0D000909924 /* ApplicationModuleViewImpl.swift */,
+				CCE12F771C50F0D000909924 /* ApplicationModuleModule.swift */,
+				CCE12F781C50F0D000909924 /* ApplicationModuleModuleInput.swift */,
+				CCE12F791C50F0D000909924 /* ApplicationModuleModuleOutput.swift */,
+				CCE12F7A1C50F0D000909924 /* ApplicationModuleOutput.swift */,
+				CCE12F7B1C50F0D000909924 /* ApplicationModuleViewInput.swift */,
+			);
+			path = ApplicationModule;
+			sourceTree = "<group>";
+		};
+		CCE12F301C50F0A500909924 /* ApplicationNavigationModule */ = {
+			isa = PBXGroup;
+			children = (
+				CCE12F4F1C50F0C500909924 /* ApplicationNavigationModuleAssembly.swift */,
+				CCE12F501C50F0C500909924 /* ApplicationNavigationModuleAssemblyImpl.swift */,
+				CCE12F511C50F0C500909924 /* ApplicationNavigationModuleInteractor.swift */,
+				CCE12F521C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift */,
+				CCE12F531C50F0C500909924 /* ApplicationNavigationModulePresenter.swift */,
+				CCE12F541C50F0C500909924 /* ApplicationNavigationModuleRouter.swift */,
+				CCE12F551C50F0C500909924 /* ApplicationNavigationModuleRouterImpl.swift */,
+				CCE12F561C50F0C500909924 /* ApplicationNavigationModuleView.swift */,
+				CCE12F571C50F0C500909924 /* ApplicationNavigationModuleViewController.swift */,
+				CCE12F581C50F0C500909924 /* ApplicationNavigationModuleViewImpl.swift */,
+				CCE12F5A1C50F0C500909924 /* ApplicationNavigationModuleModuleInput.swift */,
+				CCE12F5B1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift */,
+				CCE12F5C1C50F0C500909924 /* ApplicationNavigationModuleOutput.swift */,
+				CCE12F5D1C50F0C500909924 /* ApplicationNavigationModuleViewInput.swift */,
+			);
+			path = ApplicationNavigationModule;
+			sourceTree = "<group>";
+		};
+		CCE12F8B1C50F19300909924 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				CCE12F8D1C50F38F00909924 /* BaseRouter.swift */,
+				CCE12F8E1C50F38F00909924 /* BaseRouterObjc.swift */,
+				CCE12F8F1C50F38F00909924 /* NavigationAnimationContext.swift */,
+				CCE12F901C50F38F00909924 /* NavigationAnimationContextCreator.swift */,
+				CCE12F911C50F38F00909924 /* NavigationAnimationSourceParameters.swift */,
+				CCE12F921C50F38F00909924 /* NavigationAnimationStyle.swift */,
+				CCE12F931C50F38F00909924 /* NavigationTransitionsAnimator.swift */,
+				CCE12F941C50F38F00909924 /* NavigationTransitionsHandler.swift */,
+				CCE12F951C50F38F00909924 /* NavigationTransitionStorableParameters.swift */,
+				CCE12F961C50F38F00909924 /* NavigationTransitionStyleConverter.swift */,
+				CCE12F971C50F38F00909924 /* PopoverAnimationContext.swift */,
+				CCE12F981C50F38F00909924 /* PopoverAnimationContextCreator.swift */,
+				CCE12F991C50F38F00909924 /* PopoverAnimationSourceParameters.swift */,
+				CCE12F9A1C50F38F00909924 /* PopoverAnimationStyle.swift */,
+				CCE12F9B1C50F38F00909924 /* PopoverTransitionStorableParameters.swift */,
+				CCE12F9C1C50F38F00909924 /* PopoverTransitionStyleConverter.swift */,
+				CCE12F9D1C50F38F00909924 /* PopoverTranstionsAnimator.swift */,
+				CCE12F9E1C50F38F00909924 /* Router.swift */,
+				CCE12F9F1C50F38F00909924 /* RouterDismisable.swift */,
+				CCE12FA01C50F38F00909924 /* SplitViewTransitionsHandler.swift */,
+				CCE12FA11C50F38F00909924 /* TabBarTransitionsHandler.swift */,
+				CCE12FA21C50F38F00909924 /* TransitionAnimationContext.swift */,
+				CCE12FA31C50F38F00909924 /* TransitionAnimationContextCreator.swift */,
+				CCE12FA41C50F38F00909924 /* TransitionAnimationSourceParameters.swift */,
+				CCE12FA51C50F38F00909924 /* TransitionAnimationTargetParameters.swift */,
+				CCE12FA61C50F38F00909924 /* TransitionContextConverter.swift */,
+				CCE12FA71C50F38F00909924 /* TransitionContexts.swift */,
+				CCE12FA81C50F38F00909924 /* TransitionContextsStack.swift */,
+				CCE12FA91C50F38F00909924 /* TransitionsAnimator.swift */,
+				CCE12FAA1C50F38F00909924 /* TransitionsHandler.swift */,
+				CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorage.swift */,
+				CCE12FAC1C50F38F00909924 /* TransitionStorableParameters.swift */,
+				CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */,
+				CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */,
+				CCE12FAF1C50F38F00909924 /* UIViewController+Wrapping.swift */,
+			);
+			name = Transitions;
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +346,6 @@
 			files = (
 				CCE12F061C50ECBA00909924 /* LaunchScreen.storyboard in Resources */,
 				CCE12F031C50ECBA00909924 /* Assets.xcassets in Resources */,
-				CCE12F011C50ECBA00909924 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +356,78 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE12EFE1C50ECBA00909924 /* SecondViewController.swift in Sources */,
+				CCE12F8A1C50F0D000909924 /* ApplicationModuleViewInput.swift in Sources */,
+				CCE12FCE1C50F38F00909924 /* TransitionsHandler.swift in Sources */,
+				CCE12F831C50F0D000909924 /* ApplicationModuleView.swift in Sources */,
+				CCE12FC21C50F38F00909924 /* Router.swift in Sources */,
+				CCE12F6C1C50F0C500909924 /* ApplicationNavigationModuleViewInput.swift in Sources */,
+				CCE12F5F1C50F0C500909924 /* ApplicationNavigationModuleAssemblyImpl.swift in Sources */,
+				CCE12FCC1C50F38F00909924 /* TransitionContextsStack.swift in Sources */,
+				CCE12FB31C50F38F00909924 /* NavigationAnimationContext.swift in Sources */,
+				CCE12FC61C50F38F00909924 /* TransitionAnimationContext.swift in Sources */,
+				CCE12F601C50F0C500909924 /* ApplicationNavigationModuleInteractor.swift in Sources */,
 				CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */,
-				CCE12EFC1C50ECBA00909924 /* FirstViewController.swift in Sources */,
+				CCE12FB11C50F38F00909924 /* BaseRouter.swift in Sources */,
+				CCE12FD21C50F38F00909924 /* TransitionStyleConverter.swift in Sources */,
+				CCE12FB71C50F38F00909924 /* NavigationTransitionsAnimator.swift in Sources */,
+				CCE12FB51C50F38F00909924 /* NavigationAnimationSourceParameters.swift in Sources */,
+				CCE12F891C50F0D000909924 /* ApplicationModuleOutput.swift in Sources */,
+				CCE12FB21C50F38F00909924 /* BaseRouterObjc.swift in Sources */,
+				CCE12FB81C50F38F00909924 /* NavigationTransitionsHandler.swift in Sources */,
+				CCE12F671C50F0C500909924 /* ApplicationNavigationModuleViewImpl.swift in Sources */,
+				CCE12FC01C50F38F00909924 /* PopoverTransitionStyleConverter.swift in Sources */,
+				CCE12FBC1C50F38F00909924 /* PopoverAnimationContextCreator.swift in Sources */,
+				CCE12FBE1C50F38F00909924 /* PopoverAnimationStyle.swift in Sources */,
+				CCE12F7C1C50F0D000909924 /* ApplicationModuleAssembly.swift in Sources */,
+				CCE12FBF1C50F38F00909924 /* PopoverTransitionStorableParameters.swift in Sources */,
+				CCE12FD01C50F38F00909924 /* TransitionStorableParameters.swift in Sources */,
+				CCE12FC91C50F38F00909924 /* TransitionAnimationTargetParameters.swift in Sources */,
+				CCE12FC31C50F38F00909924 /* RouterDismisable.swift in Sources */,
+				CCE12FB61C50F38F00909924 /* NavigationAnimationStyle.swift in Sources */,
+				CCE12F7E1C50F0D000909924 /* ApplicationModuleInteractor.swift in Sources */,
+				CCE12F6A1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift in Sources */,
+				CCE12FC71C50F38F00909924 /* TransitionAnimationContextCreator.swift in Sources */,
+				CCE12F611C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift in Sources */,
+				CCE12FC81C50F38F00909924 /* TransitionAnimationSourceParameters.swift in Sources */,
+				CCE12F621C50F0C500909924 /* ApplicationNavigationModulePresenter.swift in Sources */,
+				CCE12F861C50F0D000909924 /* ApplicationModuleModule.swift in Sources */,
+				CCE12F881C50F0D000909924 /* ApplicationModuleModuleOutput.swift in Sources */,
+				CCE12FBD1C50F38F00909924 /* PopoverAnimationSourceParameters.swift in Sources */,
+				CCE12F821C50F0D000909924 /* ApplicationModuleRouterImpl.swift in Sources */,
+				CCE12F851C50F0D000909924 /* ApplicationModuleViewImpl.swift in Sources */,
+				CCE12F841C50F0D000909924 /* ApplicationModuleViewController.swift in Sources */,
+				CCE12FD31C50F38F00909924 /* UIViewController+Wrapping.swift in Sources */,
+				CCE12F631C50F0C500909924 /* ApplicationNavigationModuleRouter.swift in Sources */,
+				CCE12F811C50F0D000909924 /* ApplicationModuleRouter.swift in Sources */,
+				CCE12FCB1C50F38F00909924 /* TransitionContexts.swift in Sources */,
+				CCE12F5E1C50F0C500909924 /* ApplicationNavigationModuleAssembly.swift in Sources */,
+				CCE12FCA1C50F38F00909924 /* TransitionContextConverter.swift in Sources */,
+				CCE12F7D1C50F0D000909924 /* ApplicationModuleAssemblyImpl.swift in Sources */,
+				CCE12F691C50F0C500909924 /* ApplicationNavigationModuleModuleInput.swift in Sources */,
+				CCE12F661C50F0C500909924 /* ApplicationNavigationModuleViewController.swift in Sources */,
+				CCE12F7F1C50F0D000909924 /* ApplicationModuleInteractorImpl.swift in Sources */,
+				CCE12F651C50F0C500909924 /* ApplicationNavigationModuleView.swift in Sources */,
+				CCE12FCF1C50F38F00909924 /* TransitionsHandlerStorage.swift in Sources */,
+				CCE12FB91C50F38F00909924 /* NavigationTransitionStorableParameters.swift in Sources */,
+				CCE12FBB1C50F38F00909924 /* PopoverAnimationContext.swift in Sources */,
+				CCE12F801C50F0D000909924 /* ApplicationModulePresenter.swift in Sources */,
+				CCE12F6B1C50F0C500909924 /* ApplicationNavigationModuleOutput.swift in Sources */,
+				CCE12FC41C50F38F00909924 /* SplitViewTransitionsHandler.swift in Sources */,
+				CCE12F2E1C50F02A00909924 /* AssemblyFactory.swift in Sources */,
+				CCE12F641C50F0C500909924 /* ApplicationNavigationModuleRouterImpl.swift in Sources */,
+				CCE12FCD1C50F38F00909924 /* TransitionsAnimator.swift in Sources */,
+				CCE12F871C50F0D000909924 /* ApplicationModuleModuleInput.swift in Sources */,
+				CCE12FC11C50F38F00909924 /* PopoverTranstionsAnimator.swift in Sources */,
+				CCE12FD11C50F38F00909924 /* TransitionStyle.swift in Sources */,
+				CCE12FB41C50F38F00909924 /* NavigationAnimationContextCreator.swift in Sources */,
+				CCE12FBA1C50F38F00909924 /* NavigationTransitionStyleConverter.swift in Sources */,
+				CCE12FC51C50F38F00909924 /* TabBarTransitionsHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CCE12EFF1C50ECBA00909924 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCE12F001C50ECBA00909924 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -290,6 +563,7 @@
 				CCE12F0C1C50ECBA00909924 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

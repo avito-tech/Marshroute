@@ -1,5 +1,5 @@
 import Foundation
 
-class BaseMasterRouter: BaseRouter {
+class MasterRouter: BaseRouter {
     var detailTransitionsHandler: TransitionsHandler?
 }

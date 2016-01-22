@@ -11,6 +11,8 @@ class NavigationTransitionsHandler {
     /// история переходов. в общем случае содержит переходы по стеку UINavigationController'а.
     /// может заканчиваться переходом на модальный контроллер или поповер
     private var completedTransitionsStack = TransitionContextsStack()
+    
+    weak var navigationTransitionsHandlerDelegate: NavigationTransitionsHandlerDelegate?
 }
 
 // MARK: - TransitionsHandler
@@ -74,7 +76,13 @@ private extension NavigationTransitionsHandler {
                 
                 commitPerformedTransition(
                     context: context,
-                    sourceViewController: sourceViewController)
+                    sourceViewController: sourceViewController
+                )
+                
+                if context.targetTransitionsHandler !== self {
+                    // показали модальное окно или поповер
+                    navigationTransitionsHandlerDelegate?.navigationTransitionsHandlerDidBecomeFirstResponder(self)
+                }
         }
     }
     
@@ -97,6 +105,7 @@ private extension NavigationTransitionsHandler {
         if let lastRestoredChainedTransition = lastRestoredChainedTransition {
             undoTransitionImpl(context: lastRestoredChainedTransition)
             commitUndoneTransition()
+            navigationTransitionsHandlerDelegate?.navigationTransitionsHandlerDidResignFirstResponder(self)
         }
     }
     

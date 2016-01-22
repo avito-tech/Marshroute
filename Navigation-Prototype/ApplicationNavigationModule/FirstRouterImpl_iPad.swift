@@ -1,6 +1,6 @@
 import Foundation
 
-final class FirstRouterImpl_iPad: BaseMasterRouter {
+final class FirstRouterImpl_iPad: MasterRouter {
     private func gotoNextViewController(count: Int, moduleChangeable: Bool, changeModule: Bool) {
         guard let transitionsHandler = transitionsHandler
             else { return }
@@ -10,12 +10,20 @@ final class FirstRouterImpl_iPad: BaseMasterRouter {
         
         let targetTransitionsHandler = changeModule ? detailTransitionsHandler : transitionsHandler
         
-        let viewController = AssemblyFactory.firstModuleAssembly().module(String(count), parentRouter: self, transitionsHandler: targetTransitionsHandler, detailTransitionsHandler: detailTransitionsHandler, moduleChangeable: moduleChangeable).0
+        let viewController = AssemblyFactory.firstModuleAssembly().module(
+            String(count),
+            parentRouter: self,
+            transitionsHandler: targetTransitionsHandler,
+            detailTransitionsHandler:
+            detailTransitionsHandler,
+            moduleChangeable: moduleChangeable).0
+  
         viewController.title = String(count+1)
         
-        let animator = NavigationTranstionsAnimator()
+        let animator = NavigationTransitionsAnimator()
         
         let context = ForwardTransitionContext(pushingViewController: viewController, targetTransitionsHandler: targetTransitionsHandler, animator: animator)
+       
         if changeModule {
             detailTransitionsHandler.undoAllTransitionsAndResetWithTransition(context)
         } else {

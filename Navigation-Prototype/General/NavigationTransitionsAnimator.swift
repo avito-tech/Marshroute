@@ -1,6 +1,6 @@
-final class NavigationTranstionsAnimator {}
+final class NavigationTransitionsAnimator {}
 
-extension NavigationTranstionsAnimator: TransitionsAnimator {
+extension NavigationTransitionsAnimator: TransitionsAnimator {
     func animatePerformingTransition(animationContext context: TransitionAnimationContext) {
         guard let context = context as? NavigationAnimationContext
             else { assert(false, "bad animation context"); return }

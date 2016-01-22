@@ -52,7 +52,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
-        let second = AssemblyFactory.secondModuleAssembly().module(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1").0
+        let second = AssemblyFactory.secondModuleAssembly().iphoneModule(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1").0
         secondNavigation.viewControllers = [second]
         secondNavigation.tabBarItem.title = "2"
         
@@ -86,7 +86,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
-        let second = AssemblyFactory.secondModuleAssembly().module(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1").0
+        let second = AssemblyFactory.secondModuleAssembly().ipadModule(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1").0
         secondNavigation.viewControllers = [second]
         secondNavigation.tabBarItem.title = "2"
         

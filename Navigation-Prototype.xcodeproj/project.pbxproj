@@ -106,6 +106,7 @@
 		CCE5DABC1C527057006270D7 /* SecondModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAD1C527057006270D7 /* SecondModuleOutput.swift */; };
 		CCE5DABD1C527057006270D7 /* SecondOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAE1C527057006270D7 /* SecondOutput.swift */; };
 		CCE5DABE1C527057006270D7 /* SecondViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */; };
+		CCE5DAC01C5287B9006270D7 /* SecondRouterImpl_iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +211,7 @@
 		CCE5DAAD1C527057006270D7 /* SecondModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModuleOutput.swift; sourceTree = "<group>"; };
 		CCE5DAAE1C527057006270D7 /* SecondOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondOutput.swift; sourceTree = "<group>"; };
 		CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewInput.swift; sourceTree = "<group>"; };
+		CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouterImpl_iPad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 				CCE5DAA51C527057006270D7 /* SecondPresenter.swift */,
 				CCE5DAA61C527057006270D7 /* SecondRouter.swift */,
 				CCE5DAA71C527057006270D7 /* SecondRouterImpl.swift */,
+				CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */,
 				CCE5DAA81C527057006270D7 /* SecondView.swift */,
 				CCE5DAA91C527057006270D7 /* SecondViewController.swift */,
 				CCE5DAAA1C527057006270D7 /* SecondViewImpl.swift */,
@@ -477,6 +480,7 @@
 				CCE12FCC1C50F38F00909924 /* TransitionContextsStack.swift in Sources */,
 				CCD404381C5135DF008FBDD3 /* FirstInteractorImpl.swift in Sources */,
 				CCE12FB31C50F38F00909924 /* NavigationAnimationContext.swift in Sources */,
+				CCE5DAC01C5287B9006270D7 /* SecondRouterImpl_iPad.swift in Sources */,
 				CCE12FC61C50F38F00909924 /* TransitionAnimationContext.swift in Sources */,
 				CCE5DAB21C527057006270D7 /* SecondInteractor.swift in Sources */,
 				CCE12F601C50F0C500909924 /* ApplicationNavigationModuleInteractor.swift in Sources */,

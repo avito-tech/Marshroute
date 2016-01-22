@@ -1,24 +1,30 @@
 import UIKit
 
-final class SecondRouterImpl: BaseRouter {
+final class SecondRouterImpl_iPad: BaseRouter {
     
 }
 
-extension SecondRouterImpl: SecondRouter {
+extension  SecondRouterImpl_iPad: SecondRouter {
     func showNextSecondModule(sender sender: AnyObject, title: Int) {
+        guard let barButtonItem = sender as? UIBarButtonItem
+            else { return }
+        
         let navigationController = UINavigationController()
         let transitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         
-        let viewController = AssemblyFactory.secondModuleAssembly().iphoneModule(
+        let viewController = AssemblyFactory.secondModuleAssembly().ipadModule(
             parentRouter: self,
             transitionsHandler: transitionsHandler,
             title: String(title + 1)).0
 
         navigationController.viewControllers = [viewController]
         
-        presentModalViewController(
+        let popoverController = UIPopoverController(contentViewController: navigationController)
+        
+        presentViewController(
             viewController,
             inNavigationController: navigationController,
-            navigationTransitionsHandler: transitionsHandler)
+            inPopoverController: popoverController,
+            fromBarButtonItem: barButtonItem)
     }
 }

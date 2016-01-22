@@ -42,7 +42,7 @@ extension NavigationTranstionsAnimator: TransitionsAnimator {
         }
     }
     
-    func animateResettingWithTransition(_ context: TransitionAnimationContext) {
+    func animateResettingWithTransition(animationContext context: TransitionAnimationContext) {
         guard let context = context as? NavigationAnimationContext
             else { assert(false, "bad animation context"); return }
         

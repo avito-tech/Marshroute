@@ -1,13 +1,13 @@
 import Foundation
 
 final class FirstRouterImpl: BaseRouter {
-    private func gotoNextViewController(count: Int, forIphone: Bool, moduleChangeable: Bool) {
+    private func gotoNextViewController(count: Int, moduleChangeable: Bool) {
         guard let transitionsHandler = transitionsHandler
             else { return }
         
         let targetTransitionsHandler = transitionsHandler
         
-        let viewController = AssemblyFactory.firstModuleAssembly().module(String(count), parentRouter: self, transitionsHandler: targetTransitionsHandler, forIphone: forIphone, moduleChangeable: moduleChangeable).0
+        let viewController = AssemblyFactory.firstModuleAssembly().module(String(count), parentRouter: self, transitionsHandler: targetTransitionsHandler, moduleChangeable: moduleChangeable).0
         viewController.title = String(count+1)
         
         let animator = NavigationTranstionsAnimator()
@@ -19,10 +19,10 @@ final class FirstRouterImpl: BaseRouter {
 
 extension FirstRouterImpl: FirstRouter {
     func gogogo(count: Int, moduleChangeable: Bool) {
-        gotoNextViewController(count, forIphone: true, moduleChangeable: moduleChangeable)
+        gotoNextViewController(count, moduleChangeable: moduleChangeable)
     }
     
     func gogogo2(count: Int, moduleChangeable: Bool) {
-        gotoNextViewController(count, forIphone: true, moduleChangeable: moduleChangeable)
+        gotoNextViewController(count, moduleChangeable: moduleChangeable)
     }
 }

@@ -46,7 +46,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         let firstNavigation = UINavigationController()
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
 
-        let first = AssemblyFactory.firstModuleAssembly().module("1", parentRouter: nil, transitionsHandler: firstTransitionHandler, forIphone: true, moduleChangeable: true).0
+        let first = AssemblyFactory.firstModuleAssembly().module("1", parentRouter: nil, transitionsHandler: firstTransitionHandler, moduleChangeable: true).0
         firstNavigation.viewControllers = [first]
         firstNavigation.tabBarItem.title = "1"
         
@@ -64,22 +64,28 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         let firstSplit = UISplitViewController()
         let firstSplitTransitionHandler = firstSplit.wrappedInSplitViewTransitionsHandler()
         do {
-            let master = UIViewController()
             let detail = UIViewController()
+            let detailNavigation = UINavigationController()
+            detailNavigation.viewControllers = [detail]
+            let detailTransitionHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
             
-            let masterNavigation = master.wrappedInNavigationController()
-            let detailNavigation = detail.wrappedInNavigationController()
+            
+            let masterNavigation = UINavigationController()
+            let masterTransitionHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
+            
+            let master = AssemblyFactory.firstModuleAssembly().module("1", parentRouter: nil, transitionsHandler: masterTransitionHandler, detailTransitionsHandler: detailTransitionHandler, moduleChangeable: true).0
+            masterNavigation.viewControllers = [master]
+            
             
             firstSplit.viewControllers = [masterNavigation, detailNavigation]
             firstSplit.tabBarItem.title = "1"
             
-            firstSplitTransitionHandler.masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
-            firstSplitTransitionHandler.detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
+            firstSplitTransitionHandler.masterTransitionsHandler = masterTransitionHandler
+            firstSplitTransitionHandler.detailTransitionsHandler = detailTransitionHandler
         }
         
         let controllers = [firstSplit]
-        let transitionHandlers = [firstSplitTransitionHandler]
-        return (controllers, transitionHandlers)
+        return (controllers, [firstSplitTransitionHandler])
     }
     
 }

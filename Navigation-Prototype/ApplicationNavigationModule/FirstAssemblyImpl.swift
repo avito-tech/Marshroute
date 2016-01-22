@@ -2,7 +2,7 @@ import Foundation
 
 final class FirstAssemblyImpl: FirstAssembly {
     
-    func module(title: String, parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, forIphone: Bool, moduleChangeable: Bool) -> (FirstViewController, FirstModuleInput){
+    func module(title: String, parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, moduleChangeable: Bool) -> (FirstViewController, FirstModuleInput) {
         
         let interactor = FirstInteractorImpl(moduleChangeable: moduleChangeable)
 
@@ -29,4 +29,32 @@ final class FirstAssemblyImpl: FirstAssembly {
         return (viewController, presenter)
     }
     
+    func module(title: String, parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, detailTransitionsHandler: TransitionsHandler?, moduleChangeable: Bool) -> (FirstViewController, FirstModuleInput) {
+        
+        let interactor = FirstInteractorImpl(moduleChangeable: moduleChangeable)
+        
+        let router = FirstRouterImpl_iPad()
+        router.parentRouter = parentRouter
+        router.transitionsHandler = transitionsHandler
+        router.detailTransitionsHandler = detailTransitionsHandler
+        
+        let presenter = FirstPresenter(
+            interactor: interactor,
+            router: router
+        )
+        
+        let viewController = FirstViewController(
+            presenter: presenter
+        )
+        viewController.view.backgroundColor = moduleChangeable ? .whiteColor() : .redColor()
+        
+        viewController.title = title
+        viewController.output = presenter
+        
+        presenter.viewInput = viewController
+        interactor.output = presenter
+        
+        return (viewController, presenter)
+        
+    }
 }

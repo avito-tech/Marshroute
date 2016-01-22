@@ -90,6 +90,7 @@
 		CCE12FD11C50F38F00909924 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */; };
 		CCE12FD21C50F38F00909924 /* TransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */; };
 		CCE12FD31C50F38F00909924 /* UIViewController+Wrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAF1C50F38F00909924 /* UIViewController+Wrapping.swift */; };
+		CCE5DA7F1C52154D006270D7 /* FirstRouterImpl_iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DA7E1C52154D006270D7 /* FirstRouterImpl_iPad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +179,7 @@
 		CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyleConverter.swift; sourceTree = "<group>"; };
 		CCE12FAF1C50F38F00909924 /* UIViewController+Wrapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Wrapping.swift"; sourceTree = "<group>"; };
+		CCE5DA7E1C52154D006270D7 /* FirstRouterImpl_iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRouterImpl_iPad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				CCD4042A1C5135DF008FBDD3 /* FirstPresenter.swift */,
 				CCD4042B1C5135DF008FBDD3 /* FirstRouter.swift */,
 				CCD4042C1C5135DF008FBDD3 /* FirstRouterImpl.swift */,
+				CCE5DA7E1C52154D006270D7 /* FirstRouterImpl_iPad.swift */,
 				CCD4042D1C5135DF008FBDD3 /* FirstView.swift */,
 				CCD4042E1C5135DF008FBDD3 /* FirstViewController.swift */,
 				CCD4042F1C5135DF008FBDD3 /* FirstViewImpl.swift */,
@@ -448,6 +451,7 @@
 				CCD404371C5135DF008FBDD3 /* FirstInteractor.swift in Sources */,
 				CCE12F6A1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift in Sources */,
 				CCD404351C5135DF008FBDD3 /* FirstAssembly.swift in Sources */,
+				CCE5DA7F1C52154D006270D7 /* FirstRouterImpl_iPad.swift in Sources */,
 				CCE12FC71C50F38F00909924 /* TransitionAnimationContextCreator.swift in Sources */,
 				CCE12F611C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift in Sources */,
 				CCE12FC81C50F38F00909924 /* TransitionAnimationSourceParameters.swift in Sources */,

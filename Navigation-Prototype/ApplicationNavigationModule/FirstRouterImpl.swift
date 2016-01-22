@@ -1,40 +1,25 @@
 import Foundation
 
-final class FirstRouterImpl: BaseRouter {
-    private func gotoNextViewController(count: Int, moduleChangeable: Bool) {
-        guard let transitionsHandler = transitionsHandler
-            else { return }
-        
-        
-        
-        
-        let targetTransitionsHandler = transitionsHandler
-        
-        
+final class FirstRouterImpl: BaseRouter {}
+
+extension FirstRouterImpl: FirstRouter {
+    func showWhiteModule(count: Int, moduleChangeable: Bool) {
         let viewController = AssemblyFactory.firstModuleAssembly().module(
             String(count),
             parentRouter: self,
-            transitionsHandler: targetTransitionsHandler,
+            transitionsHandler: transitionsHandler,
             moduleChangeable: moduleChangeable).0
         
-        
-
-        viewController.title = String(count+1)
-        
-        let animator = NavigationTransitionsAnimator()
-        
-        let context = ForwardTransitionContext(pushingViewController: viewController, targetTransitionsHandler: targetTransitionsHandler, animator: animator)
-      
-        transitionsHandler.performTransition(context: context)
-    }
-}
-
-extension FirstRouterImpl: FirstRouter {
-    func gogogo(count: Int, moduleChangeable: Bool) {
-        gotoNextViewController(count, moduleChangeable: moduleChangeable)
+        pushViewController(viewController)
     }
     
-    func gogogo2(count: Int, moduleChangeable: Bool) {
-        gotoNextViewController(count, moduleChangeable: moduleChangeable)
+    func showRedModule(count: Int, moduleChangeable: Bool) {
+        let viewController = AssemblyFactory.firstModuleAssembly().module(
+            String(count),
+            parentRouter: self,
+            transitionsHandler: transitionsHandler,
+            moduleChangeable: moduleChangeable).0
+        
+        pushViewController(viewController)
     }
 }

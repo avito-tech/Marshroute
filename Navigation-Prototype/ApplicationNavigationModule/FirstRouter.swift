@@ -1,6 +1,6 @@
 import Foundation
 
 protocol FirstRouter {
-    func gogogo(count: Int, moduleChangeable: Bool)
-    func gogogo2(count: Int, moduleChangeable: Bool)
+    func showWhiteModule(count: Int, moduleChangeable: Bool)
+    func showRedModule(count: Int, moduleChangeable: Bool)
 }

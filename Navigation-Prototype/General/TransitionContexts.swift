@@ -24,6 +24,9 @@ struct ForwardTransitionContext {
     /// объект, выполняющий анимацию перехода
     let animator: TransitionsAnimator
     
+    /**
+     Контекст описывает последовательный переход внутри UINavigationController'а текущего модуля
+     */
     init(pushingViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler?,
         animator: TransitionsAnimator) {
@@ -35,20 +38,26 @@ struct ForwardTransitionContext {
             self.animator = animator
     }
     
+    /**
+     Контекст описывает переход на модальный контроллер, который нельзя! положить в UINavigationController:
+     (UISplitViewController, UITabBarViewController)
+     */
     init(presentingModalViewController targetViewController: UIViewController,
-        targetTransitionsHandler: TransitionsHandler?,
-        parentTransitionsHandler: TransitionsHandler, // например, SplitViewTransitionsHandler
+        targetTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator) {
             self.targetViewController = targetViewController
             self.targetTransitionsHandler = targetTransitionsHandler
             self.transitionStyle = .Modal
             self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
-            self.storableParameters = NavigationTransitionStorableParameters(parentTransitionsHandler: parentTransitionsHandler)
+            self.storableParameters = NavigationTransitionStorableParameters(parentTransitionsHandler: targetTransitionsHandler)
             self.animator = animator
     }
     
+    /**
+     Контекст описывает переход на модальный контроллер, который положен в UINavigationController
+     */
     init(presentingModalViewController targetViewController: UIViewController,
-        wrappedInNavigationController navigationController: UINavigationController,
+        inNavigationController navigationController: UINavigationController,
         targetTransitionsHandler: TransitionsHandler?,
         animator: TransitionsAnimator) {
             self.targetViewController = targetViewController
@@ -58,8 +67,12 @@ struct ForwardTransitionContext {
             self.storableParameters = nil
             self.animator = animator
     }
-    
+        
+    /**
+     Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
+     */
     init(presentingViewController targetViewController: UIViewController,
+        inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromRect rect: CGRect,
         inView view: UIView,
@@ -73,36 +86,11 @@ struct ForwardTransitionContext {
             self.animator = animator
     }
     
+    /**
+     Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
+     */
     init(presentingViewController targetViewController: UIViewController,
-        wrappedInNavigationController navigationController: UINavigationController,
-        inPopoverController popoverController: UIPopoverController,
-        fromRect rect: CGRect,
-        inView view: UIView,
-        targetTransitionsHandler: TransitionsHandler?,
-        animator: TransitionsAnimator) {
-            self.targetViewController = targetViewController
-            self.targetTransitionsHandler = targetTransitionsHandler
-            self.transitionStyle = .PopoverFromView(sourceView: view, sourceRect: rect)
-            self.animationTargetParameters = nil
-            self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
-            self.animator = animator
-    }
-    
-    init(presentingViewController targetViewController: UIViewController,
-        inPopoverController popoverController: UIPopoverController,
-        fromBarButtonItem buttonItem: UIBarButtonItem,
-        targetTransitionsHandler: TransitionsHandler?,
-        animator: TransitionsAnimator) {
-            self.targetViewController = targetViewController
-            self.targetTransitionsHandler = targetTransitionsHandler
-            self.transitionStyle = .PopoverFromButtonItem(buttonItem: buttonItem)
-            self.animationTargetParameters = nil
-            self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
-            self.animator = animator
-    }
-    
-    init(presentingViewController targetViewController: UIViewController,
-        wrappedInNavigationController navigationController: UINavigationController,
+        inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
         targetTransitionsHandler: TransitionsHandler?,

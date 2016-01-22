@@ -25,14 +25,14 @@ extension FirstPresenter: FirstViewOutput  {
         if interactor.canChangeModule() {
             let shouldChangeModule = interactor.shouldChangeModule(forCount: count)
             if shouldChangeModule {
-                router.gogogo2(0, moduleChangeable: false)
+                router.showRedModule(0, moduleChangeable: false)
             }
             else {
-                router.gogogo(count, moduleChangeable: true)
+                router.showWhiteModule(count, moduleChangeable: true)
             }
         }
         else {
-            router.gogogo(count, moduleChangeable: false)
+            router.showWhiteModule(count, moduleChangeable: false)
         }
     }
 }

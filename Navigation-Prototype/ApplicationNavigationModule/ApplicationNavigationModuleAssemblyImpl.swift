@@ -50,9 +50,9 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         firstNavigation.viewControllers = [first]
         firstNavigation.tabBarItem.title = "1"
         
-        let second = UIViewController()
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
+        let second = AssemblyFactory.secondModuleAssembly().module(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1").0
         secondNavigation.viewControllers = [second]
         secondNavigation.tabBarItem.title = "2"
         
@@ -84,8 +84,15 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
             firstSplitTransitionHandler.detailTransitionsHandler = detailTransitionHandler
         }
         
-        let controllers = [firstSplit]
-        return (controllers, [firstSplitTransitionHandler])
+        let secondNavigation = UINavigationController()
+        let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
+        let second = AssemblyFactory.secondModuleAssembly().module(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1").0
+        secondNavigation.viewControllers = [second]
+        secondNavigation.tabBarItem.title = "2"
+        
+        
+        let controllers = [firstSplit, secondNavigation]
+        return (controllers, [firstSplitTransitionHandler, secondTransitionHandler])
     }
     
 }

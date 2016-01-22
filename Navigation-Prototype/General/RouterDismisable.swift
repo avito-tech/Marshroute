@@ -6,7 +6,7 @@ protocol RouterDismisable: class {
 }
 
 extension RouterDismisable {
-    func dismissSelf() {
+    func askParentRouterToDismissSelf() {
         parentRouter?.dismissChildRouter(self)
     }
 }

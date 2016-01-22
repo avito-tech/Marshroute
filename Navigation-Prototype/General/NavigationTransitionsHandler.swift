@@ -145,10 +145,8 @@ private extension NavigationTransitionsHandler {
      */
     func commitPerformedTransition(context context: ForwardTransitionContext, sourceViewController: UIViewController) {
         // TODO: aaa этот guard уберется тогда, когда targetTransitionsHandler станет не optional
-        guard context.targetTransitionsHandler != nil else {
-            assert(false, "!!!!! Nil targetTransitionsHandler !!!!!")
-            return
-        }
+        guard context.targetTransitionsHandler != nil
+            else { assert(false); return }
                 
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,

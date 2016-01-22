@@ -7,4 +7,8 @@ class AssemblyFactory {
         return FirstAssemblyImpl()
     }
     
+    static func secondModuleAssembly() -> SecondAssembly {
+        return SecondAssemblyImpl()
+    }
+    
 }

@@ -16,13 +16,16 @@ class BaseRouter: Router, TransitionsHandlerStorage, RouterDismisable {
     // RouterDismisable
     weak var parentRouter: RouterDismisable?
 
-    func dismissChildRouter(child: RouterDismisable) { }
+    func dismissChildRouter(child: RouterDismisable) {
+        focusTransitionsHandlerBackOnMyRootViewController()
+    }
 }
 
 extension BaseRouter {
-    func focusTransitionsHandlerBackOnMyRootViewController() {
+    func focusTransitionsHandlerBackOnMyRootViewController()
+    {
         guard let rootViewController = rootViewController
-            else { return }
+            else { assert(false); return }
         
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
@@ -69,22 +72,19 @@ extension BaseRouter {
     func presentModalViewController(
         viewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
-        navigationTransitionsHandler: TransitionsHandler? = nil,
+        navigationTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
-        
-        let targetTransitionsHandler = navigationTransitionsHandler
-            ?? navigationController.wrappedInNavigationTransitionsHandler()
-        
-        guard targetTransitionsHandler !== transitionsHandler
+    
+        guard navigationTransitionsHandler !== transitionsHandler
             else { assert(false, "you must create a new Navigation Transitions Handler for modal transitions"); return }
         
         let context = ForwardTransitionContext(
             presentingModalViewController: viewController,
             inNavigationController: navigationController,
-            targetTransitionsHandler: targetTransitionsHandler,
+            targetTransitionsHandler: navigationTransitionsHandler,
             animator: animator)
         
         transitionsHandler.performTransition(context: context)

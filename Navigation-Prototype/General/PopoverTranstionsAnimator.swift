@@ -34,7 +34,7 @@ extension PopoverTranstionsAnimator: TransitionsAnimator {
         context.popoverController.dismissPopoverAnimated(true)
     }
     
-    func animateResettingWithTransition(animationContext context: TransitionAnimationContext) {
+    func animateResettingWithTransition(_ context: TransitionAnimationContext) {
         assert(false, "must not be called")
     }
 }

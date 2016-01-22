@@ -46,7 +46,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         let firstNavigation = UINavigationController()
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
 
-        let first = AssemblyFactory.firstModuleAssembly().module("1", parentRouter: nil, transitionsHandler: firstTransitionHandler).0
+        let first = AssemblyFactory.firstModuleAssembly().module("1", parentRouter: nil, transitionsHandler: firstTransitionHandler, forIphone: true, moduleChangeable: true).0
         firstNavigation.viewControllers = [first]
         firstNavigation.tabBarItem.title = "1"
         

@@ -46,7 +46,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         let firstNavigation = UINavigationController()
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
 
-        let first = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentRouter: nil, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false).0
+        let first = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentRouter: nil, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: false).0
         firstNavigation.viewControllers = [first]
         firstNavigation.tabBarItem.title = "1"
         
@@ -73,7 +73,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
             let masterNavigation = UINavigationController()
             let masterTransitionHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
             
-            let master = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", parentRouter: nil, transitionsHandler: masterTransitionHandler, detailTransitionsHandler: detailTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false).0
+            let master = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", parentRouter: nil, transitionsHandler: masterTransitionHandler, detailTransitionsHandler: detailTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: false).0
             masterNavigation.viewControllers = [master]
             
             

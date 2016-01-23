@@ -5,7 +5,8 @@ final class FirstAssemblyImpl: FirstAssembly {
     func iphoneModule(title: String, parentRouter: RouterDismisable?,
         transitionsHandler: TransitionsHandler?,
         canShowFirstModule: Bool, canShowSecondModule: Bool,
-        dismissable: Bool)
+        dismissable: Bool,
+        withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("iphone 1")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
@@ -38,7 +39,8 @@ final class FirstAssemblyImpl: FirstAssembly {
     func ipadDetailModule(title: String, parentRouter: RouterDismisable?,
         transitionsHandler: TransitionsHandler?,
         canShowFirstModule: Bool, canShowSecondModule: Bool,
-        dismissable: Bool)
+        dismissable: Bool,
+        withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("ipad detail 1")
             
             let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
@@ -71,7 +73,8 @@ final class FirstAssemblyImpl: FirstAssembly {
     func ipadMasterModule(title: String, parentRouter: RouterDismisable?,
         transitionsHandler: TransitionsHandler?, detailTransitionsHandler: TransitionsHandler?,
         canShowFirstModule: Bool, canShowSecondModule: Bool,
-        dismissable: Bool)
+        dismissable: Bool,
+        withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("ipad master 1")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)

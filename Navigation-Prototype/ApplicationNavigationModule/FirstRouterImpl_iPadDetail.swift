@@ -10,7 +10,8 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
             transitionsHandler: transitionsHandler,
             canShowFirstModule: canShowFirstModule,
             canShowSecondModule: canShowSecondModule,
-            dismissable: false).0
+            dismissable: false,
+            withTimer: false).0
         
         pushViewController(viewController)
     }
@@ -22,7 +23,8 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
             transitionsHandler: transitionsHandler,
             canShowFirstModule: canShowFirstModule,
             canShowSecondModule: canShowSecondModule,
-            dismissable: false).0
+            dismissable: false,
+            withTimer: false).0
         
         pushViewController(viewController)
     }

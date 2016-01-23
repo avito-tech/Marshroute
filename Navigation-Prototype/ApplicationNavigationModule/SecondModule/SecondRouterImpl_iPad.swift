@@ -17,7 +17,8 @@ extension  SecondRouterImpl_iPad: SecondRouter {
                     transitionsHandler: transitionsHandler,
                     canShowFirstModule: true,
                     canShowSecondModule: false,
-                    dismissable: true).0
+                    dismissable: true,
+                    withTimer: true).0
             return viewController
         }
 

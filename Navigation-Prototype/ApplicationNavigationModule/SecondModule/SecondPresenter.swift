@@ -27,7 +27,7 @@ extension SecondPresenter: SecondModuleInput  {
 //MARK: - SecondViewOutput
 extension SecondPresenter: SecondViewOutput  {
     func next(sender sender: AnyObject, title: Int) {
-        router.showNextSecondModule(sender: sender, title: title)
+        router.showSecondModule(sender: sender, title: title)
     }
     
     func done() {

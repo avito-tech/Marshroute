@@ -5,11 +5,15 @@ final class SecondRouterImpl: BaseRouter {
 }
 
 extension SecondRouterImpl: SecondRouter {
-    func showNextSecondModule(sender sender: AnyObject, title: Int) {
+    func showSecondModule(sender sender: AnyObject, title: Int) {
+       // 1
+       // 1
+        
         let navigationController = UINavigationController()
         let transitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         
-        let viewController = AssemblyFactory.secondModuleAssembly().iphoneModule(
+        let viewController = AssemblyFactory.secondModuleAssembly()
+            .iphoneModule( // 2
             parentRouter: self,
             transitionsHandler: transitionsHandler,
             title: String(title + 1),
@@ -17,6 +21,8 @@ extension SecondRouterImpl: SecondRouter {
 
         navigationController.viewControllers = [viewController]
         
+        // 3
+
         presentModalViewController(
             viewController,
             inNavigationController: navigationController,
@@ -24,6 +30,7 @@ extension SecondRouterImpl: SecondRouter {
     }
 
     func dismissChildModules() {
-        transitionsHandler?.undoAllTransitions()
+        focusTransitionsHandlerBackOnMyRootViewController()
+        //transitionsHandler?.undoAllTransitions()
     }
 }

@@ -19,9 +19,9 @@ final class SecondAssemblyImpl: SecondAssembly {
         viewController.view.backgroundColor = .yellowColor()
         viewController.title = title
 
-        router.parentRouter = parentRouter
-        router.transitionsHandler = transitionsHandler
-        router.setRootViewControllerIfNeeded(viewController)
+        router.parentRouter = parentRouter                      //1
+        router.transitionsHandler = transitionsHandler          //2
+        router.setRootViewControllerIfNeeded(viewController)    //3
         
         presenter.viewInput = viewController
         interactor.output = presenter
@@ -47,9 +47,9 @@ final class SecondAssemblyImpl: SecondAssembly {
         viewController.view.backgroundColor = .yellowColor()
         viewController.title = title
         
-        router.parentRouter = parentRouter
-        router.transitionsHandler = transitionsHandler
-        router.setRootViewControllerIfNeeded(viewController)
+        router.parentRouter = parentRouter                      //1
+        router.transitionsHandler = transitionsHandler          //2
+        router.setRootViewControllerIfNeeded(viewController)    //3
         
         presenter.viewInput = viewController
         interactor.output = presenter

@@ -7,6 +7,9 @@ class FirstPresenter {
     weak var viewInput: FirstViewInput? {
         didSet {
             viewInput?.setSecondButtonEnabled(interactor.canShowSecondModule())
+        
+            viewInput?.setTimerTurnedOn(interactor.isTimerEnabled())
+            viewInput?.setSecondsUntilTimerEnabled(0)
         }
     }
     
@@ -45,6 +48,25 @@ extension FirstPresenter: FirstViewOutput  {
     }
     
     func onUserDone() {
+        interactor.stopTimer()
         router.askParentRouterToDismissSelf()
+    }
+    
+    func userDidRequestTimerLaunch() {
+        viewInput?.setTimerInteractionEnabled(false)
+        interactor.startTimer()
+    }
+}
+
+//MARK - FirstInteractorOutput
+extension FirstPresenter: FirstInteractorOutput {
+    func setSecondsUntilTimerFiring(count: Int) {
+        viewInput?.setSecondsUntilTimerEnabled(count)
+    }
+    
+    func timerFired() {
+        router.dismissChildModules()
+        viewInput?.setTimerInteractionEnabled(true)
+        viewInput?.setSecondsUntilTimerEnabled(0)
     }
 }

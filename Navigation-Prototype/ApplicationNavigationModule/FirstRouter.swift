@@ -5,4 +5,6 @@ protocol FirstRouter: RouterDismisable {
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool)
     
     func showSecondModule(sender sender: AnyObject?)
+    
+    func dismissChildModules()
 }

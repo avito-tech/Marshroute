@@ -9,7 +9,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("iphone 1")
         
-        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
+        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 10)
 
         let router = FirstRouterImpl()
         
@@ -20,7 +20,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         
         let viewController = FirstViewController(
             presenter: presenter,
-            dismissable: dismissable
+            dismissable: dismissable,
+            withTimer: withTimer
         )
         viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
         viewController.title = title
@@ -43,7 +44,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("ipad detail 1")
             
-            let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
+            let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 10)
             
             let router = FirstRouterImpl_IpadDetail()
             
@@ -54,7 +55,8 @@ final class FirstAssemblyImpl: FirstAssembly {
             
             let viewController = FirstViewController(
                 presenter: presenter,
-                dismissable: dismissable
+                dismissable: dismissable,
+                withTimer: withTimer
             )
             viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
             viewController.title = title
@@ -77,7 +79,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("ipad master 1")
         
-        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
+        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 10)
         
         let router = FirstRouterImpl_iPadMaster()
         
@@ -88,7 +90,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         
         let viewController = FirstViewController(
             presenter: presenter,
-            dismissable: dismissable
+            dismissable: dismissable,
+            withTimer: withTimer
         )
         viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
         viewController.title = title

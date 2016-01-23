@@ -6,4 +6,6 @@ protocol FirstViewOutput: class {
     func onUserSecondModule(sender sender: AnyObject?)
     
     func onUserDone()
+    
+    func userDidRequestTimerLaunch()
 }

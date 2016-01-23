@@ -48,4 +48,9 @@ extension FirstRouterImpl_iPadMaster: FirstRouter {
         presentViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler,
             inPopoverFromBarButtonItem: barButtonItem)
     }
+    
+    func dismissChildModules() {
+        focusTransitionsHandlerBackOnMyRootViewController()
+        //transitionsHandler?.undoAllTransitions()
+    }
 }

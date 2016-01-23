@@ -47,4 +47,9 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
         presentViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler,
             inPopoverFromBarButtonItem: barButtonItem)
     }
+    
+    func dismissChildModules() {
+        focusTransitionsHandlerBackOnMyRootViewController()
+        //transitionsHandler?.undoAllTransitions()
+    }
 }

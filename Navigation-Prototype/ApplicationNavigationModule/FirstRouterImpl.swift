@@ -44,4 +44,9 @@ extension FirstRouterImpl: FirstRouter {
 
         presentModalViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler)
     }
+    
+    func dismissChildModules() {
+        focusTransitionsHandlerBackOnMyRootViewController()
+        //transitionsHandler?.undoAllTransitions()
+    }
 }

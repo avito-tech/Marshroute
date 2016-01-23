@@ -107,6 +107,7 @@
 		CCE5DABE1C527057006270D7 /* SecondViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */; };
 		CCE5DAC01C5287B9006270D7 /* SecondRouterImpl_iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */; };
 		CCE62A1B1C538A160004668B /* SecondInteractorOuput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE62A1A1C538A160004668B /* SecondInteractorOuput.swift */; };
+		CCE8A6631C5429FE004F7E0E /* FirstInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8A6621C5429FE004F7E0E /* FirstInteractorOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +213,7 @@
 		CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewInput.swift; sourceTree = "<group>"; };
 		CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouterImpl_iPad.swift; sourceTree = "<group>"; };
 		CCE62A1A1C538A160004668B /* SecondInteractorOuput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondInteractorOuput.swift; sourceTree = "<group>"; };
+		CCE8A6621C5429FE004F7E0E /* FirstInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstInteractorOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				CCD404261C5135DF008FBDD3 /* FirstAssembly.swift */,
 				CCD404271C5135DF008FBDD3 /* FirstAssemblyImpl.swift */,
 				CCD404281C5135DF008FBDD3 /* FirstInteractor.swift */,
+				CCE8A6621C5429FE004F7E0E /* FirstInteractorOutput.swift */,
 				CCD404291C5135DF008FBDD3 /* FirstInteractorImpl.swift */,
 				CCD4042A1C5135DF008FBDD3 /* FirstPresenter.swift */,
 				CCD4042B1C5135DF008FBDD3 /* FirstRouter.swift */,
@@ -547,6 +550,7 @@
 				CCE12F7F1C50F0D000909924 /* ApplicationModuleInteractorImpl.swift in Sources */,
 				CCE12F651C50F0C500909924 /* ApplicationNavigationModuleView.swift in Sources */,
 				CCE12FCF1C50F38F00909924 /* TransitionsHandlerStorage.swift in Sources */,
+				CCE8A6631C5429FE004F7E0E /* FirstInteractorOutput.swift in Sources */,
 				CCE5DAB41C527057006270D7 /* SecondPresenter.swift in Sources */,
 				CCE12FB91C50F38F00909924 /* NavigationTransitionStorableParameters.swift in Sources */,
 				CCE12FBB1C50F38F00909924 /* PopoverAnimationContext.swift in Sources */,

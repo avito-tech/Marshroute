@@ -14,15 +14,16 @@ final class SecondViewController: UIViewController {
         self.canShowModule1 = canShowModule1
         
         timerButton = UIButton(type: .Custom)
+        defer {
+            timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
+            timerButton.tintColor = .blueColor()
+            timerButton.setTitleColor(.blackColor(), forState: .Normal)
+            timerButton.titleLabel?.numberOfLines = 0
+            timerButton.hidden = true
+            view.addSubview(timerButton)
+        }
         
         super.init(nibName: nil, bundle: nil)
-        
-        timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
-        timerButton.tintColor = .blueColor()
-        timerButton.setTitleColor(.blackColor(), forState: .Normal)
-        timerButton.titleLabel?.numberOfLines = 0
-        timerButton.hidden = true
-        view.addSubview(timerButton)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +58,6 @@ final class SecondViewController: UIViewController {
         } else {
             timerButton.frame = CGRectMake(400, 80, 50, 40)
         }
-        
     }
     
     @objc func done(sender: UIBarButtonItem) {
@@ -97,10 +97,5 @@ extension SecondViewController: SecondViewInput  {
     
     func setTimerInteractionEnabled(enabled: Bool) {
         timerButton.enabled = enabled
-    }
-    
-    func setToModule1TurnedOn(turned: Bool) {
-    
-    
     }
 }

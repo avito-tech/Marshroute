@@ -9,10 +9,25 @@ final class FirstViewController: UIViewController {
     private let dismissable: Bool
     private var doneButtonItem: UIBarButtonItem?
 
+    private let timerButton: UIButton
+    private let withTimer: Bool
+
 	//MARK: - Init
-    init(presenter: FirstViewOutput, dismissable: Bool) {
+    init(presenter: FirstViewOutput, dismissable: Bool, withTimer: Bool) {
         output = presenter
         self.dismissable = dismissable
+        self.withTimer = withTimer
+        
+        timerButton = UIButton(type: .Custom)
+        defer {
+            timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
+            timerButton.tintColor = .blueColor()
+            timerButton.setTitleColor(.blackColor(), forState: .Normal)
+            timerButton.titleLabel?.numberOfLines = 0
+            timerButton.hidden = true
+            view.addSubview(timerButton)
+        }
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,8 +52,13 @@ final class FirstViewController: UIViewController {
             buttonItems.append(doneButtonItem)
             self.doneButtonItem = doneButtonItem
         }
-        
         navigationItem.rightBarButtonItems = buttonItems
+        
+        if withTimer || UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            timerButton.frame = CGRectMake(100, 80, 50, 40)
+        } else {
+            timerButton.frame = CGRectMake(400, 80, 50, 40)
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -57,6 +77,10 @@ final class FirstViewController: UIViewController {
     @objc private func onDone(sender: UIBarButtonItem) {
         output.onUserDone()
     }
+    
+    @objc func onTimerButton(sender: UIButton) {
+        output.userDidRequestTimerLaunch()
+    }
 }
 
 //MARK: - FirstViewInput
@@ -68,6 +92,25 @@ extension FirstViewController: FirstViewInput  {
             self.toModule2Item = toModule2Item
             navigationItem.rightBarButtonItems = buttonItems
         }
+    }
+    
+    func setSecondsUntilTimerEnabled(cound: Int) {
+        if cound == 0 {
+            timerButton.setTitle("start timer", forState: .Normal)
+        }
+        else {
+            let title = String(cound)
+            timerButton.setTitle(title, forState: .Normal)
+        }
+    }
+    
+    func setTimerTurnedOn(turned: Bool) {
+        timerButton.hidden = !turned
+        
+    }
+    
+    func setTimerInteractionEnabled(enabled: Bool) {
+        timerButton.enabled = enabled
     }
     
     @objc private func onToModule2(sender: UIBarButtonItem) {

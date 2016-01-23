@@ -1,14 +1,21 @@
 import Foundation
 
 class FirstInteractorImpl {
-    weak var output: FirstPresenter?
+    weak var output: FirstInteractorOutput? 
     
-    let firstRedModuleEnabled: Bool
-    let secondModuleEnabled: Bool
+    private let firstRedModuleEnabled: Bool
+    private let secondModuleEnabled: Bool
     
-    init (canShowFirstModule: Bool, canShowSecondModule: Bool) {
+    private let withTimer: Bool
+    private let timerSeconds: Int
+    private var timerSecondsTicked = 0
+    private var timer: NSTimer?
+    
+    init (canShowFirstModule: Bool, canShowSecondModule: Bool, withTimer: Bool, timerSeconds: Int) {
         self.firstRedModuleEnabled = canShowFirstModule
         self.secondModuleEnabled = canShowSecondModule
+        self.withTimer = withTimer
+        self.timerSeconds = timerSeconds
     }
 }
 
@@ -24,5 +31,39 @@ extension FirstInteractorImpl: FirstInteractor  {
     
     func canShowSecondModule() -> Bool {
         return secondModuleEnabled
+    }
+    
+    func isTimerEnabled() -> Bool {
+        return withTimer && timer == nil
+    }
+    
+    func startTimer() {
+        if isTimerEnabled() {
+            startTimerImpl()
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func startTimerImpl() {
+        output?.setSecondsUntilTimerFiring(timerSeconds)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimer:", userInfo: nil, repeats: true)
+    }
+    
+    @objc private func onTimer(sender: NSTimer) {
+        ++timerSecondsTicked
+        output?.setSecondsUntilTimerFiring(timerSeconds - timerSecondsTicked)
+        
+        if timerSecondsTicked >= timerSeconds {
+            timer?.invalidate()
+            timer = nil
+            
+            timerSecondsTicked = 0
+            output?.setSecondsUntilTimerFiring(0)
+            output?.timerFired()
+        }
     }
 }

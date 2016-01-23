@@ -39,15 +39,38 @@ class TransitionContextsStack {
         }
     }
     
+    func lastToContext(context: BackwardTransitionContext) -> RestoredTransitionContext? {
+        updateTransitionsStack()
+        
+        guard let to = completedTransitionContextForBackwardTransition(context: context)
+            else { return nil }
+        
+        let last = transitionsStack.last
+        
+        let restored = (last == to)
+            ? RestoredTransitionContext(context: last)
+            : RestoredTransitionContext(fromSourceContext: to, toTargetContext: last)
+
+        return restored
+    }
+    
     func removeAll() {
         transitionsStack.removeAll()
     }
     
     func canBePoppedToContext(context: BackwardTransitionContext) -> Bool {
         updateTransitionsStack()
+        return completedTransitionContextForBackwardTransition(context: context) != nil
+    }
+    
+    private func completedTransitionContextForBackwardTransition(context context: BackwardTransitionContext)
+        -> CompletedTransitionContext?
+    {
         let sourceViewControllers = transitionsStack.map() { $0.sourceViewController }
-        let result = sourceViewControllers.contains() { $0 === context.targetViewController }
-        return result
+        if let index = sourceViewControllers.indexOf({ $0 === context.targetViewController }) {
+            return transitionsStack[index]
+        }
+        return nil
     }
 }
 

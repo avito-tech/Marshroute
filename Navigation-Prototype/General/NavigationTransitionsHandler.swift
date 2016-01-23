@@ -19,6 +19,8 @@ class NavigationTransitionsHandler {
 extension NavigationTransitionsHandler : TransitionsHandler {
     
     func performTransition(context context: ForwardTransitionContext) {
+        assert(context.targetTransitionsHandler != nil)
+        
         if shouldForwardPerformingTransition(context: context) {
             // в цепочке обработчиков переходов есть дочерний, передаем управление ему
             forwardPerformingTransition(context: context)
@@ -89,22 +91,30 @@ private extension NavigationTransitionsHandler {
      Выполняет обратные переходы, пока не вернется на нужный контроллер
      */
     func undoTransitionsAndCommit(tilContext context: BackwardTransitionContext) {
-        while let lastRestoredTransition = lastRestoredTransition {
-            if lastRestoredTransition.targetViewController != context.targetViewController {
-                undoTransitionImpl(context: lastRestoredTransition)
-                commitUndoneTransition()
-            }
-            else { break }
+        if let lastRestoredChainedTransition = lastRestoredChainedTransition {
+            let didFinish = lastRestoredChainedTransition.targetViewController == context.targetViewController
+            
+            // будет сокрытие модального окна или поповера
+            undoTransitionImpl(context: lastRestoredChainedTransition)
+            commitUndoneLastTransition()
+            
+            if didFinish { return }
+        }
+
+        if let overalRestoredTransition = overalRestoredTransitionForBackwardTransition(tilContext: context) {
+            // будет popToViewController
+            undoTransitionImpl(context: overalRestoredTransition)
+            commitUndoneLastTransition()
         }
     }
-    
+
     /**
      Убирает модальное окно или поповер текущего обработчика переходов
      */
     func undoChainedTransitionAndCommit() {
         if let lastRestoredChainedTransition = lastRestoredChainedTransition {
             undoTransitionImpl(context: lastRestoredChainedTransition)
-            commitUndoneTransition()
+            commitUndoneLastTransition()
             navigationTransitionsHandlerDelegate?.navigationTransitionsHandlerDidResignFirstResponder(self)
         }
     }
@@ -155,7 +165,7 @@ private extension NavigationTransitionsHandler {
         completedTransitionsStack.append(completedTransitionContext)
     }
     
-    func commitUndoneTransition() {
+    func commitUndoneLastTransition() {
         completedTransitionsStack.popLast()
     }
     
@@ -209,6 +219,12 @@ private extension NavigationTransitionsHandler {
     /// описание перехода от последнего до первого шага, минуя промежуточные
     var overalRestoredTransition: RestoredTransitionContext? {
         return completedTransitionsStack.lastToFirst
+    }
+    
+    func overalRestoredTransitionForBackwardTransition(tilContext context: BackwardTransitionContext)
+        -> RestoredTransitionContext?
+    {
+        return completedTransitionsStack.lastToContext(context)
     }
     
     var lastRestoredChainedTransitionHandler: TransitionsHandler? {

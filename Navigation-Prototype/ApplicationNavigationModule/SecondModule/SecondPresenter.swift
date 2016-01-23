@@ -39,6 +39,12 @@ extension SecondPresenter: SecondViewOutput  {
         viewInput?.setTimerInteractionEnabled(false)
         interactor.startTimer()
     }
+    
+    func toModule1(sender sender: AnyObject) {
+        if interactor.canShowModule1() {
+            router.showFirstModule(sender: sender)
+        }
+    }
 }
 
 //MARK - SecondInteractorOutput

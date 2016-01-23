@@ -43,4 +43,8 @@ extension FirstPresenter: FirstViewOutput  {
     func onUserSecondModule(sender sender: AnyObject?) {
         router.showSecondModule(sender: sender)
     }
+    
+    func onUserDone() {
+        router.askParentRouterToDismissSelf()
+    }
 }

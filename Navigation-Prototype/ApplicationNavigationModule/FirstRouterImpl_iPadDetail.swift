@@ -1,10 +1,10 @@
 import UIKit
 
-final class FirstRouterImpl: BaseRouter {}
+final class FirstRouterImpl_IpadDetail: BaseRouter {}
 
-extension FirstRouterImpl: FirstRouter {
+extension FirstRouterImpl_IpadDetail: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
+        let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
             String(count + 1),
             parentRouter: self,
             transitionsHandler: transitionsHandler,
@@ -16,7 +16,7 @@ extension FirstRouterImpl: FirstRouter {
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
+        let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
             String(count + 1),
             parentRouter: self,
             transitionsHandler: transitionsHandler,
@@ -28,10 +28,12 @@ extension FirstRouterImpl: FirstRouter {
     }
     
     func showSecondModule(sender sender: AnyObject?) {
+        guard let barButtonItem = sender as? UIBarButtonItem
+            else { return }
+        
         func secondModuleForTransitionsHandler(transitionsHandler: TransitionsHandler) -> UIViewController {
-            
             let viewController = AssemblyFactory.secondModuleAssembly()
-                .iphoneModule(
+                .ipadModule(
                     parentRouter: self,
                     transitionsHandler: transitionsHandler,
                     title: "1",
@@ -39,7 +41,8 @@ extension FirstRouterImpl: FirstRouter {
                     canShowModule1: true).0
             return viewController
         }
-
-        presentModalViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler)
+        
+        presentViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler,
+            inPopoverFromBarButtonItem: barButtonItem)
     }
 }

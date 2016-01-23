@@ -6,11 +6,21 @@ final class FirstViewController: UIViewController {
     
     private var toAnotherModule1Item: UIBarButtonItem?
     private var toModule2Item: UIBarButtonItem?
+    private let dismissable: Bool
+    private var doneButtonItem: UIBarButtonItem?
 
 	//MARK: - Init
-    init(presenter: FirstViewOutput) {
+    init(presenter: FirstViewOutput, dismissable: Bool) {
         output = presenter
+        self.dismissable = dismissable
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    override var title: String? {
+        didSet {
+            let suffix = title ?? ""
+            self.navigationItem.title = "1.\(suffix)"
+        }
     }
     
     override func viewDidLoad() {
@@ -20,8 +30,15 @@ final class FirstViewController: UIViewController {
             let toAnotherModule1Item = UIBarButtonItem(title: ">", style: .Plain, target: self, action: "onUserNextFirstModule:")
             buttonItems.append(toAnotherModule1Item)
             self.toAnotherModule1Item = toAnotherModule1Item
-            navigationItem.rightBarButtonItems = buttonItems
         }
+        
+        if dismissable && doneButtonItem == nil {
+            let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "onDone:")
+            buttonItems.append(doneButtonItem)
+            self.doneButtonItem = doneButtonItem
+        }
+        
+        navigationItem.rightBarButtonItems = buttonItems
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -37,6 +54,9 @@ final class FirstViewController: UIViewController {
         navigationItem.rightBarButtonItems = buttonItems
     }
     
+    @objc private func onDone(sender: UIBarButtonItem) {
+        output.onUserDone()
+    }
 }
 
 //MARK: - FirstViewInput

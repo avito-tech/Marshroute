@@ -1,6 +1,6 @@
 import Foundation
 
-protocol FirstRouter {
+protocol FirstRouter: RouterDismisable {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool)
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool)
     

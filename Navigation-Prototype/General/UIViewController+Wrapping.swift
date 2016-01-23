@@ -56,6 +56,11 @@ extension UINavigationController {
     final func wrappedInNavigationTransitionsHandler(usingWrapper wrapper: ViewControllerInTransitionsHandlerWrapper = ViewControllerInTransitionsHandlerWrapperImpl()) -> NavigationTransitionsHandler {
         return wrapper.wrapInNavigationTransitionsHandler(self)
     }
+    
+    @warn_unused_result
+    final func wrappedInPopoverController() -> UIPopoverController {
+        return UIPopoverController(contentViewController: self)
+    }
 }
 
 extension UISplitViewController {

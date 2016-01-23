@@ -4,8 +4,9 @@ final class FirstAssemblyImpl: FirstAssembly {
 
     func iphoneModule(title: String, parentRouter: RouterDismisable?,
         transitionsHandler: TransitionsHandler?,
-        canShowFirstModule: Bool, canShowSecondModule: Bool)
-        -> (FirstViewController, FirstModuleInput) {
+        canShowFirstModule: Bool, canShowSecondModule: Bool,
+        dismissable: Bool)
+        -> (FirstViewController, FirstModuleInput) { debugPrint("iphone 1")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
 
@@ -17,10 +18,10 @@ final class FirstAssemblyImpl: FirstAssembly {
         )
         
         let viewController = FirstViewController(
-            presenter: presenter
+            presenter: presenter,
+            dismissable: dismissable
         )
         viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
-
         viewController.title = title
         viewController.output = presenter
             
@@ -36,12 +37,13 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadDetailModule(title: String, parentRouter: RouterDismisable?,
         transitionsHandler: TransitionsHandler?,
-        canShowFirstModule: Bool, canShowSecondModule: Bool)
-        -> (FirstViewController, FirstModuleInput) {
+        canShowFirstModule: Bool, canShowSecondModule: Bool,
+        dismissable: Bool)
+        -> (FirstViewController, FirstModuleInput) { debugPrint("ipad detail 1")
             
             let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
             
-            let router = FirstRouterImpl_iPad()
+            let router = FirstRouterImpl_IpadDetail()
             
             let presenter = FirstPresenter(
                 interactor: interactor,
@@ -49,10 +51,10 @@ final class FirstAssemblyImpl: FirstAssembly {
             )
             
             let viewController = FirstViewController(
-                presenter: presenter
+                presenter: presenter,
+                dismissable: dismissable
             )
             viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
-            
             viewController.title = title
             viewController.output = presenter
             
@@ -68,12 +70,13 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadMasterModule(title: String, parentRouter: RouterDismisable?,
         transitionsHandler: TransitionsHandler?, detailTransitionsHandler: TransitionsHandler?,
-        canShowFirstModule: Bool, canShowSecondModule: Bool)
-        -> (FirstViewController, FirstModuleInput) {
+        canShowFirstModule: Bool, canShowSecondModule: Bool,
+        dismissable: Bool)
+        -> (FirstViewController, FirstModuleInput) { debugPrint("ipad master 1")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule)
         
-        let router = FirstRouterImpl_iPad()
+        let router = FirstRouterImpl_iPadMaster()
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -81,17 +84,17 @@ final class FirstAssemblyImpl: FirstAssembly {
         )
         
         let viewController = FirstViewController(
-            presenter: presenter
+            presenter: presenter,
+            dismissable: dismissable
         )
         viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
-        
         viewController.title = title
         viewController.output = presenter
         
-        router.parentRouter = parentRouter                      //1
-        router.transitionsHandler = transitionsHandler          //2
-        router.detailTransitionsHandler = detailTransitionsHandler //3
-        router.setRootViewControllerIfNeeded(viewController)    //4
+        router.parentRouter = parentRouter                          //1
+        router.transitionsHandler = transitionsHandler              //2
+        router.detailTransitionsHandler = detailTransitionsHandler  //3
+        router.setRootViewControllerIfNeeded(viewController)        //4
             
         presenter.viewInput = viewController
         interactor.output = presenter

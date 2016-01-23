@@ -1,8 +1,8 @@
 import UIKit
 
-final class FirstRouterImpl_iPad: MasterRouter {}
+final class FirstRouterImpl_iPadMaster: MasterRouter {}
 
-extension FirstRouterImpl_iPad: FirstRouter {
+extension FirstRouterImpl_iPadMaster: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
         let viewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
             String(count + 1),
@@ -10,7 +10,8 @@ extension FirstRouterImpl_iPad: FirstRouter {
             transitionsHandler: transitionsHandler,
             detailTransitionsHandler: detailTransitionsHandler,
             canShowFirstModule: canShowFirstModule,
-            canShowSecondModule: canShowSecondModule).0
+            canShowSecondModule: canShowSecondModule,
+            dismissable: false).0
         
         pushViewController(viewController)
     }
@@ -21,7 +22,8 @@ extension FirstRouterImpl_iPad: FirstRouter {
             parentRouter: self,
             transitionsHandler: detailTransitionsHandler,
             canShowFirstModule: canShowFirstModule,
-            canShowSecondModule: canShowSecondModule).0
+            canShowSecondModule: canShowSecondModule,
+            dismissable: false).0
         
         setDetailViewController(viewController)
     }
@@ -30,25 +32,18 @@ extension FirstRouterImpl_iPad: FirstRouter {
         guard let barButtonItem = sender as? UIBarButtonItem
             else { return }
         
-        let navigationController = UINavigationController()
-        let transitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        func secondModuleForTransitionsHandler(transitionsHandler: TransitionsHandler) -> UIViewController {
+            let viewController = AssemblyFactory.secondModuleAssembly()
+                .ipadModule(
+                    parentRouter: self,
+                    transitionsHandler: transitionsHandler,
+                    title: "1",
+                    withTimer: true,
+                    canShowModule1: true).0
+            return viewController
+        }
         
-        let viewController = AssemblyFactory.secondModuleAssembly()
-            .ipadModule(
-                parentRouter: self,
-                transitionsHandler: transitionsHandler,
-                title: "1",
-                withTimer: true).0
-        
-        navigationController.viewControllers = [viewController];
-        
-        let popoverController = UIPopoverController(contentViewController: navigationController)
-        
-        presentViewController(
-            viewController,
-            inNavigationController: navigationController,
-            inPopoverController: popoverController,
-            fromBarButtonItem: barButtonItem)
-
+        presentViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler,
+            inPopoverFromBarButtonItem: barButtonItem)
     }
 }

@@ -5,11 +5,13 @@ final class SecondViewController: UIViewController {
 
     private let timerButton: UIButton
     private let dismissable: Bool
+    private let canShowModule1: Bool
     
 	//MARK: - Init
-    init(presenter: SecondViewOutput, dismissable: Bool) {
+    init(presenter: SecondViewOutput, dismissable: Bool, canShowModule1: Bool) {
         output = presenter
         self.dismissable = dismissable
+        self.canShowModule1 = canShowModule1
         
         timerButton = UIButton(type: .Custom)
         
@@ -27,12 +29,27 @@ final class SecondViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override var title: String? {
+        didSet {
+            let suffix = title ?? ""
+            self.navigationItem.title = "2.\(suffix)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var rightItems = [UIBarButtonItem]()
+        
         if dismissable {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "done:")
+            let doneItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "done:")
+            rightItems.append(doneItem)
         }
+        if canShowModule1 {
+            let toModule1Item = UIBarButtonItem(title: "to1", style: .Plain, target: self, action: "onTo1:")
+            rightItems.append(toModule1Item)
+        }
+        navigationItem.rightBarButtonItems = rightItems
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "next:")
         
         if dismissable || UIDevice.currentDevice().userInterfaceIdiom == .Phone {
@@ -50,6 +67,10 @@ final class SecondViewController: UIViewController {
     @objc func next(sender: UIBarButtonItem) {
         let title = Int(self.title ?? "1") ?? 1
         output.next(sender: sender, title: title)
+    }
+    
+    @objc func onTo1(sender: UIBarButtonItem) {
+        output.toModule1(sender: sender)
     }
     
     @objc func onTimerButton(sender: UIButton) {
@@ -76,5 +97,10 @@ extension SecondViewController: SecondViewInput  {
     
     func setTimerInteractionEnabled(enabled: Bool) {
         timerButton.enabled = enabled
+    }
+    
+    func setToModule1TurnedOn(turned: Bool) {
+    
+    
     }
 }

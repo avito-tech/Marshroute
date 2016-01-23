@@ -7,10 +7,12 @@ class SecondInteractorImpl {
     private let timerSeconds: Int
     private var timerSecondsTicked = 0
     private var timer: NSTimer?
+    private let toModule1Enabled: Bool
     
-    init(withTimer: Bool, timerSeconds: Int) {
+    init(withTimer: Bool, timerSeconds: Int, canShowModule1: Bool) {
         self.withTimer = withTimer
         self.timerSeconds = timerSeconds
+        toModule1Enabled = canShowModule1
     }
 }
 
@@ -29,6 +31,10 @@ extension SecondInteractorImpl: SecondInteractor  {
     func stopTimer() {
         timer?.invalidate()
         timer = nil
+    }
+    
+    func canShowModule1() -> Bool {
+        return toModule1Enabled
     }
     
     private func startTimerImpl() {

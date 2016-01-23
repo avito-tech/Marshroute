@@ -1,7 +1,19 @@
 import Foundation
 
 protocol FirstAssembly {
-    func module(title: String, parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, moduleChangeable: Bool) -> (FirstViewController, FirstModuleInput)
-    func module(title: String, parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, detailTransitionsHandler: TransitionsHandler?, moduleChangeable: Bool) -> (FirstViewController, FirstModuleInput)
+    func iphoneModule(title: String, parentRouter: RouterDismisable?,
+        transitionsHandler: TransitionsHandler?,
+        canShowFirstModule: Bool, canShowSecondModule: Bool)
+        -> (FirstViewController, FirstModuleInput)
+    
+    func ipadDetailModule(title: String, parentRouter: RouterDismisable?,
+        transitionsHandler: TransitionsHandler?,
+        canShowFirstModule: Bool, canShowSecondModule: Bool)
+        -> (FirstViewController, FirstModuleInput)
+    
+    func ipadMasterModule(title: String, parentRouter: RouterDismisable?,
+        transitionsHandler: TransitionsHandler?, detailTransitionsHandler: TransitionsHandler?,
+        canShowFirstModule: Bool, canShowSecondModule: Bool)
+        -> (FirstViewController, FirstModuleInput)
     
 }

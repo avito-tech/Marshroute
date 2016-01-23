@@ -58,7 +58,8 @@ private extension TransitionContextsStack {
      на который осуществлялся переход, уже освобожден
      */
     func updateTransitionsStack() {
-        transitionsStack = transitionsStack.filter({ !$0.isZombie })
+        let transitionsStack = self.transitionsStack.filter({ !$0.isZombie })
+        self.transitionsStack = transitionsStack
     }
 }
 

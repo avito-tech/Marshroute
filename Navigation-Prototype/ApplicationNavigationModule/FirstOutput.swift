@@ -1,5 +1,7 @@
 import Foundation
 
 protocol FirstViewOutput: class {
-    func gogogo(count: Int)
+    func onUserNextModule(count: Int)
+    
+    func onUserSecondModule(sender sender: AnyObject?)
 }

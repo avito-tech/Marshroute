@@ -31,6 +31,7 @@ extension SecondPresenter: SecondViewOutput  {
     }
     
     func done() {
+        interactor.stopTimer()
         router.askParentRouterToDismissSelf()
     }
     

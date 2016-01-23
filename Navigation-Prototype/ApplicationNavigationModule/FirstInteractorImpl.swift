@@ -3,20 +3,26 @@ import Foundation
 class FirstInteractorImpl {
     weak var output: FirstPresenter?
     
-    let moduleChangeable: Bool
+    let firstRedModuleEnabled: Bool
+    let secondModuleEnabled: Bool
     
-    init (moduleChangeable: Bool) {
-        self.moduleChangeable = moduleChangeable
+    init (canShowFirstModule: Bool, canShowSecondModule: Bool) {
+        self.firstRedModuleEnabled = canShowFirstModule
+        self.secondModuleEnabled = canShowSecondModule
     }
 }
 
 //MARK: - FirstInteractor
 extension FirstInteractorImpl: FirstInteractor  {
-    func canChangeModule() -> Bool {
-        return moduleChangeable
+    func canShowRedModule() -> Bool {
+        return firstRedModuleEnabled
     }
     
-    func shouldChangeModule(forCount count: Int) -> Bool {
-        return moduleChangeable && count == 2
+    func shouldShowRedModule(forCount count: Int) -> Bool {
+        return canShowRedModule() && count == 2
+    }
+    
+    func canShowSecondModule() -> Bool {
+        return secondModuleEnabled
     }
 }

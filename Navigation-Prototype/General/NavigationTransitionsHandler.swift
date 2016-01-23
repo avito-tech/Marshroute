@@ -94,6 +94,7 @@ private extension NavigationTransitionsHandler {
                 undoTransitionImpl(context: lastRestoredTransition)
                 commitUndoneTransition()
             }
+            else { break }
         }
     }
     

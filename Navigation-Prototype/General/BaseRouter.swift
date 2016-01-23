@@ -78,6 +78,9 @@ extension BaseRouter {
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
     
+        guard navigationController.viewControllers.contains(viewController)
+            else { assert(false); return }
+        
         guard navigationTransitionsHandler !== transitionsHandler
             else { assert(false, "you must create a new Navigation Transitions Handler for modal transitions"); return }
         
@@ -100,6 +103,9 @@ extension BaseRouter {
         animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
+        guard navigationController.viewControllers.contains(viewController)
             else { assert(false); return }
         
         let targetTransitionsHandler = navigationTransitionsHandler
@@ -129,6 +135,9 @@ extension BaseRouter {
         animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
+        guard navigationController.viewControllers.contains(viewController)
             else { assert(false); return }
 
         let targetTransitionsHandler = navigationTransitionsHandler

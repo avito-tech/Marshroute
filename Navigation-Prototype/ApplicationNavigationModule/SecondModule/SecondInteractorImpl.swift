@@ -26,8 +26,12 @@ extension SecondInteractorImpl: SecondInteractor  {
         }
     }
     
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     private func startTimerImpl() {
-
         output?.setSecondsUntilTimerFiring(timerSeconds)
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "onTimer:", userInfo: nil, repeats: true)
     }

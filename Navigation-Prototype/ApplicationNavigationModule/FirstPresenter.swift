@@ -4,7 +4,11 @@ class FirstPresenter {
     private let interactor: FirstInteractor
     private let router: FirstRouter
     
-    weak var viewInput: FirstViewInput?
+    weak var viewInput: FirstViewInput? {
+        didSet {
+            viewInput?.setSecondButtonEnabled(interactor.canShowSecondModule())
+        }
+    }
     
     //MARK: - Init
     init(interactor: FirstInteractor, router: FirstRouter){
@@ -21,18 +25,22 @@ extension FirstPresenter: FirstModuleInput  {
 
 //MARK: - FirstViewOutput
 extension FirstPresenter: FirstViewOutput  {
-    func gogogo(count: Int) {
-        if interactor.canChangeModule() {
-            let shouldChangeModule = interactor.shouldChangeModule(forCount: count)
-            if shouldChangeModule {
-                router.showRedModule(0, moduleChangeable: false)
+    func onUserNextModule(count: Int) {
+        if interactor.canShowRedModule() {
+            let shouldShowRedModule = interactor.shouldShowRedModule(forCount: count)
+            if shouldShowRedModule {
+                router.showRedModule(0, canShowFirstModule: false, canShowSecondModule: true)
             }
             else {
-                router.showWhiteModule(count, moduleChangeable: true)
+                router.showWhiteModule(count, canShowFirstModule: true, canShowSecondModule: interactor.canShowSecondModule())
             }
         }
         else {
-            router.showWhiteModule(count, moduleChangeable: false)
+            router.showWhiteModule(count, canShowFirstModule: false, canShowSecondModule: interactor.canShowSecondModule())
         }
+    }
+    
+    func onUserSecondModule(sender sender: AnyObject?) {
+        router.showSecondModule(sender: sender)
     }
 }

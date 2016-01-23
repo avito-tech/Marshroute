@@ -18,7 +18,6 @@ final class SecondViewController: UIViewController {
         timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
         timerButton.tintColor = .blueColor()
         timerButton.setTitleColor(.blackColor(), forState: .Normal)
-        timerButton.frame = CGRectMake(UIDevice.currentDevice().userInterfaceIdiom == .Pad ? 400 : 100, 80, 50, 40)
         timerButton.titleLabel?.numberOfLines = 0
         timerButton.hidden = true
         view.addSubview(timerButton)
@@ -35,6 +34,13 @@ final class SecondViewController: UIViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Stop, target: self, action: "done:")
         }
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "next:")
+        
+        if dismissable || UIDevice.currentDevice().userInterfaceIdiom == .Phone {
+            timerButton.frame = CGRectMake(100, 80, 50, 40)
+        } else {
+            timerButton.frame = CGRectMake(400, 80, 50, 40)
+        }
+        
     }
     
     @objc func done(sender: UIBarButtonItem) {

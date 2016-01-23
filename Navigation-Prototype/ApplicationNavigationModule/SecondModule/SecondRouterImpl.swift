@@ -22,7 +22,7 @@ extension SecondRouterImpl: SecondRouter {
         navigationController.viewControllers = [viewController]
         
         // 3
-
+        
         presentModalViewController(
             viewController,
             inNavigationController: navigationController,

@@ -2,9 +2,9 @@ import UIKit
 
 final class SecondAssemblyImpl: SecondAssembly {
     
-    func iphoneModule(parentRouter parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, title: String) -> (UIViewController, SecondModuleInput) {
+    func iphoneModule(parentRouter parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, title: String, withTimer: Bool) -> (UIViewController, SecondModuleInput) {
         
-        let interactor = SecondInteractorImpl()
+        let interactor = SecondInteractorImpl(withTimer: withTimer)
         let router = SecondRouterImpl()
         
         let presenter = SecondPresenter(
@@ -29,9 +29,9 @@ final class SecondAssemblyImpl: SecondAssembly {
         
     }
     
-    func ipadModule(parentRouter parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, title: String) -> (UIViewController, SecondModuleInput) {
+    func ipadModule(parentRouter parentRouter: RouterDismisable?, transitionsHandler: TransitionsHandler?, title: String, withTimer: Bool) -> (UIViewController, SecondModuleInput) {
         
-        let interactor = SecondInteractorImpl()
+        let interactor = SecondInteractorImpl(withTimer: withTimer)
         let router = SecondRouterImpl_iPad()
         
         let presenter = SecondPresenter(

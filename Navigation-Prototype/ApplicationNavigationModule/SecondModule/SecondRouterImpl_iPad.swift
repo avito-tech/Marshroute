@@ -15,7 +15,8 @@ extension  SecondRouterImpl_iPad: SecondRouter {
         let viewController = AssemblyFactory.secondModuleAssembly().ipadModule(
             parentRouter: self,
             transitionsHandler: transitionsHandler,
-            title: String(title + 1)).0
+            title: String(title + 1),
+            withTimer: false).0
 
         navigationController.viewControllers = [viewController]
         

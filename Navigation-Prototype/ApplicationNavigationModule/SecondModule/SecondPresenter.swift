@@ -28,4 +28,8 @@ extension SecondPresenter: SecondViewOutput  {
     func done() {
         router.askParentRouterToDismissSelf()
     }
+    
+    func userDidRequestTimerLaunch() {
+        
+    }
 }

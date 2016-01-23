@@ -104,7 +104,7 @@
 		CCE5DAB91C527057006270D7 /* SecondViewImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAA1C527057006270D7 /* SecondViewImpl.swift */; };
 		CCE5DABB1C527057006270D7 /* SecondModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAC1C527057006270D7 /* SecondModuleInput.swift */; };
 		CCE5DABC1C527057006270D7 /* SecondModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAD1C527057006270D7 /* SecondModuleOutput.swift */; };
-		CCE5DABD1C527057006270D7 /* SecondOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAE1C527057006270D7 /* SecondOutput.swift */; };
+		CCE5DABD1C527057006270D7 /* SecondViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAE1C527057006270D7 /* SecondViewOutput.swift */; };
 		CCE5DABE1C527057006270D7 /* SecondViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */; };
 		CCE5DAC01C5287B9006270D7 /* SecondRouterImpl_iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */; };
 /* End PBXBuildFile section */
@@ -209,7 +209,7 @@
 		CCE5DAAA1C527057006270D7 /* SecondViewImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewImpl.swift; sourceTree = "<group>"; };
 		CCE5DAAC1C527057006270D7 /* SecondModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModuleInput.swift; sourceTree = "<group>"; };
 		CCE5DAAD1C527057006270D7 /* SecondModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModuleOutput.swift; sourceTree = "<group>"; };
-		CCE5DAAE1C527057006270D7 /* SecondOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondOutput.swift; sourceTree = "<group>"; };
+		CCE5DAAE1C527057006270D7 /* SecondViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewOutput.swift; sourceTree = "<group>"; };
 		CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewInput.swift; sourceTree = "<group>"; };
 		CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouterImpl_iPad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,7 +393,7 @@
 				CCE5DAAA1C527057006270D7 /* SecondViewImpl.swift */,
 				CCE5DAAC1C527057006270D7 /* SecondModuleInput.swift */,
 				CCE5DAAD1C527057006270D7 /* SecondModuleOutput.swift */,
-				CCE5DAAE1C527057006270D7 /* SecondOutput.swift */,
+				CCE5DAAE1C527057006270D7 /* SecondViewOutput.swift */,
 				CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */,
 			);
 			name = SecondModule;
@@ -513,7 +513,7 @@
 				CCE12F6A1C50F0C500909924 /* ApplicationNavigationModuleModuleOutput.swift in Sources */,
 				CCE5DAB31C527057006270D7 /* SecondInteractorImpl.swift in Sources */,
 				CCD404351C5135DF008FBDD3 /* FirstAssembly.swift in Sources */,
-				CCE5DABD1C527057006270D7 /* SecondOutput.swift in Sources */,
+				CCE5DABD1C527057006270D7 /* SecondViewOutput.swift in Sources */,
 				CCE5DA7F1C52154D006270D7 /* FirstRouterImpl_iPad.swift in Sources */,
 				CCE12FC71C50F38F00909924 /* TransitionAnimationContextCreator.swift in Sources */,
 				CCE12F611C50F0C500909924 /* ApplicationNavigationModuleInteractorImpl.swift in Sources */,

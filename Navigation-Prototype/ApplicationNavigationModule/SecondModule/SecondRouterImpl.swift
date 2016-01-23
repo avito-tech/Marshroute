@@ -12,7 +12,8 @@ extension SecondRouterImpl: SecondRouter {
         let viewController = AssemblyFactory.secondModuleAssembly().iphoneModule(
             parentRouter: self,
             transitionsHandler: transitionsHandler,
-            title: String(title + 1)).0
+            title: String(title + 1),
+            withTimer: false).0
 
         navigationController.viewControllers = [viewController]
         

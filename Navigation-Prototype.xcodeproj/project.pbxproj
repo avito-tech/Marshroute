@@ -107,6 +107,7 @@
 		CCE5DABD1C527057006270D7 /* SecondViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAE1C527057006270D7 /* SecondViewOutput.swift */; };
 		CCE5DABE1C527057006270D7 /* SecondViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */; };
 		CCE5DAC01C5287B9006270D7 /* SecondRouterImpl_iPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */; };
+		CCE62A1B1C538A160004668B /* SecondInteractorOuput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE62A1A1C538A160004668B /* SecondInteractorOuput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,6 +213,7 @@
 		CCE5DAAE1C527057006270D7 /* SecondViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewOutput.swift; sourceTree = "<group>"; };
 		CCE5DAAF1C527057006270D7 /* SecondViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewInput.swift; sourceTree = "<group>"; };
 		CCE5DABF1C5287B9006270D7 /* SecondRouterImpl_iPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouterImpl_iPad.swift; sourceTree = "<group>"; };
+		CCE62A1A1C538A160004668B /* SecondInteractorOuput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondInteractorOuput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +386,7 @@
 				CCE5DAA21C527057006270D7 /* SecondAssemblyImpl.swift */,
 				CCE5DAA31C527057006270D7 /* SecondInteractor.swift */,
 				CCE5DAA41C527057006270D7 /* SecondInteractorImpl.swift */,
+				CCE62A1A1C538A160004668B /* SecondInteractorOuput.swift */,
 				CCE5DAA51C527057006270D7 /* SecondPresenter.swift */,
 				CCE5DAA61C527057006270D7 /* SecondRouter.swift */,
 				CCE5DAA71C527057006270D7 /* SecondRouterImpl.swift */,
@@ -472,6 +475,7 @@
 			files = (
 				CCE12F8A1C50F0D000909924 /* ApplicationModuleViewInput.swift in Sources */,
 				CCE12FCE1C50F38F00909924 /* TransitionsHandler.swift in Sources */,
+				CCE62A1B1C538A160004668B /* SecondInteractorOuput.swift in Sources */,
 				CCE12F831C50F0D000909924 /* ApplicationModuleView.swift in Sources */,
 				CCE12FC21C50F38F00909924 /* Router.swift in Sources */,
 				CCE12F6C1C50F0C500909924 /* ApplicationNavigationModuleViewInput.swift in Sources */,

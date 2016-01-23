@@ -32,7 +32,7 @@ protocol TransitionsHandler: class {
      Как правило вызывается роутером master - модуля SplitViewController'а,
      чтобы обновить detail
      */
-    func undoAllTransitionsAndResetWithTransition(context: ForwardTransitionContext)
+    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext)
 }
 
 extension TransitionsHandler {
@@ -40,5 +40,5 @@ extension TransitionsHandler {
     func undoTransitions(tilContext context: BackwardTransitionContext) {}
     func undoAllChainedTransitions() {}
     func undoAllTransitions() {}
-    func undoAllTransitionsAndResetWithTransition(context: ForwardTransitionContext) {}
+    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext) {}
 }

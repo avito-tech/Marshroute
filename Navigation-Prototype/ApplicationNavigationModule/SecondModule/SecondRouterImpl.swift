@@ -22,4 +22,8 @@ extension SecondRouterImpl: SecondRouter {
             inNavigationController: navigationController,
             navigationTransitionsHandler: transitionsHandler)
     }
+
+    func dismissChildModules() {
+        transitionsHandler?.undoAllTransitions()
+    }
 }

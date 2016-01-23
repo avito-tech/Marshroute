@@ -6,5 +6,7 @@ final class SecondViewImpl: UIView {
 
 //MARK: - SecondViewInput
 extension SecondViewImpl: SecondViewInput  {
-    
+    func setSecondsUntilTimerEnabled(cound: Int) {}
+    func setTimerTurnedOn(turned: Bool) {}
+    func setTimerInteractionEnabled(enabled: Bool) {}
 }

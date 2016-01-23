@@ -1,5 +1,6 @@
 import Foundation
 
-protocol SecondInteractor {
-    weak var output: SecondPresenter? {get set}
+protocol SecondInteractor {    
+    func isTimerEnabled() -> Bool
+    func startTimer()
 }

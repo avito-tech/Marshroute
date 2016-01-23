@@ -54,10 +54,9 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         undoAllTransitionsAndCommit()
     }
     
-    func undoAllTransitionsAndResetWithTransition(context: ForwardTransitionContext) {
+    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext) {
         forwardUndoingAllChainedTransitions()
         undoChainedTransitionAndCommit()
-        undoAllTransitionsAndCommit()
         resetAllTransitionsAndCommit(withContext: context)
     }
 }

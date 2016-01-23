@@ -5,7 +5,7 @@ final class FirstRouterImpl: BaseRouter {}
 extension FirstRouterImpl: FirstRouter {
     func showWhiteModule(count: Int, moduleChangeable: Bool) {
         let viewController = AssemblyFactory.firstModuleAssembly().module(
-            String(count),
+            String(count + 1),
             parentRouter: self,
             transitionsHandler: transitionsHandler,
             moduleChangeable: moduleChangeable).0
@@ -15,7 +15,7 @@ extension FirstRouterImpl: FirstRouter {
     
     func showRedModule(count: Int, moduleChangeable: Bool) {
         let viewController = AssemblyFactory.firstModuleAssembly().module(
-            String(count),
+            String(count + 1),
             parentRouter: self,
             transitionsHandler: transitionsHandler,
             moduleChangeable: moduleChangeable).0

@@ -17,6 +17,6 @@ class MasterRouter: BaseRouter {
             targetTransitionsHandler: targetTransitionsHandler,
             animator: animator)
         
-        detailTransitionsHandler.undoAllTransitionsAndResetWithTransition(context)
+        detailTransitionsHandler.undoAllChainedTransitionsAndResetWithTransition(context)
     }
 }

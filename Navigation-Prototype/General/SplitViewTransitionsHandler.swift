@@ -40,8 +40,8 @@ extension SplitViewTransitionsHandler: TransitionsHandler {
         firstResponderTransitionsHandler?.undoAllTransitions()
     }
     
-    func undoAllTransitionsAndResetWithTransition(context: ForwardTransitionContext) {
-        firstResponderTransitionsHandler?.undoAllTransitionsAndResetWithTransition(context)
+    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext) {
+        firstResponderTransitionsHandler?.undoAllChainedTransitionsAndResetWithTransition(context)
     }
 }
 

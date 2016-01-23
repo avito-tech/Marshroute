@@ -1,13 +1,18 @@
 import Foundation
 
 class SecondPresenter {
-    private let interactor: SecondInteractor?
+    private let interactor: SecondInteractor
     private let router: SecondRouter
     
-    weak var viewInput: SecondViewInput?
+    weak var viewInput: SecondViewInput? {
+        didSet {
+            viewInput?.setTimerTurnedOn(interactor.isTimerEnabled())
+            viewInput?.setSecondsUntilTimerEnabled(0)
+        }
+    }
     
     //MARK: - Init
-    init(interactor: SecondInteractor?, router: SecondRouter){
+    init(interactor: SecondInteractor, router: SecondRouter){
         self.interactor = interactor
         self.router = router
     }
@@ -30,6 +35,20 @@ extension SecondPresenter: SecondViewOutput  {
     }
     
     func userDidRequestTimerLaunch() {
-        
+        viewInput?.setTimerInteractionEnabled(false)
+        interactor.startTimer()
+    }
+}
+
+//MARK - SecondInteractorOutput
+extension SecondPresenter: SecondInteractorOutput {
+    func setSecondsUntilTimerFiring(count: Int) {
+        viewInput?.setSecondsUntilTimerEnabled(count)
+    }
+    
+    func timerFired() {
+        router.dismissChildModules()
+        viewInput?.setTimerInteractionEnabled(true)
+        viewInput?.setSecondsUntilTimerEnabled(0)
     }
 }

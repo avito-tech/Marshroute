@@ -28,4 +28,8 @@ extension  SecondRouterImpl_iPad: SecondRouter {
             inPopoverController: popoverController,
             fromBarButtonItem: barButtonItem)
     }
+    
+    func dismissChildModules() {
+        transitionsHandler?.undoAllTransitions()
+    }
 }

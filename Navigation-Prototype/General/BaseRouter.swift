@@ -23,7 +23,7 @@ class BaseRouter: Router, TransitionsHandlerStorage, RouterDismisable {
             print(parentRouter)
         }
     }
-
+    
     func dismissChildRouter(child: RouterDismisable) {
         focusTransitionsHandlerBackOnMyRootViewController()
     }
@@ -77,6 +77,39 @@ extension BaseRouter {
         transitionsHandler.performTransition(context: context)
     }
     
+    func presentModalSplitViewController(
+        viewController: UISplitViewController,
+        masterControllerDerivedFromClosure closureMaster: (TransitionsHandler -> UIViewController),
+        detailControllerDerivedFromClosure closureDetail: (TransitionsHandler -> UIViewController),
+        animator: TransitionsAnimator = NavigationTransitionsAnimator())
+    {
+        let splitViewController = UISplitViewController()
+        let splitViewTransitionHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
+        defer {
+            presentModalMasterDetailViewController(
+                splitViewController,
+                targetTransitionsHandler: splitViewTransitionHandler,
+                animator: animator
+            )
+        }
+        
+        let masterNavigation = UINavigationController()
+        let detailNavigation = UINavigationController()
+        splitViewController.viewControllers = [masterNavigation, detailNavigation]
+        
+        let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
+        let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
+
+        splitViewTransitionHandler.masterTransitionsHandler = masterTransitionsHandler
+        splitViewTransitionHandler.detailTransitionsHandler = detailTransitionsHandler
+        
+        let masterViewController = closureMaster(masterTransitionsHandler)
+        let detailViewController = closureDetail(detailTransitionsHandler)
+
+        masterNavigation.viewControllers = [masterViewController]
+        detailNavigation.viewControllers = [detailViewController]
+    }
+    
     func presentModalViewController(
         viewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
@@ -91,7 +124,7 @@ extension BaseRouter {
         
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
-    
+        
         guard navigationController.viewControllers.contains(viewController)
             else { assert(false); return }
         
@@ -152,7 +185,7 @@ extension BaseRouter {
         
         transitionsHandler.performTransition(context: context)
     }
-
+    
     
     func presentViewControllerDerivedFrom(
         closure closure: (TransitionsHandler -> UIViewController),
@@ -188,7 +221,7 @@ extension BaseRouter {
         
         guard navigationController.viewControllers.contains(viewController)
             else { assert(false); return }
-
+        
         let targetTransitionsHandler = navigationTransitionsHandler
             ?? navigationController.wrappedInNavigationTransitionsHandler()
         

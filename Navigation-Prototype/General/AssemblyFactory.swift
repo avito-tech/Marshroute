@@ -1,6 +1,10 @@
 class AssemblyFactory {
-    static func applicationNavigationModuleAssembly() -> ApplicationNavigationModuleAssembly {
-        return ApplicationNavigationModuleAssemblyImpl()
+    static func applicationModuleAssembly() -> ApplicationAssembly {
+        return ApplicationAssemblyImpl()
+    }
+    
+    static func applicationNavigationModuleAssembly() -> ApplicationNavigationAssembly {
+        return ApplicationNavigationAssemblyImpl()
     }
     
     static func firstModuleAssembly() -> FirstAssembly {

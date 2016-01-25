@@ -1,5 +1,5 @@
 import Foundation
 
-protocol ApplicationNavigationModuleViewOutput: class {
-
+protocol ApplicationNavigationModuleOutput {
+    
 }

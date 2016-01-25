@@ -9,7 +9,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("iphone 1")
         
-        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 10)
+        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
 
         let router = FirstRouterImpl()
         
@@ -44,7 +44,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("ipad detail 1")
             
-            let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 10)
+            let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
             
             let router = FirstRouterImpl_IpadDetail()
             
@@ -79,7 +79,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput) { debugPrint("ipad master 1")
         
-        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 10)
+        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
         let router = FirstRouterImpl_iPadMaster()
         

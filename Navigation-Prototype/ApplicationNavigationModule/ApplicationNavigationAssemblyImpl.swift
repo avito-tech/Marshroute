@@ -1,26 +1,20 @@
 import Foundation
 import UIKit
 
-private class NavigationRootsHolder {
-    static var instance = NavigationRootsHolder()
+final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
     
-    var rootTransitionsHandler: TransitionsHandler?
-}
-
-final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModuleAssembly {
-    
-    func module() -> (UIViewController, ApplicationNavigationModuleModuleInput) {
+    func module(navigationRootsHolder: NavigationRootsHolder) -> (UIViewController, ApplicationNavigationModuleInput) {
         
-        let interactor = ApplicationNavigationModuleInteractorImpl()
-        let router = ApplicationNavigationModuleRouterImpl()
+        let interactor = ApplicationNavigationInteractorImpl()
+        let router = ApplicationNavigationRouterImpl()
         
-        let presenter = ApplicationNavigationModulePresenter(
+        let presenter = ApplicationNavigationPresenter(
             interactor: interactor,
             router: router
         )
         
-        let tabBarController = ApplicationNavigationModuleViewController(
-            presenter: presenter
+        let tabBarController = ApplicationNavigationViewController(
+            output: presenter
         )
         presenter.viewInput = tabBarController
         interactor.output = presenter
@@ -29,9 +23,13 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
         tabBarController.viewControllers = controllersAndHandlers.0
         
         let tabTransitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
-        router.transitionsHandler = tabTransitionsHandler
         tabTransitionsHandler.tabTransitionHandlers = controllersAndHandlers.1
-        NavigationRootsHolder.instance.rootTransitionsHandler = tabTransitionsHandler
+
+        router.transitionsHandler = tabTransitionsHandler
+        router.parentRouter = nil
+        router.setRootViewControllerIfNeeded(tabBarController)
+        
+        navigationRootsHolder.rootTransitionsHandler = tabTransitionsHandler
         
         return (tabBarController, presenter)
     }
@@ -45,7 +43,7 @@ final class ApplicationNavigationModuleAssemblyImpl: ApplicationNavigationModule
     private func createTabControllersIphone() -> ([UIViewController], [TransitionsHandler]) {
         let firstNavigation = UINavigationController()
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
-
+        
         let first = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentRouter: nil, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
         firstNavigation.viewControllers = [first]
         firstNavigation.tabBarItem.title = "1"

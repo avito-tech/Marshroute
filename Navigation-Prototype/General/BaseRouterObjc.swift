@@ -5,7 +5,7 @@ import UIKit
     // Router
     private weak var rootViewControllerPrivate: UIViewController?
     
-    // TransitionsHandlerStorage
+    // TransitionsHandlerStorer
     private var transitionsHandlerPrivate: TransitionsHandler?
     
     // RouterDismisable
@@ -25,8 +25,8 @@ extension BaseRouterObjc: Router {
     }
 }
 
-// MARK: - TransitionsHandlerStorage
-extension BaseRouterObjc: TransitionsHandlerStorage {
+// MARK: - TransitionsHandlerStorer
+extension BaseRouterObjc: TransitionsHandlerStorer {
     var transitionsHandler: TransitionsHandler? {
         get { return transitionsHandlerPrivate }
         set { transitionsHandlerPrivate = newValue }

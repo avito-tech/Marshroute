@@ -44,8 +44,10 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
             return viewController
         }
         
-        presentViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler,
-            inPopoverFromBarButtonItem: barButtonItem)
+        presentViewControllerDerivedFrom(
+            closure: secondModuleForTransitionsHandler,
+            inPopoverFromBarButtonItem: barButtonItem
+        )
     }
     
     func dismissChildModules() {

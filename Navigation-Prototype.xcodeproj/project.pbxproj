@@ -21,7 +21,7 @@
 		CCD404411C5135DF008FBDD3 /* FirstModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404321C5135DF008FBDD3 /* FirstModuleOutput.swift */; };
 		CCD404421C5135DF008FBDD3 /* FirstOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404331C5135DF008FBDD3 /* FirstOutput.swift */; };
 		CCD404431C5135DF008FBDD3 /* FirstViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404341C5135DF008FBDD3 /* FirstViewInput.swift */; };
-		CCD404451C514813008FBDD3 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404441C514813008FBDD3 /* MasterRouter.swift */; };
+		CCD404451C514813008FBDD3 /* MasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */; };
 		CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EF91C50ECBA00909924 /* AppDelegate.swift */; };
 		CCE12F031C50ECBA00909924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F021C50ECBA00909924 /* Assets.xcassets */; };
 		CCE12F061C50ECBA00909924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */; };
@@ -85,7 +85,7 @@
 		CCE12FCC1C50F38F00909924 /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA81C50F38F00909924 /* TransitionContextsStack.swift */; };
 		CCE12FCD1C50F38F00909924 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FA91C50F38F00909924 /* TransitionsAnimator.swift */; };
 		CCE12FCE1C50F38F00909924 /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAA1C50F38F00909924 /* TransitionsHandler.swift */; };
-		CCE12FCF1C50F38F00909924 /* TransitionsHandlerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorage.swift */; };
+		CCE12FCF1C50F38F00909924 /* TransitionsHandlerStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorer.swift */; };
 		CCE12FD01C50F38F00909924 /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAC1C50F38F00909924 /* TransitionStorableParameters.swift */; };
 		CCE12FD11C50F38F00909924 /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */; };
 		CCE12FD21C50F38F00909924 /* TransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */; };
@@ -125,7 +125,7 @@
 		CCD404321C5135DF008FBDD3 /* FirstModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstModuleOutput.swift; sourceTree = "<group>"; };
 		CCD404331C5135DF008FBDD3 /* FirstOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOutput.swift; sourceTree = "<group>"; };
 		CCD404341C5135DF008FBDD3 /* FirstViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewInput.swift; sourceTree = "<group>"; };
-		CCD404441C514813008FBDD3 /* MasterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterRouter.swift; sourceTree = "<group>"; };
+		CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailRouter.swift; sourceTree = "<group>"; };
 		CCE12EF61C50ECBA00909924 /* Navigation-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navigation-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE12EF91C50ECBA00909924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE12F021C50ECBA00909924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		CCE12FA81C50F38F00909924 /* TransitionContextsStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack.swift; sourceTree = "<group>"; };
 		CCE12FA91C50F38F00909924 /* TransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCE12FAA1C50F38F00909924 /* TransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandler.swift; sourceTree = "<group>"; };
-		CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerStorage.swift; sourceTree = "<group>"; };
+		CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerStorer.swift; sourceTree = "<group>"; };
 		CCE12FAC1C50F38F00909924 /* TransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStorableParameters.swift; sourceTree = "<group>"; };
 		CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyleConverter.swift; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				CCE12F8D1C50F38F00909924 /* BaseRouter.swift */,
-				CCD404441C514813008FBDD3 /* MasterRouter.swift */,
+				CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */,
 				CCE12F8E1C50F38F00909924 /* BaseRouterObjc.swift */,
 				CCE12F8F1C50F38F00909924 /* NavigationAnimationContext.swift */,
 				CCE12F901C50F38F00909924 /* NavigationAnimationContextCreator.swift */,
@@ -370,7 +370,7 @@
 				CCE12FA81C50F38F00909924 /* TransitionContextsStack.swift */,
 				CCE12FA91C50F38F00909924 /* TransitionsAnimator.swift */,
 				CCE12FAA1C50F38F00909924 /* TransitionsHandler.swift */,
-				CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorage.swift */,
+				CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorer.swift */,
 				CCE12FAC1C50F38F00909924 /* TransitionStorableParameters.swift */,
 				CCE12FAD1C50F38F00909924 /* TransitionStyle.swift */,
 				CCE12FAE1C50F38F00909924 /* TransitionStyleConverter.swift */,
@@ -494,7 +494,7 @@
 				CCE12FD21C50F38F00909924 /* TransitionStyleConverter.swift in Sources */,
 				CCE12FB71C50F38F00909924 /* NavigationTransitionsAnimator.swift in Sources */,
 				CCE12FB51C50F38F00909924 /* NavigationAnimationSourceParameters.swift in Sources */,
-				CCD404451C514813008FBDD3 /* MasterRouter.swift in Sources */,
+				CCD404451C514813008FBDD3 /* MasterDetailRouter.swift in Sources */,
 				CCE12F891C50F0D000909924 /* ApplicationModuleOutput.swift in Sources */,
 				CCD4043C1C5135DF008FBDD3 /* FirstView.swift in Sources */,
 				CCD404411C5135DF008FBDD3 /* FirstModuleOutput.swift in Sources */,
@@ -549,7 +549,7 @@
 				CCE12F661C50F0C500909924 /* ApplicationNavigationModuleViewController.swift in Sources */,
 				CCE12F7F1C50F0D000909924 /* ApplicationModuleInteractorImpl.swift in Sources */,
 				CCE12F651C50F0C500909924 /* ApplicationNavigationModuleView.swift in Sources */,
-				CCE12FCF1C50F38F00909924 /* TransitionsHandlerStorage.swift in Sources */,
+				CCE12FCF1C50F38F00909924 /* TransitionsHandlerStorer.swift in Sources */,
 				CCE8A6631C5429FE004F7E0E /* FirstInteractorOutput.swift in Sources */,
 				CCE5DAB41C527057006270D7 /* SecondPresenter.swift in Sources */,
 				CCE12FB91C50F38F00909924 /* NavigationTransitionStorableParameters.swift in Sources */,

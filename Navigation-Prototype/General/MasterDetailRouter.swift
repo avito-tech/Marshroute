@@ -1,6 +1,6 @@
 import UIKit
 
-class MasterRouter: BaseRouter {
+class MasterDetailRouter: BaseRouter {
     var detailTransitionsHandler: TransitionsHandler?
     
     func setDetailViewController(

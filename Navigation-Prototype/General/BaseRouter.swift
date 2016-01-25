@@ -1,6 +1,6 @@
 import UIKit
 
-class BaseRouter: Router, TransitionsHandlerStorage, RouterDismisable {
+class BaseRouter: Router, TransitionsHandlerStorer, RouterDismisable {
     // Router
     private (set) weak var rootViewController: UIViewController?
     
@@ -10,19 +10,11 @@ class BaseRouter: Router, TransitionsHandlerStorage, RouterDismisable {
         }
     }
     
-    // TransitionsHandlerStorage
-    var transitionsHandler: TransitionsHandler? {
-        didSet {
-            print(transitionsHandler)
-        }
-    }
+    // TransitionsHandlerStorer
+    var transitionsHandler: TransitionsHandler?
     
     // RouterDismisable
-    weak var parentRouter: RouterDismisable? {
-        didSet {
-            print(parentRouter)
-        }
-    }
+    weak var parentRouter: RouterDismisable?
     
     func dismissChildRouter(child: RouterDismisable) {
         focusTransitionsHandlerBackOnMyRootViewController()
@@ -162,14 +154,11 @@ extension BaseRouter {
         inPopoverController popoverController: UIPopoverController,
         fromRect rect: CGRect,
         inView view: UIView,
-        navigationTransitionsHandler: TransitionsHandler? = nil,
+        navigationTransitionsHandler targetTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
-        
-        let targetTransitionsHandler = navigationTransitionsHandler
-            ?? navigationController.wrappedInNavigationTransitionsHandler()
         
         guard targetTransitionsHandler !== transitionsHandler
             else { assert(false, "you must create a new Navigation Transitions Handler for popover transitions"); return }
@@ -205,7 +194,8 @@ extension BaseRouter {
             inNavigationController: navigationController,
             inPopoverController: popoverController,
             fromRect: rect,
-            inView: view)
+            inView: view,
+            navigationTransitionsHandler: transitionsHandler)
     }
     
     func presentViewController(
@@ -213,7 +203,7 @@ extension BaseRouter {
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
-        navigationTransitionsHandler: TransitionsHandler? = nil,
+        navigationTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
@@ -255,6 +245,7 @@ extension BaseRouter {
             viewController,
             inNavigationController: navigationController,
             inPopoverController: popoverController,
-            fromBarButtonItem: barButtonItem)
+            fromBarButtonItem: barButtonItem,
+            navigationTransitionsHandler: transitionsHandler)
     }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-final class FirstRouterImpl_iPadMaster: MasterRouter {}
+final class FirstRouterImpl_iPadMaster: MasterDetailRouter {}
 
 extension FirstRouterImpl_iPadMaster: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
@@ -45,8 +45,10 @@ extension FirstRouterImpl_iPadMaster: FirstRouter {
             return viewController
         }
         
-        presentViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler,
-            inPopoverFromBarButtonItem: barButtonItem)
+        presentViewControllerDerivedFrom(
+            closure: secondModuleForTransitionsHandler,
+            inPopoverFromBarButtonItem: barButtonItem
+        )
     }
     
     func dismissChildModules() {

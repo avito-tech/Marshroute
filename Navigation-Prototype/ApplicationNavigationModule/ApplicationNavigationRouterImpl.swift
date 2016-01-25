@@ -5,5 +5,7 @@ final class ApplicationNavigationRouterImpl: BaseRouter {
 }
 
 extension ApplicationNavigationRouterImpl: ApplicationNavigationRouter {
-    
+    func showAuthorization() {
+        
+    }
 }

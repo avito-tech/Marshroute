@@ -2,24 +2,32 @@ import Foundation
 
 class ApplicationPresenter {
     private let interactor: ApplicationInteractor
-    private let router: ApplicationRouter
     
     weak var navigationModuleInput: ApplicationNavigationModuleInput?
     
     //MARK: - Init
-    init(interactor: ApplicationInteractor, router: ApplicationRouter){
+    init(interactor: ApplicationInteractor){
         self.interactor = interactor
-        self.router = router
     }
     
 }
 
 //MARK: - ApplicationInput
 extension ApplicationPresenter: ApplicationModuleInput  {
-    
-}
+    func showAuthorizationModule(closure: ((authorized: Bool) -> Void)?) {
+        if interactor.shouldShowAuthorizationModule {
+            interactor.shouldShowAuthorizationModule = false
+            navigationModuleInput?.showAuthorizationModule()
+        }
 
-//MARK: - ApplicationViewOutput
-extension ApplicationPresenter: ApplicationViewOutput  {
-    
+        interactor.setAuthorizationCompletionBlock(closure)
+    }
+
+}
+//MARK: - ApplicationNavigationModuleOutput
+extension ApplicationPresenter: ApplicationNavigationModuleOutput {
+    func didHideAuthorizationModule(authorized: Bool) {
+        interactor.shouldShowAuthorizationModule = true
+        interactor.executeAuthorizationCompletionBlockAndDeleteAfterExecution(authorized)
+    }
 }

@@ -16,7 +16,9 @@ class ApplicationNavigationPresenter {
 
 //MARK: - ApplicationNavigationInput
 extension ApplicationNavigationPresenter: ApplicationNavigationModuleInput  {
-    
+    func showAuthorizationModule() {
+        router.showAuthorization()
+    }
 }
 
 //MARK: - ApplicationNavigationViewOutput

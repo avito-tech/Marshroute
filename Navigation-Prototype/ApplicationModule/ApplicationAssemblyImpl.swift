@@ -3,14 +3,14 @@ import UIKit
 //MARK: - ApplicationAssembly
 protocol NavigationRootsHolder: class {
     var rootTransitionsHandler: TransitionsHandler? { get set }
-    var window: UIWindow { get set }
 }
 
 //MARK: - ApplicationAssemblyImpl
 private class NavigationRootsHolderImpl: NavigationRootsHolder {
     static var instance = NavigationRootsHolderImpl()
-    var rootTransitionsHandler: TransitionsHandler?
-    var window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+   
+    private var rootTransitionsHandler: TransitionsHandler?
+    private var window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
 }
 
 //MARK: - ApplicationAssemblyImpl
@@ -19,11 +19,9 @@ final class ApplicationAssemblyImpl: ApplicationAssembly {
     func module() -> (ApplicationModuleInput) {
         
         let interactor = ApplicationInteractorImpl()
-        let router = ApplicationRouterImpl()
         
         let presenter = ApplicationPresenter(
-            interactor: interactor,
-            router: router
+            interactor: interactor
         )
         
         interactor.output = presenter

@@ -92,25 +92,31 @@ private extension RestoredTransitionContext {
         fromSourceContext sourceContext: CompletedTransitionContext?,
         toTargetContext targetContext: CompletedTransitionContext?)
     {
+        guard let sourceContext = sourceContext
+            else { return nil }
+        guard let sourceViewController = sourceContext.sourceViewController
+            else { return nil }
+        guard let sourceTransitionsHandler = sourceContext.sourceTransitionsHandler
+            else { return nil }
+        
         guard let targetContext = targetContext
             else { return nil }
         guard let targetViewController = targetContext.targetViewController
             else { return nil }
-        // TODO: aaa вернуть проверку
-        //guard let transitionsHandler = targetContext.targetTransitionsHandler
-        //else { return nil }
-        
-        guard let sourceViewController = sourceContext?.sourceViewController
+        guard let targetTransitionsHandler = targetContext.targetTransitionsHandler
             else { return nil }
-
-        self.targetViewController = targetViewController
+        
         self.sourceViewController = sourceViewController
-        // TODO: aaa вернуть утверждение (и проверку сверху)
-        // self.transitionsHandler = transitionsHandler
-        self.transitionsHandler = targetContext.targetTransitionsHandler
+        self.sourceTransitionsHandler = sourceTransitionsHandler
+        
+        self.targetViewController = targetViewController
+        self.targetTransitionsHandler = targetTransitionsHandler
         self.transitionStyle = targetContext.transitionStyle
         self.storableParameters = targetContext.storableParameters
         self.animator = targetContext.animator
+        
+        // неважно, какой тут transitionId. можно и targetContext.transitionId
+        self.transitionId = sourceContext.transitionId
     }
 }
 

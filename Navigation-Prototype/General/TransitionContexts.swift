@@ -7,10 +7,9 @@ struct ForwardTransitionContext {
     /// контроллер, на который нужно перейти
     let targetViewController: UIViewController
     
-    // TODO: aaa переделать на strong, не optional
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    let targetTransitionsHandler: TransitionsHandler?
+    let targetTransitionsHandler: TransitionsHandler
     
     /// стиль перехода
     let transitionStyle: TransitionStyle
@@ -28,7 +27,7 @@ struct ForwardTransitionContext {
      Контекст описывает последовательный переход внутри UINavigationController'а текущего модуля
      */
     init(pushingViewController targetViewController: UIViewController,
-        targetTransitionsHandler: TransitionsHandler?,
+        targetTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator) {
             self.targetViewController = targetViewController
             self.targetTransitionsHandler = targetTransitionsHandler
@@ -58,7 +57,7 @@ struct ForwardTransitionContext {
      */
     init(presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
-        targetTransitionsHandler: TransitionsHandler?,
+        targetTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator) {
             self.targetViewController = targetViewController
             self.targetTransitionsHandler = targetTransitionsHandler
@@ -76,7 +75,7 @@ struct ForwardTransitionContext {
         inPopoverController popoverController: UIPopoverController,
         fromRect rect: CGRect,
         inView view: UIView,
-        targetTransitionsHandler: TransitionsHandler?,
+        targetTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator) {
             self.targetViewController = targetViewController
             self.targetTransitionsHandler = targetTransitionsHandler
@@ -93,7 +92,7 @@ struct ForwardTransitionContext {
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
-        targetTransitionsHandler: TransitionsHandler?,
+        targetTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator) {
             self.targetViewController = targetViewController
             self.targetTransitionsHandler = targetTransitionsHandler
@@ -108,11 +107,7 @@ struct ForwardTransitionContext {
  *  Передается из роутера в обработчик переходов, чтобы осуществить обратный переход на модуль роутера
  */
 struct BackwardTransitionContext {
-    private (set) var targetViewController: UIViewController
-    
-    init(targetViewController: UIViewController) {
-        self.targetViewController = targetViewController
-    }
+    let targetViewController: UIViewController
 }
 
 /**
@@ -132,7 +127,7 @@ struct CompletedTransitionContext {
     /// для отмены всех переходов и возвращения на главный экран контейнера через
     /// ```swift
     /// undoTransitions(tilContext:)
-    let sourceViewController: UIViewController
+    private (set) weak var sourceViewController: UIViewController?
 
     /// обработчик переходов для роутера модуля, вызвавшего переход
     private (set) weak var sourceTransitionsHandler: TransitionsHandler?
@@ -161,6 +156,7 @@ struct CompletedTransitionContext {
             
             self.targetViewController = context.targetViewController
             self.targetTransitionsHandler = context.targetTransitionsHandler
+            
             self.transitionStyle = context.transitionStyle
             self.storableParameters = context.storableParameters
             self.animator = context.animator
@@ -193,14 +189,13 @@ struct RestoredTransitionContext {
     let sourceViewController: UIViewController
     
     /// обработчик переходов для роутера модуля, с контоллера которого перешли
-    private (set) weak var sourceTransitionsHandler: TransitionsHandler?
+    let sourceTransitionsHandler: TransitionsHandler
     
     /// контроллер, на который перешли
     let targetViewController: UIViewController
     
-    /// обработчик переходов для роутера модуля, вызвавшего переход
-    // TODO: aaa сделать не optional
-    let transitionsHandler: TransitionsHandler?
+    /// обработчик переходов для роутера модуля, на контроллер которого перешли
+    let targetTransitionsHandler: TransitionsHandler
     
     /// стиль перехода
     let transitionStyle: TransitionStyle
@@ -219,21 +214,25 @@ struct RestoredTransitionContext {
     init?(context: CompletedTransitionContext?) {
         guard let context = context
             else { return nil }
-        guard let targetViewController = context.targetViewController
-            else { return nil }
         guard let sourceViewController = context.sourceViewController
             else { return nil }
-        // TODO: aaa вернуть проверку
-        //guard let transitionsHandler = context.targetTransitionsHandler
-            //else { return nil }
+        guard let sourceTransitionsHandler = context.targetTransitionsHandler
+            else { return nil }
+        guard let targetTransitionsHandler = context.targetTransitionsHandler
+            else { return nil }
+        guard let targetViewController = context.targetViewController
+            else { return nil }
+        
+        self.sourceViewController = sourceViewController
+        self.sourceTransitionsHandler = sourceTransitionsHandler
         
         self.targetViewController = targetViewController
-        self.sourceViewController = sourceViewController
-        // TODO: aaa вернуть утверждение (и проверку сверху)
-        // self.transitionsHandler = transitionsHandler
-        self.transitionsHandler = context.targetTransitionsHandler
+        self.targetTransitionsHandler = targetTransitionsHandler
+        
         self.transitionStyle = context.transitionStyle
         self.storableParameters = context.storableParameters
         self.animator = context.animator
+        
+        self.transitionId = context.transitionId
     }
 }

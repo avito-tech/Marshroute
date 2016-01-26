@@ -28,8 +28,7 @@ extension NavigationTransitionsHandler : TransitionsHandler {
             // выполняем переход
             let transitionId = generateTransitionId()
             let context = closure(generatedTransitionId: transitionId)
-            assert(context.targetTransitionsHandler != nil)
-            performTransitionAndCommit(context: context)
+            performTransitionAndCommit(context: context, transitionId: transitionId)
         }
     }
     
@@ -89,7 +88,7 @@ private extension NavigationTransitionsHandler {
      Осуществляет переход на новый модуль согласно описанию и сохраняет запись о переходе.
      Переход может быть отложен (например, вызовом окна авторизации)
      */
-    func performTransitionAndCommit(context context: ForwardTransitionContext) {
+    func performTransitionAndCommit(context context: ForwardTransitionContext, transitionId: TransitionId) {
         if let sourceViewController = navigationController.topViewController,
             let animationContext = createAnimationContextForForwardTransition(context: context) {
                 
@@ -97,7 +96,8 @@ private extension NavigationTransitionsHandler {
                 
                 commitPerformedTransition(
                     context: context,
-                    sourceViewController: sourceViewController
+                    sourceViewController: sourceViewController,
+                    transitionId: transitionId
                 )
                 
                 if context.targetTransitionsHandler !== self {
@@ -173,16 +173,17 @@ private extension NavigationTransitionsHandler {
     /**
      Сохраняет запись о совершенном переходе, чтобы потом иметь возможность отменить переход.
      */
-    func commitPerformedTransition(context context: ForwardTransitionContext, sourceViewController: UIViewController) {
-        // TODO: aaa этот guard уберется тогда, когда targetTransitionsHandler станет не optional
-        guard context.targetTransitionsHandler != nil
-            else { assert(false); return }
-                
+    func commitPerformedTransition(
+        context context: ForwardTransitionContext,
+        sourceViewController: UIViewController,
+        transitionId: TransitionId) {
+        
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,
             sourceViewController: sourceViewController,
-        sourcetrans)
-        
+            sourceTransitionsHandler: self,
+            transitionId: transitionId
+        )
         completedTransitionsStack.append(completedTransitionContext)
     }
     
@@ -230,8 +231,8 @@ private extension NavigationTransitionsHandler {
     }
     
     var lastRestoredChainedTransition: RestoredTransitionContext? {
-        if let lastRestoredTransition = lastRestoredTransition, let transitionsHandler = lastRestoredTransition.transitionsHandler
-            where transitionsHandler !== self {
+        if let lastRestoredTransition = lastRestoredTransition
+            where lastRestoredTransition.sourceTransitionsHandler !== self {
                 return lastRestoredTransition
         }
         return nil
@@ -249,7 +250,7 @@ private extension NavigationTransitionsHandler {
     }
     
     var lastRestoredChainedTransitionsHandler: TransitionsHandler? {
-        return lastRestoredChainedTransition?.transitionsHandler
+        return lastRestoredChainedTransition?.targetTransitionsHandler
     }
 }
 

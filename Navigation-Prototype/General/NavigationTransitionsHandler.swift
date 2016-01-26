@@ -47,7 +47,17 @@ extension NavigationTransitionsHandler : TransitionsHandler {
     }
     
     func undoTransition(id transitionId: TransitionId) {
-        
+        if shouldForwardUndoingTransition(id: transitionId) {
+            // нужно отменить переход, который не находится в истории переходов текущего обработчика
+            // передаем управление дочернему обработчику
+            forwardUndoingTransition(id: transitionId)
+        }
+        else {
+            // нужно отменить переход, который находится в истории переходов текущего обработчика
+            // скрываем дочерние обработчики и выполняем обратный переход
+            forwardUndoingAllChainedTransitions()
+            undoTransitionAndCommit(id: transitionId)
+        }
     }
     
     func undoAllChainedTransitions() {
@@ -112,20 +122,24 @@ private extension NavigationTransitionsHandler {
      */
     func undoTransitionsAndCommit(tilContext context: BackwardTransitionContext) {
         if let lastRestoredChainedTransition = lastRestoredChainedTransition {
-            let didFinish = lastRestoredChainedTransition.targetViewController == context.targetViewController
-            
             // будет сокрытие модального окна или поповера
+            let didFinish = lastRestoredChainedTransition.sourceViewController == context.targetViewController
             undoTransitionImpl(context: lastRestoredChainedTransition)
             commitUndoneLastTransition()
             
+            // сокрытие модального окна или поповера могло сразу привести нас к нужному контроллеру
             if didFinish { return }
         }
 
         if let overalRestoredTransition = overalRestoredTransitionForBackwardTransition(tilContext: context) {
             // будет popToViewController
             undoTransitionImpl(context: overalRestoredTransition)
-            commitUndoneLastTransition()
+            commitUndoneTransitions(tilContext: context)
         }
+    }
+    
+    func undoTransitionAndCommit(id transitionId: TransitionId) {
+
     }
 
     /**
@@ -194,6 +208,10 @@ private extension NavigationTransitionsHandler {
     func commitUndoneTransitions() {
         completedTransitionsStack.removeAll()
     }
+    
+    func commitUndoneTransitions(tilContext context: BackwardTransitionContext) {
+        completedTransitionsStack.popToContext(context)
+    }
 }
 
 // MARK: - private transitions forwarding to chained transition hanlders
@@ -214,6 +232,15 @@ private extension NavigationTransitionsHandler {
     func forwardUndoingTransitions(tilContext context: BackwardTransitionContext) {
         assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
         lastRestoredChainedTransitionsHandler?.undoTransitions(tilContext: context)
+    }
+    
+    func shouldForwardUndoingTransition(id transitionId: TransitionId) -> Bool {
+        return !completedTransitionsStack.canBePoppedToTransition(id: transitionId)
+    }
+    
+    func forwardUndoingTransition(id transitionId: TransitionId) {
+        assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
+        lastRestoredChainedTransitionsHandler?.undoTransition(id: transitionId)
     }
     
     /**
@@ -243,6 +270,9 @@ private extension NavigationTransitionsHandler {
         return completedTransitionsStack.lastToFirst
     }
     
+    /**
+     Описание перехода от контроллера, описанного в context'е до последнего шага, минуя промежуточные
+     */
     func overalRestoredTransitionForBackwardTransition(tilContext context: BackwardTransitionContext)
         -> RestoredTransitionContext?
     {

@@ -1,7 +1,7 @@
 import UIKit
 
 final class ApplicationNavigationViewController: UITabBarController {
-	var output: ApplicationNavigationViewOutput?
+	let output: ApplicationNavigationViewOutput
 
 	//MARK: - Init
     init(output: ApplicationNavigationViewOutput) {

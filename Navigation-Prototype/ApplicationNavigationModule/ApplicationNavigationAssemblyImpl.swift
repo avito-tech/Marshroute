@@ -6,16 +6,15 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
     func module(navigationRootsHolder: NavigationRootsHolder) -> (UIViewController, ApplicationNavigationModuleInput) {
         
         let interactor = ApplicationNavigationInteractorImpl()
-        let router = ApplicationNavigationRouterImpl()
         
         let presenter = ApplicationNavigationPresenter(
-            interactor: interactor,
-            router: router
+            interactor: interactor
         )
         
         let tabBarController = ApplicationNavigationViewController(
             output: presenter
         )
+        
         presenter.viewInput = tabBarController
         interactor.output = presenter
         
@@ -25,9 +24,13 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         let tabTransitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
         tabTransitionsHandler.tabTransitionHandlers = controllersAndHandlers.1
         
-        router.transitionsHandler = tabTransitionsHandler
-        router.parentRouter = nil
+        let router = ApplicationNavigationRouterImpl(
+            transitionsHandler: tabTransitionsHandler,
+            transitionId: nil,
+            parentTransitionsHandler: nil
+        )
         router.setRootViewControllerIfNeeded(tabBarController)
+        presenter.router = router
         
         navigationRootsHolder.rootTransitionsHandler = tabTransitionsHandler
         
@@ -51,7 +54,7 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
-        let second = AssemblyFactory.secondModuleAssembly().iphoneModule(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true).0
+        let second = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: nil, parentTransitionsHandler: nil).0
         secondNavigation.viewControllers = [second]
         secondNavigation.tabBarItem.title = "2"
         

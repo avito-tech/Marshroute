@@ -42,6 +42,6 @@ extension FirstRouterImpl: FirstRouter {
             return viewController
         }
 
-        presentModalViewControllerDerivedFrom(closure: secondModuleForTransitionsHandler)
+        presentDerivedModalViewControllerFrom(deriviationClosure: secondModuleForTransitionsHandler)
     }
 }

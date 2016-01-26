@@ -22,8 +22,8 @@ extension  SecondRouterImpl_iPad: SecondRouter {
             return viewController
         }
 
-        presentViewControllerDerivedFrom(
-            closure: firstViewControllerForTransitionsHandler,
+        presentDerivedViewControllerFrom(
+            deriviationClosure: firstViewControllerForTransitionsHandler,
             inPopoverFromBarButtonItem: barButtonItem
         )
     }
@@ -43,8 +43,8 @@ extension  SecondRouterImpl_iPad: SecondRouter {
             return viewController
         }
         
-        presentViewControllerDerivedFrom(
-            closure: secondModuleForTransitionsHandler,
+        presentDerivedViewControllerFrom(
+            deriviationClosure: secondModuleForTransitionsHandler,
             inPopoverFromBarButtonItem: barButtonItem
         )
     }

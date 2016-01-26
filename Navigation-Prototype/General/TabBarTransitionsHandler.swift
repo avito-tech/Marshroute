@@ -1,5 +1,6 @@
 import UIKit
 
+//TODO: aaa убрать отсюда
 enum Tabs: Int {
     case Main = 0
     case Favorites
@@ -30,8 +31,8 @@ class TabBarTransitionsHandler {
 
 // MARK: - TransitionsHandler
 extension TabBarTransitionsHandler: TransitionsHandler {
-    func performTransition(context context: ForwardTransitionContext) {
-        selectedTransitionHandler?.performTransition(context: context)
+    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
+        selectedTransitionHandler?.performTransition(contextCreationClosure: closure)
     }
     
     func undoTransitions(tilContext context: BackwardTransitionContext) {

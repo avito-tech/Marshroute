@@ -14,7 +14,6 @@
 		CCE12F061C50ECBA00909924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */; };
 		CCE12F2E1C50F02A00909924 /* AssemblyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */; };
 		CCE12FB11C50F38F00909924 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F8D1C50F38F00909924 /* BaseRouter.swift */; };
-		CCE12FB21C50F38F00909924 /* BaseRouterObjc.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F8E1C50F38F00909924 /* BaseRouterObjc.swift */; };
 		CCE12FB31C50F38F00909924 /* NavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F8F1C50F38F00909924 /* NavigationAnimationContext.swift */; };
 		CCE12FB41C50F38F00909924 /* NavigationAnimationContextCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F901C50F38F00909924 /* NavigationAnimationContextCreator.swift */; };
 		CCE12FB51C50F38F00909924 /* NavigationAnimationSourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F911C50F38F00909924 /* NavigationAnimationSourceParameters.swift */; };
@@ -123,7 +122,6 @@
 		CCE12F071C50ECBA00909924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyFactory.swift; sourceTree = "<group>"; };
 		CCE12F8D1C50F38F00909924 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
-		CCE12F8E1C50F38F00909924 /* BaseRouterObjc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterObjc.swift; sourceTree = "<group>"; };
 		CCE12F8F1C50F38F00909924 /* NavigationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationContext.swift; sourceTree = "<group>"; };
 		CCE12F901C50F38F00909924 /* NavigationAnimationContextCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationContextCreator.swift; sourceTree = "<group>"; };
 		CCE12F911C50F38F00909924 /* NavigationAnimationSourceParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationSourceParameters.swift; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 			children = (
 				CCE12F8D1C50F38F00909924 /* BaseRouter.swift */,
 				CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */,
-				CCE12F8E1C50F38F00909924 /* BaseRouterObjc.swift */,
 				CCE12F8F1C50F38F00909924 /* NavigationAnimationContext.swift */,
 				CCE12F901C50F38F00909924 /* NavigationAnimationContextCreator.swift */,
 				CCE12F911C50F38F00909924 /* NavigationAnimationSourceParameters.swift */,
@@ -516,7 +513,6 @@
 				CCE8C9321C560CEA0041801D /* ApplicationInteractorImpl.swift in Sources */,
 				CCD404451C514813008FBDD3 /* MasterDetailRouter.swift in Sources */,
 				CCE8C9301C560CEA0041801D /* ApplicationAssemblyImpl.swift in Sources */,
-				CCE12FB21C50F38F00909924 /* BaseRouterObjc.swift in Sources */,
 				CCE8C9991C561C8F0041801D /* ApplicationNavigationModuleOutput.swift in Sources */,
 				CCE12FB81C50F38F00909924 /* NavigationTransitionsHandler.swift in Sources */,
 				CCE12FC01C50F38F00909924 /* PopoverTransitionStyleConverter.swift in Sources */,

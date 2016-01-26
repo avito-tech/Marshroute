@@ -19,7 +19,7 @@ extension SecondRouterImpl: SecondRouter {
             return viewController
         }
         
-        presentModalViewControllerDerivedFrom(closure: firstViewControllerForTransitionsHandler)
+        presentDerivedModalViewControllerFrom(deriviationClosure: firstViewControllerForTransitionsHandler)
     }
     
     func showSecondModule(sender sender: AnyObject, title: Int) {
@@ -33,6 +33,6 @@ extension SecondRouterImpl: SecondRouter {
                     canShowModule1: true).0
             return viewController
         }
-        presentModalViewControllerDerivedFrom(closure: secondViewControllerForTransitionsHandler)
+        presentDerivedModalViewControllerFrom(deriviationClosure: secondViewControllerForTransitionsHandler)
     }
 }

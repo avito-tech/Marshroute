@@ -18,15 +18,17 @@ class NavigationTransitionsHandler {
 // MARK: - TransitionsHandler
 extension NavigationTransitionsHandler : TransitionsHandler {
     
-    func performTransition(context context: ForwardTransitionContext) {
-        assert(context.targetTransitionsHandler != nil)
+    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
         
-        if shouldForwardPerformingTransition(context: context) {
+        if shouldForwardPerformingTransition() {
             // в цепочке обработчиков переходов есть дочерний, передаем управление ему
-            forwardPerformingTransition(context: context)
+            forwardPerformingTransition(contextCreationClosure: closure)
         }
         else {
             // выполняем переход
+            let transitionId = generateTransitionId()
+            let context = closure(generatedTransitionId: transitionId)
+            assert(context.targetTransitionsHandler != nil)
             performTransitionAndCommit(context: context)
         }
     }
@@ -69,6 +71,15 @@ extension NavigationTransitionsHandler : TransitionsHandler {
 
 // MARK: - private transitions perfroming and undoing
 private extension NavigationTransitionsHandler {
+    
+    /**
+     Геренирует новый псевдослучайный уникальный идентификатор переходаы
+     */
+    func generateTransitionId() -> TransitionId {
+        let result = NSUUID().UUIDString
+        return result
+    }
+    
     /**
      Осуществляет переход на новый модуль согласно описанию и сохраняет запись о переходе.
      Переход может быть отложен (например, вызовом окна авторизации)
@@ -181,13 +192,13 @@ private extension NavigationTransitionsHandler {
 
 // MARK: - private transitions forwarding to chained transition hanlders
 private extension NavigationTransitionsHandler {
-    func shouldForwardPerformingTransition(context context: ForwardTransitionContext) -> Bool {
+    func shouldForwardPerformingTransition() -> Bool {
         return lastRestoredChainedTransitionsHandler != nil
     }
     
-    func forwardPerformingTransition(context context: ForwardTransitionContext) {
+    func forwardPerformingTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
         assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
-        lastRestoredChainedTransitionsHandler?.performTransition(context: context)
+        lastRestoredChainedTransitionsHandler?.performTransition(contextCreationClosure: closure)
     }
     
     func shouldForwardUndoingTransitions(tilContext context: BackwardTransitionContext) -> Bool {

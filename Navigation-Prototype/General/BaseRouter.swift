@@ -37,7 +37,8 @@ extension BaseRouter {
 
 // MARK: - helpers
 extension BaseRouter {
-    final func pushViewController(viewController: UIViewController,
+    final func pushViewControllerDerivedFrom(
+        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
@@ -45,209 +46,161 @@ extension BaseRouter {
         
         let targetTransitionsHandler = transitionsHandler
         
-        let context = ForwardTransitionContext(
-            pushingViewController: viewController,
-            targetTransitionsHandler: targetTransitionsHandler,
-            animator: animator)
-        
-        transitionsHandler.performTransition(context: context)
+        transitionsHandler.performTransition(contextCreationClosure: { (generatedTransitionId: TransitionId) -> ForwardTransitionContext in
+            let viewController = closure(
+                transitionId: generatedTransitionId,
+                transitionsHandler: transitionsHandler)
+            
+            let context = ForwardTransitionContext(
+                pushingViewController: viewController,
+                targetTransitionsHandler: targetTransitionsHandler,
+                animator: animator)
+            
+            return context
+        })
     }
-    
-    final func presentModalMasterDetailViewController(
-        viewController: UIViewController,
-        targetTransitionsHandler: TransitionsHandler,
+
+    final func presentMasterDetailViewControllerDerivedFrom(
+        masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        inSplitViewController splitViewController: UISplitViewController,
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
         
-        guard targetTransitionsHandler !== transitionsHandler
-            else { assert(false, "you must create a new Transitions Handler for modal transitions"); return }
-        
-        let context = ForwardTransitionContext(
-            presentingModalViewController: viewController,
-            targetTransitionsHandler: targetTransitionsHandler,
-            animator: animator)
-        
-        transitionsHandler.performTransition(context: context)
-    }
-    
-    final func presentModalSplitViewController(
-        viewController: UISplitViewController,
-        masterControllerDerivedFromClosure closureMaster: (TransitionsHandler -> UIViewController),
-        detailControllerDerivedFromClosure closureDetail: (TransitionsHandler -> UIViewController),
-        animator: TransitionsAnimator = NavigationTransitionsAnimator())
-    {
-        let splitViewController = UISplitViewController()
-        let splitViewTransitionsHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
-
         let masterNavigation = UINavigationController()
         let detailNavigation = UINavigationController()
+        
         splitViewController.viewControllers = [masterNavigation, detailNavigation]
         
         let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
         let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
-
+        let splitViewTransitionsHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
+        
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
         splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
         
-        let masterViewController = closureMaster(masterTransitionsHandler)
-        let detailViewController = closureDetail(detailTransitionsHandler)
+        transitionsHandler.performTransition { (generatedTransitionId: TransitionId) -> ForwardTransitionContext in
+            let masterViewController = masterClosure(
+                transitionId: generatedTransitionId,
+                transitionsHandler: masterTransitionsHandler)
+            
+            let detailViewController = detailClosure(
+                transitionId: generatedTransitionId,
+                transitionsHandler: detailTransitionsHandler)
+            
+            masterNavigation.viewControllers = [masterViewController]
+            detailNavigation.viewControllers = [detailViewController]
 
-        masterNavigation.viewControllers = [masterViewController]
-        detailNavigation.viewControllers = [detailViewController]
-
-        presentModalMasterDetailViewController(
-            splitViewController,
-            targetTransitionsHandler: splitViewTransitionsHandler,
-            animator: animator
-        )
+            let context = ForwardTransitionContext(
+                presentingModalViewController: splitViewController,
+                targetTransitionsHandler: splitViewTransitionsHandler,
+                animator: animator)
+            
+            return context
+        }
     }
     
-    final func presentModalViewController(
-        viewController: UIViewController,
-        inNavigationController navigationController: UINavigationController,
-        navigationTransitionsHandler: TransitionsHandler,
+
+    final func presentModalViewControllerDerivedFrom(
+        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {
-        guard !(viewController is UISplitViewController)
-            else { assert(false); return }
-        
-        guard !(viewController is UITabBarController)
-            else { assert(false); return }
         
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
         
-        guard navigationController.viewControllers.contains(viewController)
-            else { assert(false); return }
-        
-        guard navigationTransitionsHandler !== transitionsHandler
-            else { assert(false, "you must create a new Navigation Transitions Handler for modal transitions"); return }
-        
-        let context = ForwardTransitionContext(
-            presentingModalViewController: viewController,
-            inNavigationController: navigationController,
-            targetTransitionsHandler: navigationTransitionsHandler,
-            animator: animator)
-        
-        transitionsHandler.performTransition(context: context)
-    }
-    
-    final func presentModalViewControllerDerivedFrom(closure closure: (TransitionsHandler -> UIViewController),
-        animator: TransitionsAnimator = NavigationTransitionsAnimator())
-    {
         let navigationController = UINavigationController()
-        let transitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         
-        // не UISplitViewController, не UITabBarController
-        let viewController = closure(transitionsHandler)
-        navigationController.viewControllers = [viewController]
-        
-        presentModalViewController(
-            viewController,
-            inNavigationController: navigationController,
-            navigationTransitionsHandler: transitionsHandler)
+        transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
+            let viewController = closure(
+                transitionId: generatedTransitionId,
+                transitionsHandler: navigationTransitionsHandler)
+            
+            guard !(viewController is UISplitViewController)
+                else { assert(false) }
+            
+            guard !(viewController is UITabBarController)
+                else { assert(false) }
+            
+            navigationController.viewControllers = [viewController]
+            
+            let context = ForwardTransitionContext(
+                presentingModalViewController: viewController,
+                inNavigationController: navigationController,
+                targetTransitionsHandler: navigationTransitionsHandler,
+                animator: animator)
+            
+            return context
+        }
     }
-    
-    final func presentViewController(
-        viewController: UIViewController,
-        inNavigationController navigationController: UINavigationController,
-        inPopoverController popoverController: UIPopoverController,
-        fromRect rect: CGRect,
-        inView view: UIView,
-        navigationTransitionsHandler targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator = PopoverTranstionsAnimator())
-    {
-        guard let transitionsHandler = transitionsHandler
-            else { assert(false); return }
-        
-        guard targetTransitionsHandler !== transitionsHandler
-            else { assert(false, "you must create a new Navigation Transitions Handler for popover transitions"); return }
-        
-        let context = ForwardTransitionContext(
-            presentingViewController: viewController,
-            inNavigationController: navigationController,
-            inPopoverController: popoverController,
-            fromRect: rect,
-            inView: view,
-            targetTransitionsHandler: targetTransitionsHandler,
-            animator: animator)
-        
-        transitionsHandler.performTransition(context: context)
-    }
-    
     
     final func presentViewControllerDerivedFrom(
-        closure closure: (TransitionsHandler -> UIViewController),
+        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         inPopoverFromRect rect: CGRect,
-        inView view: UIView)
-    {
-        let navigationController = UINavigationController()
-        let transitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
-        
-        let viewController = closure(transitionsHandler)
-        navigationController.viewControllers = [viewController]
-        
-        let popoverController = navigationController.wrappedInPopoverController()
-        
-        presentViewController(
-            viewController,
-            inNavigationController: navigationController,
-            inPopoverController: popoverController,
-            fromRect: rect,
-            inView: view,
-            navigationTransitionsHandler: transitionsHandler)
-    }
-    
-    final func presentViewController(
-        viewController: UIViewController,
-        inNavigationController navigationController: UINavigationController,
-        inPopoverController popoverController: UIPopoverController,
-        fromBarButtonItem buttonItem: UIBarButtonItem,
-        navigationTransitionsHandler: TransitionsHandler,
+        inView view: UIView,
         animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
         
-        guard navigationController.viewControllers.contains(viewController)
-            else { assert(false); return }
+        let navigationController = UINavigationController()
+        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         
-        let targetTransitionsHandler = navigationTransitionsHandler
-            ?? navigationController.wrappedInNavigationTransitionsHandler()
-        
-        guard targetTransitionsHandler !== transitionsHandler
-            else { assert(false, "you must create a new Navigation Transitions Handler for popover transitions"); return }
-        
-        let context = ForwardTransitionContext(
-            presentingViewController: viewController,
-            inNavigationController: navigationController,
-            inPopoverController: popoverController,
-            fromBarButtonItem: buttonItem,
-            targetTransitionsHandler: targetTransitionsHandler,
-            animator: animator)
-        
-        transitionsHandler.performTransition(context: context)
+        transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
+            let popoverController = navigationController.wrappedInPopoverController()
+            
+            let viewController = closure(
+                transitionId: generatedTransitionId,
+                transitionsHandler: navigationTransitionsHandler)
+            
+            navigationController.viewControllers = [viewController]
+            
+            let context = ForwardTransitionContext(
+                presentingViewController: viewController,
+                inNavigationController: navigationController,
+                inPopoverController: popoverController,
+                fromRect: rect,
+                inView: view,
+                targetTransitionsHandler: navigationTransitionsHandler,
+                animator: animator)
+            
+            return context
+        }
     }
     
     final func presentViewControllerDerivedFrom(
-        closure closure: (TransitionsHandler -> UIViewController),
-        inPopoverFromBarButtonItem barButtonItem: UIBarButtonItem)
+        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        inPopoverFromBarButtonItem barButtonItem: UIBarButtonItem,
+        animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
+        guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
         let navigationController = UINavigationController()
-        let transitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         
-        let viewController = closure(transitionsHandler)
-        navigationController.viewControllers = [viewController]
-        
-        let popoverController = navigationController.wrappedInPopoverController()
-        
-        presentViewController(
-            viewController,
-            inNavigationController: navigationController,
-            inPopoverController: popoverController,
-            fromBarButtonItem: barButtonItem,
-            navigationTransitionsHandler: transitionsHandler)
+        transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
+            let popoverController = navigationController.wrappedInPopoverController()
+            
+            let viewController = closure(
+                transitionId: generatedTransitionId,
+                transitionsHandler: navigationTransitionsHandler
+            )
+            
+            navigationController.viewControllers = [viewController]
+            
+            let context = ForwardTransitionContext(
+                presentingViewController: viewController,
+                inNavigationController: navigationController,
+                inPopoverController: popoverController,
+                fromBarButtonItem: barButtonItem,
+                targetTransitionsHandler: navigationTransitionsHandler,
+                animator: animator)
+
+            return context
+        }
     }
 }

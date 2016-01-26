@@ -1,10 +1,13 @@
 typealias TransitionId = String
 
 protocol TransitionsHandler: class {
-     /**
+    /**
      Вызывается роутером, чтобы осуществить переход на другой модуль
+     
+     - parameter contextCreationClosure: блок, в который передается сгенерированный обработчиком переходов
+     идентификатор перехода, и возвращающий описание параметро перехода на другой модуль
      */
-    func performTransition(context context: ForwardTransitionContext, completion: (TransitionId) -> Void)
+    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
     
     /**
      Вызывается роутером, чтобы отменить все переходы и вернуться с другого модуля на модуль роутера
@@ -42,7 +45,7 @@ protocol TransitionsHandler: class {
 }
 
 extension TransitionsHandler {
-    func performTransition(context context: ForwardTransitionContext) {}
+    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
     func undoTransitions(tilContext context: BackwardTransitionContext) {}
     func undoTransition(id transitionId: TransitionId) {}
     func undoAllChainedTransitions() {}

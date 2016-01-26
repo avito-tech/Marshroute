@@ -1,6 +1,6 @@
 import UIKit
 
-class BaseRouter: Router, TransitionsHandlerStorer, RouterDismisable {
+class BaseRouter: Router, RouterDismisable, RouterFocusable, TransitionsHandlerStorer {
     // Router
     private (set) weak var rootViewController: UIViewController?
     
@@ -14,15 +14,14 @@ class BaseRouter: Router, TransitionsHandlerStorer, RouterDismisable {
     var transitionsHandler: TransitionsHandler?
     
     // RouterDismisable
-    weak var parentRouter: RouterDismisable?
+    weak var presentingTransitionsHandler: TransitionsHandler?
     
-    func dismissChildRouter(child: RouterDismisable) {
-        focusTransitionsHandlerBackOnMyRootViewController()
-    }
+    var transitionId: TransitionId?
 }
 
+// MARK: - RouterFocusable
 extension BaseRouter {
-    func focusTransitionsHandlerBackOnMyRootViewController()
+    func focusOnSelf()
     {
         guard let rootViewController = rootViewController
             else { assert(false); return }
@@ -34,7 +33,11 @@ extension BaseRouter {
         transitionsHandler.undoTransitions(tilContext: backwardContext)
     }
     
-    func pushViewController(viewController: UIViewController,
+}
+
+// MARK: - helpers
+extension BaseRouter {
+    final func pushViewController(viewController: UIViewController,
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {
         guard let transitionsHandler = transitionsHandler
@@ -50,7 +53,7 @@ extension BaseRouter {
         transitionsHandler.performTransition(context: context)
     }
     
-    func presentModalMasterDetailViewController(
+    final func presentModalMasterDetailViewController(
         viewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
@@ -69,22 +72,15 @@ extension BaseRouter {
         transitionsHandler.performTransition(context: context)
     }
     
-    func presentModalSplitViewController(
+    final func presentModalSplitViewController(
         viewController: UISplitViewController,
         masterControllerDerivedFromClosure closureMaster: (TransitionsHandler -> UIViewController),
         detailControllerDerivedFromClosure closureDetail: (TransitionsHandler -> UIViewController),
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {
         let splitViewController = UISplitViewController()
-        let splitViewTransitionHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
-        defer {
-            presentModalMasterDetailViewController(
-                splitViewController,
-                targetTransitionsHandler: splitViewTransitionHandler,
-                animator: animator
-            )
-        }
-        
+        let splitViewTransitionsHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
+
         let masterNavigation = UINavigationController()
         let detailNavigation = UINavigationController()
         splitViewController.viewControllers = [masterNavigation, detailNavigation]
@@ -92,17 +88,23 @@ extension BaseRouter {
         let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
         let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
 
-        splitViewTransitionHandler.masterTransitionsHandler = masterTransitionsHandler
-        splitViewTransitionHandler.detailTransitionsHandler = detailTransitionsHandler
+        splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
+        splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
         
         let masterViewController = closureMaster(masterTransitionsHandler)
         let detailViewController = closureDetail(detailTransitionsHandler)
 
         masterNavigation.viewControllers = [masterViewController]
         detailNavigation.viewControllers = [detailViewController]
+
+        presentModalMasterDetailViewController(
+            splitViewController,
+            targetTransitionsHandler: splitViewTransitionsHandler,
+            animator: animator
+        )
     }
     
-    func presentModalViewController(
+    final func presentModalViewController(
         viewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         navigationTransitionsHandler: TransitionsHandler,
@@ -132,7 +134,7 @@ extension BaseRouter {
         transitionsHandler.performTransition(context: context)
     }
     
-    func presentModalViewControllerDerivedFrom(closure closure: (TransitionsHandler -> UIViewController),
+    final func presentModalViewControllerDerivedFrom(closure closure: (TransitionsHandler -> UIViewController),
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {
         let navigationController = UINavigationController()
@@ -148,7 +150,7 @@ extension BaseRouter {
             navigationTransitionsHandler: transitionsHandler)
     }
     
-    func presentViewController(
+    final func presentViewController(
         viewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
@@ -176,7 +178,7 @@ extension BaseRouter {
     }
     
     
-    func presentViewControllerDerivedFrom(
+    final func presentViewControllerDerivedFrom(
         closure closure: (TransitionsHandler -> UIViewController),
         inPopoverFromRect rect: CGRect,
         inView view: UIView)
@@ -198,7 +200,7 @@ extension BaseRouter {
             navigationTransitionsHandler: transitionsHandler)
     }
     
-    func presentViewController(
+    final func presentViewController(
         viewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
@@ -229,7 +231,7 @@ extension BaseRouter {
         transitionsHandler.performTransition(context: context)
     }
     
-    func presentViewControllerDerivedFrom(
+    final func presentViewControllerDerivedFrom(
         closure closure: (TransitionsHandler -> UIViewController),
         inPopoverFromBarButtonItem barButtonItem: UIBarButtonItem)
     {

@@ -21,11 +21,6 @@ extension SecondRouterImpl: SecondRouter {
         
         presentModalViewControllerDerivedFrom(closure: firstViewControllerForTransitionsHandler)
     }
-
-    func dismissChildModules() {
-        focusTransitionsHandlerBackOnMyRootViewController()
-        //transitionsHandler?.undoAllTransitions()
-    }
     
     func showSecondModule(sender sender: AnyObject, title: Int) {
         func secondViewControllerForTransitionsHandler(transitionsHandler: TransitionsHandler) -> UIViewController {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CCD404451C514813008FBDD3 /* MasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */; };
+		CCE059851C57712F005F15AF /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE059831C57712F005F15AF /* RouterFocusable.swift */; };
 		CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EF91C50ECBA00909924 /* AppDelegate.swift */; };
 		CCE12F031C50ECBA00909924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F021C50ECBA00909924 /* Assets.xcassets */; };
 		CCE12F061C50ECBA00909924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 
 /* Begin PBXFileReference section */
 		CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCE059831C57712F005F15AF /* RouterFocusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusable.swift; sourceTree = "<group>"; };
 		CCE12EF61C50ECBA00909924 /* Navigation-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navigation-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE12EF91C50ECBA00909924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE12F021C50ECBA00909924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				CCE12F9C1C50F38F00909924 /* PopoverTransitionStyleConverter.swift */,
 				CCE12F9D1C50F38F00909924 /* PopoverTranstionsAnimator.swift */,
 				CCE12F9E1C50F38F00909924 /* Router.swift */,
+				CCE059831C57712F005F15AF /* RouterFocusable.swift */,
 				CCE12F9F1C50F38F00909924 /* RouterDismisable.swift */,
 				CCE12FA01C50F38F00909924 /* SplitViewTransitionsHandler.swift */,
 				CCE12FA11C50F38F00909924 /* TabBarTransitionsHandler.swift */,
@@ -524,6 +527,7 @@
 				CCE8C9601C561C780041801D /* FirstAssemblyImpl.swift in Sources */,
 				CCE8C9D11C563A610041801D /* AuthorizationRouterImpl.swift in Sources */,
 				CCE8C9CC1C563A610041801D /* AuthorizationAssemblyImpl.swift in Sources */,
+				CCE059851C57712F005F15AF /* RouterFocusable.swift in Sources */,
 				CCE8C9711C561C780041801D /* SecondInteractor.swift in Sources */,
 				CCE8C9751C561C780041801D /* SecondModuleOutput.swift in Sources */,
 				CCE8C98E1C561C8F0041801D /* ApplicationNavigationAssemblyImpl.swift in Sources */,

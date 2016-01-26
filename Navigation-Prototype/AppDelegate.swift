@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var applicationModuleInput: ApplicationModuleInput?
+    weak var applicationModuleInput: ApplicationModuleInput? // Presenter
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         applicationModuleInput = AssemblyFactory.applicationModuleAssembly().module()

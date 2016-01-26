@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AuthorizationModuleInput {
+protocol AuthorizationModuleInput: class {
     
 }

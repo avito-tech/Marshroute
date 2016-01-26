@@ -49,7 +49,7 @@ extension FirstPresenter: FirstViewOutput  {
     
     func onUserDone() {
         interactor.stopTimer()
-        router.askParentRouterToDismissSelf()
+        router.returnToPresentingModule()
     }
     
     func userDidRequestTimerLaunch() {
@@ -65,7 +65,7 @@ extension FirstPresenter: FirstInteractorOutput {
     }
     
     func timerFired() {
-        router.dismissChildModules()
+        router.focusOnSelf()
         viewInput?.setTimerInteractionEnabled(true)
         viewInput?.setSecondsUntilTimerEnabled(0)
     }

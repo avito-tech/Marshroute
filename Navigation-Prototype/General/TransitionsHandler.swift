@@ -1,14 +1,20 @@
+typealias TransitionId = String
+
 protocol TransitionsHandler: class {
      /**
      Вызывается роутером, чтобы осуществить переход на другой модуль
-     - parameter context: описание анимации перехода
      */
-    func performTransition(context context: ForwardTransitionContext)
+    func performTransition(context context: ForwardTransitionContext, completion: (TransitionId) -> Void)
     
     /**
-     Вызывается роутером, чтобы вернуться с другого модуля
+     Вызывается роутером, чтобы отменить все переходы и вернуться с другого модуля на модуль роутера
      */
     func undoTransitions(tilContext context: BackwardTransitionContext)
+    
+    /**
+     Вызывается роутером, чтобы отменить конкретный переход (и все последовавшие за ним)
+     */
+    func undoTransition(id transitionId: TransitionId)
     
     /**
      Вызывается роутером, чтобы скрыть всю последовательность дочерних модулей, 
@@ -38,6 +44,7 @@ protocol TransitionsHandler: class {
 extension TransitionsHandler {
     func performTransition(context context: ForwardTransitionContext) {}
     func undoTransitions(tilContext context: BackwardTransitionContext) {}
+    func undoTransition(id transitionId: TransitionId) {}
     func undoAllChainedTransitions() {}
     func undoAllTransitions() {}
     func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext) {}

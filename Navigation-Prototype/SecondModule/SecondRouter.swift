@@ -1,7 +1,6 @@
 import Foundation
 
-protocol SecondRouter: RouterDismisable {
+protocol SecondRouter: RouterDismisable, RouterFocusable {
     func showFirstModule(sender sender: AnyObject)
-    func dismissChildModules()
     func showSecondModule(sender sender: AnyObject, title: Int)
 }

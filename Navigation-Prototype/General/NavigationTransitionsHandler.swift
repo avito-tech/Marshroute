@@ -45,6 +45,10 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         }
     }
     
+    func undoTransition(id transitionId: TransitionId) {
+        
+    }
+    
     func undoAllChainedTransitions() {
         forwardUndoingAllChainedTransitions()
         undoChainedTransitionAndCommit()
@@ -160,7 +164,8 @@ private extension NavigationTransitionsHandler {
                 
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,
-            sourceViewController: sourceViewController)
+            sourceViewController: sourceViewController,
+        sourcetrans)
         
         completedTransitionsStack.append(completedTransitionContext)
     }
@@ -177,12 +182,12 @@ private extension NavigationTransitionsHandler {
 // MARK: - private transitions forwarding to chained transition hanlders
 private extension NavigationTransitionsHandler {
     func shouldForwardPerformingTransition(context context: ForwardTransitionContext) -> Bool {
-        return lastRestoredChainedTransitionHandler != nil
+        return lastRestoredChainedTransitionsHandler != nil
     }
     
     func forwardPerformingTransition(context context: ForwardTransitionContext) {
-        assert(lastRestoredChainedTransitionHandler != nil, "you cannot forward to nil")
-        lastRestoredChainedTransitionHandler?.performTransition(context: context)
+        assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
+        lastRestoredChainedTransitionsHandler?.performTransition(context: context)
     }
     
     func shouldForwardUndoingTransitions(tilContext context: BackwardTransitionContext) -> Bool {
@@ -190,15 +195,15 @@ private extension NavigationTransitionsHandler {
     }
     
     func forwardUndoingTransitions(tilContext context: BackwardTransitionContext) {
-        assert(lastRestoredChainedTransitionHandler != nil, "you cannot forward to nil")
-        lastRestoredChainedTransitionHandler?.undoTransitions(tilContext: context)
+        assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
+        lastRestoredChainedTransitionsHandler?.undoTransitions(tilContext: context)
     }
     
     /**
      Заставляем дочерние обработчики скрыть свои поповеры и убрать свои модальные окна
      */
     func forwardUndoingAllChainedTransitions() {
-        lastRestoredChainedTransitionHandler?.undoAllChainedTransitions()
+        lastRestoredChainedTransitionsHandler?.undoAllChainedTransitions()
     }
 }
 
@@ -227,7 +232,7 @@ private extension NavigationTransitionsHandler {
         return completedTransitionsStack.lastToContext(context)
     }
     
-    var lastRestoredChainedTransitionHandler: TransitionsHandler? {
+    var lastRestoredChainedTransitionsHandler: TransitionsHandler? {
         return lastRestoredChainedTransition?.transitionsHandler
     }
 }

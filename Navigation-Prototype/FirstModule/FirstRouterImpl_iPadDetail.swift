@@ -49,9 +49,4 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
             inPopoverFromBarButtonItem: barButtonItem
         )
     }
-    
-    func dismissChildModules() {
-        focusTransitionsHandlerBackOnMyRootViewController()
-        //transitionsHandler?.undoAllTransitions()
-    }
 }

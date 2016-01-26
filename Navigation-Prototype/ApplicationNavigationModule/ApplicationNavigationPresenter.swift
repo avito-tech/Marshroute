@@ -6,10 +6,17 @@ class ApplicationNavigationPresenter {
     
     weak var viewInput: ApplicationNavigationViewInput?
     
+    weak var authInput: AuthorizationModuleInput?
+    
     //MARK: - Init
     init(interactor: ApplicationNavigationInteractor, router: ApplicationNavigationRouter){
         self.interactor = interactor
         self.router = router
+        
+        
+//        self.router.showAuthorization({ (input: AuthorizationModule) in
+//            self.authInput = input
+//        })
     }
     
 }

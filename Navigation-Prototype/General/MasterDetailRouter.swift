@@ -3,7 +3,7 @@ import UIKit
 class MasterDetailRouter: BaseRouter {
     var detailTransitionsHandler: TransitionsHandler?
     
-    func setDetailViewController(
+    final func setDetailViewController(
         viewController: UIViewController,
         animator: TransitionsAnimator = NavigationTransitionsAnimator())
     {

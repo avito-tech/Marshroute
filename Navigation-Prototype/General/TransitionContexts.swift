@@ -121,13 +121,26 @@ struct BackwardTransitionContext {
  *  Слабые ссылки на показанный контроллер и его обработчик переходов позволяют пользоваться кнопкой '< Back' и т.д.
  */
 struct CompletedTransitionContext {
-    /// контроллер, c которого перешли
-    private (set) weak var sourceViewController: UIViewController?
+    /// идентификатор перехода
+    /// для точной отмены нужного перехода и возвращения на предыдущий экран через 
+    /// ```swift
+    /// undoTransition(id:)
+    let transitionId: TransitionId
+    
+    /// контроллер роутера, вызвавшего переход.
+    /// удобно использовать роутером модуля контейнера
+    /// для отмены всех переходов и возвращения на главный экран контейнера через
+    /// ```swift
+    /// undoTransitions(tilContext:)
+    let sourceViewController: UIViewController
+
+    /// обработчик переходов для роутера модуля, вызвавшего переход
+    private (set) weak var sourceTransitionsHandler: TransitionsHandler?
 
     /// контроллер, на который перешли
     private (set) weak var targetViewController: UIViewController?
     
-    /// контроллер переходов для роутера модуля, на контроллер которого перешли
+    /// обработчик переходов для роутера модуля, на контроллер которого перешли
     private (set) weak var targetTransitionsHandler: TransitionsHandler?
     
     /// стиль перехода
@@ -140,13 +153,19 @@ struct CompletedTransitionContext {
     let animator: TransitionsAnimator
     
     init(forwardTransitionContext context: ForwardTransitionContext,
-        sourceViewController: UIViewController) {
+        sourceViewController: UIViewController,
+        sourceTransitionsHandler: TransitionsHandler,
+        transitionId: String) {
             self.sourceViewController = sourceViewController
+            self.sourceTransitionsHandler = sourceTransitionsHandler
+            
             self.targetViewController = context.targetViewController
             self.targetTransitionsHandler = context.targetTransitionsHandler
             self.transitionStyle = context.transitionStyle
             self.storableParameters = context.storableParameters
             self.animator = context.animator
+            
+            self.transitionId = transitionId
     }
     
     var isZombie: Bool {
@@ -160,13 +179,26 @@ struct CompletedTransitionContext {
  *  Отличается от CompletedTransitionContext тем, что все поля в нем уже не optional (для удобства)
  */
 struct RestoredTransitionContext {
-    /// контроллер, с которого перешли
+    /// идентификатор перехода
+    /// для точной отмены нужного перехода и возвращения на предыдущий экран через
+    /// ```swift
+    /// undoTransition(id:)
+    let transitionId: TransitionId
+    
+    /// контроллер роутера, вызвавшего переход.
+    /// удобно использовать роутером модуля контейнера
+    /// для отмены всех переходов и возвращения на главный экран контейнера через
+    /// ```swift
+    /// undoTransitions(tilContext:)
     let sourceViewController: UIViewController
+    
+    /// обработчик переходов для роутера модуля, с контоллера которого перешли
+    private (set) weak var sourceTransitionsHandler: TransitionsHandler?
     
     /// контроллер, на который перешли
     let targetViewController: UIViewController
     
-    /// обработчик переходов для роутера модуля, на контроллер которого перешли
+    /// обработчик переходов для роутера модуля, вызвавшего переход
     // TODO: aaa сделать не optional
     let transitionsHandler: TransitionsHandler?
     

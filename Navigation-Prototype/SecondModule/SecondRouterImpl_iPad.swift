@@ -28,11 +28,6 @@ extension  SecondRouterImpl_iPad: SecondRouter {
         )
     }
     
-    func dismissChildModules() {
-        focusTransitionsHandlerBackOnMyRootViewController()
-        transitionsHandler?.undoAllTransitions()
-    }
-    
     func showSecondModule(sender sender: AnyObject, title: Int) {
         guard let barButtonItem = sender as? UIBarButtonItem
             else { return }

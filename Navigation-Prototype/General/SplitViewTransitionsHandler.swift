@@ -32,6 +32,10 @@ extension SplitViewTransitionsHandler: TransitionsHandler {
         firstResponderTransitionsHandler?.undoTransitions(tilContext: context)
     }
     
+    func undoTransition(id transitionId: TransitionId) {
+        firstResponderTransitionsHandler?.undoTransition(id: transitionId)
+    }
+    
     func undoAllChainedTransitions() {
         firstResponderTransitionsHandler?.undoAllChainedTransitions()
     }
@@ -50,7 +54,7 @@ extension SplitViewTransitionsHandler: NavigationTransitionsHandlerDelegate {
     func navigationTransitionsHandlerDidBecomeFirstResponder(handler: NavigationTransitionsHandler) {
         firstResponderTransitionsHandler = handler
     }
-
+    
     func navigationTransitionsHandlerDidResignFirstResponder(handler: NavigationTransitionsHandler) {
         // эта реализация по умолчанию прокидывает сообщения в master.
         // можно написать вторую отдельную реализацию, если нужно

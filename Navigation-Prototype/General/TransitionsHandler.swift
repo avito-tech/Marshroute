@@ -41,7 +41,7 @@ protocol TransitionsHandler: class {
      Как правило вызывается роутером master - модуля SplitViewController'а,
      чтобы обновить detail
      */
-    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext)
+    func undoAllChainedTransitionsAndResetWithTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
 }
 
 extension TransitionsHandler {
@@ -50,5 +50,5 @@ extension TransitionsHandler {
     func undoTransition(id transitionId: TransitionId) {}
     func undoAllChainedTransitions() {}
     func undoAllTransitions() {}
-    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext) {}
+    func undoAllChainedTransitionsAndResetWithTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
 }

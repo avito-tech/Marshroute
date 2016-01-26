@@ -62,9 +62,14 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         undoAllTransitionsAndCommit()
     }
     
-    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext) {
+    func undoAllChainedTransitionsAndResetWithTransition(
+        contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    {
         forwardUndoingAllChainedTransitions()
         undoChainedTransitionAndCommit()
+        
+        let transitionId = generateTransitionId()
+        let context = closure(generatedTransitionId: transitionId)
         resetAllTransitionsAndCommit(withContext: context)
     }
 }

@@ -7,16 +7,16 @@ protocol RouterDismisable: class {
     /// убрать свой модуль и вернуться на предыдущий модуль через
     /// ```swift
     /// undoTransition(id:)
-    weak var presentingTransitionsHandler: TransitionsHandler? { get set }
+    weak var parentTransitionsHandler: TransitionsHandler? { get }
     
     /// идентификатор перехода
-    var transitionId: TransitionId? { get set }
+    var transitionId: TransitionId? { get }
 }
 
 extension RouterDismisable {
     func returnToPresentingModule() {
         if let transitionId = transitionId {
-            presentingTransitionsHandler?.undoTransition(id: transitionId)
+            parentTransitionsHandler?.undoTransition(id: transitionId)
         }
     }
 }

@@ -1,22 +1,43 @@
 import UIKit
 
 class MasterDetailRouter: BaseRouter {
-    var detailTransitionsHandler: TransitionsHandler?
+    var detailTransitionsHandler: TransitionsHandler
     
-    final func setDetailViewController(
-        viewController: UIViewController,
-        animator: TransitionsAnimator = NavigationTransitionsAnimator())
+    init(transitionsHandler: TransitionsHandler,
+        detailTransitionsHandler: TransitionsHandler,
+        transitionId: TransitionId?,
+        parentTransitionsHandler: TransitionsHandler?)
     {
-        guard let detailTransitionsHandler = detailTransitionsHandler
-            else { assert(false); return }
+        self.detailTransitionsHandler = detailTransitionsHandler
         
-        let targetTransitionsHandler = detailTransitionsHandler
+        super.init(
+            transitionsHandler: transitionsHandler,
+            transitionId: transitionId,
+            parentTransitionsHandler: parentTransitionsHandler
+        )
+    }
+    
+    final func setDetailViewControllerDerivedFrom(
+        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+    {
+        setDetailViewControllerDerivedFrom(closure, animator: NavigationTransitionsAnimator())
+    }
+    
+    final func setDetailViewControllerDerivedFrom(
+        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        animator: TransitionsAnimator)
+    {
+        let detailTransitionsHandler = self.detailTransitionsHandler
         
-        let context = ForwardTransitionContext(
-            pushingViewController: viewController,
-            targetTransitionsHandler: targetTransitionsHandler,
-            animator: animator)
-        
-        detailTransitionsHandler.undoAllChainedTransitionsAndResetWithTransition(context)
+        detailTransitionsHandler.undoAllChainedTransitionsAndResetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
+            let viewController = closure(transitionId: generatedTransitionId, transitionsHandler: detailTransitionsHandler)
+            
+            let context = ForwardTransitionContext(
+                pushingViewController: viewController,
+                targetTransitionsHandler: detailTransitionsHandler,
+                animator: animator)
+            
+            return context
+        }
     }
 }

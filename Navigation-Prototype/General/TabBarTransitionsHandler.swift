@@ -51,8 +51,10 @@ extension TabBarTransitionsHandler: TransitionsHandler {
         selectedTransitionHandler?.undoAllTransitions()
     }
     
-    func undoAllChainedTransitionsAndResetWithTransition(context: ForwardTransitionContext) {
-        selectedTransitionHandler?.undoAllChainedTransitionsAndResetWithTransition(context)
+    func undoAllChainedTransitionsAndResetWithTransition(
+        contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    {
+        selectedTransitionHandler?.undoAllChainedTransitionsAndResetWithTransition(contextCreationClosure: closure)
     }
 }
 

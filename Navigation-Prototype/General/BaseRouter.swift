@@ -11,12 +11,18 @@ class BaseRouter: Router, RouterDismisable, RouterFocusable, TransitionsHandlerS
     }
     
     // TransitionsHandlerStorer
-    var transitionsHandler: TransitionsHandler?
+    var transitionsHandler: TransitionsHandler
     
     // RouterDismisable
-    weak var presentingTransitionsHandler: TransitionsHandler?
+    weak var parentTransitionsHandler: TransitionsHandler?
     
     var transitionId: TransitionId?
+    
+    init(transitionsHandler: TransitionsHandler, transitionId: TransitionId?, parentTransitionsHandler: TransitionsHandler?) {
+        self.transitionId = transitionId
+        self.transitionsHandler = transitionsHandler
+        self.parentTransitionsHandler = parentTransitionsHandler
+    }
 }
 
 // MARK: - RouterFocusable
@@ -24,9 +30,6 @@ extension BaseRouter {
     func focusOnSelf()
     {
         guard let rootViewController = rootViewController
-            else { assert(false); return }
-        
-        guard let transitionsHandler = transitionsHandler
             else { assert(false); return }
         
         let backwardContext = BackwardTransitionContext(targetViewController: rootViewController)
@@ -38,18 +41,21 @@ extension BaseRouter {
 // MARK: - helpers
 extension BaseRouter {
     final func pushViewControllerDerivedFrom(
-        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: TransitionsAnimator = NavigationTransitionsAnimator())
+        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
-        guard let transitionsHandler = transitionsHandler
-            else { assert(false); return }
-        
+        pushViewControllerDerivedFrom(closure, animator: NavigationTransitionsAnimator())
+    }
+    
+    final func pushViewControllerDerivedFrom(
+        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        animator: TransitionsAnimator)
+    {
         let targetTransitionsHandler = transitionsHandler
         
         transitionsHandler.performTransition(contextCreationClosure: { (generatedTransitionId: TransitionId) -> ForwardTransitionContext in
             let viewController = closure(
                 transitionId: generatedTransitionId,
-                transitionsHandler: transitionsHandler)
+                transitionsHandler: targetTransitionsHandler)
             
             let context = ForwardTransitionContext(
                 pushingViewController: viewController,
@@ -60,18 +66,26 @@ extension BaseRouter {
         })
     }
 
-    final func presentMasterDetailViewControllerDerivedFrom(
+    final func presentModalMasterDetailViewControllerDerivedFrom(
+        masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        
+    {
+        presentModalMasterDetailViewControllerDerivedFrom(
+            masterDeriviationClosure: masterClosure,
+            detailDeriviationClosure: detailClosure,
+            animator: NavigationTransitionsAnimator())
+    }
+    
+    final func presentModalMasterDetailViewControllerDerivedFrom(
         masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        inSplitViewController splitViewController: UISplitViewController,
-        animator: TransitionsAnimator = NavigationTransitionsAnimator())
+        animator: TransitionsAnimator)
     {
-        guard let transitionsHandler = transitionsHandler
-            else { assert(false); return }
-        
         let masterNavigation = UINavigationController()
         let detailNavigation = UINavigationController()
         
+        let splitViewController = UISplitViewController()
         splitViewController.viewControllers = [masterNavigation, detailNavigation]
         
         let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
@@ -102,15 +116,18 @@ extension BaseRouter {
         }
     }
     
-
     final func presentModalViewControllerDerivedFrom(
-        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: TransitionsAnimator = NavigationTransitionsAnimator())
+        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
-        
-        guard let transitionsHandler = transitionsHandler
-            else { assert(false); return }
-        
+        presentModalViewControllerDerivedFrom(
+            closure,
+            animator: NavigationTransitionsAnimator())
+    }
+    
+    final func presentModalViewControllerDerivedFrom(
+        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        animator: TransitionsAnimator)
+    {
         let navigationController = UINavigationController()
         let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         
@@ -137,15 +154,12 @@ extension BaseRouter {
         }
     }
     
-    final func presentViewControllerDerivedFrom(
-        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        inPopoverFromRect rect: CGRect,
+    final func presentPopoverFromRect(
+        rect: CGRect,
         inView view: UIView,
+        withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
-        guard let transitionsHandler = transitionsHandler
-            else { assert(false); return }
-        
         let navigationController = UINavigationController()
         let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         
@@ -171,14 +185,11 @@ extension BaseRouter {
         }
     }
     
-    final func presentViewControllerDerivedFrom(
-        deriviationClosure closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        inPopoverFromBarButtonItem barButtonItem: UIBarButtonItem,
+    final func presentPopoverFromBarButtonItem(
+        barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator = PopoverTranstionsAnimator())
     {
-        guard let transitionsHandler = transitionsHandler
-            else { assert(false); return }
-        
         let navigationController = UINavigationController()
         let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
         

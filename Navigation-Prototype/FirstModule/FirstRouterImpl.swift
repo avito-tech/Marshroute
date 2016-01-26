@@ -4,44 +4,46 @@ final class FirstRouterImpl: BaseRouter {}
 
 extension FirstRouterImpl: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
-            String(count + 1),
-            parentRouter: self,
-            transitionsHandler: transitionsHandler,
-            canShowFirstModule: canShowFirstModule,
-            canShowSecondModule: canShowSecondModule,
-            dismissable: false,
-            withTimer: false).0
-        
-        pushViewController(viewController)
+        pushViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+            let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
+                String(count + 1),
+                parentTransitionsHandler: self?.transitionsHandler,
+                transitionId: transitionId,
+                transitionsHandler: transitionsHandler,
+                canShowFirstModule: canShowFirstModule,
+                canShowSecondModule: canShowSecondModule,
+                dismissable: false,
+                withTimer: false).0
+            return viewController
+        }
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
-            String(count + 1),
-            parentRouter: self,
-            transitionsHandler: transitionsHandler,
-            canShowFirstModule: canShowFirstModule,
-            canShowSecondModule: canShowSecondModule,
-            dismissable: false,
-            withTimer: false).0
-        
-        pushViewController(viewController)
-    }
-    
-    func showSecondModule(sender sender: AnyObject?) {
-        func secondModuleForTransitionsHandler(transitionsHandler: TransitionsHandler) -> UIViewController {
-            
-            let viewController = AssemblyFactory.secondModuleAssembly()
-                .iphoneModule(
-                    parentRouter: self,
-                    transitionsHandler: transitionsHandler,
-                    title: "1",
-                    withTimer: true,
-                    canShowModule1: true).0
+        pushViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+            let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
+                String(count + 1),
+                parentTransitionsHandler: self?.transitionsHandler,
+                transitionId: transitionId,
+                transitionsHandler: transitionsHandler,
+                canShowFirstModule: canShowFirstModule,
+                canShowSecondModule: canShowSecondModule,
+                dismissable: false,
+                withTimer: false).0
             return viewController
         }
-
-        presentDerivedModalViewControllerFrom(deriviationClosure: secondModuleForTransitionsHandler)
+    }
+    
+    func showSecondModule(sender sender: AnyObject?) {        
+        presentModalViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+            let viewController = AssemblyFactory.secondModuleAssembly()
+                .iphoneModule(
+                    transitionsHandler,
+                    title: "1",
+                    withTimer: true,
+                    canShowModule1: true,
+                    transitionId: transitionId,
+                    parentTransitionsHandler: self?.transitionsHandler).0
+            return viewController
+        }
     }
 }

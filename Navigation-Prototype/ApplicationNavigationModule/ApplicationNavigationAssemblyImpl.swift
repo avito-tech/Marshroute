@@ -24,7 +24,7 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         
         let tabTransitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
         tabTransitionsHandler.tabTransitionHandlers = controllersAndHandlers.1
-
+        
         router.transitionsHandler = tabTransitionsHandler
         router.parentRouter = nil
         router.setRootViewControllerIfNeeded(tabBarController)
@@ -44,7 +44,8 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         let firstNavigation = UINavigationController()
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
         
-        let first = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentRouter: nil, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+        let first = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentTransitionsHandler: nil, transitionId: nil, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+        
         firstNavigation.viewControllers = [first]
         firstNavigation.tabBarItem.title = "1"
         
@@ -71,7 +72,9 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
             let masterNavigation = UINavigationController()
             let masterTransitionHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
             
-            let master = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", parentRouter: nil, transitionsHandler: masterTransitionHandler, detailTransitionsHandler: detailTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+            
+            let master = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", parentTransitionsHandler: nil, transitionId: nil, transitionsHandler: masterTransitionHandler, detailTransitionsHandler: detailTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+            
             masterNavigation.viewControllers = [master]
             
             
@@ -84,10 +87,9 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
-        let second = AssemblyFactory.secondModuleAssembly().ipadModule(parentRouter: nil, transitionsHandler: secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true).0
+        let second = AssemblyFactory.secondModuleAssembly().ipadModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: nil, parentTransitionsHandler: nil).0
         secondNavigation.viewControllers = [second]
         secondNavigation.tabBarItem.title = "2"
-        
         
         let controllers = [firstSplit, secondNavigation]
         return (controllers, [firstSplitTransitionHandler, secondTransitionHandler])

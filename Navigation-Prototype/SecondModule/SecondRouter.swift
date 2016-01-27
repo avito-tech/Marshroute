@@ -1,6 +1,6 @@
 import Foundation
 
-protocol SecondRouter: RouterDismisable, RouterFocusable {
+protocol SecondRouter: Router {
     func showFirstModule(sender sender: AnyObject)
     func showSecondModule(sender sender: AnyObject, title: Int)
 }

@@ -34,8 +34,6 @@ final class SecondAssemblyImpl: SecondAssembly {
         viewController.title = title
         viewController.output = presenter
         
-        router.setRootViewControllerIfNeeded(viewController)    //1
-        
         presenter.viewInput = viewController
         interactor.output = presenter
         
@@ -73,8 +71,6 @@ final class SecondAssemblyImpl: SecondAssembly {
         viewController.view.backgroundColor = .yellowColor()
         viewController.title = title
         viewController.output = presenter
-        
-        router.setRootViewControllerIfNeeded(viewController)    //1
         
         presenter.viewInput = viewController
         interactor.output = presenter

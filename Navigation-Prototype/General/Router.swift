@@ -1,9 +1,16 @@
-import UIKit
-
 /**
- *  Методы, чтобы связать роутер с его главным экраном
+ *  Методы, чтобы вернуться на экран текущего модуля
  */
-protocol Router: class {
-    weak var rootViewController: UIViewController? { get }
-    func setRootViewControllerIfNeeded(controller: UIViewController)
+protocol Router: class, RouterDismisable, TransitionsHandlerStorer {
+    func focusOnSelf()
+}
+
+extension Router {
+    func focusOnSelf() {
+        if let parentTransitionsHandler = parentTransitionsHandler,
+            let transitionId = transitionId
+        {
+            parentTransitionsHandler.undoTransition(id: transitionId)
+        }
+    }
 }

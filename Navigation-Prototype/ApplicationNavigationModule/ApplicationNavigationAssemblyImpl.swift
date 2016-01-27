@@ -29,9 +29,9 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
             transitionId: nil,
             parentTransitionsHandler: nil
         )
-        router.setRootViewControllerIfNeeded(tabBarController)
-        presenter.router = router
         
+        presenter.router = router
+
         navigationRootsHolder.rootTransitionsHandler = tabTransitionsHandler
         
         return (tabBarController, presenter)

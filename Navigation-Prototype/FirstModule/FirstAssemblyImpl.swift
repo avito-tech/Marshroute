@@ -36,8 +36,6 @@ final class FirstAssemblyImpl: FirstAssembly {
         viewController.title = title
         viewController.output = presenter
         
-        router.setRootViewControllerIfNeeded(viewController)    //1
-        
         presenter.viewInput = viewController
         interactor.output = presenter
         
@@ -77,8 +75,6 @@ final class FirstAssemblyImpl: FirstAssembly {
         viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
         viewController.title = title
         viewController.output = presenter
-        
-        router.setRootViewControllerIfNeeded(viewController)    //1
         
         presenter.viewInput = viewController
         interactor.output = presenter
@@ -121,8 +117,6 @@ final class FirstAssemblyImpl: FirstAssembly {
         viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
         viewController.title = title
         viewController.output = presenter
-        
-        router.setRootViewControllerIfNeeded(viewController)        //1
         
         presenter.viewInput = viewController
         interactor.output = presenter

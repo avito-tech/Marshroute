@@ -19,7 +19,7 @@ protocol TransitionsHandler: class {
      Вызывается роутером, чтобы отменить конкретный переход (и все последовавшие за ним).
      Так роутер может убрать себя с экрана
      */
-    func undoTransitions(precedingTransitionId transitionId: TransitionId)
+    func undoTransitions(tilTransitionIdPreceding transitionId: TransitionId)
     
     /**
      Вызывается роутером, чтобы скрыть всю последовательность дочерних модулей, 
@@ -49,7 +49,7 @@ protocol TransitionsHandler: class {
 extension TransitionsHandler {
     func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
     func undoTransitions(tilTransitionId transitionId: TransitionId) {}
-    func undoTransitions(precedingTransitionId transitionId: TransitionId) {}
+    func undoTransitions(tilTransitionIdPreceding transitionId: TransitionId) {}
     func undoAllChainedTransitions() {}
     func undoAllTransitions() {}
     func resetWithTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}

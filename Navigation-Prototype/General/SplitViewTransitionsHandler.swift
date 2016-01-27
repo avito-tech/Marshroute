@@ -32,8 +32,8 @@ extension SplitViewTransitionsHandler: TransitionsHandler {
         firstResponderTransitionsHandler?.undoTransitions(tilTransitionId: transitionId)
     }
     
-    func undoTransitions(precedingTransitionId transitionId: TransitionId) {
-        firstResponderTransitionsHandler?.undoTransitions(precedingTransitionId: transitionId)
+    func undoTransitions(tilTransitionIdPreceding transitionId: TransitionId) {
+        firstResponderTransitionsHandler?.undoTransitions(tilTransitionIdPreceding: transitionId)
     }
     
     func undoAllChainedTransitions() {

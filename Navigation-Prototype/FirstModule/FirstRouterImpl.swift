@@ -4,10 +4,10 @@ final class FirstRouterImpl: BaseRouter {}
 
 extension FirstRouterImpl: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        pushViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
                 String(count + 1),
-                parentTransitionsHandler: self?.transitionsHandler,
+                parentTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: transitionsHandler,
                 canShowFirstModule: canShowFirstModule,
@@ -19,10 +19,10 @@ extension FirstRouterImpl: FirstRouter {
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        pushViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom {(transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
                 String(count + 1),
-                parentTransitionsHandler: self?.transitionsHandler,
+                parentTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: transitionsHandler,
                 canShowFirstModule: canShowFirstModule,
@@ -34,7 +34,7 @@ extension FirstRouterImpl: FirstRouter {
     }
     
     func showSecondModule(sender sender: AnyObject?) {        
-        presentModalViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+        presentModalViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.secondModuleAssembly()
                 .iphoneModule(
                     transitionsHandler,
@@ -42,7 +42,7 @@ extension FirstRouterImpl: FirstRouter {
                     withTimer: true,
                     canShowModule1: true,
                     transitionId: transitionId,
-                    parentTransitionsHandler: self?.transitionsHandler).0
+                    parentTransitionsHandler: self.transitionsHandler).0
             return viewController
         }
     }

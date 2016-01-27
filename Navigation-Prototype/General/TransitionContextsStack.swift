@@ -100,7 +100,7 @@ private extension TransitionContextsStack {
         return nil
     }
     
-    private subscript (index: Int?)
+    subscript (index: Int?)
         -> CompletedTransitionContext?
     {
         if let index = index where index < transitionsStack.count {
@@ -109,7 +109,7 @@ private extension TransitionContextsStack {
         return nil
     }
     
-    private subscript (index: Int?)
+    subscript (index: Int?)
         -> RestoredTransitionContext?
     {
         let completed: CompletedTransitionContext? = self[index]
@@ -117,7 +117,7 @@ private extension TransitionContextsStack {
         return restored
     }
     
-    private func popTo(index index: Int?)
+    func popTo(index index: Int?)
         -> [RestoredTransitionContext]?
     {
         guard let index = index where index < transitionsStack.count

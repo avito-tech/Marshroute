@@ -4,10 +4,10 @@ final class FirstRouterImpl_IpadDetail: BaseRouter {}
 
 extension FirstRouterImpl_IpadDetail: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        pushViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom {(transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
                 String(count + 1),
-                parentTransitionsHandler: self?.transitionsHandler,
+                parentTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: transitionsHandler,
                 canShowFirstModule: canShowFirstModule,
@@ -19,10 +19,10 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {        
-        pushViewControllerDerivedFrom {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom {(transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
                 String(count + 1),
-                parentTransitionsHandler: self?.transitionsHandler,
+                parentTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: transitionsHandler,
                 canShowFirstModule: canShowFirstModule,
@@ -39,7 +39,7 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
         
         presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: {[weak self] (transitionId, transitionsHandler) -> UIViewController in
+            withViewControllerDerivedFrom: {(transitionId, transitionsHandler) -> UIViewController in
                 let viewController = AssemblyFactory.secondModuleAssembly()
                     .ipadModule(
                         transitionsHandler,
@@ -47,7 +47,7 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
                         withTimer: true,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        parentTransitionsHandler: self?.transitionsHandler).0
+                        parentTransitionsHandler: self.transitionsHandler).0
                 return viewController
         })
     }

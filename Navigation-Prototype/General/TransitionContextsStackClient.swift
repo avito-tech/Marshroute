@@ -18,8 +18,8 @@ class TransitionContextsStackClient {
         -> RestoredTransitionContext?
     {
         if let last = lastTransitionForTransitionsHandler(transitionsHandler)
-            where (last.targetTransitionsHandler !== transitionsHandler) && (last.sourceTransitionsHandler === transitionsHandler) {
-            return last
+            where last.isChainedForTransitionsHandler(transitionsHandler) {
+                return last
         }
         return nil
     }
@@ -27,8 +27,9 @@ class TransitionContextsStackClient {
     func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
-        if let last = stack.last where last.sourceTransitionsHandler === transitionsHandler {
-            return last
+        if let last = stack.last
+            where last.wasPerfromedByTransitionsHandler(transitionsHandler) {
+                return last
         }
         return nil
     }
@@ -36,21 +37,73 @@ class TransitionContextsStackClient {
     func transitionWithId(transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
-        if let restored = stack[transitionId] where restored.sourceTransitionsHandler === transitionsHandler {
-            return restored
+        if let restored = stack[transitionId]
+            where restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
+                return restored
         }
         return nil
     }
     
-    func transitionsTil(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    func transitionsAfter(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]? )
+    {
+        var chainedTransition: RestoredTransitionContext? = nil
+        var otherTransitions: [RestoredTransitionContext]? = nil
+        
+        assert(
+            transitionWithId(transitionId, forTransitionsHandler: transitionsHandler) != nil,
+            "проверяйте заранее, что id перехода действительно относится к обработчику переходов"
+        )
+        
+        if let last = lastTransitionForTransitionsHandler(transitionsHandler) {
+            otherTransitions = [RestoredTransitionContext]()
+            
+            var notChainedTransitionId: TransitionId?
+            
+            if last.isChainedForTransitionsHandler(transitionsHandler) {
+                chainedTransition = last
+                notChainedTransitionId = stack.lastPreceding(transitionId)?.transitionId
+            }
+            else {
+                otherTransitions?.insert(last, atIndex: 0)
+                notChainedTransitionId = last.transitionId
+            }
+            
+            while notChainedTransitionId != nil && transitionId != notChainedTransitionId {
+                if let previous = stack.lastPreceding(transitionId) {
+                    notChainedTransitionId = previous.transitionId
+                    otherTransitions?.insert(previous, atIndex: 0)
+                }
+                else {
+                    notChainedTransitionId = nil
+                }
+            }
+        }
+        
+        return (chainedTransition, otherTransitions)
+    }
+    
+    func transitionsAfterAndIncluding(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext])
     {
 
     }
-    
-    func transitionsPreceding(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
-        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext])
+}
+
+
+private extension RestoredTransitionContext {
+    func wasPerfromedByTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> Bool
     {
-        let restored = stack
+        let result = (sourceTransitionsHandler === transitionsHandler)
+        return result
+    }
+    
+    func isChainedForTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> Bool
+    {
+        let result = (targetTransitionsHandler !== transitionsHandler)
+        return result
     }
 }
+

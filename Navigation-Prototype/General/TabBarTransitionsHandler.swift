@@ -39,8 +39,8 @@ extension TabBarTransitionsHandler: TransitionsHandler {
         selectedTransitionHandler?.undoTransitions(tilTransitionId: transitionId)
     }
     
-    func undoTransitions(precedingTransitionId transitionId: TransitionId) {
-        selectedTransitionHandler?.undoTransitions(precedingTransitionId: transitionId)
+    func undoTransitions(tilTransitionIdPreceding transitionId: TransitionId) {
+        selectedTransitionHandler?.undoTransitions(tilTransitionIdPreceding: transitionId)
     }
     
     func undoAllChainedTransitions() {

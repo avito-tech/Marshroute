@@ -47,15 +47,32 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         let firstNavigation = UINavigationController()
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
         
-        let first = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentTransitionsHandler: nil, transitionId: nil, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
-        
-        firstNavigation.viewControllers = [first]
-        firstNavigation.tabBarItem.title = "1"
+        firstTransitionHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
+            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentTransitionsHandler: nil, transitionId: generatedTransitionId, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+            
+            let resetContext = ForwardTransitionContext(
+                resetingWithViewController: firstViewController,
+                transitionsHandler: firstTransitionHandler,
+                animator: NavigationTransitionsAnimator())
+            
+            return resetContext
+        }
         
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
-        let second = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: nil, parentTransitionsHandler: nil).0
-        secondNavigation.viewControllers = [second]
+        
+        secondTransitionHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
+            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: generatedTransitionId, parentTransitionsHandler: nil).0
+            
+            let resetContext = ForwardTransitionContext(
+                resetingWithViewController: secondViewController,
+                transitionsHandler: secondTransitionHandler,
+                animator: NavigationTransitionsAnimator())
+            
+            return resetContext
+        }
+
+        firstNavigation.tabBarItem.title = "1"
         secondNavigation.tabBarItem.title = "2"
         
         let controllers = [firstNavigation, secondNavigation]
@@ -66,26 +83,43 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         let firstSplit = UISplitViewController()
         let firstSplitTransitionHandler = firstSplit.wrappedInSplitViewTransitionsHandler()
         do {
-            let detail = UIViewController()
-            let detailNavigation = UINavigationController()
-            detailNavigation.viewControllers = [detail]
-            let detailTransitionHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
-            
-            
             let masterNavigation = UINavigationController()
-            let masterTransitionHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
-            
-            
-            let master = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", parentTransitionsHandler: nil, transitionId: nil, transitionsHandler: masterTransitionHandler, detailTransitionsHandler: detailTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
-            
-            masterNavigation.viewControllers = [master]
-            
+            let detailNavigation = UINavigationController()
             
             firstSplit.viewControllers = [masterNavigation, detailNavigation]
             firstSplit.tabBarItem.title = "1"
             
-            firstSplitTransitionHandler.masterTransitionsHandler = masterTransitionHandler
-            firstSplitTransitionHandler.detailTransitionsHandler = detailTransitionHandler
+            let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
+            let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
+            
+            masterTransitionsHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
+                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", parentTransitionsHandler: nil, transitionId: generatedTransitionId, transitionsHandler: masterTransitionsHandler, detailTransitionsHandler: detailTransitionsHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+                
+                let resetMasterContext = ForwardTransitionContext(
+                    resetingWithViewController: masterViewController,
+                    transitionsHandler: masterTransitionsHandler,
+                    animator: NavigationTransitionsAnimator())
+                
+                return resetMasterContext
+            }
+            
+            let detail = UIViewController()
+            
+            
+            detailTransitionsHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
+                let detailViewController = UIViewController()
+                
+                let resetDetailContext = ForwardTransitionContext(
+                    resetingWithViewController: detailViewController,
+                    transitionsHandler: detailTransitionsHandler,
+                    animator: NavigationTransitionsAnimator())
+                
+                return resetDetailContext
+            }
+            
+            
+            firstSplitTransitionHandler.masterTransitionsHandler = masterTransitionsHandler
+            firstSplitTransitionHandler.detailTransitionsHandler = detailTransitionsHandler
         }
         
         let secondNavigation = UINavigationController()

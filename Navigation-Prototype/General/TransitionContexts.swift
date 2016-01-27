@@ -24,32 +24,49 @@ struct ForwardTransitionContext {
     let animator: TransitionsAnimator
     
     /**
+     Контекст описывает первоначальную настройку обработчика переходов (проставление корневого контроллера навигации)
+     */
+    init(resetingWithViewController initialViewController: UIViewController,
+        transitionsHandler: TransitionsHandler,
+        animator: TransitionsAnimator)
+    {
+        self.targetViewController = initialViewController
+        self.targetTransitionsHandler = transitionsHandler
+        self.transitionStyle = .Push
+        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
+        self.storableParameters = nil
+        self.animator = animator
+    }
+    
+    /**
      Контекст описывает последовательный переход внутри UINavigationController'а текущего модуля
      */
     init(pushingViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator) {
-            self.targetViewController = targetViewController
-            self.targetTransitionsHandler = targetTransitionsHandler
-            self.transitionStyle = .Push
-            self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
-            self.storableParameters = nil
-            self.animator = animator
+        animator: TransitionsAnimator)
+    {
+        self.targetViewController = targetViewController
+        self.targetTransitionsHandler = targetTransitionsHandler
+        self.transitionStyle = .Push
+        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
+        self.storableParameters = nil
+        self.animator = animator
     }
     
     /**
      Контекст описывает переход на модальный контроллер, который нельзя! положить в UINavigationController:
      (UISplitViewController, UITabBarViewController)
      */
-    init(presentingModalViewController targetViewController: UIViewController,
+    init(presentingModalMasterDetailViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator) {
-            self.targetViewController = targetViewController
-            self.targetTransitionsHandler = targetTransitionsHandler
-            self.transitionStyle = .Modal
-            self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
-            self.storableParameters = NavigationTransitionStorableParameters(parentTransitionsHandler: targetTransitionsHandler)
-            self.animator = animator
+        animator: TransitionsAnimator)
+    {
+        self.targetViewController = targetViewController
+        self.targetTransitionsHandler = targetTransitionsHandler
+        self.transitionStyle = .Modal
+        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
+        self.storableParameters = NavigationTransitionStorableParameters(parentTransitionsHandler: targetTransitionsHandler)
+        self.animator = animator
     }
     
     /**
@@ -58,15 +75,21 @@ struct ForwardTransitionContext {
     init(presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator) {
-            self.targetViewController = targetViewController
-            self.targetTransitionsHandler = targetTransitionsHandler
-            self.transitionStyle = .Modal
-            self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: navigationController)
-            self.storableParameters = nil
-            self.animator = animator
-    }
+        animator: TransitionsAnimator)
+    {
+        assert(
+            !(targetViewController is UISplitViewController) && !(targetViewController is UITabBarController),
+            "use presentingModalMasterDetailViewController:targetTransitionsHandler:animator"
+        )
         
+        self.targetViewController = targetViewController
+        self.targetTransitionsHandler = targetTransitionsHandler
+        self.transitionStyle = .Modal
+        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: navigationController)
+        self.storableParameters = nil
+        self.animator = animator
+    }
+    
     /**
      Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
      */
@@ -76,13 +99,14 @@ struct ForwardTransitionContext {
         fromRect rect: CGRect,
         inView view: UIView,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator) {
-            self.targetViewController = targetViewController
-            self.targetTransitionsHandler = targetTransitionsHandler
-            self.transitionStyle = .PopoverFromView(sourceView: view, sourceRect: rect)
-            self.animationTargetParameters = nil
-            self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
-            self.animator = animator
+        animator: TransitionsAnimator)
+    {
+        self.targetViewController = targetViewController
+        self.targetTransitionsHandler = targetTransitionsHandler
+        self.transitionStyle = .PopoverFromView(sourceView: view, sourceRect: rect)
+        self.animationTargetParameters = nil
+        self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
+        self.animator = animator
     }
     
     /**
@@ -93,13 +117,14 @@ struct ForwardTransitionContext {
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator) {
-            self.targetViewController = targetViewController
-            self.targetTransitionsHandler = targetTransitionsHandler
-            self.transitionStyle = .PopoverFromButtonItem(buttonItem: buttonItem)
-            self.animationTargetParameters = nil
-            self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
-            self.animator = animator
+        animator: TransitionsAnimator)
+    {
+        self.targetViewController = targetViewController
+        self.targetTransitionsHandler = targetTransitionsHandler
+        self.transitionStyle = .PopoverFromButtonItem(buttonItem: buttonItem)
+        self.animationTargetParameters = nil
+        self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
+        self.animator = animator
     }
 }
 
@@ -117,7 +142,7 @@ struct BackwardTransitionContext {
  */
 struct CompletedTransitionContext {
     /// идентификатор перехода
-    /// для точной отмены нужного перехода и возвращения на предыдущий экран через 
+    /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
     /// undoTransition(id:)
     let transitionId: TransitionId
@@ -128,10 +153,10 @@ struct CompletedTransitionContext {
     /// ```swift
     /// undoTransitions(tilContext:)
     private (set) weak var sourceViewController: UIViewController?
-
+    
     /// обработчик переходов для роутера модуля, вызвавшего переход
     private (set) weak var sourceTransitionsHandler: TransitionsHandler?
-
+    
     /// контроллер, на который перешли
     private (set) weak var targetViewController: UIViewController?
     
@@ -150,18 +175,19 @@ struct CompletedTransitionContext {
     init(forwardTransitionContext context: ForwardTransitionContext,
         sourceViewController: UIViewController,
         sourceTransitionsHandler: TransitionsHandler,
-        transitionId: String) {
-            self.sourceViewController = sourceViewController
-            self.sourceTransitionsHandler = sourceTransitionsHandler
-            
-            self.targetViewController = context.targetViewController
-            self.targetTransitionsHandler = context.targetTransitionsHandler
-            
-            self.transitionStyle = context.transitionStyle
-            self.storableParameters = context.storableParameters
-            self.animator = context.animator
-            
-            self.transitionId = transitionId
+        transitionId: String)
+    {
+        self.sourceViewController = sourceViewController
+        self.sourceTransitionsHandler = sourceTransitionsHandler
+        
+        self.targetViewController = context.targetViewController
+        self.targetTransitionsHandler = context.targetTransitionsHandler
+        
+        self.transitionStyle = context.transitionStyle
+        self.storableParameters = context.storableParameters
+        self.animator = context.animator
+        
+        self.transitionId = transitionId
     }
     
     var isZombie: Bool {
@@ -211,7 +237,8 @@ struct RestoredTransitionContext {
     /// объект, выполняющий анимацию перехода
     let animator: TransitionsAnimator
     
-    init?(context: CompletedTransitionContext?) {
+    init?(context: CompletedTransitionContext?)
+    {
         guard let context = context
             else { return nil }
         guard let sourceViewController = context.sourceViewController

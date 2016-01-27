@@ -18,7 +18,7 @@ class NavigationTransitionsHandler {
 // MARK: - TransitionsHandler
 extension NavigationTransitionsHandler : TransitionsHandler {
     
-    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
+    func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
         
         if shouldForwardPerformingTransition() {
             // в цепочке обработчиков переходов есть дочерний, передаем управление ему
@@ -71,8 +71,8 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         undoAllTransitionsAndCommit()
     }
     
-    func undoAllChainedTransitionsAndResetWithTransition(
-        contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    func resetWithTransition(
+        @noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
     {
         forwardUndoingAllChainedTransitions()
         undoChainedTransitionAndCommit()
@@ -220,7 +220,7 @@ private extension NavigationTransitionsHandler {
         return lastRestoredChainedTransitionsHandler != nil
     }
     
-    func forwardPerformingTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
+    func forwardPerformingTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
         assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
         lastRestoredChainedTransitionsHandler?.performTransition(contextCreationClosure: closure)
     }

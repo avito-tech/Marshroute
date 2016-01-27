@@ -31,7 +31,7 @@ class TabBarTransitionsHandler {
 
 // MARK: - TransitionsHandler
 extension TabBarTransitionsHandler: TransitionsHandler {
-    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
+    func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
         selectedTransitionHandler?.performTransition(contextCreationClosure: closure)
     }
     
@@ -51,10 +51,10 @@ extension TabBarTransitionsHandler: TransitionsHandler {
         selectedTransitionHandler?.undoAllTransitions()
     }
     
-    func undoAllChainedTransitionsAndResetWithTransition(
-        contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    func resetWithTransition(
+        @noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
     {
-        selectedTransitionHandler?.undoAllChainedTransitionsAndResetWithTransition(contextCreationClosure: closure)
+        selectedTransitionHandler?.resetWithTransition(contextCreationClosure: closure)
     }
 }
 

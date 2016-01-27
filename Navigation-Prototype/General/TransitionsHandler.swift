@@ -7,7 +7,7 @@ protocol TransitionsHandler: class {
      - parameter contextCreationClosure: блок, в который передается сгенерированный обработчиком переходов
      идентификатор перехода, и возвращающий описание параметро перехода на другой модуль
      */
-    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
     
     /**
      Вызывается роутером, чтобы отменить все переходы и вернуться с другого модуля на модуль роутера
@@ -41,14 +41,14 @@ protocol TransitionsHandler: class {
      Как правило вызывается роутером master - модуля SplitViewController'а,
      чтобы обновить detail
      */
-    func undoAllChainedTransitionsAndResetWithTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    func resetWithTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
 }
 
 extension TransitionsHandler {
-    func performTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
+    func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
     func undoTransitions(tilContext context: BackwardTransitionContext) {}
     func undoTransition(id transitionId: TransitionId) {}
     func undoAllChainedTransitions() {}
     func undoAllTransitions() {}
-    func undoAllChainedTransitionsAndResetWithTransition(contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
+    func resetWithTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
 }

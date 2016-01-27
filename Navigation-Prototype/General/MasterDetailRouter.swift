@@ -18,26 +18,24 @@ class MasterDetailRouter: BaseRouter {
     }
     
     final func setDetailViewControllerDerivedFrom(
-        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         setDetailViewControllerDerivedFrom(closure, animator: NavigationTransitionsAnimator())
     }
     
     final func setDetailViewControllerDerivedFrom(
-        closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
-        let detailTransitionsHandler = self.detailTransitionsHandler
-        
-        detailTransitionsHandler.undoAllChainedTransitionsAndResetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
+        detailTransitionsHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
             let viewController = closure(transitionId: generatedTransitionId, transitionsHandler: detailTransitionsHandler)
             
-            let context = ForwardTransitionContext(
-                pushingViewController: viewController,
-                targetTransitionsHandler: detailTransitionsHandler,
+            let resetDetailContext = ForwardTransitionContext(
+                resetingWithViewController: viewController,
+                transitionsHandler: self.detailTransitionsHandler,
                 animator: animator)
             
-            return context
+            return resetDetailContext
         }
     }
 }

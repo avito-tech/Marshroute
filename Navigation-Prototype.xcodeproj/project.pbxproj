@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC3E39DB1C58BBEB00F7EA49 /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E39DA1C58BBEB00F7EA49 /* TransitionContextsStackClient.swift */; };
 		CCD404451C514813008FBDD3 /* MasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */; };
 		CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EF91C50ECBA00909924 /* AppDelegate.swift */; };
 		CCE12F031C50ECBA00909924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F021C50ECBA00909924 /* Assets.xcassets */; };
@@ -112,6 +113,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC3E39DA1C58BBEB00F7EA49 /* TransitionContextsStackClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient.swift; sourceTree = "<group>"; };
 		CCD404441C514813008FBDD3 /* MasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailRouter.swift; sourceTree = "<group>"; };
 		CCE12EF61C50ECBA00909924 /* Navigation-Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Navigation-Prototype.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE12EF91C50ECBA00909924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				CCE12FA61C50F38F00909924 /* TransitionContextConverter.swift */,
 				CCE12FA71C50F38F00909924 /* TransitionContexts.swift */,
 				CCE12FA81C50F38F00909924 /* TransitionContextsStack.swift */,
+				CC3E39DA1C58BBEB00F7EA49 /* TransitionContextsStackClient.swift */,
 				CCE12FA91C50F38F00909924 /* TransitionsAnimator.swift */,
 				CCE12FAA1C50F38F00909924 /* TransitionsHandler.swift */,
 				CCE12FAB1C50F38F00909924 /* TransitionsHandlerStorer.swift */,
@@ -545,6 +548,7 @@
 				CCE8C9631C561C780041801D /* FirstInteractorOutput.swift in Sources */,
 				CCE8C9741C561C780041801D /* SecondModuleInput.swift in Sources */,
 				CCE8C9761C561C780041801D /* SecondPresenter.swift in Sources */,
+				CC3E39DB1C58BBEB00F7EA49 /* TransitionContextsStackClient.swift in Sources */,
 				CCE8C9681C561C780041801D /* FirstRouter.swift in Sources */,
 				CCE8C9331C560CEA0041801D /* ApplicationPresenter.swift in Sources */,
 				CCE12FC81C50F38F00909924 /* TransitionAnimationSourceParameters.swift in Sources */,

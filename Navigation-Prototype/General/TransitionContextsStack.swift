@@ -2,191 +2,135 @@
 class TransitionContextsStack {
     private var transitionsStack = [CompletedTransitionContext]()
     
-    func append(context: CompletedTransitionContext) {
+    func append(context: CompletedTransitionContext)
+    {
         updateTransitionsStack()
         transitionsStack.append(context)
     }
     
-    var last: RestoredTransitionContext? {
-        get {
-            updateTransitionsStack()
-            let last = transitionsStack.last
-            let restored = RestoredTransitionContext(context: last)
-            return restored
-        }
+    var last: RestoredTransitionContext?
+    {
+        updateTransitionsStack()
+        let last = transitionsStack.last
+        let restored = RestoredTransitionContext(completedTransition: last)
+        return restored
     }
     
     func popLast()
         -> RestoredTransitionContext?
     {
         updateTransitionsStack()
-        let poppedLast = transitionsStack.popLast()
-        let restored = RestoredTransitionContext(context: poppedLast)
+        let last = transitionsStack.popLast()
+        let restored = RestoredTransitionContext(completedTransition: last)
         return restored
     }
     
-    /// восстановленное описание последнего перехода с тем отличием, 
-    /// что sourceViewController и sourceTransitionHandler у него взяты
-    /// из описания самого первого перехода
-    var lastToFirst: RestoredTransitionContext? {
-        get {
-            updateTransitionsStack()
-            
-            let last = transitionsStack.last
-            let first = transitionsStack.first
-            
-            let restored = (last == first)
-            ? RestoredTransitionContext(context: last)
-            : RestoredTransitionContext(fromSourceContext: first, toTargetContext: last)
-            
-            return restored
-        }
+    subscript (transitionId: TransitionId)
+        -> RestoredTransitionContext?
+    {
+        updateTransitionsStack()
+        let index = indexOfCompletedTransition(transitionId: transitionId)
+        let restored: RestoredTransitionContext? = self[index]
+        return restored
     }
     
-    func removeAll() {
+    func popTo(transitionId transitionId: TransitionId)
+        -> [RestoredTransitionContext]?
+    {
+        updateTransitionsStack()
+        let index = indexOfCompletedTransition(transitionId: transitionId)
+        let result = popTo(index: index)
+        return result
+    }
+    
+    func lastPreceding(transitionId: TransitionId)
+        -> RestoredTransitionContext?
+    {
+        updateTransitionsStack()
+        let index = indexOfCompletedTransition(transitionId: transitionId)
+        let restored: RestoredTransitionContext? = self[index]
+        return restored
+    }
+
+    func popToLastPreceding(transitionId transitionId: TransitionId)
+        -> [RestoredTransitionContext]?
+    {
+        updateTransitionsStack()
+        let index = indexOfCompletedTransitionPreceding(transitionId: transitionId)
+        let result = popTo(index: index)
+        return result
+    }
+    
+    func removeAll()
+    {
         transitionsStack.removeAll()
     }
- 
-    func lastToContext(context: BackwardTransitionContext)
-        -> RestoredTransitionContext?
-    {
-        updateTransitionsStack()
-        
-        guard let to = completedTransitionContext(forBackwardContext: context)
-            else { return nil }
-        
-        let last = transitionsStack.last
-        
-        let restored = (last == to)
-            ? RestoredTransitionContext(context: last)
-            : RestoredTransitionContext(fromSourceContext: to, toTargetContext: last)
 
-        return restored
-    }
-    
-    func popToContext(context: BackwardTransitionContext)
-        -> RestoredTransitionContext?
-    {
-        updateTransitionsStack()
-        
-        guard let index = indexOfCompletedTransition(forBackwardContext: context)
-            else { return nil }
-        
-        guard index < transitionsStack.count
-            else { return nil }
-        
-        var last: CompletedTransitionContext? = nil
-        
-        for _ in index ..< transitionsStack.count {
-            last = transitionsStack.popLast()
-        }
-        
-        let restored = RestoredTransitionContext(context: last)
-        return restored
-    }
-    
-    
-    func canBePoppedToContext(context: BackwardTransitionContext)
-        -> Bool
-    {
-        updateTransitionsStack()
-        let index = indexOfCompletedTransition(forBackwardContext: context)
-        return index != nil
-    }
-    
-    private func indexOfCompletedTransition(forBackwardContext context: BackwardTransitionContext)
-        -> Int?
-    {
-        let sourceViewControllers = transitionsStack.map() { $0.sourceViewController }
-        let index = sourceViewControllers.indexOf({ $0 === context.targetViewController })
-        return index
-    }
-
-    private func completedTransitionContext(forBackwardContext context: BackwardTransitionContext)
-        -> CompletedTransitionContext?
-    {
-        if let index = indexOfCompletedTransition(forBackwardContext: context) {
-            return transitionsStack[index]
-        }
-        return nil
-    }
-    
-    func canBePoppedToTransition(id transitionId: TransitionId)
-        -> Bool
-    {
-        updateTransitionsStack()
-        let index = indexOfCompletedTransition(forTransitionId: transitionId)
-        return index != nil
-    }
-    
-    private func indexOfCompletedTransition(forTransitionId transitionId: TransitionId)
-        -> Int?
-    {
-        let transitionIds = transitionsStack.map() { $0.transitionId }
-        let index = transitionIds.indexOf({ $0 == transitionId })
-        return index
-    }
-    
-    private func completedTransitionContextForTransition(id transitionId: TransitionId)
-        -> CompletedTransitionContext?
-    {
-        if let index = indexOfCompletedTransition(forTransitionId: transitionId) {
-            return transitionsStack[index]
-        }
-        return nil
-    }
 }
 
 // MARK: - private
 private extension TransitionContextsStack {
     /**
-     Убирает из стека те записи о совершенных переходах, в которых контроллер, 
+     Убирает из стека те записи о совершенных переходах, в которых контроллер,
      на который осуществлялся переход, уже освобожден
      */
-    func updateTransitionsStack() {
+    func updateTransitionsStack()
+    {
         let transitionsStack = self.transitionsStack.filter({ !$0.isZombie })
         self.transitionsStack = transitionsStack
     }
-}
-
-// MARK: - convenience RestoredTransitionContext initializer
-private extension RestoredTransitionContext {
-    init?(
-        fromSourceContext sourceContext: CompletedTransitionContext?,
-        toTargetContext targetContext: CompletedTransitionContext?)
+    
+    func indexOfCompletedTransition(transitionId transitionId: TransitionId)
+        -> Int?
     {
-        guard let sourceContext = sourceContext
-            else { return nil }
-        guard let sourceViewController = sourceContext.sourceViewController
-            else { return nil }
-        guard let sourceTransitionsHandler = sourceContext.sourceTransitionsHandler
-            else { return nil }
-        
-        guard let targetContext = targetContext
-            else { return nil }
-        guard let targetViewController = targetContext.targetViewController
-            else { return nil }
-        guard let targetTransitionsHandler = targetContext.targetTransitionsHandler
-            else { return nil }
-        
-        self.sourceViewController = sourceViewController
-        self.sourceTransitionsHandler = sourceTransitionsHandler
-        
-        self.targetViewController = targetViewController
-        self.targetTransitionsHandler = targetTransitionsHandler
-        self.transitionStyle = targetContext.transitionStyle
-        self.storableParameters = targetContext.storableParameters
-        self.animator = targetContext.animator
-        
-        // неважно, какой тут transitionId. можно и targetContext.transitionId
-        self.transitionId = sourceContext.transitionId
+        let transitionIds = transitionsStack.map() { $0.transitionId }
+        if let index = transitionIds.indexOf({ $0 == transitionId }) where index < transitionsStack.count {
+            return index
+        }
+        return nil
     }
-}
-
-// MARK: - CompletedTransitionContext: Equatable
-extension CompletedTransitionContext: Equatable {}
-
-func ==(lhs: CompletedTransitionContext, rhs: CompletedTransitionContext) -> Bool {
-    let result = lhs.targetViewController == rhs.targetViewController
-    return result
+    
+    func indexOfCompletedTransitionPreceding(transitionId transitionId: TransitionId)
+        -> Int?
+    {
+        let transitionIds = transitionsStack.map() { $0.transitionId }
+        if let index = transitionIds.indexOf({ $0 == transitionId }) where index < transitionsStack.count {
+            return index > 0 ? index - 1 : nil
+        }
+        return nil
+    }
+    
+    private subscript (index: Int?)
+        -> CompletedTransitionContext?
+    {
+        if let index = index where index < transitionsStack.count {
+            return transitionsStack[index]
+        }
+        return nil
+    }
+    
+    private subscript (index: Int?)
+        -> RestoredTransitionContext?
+    {
+        let completed: CompletedTransitionContext? = self[index]
+        let restored = RestoredTransitionContext(completedTransition: completed)
+        return restored
+    }
+    
+    private func popTo(index index: Int?)
+        -> [RestoredTransitionContext]?
+    {
+        guard let index = index where index < transitionsStack.count
+            else { return nil }
+        
+        var result = [RestoredTransitionContext]()
+        
+        for _ in index ..< transitionsStack.count {
+            if let last = popLast() {
+                result.insert(last, atIndex: 0)
+            }
+        }
+        
+        return result
+    }
 }

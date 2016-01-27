@@ -28,8 +28,8 @@ extension SplitViewTransitionsHandler: TransitionsHandler {
         firstResponderTransitionsHandler?.performTransition(contextCreationClosure: closure)
     }
     
-    func undoTransitions(tilContext context: BackwardTransitionContext) {
-        firstResponderTransitionsHandler?.undoTransitions(tilContext: context)
+    func undoTransitions(tilId transitionId: TransitionId) {
+        firstResponderTransitionsHandler?.undoTransitions(tilId: transitionId)
     }
     
     func undoTransition(id transitionId: TransitionId) {

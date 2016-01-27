@@ -129,13 +129,6 @@ struct ForwardTransitionContext {
 }
 
 /**
- *  Передается из роутера в обработчик переходов, чтобы осуществить обратный переход на модуль роутера
- */
-struct BackwardTransitionContext {
-    let targetViewController: UIViewController
-}
-
-/**
  *  Описание одного из совершенных обработчиком переходов.
  *  Хранится в обработчике переходов, чтобы иметь возможность выполнять обратные переходы.
  *  Слабые ссылки на показанный контроллер и его обработчик переходов позволяют пользоваться кнопкой '< Back' и т.д.
@@ -237,7 +230,7 @@ struct RestoredTransitionContext {
     /// объект, выполняющий анимацию перехода
     let animator: TransitionsAnimator
     
-    init?(context: CompletedTransitionContext?)
+    init?(completedTransition context: CompletedTransitionContext?)
     {
         guard let context = context
             else { return nil }

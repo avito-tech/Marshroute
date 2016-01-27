@@ -217,14 +217,12 @@ private extension NavigationTransitionsHandler {
 // MARK: - private transitions forwarding to chained transition hanlders
 private extension NavigationTransitionsHandler {
     func shouldForwardPerformingTransition() -> Bool {
-        let chainedContext = transitionsStackClient.chainedTransitionForTransitionsHandler(self)
-        let result = chainedContext != nil
+        let result = transitionsStackClient.doesTransitionsHandlerHaveChainedTransitionHandlers(self)
         return result
     }
     
     func forwardPerformingTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
-        let chainedContext = transitionsStackClient.chainedTransitionForTransitionsHandler(self)
-        let chainedTransitionsHandler = chainedContext?.targetTransitionsHandler
+        let chainedTransitionsHandler = transitionsStackClient.chainedTransitionsHandlerForTransitionsHandler(self)
         assert(chainedTransitionsHandler != nil, "you cannot forward to nil")
         chainedTransitionsHandler?.performTransition(contextCreationClosure: closure)
     }

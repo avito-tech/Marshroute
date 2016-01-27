@@ -3,14 +3,15 @@ import UIKit
 class NavigationTransitionsHandler {
     
     private let navigationController: UINavigationController
+    private let transitionsStackClient: TransitionContextsStackClient
     
-    init(navigationController: UINavigationController) {
+    init(
+        navigationController: UINavigationController,
+        transitionsStackClient: TransitionContextsStackClient = TransitionContextsStackClient())
+    {
         self.navigationController = navigationController
+        self.transitionsStackClient = transitionsStackClient
     }
-    
-    /// история переходов. в общем случае содержит переходы по стеку UINavigationController'а.
-    /// может заканчиваться переходом на модальный контроллер или поповер
-    private var completedTransitionsStack = TransitionContextsStack()
     
     weak var navigationTransitionsHandlerDelegate: NavigationTransitionsHandlerDelegate?
 }
@@ -32,7 +33,7 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         }
     }
     
-    func undoTransitions(tilId transitionId: TransitionId) {
+    func undoTransitions(tilTransitionId transitionId: TransitionId) {
         if shouldForwardUndoingTransitions(tilId: transitionId) {
             // нужно вернуться на контроллер, который не находится в истории переходов текущего обработчика
             // передаем управление дочернему обработчику
@@ -46,7 +47,7 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         }
     }
     
-    func undoTransition(id transitionId: TransitionId) {
+    func undoTransitions(precedingTransitionId transitionId: TransitionId) {
         if shouldForwardUndoingTransition(id: transitionId) {
             // нужно отменить переход, который не находится в истории переходов текущего обработчика
             // передаем управление дочернему обработчику
@@ -217,23 +218,27 @@ private extension NavigationTransitionsHandler {
 // MARK: - private transitions forwarding to chained transition hanlders
 private extension NavigationTransitionsHandler {
     func shouldForwardPerformingTransition() -> Bool {
-        return lastRestoredChainedTransitionsHandler != nil
+        let chainedContext = transitionsStackClient.chainedTransitionForTransitionsHandler(self)
+        let result = chainedContext != nil
+        return result
     }
     
     func forwardPerformingTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
-        assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
-        lastRestoredChainedTransitionsHandler?.performTransition(contextCreationClosure: closure)
+        let chainedContext = transitionsStackClient.chainedTransitionForTransitionsHandler(self)
+        let chainedTransitionsHandler = chainedContext?.targetTransitionsHandler
+        assert(chainedTransitionsHandler != nil, "you cannot forward to nil")
+        chainedTransitionsHandler?.performTransition(contextCreationClosure: closure)
     }
     
     func shouldForwardUndoingTransitions(tilId transitionId: TransitionId) -> Bool {
-        return !completedTransitionsStack.canBePoppedToContext(context)
+        let context = transitionsStackClient.transitionWithId(transitionId, forTransitionsHandler: self)
+        let result = context == nil
+        return result
     }
-    
-    shouldForwardUndoingTransitions
     
     func forwardUndoingTransitions(tilId transitionId: TransitionId) {
         assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
-        lastRestoredChainedTransitionsHandler?.undoTransitions(tilId: transitionId)
+        lastRestoredChainedTransitionsHandler?.undoTransitions(tilTransitionId: transitionId)
     }
     
     func shouldForwardUndoingTransition(id transitionId: TransitionId) -> Bool {
@@ -242,7 +247,7 @@ private extension NavigationTransitionsHandler {
     
     func forwardUndoingTransition(id transitionId: TransitionId) {
         assert(lastRestoredChainedTransitionsHandler != nil, "you cannot forward to nil")
-        lastRestoredChainedTransitionsHandler?.undoTransition(id: transitionId)
+        lastRestoredChainedTransitionsHandler?.undoTransitions(precedingTransitionId: transitionId)
     }
     
     /**
@@ -279,10 +284,6 @@ private extension NavigationTransitionsHandler {
         -> RestoredTransitionContext?
     {
         return completedTransitionsStack.lastToContext(context)
-    }
-    
-    var lastRestoredChainedTransitionsHandler: TransitionsHandler? {
-        return lastRestoredChainedTransition?.targetTransitionsHandler
     }
 }
 

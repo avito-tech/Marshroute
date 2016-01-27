@@ -13,13 +13,13 @@ protocol TransitionsHandler: class {
      Вызывается роутером, чтобы отменить все переходы, следовавшие за конкретным переходом.
      Так роутер может вернуться с другого модуля на свой модуль
      */
-    func undoTransitions(tilId transitionId: TransitionId)
+    func undoTransitions(tilTransitionId transitionId: TransitionId)
     
     /**
      Вызывается роутером, чтобы отменить конкретный переход (и все последовавшие за ним).
      Так роутер может убрать себя с экрана
      */
-    func undoTransition(id transitionId: TransitionId)
+    func undoTransitions(precedingTransitionId transitionId: TransitionId)
     
     /**
      Вызывается роутером, чтобы скрыть всю последовательность дочерних модулей, 
@@ -48,8 +48,8 @@ protocol TransitionsHandler: class {
 
 extension TransitionsHandler {
     func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}
-    func undoTransitions(tilId transitionId: TransitionId) {}
-    func undoTransition(id transitionId: TransitionId) {}
+    func undoTransitions(tilTransitionId transitionId: TransitionId) {}
+    func undoTransitions(precedingTransitionId transitionId: TransitionId) {}
     func undoAllChainedTransitions() {}
     func undoAllTransitions() {}
     func resetWithTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {}

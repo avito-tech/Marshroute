@@ -28,12 +28,12 @@ extension SplitViewTransitionsHandler: TransitionsHandler {
         firstResponderTransitionsHandler?.performTransition(contextCreationClosure: closure)
     }
     
-    func undoTransitions(tilId transitionId: TransitionId) {
-        firstResponderTransitionsHandler?.undoTransitions(tilId: transitionId)
+    func undoTransitions(tilTransitionId transitionId: TransitionId) {
+        firstResponderTransitionsHandler?.undoTransitions(tilTransitionId: transitionId)
     }
     
-    func undoTransition(id transitionId: TransitionId) {
-        firstResponderTransitionsHandler?.undoTransition(id: transitionId)
+    func undoTransitions(precedingTransitionId transitionId: TransitionId) {
+        firstResponderTransitionsHandler?.undoTransitions(precedingTransitionId: transitionId)
     }
     
     func undoAllChainedTransitions() {

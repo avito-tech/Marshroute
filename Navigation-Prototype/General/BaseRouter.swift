@@ -190,7 +190,8 @@ extension BaseRouter {
             rect,
             inView: view,
             withViewControllerDerivedFrom: closure,
-            animator: PopoverTranstionsAnimator()
+            animator: PopoverTranstionsAnimator(),
+            resetAnimator: NavigationTransitionsAnimator()
         )
     }
     
@@ -198,7 +199,8 @@ extension BaseRouter {
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: TransitionsAnimator)
+        animator: TransitionsAnimator,
+        resetAnimator: TransitionsAnimator)
     {
         transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
             let navigationController = UINavigationController()
@@ -215,7 +217,7 @@ extension BaseRouter {
                 let resetContext = ForwardTransitionContext(
                     resetingWithViewController: viewController,
                     transitionsHandler: navigationTransitionsHandler,
-                    animator: animator)
+                    animator: resetAnimator)
                 
                 presentedViewController = viewController
                 
@@ -246,14 +248,16 @@ extension BaseRouter {
         presentPopoverFromBarButtonItem(
             barButtonItem,
             withViewControllerDerivedFrom: closure,
-            animator: PopoverTranstionsAnimator()
+            animator: PopoverTranstionsAnimator(),
+            resetAnimator: NavigationTransitionsAnimator()
         )
     }
     
     final func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: TransitionsAnimator)
+        animator: TransitionsAnimator,
+        resetAnimator: TransitionsAnimator)
     {
         transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
             let navigationController = UINavigationController()
@@ -270,7 +274,7 @@ extension BaseRouter {
                 let resetContext = ForwardTransitionContext(
                     resetingWithViewController: viewController,
                     transitionsHandler: navigationTransitionsHandler,
-                    animator: animator)
+                    animator: resetAnimator)
                 
                 presentedViewController = viewController
                 

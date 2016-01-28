@@ -43,29 +43,19 @@ class TransitionContextsStack {
         return result
     }
     
-    func lastPreceding(transitionId: TransitionId)
+    func preceding(transitionId: TransitionId)
         -> RestoredTransitionContext?
     {
         updateTransitionsStack()
-        let index = indexOfCompletedTransition(transitionId: transitionId)
+        let index = indexOfCompletedTransitionPreceding(transitionId: transitionId)
         let restored: RestoredTransitionContext? = self[index]
         return restored
-    }
-
-    func popToLastPreceding(transitionId transitionId: TransitionId)
-        -> [RestoredTransitionContext]?
-    {
-        updateTransitionsStack()
-        let index = indexOfCompletedTransitionPreceding(transitionId: transitionId)
-        let result = popTo(index: index)
-        return result
     }
     
     func removeAll()
     {
         transitionsStack.removeAll()
     }
-
 }
 
 // MARK: - private
@@ -84,8 +74,9 @@ private extension TransitionContextsStack {
         -> Int?
     {
         let transitionIds = transitionsStack.map() { $0.transitionId }
-        if let index = transitionIds.indexOf({ $0 == transitionId }) where index < transitionsStack.count {
-            return index
+        if let index = transitionIds.indexOf({ $0 == transitionId })
+            where index < transitionsStack.count {
+                return index
         }
         return nil
     }
@@ -93,9 +84,9 @@ private extension TransitionContextsStack {
     func indexOfCompletedTransitionPreceding(transitionId transitionId: TransitionId)
         -> Int?
     {
-        let transitionIds = transitionsStack.map() { $0.transitionId }
-        if let index = transitionIds.indexOf({ $0 == transitionId }) where index < transitionsStack.count {
-            return index > 0 ? index - 1 : nil
+        if let index = indexOfCompletedTransition(transitionId: transitionId)
+            where index > 0 {
+                return index - 1
         }
         return nil
     }

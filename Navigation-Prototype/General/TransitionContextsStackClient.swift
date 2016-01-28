@@ -1,7 +1,7 @@
 import Foundation
 
 class TransitionContextsStackClient {
-    let stack: TransitionContextsStack
+    private let stack: TransitionContextsStack
     
     init(transitionContextsStack: TransitionContextsStack = TransitionContextsStack()) {
         stack = transitionContextsStack
@@ -34,7 +34,7 @@ class TransitionContextsStackClient {
         )
     }
     
-    func transitionsTo(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    func transitionsFromAndTransitionTo(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
     {
         return transitionsFrom(
@@ -44,6 +44,23 @@ class TransitionContextsStackClient {
         )
     }
     
+    func deleteTransitionsFrom(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    {
+        deleteTransitionsFrom(
+            transitionId: transitionId,
+            forTransitionsHandler: transitionsHandler,
+            includingTransitionTo: false
+        )
+    }
+
+    func deleteTransitionsFromAndTransitionTo(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    {
+        deleteTransitionsFrom(
+            transitionId: transitionId,
+            forTransitionsHandler: transitionsHandler,
+            includingTransitionTo: true
+        )
+    }
 }
 
 // MARK: - heplers
@@ -89,7 +106,7 @@ private extension TransitionContextsStackClient {
             
             if last.isChainedForTransitionsHandler(transitionsHandler) {
                 chainedTransition = last
-                notChainedTransitionId = stack.lastPreceding(transitionId)?.transitionId
+                notChainedTransitionId = stack.preceding(transitionId)?.transitionId
             }
             else {
                 otherTransitions?.insert(last, atIndex: 0)
@@ -99,7 +116,7 @@ private extension TransitionContextsStackClient {
             var didMatchId = transitionId == notChainedTransitionId
             
             while notChainedTransitionId != nil && !didMatchId {
-                if let previous = stack.lastPreceding(transitionId) {
+                if let previous = stack.preceding(transitionId) {
                     notChainedTransitionId = previous.transitionId
 
                     didMatchId = transitionId == notChainedTransitionId
@@ -113,6 +130,30 @@ private extension TransitionContextsStackClient {
         }
         
         return (chainedTransition, otherTransitions)
+    }
+    
+    func deleteTransitionsFrom(
+        transitionId transitionId: TransitionId,
+        forTransitionsHandler transitionsHandler: TransitionsHandler,
+        includingTransitionTo: Bool)
+    {
+        var lastTransitionIdToDelete = transitionId
+        
+        if includingTransitionTo {
+            if let preceding = stack.preceding(transitionId) {
+                // тут слегка неоптимально сделано, но зато чисто
+                lastTransitionIdToDelete = preceding.transitionId
+            }
+        }
+        
+        stack.popTo(transitionId: lastTransitionIdToDelete)
+    }
+    
+    func appendTransition(
+        context context: ForwardTransitionContext,
+        forTransitionsHandler transitionsHandler: TransitionsHandler)
+    {
+        
     }
 }
 

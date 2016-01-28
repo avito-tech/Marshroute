@@ -37,7 +37,8 @@ extension BaseRouter {
             let resetMasterContext = ForwardTransitionContext(
                 resetingWithViewController: viewController,
                 transitionsHandler: self.transitionsHandler,
-                animator: animator)
+                animator: animator,
+                transitionId: generatedTransitionId)
             
             return resetMasterContext
         }
@@ -64,7 +65,8 @@ extension BaseRouter {
             let pushContext = ForwardTransitionContext(
                 pushingViewController: viewController,
                 targetTransitionsHandler: self.transitionsHandler,
-                animator: animator)
+                animator: animator,
+                transitionId: generatedTransitionId)
             
             return pushContext
         })
@@ -108,7 +110,8 @@ extension BaseRouter {
                 let resetMasterContext = ForwardTransitionContext(
                     resetingWithViewController: masterViewController,
                     transitionsHandler: masterTransitionsHandler,
-                    animator: animator)
+                    animator: animator,
+                    transitionId: generatedTransitionId)
                 
                 return resetMasterContext
             })
@@ -121,7 +124,8 @@ extension BaseRouter {
                 let resetDetailContext = ForwardTransitionContext(
                     resetingWithViewController: detailViewController,
                     transitionsHandler: detailTransitionsHandler,
-                    animator: animator)
+                    animator: animator,
+                    transitionId: generatedTransitionId)
                 
                 return resetDetailContext
             })
@@ -129,7 +133,8 @@ extension BaseRouter {
             let modalContext = ForwardTransitionContext(
                 presentingModalMasterDetailViewController: splitViewController,
                 targetTransitionsHandler: splitViewTransitionsHandler,
-                animator: animator)
+                animator: animator,
+                transitionId: generatedTransitionId)
             
             return modalContext
         }
@@ -162,7 +167,8 @@ extension BaseRouter {
                 let resetContext = ForwardTransitionContext(
                     resetingWithViewController: viewController,
                     transitionsHandler: navigationTransitionsHandler,
-                    animator: animator)
+                    animator: animator,
+                    transitionId: generatedTransitionId)
                 
                 modalViewController = viewController
                 
@@ -175,7 +181,8 @@ extension BaseRouter {
                 presentingModalViewController: modalViewController!,
                 inNavigationController: navigationController,
                 targetTransitionsHandler: navigationTransitionsHandler,
-                animator: animator)
+                animator: animator,
+                transitionId: generatedTransitionId)
             
             return modalContext
         }
@@ -217,7 +224,8 @@ extension BaseRouter {
                 let resetContext = ForwardTransitionContext(
                     resetingWithViewController: viewController,
                     transitionsHandler: navigationTransitionsHandler,
-                    animator: resetAnimator)
+                    animator: resetAnimator,
+                    transitionId: generatedTransitionId)
                 
                 presentedViewController = viewController
                 
@@ -235,7 +243,8 @@ extension BaseRouter {
                 fromRect: rect,
                 inView: view,
                 targetTransitionsHandler: navigationTransitionsHandler,
-                animator: animator)
+                animator: animator,
+                transitionId: generatedTransitionId)
             
             return popoverContext
         }
@@ -274,7 +283,8 @@ extension BaseRouter {
                 let resetContext = ForwardTransitionContext(
                     resetingWithViewController: viewController,
                     transitionsHandler: navigationTransitionsHandler,
-                    animator: resetAnimator)
+                    animator: resetAnimator,
+                    transitionId: generatedTransitionId)
                 
                 presentedViewController = viewController
                 
@@ -291,7 +301,8 @@ extension BaseRouter {
                 inPopoverController: popoverController,
                 fromBarButtonItem: barButtonItem,
                 targetTransitionsHandler: navigationTransitionsHandler,
-                animator: animator)
+                animator: animator,
+                transitionId: generatedTransitionId)
             
             return popoverContext
         }

@@ -53,7 +53,8 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: firstViewController,
                 transitionsHandler: firstTransitionHandler,
-                animator: NavigationTransitionsAnimator())
+                animator: NavigationTransitionsAnimator(),
+                transitionId: generatedTransitionId)
             
             return resetContext
         }
@@ -67,7 +68,8 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: secondViewController,
                 transitionsHandler: secondTransitionHandler,
-                animator: NavigationTransitionsAnimator())
+                animator: NavigationTransitionsAnimator(),
+                transitionId: generatedTransitionId)
             
             return resetContext
         }
@@ -98,13 +100,11 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
                 let resetMasterContext = ForwardTransitionContext(
                     resetingWithViewController: masterViewController,
                     transitionsHandler: masterTransitionsHandler,
-                    animator: NavigationTransitionsAnimator())
+                    animator: NavigationTransitionsAnimator(),
+                    transitionId: generatedTransitionId)
                 
                 return resetMasterContext
             }
-            
-            let detail = UIViewController()
-            
             
             detailTransitionsHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
                 let detailViewController = UIViewController()
@@ -112,7 +112,8 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
                 let resetDetailContext = ForwardTransitionContext(
                     resetingWithViewController: detailViewController,
                     transitionsHandler: detailTransitionsHandler,
-                    animator: NavigationTransitionsAnimator())
+                    animator: NavigationTransitionsAnimator(),
+                    transitionId: generatedTransitionId)
                 
                 return resetDetailContext
             }

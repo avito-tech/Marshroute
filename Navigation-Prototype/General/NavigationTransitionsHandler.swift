@@ -7,7 +7,7 @@ class NavigationTransitionsHandler {
     
     init(
         navigationController: UINavigationController,
-        transitionsStackClient: TransitionContextsStackClient = TransitionContextsStackClient())
+        transitionsStackClient: TransitionContextsStackClient = TransitionContextsStackClientImpl())
     {
         self.navigationController = navigationController
         self.stackClient = transitionsStackClient
@@ -19,17 +19,15 @@ class NavigationTransitionsHandler {
 // MARK: - TransitionsHandler
 extension NavigationTransitionsHandler : TransitionsHandler {
     
-    func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    func performTransition(context context: ForwardTransitionContext)
     {
         if canForward() {
             // в цепочке обработчиков переходов есть дочерний, передаем управление ему
-            forwardPerformingTransition(contextCreationClosure: closure)
+            forwardPerformingTransition(context: context)
         }
         else {
             // выполняем переход
-            let transitionId = generateTransitionId()
-            let context = closure(generatedTransitionId: transitionId)
-            performTransitionAndCommit(context: context, transitionId: transitionId)
+            performTransitionImpl(context: context)
         }
     }
     
@@ -75,28 +73,11 @@ extension NavigationTransitionsHandler : TransitionsHandler {
         undoAllTransitionsIfNeeded()
     }
     
-    func resetWithTransition(
-        @noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+    func resetWithTransition(context context: ForwardTransitionContext)
     {
         forwardUndoingAllChainedTransitionsIfNeeded()
         undoChainedTransitionIfNeeded()
-        
-        let transitionId = generateTransitionId()
-        let context = closure(generatedTransitionId: transitionId)
-        resetWithTransition(context: context)
-    }
-}
-
-// MARK: - generating transition Id
-private extension NavigationTransitionsHandler {
-    /**
-     Геренирует новый псевдослучайный уникальный идентификатор переходаы
-     */
-    func generateTransitionId()
-        -> TransitionId
-    {
-        let result = NSUUID().UUIDString
-        return result
+        resetWithTransitionImpl(context: context)
     }
 }
 
@@ -135,11 +116,12 @@ private extension NavigationTransitionsHandler {
 
 // MARK: - forwarding to chained transition hanlders
 private extension NavigationTransitionsHandler {
-    func forwardPerformingTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
+
+    func forwardPerformingTransition(context context: ForwardTransitionContext)
     {
         assert(canForward())
         let chainedTransitionsHandler = stackClient.chainedTransitionsHandlerForTransitionsHandler(self)
-        chainedTransitionsHandler?.performTransition(contextCreationClosure: closure)
+        chainedTransitionsHandler?.performTransition(context: context)
     }
     
     func forwardUndoingTransitionsAfter(transitionId transitionId: TransitionId)
@@ -156,9 +138,6 @@ private extension NavigationTransitionsHandler {
         chainedTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
     }
     
-    /**
-     Заставляем дочерние обработчики скрыть свои поповеры и убрать свои модальные окна
-     */
     func forwardUndoingAllChainedTransitionsIfNeeded()
     {
         let chainedTransitionsHandler = stackClient.chainedTransitionsHandlerForTransitionsHandler(self)
@@ -169,17 +148,15 @@ private extension NavigationTransitionsHandler {
 
 // MARK: - performing and undoing transitions
 private extension NavigationTransitionsHandler {
-
-    /**
-     Осуществляет переход на новый модуль согласно описанию и сохраняет запись о переходе.
-     Переход может быть отложен (например, вызовом окна авторизации)
-     */
-    func performTransitionAndCommit(context context: ForwardTransitionContext, transitionId: TransitionId) {
+    func performTransitionImpl(context context: ForwardTransitionContext) {
+        assert(!canForward())
+        debugPrint(context.transitionId)
         
         guard let sourceViewController = navigationController.topViewController
             else { return }
         guard let animationContext = createAnimationContextForForwardTransition(context: context)
             else { return }
+        
         
         context.animator.animatePerformingTransition(animationContext: animationContext)
         
@@ -259,7 +236,7 @@ private extension NavigationTransitionsHandler {
         }
         
         if let otherTransitionContexts = otherContexts {
-            undoTransitions(otherTransitionContexts)
+            undoTransitionsPassingIntermediateTransitions(otherTransitionContexts)
         }
         
         stackClient.deleteTransitionsAfter(
@@ -268,27 +245,23 @@ private extension NavigationTransitionsHandler {
             includingTransitionWithId: includingTransitionWithId
         )
     }
-    
-    /**
-     Выполняет обратный переход
-     */
+
     func undoTransition(context context: RestoredTransitionContext) {
         if let animationContext = createAnimationContextForRestoredTransition(context: context) {
             context.animator.animateUndoingTransition(animationContext: animationContext)
         }
     }
     
-    /**
-     Выполняет обратный переход, минуя промежуточные переходы (возможно только по стеку навигационного контроллера)
-     */
-    func undoTransitions(otherTransitions: [RestoredTransitionContext]) {
+    func undoTransitionsPassingIntermediateTransitions(otherTransitions: [RestoredTransitionContext]) {
         if let fromContext = otherTransitions.first { // минуем промежуточные переходы
             undoTransition(context: fromContext)
         }
     }
     
-    func resetWithTransition(context context: ForwardTransitionContext) {
+    func resetWithTransitionImpl(context context: ForwardTransitionContext)
+    {
         assert(stackClient.chainedTransitionForTransitionsHandler(self) == nil, "сначала chained переходы")
+        debugPrint(context.transitionId)
         
         if let animationContext = createAnimationContextForForwardTransition(context: context) {
             context.animator.animateResettingWithTransition(animationContext: animationContext)

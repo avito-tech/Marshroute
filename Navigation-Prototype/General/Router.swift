@@ -7,10 +7,6 @@ protocol Router: class, RouterDismisable, TransitionsHandlerStorer {
 
 extension Router {
     func focusOnSelf() {
-        if let parentTransitionsHandler = parentTransitionsHandler,
-            let transitionId = transitionId
-        {
-            parentTransitionsHandler.undoTransitionWith(transitionId: transitionId)
-        }
+        transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
     }
 }

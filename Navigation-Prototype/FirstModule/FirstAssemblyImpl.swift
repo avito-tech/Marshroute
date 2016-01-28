@@ -5,7 +5,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     func iphoneModule(
         title: String,
         parentTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
@@ -45,7 +45,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     func ipadDetailModule(
         title: String,
         parentTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
@@ -85,7 +85,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     func ipadMasterModule(
         title: String,
         parentTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,

@@ -4,7 +4,7 @@ protocol FirstAssembly {
     func iphoneModule(
         title: String,
         parentTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
@@ -15,7 +15,7 @@ protocol FirstAssembly {
     func ipadDetailModule(
         title: String,
         parentTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
@@ -26,7 +26,7 @@ protocol FirstAssembly {
     func ipadMasterModule(
         title: String,
         parentTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,

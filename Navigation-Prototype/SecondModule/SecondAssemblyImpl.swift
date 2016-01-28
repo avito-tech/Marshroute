@@ -7,7 +7,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         parentTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     {
@@ -45,7 +45,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         parentTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     {

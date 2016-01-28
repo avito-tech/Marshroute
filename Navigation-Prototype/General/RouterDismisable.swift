@@ -10,13 +10,11 @@ protocol RouterDismisable: class {
     weak var parentTransitionsHandler: TransitionsHandler? { get }
     
     /// идентификатор перехода
-    var transitionId: TransitionId? { get }
+    var transitionId: TransitionId { get }
 }
 
 extension RouterDismisable {
     func returnToPresentingModule() {
-        if let transitionId = transitionId {
-            parentTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
-        }
+        parentTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
     }
 }

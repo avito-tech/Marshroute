@@ -1,11 +1,12 @@
 /// Стэк, который хранит CompletedTransitionContext, а возвращает RestoredTransitionContext
 class TransitionContextsStack {
-    private var stack = [CompletedTransitionContext]()
+    private var storage = [CompletedTransitionContext]()
     
     func append(context: CompletedTransitionContext)
     {
         updateStack()
-        stack.append(context)
+        storage.append(context)
+        debugPrint(storage.map( { $0.transitionId } ))
     }
     
     var first: RestoredTransitionContext? {
@@ -16,7 +17,7 @@ class TransitionContextsStack {
     var last: RestoredTransitionContext?
     {
         updateStack()
-        let last = stack.last
+        let last = storage.last
         let restored = RestoredTransitionContext(completedTransition: last)
         return restored
     }
@@ -25,7 +26,7 @@ class TransitionContextsStack {
         -> RestoredTransitionContext?
     {
         updateStack()
-        let last = stack.popLast()
+        let last = storage.popLast()
         let restored = RestoredTransitionContext(completedTransition: last)
         return restored
     }
@@ -60,7 +61,7 @@ class TransitionContextsStack {
     
     func removeAll()
     {
-        stack.removeAll()
+        storage.removeAll()
     }
 }
 
@@ -72,16 +73,16 @@ private extension TransitionContextsStack {
      */
     func updateStack()
     {
-        let stack = self.stack.filter({ !$0.isZombie })
-        self.stack = stack
+        let stack = self.storage.filter({ !$0.isZombie })
+        self.storage = stack
     }
     
     func indexOfCompletedTransition(transitionId transitionId: TransitionId)
         -> Int?
     {
-        let transitionIds = stack.map() { $0.transitionId }
+        let transitionIds = storage.map() { $0.transitionId }
         if let index = transitionIds.indexOf({ $0 == transitionId })
-            where index < stack.count {
+            where index < storage.count {
                 return index
         }
         return nil
@@ -100,8 +101,8 @@ private extension TransitionContextsStack {
     subscript (index: Int?)
         -> CompletedTransitionContext?
     {
-        if let index = index where index < stack.count {
-            return stack[index]
+        if let index = index where index < storage.count {
+            return storage[index]
         }
         return nil
     }
@@ -117,12 +118,12 @@ private extension TransitionContextsStack {
     func popTo(index index: Int?)
         -> [RestoredTransitionContext]?
     {
-        guard let index = index where index < stack.count
+        guard let index = index where index < storage.count
             else { return nil }
         
         var result = [RestoredTransitionContext]()
         
-        for _ in index ..< stack.count {
+        for _ in index ..< storage.count {
             if let last = popLast() {
                 result.insert(last, atIndex: 0)
             }

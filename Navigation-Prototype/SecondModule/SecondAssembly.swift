@@ -6,7 +6,7 @@ protocol SecondAssembly {
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         parentTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     
@@ -15,7 +15,7 @@ protocol SecondAssembly {
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         parentTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
 }

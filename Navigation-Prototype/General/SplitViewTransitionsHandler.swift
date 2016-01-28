@@ -24,8 +24,8 @@ class SplitViewTransitionsHandler {
 
 // MARK: - TransitionsHandler
 extension SplitViewTransitionsHandler: TransitionsHandler {
-    func performTransition(@noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext) {
-        firstResponderTransitionsHandler?.performTransition(contextCreationClosure: closure)
+    func performTransition(context context: ForwardTransitionContext) {
+        firstResponderTransitionsHandler?.performTransition(context: context)
     }
     
     func undoTransitionsAfter(transitionId transitionId: TransitionId) {
@@ -44,10 +44,8 @@ extension SplitViewTransitionsHandler: TransitionsHandler {
         firstResponderTransitionsHandler?.undoAllTransitions()
     }
     
-    func resetWithTransition(
-        @noescape contextCreationClosure closure: (generatedTransitionId: TransitionId) -> ForwardTransitionContext)
-    {
-        firstResponderTransitionsHandler?.resetWithTransition(contextCreationClosure: closure)
+    func resetWithTransition(context context: ForwardTransitionContext) {
+        firstResponderTransitionsHandler?.resetWithTransition(context: context)
     }
 }
 

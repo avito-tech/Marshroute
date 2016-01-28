@@ -5,7 +5,7 @@ class MasterDetailRouter: BaseRouter {
     
     init(transitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,
-        transitionId: TransitionId?,
+        transitionId: TransitionId,
         parentTransitionsHandler: TransitionsHandler?)
     {
         self.detailTransitionsHandler = detailTransitionsHandler
@@ -27,17 +27,16 @@ class MasterDetailRouter: BaseRouter {
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
-        detailTransitionsHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
-            let viewController = closure(transitionId: generatedTransitionId, transitionsHandler: detailTransitionsHandler)
-            
-            let resetDetailContext = ForwardTransitionContext(
-                resetingWithViewController: viewController,
-                transitionsHandler: self.detailTransitionsHandler,
-                animator: animator,
-                transitionId: generatedTransitionId
-            )
-            
-            return resetDetailContext
-        }
+        let viewController = closure(
+            transitionId: transitionId,
+            transitionsHandler: detailTransitionsHandler)
+        
+        let resetDetailContext = ForwardTransitionContext(
+            resetingWithViewController: viewController,
+            transitionsHandler: self.detailTransitionsHandler,
+            animator: animator,
+            transitionId: transitionId)
+        
+        detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
     }
 }

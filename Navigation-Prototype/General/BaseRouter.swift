@@ -6,14 +6,24 @@ class BaseRouter: Router {
     
     // RouterDismisable
     weak var parentTransitionsHandler: TransitionsHandler?
-    var transitionId: TransitionId?
+    var transitionId: TransitionId
     
-    init(transitionsHandler: TransitionsHandler, transitionId: TransitionId?, parentTransitionsHandler: TransitionsHandler?) {
+    // TransitionsGeneratorStorer
+    
+    
+    init(
+        transitionsHandler: TransitionsHandler,
+        transitionId: TransitionId,
+        parentTransitionsHandler: TransitionsHandler?)
+    {
         self.transitionId = transitionId
         self.transitionsHandler = transitionsHandler
         self.parentTransitionsHandler = parentTransitionsHandler
     }
 }
+
+// MARK: - TransitionsGeneratorStorer
+extension BaseRouter: TransitionsGeneratorStorer {}
 
 // MARK: - helpers
 extension BaseRouter {
@@ -29,19 +39,17 @@ extension BaseRouter {
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
-        self.transitionsHandler.resetWithTransition { (generatedTransitionId) -> ForwardTransitionContext in
-            let viewController = closure(
-                transitionId: generatedTransitionId,
-                transitionsHandler: self.transitionsHandler)
-            
-            let resetMasterContext = ForwardTransitionContext(
-                resetingWithViewController: viewController,
-                transitionsHandler: self.transitionsHandler,
-                animator: animator,
-                transitionId: generatedTransitionId)
-            
-            return resetMasterContext
-        }
+        let viewController = closure(
+            transitionId: transitionId,
+            transitionsHandler: self.transitionsHandler)
+        
+        let resetMasterContext = ForwardTransitionContext(
+            resetingWithViewController: viewController,
+            transitionsHandler: self.transitionsHandler,
+            animator: animator,
+            transitionId: transitionId)
+        
+        self.transitionsHandler.resetWithTransition(context: resetMasterContext)
     }
     
     final func pushViewControllerDerivedFrom(
@@ -57,19 +65,19 @@ extension BaseRouter {
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
-        transitionsHandler.performTransition(contextCreationClosure: { (generatedTransitionId: TransitionId) -> ForwardTransitionContext in
-            let viewController = closure(
-                transitionId: generatedTransitionId,
-                transitionsHandler: self.transitionsHandler)
-            
-            let pushContext = ForwardTransitionContext(
-                pushingViewController: viewController,
-                targetTransitionsHandler: self.transitionsHandler,
-                animator: animator,
-                transitionId: generatedTransitionId)
-            
-            return pushContext
-        })
+        let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+        
+        let viewController = closure(
+            transitionId: generatedTransitionId,
+            transitionsHandler: self.transitionsHandler)
+        
+        let pushContext = ForwardTransitionContext(
+            pushingViewController: viewController,
+            targetTransitionsHandler: self.transitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId)
+        
+        transitionsHandler.performTransition(context: pushContext)
     }
     
     final func presentModalMasterDetailViewControllerDerivedFrom(
@@ -88,56 +96,56 @@ extension BaseRouter {
         @noescape detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
-        transitionsHandler.performTransition { (generatedTransitionId: TransitionId) -> ForwardTransitionContext in
-            let masterNavigation = UINavigationController()
-            let detailNavigation = UINavigationController()
+        let masterNavigation = UINavigationController()
+        let detailNavigation = UINavigationController()
+        
+        let splitViewController = UISplitViewController()
+        splitViewController.viewControllers = [masterNavigation, detailNavigation]
+        
+        let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
+        let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
+        let splitViewTransitionsHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
+        
+        splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
+        splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
+        
+        let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+
+        do {
+            let masterViewController = masterClosure(
+                transitionId: transitionId,
+                transitionsHandler: masterTransitionsHandler)
             
-            let splitViewController = UISplitViewController()
-            splitViewController.viewControllers = [masterNavigation, detailNavigation]
-            
-            let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
-            let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
-            let splitViewTransitionsHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
-            
-            splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
-            splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
-            
-            masterTransitionsHandler.resetWithTransition(contextCreationClosure: { (generatedTransitionId) -> ForwardTransitionContext in
-                let masterViewController = masterClosure(
-                    transitionId: generatedTransitionId,
-                    transitionsHandler: masterTransitionsHandler)
-                
-                let resetMasterContext = ForwardTransitionContext(
-                    resetingWithViewController: masterViewController,
-                    transitionsHandler: masterTransitionsHandler,
-                    animator: animator,
-                    transitionId: generatedTransitionId)
-                
-                return resetMasterContext
-            })
-            
-            detailTransitionsHandler.resetWithTransition(contextCreationClosure: { (generatedTransitionId) -> ForwardTransitionContext in
-                let detailViewController = detailClosure(
-                    transitionId: generatedTransitionId,
-                    transitionsHandler: detailTransitionsHandler)
-                
-                let resetDetailContext = ForwardTransitionContext(
-                    resetingWithViewController: detailViewController,
-                    transitionsHandler: detailTransitionsHandler,
-                    animator: animator,
-                    transitionId: generatedTransitionId)
-                
-                return resetDetailContext
-            })
-            
-            let modalContext = ForwardTransitionContext(
-                presentingModalMasterDetailViewController: splitViewController,
-                targetTransitionsHandler: splitViewTransitionsHandler,
+            let resetMasterContext = ForwardTransitionContext(
+                resetingWithViewController: masterViewController,
+                transitionsHandler: masterTransitionsHandler,
                 animator: animator,
-                transitionId: generatedTransitionId)
+                transitionId: transitionId)
             
-            return modalContext
+            masterTransitionsHandler.resetWithTransition(context: resetMasterContext)
         }
+        
+        do {
+            let detailViewController = detailClosure(
+                transitionId: generatedTransitionId,
+                transitionsHandler: detailTransitionsHandler)
+            
+            let resetDetailContext = ForwardTransitionContext(
+                resetingWithViewController: detailViewController,
+                transitionsHandler: detailTransitionsHandler,
+                animator: animator,
+                transitionId: transitionId)
+            
+            detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
+        }
+        
+        let modalContext = ForwardTransitionContext(
+            presentingModalMasterDetailViewController: splitViewController,
+            targetTransitionsHandler: splitViewTransitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId)
+            
+         transitionsHandler.performTransition(context: modalContext)
     }
     
     final func presentModalViewControllerDerivedFrom(
@@ -152,40 +160,31 @@ extension BaseRouter {
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
-        transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
-            let navigationController = UINavigationController()
-            let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
-            
-            // приходится делать optional, иначе `variable captured by a closure before being initialized`
-            var modalViewController: UIViewController? = nil
-            
-            navigationTransitionsHandler.resetWithTransition(contextCreationClosure: { (generatedTransitionId) -> ForwardTransitionContext in
-                let viewController = closure(
-                    transitionId: generatedTransitionId,
-                    transitionsHandler: navigationTransitionsHandler)
-                
-                let resetContext = ForwardTransitionContext(
-                    resetingWithViewController: viewController,
-                    transitionsHandler: navigationTransitionsHandler,
-                    animator: animator,
-                    transitionId: generatedTransitionId)
-                
-                modalViewController = viewController
-                
-                return resetContext
-            })
-            
-            assert(modalViewController != nil)
-            
-            let modalContext = ForwardTransitionContext(
-                presentingModalViewController: modalViewController!,
-                inNavigationController: navigationController,
-                targetTransitionsHandler: navigationTransitionsHandler,
-                animator: animator,
-                transitionId: generatedTransitionId)
-            
-            return modalContext
-        }
+        let navigationController = UINavigationController()
+        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        
+        let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+        
+        let viewController = closure(
+            transitionId: generatedTransitionId,
+            transitionsHandler: navigationTransitionsHandler)
+        
+        let resetContext = ForwardTransitionContext(
+            resetingWithViewController: viewController,
+            transitionsHandler: navigationTransitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId)
+        
+        navigationTransitionsHandler.resetWithTransition(context: resetContext)
+        
+        let modalContext = ForwardTransitionContext(
+            presentingModalViewController: viewController,
+            inNavigationController: navigationController,
+            targetTransitionsHandler: navigationTransitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId)
+        
+        transitionsHandler.performTransition(context: modalContext)
     }
     
     final func presentPopoverFromRect(
@@ -209,45 +208,36 @@ extension BaseRouter {
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator)
     {
-        transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
-            let navigationController = UINavigationController()
-            let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
-            
-            // приходится делать optional, иначе `variable captured by a closure before being initialized`
-            var presentedViewController: UIViewController? = nil
-            
-            navigationTransitionsHandler.resetWithTransition(contextCreationClosure: { (generatedTransitionId) -> ForwardTransitionContext in
-                let viewController = closure(
-                    transitionId: generatedTransitionId,
-                    transitionsHandler: navigationTransitionsHandler)
-                
-                let resetContext = ForwardTransitionContext(
-                    resetingWithViewController: viewController,
-                    transitionsHandler: navigationTransitionsHandler,
-                    animator: resetAnimator,
-                    transitionId: generatedTransitionId)
-                
-                presentedViewController = viewController
-                
-                return resetContext
-            })
-            
-            assert(presentedViewController != nil)
-            
-            let popoverController = navigationController.wrappedInPopoverController()
-            
-            let popoverContext = ForwardTransitionContext(
-                presentingViewController: presentedViewController!,
-                inNavigationController: navigationController,
-                inPopoverController: popoverController,
-                fromRect: rect,
-                inView: view,
-                targetTransitionsHandler: navigationTransitionsHandler,
-                animator: animator,
-                transitionId: generatedTransitionId)
-            
-            return popoverContext
-        }
+        let navigationController = UINavigationController()
+        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        
+        let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+        
+        let viewController = closure(
+            transitionId: generatedTransitionId,
+            transitionsHandler: navigationTransitionsHandler)
+        
+        let resetContext = ForwardTransitionContext(
+            resetingWithViewController: viewController,
+            transitionsHandler: navigationTransitionsHandler,
+            animator: resetAnimator,
+            transitionId: generatedTransitionId)
+        
+        navigationTransitionsHandler.resetWithTransition(context: resetContext)
+        
+        let popoverController = navigationController.wrappedInPopoverController()
+        
+        let popoverContext = ForwardTransitionContext(
+            presentingViewController: viewController,
+            inNavigationController: navigationController,
+            inPopoverController: popoverController,
+            fromRect: rect,
+            inView: view,
+            targetTransitionsHandler: navigationTransitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId)
+
+        transitionsHandler.performTransition(context: popoverContext)
     }
     
     final func presentPopoverFromBarButtonItem(
@@ -268,43 +258,34 @@ extension BaseRouter {
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator)
     {
-        transitionsHandler.performTransition { (generatedTransitionId) -> ForwardTransitionContext in
-            let navigationController = UINavigationController()
-            let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
-            
-            // приходится делать optional, иначе `variable captured by a closure before being initialized`
-            var presentedViewController: UIViewController? = nil
-            
-            navigationTransitionsHandler.resetWithTransition(contextCreationClosure: { (generatedTransitionId) -> ForwardTransitionContext in
-                let viewController = closure(
-                    transitionId: generatedTransitionId,
-                    transitionsHandler: navigationTransitionsHandler)
-                
-                let resetContext = ForwardTransitionContext(
-                    resetingWithViewController: viewController,
-                    transitionsHandler: navigationTransitionsHandler,
-                    animator: resetAnimator,
-                    transitionId: generatedTransitionId)
-                
-                presentedViewController = viewController
-                
-                return resetContext
-            })
-            
-            assert(presentedViewController != nil)
-            
-            let popoverController = navigationController.wrappedInPopoverController()
-            
-            let popoverContext = ForwardTransitionContext(
-                presentingViewController: presentedViewController!,
-                inNavigationController: navigationController,
-                inPopoverController: popoverController,
-                fromBarButtonItem: barButtonItem,
-                targetTransitionsHandler: navigationTransitionsHandler,
-                animator: animator,
-                transitionId: generatedTransitionId)
-            
-            return popoverContext
-        }
+        let navigationController = UINavigationController()
+        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+
+        let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+        
+        let viewController = closure(
+            transitionId: generatedTransitionId,
+            transitionsHandler: navigationTransitionsHandler)
+        
+        let resetContext = ForwardTransitionContext(
+            resetingWithViewController: viewController,
+            transitionsHandler: navigationTransitionsHandler,
+            animator: resetAnimator,
+            transitionId: generatedTransitionId)
+        
+        navigationTransitionsHandler.resetWithTransition(context: resetContext)
+        
+        let popoverController = navigationController.wrappedInPopoverController()
+        
+        let popoverContext = ForwardTransitionContext(
+            presentingViewController: viewController,
+            inNavigationController: navigationController,
+            inPopoverController: popoverController,
+            fromBarButtonItem: barButtonItem,
+            targetTransitionsHandler: navigationTransitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId)
+
+        transitionsHandler.performTransition(context: popoverContext)
     }
 }

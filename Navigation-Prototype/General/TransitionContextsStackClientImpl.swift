@@ -82,7 +82,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
             var didMatchId = transitionId == notChainedTransitionId
             
             while notChainedTransitionId != nil && !didMatchId {
-                if let previous = stack.preceding(transitionId) {
+                if let previous = stack.preceding(notChainedTransitionId!) {
                     notChainedTransitionId = previous.transitionId
                     
                     didMatchId = transitionId == notChainedTransitionId

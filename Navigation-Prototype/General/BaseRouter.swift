@@ -8,9 +8,6 @@ class BaseRouter: Router {
     weak var parentTransitionsHandler: TransitionsHandler?
     var transitionId: TransitionId
     
-    // TransitionsGeneratorStorer
-    
-    
     init(
         transitionsHandler: TransitionsHandler,
         transitionId: TransitionId,

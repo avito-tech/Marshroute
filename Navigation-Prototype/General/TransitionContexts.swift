@@ -251,13 +251,15 @@ struct RestoredTransitionContext {
     {
         guard let context = context
             else { return nil }
+       
         guard let sourceViewController = context.sourceViewController
             else { return nil }
-        guard let sourceTransitionsHandler = context.targetTransitionsHandler
+        guard let sourceTransitionsHandler = context.sourceTransitionsHandler
+            else { return nil }
+
+        guard let targetViewController = context.targetViewController
             else { return nil }
         guard let targetTransitionsHandler = context.targetTransitionsHandler
-            else { return nil }
-        guard let targetViewController = context.targetViewController
             else { return nil }
         
         self.sourceViewController = sourceViewController

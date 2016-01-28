@@ -157,7 +157,6 @@ private extension NavigationTransitionsHandler {
         guard let animationContext = createAnimationContextForForwardTransition(context: context)
             else { return }
         
-        
         context.animator.animatePerformingTransition(animationContext: animationContext)
         
         let completedTransitionContext = CompletedTransitionContext(

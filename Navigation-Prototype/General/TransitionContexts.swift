@@ -137,7 +137,7 @@ struct CompletedTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
-    /// undoTransitions(tilTransitionIdPreceding:)
+    /// undoTransition(toId:)
     let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.
@@ -197,7 +197,7 @@ struct RestoredTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
-    /// undoTransitions(tilTransitionIdPreceding:)
+    /// undoTransition(toId:)
     let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.

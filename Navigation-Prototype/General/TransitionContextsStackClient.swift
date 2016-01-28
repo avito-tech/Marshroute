@@ -7,13 +7,6 @@ class TransitionContextsStackClient {
         stack = transitionContextsStack
     }
     
-    func doesTransitionsHandlerHaveChainedTransitionHandlers(transitionsHandler: TransitionsHandler)
-        -> Bool
-    {
-        let chainedTransitionsHandler = chainedTransitionsHandlerForTransitionsHandler(transitionsHandler)
-        return chainedTransitionsHandler != nil
-    }
-    
     func chainedTransitionsHandlerForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> TransitionsHandler?
     {
@@ -21,40 +14,7 @@ class TransitionContextsStackClient {
         return chainedTransition?.targetTransitionsHandler
     }
     
-    func doesTransitionWithId(
-        transitionId: TransitionId,
-        belongToTransitionsHandler transitionsHandler: TransitionsHandler)
-        -> Bool
-    {
-        let context = transitionWithId(transitionId, forTransitionsHandler: transitionsHandler)
-        return context != nil
-    }
-    
-    func transitionsAfter(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
-        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
-    {
-        return transitionsAfter(
-            transitionId: transitionId,
-            forTransitionsHandler: transitionsHandler,
-            includingTransitionId: false
-        )
-    }
-    
-    func transitionsAfterAndIncluding(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
-        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
-    {
-        return transitionsAfter(
-            transitionId: transitionId,
-            forTransitionsHandler: transitionsHandler,
-            includingTransitionId: true
-        )
-    }
-    
-}
-
-// MARK: - heplers
-private extension TransitionContextsStackClient {
-    func transitionWithId(transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    func transitionWith(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
         if let restored = stack[transitionId]
@@ -64,6 +24,30 @@ private extension TransitionContextsStackClient {
         return nil
     }
     
+    func transitionsFrom(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
+    {
+        return transitionsFrom(
+            transitionId: transitionId,
+            forTransitionsHandler: transitionsHandler,
+            includingTransitionTo: false
+        )
+    }
+    
+    func transitionsTo(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
+    {
+        return transitionsFrom(
+            transitionId: transitionId,
+            forTransitionsHandler: transitionsHandler,
+            includingTransitionTo: true
+        )
+    }
+    
+}
+
+// MARK: - heplers
+private extension TransitionContextsStackClient {
     func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
@@ -84,17 +68,17 @@ private extension TransitionContextsStackClient {
         return nil
     }
     
-    func transitionsAfter(
+    func transitionsFrom(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
-        includingTransitionId including: Bool)
+        includingTransitionTo: Bool)
         -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
     {
         var chainedTransition: RestoredTransitionContext? = nil
         var otherTransitions: [RestoredTransitionContext]? = nil
         
         assert(
-            transitionWithId(transitionId, forTransitionsHandler: transitionsHandler) != nil,
+            transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler) != nil,
             "проверяйте заранее, что id перехода действительно относится к обработчику переходов"
         )
         
@@ -120,7 +104,7 @@ private extension TransitionContextsStackClient {
 
                     didMatchId = transitionId == notChainedTransitionId
                     
-                    if !didMatchId || (didMatchId && including) {
+                    if !didMatchId || (didMatchId && includingTransitionTo) {
                         otherTransitions?.insert(previous, atIndex: 0)
                     }
                 }

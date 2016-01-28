@@ -33,7 +33,9 @@ class MasterDetailRouter: BaseRouter {
             let resetDetailContext = ForwardTransitionContext(
                 resetingWithViewController: viewController,
                 transitionsHandler: self.detailTransitionsHandler,
-                animator: animator)
+                animator: animator,
+                transitionId: generatedTransitionId
+            )
             
             return resetDetailContext
         }

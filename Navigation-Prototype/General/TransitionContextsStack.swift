@@ -39,11 +39,12 @@ class TransitionContextsStack {
         return restored
     }
     
-    func popTo(transitionId transitionId: TransitionId)
+    func popToPreceding(transitionId transitionId: TransitionId)
         -> [RestoredTransitionContext]?
     {
         updateStack()
-        let index = indexOfCompletedTransition(transitionId: transitionId)
+        let index = indexOfCompletedTransitionPreceding(transitionId: transitionId)
+        ?? indexOfCompletedTransition(transitionId: transitionId)
         let result = popTo(index: index)
         return result
     }
@@ -125,6 +126,7 @@ private extension TransitionContextsStack {
             if let last = popLast() {
                 result.insert(last, atIndex: 0)
             }
+            else { break }
         }
         
         return result

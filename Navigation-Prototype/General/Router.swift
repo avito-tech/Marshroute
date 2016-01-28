@@ -10,7 +10,7 @@ extension Router {
         if let parentTransitionsHandler = parentTransitionsHandler,
             let transitionId = transitionId
         {
-            parentTransitionsHandler.undoTransition(toId: transitionId)
+            parentTransitionsHandler.undoTransitionWith(transitionId: transitionId)
         }
     }
 }

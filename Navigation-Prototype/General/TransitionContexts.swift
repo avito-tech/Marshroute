@@ -7,7 +7,7 @@ struct ForwardTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
-    /// undoTransition(toId:)
+    /// undoTransitionWith(transitionId:)
     let transitionId: TransitionId
     
     /// контроллер, на который нужно перейти
@@ -155,7 +155,7 @@ struct CompletedTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
-    /// undoTransition(toId:)
+    /// undoTransitionWith(transitionId:)
     let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.
@@ -185,8 +185,7 @@ struct CompletedTransitionContext {
     
     init(forwardTransitionContext context: ForwardTransitionContext,
         sourceViewController: UIViewController,
-        sourceTransitionsHandler: TransitionsHandler,
-        transitionId: String)
+        sourceTransitionsHandler: TransitionsHandler)
     {
         self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
@@ -198,7 +197,7 @@ struct CompletedTransitionContext {
         self.storableParameters = context.storableParameters
         self.animator = context.animator
         
-        self.transitionId = transitionId
+        self.transitionId = context.transitionId
     }
     
     var isZombie: Bool {
@@ -215,7 +214,7 @@ struct RestoredTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
-    /// undoTransition(toId:)
+    /// undoTransitionWith(transitionId:)
     let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.

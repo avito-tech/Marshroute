@@ -6,7 +6,7 @@ protocol RouterDismisable: class {
     /// с помощью этой ссылки роутер может попросить обработчика переходов
     /// убрать свой модуль и вернуться на предыдущий модуль через
     /// ```swift
-    /// undoTransition(toId:)
+    /// undoTransitionWith(transitionId:)
     weak var parentTransitionsHandler: TransitionsHandler? { get }
     
     /// идентификатор перехода
@@ -16,7 +16,7 @@ protocol RouterDismisable: class {
 extension RouterDismisable {
     func returnToPresentingModule() {
         if let transitionId = transitionId {
-            parentTransitionsHandler?.undoTransition(toId: transitionId)
+            parentTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
         }
     }
 }

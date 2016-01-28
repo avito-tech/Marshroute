@@ -35,12 +35,12 @@ extension TabBarTransitionsHandler: TransitionsHandler {
         selectedTransitionHandler?.performTransition(contextCreationClosure: closure)
     }
     
-    func undoTransition(fromId transitionId: TransitionId) {
-        selectedTransitionHandler?.undoTransition(fromId: transitionId)
+    func undoTransitionsAfter(transitionId transitionId: TransitionId) {
+        selectedTransitionHandler?.undoTransitionsAfter(transitionId: transitionId)
     }
     
-    func undoTransition(toId transitionId: TransitionId) {
-        selectedTransitionHandler?.undoTransition(toId: transitionId)
+    func undoTransitionWith(transitionId transitionId: TransitionId) {
+        selectedTransitionHandler?.undoTransitionWith(transitionId: transitionId)
     }
     
     func undoAllChainedTransitions() {

@@ -24,23 +24,36 @@ class TransitionContextsStackClient {
         return nil
     }
     
-    func transitionsFrom(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    func allTransitionsForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
     {
-        return transitionsFrom(
-            transitionId: transitionId,
+        guard let first = stack.first where first.wasPerfromedByTransitionsHandler(transitionsHandler)
+            else { return (nil, nil) }
+        
+        return transitionsAfter(
+            transitionId: first.transitionId,
             forTransitionsHandler: transitionsHandler,
-            includingTransitionTo: false
+            includingTransitionWithId: true
         )
     }
     
-    func transitionsFromAndTransitionTo(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    func transitionsAfter(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
     {
-        return transitionsFrom(
+        return transitionsAfter(
             transitionId: transitionId,
             forTransitionsHandler: transitionsHandler,
-            includingTransitionTo: true
+            includingTransitionWithId: false
+        )
+    }
+    
+    func transitionsAfterAndTransitionWith(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
+    {
+        return transitionsAfter(
+            transitionId: transitionId,
+            forTransitionsHandler: transitionsHandler,
+            includingTransitionWithId: true
         )
     }
     
@@ -49,32 +62,31 @@ class TransitionContextsStackClient {
         deleteTransitionsFrom(
             transitionId: transitionId,
             forTransitionsHandler: transitionsHandler,
-            includingTransitionTo: false
+            includingTransitionWithId: false
         )
     }
 
-    func deleteTransitionsFromAndTransitionTo(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
+    func deleteTransitionsFromAndTransitionWith(transitionId transitionId: TransitionId, forTransitionsHandler transitionsHandler: TransitionsHandler)
     {
         deleteTransitionsFrom(
             transitionId: transitionId,
             forTransitionsHandler: transitionsHandler,
-            includingTransitionTo: true
+            includingTransitionWithId: true
         )
+    }
+    
+    func appendTransition(
+        context context: CompletedTransitionContext,
+        forTransitionsHandler transitionsHandler: TransitionsHandler)
+    {
+        if context.sourceTransitionsHandler === transitionsHandler {
+            stack.append(context)
+        }
     }
 }
 
 // MARK: - heplers
 private extension TransitionContextsStackClient {
-    func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
-        -> RestoredTransitionContext?
-    {
-        if let last = lastTransitionForTransitionsHandler(transitionsHandler)
-            where last.isChainedForTransitionsHandler(transitionsHandler) {
-                return last
-        }
-        return nil
-    }
-    
     func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
@@ -85,10 +97,20 @@ private extension TransitionContextsStackClient {
         return nil
     }
     
-    func transitionsFrom(
+    func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> RestoredTransitionContext?
+    {
+        if let last = lastTransitionForTransitionsHandler(transitionsHandler)
+            where last.isChainedForTransitionsHandler(transitionsHandler) {
+                return last
+        }
+        return nil
+    }
+    
+    func transitionsAfter(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
-        includingTransitionTo: Bool)
+        includingTransitionWithId: Bool)
         -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
     {
         var chainedTransition: RestoredTransitionContext? = nil
@@ -121,39 +143,34 @@ private extension TransitionContextsStackClient {
 
                     didMatchId = transitionId == notChainedTransitionId
                     
-                    if !didMatchId || (didMatchId && includingTransitionTo) {
+                    if !didMatchId || (didMatchId && includingTransitionWithId) {
                         otherTransitions?.insert(previous, atIndex: 0)
                     }
                 }
                 else { notChainedTransitionId = nil }
             }
         }
-        
+
         return (chainedTransition, otherTransitions)
     }
     
-    func deleteTransitionsFrom(
+    func deleteTransitionsAfterAndTransitionWith(
         transitionId transitionId: TransitionId,
-        forTransitionsHandler transitionsHandler: TransitionsHandler,
-        includingTransitionTo: Bool)
+        forTransitionsHandler transitionsHandler: TransitionsHandler
     {
         var lastTransitionIdToDelete = transitionId
         
-        if includingTransitionTo {
-            if let preceding = stack.preceding(transitionId) {
-                // тут слегка неоптимально сделано, но зато чисто
+        if includingTransitionWithId {
+            if let preceding = stack.preceding(transitionId)
+                where preceding.wasPerfromedByTransitionsHandler(transitionsHandler)
+            {
+                // тут слегка неоптимально сделано, но зато чисто - 
+                // стек возвращает только RestoredTransitionContext
                 lastTransitionIdToDelete = preceding.transitionId
             }
         }
         
         stack.popTo(transitionId: lastTransitionIdToDelete)
-    }
-    
-    func appendTransition(
-        context context: ForwardTransitionContext,
-        forTransitionsHandler transitionsHandler: TransitionsHandler)
-    {
-        
     }
 }
 

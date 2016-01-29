@@ -1,9 +1,9 @@
 import Foundation
 
 class BaseRouter {
-    private var transitionsHandlerPrivate: TransitionsHandler
+    private unowned var transitionsHandlerPrivate: TransitionsHandler
     private var transitionIdPrivate: TransitionId
-    private var presentingTransitionsHandlerPrivate: TransitionsHandler?
+    private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
     
     init(
         transitionsHandler: TransitionsHandler,
@@ -25,7 +25,7 @@ extension BaseRouter: RouterIdentifiable {
 
 // MARK: - RouterPresentable
 extension BaseRouter: RouterPresentable {
-    var presentingTransitionsHandler: TransitionsHandler? {
+    weak var presentingTransitionsHandler: TransitionsHandler? {
         return presentingTransitionsHandlerPrivate
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
 protocol MasterRouterTransitionable: class {
-    /// сильная ссылка на обработчика переходов
-    var masterTransitionsHandler: TransitionsHandler { get }
+    /// слабая ссылка на обработчика переходов
+    unowned var masterTransitionsHandler: TransitionsHandler { get }
 }

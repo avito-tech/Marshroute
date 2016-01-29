@@ -59,6 +59,7 @@
 		CCE3C34A1C5B5811005763AD /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C3491C5B5811005763AD /* RouterIdentifiable.swift */; };
 		CCE3C34C1C5B5C1C005763AD /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C34B1C5B5C1C005763AD /* BaseRouter.swift */; };
 		CCE3C34E1C5B61DD005763AD /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C34D1C5B61DD005763AD /* BaseMasterDetailRouter.swift */; };
+		CCE3C3501C5B8A1C005763AD /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C34F1C5B8A1C005763AD /* TransitionContextsStackImpl.swift */; };
 		CCE8C92F1C560CEA0041801D /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9201C560CEA0041801D /* ApplicationAssembly.swift */; };
 		CCE8C9301C560CEA0041801D /* ApplicationAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9211C560CEA0041801D /* ApplicationAssemblyImpl.swift */; };
 		CCE8C9311C560CEA0041801D /* ApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9221C560CEA0041801D /* ApplicationInteractor.swift */; };
@@ -178,6 +179,7 @@
 		CCE3C3491C5B5811005763AD /* RouterIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterIdentifiable.swift; sourceTree = "<group>"; };
 		CCE3C34B1C5B5C1C005763AD /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		CCE3C34D1C5B61DD005763AD /* BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCE3C34F1C5B8A1C005763AD /* TransitionContextsStackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackImpl.swift; sourceTree = "<group>"; };
 		CCE8C9201C560CEA0041801D /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		CCE8C9211C560CEA0041801D /* ApplicationAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssemblyImpl.swift; sourceTree = "<group>"; };
 		CCE8C9221C560CEA0041801D /* ApplicationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInteractor.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				CCE3C30C1C5B54CF005763AD /* TransitionContextConverter.swift */,
 				CCE3C30D1C5B54CF005763AD /* TransitionContexts.swift */,
 				CCE3C30E1C5B54CF005763AD /* TransitionContextsStack.swift */,
+				CCE3C34F1C5B8A1C005763AD /* TransitionContextsStackImpl.swift */,
 				CCE3C30F1C5B54CF005763AD /* TransitionContextsStackClient.swift */,
 				CCE3C3101C5B54CF005763AD /* TransitionContextsStackClientImpl.swift */,
 				CCE3C3111C5B54CF005763AD /* TransitionIdGenerator.swift */,
@@ -557,6 +560,7 @@
 				CCE3C3471C5B54CF005763AD /* TransitionStyleConverter.swift in Sources */,
 				CCE8C95F1C561C780041801D /* FirstAssembly.swift in Sources */,
 				CCE8C99B1C561C8F0041801D /* ApplicationNavigationViewInput.swift in Sources */,
+				CCE3C3501C5B8A1C005763AD /* TransitionContextsStackImpl.swift in Sources */,
 				CCE8C92F1C560CEA0041801D /* ApplicationAssembly.swift in Sources */,
 				CCE8C9601C561C780041801D /* FirstAssemblyImpl.swift in Sources */,
 				CCE8C9D11C563A610041801D /* AuthorizationRouterImpl.swift in Sources */,

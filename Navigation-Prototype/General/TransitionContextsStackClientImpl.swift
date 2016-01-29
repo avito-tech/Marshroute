@@ -3,7 +3,7 @@ import Foundation
 class TransitionContextsStackClientImpl {
     private let stack: TransitionContextsStack
     
-    init(transitionContextsStack: TransitionContextsStack = TransitionContextsStack()) {
+    init(transitionContextsStack: TransitionContextsStack = TransitionContextsStackImpl()) {
         stack = transitionContextsStack
     }
 }
@@ -105,12 +105,12 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
     {
-        var firstOfPopped = stack.popTo(transitionId: transitionId)?.first
+        var lastPopped = stack.popTo(transitionId: transitionId)?.first
         
         if includingTransitionWithId {
-            firstOfPopped = stack.popLast()
+            lastPopped = stack.popLast()
         }
-        assert(firstOfPopped == nil || firstOfPopped!.wasPerfromedByTransitionsHandler(transitionsHandler))
+        assert(lastPopped == nil || lastPopped!.wasPerfromedByTransitionsHandler(transitionsHandler))
     }
     
     func appendTransition(

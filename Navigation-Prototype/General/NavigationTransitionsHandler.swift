@@ -18,7 +18,6 @@ class NavigationTransitionsHandler {
 
 // MARK: - TransitionsHandler
 extension NavigationTransitionsHandler : TransitionsHandler {
-    
     func performTransition(context context: ForwardTransitionContext)
     {
         if canForward() {
@@ -116,7 +115,6 @@ private extension NavigationTransitionsHandler {
 
 // MARK: - forwarding to chained transition hanlders
 private extension NavigationTransitionsHandler {
-
     func forwardPerformingTransition(context context: ForwardTransitionContext)
     {
         assert(canForward())
@@ -156,7 +154,8 @@ private extension NavigationTransitionsHandler {
 
 // MARK: - performing and undoing transitions
 private extension NavigationTransitionsHandler {
-    func performTransitionImpl(context context: ForwardTransitionContext) {
+    func performTransitionImpl(context context: ForwardTransitionContext)
+    {
         assert(!canForward())
         
         guard let sourceViewController = navigationController.topViewController
@@ -201,7 +200,8 @@ private extension NavigationTransitionsHandler {
         )
     }
     
-    func undoChainedTransitionIfNeeded() {
+    func undoChainedTransitionIfNeeded()
+    {
         guard let chainedTransitionContext = stackClient.chainedTransitionForTransitionsHandler(self)
             else { return }
 
@@ -213,7 +213,8 @@ private extension NavigationTransitionsHandler {
         )
     }
 
-    func undoAllTransitionsIfNeeded() {
+    func undoAllTransitionsIfNeeded()
+    {
         let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(self)
         let chainedTransitionContext = transitionsToUndo.chainedTransition
         let pushTransitions = transitionsToUndo.pushTransitions
@@ -252,13 +253,15 @@ private extension NavigationTransitionsHandler {
         )
     }
 
-    func undoTransitionImpl(context context: RestoredTransitionContext) {
+    func undoTransitionImpl(context context: RestoredTransitionContext)
+    {
         if let animationContext = createAnimationContextForRestoredTransition(context: context) {
             context.animator.animateUndoingTransition(animationContext: animationContext)
         }
     }
     
-    func undoTransitionsPassingIntermediateTransitions(pushTransitions: [RestoredTransitionContext]) {
+    func undoTransitionsPassingIntermediateTransitions(pushTransitions: [RestoredTransitionContext])
+    {
         if let fromContext = pushTransitions.first { // минуем промежуточные переходы
             undoTransitionImpl(context: fromContext)
         }

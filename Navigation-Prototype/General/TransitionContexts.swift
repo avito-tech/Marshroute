@@ -76,7 +76,7 @@ struct ForwardTransitionContext {
         self.targetTransitionsHandler = targetTransitionsHandler
         self.transitionStyle = .Modal
         self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
-        self.storableParameters = NavigationTransitionStorableParameters(presentingTransitionsHandler: targetTransitionsHandler)
+        self.storableParameters = NavigationTransitionStorableParameters(presentedTransitionsHandler: targetTransitionsHandler)
         self.animator = animator
         self.transitionId = transitionId
     }
@@ -99,7 +99,7 @@ struct ForwardTransitionContext {
         self.targetTransitionsHandler = targetTransitionsHandler
         self.transitionStyle = .Modal
         self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: navigationController)
-        self.storableParameters = nil
+        self.storableParameters = NavigationTransitionStorableParameters(presentedTransitionsHandler: targetTransitionsHandler)
         self.animator = animator
         self.transitionId = transitionId
     }
@@ -120,9 +120,12 @@ struct ForwardTransitionContext {
         self.targetTransitionsHandler = targetTransitionsHandler
         self.transitionStyle = .PopoverFromView(sourceView: view, sourceRect: rect)
         self.animationTargetParameters = nil
-        self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
         self.animator = animator
         self.transitionId = transitionId
+        self.storableParameters = PopoverTransitionStorableParameters(
+            popoverController: popoverController,
+            presentedTransitionsHandler: targetTransitionsHandler
+        )
     }
     
     /**
@@ -140,9 +143,12 @@ struct ForwardTransitionContext {
         self.targetTransitionsHandler = targetTransitionsHandler
         self.transitionStyle = .PopoverFromButtonItem(buttonItem: buttonItem)
         self.animationTargetParameters = nil
-        self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
         self.animator = animator
         self.transitionId = transitionId
+        self.storableParameters = PopoverTransitionStorableParameters(
+            popoverController: popoverController,
+            presentedTransitionsHandler: targetTransitionsHandler
+        )
     }
     
     init (context: ForwardTransitionContext, forwardedTotransitionsHandler transitionsHandler: TransitionsHandler) {
@@ -171,10 +177,6 @@ struct CompletedTransitionContext {
     let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.
-    /// удобно использовать роутером модуля контейнера
-    /// для отмены всех переходов и возвращения на главный экран контейнера через
-    /// ```swift
-    /// undoTransitions(tilContext:)
     private (set) weak var sourceViewController: UIViewController?
     
     /// обработчик переходов для роутера модуля, вызвавшего переход
@@ -230,10 +232,6 @@ struct RestoredTransitionContext {
     let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.
-    /// удобно использовать роутером модуля контейнера
-    /// для отмены всех переходов и возвращения на главный экран контейнера через
-    /// ```swift
-    /// undoTransitions(tilContext:)
     let sourceViewController: UIViewController
     
     /// обработчик переходов для роутера модуля, с контоллера которого перешли

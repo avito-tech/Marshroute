@@ -19,33 +19,37 @@ class SplitViewTransitionsHandler {
         }
     }
     
+    var transitinsHandler: TransitionsHandler? {
+        return firstResponderTransitionsHandler ?? masterTransitionsHandler
+    }
+    
     private var firstResponderTransitionsHandler: TransitionsHandler?
 }
 
 // MARK: - TransitionsHandler
 extension SplitViewTransitionsHandler: TransitionsHandler {
     func performTransition(context context: ForwardTransitionContext) {
-        firstResponderTransitionsHandler?.performTransition(context: context)
+        transitinsHandler?.performTransition(context: context)
     }
     
     func undoTransitionsAfter(transitionId transitionId: TransitionId) {
-        firstResponderTransitionsHandler?.undoTransitionsAfter(transitionId: transitionId)
+        transitinsHandler?.undoTransitionsAfter(transitionId: transitionId)
     }
     
     func undoTransitionWith(transitionId transitionId: TransitionId) {
-        firstResponderTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
+        transitinsHandler?.undoTransitionWith(transitionId: transitionId)
     }
     
     func undoAllChainedTransitions() {
-        firstResponderTransitionsHandler?.undoAllChainedTransitions()
+        transitinsHandler?.undoAllChainedTransitions()
     }
     
     func undoAllTransitions() {
-        firstResponderTransitionsHandler?.undoAllTransitions()
+        transitinsHandler?.undoAllTransitions()
     }
     
     func resetWithTransition(context context: ForwardTransitionContext) {
-        firstResponderTransitionsHandler?.resetWithTransition(context: context)
+        transitinsHandler?.resetWithTransition(context: context)
     }
 }
 

@@ -18,6 +18,9 @@ final class AuthorizationViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "onCancel:")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "onDone:")
+        navigationItem.title = "Authorization"
+        
+        view.backgroundColor = .whiteColor()
     }
 
     @objc func onCancel(sender: UIBarButtonItem) {
@@ -26,6 +29,10 @@ final class AuthorizationViewController: UIViewController {
     
     @objc func onDone(sender: UIBarButtonItem) {
         output?.userDidAuth()
+    }
+    
+    deinit {
+        print("deinit auth")
     }
 }
 

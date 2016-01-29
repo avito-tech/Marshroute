@@ -8,19 +8,40 @@
 
 import UIKit
 
+protocol NavigationRootsHolder: class {
+    var rootTransitionsHandler: TransitionsHandler? { get set }
+}
+
+private class NavigationRootsHolderImpl: NavigationRootsHolder {
+    static var instance = NavigationRootsHolderImpl()
+    
+    private var rootTransitionsHandler: TransitionsHandler?
+    private var window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     weak var applicationModuleInput: ApplicationModuleInput? // Presenter
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        applicationModuleInput = AssemblyFactory.applicationModuleAssembly().module()
+        
+        let navigationRootsHolder = NavigationRootsHolderImpl.instance
+        let window = navigationRootsHolder.window
+        
+        let applicationModule = AssemblyFactory.applicationModuleAssembly().module(navigationRootsHolder)
+        
+        window.rootViewController = applicationModule.0
+        applicationModuleInput = applicationModule.1
+        window.makeKeyAndVisible()
+        
         return true
     }
-
+    
     var instance: AppDelegate? {
         return UIApplication.sharedApplication().delegate as? AppDelegate
     }
-
+    
 }
 

@@ -1,8 +1,8 @@
 import Foundation
 
 protocol ApplicationInteractor: class {
-    var shouldShowAuthorizationModule: Bool { get set }
-    
+    var isShowingAuthorizationModule: Bool { get set }
+    var isAuthorized: Bool { get }
     func setAuthorizationCompletionBlock(closure: (Bool -> Void)?)
     func executeAuthorizationCompletionBlockAndDeleteAfterExecution(authorized: Bool)
 }

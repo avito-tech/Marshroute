@@ -1,22 +1,9 @@
+import Foundation
 import UIKit
 
-//MARK: - ApplicationAssembly
-protocol NavigationRootsHolder: class {
-    var rootTransitionsHandler: TransitionsHandler? { get set }
-}
-
-//MARK: - ApplicationAssemblyImpl
-private class NavigationRootsHolderImpl: NavigationRootsHolder {
-    static var instance = NavigationRootsHolderImpl()
-   
-    private var rootTransitionsHandler: TransitionsHandler?
-    private var window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-}
-
-//MARK: - ApplicationAssemblyImpl
-final class ApplicationAssemblyImpl: ApplicationAssembly {
+final class ApplicationAssemblyImpl: ApplicationAssembly  {
     
-    func module() -> (ApplicationModuleInput) {
+    func module(navigationRootsHolder: NavigationRootsHolder) -> (UIViewController, ApplicationModuleInput) {
         
         let interactor = ApplicationInteractorImpl()
         
@@ -24,21 +11,134 @@ final class ApplicationAssemblyImpl: ApplicationAssembly {
             interactor: interactor
         )
         
+        let tabBarController = ApplicationViewController(
+            output: presenter
+        )
+        
+        presenter.viewInput = tabBarController
         interactor.output = presenter
         
-        do { // ApplicationNavigationModule
-            let navigationRootsHolder = NavigationRootsHolderImpl.instance
-            let window = navigationRootsHolder.window
-            
-            let navigationModule =  AssemblyFactory.applicationNavigationModuleAssembly().module(navigationRootsHolder)
-            
-            presenter.navigationModuleInput = navigationModule.1
-            
-            window.rootViewController = navigationModule.0
-            window.makeKeyAndVisible()
-        }
+        let sharedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        return (presenter)
+        let controllersAndHandlers = createTabControllers(sharedTransitionId: sharedTransitionId)
+        tabBarController.viewControllers = controllersAndHandlers.0
+        
+        let tabTransitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
+        tabTransitionsHandler.tabTransitionHandlers = controllersAndHandlers.1
+        
+        let router = ApplicationRouterImpl(
+            transitionsHandler: tabTransitionsHandler,
+            transitionId: sharedTransitionId,
+            presentingTransitionsHandler: nil
+        )
+        
+        presenter.router = router
+        
+        navigationRootsHolder.rootTransitionsHandler = tabTransitionsHandler
+        
+        return (tabBarController, presenter)
     }
     
+    private func createTabControllers(sharedTransitionId sharedTransitionId: TransitionId)
+        ->  ([UIViewController], [TransitionsHandler])
+    {
+        return (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
+            ? createTabControllersIpad(sharedTransitionId: sharedTransitionId)
+            : createTabControllersIphone(sharedTransitionId: sharedTransitionId)
+    }
+    
+    private func createTabControllersIphone(sharedTransitionId sharedTransitionId: TransitionId)
+        -> ([UIViewController], [TransitionsHandler])
+    {
+        let firstNavigation = UINavigationController()
+        let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
+        
+        do {
+            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule("1", presentingTransitionsHandler: nil, transitionId: sharedTransitionId, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+            
+            let resetContext = ForwardTransitionContext(
+                resetingWithViewController: firstViewController,
+                transitionsHandler: firstTransitionHandler,
+                animator: NavigationTransitionsAnimator(),
+                transitionId: sharedTransitionId)
+            
+            firstTransitionHandler.resetWithTransition(context: resetContext)
+        }
+        
+        let secondNavigation = UINavigationController()
+        let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
+        do {
+            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil).0
+            
+            let resetContext = ForwardTransitionContext(
+                resetingWithViewController: secondViewController,
+                transitionsHandler: secondTransitionHandler,
+                animator: NavigationTransitionsAnimator(),
+                transitionId: sharedTransitionId)
+            
+            secondTransitionHandler.resetWithTransition(context: resetContext)
+        }
+        
+        firstNavigation.tabBarItem.title = "1"
+        secondNavigation.tabBarItem.title = "2"
+        
+        let controllers = [firstNavigation, secondNavigation]
+        return (controllers, [firstTransitionHandler, secondTransitionHandler])
+    }
+    
+    private func createTabControllersIpad(sharedTransitionId sharedTransitionId: TransitionId) -> ([UIViewController], [TransitionsHandler]) {
+        let firstSplit = UISplitViewController()
+        let firstSplitTransitionHandler = firstSplit.wrappedInSplitViewTransitionsHandler()
+        do {
+            let sharedFirstTransitionId = transitionIdGenerator.generateNewTransitionId()
+            
+            let masterNavigation = UINavigationController()
+            let detailNavigation = UINavigationController()
+            
+            firstSplit.viewControllers = [masterNavigation, detailNavigation]
+            firstSplit.tabBarItem.title = "1"
+            
+            let masterTransitionsHandler = masterNavigation.wrappedInNavigationTransitionsHandler()
+            let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
+            
+            do {
+                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", presentingTransitionsHandler: nil, transitionId: sharedFirstTransitionId, transitionsHandler: masterTransitionsHandler, detailTransitionsHandler: detailTransitionsHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+                
+                let resetMasterContext = ForwardTransitionContext(
+                    resetingWithViewController: masterViewController,
+                    transitionsHandler: masterTransitionsHandler,
+                    animator: NavigationTransitionsAnimator(),
+                    transitionId: sharedFirstTransitionId)
+                
+                masterTransitionsHandler.resetWithTransition(context: resetMasterContext)
+            }
+            
+            do {
+                let detailViewController = UIViewController()
+                
+                let resetDetailContext = ForwardTransitionContext(
+                    resetingWithViewController: detailViewController,
+                    transitionsHandler: detailTransitionsHandler,
+                    animator: NavigationTransitionsAnimator(),
+                    transitionId: sharedFirstTransitionId)
+                
+                detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
+            }
+            
+            firstSplitTransitionHandler.masterTransitionsHandler = masterTransitionsHandler
+            firstSplitTransitionHandler.detailTransitionsHandler = detailTransitionsHandler
+        }
+        
+        let secondNavigation = UINavigationController()
+        let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
+        let second = AssemblyFactory.secondModuleAssembly().ipadModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil).0
+        secondNavigation.viewControllers = [second]
+        secondNavigation.tabBarItem.title = "2"
+        
+        let controllers = [firstSplit, secondNavigation]
+        return (controllers, [firstSplitTransitionHandler, secondTransitionHandler])
+    }
 }
+
+// MARK: - TransitionsGeneratorStorer
+extension ApplicationAssemblyImpl: TransitionsGeneratorStorer {}

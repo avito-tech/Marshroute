@@ -274,20 +274,21 @@ private extension NavigationTransitionsHandler {
             "сначала chained (aka не push) переходы"
         )
         
-        if let animationContext = createAnimationContextForForwardTransition(context: context) {
-            context.animator.animateResettingWithTransition(animationContext: animationContext)
-
-            let completedTransitionContext = CompletedTransitionContext(
-                forwardTransitionContext: context,
-                sourceViewController: context.targetViewController, // при reset source === target
-                sourceTransitionsHandler: self
-            )
-            
-            stackClient.appendTransition(
-                context: completedTransitionContext,
-                forTransitionsHandler: self
-            )
-        }
+        guard let animationContext = createAnimationContextForForwardTransition(context: context)
+            else { return }
+        
+        context.animator.animateResettingWithTransition(animationContext: animationContext)
+        
+        let completedTransitionContext = CompletedTransitionContext(
+            forwardTransitionContext: context,
+            sourceViewController: context.targetViewController, // при reset source === target
+            sourceTransitionsHandler: self
+        )
+        
+        stackClient.appendTransition(
+            context: completedTransitionContext,
+            forTransitionsHandler: self
+        )
     }
 }
 

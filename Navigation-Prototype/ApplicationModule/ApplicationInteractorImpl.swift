@@ -4,14 +4,18 @@ class ApplicationInteractorImpl {
     weak var output: ApplicationPresenter?
     
     var authorizationClosure: (Bool -> Void)?
-    var shouldShowAuthorizationModulePrivate: Bool = true
+    var isShowingAuthorizationModulePrivate: Bool = false
 }
 
 //MARK: - ApplicationInteractor
 extension ApplicationInteractorImpl: ApplicationInteractor  {
-    var shouldShowAuthorizationModule: Bool {
-        get { return shouldShowAuthorizationModulePrivate }
-        set { shouldShowAuthorizationModulePrivate = newValue }
+    var isShowingAuthorizationModule: Bool {
+        get { return isShowingAuthorizationModulePrivate }
+        set { isShowingAuthorizationModulePrivate = newValue }
+    }
+    
+    var isAuthorized: Bool {
+        return false // !service.isAuthorized
     }
     
     func setAuthorizationCompletionBlock(closure: (Bool -> Void)?) {

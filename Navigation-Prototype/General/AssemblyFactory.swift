@@ -3,10 +3,6 @@ class AssemblyFactory {
         return ApplicationAssemblyImpl()
     }
     
-    static func applicationNavigationModuleAssembly() -> ApplicationNavigationAssembly {
-        return ApplicationNavigationAssemblyImpl()
-    }
-    
     static func firstModuleAssembly() -> FirstAssembly {
         return FirstAssemblyImpl()
     }
@@ -14,5 +10,8 @@ class AssemblyFactory {
     static func secondModuleAssembly() -> SecondAssembly {
         return SecondAssemblyImpl()
     }
-    
+ 
+    static func authModuleAssembly() -> AuthorizationAssembly {
+        return AuthorizationAssemblyImpl()
+    }
 }

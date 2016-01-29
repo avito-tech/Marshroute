@@ -2,32 +2,46 @@ import Foundation
 
 class ApplicationPresenter {
     private let interactor: ApplicationInteractor
+    var router: ApplicationRouter?
     
-    weak var navigationModuleInput: ApplicationNavigationModuleInput?
+    weak var viewInput: ApplicationViewInput?
+    
+    weak var authInput: AuthorizationModuleInput?
     
     //MARK: - Init
     init(interactor: ApplicationInteractor){
         self.interactor = interactor
     }
-    
 }
 
 //MARK: - ApplicationInput
 extension ApplicationPresenter: ApplicationModuleInput  {
-    func showAuthorizationModule(closure: ((authorized: Bool) -> Void)?) {
-        if interactor.shouldShowAuthorizationModule {
-            interactor.shouldShowAuthorizationModule = false
-            navigationModuleInput?.showAuthorizationModule()
-        }
-
-        interactor.setAuthorizationCompletionBlock(closure)
-    }
-
+    
 }
-//MARK: - ApplicationNavigationModuleOutput
-extension ApplicationPresenter: ApplicationNavigationModuleOutput {
-    func didHideAuthorizationModule(authorized: Bool) {
-        interactor.shouldShowAuthorizationModule = true
-        interactor.executeAuthorizationCompletionBlockAndDeleteAfterExecution(authorized)
+
+//MARK: - ApplicationViewOutput
+extension ApplicationPresenter: ApplicationViewOutput  {
+    func userDidRunOutOfMemory() {
+        showAuthWithCompletion({ (authed) -> Void in
+            print("==== AUTHED ? \(authed)")
+        })
+    }
+    
+    private func showAuthWithCompletion(completion: (authed: Bool) -> Void) {
+        if interactor.isShowingAuthorizationModule {
+            interactor.setAuthorizationCompletionBlock(completion)
+        }
+        else if !interactor.isAuthorized {
+            interactor.isShowingAuthorizationModule = true
+            interactor.setAuthorizationCompletionBlock(completion)
+            router?.showAuthorization(output: self)
+        }
+    }
+}
+
+extension ApplicationPresenter: AuthorizationModuleOutput {
+    func didFinishWith(success success: Bool) {
+        interactor.executeAuthorizationCompletionBlockAndDeleteAfterExecution(success)
+        interactor.isShowingAuthorizationModule = false
     }
 }

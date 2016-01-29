@@ -1,5 +1,5 @@
 import UIKit
 
 protocol ApplicationAssembly {
-    func module() -> (ApplicationModuleInput)
+    func module(navigationRootsHolder: NavigationRootsHolder) -> (UIViewController, ApplicationModuleInput)
 }

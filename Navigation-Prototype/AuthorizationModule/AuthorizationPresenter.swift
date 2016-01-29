@@ -37,6 +37,4 @@ extension AuthorizationPresenter: AuthorizationViewOutput  {
         moduleOutput = nil
         router.dismissCurrentModule()
     }
-    
-    
 }

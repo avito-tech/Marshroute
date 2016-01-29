@@ -27,14 +27,14 @@ extension AuthorizationPresenter: AuthorizationModuleInput  {
 //MARK: - AuthorizationViewOutput
 extension AuthorizationPresenter: AuthorizationViewOutput  {
     func userDidCancel() {
+        router.dismissCurrentModule() // TODO: сначала уведомить moduleOutput, а потом сказать роутеру
         moduleOutput?.didFinishWith(success: false)
         moduleOutput = nil
-        router.dismissCurrentModule()
     }
     
     func userDidAuth() {
+        router.dismissCurrentModule() // TODO: сначала уведомить moduleOutput, а потом сказать роутеру
         moduleOutput?.didFinishWith(success: true)
         moduleOutput = nil
-        router.dismissCurrentModule()
     }
 }

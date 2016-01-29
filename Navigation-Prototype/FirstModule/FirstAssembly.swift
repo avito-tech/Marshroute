@@ -3,7 +3,7 @@ import Foundation
 protocol FirstAssembly {
     func iphoneModule(
         title: String,
-        presentedTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
@@ -14,7 +14,7 @@ protocol FirstAssembly {
     
     func ipadDetailModule(
         title: String,
-        presentedTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
@@ -25,7 +25,7 @@ protocol FirstAssembly {
     
     func ipadMasterModule(
         title: String,
-        presentedTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,

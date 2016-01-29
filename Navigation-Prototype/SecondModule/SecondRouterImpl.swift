@@ -10,7 +10,7 @@ extension SecondRouterImpl: SecondRouter {
             let viewController = AssemblyFactory.firstModuleAssembly()
                 .iphoneModule(
                     "1",
-                    presentedTransitionsHandler: self?.transitionsHandler,
+                    presentingTransitionsHandler: self?.transitionsHandler,
                     transitionId: transitionId,
                     transitionsHandler: transitionsHandler,
                     canShowFirstModule: true,
@@ -31,7 +31,7 @@ extension SecondRouterImpl: SecondRouter {
                     withTimer: false,
                     canShowModule1: true,
                     transitionId: transitionId,
-                    presentedTransitionsHandler: self?.transitionsHandler).0
+                    presentingTransitionsHandler: self?.transitionsHandler).0
 
             return viewController
         })

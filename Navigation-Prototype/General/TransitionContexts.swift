@@ -76,7 +76,7 @@ struct ForwardTransitionContext {
         self.targetTransitionsHandler = targetTransitionsHandler
         self.transitionStyle = .Modal
         self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
-        self.storableParameters = NavigationTransitionStorableParameters(presentedTransitionsHandler: targetTransitionsHandler)
+        self.storableParameters = NavigationTransitionStorableParameters(presentingTransitionsHandler: targetTransitionsHandler)
         self.animator = animator
         self.transitionId = transitionId
     }
@@ -143,6 +143,18 @@ struct ForwardTransitionContext {
         self.storableParameters = PopoverTransitionStorableParameters(popoverController: popoverController)
         self.animator = animator
         self.transitionId = transitionId
+    }
+    
+    init (context: ForwardTransitionContext, forwardedTotransitionsHandler transitionsHandler: TransitionsHandler) {
+        // меняем только обработчика переходов
+        targetTransitionsHandler = transitionsHandler
+        
+        transitionId = context.transitionId
+        targetViewController = context.targetViewController
+        transitionStyle = context.transitionStyle
+        animationTargetParameters = context.animationTargetParameters
+        storableParameters = context.storableParameters
+        animator = context.animator
     }
 }
 

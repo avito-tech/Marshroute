@@ -6,10 +6,10 @@ class TransitionContextsStack {
     {
         updateStack()
         storage.append(context)
-        debugPrint(storage.map( { $0.transitionId } ))
     }
     
-    var first: RestoredTransitionContext? {
+    var first: RestoredTransitionContext?
+    {
         let result: RestoredTransitionContext? = self[0]
         return result
     }
@@ -40,17 +40,16 @@ class TransitionContextsStack {
         return restored
     }
     
-    func popToPreceding(transitionId transitionId: TransitionId)
+    func popTo(transitionId transitionId: TransitionId)
         -> [RestoredTransitionContext]?
     {
         updateStack()
-        let index = indexOfCompletedTransitionPreceding(transitionId: transitionId)
-        ?? indexOfCompletedTransition(transitionId: transitionId)
+        let index = indexOfCompletedTransition(transitionId: transitionId)
         let result = popTo(index: index)
         return result
     }
     
-    func preceding(transitionId: TransitionId)
+    func preceding(transitionId transitionId: TransitionId)
         -> RestoredTransitionContext?
     {
         updateStack()
@@ -115,15 +114,18 @@ private extension TransitionContextsStack {
         return restored
     }
     
+    /**
+     Выходит до индекса невключительно
+     */
     func popTo(index index: Int?)
         -> [RestoredTransitionContext]?
     {
-        guard let index = index where index < storage.count
+        guard let index = index where index + 1 < storage.count
             else { return nil }
         
         var result = [RestoredTransitionContext]()
         
-        for _ in index ..< storage.count {
+        for _ in index + 1 ..< storage.count {
             if let last = popLast() {
                 result.insert(last, atIndex: 0)
             }
@@ -131,5 +133,14 @@ private extension TransitionContextsStack {
         }
         
         return result
+    }
+}
+
+// MARK: - CustomDebugStringConvertible
+extension TransitionContextsStack: CustomDebugStringConvertible {
+    var debugDescription: String {
+        var description = "TransitionContextsStack: " + String(unsafeAddressOf(self))
+        description += "\n   --- all ids: \(storage.map( { $0.transitionId } ))"
+        return description
     }
 }

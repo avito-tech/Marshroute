@@ -4,18 +4,18 @@ class BaseMasterDetailRouter {
     private var masterTransitionsHandlerPrivate: TransitionsHandler
     private var detailTransitionsHandlerPrivate: TransitionsHandler
     private var transitionIdPrivate: TransitionId
-    private var presentedTransitionsHandlerPrivate: TransitionsHandler?
+    private var presentingTransitionsHandlerPrivate: TransitionsHandler?
     
     init(
         masterTransitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,
         transitionId: TransitionId,
-        presentedTransitionsHandler: TransitionsHandler?)
+        presentingTransitionsHandler: TransitionsHandler?)
     {
         transitionIdPrivate = transitionId
         masterTransitionsHandlerPrivate = masterTransitionsHandler
         detailTransitionsHandlerPrivate = detailTransitionsHandler
-        presentedTransitionsHandlerPrivate = presentedTransitionsHandler
+        presentingTransitionsHandlerPrivate = presentingTransitionsHandler
     }
 }
 
@@ -28,8 +28,8 @@ extension BaseMasterDetailRouter: RouterIdentifiable {
 
 // MARK: - RouterPresentable
 extension BaseMasterDetailRouter: RouterPresentable {
-    var presentedTransitionsHandler: TransitionsHandler? {
-        return presentedTransitionsHandlerPrivate
+    var presentingTransitionsHandler: TransitionsHandler? {
+        return presentingTransitionsHandlerPrivate
     }
 }
 

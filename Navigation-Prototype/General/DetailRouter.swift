@@ -30,7 +30,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             transitionsHandler: detailTransitionsHandler,
             animator: animator,
             transitionId: transitionId)
-        
+
         detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
     }
 }

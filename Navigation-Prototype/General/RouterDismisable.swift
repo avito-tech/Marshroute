@@ -7,8 +7,9 @@ protocol RouterDismisable: class {
     func dismissCurrentModule()
 }
 
+// MARK: - RouterDismisable Default Impl
 extension RouterDismisable where Self: RouterPresentable, Self: RouterIdentifiable {
     func dismissCurrentModule() {
-        presentedTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
+        presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
     }
 }

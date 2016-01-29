@@ -13,13 +13,13 @@ protocol TransitionContextsStackClient: class {
         -> RestoredTransitionContext?
     
     func allTransitionsForTransitionsHandler(transitionsHandler: TransitionsHandler)
-        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
+        -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
     
     func transitionsAfter(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
-        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
+        -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
 
     func deleteTransitionsAfter(
         transitionId transitionId: TransitionId,

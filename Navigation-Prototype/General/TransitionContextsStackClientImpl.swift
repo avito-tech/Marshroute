@@ -39,7 +39,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
     }
     
     func allTransitionsForTransitionsHandler(transitionsHandler: TransitionsHandler)
-        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
+        -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
     {
         guard let first = stack.first where first.wasPerfromedByTransitionsHandler(transitionsHandler)
             else { return (nil, nil) }
@@ -55,10 +55,10 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
-        -> (chainedTransition: RestoredTransitionContext?, otherTransitions: [RestoredTransitionContext]?)
+        -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
     {
         var chainedTransition: RestoredTransitionContext? = nil
-        var otherTransitions: [RestoredTransitionContext]? = nil
+        var pushTransitions: [RestoredTransitionContext]? = nil
         
         assert(
             transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler) != nil,
@@ -66,36 +66,38 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         )
         
         if let last = lastTransitionForTransitionsHandler(transitionsHandler) {
-            otherTransitions = [RestoredTransitionContext]()
+            pushTransitions = [RestoredTransitionContext]()
             
-            var notChainedTransitionId: TransitionId?
+            var pushTransitionId: TransitionId?
             
+            // только последний переход может не push-переходом (описывать модальное окно или поповер)
             if last.isChainedForTransitionsHandler(transitionsHandler) {
                 chainedTransition = last
-                notChainedTransitionId = stack.preceding(transitionId)?.transitionId
+                pushTransitionId = stack.preceding(transitionId: last.transitionId)?.transitionId
             }
             else {
-                otherTransitions?.insert(last, atIndex: 0)
-                notChainedTransitionId = last.transitionId
+                pushTransitions?.insert(last, atIndex: 0)
+                pushTransitionId = last.transitionId
             }
             
-            var didMatchId = transitionId == notChainedTransitionId
+            var didMatchId = transitionId == last.transitionId
             
-            while notChainedTransitionId != nil && !didMatchId {
-                if let previous = stack.preceding(notChainedTransitionId!) {
-                    notChainedTransitionId = previous.transitionId
+            // идем по push-переходам, кладем в массив в историческом порядке
+            while pushTransitionId != nil && !didMatchId {
+                if let previous = stack.preceding(transitionId: pushTransitionId!) {
+                    pushTransitionId = previous.transitionId
                     
-                    didMatchId = transitionId == notChainedTransitionId
+                    didMatchId = transitionId == pushTransitionId
                     
                     if !didMatchId || (didMatchId && includingTransitionWithId) {
-                        otherTransitions?.insert(previous, atIndex: 0)
+                        pushTransitions?.insert(previous, atIndex: 0)
                     }
                 }
-                else { notChainedTransitionId = nil }
+                else { pushTransitionId = nil }
             }
         }
         
-        return (chainedTransition, otherTransitions)
+        return (chainedTransition, pushTransitions)
     }
 
     func deleteTransitionsAfter(
@@ -103,8 +105,12 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
     {
-        let first = stack.popToPreceding(transitionId: transitionId)?.first
-        assert(first == nil || first!.wasPerfromedByTransitionsHandler(transitionsHandler))
+        var firstOfPopped = stack.popTo(transitionId: transitionId)?.first
+        
+        if includingTransitionWithId {
+            firstOfPopped = stack.popLast()
+        }
+        assert(firstOfPopped == nil || firstOfPopped!.wasPerfromedByTransitionsHandler(transitionsHandler))
     }
     
     func appendTransition(

@@ -7,7 +7,7 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
         pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
                 String(count + 1),
-                presentedTransitionsHandler: self.transitionsHandler,
+                presentingTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: transitionsHandler,
                 canShowFirstModule: canShowFirstModule,
@@ -22,7 +22,7 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
         pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
                 String(count + 1),
-                presentedTransitionsHandler: self.transitionsHandler,
+                presentingTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: transitionsHandler,
                 canShowFirstModule: canShowFirstModule,
@@ -47,7 +47,7 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
                         withTimer: true,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        presentedTransitionsHandler: self.transitionsHandler).0
+                        presentingTransitionsHandler: self.transitionsHandler).0
                 return viewController
         })
     }

@@ -72,7 +72,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             targetTransitionsHandler: transitionsHandler,
             animator: animator,
             transitionId: generatedTransitionId)
-        
+
         transitionsHandler.performTransition(context: pushContext)
     }
     
@@ -140,7 +140,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             targetTransitionsHandler: splitViewTransitionsHandler,
             animator: animator,
             transitionId: generatedTransitionId)
-            
+
          transitionsHandler.performTransition(context: modalContext)
     }
     
@@ -179,7 +179,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             targetTransitionsHandler: navigationTransitionsHandler,
             animator: animator,
             transitionId: generatedTransitionId)
-        
+
         transitionsHandler.performTransition(context: modalContext)
     }
     

@@ -120,8 +120,16 @@ private extension NavigationTransitionsHandler {
     func forwardPerformingTransition(context context: ForwardTransitionContext)
     {
         assert(canForward())
-        let chainedTransitionsHandler = stackClient.chainedTransitionsHandlerForTransitionsHandler(self)
-        chainedTransitionsHandler?.performTransition(context: context)
+
+        guard let chainedTransitionsHandler = stackClient.chainedTransitionsHandlerForTransitionsHandler(self)
+            else { return }
+        
+        // при пробрасывании push переходов нужно обновлять ссылку на обработчика переходов показываемого модуля
+        let contextToForward = (context.targetTransitionsHandler === self) // только в случае push переходов
+        ? ForwardTransitionContext(context: context, forwardedTotransitionsHandler: chainedTransitionsHandler)
+        : context
+        
+        chainedTransitionsHandler.performTransition(context: contextToForward)
     }
     
     func forwardUndoingTransitionsAfter(transitionId transitionId: TransitionId)
@@ -150,7 +158,6 @@ private extension NavigationTransitionsHandler {
 private extension NavigationTransitionsHandler {
     func performTransitionImpl(context context: ForwardTransitionContext) {
         assert(!canForward())
-        debugPrint(context.transitionId)
         
         guard let sourceViewController = navigationController.topViewController
             else { return }
@@ -186,9 +193,9 @@ private extension NavigationTransitionsHandler {
             includingTransitionWithId: includingTransitionWithId
         )
         
-        undoTransitions(
+        undoTransitionsImpl(
             chainedContext: transitionsToUndo.chainedTransition,
-            otherContexts: transitionsToUndo.otherTransitions,
+            pushContexts: transitionsToUndo.pushTransitions,
             andCommitUndoingTransitionsAfter: transitionId,
             includingTransitionWithId: includingTransitionWithId
         )
@@ -198,9 +205,9 @@ private extension NavigationTransitionsHandler {
         guard let chainedTransitionContext = stackClient.chainedTransitionForTransitionsHandler(self)
             else { return }
 
-        undoTransitions(
+        undoTransitionsImpl(
             chainedContext: chainedTransitionContext,
-            otherContexts: nil,
+            pushContexts: nil,
             andCommitUndoingTransitionsAfter: chainedTransitionContext.transitionId,
             includingTransitionWithId: true
         )
@@ -209,33 +216,33 @@ private extension NavigationTransitionsHandler {
     func undoAllTransitionsIfNeeded() {
         let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(self)
         let chainedTransitionContext = transitionsToUndo.chainedTransition
-        let otherTransitions = transitionsToUndo.otherTransitions
+        let pushTransitions = transitionsToUndo.pushTransitions
         
-        guard let leftmostTransitionId = chainedTransitionContext?.transitionId ?? otherTransitions?.first?.transitionId
+        guard let leftmostTransitionId = chainedTransitionContext?.transitionId ?? pushTransitions?.first?.transitionId
             else { return }
         
-        undoTransitions(
+        undoTransitionsImpl(
             chainedContext: transitionsToUndo.chainedTransition,
-            otherContexts: transitionsToUndo.otherTransitions,
+            pushContexts: transitionsToUndo.pushTransitions,
             andCommitUndoingTransitionsAfter: leftmostTransitionId,
             includingTransitionWithId: false
         )
     }
 
-    func undoTransitions(
+    func undoTransitionsImpl(
         chainedContext chainedContext: RestoredTransitionContext?,
-        otherContexts: [RestoredTransitionContext]?,
+        pushContexts: [RestoredTransitionContext]?,
         andCommitUndoingTransitionsAfter transitionId: TransitionId,
         includingTransitionWithId: Bool)
     {
-        if let chainedTransitionContext = chainedContext {
-            undoTransition(context: chainedTransitionContext)
+        if let chainedContext = chainedContext {
+            undoTransitionImpl(context: chainedContext)
             navigationTransitionsHandlerDelegate?.navigationTransitionsHandlerDidResignFirstResponder(self)
             // TODO: сделать тут commit, если анимации будут выполняться асинхронно
         }
         
-        if let otherTransitionContexts = otherContexts {
-            undoTransitionsPassingIntermediateTransitions(otherTransitionContexts)
+        if let pushContexts = pushContexts {
+            undoTransitionsPassingIntermediateTransitions(pushContexts)
         }
         
         stackClient.deleteTransitionsAfter(
@@ -245,22 +252,24 @@ private extension NavigationTransitionsHandler {
         )
     }
 
-    func undoTransition(context context: RestoredTransitionContext) {
+    func undoTransitionImpl(context context: RestoredTransitionContext) {
         if let animationContext = createAnimationContextForRestoredTransition(context: context) {
             context.animator.animateUndoingTransition(animationContext: animationContext)
         }
     }
     
-    func undoTransitionsPassingIntermediateTransitions(otherTransitions: [RestoredTransitionContext]) {
-        if let fromContext = otherTransitions.first { // минуем промежуточные переходы
-            undoTransition(context: fromContext)
+    func undoTransitionsPassingIntermediateTransitions(pushTransitions: [RestoredTransitionContext]) {
+        if let fromContext = pushTransitions.first { // минуем промежуточные переходы
+            undoTransitionImpl(context: fromContext)
         }
     }
     
     func resetWithTransitionImpl(context context: ForwardTransitionContext)
     {
-        assert(stackClient.chainedTransitionForTransitionsHandler(self) == nil, "сначала chained переходы")
-        debugPrint(context.transitionId)
+        assert(
+            stackClient.chainedTransitionForTransitionsHandler(self) == nil,
+            "сначала chained (aka не push) переходы"
+        )
         
         if let animationContext = createAnimationContextForForwardTransition(context: context) {
             context.animator.animateResettingWithTransition(animationContext: animationContext)

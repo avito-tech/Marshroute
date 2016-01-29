@@ -4,7 +4,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func iphoneModule(
         title: String,
-        presentedTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
@@ -20,7 +20,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         let router = FirstRouterImpl(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            presentedTransitionsHandler: presentedTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -44,7 +44,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadDetailModule(
         title: String,
-        presentedTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
@@ -60,7 +60,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         let router = FirstRouterImpl_IpadDetail(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            presentedTransitionsHandler: presentedTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -84,7 +84,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadMasterModule(
         title: String,
-        presentedTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,
@@ -102,7 +102,7 @@ final class FirstAssemblyImpl: FirstAssembly {
             masterTransitionsHandler: transitionsHandler,
             detailTransitionsHandler: detailTransitionsHandler,
             transitionId: transitionId,
-            presentedTransitionsHandler: presentedTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler)
         
         let presenter = FirstPresenter(
             interactor: interactor,

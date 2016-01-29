@@ -1,4 +1,3 @@
-/// Стэк, который хранит CompletedTransitionContext, а возвращает RestoredTransitionContext
 class TransitionContextsStackImpl: TransitionContextsStack {
     private var storage = [CompletedTransitionContext]()
     
@@ -10,6 +9,7 @@ class TransitionContextsStackImpl: TransitionContextsStack {
     
     var first: RestoredTransitionContext?
     {
+        updateStack()
         let result: RestoredTransitionContext? = self[0]
         return result
     }

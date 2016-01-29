@@ -1,7 +1,7 @@
 import UIKit
 
 class TabBarTransitionsHandler {
-    private let tabBarController: UITabBarController
+    private unowned let tabBarController: UITabBarController
     
     init(tabBarController: UITabBarController) {
         self.tabBarController = tabBarController

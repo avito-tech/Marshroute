@@ -1,7 +1,7 @@
 import UIKit
 
 class SplitViewTransitionsHandler {
-    private let splitViewController: UISplitViewController
+    private unowned let splitViewController: UISplitViewController
     
     init(splitViewController: UISplitViewController) {
         self.splitViewController = splitViewController

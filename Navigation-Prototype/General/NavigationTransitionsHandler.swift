@@ -2,7 +2,7 @@ import UIKit
 
 class NavigationTransitionsHandler {
     
-    private let navigationController: UINavigationController
+    private unowned let navigationController: UINavigationController
     private let stackClient: TransitionContextsStackClient
     
     init(
@@ -310,7 +310,11 @@ private extension NavigationTransitionsHandler {
                 return nil
             }
             
-            let popoverController = popoverStorableParameters.popoverController
+            guard let popoverController = popoverStorableParameters.popoverController else {
+                assert(false, "You passed wrong storable parameters \(storableParameters) for transition style: \(transitionStyle)")
+                return nil
+            }
+            
             let result = PopoverAnimationSourceParameters(popoverController: popoverController)
             return result
         }

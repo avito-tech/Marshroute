@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AuthorizationRouter {
+protocol AuthorizationRouter: RouterFocusable, RouterDismisable {
     
 }

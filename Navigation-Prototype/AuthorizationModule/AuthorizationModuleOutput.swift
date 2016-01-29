@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AuthorizationModuleOutput {
-    
+protocol AuthorizationModuleOutput: class {
+    func didFinishWith(success success: Bool)
 }

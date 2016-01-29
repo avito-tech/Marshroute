@@ -2,15 +2,29 @@ import UIKit
 
 final class AuthorizationAssemblyImpl: AuthorizationAssembly {
     
-    func module() -> (UIViewController, AuthorizationModuleInput) {
+    func module(
+        presentingTransitionsHandler: TransitionsHandler?,
+        transitionId: TransitionId,
+        transitionsHandler: TransitionsHandler,
+        moduleOutput: AuthorizationModuleOutput)
+        
+        -> (UIViewController, AuthorizationModuleInput)
+    {
         
         let interactor = AuthorizationInteractorImpl()
-        let router = AuthorizationRouterImpl()
+        
+        let router = AuthorizationRouterImpl(
+            transitionsHandler: transitionsHandler,
+            transitionId: transitionId,
+            presentingTransitionsHandler: presentingTransitionsHandler
+        )
         
         let presenter = AuthorizationPresenter(
             interactor: interactor,
             router: router
         )
+        
+        presenter.moduleOutput = moduleOutput
         
         let viewController = AuthorizationViewController(
             output: presenter

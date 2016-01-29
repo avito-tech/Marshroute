@@ -116,7 +116,6 @@
 		CCE8C9CF1C563A610041801D /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C01C563A610041801D /* AuthorizationPresenter.swift */; };
 		CCE8C9D01C563A610041801D /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C11C563A610041801D /* AuthorizationRouter.swift */; };
 		CCE8C9D11C563A610041801D /* AuthorizationRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C21C563A610041801D /* AuthorizationRouterImpl.swift */; };
-		CCE8C9D21C563A610041801D /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C31C563A610041801D /* AuthorizationView.swift */; };
 		CCE8C9D31C563A610041801D /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C41C563A610041801D /* AuthorizationViewController.swift */; };
 		CCE8C9D61C563A610041801D /* AuthorizationModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C71C563A610041801D /* AuthorizationModuleInput.swift */; };
 		CCE8C9D71C563A610041801D /* AuthorizationModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C81C563A610041801D /* AuthorizationModuleOutput.swift */; };
@@ -236,7 +235,6 @@
 		CCE8C9C01C563A610041801D /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		CCE8C9C11C563A610041801D /* AuthorizationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		CCE8C9C21C563A610041801D /* AuthorizationRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationRouterImpl.swift; sourceTree = "<group>"; };
-		CCE8C9C31C563A610041801D /* AuthorizationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		CCE8C9C41C563A610041801D /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		CCE8C9C71C563A610041801D /* AuthorizationModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleInput.swift; sourceTree = "<group>"; };
 		CCE8C9C81C563A610041801D /* AuthorizationModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleOutput.swift; sourceTree = "<group>"; };
@@ -441,7 +439,6 @@
 				CCE8C9C01C563A610041801D /* AuthorizationPresenter.swift */,
 				CCE8C9C11C563A610041801D /* AuthorizationRouter.swift */,
 				CCE8C9C21C563A610041801D /* AuthorizationRouterImpl.swift */,
-				CCE8C9C31C563A610041801D /* AuthorizationView.swift */,
 				CCE8C9C41C563A610041801D /* AuthorizationViewController.swift */,
 				CCE8C9C71C563A610041801D /* AuthorizationModuleInput.swift */,
 				CCE8C9C81C563A610041801D /* AuthorizationModuleOutput.swift */,
@@ -633,7 +630,6 @@
 				CCE3C3431C5B54CF005763AD /* TransitionsAnimator.swift in Sources */,
 				CCE8C9701C561C780041801D /* SecondAssemblyImpl.swift in Sources */,
 				CCE3C34C1C5B5C1C005763AD /* BaseRouter.swift in Sources */,
-				CCE8C9D21C563A610041801D /* AuthorizationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,20 @@ final class AuthorizationViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "onCancel:")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "onDone:")
+    }
+
+    @objc func onCancel(sender: UIBarButtonItem) {
+        output?.userDidCancel()
+    }
+    
+    @objc func onDone(sender: UIBarButtonItem) {
+        output?.userDidAuth()
+    }
 }
 
 //MARK: - AuthorizationViewInput

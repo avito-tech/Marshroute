@@ -1,6 +1,6 @@
 import UIKit
 
-final class FirstRouterImpl_iPadMaster: MasterDetailRouter {}
+final class FirstRouterImpl_iPadMaster: BaseMasterDetailRouter {}
 
 extension FirstRouterImpl_iPadMaster: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
@@ -9,7 +9,7 @@ extension FirstRouterImpl_iPadMaster: FirstRouter {
         pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
                 String(count + 1),
-                parentTransitionsHandler: self.transitionsHandler,
+                presentedTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: transitionsHandler,
                 detailTransitionsHandler: detailTransitionsHandler,
@@ -27,7 +27,7 @@ extension FirstRouterImpl_iPadMaster: FirstRouter {
         setDetailViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
                 String(count + 1),
-                parentTransitionsHandler: self.transitionsHandler,
+                presentedTransitionsHandler: self.transitionsHandler,
                 transitionId: transitionId,
                 transitionsHandler: detailTransitionsHandler,
                 canShowFirstModule: canShowFirstModule,
@@ -52,7 +52,7 @@ extension FirstRouterImpl_iPadMaster: FirstRouter {
                         withTimer: true,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        parentTransitionsHandler: self.transitionsHandler).0
+                        presentedTransitionsHandler: self.transitionsHandler).0
                 return viewController
             })
     }

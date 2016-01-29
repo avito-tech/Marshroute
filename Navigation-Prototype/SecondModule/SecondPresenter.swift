@@ -32,7 +32,7 @@ extension SecondPresenter: SecondViewOutput  {
     
     func done() {
         interactor.stopTimer()
-        router.returnToPresentingModule()
+        router.dismissCurrentModule()
     }
     
     func userDidRequestTimerLaunch() {
@@ -54,7 +54,7 @@ extension SecondPresenter: SecondInteractorOutput {
     }
     
     func timerFired() {
-        router.focusOnSelf()
+        router.focusOnCurrentModule()
         viewInput?.setTimerInteractionEnabled(true)
         viewInput?.setSecondsUntilTimerEnabled(0)
     }

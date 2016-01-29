@@ -7,7 +7,7 @@ protocol SecondAssembly {
         withTimer: Bool,
         canShowModule1: Bool,
         transitionId: TransitionId,
-        parentTransitionsHandler: TransitionsHandler?)
+        presentedTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     
     func ipadModule(
@@ -16,6 +16,6 @@ protocol SecondAssembly {
         withTimer: Bool,
         canShowModule1: Bool,
         transitionId: TransitionId,
-        parentTransitionsHandler: TransitionsHandler?)
+        presentedTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
 }

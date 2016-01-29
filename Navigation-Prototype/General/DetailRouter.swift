@@ -1,29 +1,23 @@
 import UIKit
 
-class MasterDetailRouter: BaseRouter {
-    var detailTransitionsHandler: TransitionsHandler
+protocol DetailRouter: class {
+    func setDetailViewControllerDerivedFrom(
+        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
-    init(transitionsHandler: TransitionsHandler,
-        detailTransitionsHandler: TransitionsHandler,
-        transitionId: TransitionId,
-        parentTransitionsHandler: TransitionsHandler?)
-    {
-        self.detailTransitionsHandler = detailTransitionsHandler
-        
-        super.init(
-            transitionsHandler: transitionsHandler,
-            transitionId: transitionId,
-            parentTransitionsHandler: parentTransitionsHandler
-        )
-    }
-    
-    final func setDetailViewControllerDerivedFrom(
+    func setDetailViewControllerDerivedFrom(
+        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        animator: TransitionsAnimator)
+}
+
+// MARK: - DetailRouter Default Impl
+extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable {
+    func setDetailViewControllerDerivedFrom(
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         setDetailViewControllerDerivedFrom(closure, animator: NavigationTransitionsAnimator())
     }
     
-    final func setDetailViewControllerDerivedFrom(
+    func setDetailViewControllerDerivedFrom(
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
@@ -33,7 +27,7 @@ class MasterDetailRouter: BaseRouter {
         
         let resetDetailContext = ForwardTransitionContext(
             resetingWithViewController: viewController,
-            transitionsHandler: self.detailTransitionsHandler,
+            transitionsHandler: detailTransitionsHandler,
             animator: animator,
             transitionId: transitionId)
         

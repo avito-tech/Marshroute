@@ -4,7 +4,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func iphoneModule(
         title: String,
-        parentTransitionsHandler: TransitionsHandler?,
+        presentedTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
@@ -20,7 +20,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         let router = FirstRouterImpl(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            parentTransitionsHandler: parentTransitionsHandler)
+            presentedTransitionsHandler: presentedTransitionsHandler)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -44,7 +44,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadDetailModule(
         title: String,
-        parentTransitionsHandler: TransitionsHandler?,
+        presentedTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         canShowFirstModule: Bool,
@@ -60,7 +60,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         let router = FirstRouterImpl_IpadDetail(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            parentTransitionsHandler: parentTransitionsHandler)
+            presentedTransitionsHandler: presentedTransitionsHandler)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -84,7 +84,7 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadMasterModule(
         title: String,
-        parentTransitionsHandler: TransitionsHandler?,
+        presentedTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,
@@ -99,10 +99,10 @@ final class FirstAssemblyImpl: FirstAssembly {
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
         let router = FirstRouterImpl_iPadMaster(
-            transitionsHandler: transitionsHandler,
+            masterTransitionsHandler: transitionsHandler,
             detailTransitionsHandler: detailTransitionsHandler,
             transitionId: transitionId,
-            parentTransitionsHandler: parentTransitionsHandler)
+            presentedTransitionsHandler: presentedTransitionsHandler)
         
         let presenter = FirstPresenter(
             interactor: interactor,

@@ -29,7 +29,7 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         let router = ApplicationNavigationRouterImpl(
             transitionsHandler: tabTransitionsHandler,
             transitionId: sharedTransitionId,
-            parentTransitionsHandler: nil
+            presentedTransitionsHandler: nil
         )
         
         presenter.router = router
@@ -54,7 +54,7 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
         
         do {
-            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule("1", parentTransitionsHandler: nil, transitionId: sharedTransitionId, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule("1", presentedTransitionsHandler: nil, transitionId: sharedTransitionId, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: firstViewController,
@@ -68,7 +68,7 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
         do {
-            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, parentTransitionsHandler: nil).0
+            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentedTransitionsHandler: nil).0
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: secondViewController,
@@ -102,7 +102,7 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
             let detailTransitionsHandler = detailNavigation.wrappedInNavigationTransitionsHandler()
             
             do {
-                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", parentTransitionsHandler: nil, transitionId: sharedFirstTransitionId, transitionsHandler: masterTransitionsHandler, detailTransitionsHandler: detailTransitionsHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", presentedTransitionsHandler: nil, transitionId: sharedFirstTransitionId, transitionsHandler: masterTransitionsHandler, detailTransitionsHandler: detailTransitionsHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
                 
                 let resetMasterContext = ForwardTransitionContext(
                     resetingWithViewController: masterViewController,
@@ -131,7 +131,7 @@ final class ApplicationNavigationAssemblyImpl: ApplicationNavigationAssembly  {
         
         let secondNavigation = UINavigationController()
         let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
-        let second = AssemblyFactory.secondModuleAssembly().ipadModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, parentTransitionsHandler: nil).0
+        let second = AssemblyFactory.secondModuleAssembly().ipadModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentedTransitionsHandler: nil).0
         secondNavigation.viewControllers = [second]
         secondNavigation.tabBarItem.title = "2"
         

@@ -8,7 +8,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         withTimer: Bool,
         canShowModule1: Bool,
         transitionId: TransitionId,
-        parentTransitionsHandler: TransitionsHandler?)
+        presentedTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     {
         debugPrint("iphone 2")
@@ -18,7 +18,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         let router = SecondRouterImpl(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            parentTransitionsHandler: parentTransitionsHandler)
+            presentedTransitionsHandler: presentedTransitionsHandler)
         
         let presenter = SecondPresenter(
             interactor: interactor,
@@ -27,7 +27,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         
         let viewController = SecondViewController(
             presenter: presenter,
-            dismissable: parentTransitionsHandler != nil,
+            dismissable: presentedTransitionsHandler != nil,
             canShowModule1: canShowModule1
         )
         viewController.view.backgroundColor = .yellowColor()
@@ -46,7 +46,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         withTimer: Bool,
         canShowModule1: Bool,
         transitionId: TransitionId,
-        parentTransitionsHandler: TransitionsHandler?)
+        presentedTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     {
         debugPrint("ipad 2")
@@ -56,7 +56,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         let router = SecondRouterImpl_iPad(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            parentTransitionsHandler: parentTransitionsHandler)
+            presentedTransitionsHandler: presentedTransitionsHandler)
         
         let presenter = SecondPresenter(
             interactor: interactor,
@@ -65,7 +65,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         
         let viewController = SecondViewController(
             presenter: presenter,
-            dismissable: parentTransitionsHandler != nil,
+            dismissable: presentedTransitionsHandler != nil,
             canShowModule1: canShowModule1
         )
         viewController.view.backgroundColor = .yellowColor()

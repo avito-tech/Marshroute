@@ -76,7 +76,7 @@ struct ForwardTransitionContext {
         self.targetTransitionsHandler = targetTransitionsHandler
         self.transitionStyle = .Modal
         self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
-        self.storableParameters = NavigationTransitionStorableParameters(parentTransitionsHandler: targetTransitionsHandler)
+        self.storableParameters = NavigationTransitionStorableParameters(presentedTransitionsHandler: targetTransitionsHandler)
         self.animator = animator
         self.transitionId = transitionId
     }

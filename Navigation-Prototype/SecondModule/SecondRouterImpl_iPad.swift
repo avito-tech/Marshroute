@@ -16,7 +16,7 @@ extension  SecondRouterImpl_iPad: SecondRouter {
                 let viewController = AssemblyFactory.firstModuleAssembly()
                     .ipadDetailModule( // 2
                         "1",
-                        parentTransitionsHandler: self?.transitionsHandler,
+                        presentedTransitionsHandler: self?.transitionsHandler,
                         transitionId: transitionId,
                         transitionsHandler: transitionsHandler,
                         canShowFirstModule: true,
@@ -42,7 +42,7 @@ extension  SecondRouterImpl_iPad: SecondRouter {
                         withTimer: false,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        parentTransitionsHandler: self?.transitionsHandler).0
+                        presentedTransitionsHandler: self?.transitionsHandler).0
                 return viewController
         })
     }

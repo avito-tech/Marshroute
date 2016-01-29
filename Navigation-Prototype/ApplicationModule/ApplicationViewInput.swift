@@ -1,3 +1,5 @@
 import UIKit
 
-protocol ApplicationViewInput: class {}
+protocol ApplicationViewInput: class {
+    func selectTab(tab: ApplicationTabs)
+}

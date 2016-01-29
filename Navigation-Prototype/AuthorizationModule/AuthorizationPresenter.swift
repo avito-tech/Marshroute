@@ -33,7 +33,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput  {
     }
     
     func userDidAuth() {
-        moduleOutput?.didFinishWith(success: false)
+        moduleOutput?.didFinishWith(success: true)
         moduleOutput = nil
         router.dismissCurrentModule()
     }

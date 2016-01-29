@@ -7,6 +7,7 @@ final class ApplicationViewController: UITabBarController {
     init(output: ApplicationViewOutput) {
         self.output = output
         super.init(nibName: nil, bundle: nil)
+        delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -22,5 +23,21 @@ final class ApplicationViewController: UITabBarController {
 
 //MARK: - ApplicationViewInput
 extension ApplicationViewController: ApplicationViewInput  {
-    
+    func selectTab(tab: ApplicationTabs) {
+        selectedIndex = tab.rawValue
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+extension ApplicationViewController: UITabBarControllerDelegate {
+    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController)
+        -> Bool
+    {
+        if let index = tabBarController.viewControllers?.indexOf(viewController) {
+            if let tab = ApplicationTabs(rawValue: index) {
+                output.userDidAskTab(tab)
+            }
+        }
+        return false
+    }
 }

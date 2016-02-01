@@ -23,6 +23,9 @@
 		CCE12F031C50ECBA00909924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F021C50ECBA00909924 /* Assets.xcassets */; };
 		CCE12F061C50ECBA00909924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE12F041C50ECBA00909924 /* LaunchScreen.storyboard */; };
 		CCE12F2E1C50F02A00909924 /* AssemblyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */; };
+		CCE309F31C5F55E000C3E873 /* SecondRouterImpl_iPad_PushSecondModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE309F11C5F55E000C3E873 /* SecondRouterImpl_iPad_PushSecondModule.swift */; };
+		CCE309F41C5F55E000C3E873 /* SecondRouterImpl_PushSecondModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE309F21C5F55E000C3E873 /* SecondRouterImpl_PushSecondModule.swift */; };
+		CCE309F61C5F562E00C3E873 /* SecondAssemblyImpl_PushSecondModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE309F51C5F562E00C3E873 /* SecondAssemblyImpl_PushSecondModule.swift */; };
 		CCE3C31B1C5B54CF005763AD /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C2EC1C5B54CF005763AD /* Router.swift */; };
 		CCE3C31C1C5B54CF005763AD /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C2ED1C5B54CF005763AD /* RouterTransitionable.swift */; };
 		CCE3C31D1C5B54CF005763AD /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE3C2EE1C5B54CF005763AD /* DetailRouter.swift */; };
@@ -135,6 +138,9 @@
 		CCE12F051C50ECBA00909924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCE12F071C50ECBA00909924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyFactory.swift; sourceTree = "<group>"; };
+		CCE309F11C5F55E000C3E873 /* SecondRouterImpl_iPad_PushSecondModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouterImpl_iPad_PushSecondModule.swift; sourceTree = "<group>"; };
+		CCE309F21C5F55E000C3E873 /* SecondRouterImpl_PushSecondModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouterImpl_PushSecondModule.swift; sourceTree = "<group>"; };
+		CCE309F51C5F562E00C3E873 /* SecondAssemblyImpl_PushSecondModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondAssemblyImpl_PushSecondModule.swift; sourceTree = "<group>"; };
 		CCE3C2EC1C5B54CF005763AD /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CCE3C2ED1C5B54CF005763AD /* RouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTransitionable.swift; sourceTree = "<group>"; };
 		CCE3C2EE1C5B54CF005763AD /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
@@ -383,6 +389,7 @@
 			children = (
 				CCE8C9501C561C780041801D /* SecondAssembly.swift */,
 				CCE8C9511C561C780041801D /* SecondAssemblyImpl.swift */,
+				CCE309F51C5F562E00C3E873 /* SecondAssemblyImpl_PushSecondModule.swift */,
 				CCE8C9521C561C780041801D /* SecondInteractor.swift */,
 				CCE8C9531C561C780041801D /* SecondInteractorImpl.swift */,
 				CCE8C9541C561C780041801D /* SecondInteractorOuput.swift */,
@@ -392,6 +399,8 @@
 				CCE8C9581C561C780041801D /* SecondRouter.swift */,
 				CCE8C9591C561C780041801D /* SecondRouterImpl.swift */,
 				CCE8C95A1C561C780041801D /* SecondRouterImpl_iPad.swift */,
+				CCE309F11C5F55E000C3E873 /* SecondRouterImpl_iPad_PushSecondModule.swift */,
+				CCE309F21C5F55E000C3E873 /* SecondRouterImpl_PushSecondModule.swift */,
 				CCE8C95B1C561C780041801D /* SecondViewController.swift */,
 				CCE8C95C1C561C780041801D /* SecondViewImpl.swift */,
 				CCE8C95D1C561C780041801D /* SecondViewInput.swift */,
@@ -521,8 +530,10 @@
 				CCE3C3321C5B54CF005763AD /* RouterPresentable.swift in Sources */,
 				CCE3C32E1C5B54CF005763AD /* PopoverTransitionStorableParameters.swift in Sources */,
 				CCE3C3341C5B54CF005763AD /* RouterFocusable.swift in Sources */,
+				CCE309F31C5F55E000C3E873 /* SecondRouterImpl_iPad_PushSecondModule.swift in Sources */,
 				CCE3C3251C5B54CF005763AD /* NavigationTransitionsAnimator.swift in Sources */,
 				CCE3C3471C5B54CF005763AD /* TransitionStyleConverter.swift in Sources */,
+				CCE309F61C5F562E00C3E873 /* SecondAssemblyImpl_PushSecondModule.swift in Sources */,
 				CCE8C95F1C561C780041801D /* FirstAssembly.swift in Sources */,
 				CCE3C3501C5B8A1C005763AD /* TransitionContextsStackImpl.swift in Sources */,
 				CCE8C9601C561C780041801D /* FirstAssemblyImpl.swift in Sources */,
@@ -536,6 +547,7 @@
 				CCE3C32C1C5B54CF005763AD /* PopoverAnimationSourceParameters.swift in Sources */,
 				CCE8C96D1C561C780041801D /* FirstViewController.swift in Sources */,
 				CCE3C33A1C5B54CF005763AD /* TransitionAnimationTargetParameters.swift in Sources */,
+				CCE309F41C5F55E000C3E873 /* SecondRouterImpl_PushSecondModule.swift in Sources */,
 				CCE3C3381C5B54CF005763AD /* TransitionAnimationContextCreator.swift in Sources */,
 				CCE3C3291C5B54CF005763AD /* NavigationTransitionStyleConverter.swift in Sources */,
 				CCE8C9611C561C780041801D /* FirstInteractor.swift in Sources */,

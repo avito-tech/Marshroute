@@ -1,10 +1,10 @@
 import UIKit
 
-final class SecondRouterImpl: BaseRouter {
+final class SecondRouterImpl_PushSecondModule: BaseRouter {
     
 }
 
-extension SecondRouterImpl: SecondRouter {
+extension SecondRouterImpl_PushSecondModule: SecondRouter {
     func showFirstModule(sender sender: AnyObject) {
         presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly()
@@ -28,7 +28,7 @@ extension SecondRouterImpl: SecondRouter {
                 .iphoneModule( // 2
                     transitionsHandler,
                     title: String(title + 1),
-                    withTimer: false,
+                    withTimer: true,
                     canShowModule1: true,
                     transitionId: transitionId,
                     presentingTransitionsHandler: self.transitionsHandler).0

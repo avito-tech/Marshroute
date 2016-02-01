@@ -8,7 +8,9 @@ class AssemblyFactory {
     }
     
     static func secondModuleAssembly() -> SecondAssembly {
-        return SecondAssemblyImpl()
+        return
+            //SecondAssemblyImpl()
+            SecondAssemblyImpl_PushSecondModule()
     }
  
     static func authModuleAssembly() -> AuthorizationAssembly {

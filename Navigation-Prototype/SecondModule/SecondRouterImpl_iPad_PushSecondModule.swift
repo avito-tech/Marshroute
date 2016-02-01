@@ -1,10 +1,10 @@
 import UIKit
 
-final class SecondRouterImpl_iPad: BaseRouter {
+final class SecondRouterImpl_iPad_PushSecondModule: BaseRouter {
     
 }
 
-extension  SecondRouterImpl_iPad: SecondRouter {
+extension  SecondRouterImpl_iPad_PushSecondModule: SecondRouter {
     func showFirstModule(sender sender: AnyObject) {
         guard let barButtonItem = sender as? UIBarButtonItem
             else { return }
@@ -28,21 +28,16 @@ extension  SecondRouterImpl_iPad: SecondRouter {
     }
     
     func showSecondModule(sender sender: AnyObject, title: Int) {
-        guard let barButtonItem = sender as? UIBarButtonItem
-            else { return }
-
-        presentPopoverFromBarButtonItem(
-            barButtonItem,
-            withViewControllerDerivedFrom: { (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
                 let viewController = AssemblyFactory.secondModuleAssembly()
                     .ipadModule( // 2
                         transitionsHandler,
                         title: String(title + 1),
-                        withTimer: false,
+                        withTimer: true,                        
                         canShowModule1: true,
                         transitionId: transitionId,
                         presentingTransitionsHandler: self.transitionsHandler).0
                 return viewController
-        })
+        }
     }
 }

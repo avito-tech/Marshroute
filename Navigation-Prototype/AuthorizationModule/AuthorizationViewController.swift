@@ -30,10 +30,6 @@ final class AuthorizationViewController: UIViewController {
     @objc func onDone(sender: UIBarButtonItem) {
         output?.userDidAuth()
     }
-    
-    deinit {
-        print("deinit auth")
-    }
 }
 
 //MARK: - AuthorizationViewInput

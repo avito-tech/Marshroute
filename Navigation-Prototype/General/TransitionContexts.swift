@@ -36,7 +36,7 @@ struct ForwardTransitionContext {
         transitionsHandler: TransitionsHandler,
         animator: TransitionsAnimator,
         transitionId: TransitionId)
-    {print(initialViewController)
+    {
         self.targetViewController = initialViewController
         self.targetTransitionsHandler = transitionsHandler
         self.transitionStyle = .Push

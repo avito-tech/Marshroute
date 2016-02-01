@@ -57,14 +57,12 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         includingTransitionWithId: Bool)
         -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
     {
+        guard transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler) != nil
+            else { return (nil, nil) }
+        
         var chainedTransition: RestoredTransitionContext? = nil
         var pushTransitions: [RestoredTransitionContext]? = nil
-        
-        assert(
-            transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler) != nil,
-            "проверяйте заранее, что id перехода действительно относится к обработчику переходов"
-        )
-        
+
         if let last = lastTransitionForTransitionsHandler(transitionsHandler) {
             pushTransitions = [RestoredTransitionContext]()
             

@@ -23,7 +23,7 @@ extension ApplicationPresenter: ApplicationModuleInput  {
 extension ApplicationPresenter: ApplicationViewOutput  {
     func userDidRunOutOfMemory() {
         showAuthWithCompletion({ (authed) -> Void in
-            print("==== AUTHED ? \(authed)")
+            debugPrint("==== AUTHED ? \(authed)")
         })
     }
     

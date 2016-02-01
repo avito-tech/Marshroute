@@ -7,7 +7,11 @@ class TabBarTransitionsHandler {
         self.tabBarController = tabBarController
     }
     
-    var tabTransitionHandlers: [TransitionsHandler]?
+    var tabTransitionHandlers: [TransitionsHandler]? {
+        didSet {
+            assert(tabTransitionHandlers?.count == tabBarController.viewControllers?.count)
+        }
+    }
 }
 
 // MARK: - TransitionsHandler
@@ -17,11 +21,19 @@ extension TabBarTransitionsHandler: TransitionsHandler {
     }
     
     func undoTransitionsAfter(transitionId transitionId: TransitionId) {
-        selectedTransitionHandler?.undoTransitionsAfter(transitionId: transitionId)
+        if let tabTransitionHandlers = tabTransitionHandlers {
+            for transitionsHandler in tabTransitionHandlers {
+                transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
+            }
+        }
     }
     
     func undoTransitionWith(transitionId transitionId: TransitionId) {
-        selectedTransitionHandler?.undoTransitionWith(transitionId: transitionId)
+        if let tabTransitionHandlers = tabTransitionHandlers {
+            for transitionsHandler in tabTransitionHandlers {
+                transitionsHandler.undoTransitionWith(transitionId: transitionId)
+            }
+        }
     }
     
     func undoAllChainedTransitions() {

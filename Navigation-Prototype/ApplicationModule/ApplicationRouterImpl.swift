@@ -13,7 +13,6 @@ extension ApplicationRouterImpl: ApplicationRouter {
                     transitionId: transitionId,
                     transitionsHandler: transitionsHandler,
                     moduleOutput: output)
-            print("auth vc: \(module.0)")
             return module.0
         }
     }

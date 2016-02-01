@@ -69,7 +69,7 @@ extension NavigationTransitionsHandler : TransitionsHandler {
     func undoAllTransitions()
     {
         forwardUndoingAllChainedTransitionsIfNeeded()
-        undoAllTransitionsIfNeeded()
+        undoAllTransitionsImpl()
     }
     
     func resetWithTransition(context context: ForwardTransitionContext)
@@ -213,7 +213,7 @@ private extension NavigationTransitionsHandler {
         )
     }
 
-    func undoAllTransitionsIfNeeded()
+    func undoAllTransitionsImpl()
     {
         let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(self)
         let chainedTransitionContext = transitionsToUndo.chainedTransition

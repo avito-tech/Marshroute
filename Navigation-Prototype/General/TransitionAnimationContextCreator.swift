@@ -1,9 +1,9 @@
 protocol TransitionAnimationContextCreator: class {
-    typealias AnimationSourceParameters
+    typealias TransitionAnimationSourceParameters
     
     func createAnimationContextForTransition(
         transitionStyle transitionStyle: TransitionStyle,
-        animationSourceParameters: AnimationSourceParameters,
+        animationSourceParameters: TransitionAnimationSourceParameters,
         animationTargetParameters: TransitionAnimationTargetParameters?)
         -> TransitionAnimationContext?
 }

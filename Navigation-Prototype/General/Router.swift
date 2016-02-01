@@ -39,6 +39,7 @@ protocol Router: class {
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+    
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,

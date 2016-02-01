@@ -4,13 +4,16 @@ class NavigationTransitionsHandler {
     
     private unowned let navigationController: UINavigationController
     private let stackClient: TransitionContextsStackClient
+    private let transitionContextConverter: TransitionContextConverter
     
     init(
         navigationController: UINavigationController,
-        transitionsStackClient: TransitionContextsStackClient = TransitionContextsStackClientImpl())
+        transitionsStackClient: TransitionContextsStackClient = TransitionContextsStackClientImpl(),
+        transitionContextConverter: TransitionContextConverter = TransitionContextConverterImpl())
     {
         self.navigationController = navigationController
         self.stackClient = transitionsStackClient
+        self.transitionContextConverter = transitionContextConverter
     }
     
     weak var navigationTransitionsHandlerDelegate: NavigationTransitionsHandlerDelegate?
@@ -159,7 +162,8 @@ private extension NavigationTransitionsHandler {
         assert(!canForward())
         
         guard let sourceViewController = navigationController.topViewController
-            else { return }
+            else { assert(false, "use resetWithTransition:"); return }
+        
         guard let animationContext = createAnimationContextForForwardTransition(context: context)
             else { return }
         
@@ -269,10 +273,7 @@ private extension NavigationTransitionsHandler {
     
     func resetWithTransitionImpl(context context: ForwardTransitionContext)
     {
-        assert(
-            stackClient.chainedTransitionForTransitionsHandler(self) == nil,
-            "сначала chained (aka не push) переходы"
-        )
+        assert(!canForward())
         
         guard let animationContext = createAnimationContextForForwardTransition(context: context)
             else { return }
@@ -294,7 +295,6 @@ private extension NavigationTransitionsHandler {
 
 // MARK: - private animation parameters creating
 private extension NavigationTransitionsHandler {
-    
     @warn_unused_result
     func createAnimationSourceParameters(
         transitionStyle transitionStyle: TransitionStyle,
@@ -306,14 +306,10 @@ private extension NavigationTransitionsHandler {
             return result
             
         case .PopoverFromButtonItem(_), .PopoverFromView(_, _):
-            guard let popoverStorableParameters = storableParameters as? PopoverTransitionStorableParameters else {
-                assert(false, "You passed wrong storable parameters \(storableParameters) for transition style: \(transitionStyle)")
-                return nil
-            }
-            
-            guard let popoverController = popoverStorableParameters.popoverController else {
-                assert(false, "You passed wrong storable parameters \(storableParameters) for transition style: \(transitionStyle)")
-                return nil
+            guard let popoverStorableParameters = storableParameters as? PopoverTransitionStorableParameters,
+                let popoverController = popoverStorableParameters.popoverController else {
+                    assert(false, "Wrong storable parameters \(storableParameters) for transition style: \(transitionStyle)")
+                    return nil
             }
             
             let result = PopoverAnimationSourceParameters(popoverController: popoverController)
@@ -328,8 +324,7 @@ private extension NavigationTransitionsHandler {
             storableParameters: context.storableParameters)
             else { return nil }
         
-        let converter = TransitionContextConverter()
-        let result = converter.convertForwardTransition(
+        let result = transitionContextConverter.convertForwardTransition(
             context: context,
             toAnimationContextWithAnimationSourceParameters: animationSourceParameters)
         
@@ -342,9 +337,8 @@ private extension NavigationTransitionsHandler {
             transitionStyle: context.transitionStyle,
             storableParameters: context.storableParameters)
             else { return nil }
-        
-        let converter = TransitionContextConverter()
-        let result = converter.convertRestoredTransition(
+
+        let result = transitionContextConverter.convertRestoredTransition(
             context: context,
             toAnimationContextWithAnimationSourceParameters: animationSourceParameters)
         

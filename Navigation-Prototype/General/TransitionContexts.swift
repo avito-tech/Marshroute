@@ -247,9 +247,7 @@ struct RestoredTransitionContext {
     let transitionStyle: TransitionStyle
     
     /// параметры анимации обратного перехода, описывающие куда идет переход
-    var animationTargetParameters: TransitionAnimationTargetParameters {
-        return TransitionAnimationTargetParameters(viewController: sourceViewController)
-    }
+    var animationTargetParameters: TransitionAnimationTargetParameters
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     let storableParameters: TransitionStorableParameters?
@@ -279,6 +277,8 @@ struct RestoredTransitionContext {
         self.targetTransitionsHandler = targetTransitionsHandler
         
         self.transitionStyle = context.transitionStyle
+        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: sourceViewController)
+        
         self.storableParameters = context.storableParameters
         self.animator = context.animator
         

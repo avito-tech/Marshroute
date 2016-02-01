@@ -78,7 +78,6 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         }
         else {
             pushTransitions.insert(last, atIndex: 0)
-            loopTransitionId = last.transitionId
         }
         
         // идем по push-переходам, кладем в массив в историческом порядке
@@ -150,4 +149,3 @@ private extension RestoredTransitionContext {
         return result
     }
 }
-

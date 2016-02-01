@@ -3,7 +3,7 @@ final class PopoverAnimationContextCreator {
 }
 
 extension PopoverAnimationContextCreator: TransitionAnimationContextCreator {
-    typealias AnimationSourceParameters = PopoverAnimationSourceParameters
+    typealias TransitionAnimationSourceParameters = PopoverAnimationSourceParameters
     
     @warn_unused_result
     func createAnimationContextForTransition(

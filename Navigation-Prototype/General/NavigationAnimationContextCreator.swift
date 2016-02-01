@@ -3,7 +3,7 @@ final class NavigationAnimationContextCreator {
 }
 
 extension NavigationAnimationContextCreator: TransitionAnimationContextCreator {
-    typealias AnimationSourceParameters = NavigationAnimationSourceParameters
+    typealias TransitionAnimationSourceParameters = NavigationAnimationSourceParameters
     
     @warn_unused_result
     func createAnimationContextForTransition(

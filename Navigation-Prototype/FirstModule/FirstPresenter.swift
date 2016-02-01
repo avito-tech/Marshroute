@@ -56,6 +56,10 @@ extension FirstPresenter: FirstViewOutput  {
         viewInput?.setTimerInteractionEnabled(false)
         interactor.startTimer()
     }
+    
+    func userDidRequestAuth() {
+        router.showSecondModuleIfAuthorizationSucceeds()
+    }
 }
 
 //MARK - FirstInteractorOutput

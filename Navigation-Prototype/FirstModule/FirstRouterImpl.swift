@@ -46,4 +46,22 @@ extension FirstRouterImpl: FirstRouter {
             return viewController
         }
     }
+    
+    func showSecondModuleIfAuthorizationSucceeds() {
+        AppDelegate.instance?.applicationModuleInput?.showAuthorizationModule( { [weak self] (authed) -> Void in
+            if (authed) {
+                self?.presentModalViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+                    let viewController = AssemblyFactory.secondModuleAssembly()
+                        .iphoneModule(
+                            transitionsHandler,
+                            title: "1",
+                            withTimer: true,
+                            canShowModule1: true,
+                            transitionId: transitionId,
+                            presentingTransitionsHandler: self?.transitionsHandler).0
+                    return viewController
+                }
+            }
+        })
+    }
 }

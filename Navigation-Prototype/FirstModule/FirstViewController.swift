@@ -5,30 +5,32 @@ final class FirstViewController: UIViewController {
     private var buttonItems = [UIBarButtonItem]()
     
     private var toAnotherModule1Item: UIBarButtonItem?
+    private var toAuthModuleItem: UIBarButtonItem?
     private var toModule2Item: UIBarButtonItem?
     private let dismissable: Bool
     private var doneButtonItem: UIBarButtonItem?
 
     private let timerButton: UIButton
     private let withTimer: Bool
+    private let canShowFirstModule: Bool
 
 	//MARK: - Init
-    init(presenter: FirstViewOutput, dismissable: Bool, withTimer: Bool) {
+    init(presenter: FirstViewOutput, dismissable: Bool, withTimer: Bool, canShowFirstModule: Bool) {
         output = presenter
         self.dismissable = dismissable
         self.withTimer = withTimer
+        self.canShowFirstModule = canShowFirstModule
         
         timerButton = UIButton(type: .Custom)
-        defer {
-            timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
-            timerButton.tintColor = .blueColor()
-            timerButton.setTitleColor(.blackColor(), forState: .Normal)
-            timerButton.titleLabel?.numberOfLines = 0
-            timerButton.hidden = true
-            view.addSubview(timerButton)
-        }
         
         super.init(nibName: nil, bundle: nil)
+
+        timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
+        timerButton.tintColor = .blueColor()
+        timerButton.setTitleColor(.blackColor(), forState: .Normal)
+        timerButton.titleLabel?.numberOfLines = 0
+        timerButton.hidden = true
+        view.addSubview(timerButton)
     }
     
     override var title: String? {
@@ -41,10 +43,18 @@ final class FirstViewController: UIViewController {
     override func viewDidLoad() {
          super.viewDidLoad()
         
+        view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
+        
         if (toAnotherModule1Item == nil) {
             let toAnotherModule1Item = UIBarButtonItem(title: ">", style: .Plain, target: self, action: "onUserNextFirstModule:")
             buttonItems.append(toAnotherModule1Item)
             self.toAnotherModule1Item = toAnotherModule1Item
+        }
+        
+        if !canShowFirstModule {
+            let toAuthModuleItem = UIBarButtonItem(title: "to 2 + A", style: .Plain, target: self, action: "onUserAuthModule:")
+            buttonItems.append(toAuthModuleItem)
+            self.toAuthModuleItem = toAuthModuleItem
         }
         
         if dismissable && doneButtonItem == nil {
@@ -80,6 +90,10 @@ final class FirstViewController: UIViewController {
     
     @objc func onTimerButton(sender: UIButton) {
         output.userDidRequestTimerLaunch()
+    }
+    
+    @objc func onUserAuthModule(sender: UIBarButtonItem) {
+        output.userDidRequestAuth()
     }
 }
 

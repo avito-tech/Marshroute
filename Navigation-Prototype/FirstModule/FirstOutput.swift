@@ -8,4 +8,6 @@ protocol FirstViewOutput: class {
     func onUserDone()
     
     func userDidRequestTimerLaunch()
+    
+    func userDidRequestAuth()
 }

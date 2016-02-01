@@ -16,21 +16,23 @@ class ApplicationPresenter {
 
 //MARK: - ApplicationInput
 extension ApplicationPresenter: ApplicationModuleInput  {
-    
+    func showAuthorizationModule(completion: (authed: Bool) -> Void) {
+        showAuthorizationModuleImpl(completion: completion)
+    }
 }
 
 //MARK: - ApplicationViewOutput
 extension ApplicationPresenter: ApplicationViewOutput  {
     func userDidRunOutOfMemory() {
-        showAuthWithCompletion({ (authed) -> Void in
+        showAuthorizationModuleImpl { (authed) -> Void in
             debugPrint("==== AUTHED ? \(authed)")
-        })
+        }
     }
     
     func userDidAskTab(tab: ApplicationTabs) {
         switch tab {
         case .Three:
-            showAuthWithCompletion {[weak self] (authed) -> Void in
+            showAuthorizationModuleImpl{ [weak self] (authed) -> Void in
                 if authed {
                     self?.viewInput?.selectTab(tab)
                 }
@@ -40,7 +42,7 @@ extension ApplicationPresenter: ApplicationViewOutput  {
         }
     }
     
-    private func showAuthWithCompletion(completion: (authed: Bool) -> Void) {
+    private func showAuthorizationModuleImpl(completion completion: (authed: Bool) -> Void) {
         if interactor.isShowingAuthorizationModule {
             interactor.setAuthorizationCompletionBlock(completion)
         }

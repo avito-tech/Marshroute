@@ -30,9 +30,9 @@ final class FirstAssemblyImpl: FirstAssembly {
         let viewController = FirstViewController(
             presenter: presenter,
             dismissable: dismissable,
-            withTimer: withTimer
+            withTimer: withTimer,
+            canShowFirstModule: canShowFirstModule
         )
-        viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
         viewController.title = title
         viewController.output = presenter
         
@@ -70,9 +70,9 @@ final class FirstAssemblyImpl: FirstAssembly {
         let viewController = FirstViewController(
             presenter: presenter,
             dismissable: dismissable,
-            withTimer: withTimer
+            withTimer: withTimer,
+            canShowFirstModule: canShowFirstModule
         )
-        viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
         viewController.title = title
         viewController.output = presenter
         
@@ -112,9 +112,9 @@ final class FirstAssemblyImpl: FirstAssembly {
         let viewController = FirstViewController(
             presenter: presenter,
             dismissable: dismissable,
-            withTimer: withTimer
+            withTimer: withTimer,
+            canShowFirstModule: canShowFirstModule
         )
-        viewController.view.backgroundColor = canShowFirstModule ? .whiteColor() : .redColor()
         viewController.title = title
         viewController.output = presenter
         

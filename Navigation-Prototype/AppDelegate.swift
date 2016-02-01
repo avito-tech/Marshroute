@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    var instance: AppDelegate? {
+    static var instance: AppDelegate? {
         return UIApplication.sharedApplication().delegate as? AppDelegate
     }
     

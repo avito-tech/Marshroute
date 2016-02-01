@@ -5,4 +5,6 @@ protocol FirstRouter: class, RouterDismisable, RouterFocusable {
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool)
     
     func showSecondModule(sender sender: AnyObject?)
+    
+    func showSecondModuleIfAuthorizationSucceeds()
 }

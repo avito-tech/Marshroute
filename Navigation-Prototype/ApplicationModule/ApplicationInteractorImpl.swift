@@ -23,10 +23,7 @@ extension ApplicationInteractorImpl: ApplicationInteractor  {
     }
     
     func executeAuthorizationCompletionBlockAndDeleteAfterExecution(authorized: Bool) {
-        //TODO: убрать dispatch after
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { [weak self] in
-            self?.authorizationClosure?(authorized)
-            self?.authorizationClosure = nil
-        })
+        self.authorizationClosure?(authorized)
+        self.authorizationClosure = nil
     }
 }

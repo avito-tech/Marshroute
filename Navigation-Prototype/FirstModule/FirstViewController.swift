@@ -33,6 +33,10 @@ final class FirstViewController: UIViewController {
         view.addSubview(timerButton)
     }
     
+    deinit {
+        debugPrint("deinit \(self)")
+    }
+
     override var title: String? {
         didSet {
             let suffix = title ?? ""

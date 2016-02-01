@@ -23,7 +23,7 @@ extension SecondRouterImpl: SecondRouter {
     }
     
     func showSecondModule(sender sender: AnyObject, title: Int) {
-        pushViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
+        presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.secondModuleAssembly()
                 .iphoneModule( // 2
                     transitionsHandler,

@@ -25,6 +25,10 @@ final class SecondViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
     }
+    
+    deinit {
+        debugPrint("deinit \(self)")
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

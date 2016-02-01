@@ -13,7 +13,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput)
     {
-        debugPrint("iphone 1")
+        debugPrint("iphone 1 - \(transitionId)")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
@@ -53,7 +53,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput)
     {
-        debugPrint("ipad detail 1")
+        debugPrint("ipad detail 1 - \(transitionId)")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
@@ -94,7 +94,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool)
         -> (FirstViewController, FirstModuleInput)
     {
-        debugPrint("ipad master 1")
+        debugPrint("ipad master 1 - \(transitionId)")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         

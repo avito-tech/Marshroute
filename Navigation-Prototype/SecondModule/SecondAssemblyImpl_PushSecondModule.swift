@@ -11,7 +11,7 @@ final class SecondAssemblyImpl_PushSecondModule: SecondAssembly {
         presentingTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     {
-        debugPrint("iphone 2")
+        debugPrint("iphone 2 - \(transitionId)")
         
         let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
 
@@ -49,7 +49,7 @@ final class SecondAssemblyImpl_PushSecondModule: SecondAssembly {
         presentingTransitionsHandler: TransitionsHandler?)
         -> (UIViewController, SecondModuleInput)
     {
-        debugPrint("ipad 2")
+        debugPrint("ipad 2 - \(transitionId)")
     
         let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
 

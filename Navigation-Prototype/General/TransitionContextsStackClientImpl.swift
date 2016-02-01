@@ -60,39 +60,39 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         guard transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler) != nil
             else { return (nil, nil) }
         
+        guard let last = lastTransitionForTransitionsHandler(transitionsHandler)
+            else { return (nil, nil) }
+        
+        var didMatchId = transitionId == last.transitionId
+        guard !didMatchId || (didMatchId && includingTransitionWithId)
+            else { return (nil, nil) }
+        
         var chainedTransition: RestoredTransitionContext? = nil
-        var pushTransitions: [RestoredTransitionContext]? = nil
-
-        if let last = lastTransitionForTransitionsHandler(transitionsHandler) {
-            pushTransitions = [RestoredTransitionContext]()
+        var pushTransitions = [RestoredTransitionContext]()
             
-            var pushTransitionId: TransitionId?
-            
-            // только последний переход может не push-переходом (описывать модальное окно или поповер)
-            if last.isChainedForTransitionsHandler(transitionsHandler) {
-                chainedTransition = last
-                pushTransitionId = stack.preceding(transitionId: last.transitionId)?.transitionId
-            }
-            else {
-                pushTransitions?.insert(last, atIndex: 0)
-                pushTransitionId = last.transitionId
-            }
-            
-            var didMatchId = transitionId == last.transitionId
-            
-            // идем по push-переходам, кладем в массив в историческом порядке
-            while pushTransitionId != nil && !didMatchId {
-                if let previous = stack.preceding(transitionId: pushTransitionId!) {
-                    pushTransitionId = previous.transitionId
-                    
-                    didMatchId = transitionId == pushTransitionId
-                    
-                    if !didMatchId || (didMatchId && includingTransitionWithId) {
-                        pushTransitions?.insert(previous, atIndex: 0)
-                    }
+        var loopTransitionId: TransitionId? = last.transitionId
+        
+        // только последний переход может не push-переходом (описывать модальное окно или поповер)
+        if last.isChainedForTransitionsHandler(transitionsHandler) {
+            chainedTransition = last
+        }
+        else {
+            pushTransitions.insert(last, atIndex: 0)
+            loopTransitionId = last.transitionId
+        }
+        
+        // идем по push-переходам, кладем в массив в историческом порядке
+        while loopTransitionId != nil && !didMatchId {
+            if let previous = stack.preceding(transitionId: loopTransitionId!) {
+                loopTransitionId = previous.transitionId
+                
+                didMatchId = transitionId == loopTransitionId
+                
+                if !didMatchId || (didMatchId && includingTransitionWithId) {
+                    pushTransitions.insert(previous, atIndex: 0)
                 }
-                else { pushTransitionId = nil }
             }
+            else { loopTransitionId = nil }
         }
         
         return (chainedTransition, pushTransitions)

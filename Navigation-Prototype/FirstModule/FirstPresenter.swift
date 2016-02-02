@@ -49,7 +49,7 @@ extension FirstPresenter: FirstViewOutput  {
     
     func onUserDone() {
         interactor.stopTimer()
-        router.dismissCurrentModule()
+        router.dismissCurrentModule(completion: nil)
     }
     
     func userDidRequestTimerLaunch() {

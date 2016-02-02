@@ -33,8 +33,10 @@ extension AuthorizationPresenter: AuthorizationViewOutput  {
     }
     
     func userDidAuth() {
-        moduleOutput?.didFinishWith(success: true)
-        moduleOutput = nil
-        router.dismissCurrentModule()
+        // дожидаемся, пока наш модуль будет сокрыт, а затем сообщаем о результате работы в выход
+        router.dismissWithCompletion { [weak self]  () -> Void in
+            self?.moduleOutput?.didFinishWith(success: true)
+            self?.moduleOutput = nil
+        }
     }
 }

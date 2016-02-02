@@ -13,7 +13,7 @@ protocol TransitionsHandler: class {
     
     /**
      Вызывается роутером, чтобы отменить все переходы из своего модуля и 
-     убрать свой модуль с экрана (вернуться на предыдшествующий модуль)
+     убрать свой модуль с экрана (вернуться на предшествующий модуль)
      */
     func undoTransitionWith(transitionId transitionId: TransitionId)
     

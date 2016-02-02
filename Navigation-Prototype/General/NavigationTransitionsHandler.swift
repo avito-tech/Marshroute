@@ -149,8 +149,29 @@ private extension NavigationTransitionsHandler {
     
     func forwardUndoingAllChainedTransitionsIfNeeded()
     {
-        let chainedTransitionsHandler = stackClient.chainedTransitionsHandlerForTransitionsHandler(self)
-        chainedTransitionsHandler?.undoAllChainedTransitions()
+        // по-хорошему нужно убрать все модальные окна и поповеры дочерних обработчиков переходов.
+        // но обнаружились следующие особенности UIKit'а
+        //
+        // 1. iOS 8, 9:     если скрывать последовательность из поповеров,
+        //                      то UIKit падает при анимировании больших (> 3) последовательностей
+        //                  если не скрывать последовательности из поповеров, а скрывать только нижний,
+        //                      то UIKit отрабатывает правильно
+        // 2. iOS 7:        если скрывать последовательность из поповеров,
+        //                      то UIKit отрабатывает правильно
+        //                  если не скрывать последовательности из поповеров, а скрывать только нижний,
+        //                      то UIKit падает, потому что ```popover dealloc reached while popover is visible```
+        // 3. iOS 7, 8, 9:  если скрывать последовательность из модальных окон, 
+        //                      то UIKit не падает, но просто не выполняет сокрытие примерно на середине последовательности
+        //
+        // в итоге договорились  не убирать дочерние модальные окна и поповеры, 
+        // а на iOS 7 не использовать поповеры вообще, или использовать аккуратно: 
+        //
+        // а) на iOS 7 не показывать поповер в поповере
+        // б) на iOS 7 не показывать поповеры внутри модальных окон
+        // в) игнорировать пункты а) и б), но не вызывать сокрытие целой цепочки модальных окон и поповеров
+
+        // let chainedTransitionsHandler = stackClient.chainedTransitionsHandlerForTransitionsHandler(self)
+        // chainedTransitionsHandler?.undoAllChainedTransitions()
     }
 }
 

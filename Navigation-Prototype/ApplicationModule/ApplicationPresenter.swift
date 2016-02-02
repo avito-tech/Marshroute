@@ -56,10 +56,7 @@ extension ApplicationPresenter: ApplicationViewOutput  {
 
 extension ApplicationPresenter: AuthorizationModuleOutput {
     func didFinishWith(success success: Bool) {
-        // с задержкой выполняем блок окончания авторизации, чтобы дождаться сокрытия Auth модуля
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { [weak self] in
-            self?.interactor.executeAuthorizationCompletionBlockAndDeleteAfterExecution(success)
-            self?.interactor.isShowingAuthorizationModule = false
-        })
+        interactor.executeAuthorizationCompletionBlockAndDeleteAfterExecution(success)
+        interactor.isShowingAuthorizationModule = false
     }
 }

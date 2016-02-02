@@ -9,13 +9,9 @@ class ApplicationInteractorImpl {
 
 //MARK: - ApplicationInteractor
 extension ApplicationInteractorImpl: ApplicationInteractor  {
-    var isShowingAuthorizationModule: Bool {
-        get { return isShowingAuthorizationModulePrivate }
-        set { isShowingAuthorizationModulePrivate = newValue }
-    }
-    
-    var isAuthorized: Bool {
-        return false // !service.isAuthorized
+    func requestAuthorizationStatus(completion: (authorized: Bool) -> Void) {
+        let authorized = false // service.isAuthorized
+        completion(authorized: authorized)
     }
     
     func setAuthorizationCompletionBlock(closure: (Bool -> Void)?) {

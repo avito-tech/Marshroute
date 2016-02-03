@@ -57,6 +57,12 @@
 		CC84B8BF1C60C78500F966DE /* TransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B88D1C60C78500F966DE /* TransitionStyle.swift */; };
 		CC84B8C01C60C78500F966DE /* TransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B88E1C60C78500F966DE /* TransitionStyleConverter.swift */; };
 		CC84B8C11C60C78500F966DE /* UIViewController+Wrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B88F1C60C78500F966DE /* UIViewController+Wrapping.swift */; };
+		CC84B8D61C625A7000F966DE /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8D51C625A7000F966DE /* TransitionsCoordinator.swift */; };
+		CC84B8D81C625AC000F966DE /* TransitionsCoordinatorStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8D71C625AC000F966DE /* TransitionsCoordinatorStorer.swift */; };
+		CC84B8DA1C625AE300F966DE /* TransitionsAnimatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8D91C625AE300F966DE /* TransitionsAnimatorClient.swift */; };
+		CC84B8DC1C625B1700F966DE /* TransitionsHandlersContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8DB1C625B1700F966DE /* TransitionsHandlersContainer.swift */; };
+		CC84B8DE1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8DD1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift */; };
+		CC84B8E01C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8DF1C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift */; };
 		CCB348D51C5BAA83005BD40F /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB348CC1C5BAA83005BD40F /* ApplicationAssembly.swift */; };
 		CCB348D61C5BAA83005BD40F /* ApplicationAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB348CD1C5BAA83005BD40F /* ApplicationAssemblyImpl.swift */; };
 		CCB348D71C5BAA83005BD40F /* ApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB348CE1C5BAA83005BD40F /* ApplicationInteractor.swift */; };
@@ -169,6 +175,12 @@
 		CC84B88D1C60C78500F966DE /* TransitionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyle.swift; sourceTree = "<group>"; };
 		CC84B88E1C60C78500F966DE /* TransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyleConverter.swift; sourceTree = "<group>"; };
 		CC84B88F1C60C78500F966DE /* UIViewController+Wrapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Wrapping.swift"; sourceTree = "<group>"; };
+		CC84B8D51C625A7000F966DE /* TransitionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinator.swift; sourceTree = "<group>"; };
+		CC84B8D71C625AC000F966DE /* TransitionsCoordinatorStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorStorer.swift; sourceTree = "<group>"; };
+		CC84B8D91C625AE300F966DE /* TransitionsAnimatorClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimatorClient.swift; sourceTree = "<group>"; };
+		CC84B8DB1C625B1700F966DE /* TransitionsHandlersContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersContainer.swift; sourceTree = "<group>"; };
+		CC84B8DD1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProvider.swift; sourceTree = "<group>"; };
+		CC84B8DF1C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderStorer.swift; sourceTree = "<group>"; };
 		CCB348CC1C5BAA83005BD40F /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		CCB348CD1C5BAA83005BD40F /* ApplicationAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssemblyImpl.swift; sourceTree = "<group>"; };
 		CCB348CE1C5BAA83005BD40F /* ApplicationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInteractor.swift; sourceTree = "<group>"; };
@@ -285,17 +297,23 @@
 				CC84B8811C60C78500F966DE /* TransitionContextConverterImpl.swift */,
 				CC84B8821C60C78500F966DE /* TransitionContexts.swift */,
 				CC84B8831C60C78500F966DE /* TransitionContextsStack.swift */,
+				CC84B8861C60C78500F966DE /* TransitionContextsStackImpl.swift */,
 				CC84B8841C60C78500F966DE /* TransitionContextsStackClient.swift */,
 				CC84B8851C60C78500F966DE /* TransitionContextsStackClientImpl.swift */,
-				CC84B8861C60C78500F966DE /* TransitionContextsStackImpl.swift */,
+				CC84B8DD1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift */,
+				CC84B8DF1C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift */,
 				CC84B8871C60C78500F966DE /* TransitionIdGenerator.swift */,
 				CC84B8881C60C78500F966DE /* TransitionIdGeneratorImpl.swift */,
 				CC84B8891C60C78500F966DE /* TransitionIdGeneratorStorer.swift */,
 				CC84B88A1C60C78500F966DE /* TransitionsAnimator.swift */,
+				CC84B8D91C625AE300F966DE /* TransitionsAnimatorClient.swift */,
 				CC84B88B1C60C78500F966DE /* TransitionsHandler.swift */,
 				CC84B88C1C60C78500F966DE /* TransitionStorableParameters.swift */,
 				CC84B88D1C60C78500F966DE /* TransitionStyle.swift */,
 				CC84B88E1C60C78500F966DE /* TransitionStyleConverter.swift */,
+				CC84B8D51C625A7000F966DE /* TransitionsCoordinator.swift */,
+				CC84B8D71C625AC000F966DE /* TransitionsCoordinatorStorer.swift */,
+				CC84B8DB1C625B1700F966DE /* TransitionsHandlersContainer.swift */,
 				CC84B88F1C60C78500F966DE /* UIViewController+Wrapping.swift */,
 			);
 			path = Transitions;
@@ -497,6 +515,7 @@
 			files = (
 				CC84B8A61C60C78500F966DE /* Router.swift in Sources */,
 				CCE8C9CF1C563A610041801D /* AuthorizationPresenter.swift in Sources */,
+				CC84B8DA1C625AE300F966DE /* TransitionsAnimatorClient.swift in Sources */,
 				CCE8C97C1C561C780041801D /* SecondViewInput.swift in Sources */,
 				CCB348E11C5BABB2005BD40F /* ApplicationViewOutput.swift in Sources */,
 				CCE8C9671C561C780041801D /* FirstPresenter.swift in Sources */,
@@ -509,12 +528,14 @@
 				CC84B8951C60C78500F966DE /* MasterRouterTransitionable.swift in Sources */,
 				CCE8C9661C561C780041801D /* FirstOutput.swift in Sources */,
 				CCB348DF1C5BAB61005BD40F /* ApplicationViewInput.swift in Sources */,
+				CC84B8E01C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift in Sources */,
 				CCE8C9D61C563A610041801D /* AuthorizationModuleInput.swift in Sources */,
 				CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */,
 				CC84B8931C60C78500F966DE /* DetaiRouterTransitionable.swift in Sources */,
 				CCE8C9641C561C780041801D /* FirstModuleInput.swift in Sources */,
 				CCE8C96B1C561C780041801D /* FirstRouterImpl_iPadMaster.swift in Sources */,
 				CC84B8911C60C78500F966DE /* BaseRouter.swift in Sources */,
+				CC84B8DE1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift in Sources */,
 				CCB348DC1C5BAA83005BD40F /* ApplicationRouterImpl.swift in Sources */,
 				CCE8C9791C561C780041801D /* SecondRouterImpl_iPad.swift in Sources */,
 				CCB348DA1C5BAA83005BD40F /* ApplicationPresenter.swift in Sources */,
@@ -526,6 +547,7 @@
 				CC84B8A11C60C78500F966DE /* PopoverAnimationSourceParameters.swift in Sources */,
 				CC84B8BD1C60C78500F966DE /* TransitionsHandler.swift in Sources */,
 				CCE309F61C5F562E00C3E873 /* SecondAssemblyImpl_PushSecondModule.swift in Sources */,
+				CC84B8D81C625AC000F966DE /* TransitionsCoordinatorStorer.swift in Sources */,
 				CCE8C95F1C561C780041801D /* FirstAssembly.swift in Sources */,
 				CCE8C9601C561C780041801D /* FirstAssemblyImpl.swift in Sources */,
 				CC84B8B01C60C78500F966DE /* TransitionAnimationSourceParameters.swift in Sources */,
@@ -563,6 +585,7 @@
 				CCB348DD1C5BAA83005BD40F /* ApplicationViewController.swift in Sources */,
 				CCE8C9631C561C780041801D /* FirstInteractorOutput.swift in Sources */,
 				CCE8C9741C561C780041801D /* SecondModuleInput.swift in Sources */,
+				CC84B8DC1C625B1700F966DE /* TransitionsHandlersContainer.swift in Sources */,
 				CC84B8A21C60C78500F966DE /* PopoverAnimationStyle.swift in Sources */,
 				CCB348D51C5BAA83005BD40F /* ApplicationAssembly.swift in Sources */,
 				CC84B8BA1C60C78500F966DE /* TransitionIdGeneratorImpl.swift in Sources */,
@@ -600,6 +623,7 @@
 				CC84B8971C60C78500F966DE /* NavigationAnimationContextCreator.swift in Sources */,
 				CCE8C9CE1C563A610041801D /* AuthorizationInteractorImpl.swift in Sources */,
 				CCE8C9731C561C780041801D /* SecondInteractorOuput.swift in Sources */,
+				CC84B8D61C625A7000F966DE /* TransitionsCoordinator.swift in Sources */,
 				CCE8C9701C561C780041801D /* SecondAssemblyImpl.swift in Sources */,
 				CC84B8B81C60C78500F966DE /* TransitionContextsStackImpl.swift in Sources */,
 				CC84B89D1C60C78500F966DE /* NavigationTransitionStorableParameters.swift in Sources */,

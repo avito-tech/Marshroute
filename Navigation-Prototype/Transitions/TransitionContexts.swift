@@ -1,7 +1,24 @@
 import UIKit
 
 /**
- *  Передается из роутера в обработчик переходов, чтобы осуществить переход на другой модуль
+ *  Описание параметров анимации
+ */
+struct TransitionAnimationLaunchingContext {
+    /// стиль перехода
+    let transitionStyle: TransitionStyle
+    
+    /// объект, выполняющий анимацию перехода
+    let animator: TransitionsAnimator
+
+    /// параметры анимации перехода, получаемые из информации об исходной точке прямого или обратного перехода
+    let animationSourceParameters: TransitionAnimationSourceParameters?
+    
+    /// параметры анимации перехода, получаемые из информации о конечной точке прямого или обратного перехода
+    let animationTargetParameters: TransitionAnimationTargetParameters
+}
+
+/**
+ *  Описание перехода от модуля к модулю. Передается из роутера в обработчик переходов, чтобы осуществить переход на другой модуль
  */
 struct ForwardTransitionContext {
     /// идентификатор перехода
@@ -17,17 +34,11 @@ struct ForwardTransitionContext {
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
     let targetTransitionsHandler: TransitionsHandler
     
-    /// стиль перехода
-    let transitionStyle: TransitionStyle
-    
-    /// параметры анимации перехода, присущие конкретному стилю перехода, и описывающие куда идет переход
-    let animationTargetParameters: TransitionAnimationTargetParameters?
-    
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     let storableParameters: TransitionStorableParameters?
     
-    /// объект, выполняющий анимацию перехода
-    let animator: TransitionsAnimator
+    /// параметры запуска анимации перехода
+    let animationLaunchingContext: TransitionAnimationLaunchingContext
     
     /**
      Контекст описывает первоначальную настройку обработчика переходов (проставление корневого контроллера навигации)
@@ -37,13 +48,18 @@ struct ForwardTransitionContext {
         animator: TransitionsAnimator,
         transitionId: TransitionId)
     {
+        self.transitionId = transitionId
         self.targetViewController = initialViewController
         self.targetTransitionsHandler = transitionsHandler
-        self.transitionStyle = .Push
-        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
+        
         self.storableParameters = nil
-        self.animator = animator
-        self.transitionId = transitionId
+        
+        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+            transitionStyle: .Push,
+            animator: animator,
+            animationSourceParameters: nil,
+            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
+        )
     }
     
     /**
@@ -54,13 +70,18 @@ struct ForwardTransitionContext {
         animator: TransitionsAnimator,
         transitionId: TransitionId)
     {
+        self.transitionId = transitionId
         self.targetViewController = targetViewController
         self.targetTransitionsHandler = targetTransitionsHandler
-        self.transitionStyle = .Push
-        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
+       
         self.storableParameters = nil
-        self.animator = animator
-        self.transitionId = transitionId
+        
+        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+            transitionStyle: .Push,
+            animator: animator,
+            animationSourceParameters: nil,
+            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
+        )
     }
     
     /**
@@ -72,13 +93,20 @@ struct ForwardTransitionContext {
         animator: TransitionsAnimator,
         transitionId: TransitionId)
     {
+        self.transitionId = transitionId
         self.targetViewController = targetViewController
         self.targetTransitionsHandler = targetTransitionsHandler
-        self.transitionStyle = .Modal
-        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: targetViewController)
-        self.storableParameters = NavigationTransitionStorableParameters(presentedTransitionsHandler: targetTransitionsHandler)
-        self.animator = animator
-        self.transitionId = transitionId
+        
+        self.storableParameters = NavigationTransitionStorableParameters(
+            presentedTransitionsHandler: targetTransitionsHandler
+        )
+        
+        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+            transitionStyle: .Modal,
+            animator: animator,
+            animationSourceParameters: nil,
+            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
+        )
     }
     
     /**
@@ -95,13 +123,20 @@ struct ForwardTransitionContext {
             "use presentingModalMasterDetailViewController:targetTransitionsHandler:animator"
         )
         
+        self.transitionId = transitionId
         self.targetViewController = targetViewController
         self.targetTransitionsHandler = targetTransitionsHandler
-        self.transitionStyle = .Modal
-        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: navigationController)
-        self.storableParameters = NavigationTransitionStorableParameters(presentedTransitionsHandler: targetTransitionsHandler)
-        self.animator = animator
-        self.transitionId = transitionId
+        
+        self.storableParameters = NavigationTransitionStorableParameters(
+            presentedTransitionsHandler: targetTransitionsHandler
+        )
+        
+        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+            transitionStyle: .Modal,
+            animator: animator,
+            animationSourceParameters: nil,
+            animationTargetParameters: TransitionAnimationTargetParameters(viewController: navigationController)
+        )
     }
     
     /**
@@ -117,14 +152,19 @@ struct ForwardTransitionContext {
         transitionId: TransitionId)
     {
         self.targetViewController = targetViewController
-        self.targetTransitionsHandler = targetTransitionsHandler
-        self.transitionStyle = .PopoverFromView(sourceView: view, sourceRect: rect)
-        self.animationTargetParameters = nil
-        self.animator = animator
         self.transitionId = transitionId
+        self.targetTransitionsHandler = targetTransitionsHandler
+        
         self.storableParameters = PopoverTransitionStorableParameters(
             popoverController: popoverController,
             presentedTransitionsHandler: targetTransitionsHandler
+        )
+        
+        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+            transitionStyle: .PopoverFromView(sourceView: view, sourceRect: rect),
+            animator: animator,
+            animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
+            animationTargetParameters: TransitionAnimationTargetParameters(viewController: navigationController)
         )
     }
     
@@ -139,28 +179,29 @@ struct ForwardTransitionContext {
         animator: TransitionsAnimator,
         transitionId: TransitionId)
     {
+        self.transitionId = transitionId
         self.targetViewController = targetViewController
         self.targetTransitionsHandler = targetTransitionsHandler
-        self.transitionStyle = .PopoverFromButtonItem(buttonItem: buttonItem)
-        self.animationTargetParameters = nil
-        self.animator = animator
-        self.transitionId = transitionId
+
         self.storableParameters = PopoverTransitionStorableParameters(
             popoverController: popoverController,
             presentedTransitionsHandler: targetTransitionsHandler
         )
+        
+        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+            transitionStyle: .PopoverFromButtonItem(buttonItem: buttonItem),
+            animator: animator,
+            animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
+            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
+        )
     }
     
-    init (context: ForwardTransitionContext, forwardedTotransitionsHandler transitionsHandler: TransitionsHandler) {
-        // меняем только обработчика переходов
-        targetTransitionsHandler = transitionsHandler
-        
+    init(context: ForwardTransitionContext, changingTargetTransitionsHandler transitionsHandler: TransitionsHandler) {
         transitionId = context.transitionId
+        targetTransitionsHandler = transitionsHandler // меняем только обработчика переходов
         targetViewController = context.targetViewController
-        transitionStyle = context.transitionStyle
-        animationTargetParameters = context.animationTargetParameters
         storableParameters = context.storableParameters
-        animator = context.animator
+        animationLaunchingContext = context.animationLaunchingContext
     }
 }
 
@@ -188,30 +229,27 @@ struct CompletedTransitionContext {
     /// обработчик переходов для роутера модуля, на контроллер которого перешли
     private (set) weak var targetTransitionsHandler: TransitionsHandler?
     
-    /// стиль перехода
-    let transitionStyle: TransitionStyle
-    
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     let storableParameters: TransitionStorableParameters?
     
-    /// объект, выполняющий анимацию перехода
-    let animator: TransitionsAnimator
+    /// параметры запуска анимации перехода
+    let animationLaunchingContext: TransitionAnimationLaunchingContext
     
     init(forwardTransitionContext context: ForwardTransitionContext,
         sourceViewController: UIViewController,
         sourceTransitionsHandler: TransitionsHandler)
     {
+        self.transitionId = context.transitionId
+        
         self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
         
         self.targetViewController = context.targetViewController
         self.targetTransitionsHandler = context.targetTransitionsHandler
         
-        self.transitionStyle = context.transitionStyle
         self.storableParameters = context.storableParameters
-        self.animator = context.animator
-        
-        self.transitionId = context.transitionId
+
+        self.animationLaunchingContext = context.animationLaunchingContext
     }
     
     var isZombie: Bool {
@@ -243,32 +281,28 @@ struct RestoredTransitionContext {
     /// обработчик переходов для роутера модуля, на контроллер которого перешли
     let targetTransitionsHandler: TransitionsHandler
     
-    /// стиль перехода
-    let transitionStyle: TransitionStyle
-    
-    /// параметры анимации обратного перехода, описывающие куда идет переход
-    var animationTargetParameters: TransitionAnimationTargetParameters
-    
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     let storableParameters: TransitionStorableParameters?
     
-    /// объект, выполняющий анимацию перехода
-    let animator: TransitionsAnimator
+    /// параметры запуска анимации перехода
+    let animationLaunchingContext: TransitionAnimationLaunchingContext
     
     init?(completedTransition context: CompletedTransitionContext?)
     {
         guard let context = context
             else { return nil }
-       
+        
         guard let sourceViewController = context.sourceViewController
             else { return nil }
         guard let sourceTransitionsHandler = context.sourceTransitionsHandler
             else { return nil }
-
+        
         guard let targetViewController = context.targetViewController
             else { return nil }
         guard let targetTransitionsHandler = context.targetTransitionsHandler
             else { return nil }
+        
+        self.transitionId = context.transitionId
         
         self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
@@ -276,12 +310,13 @@ struct RestoredTransitionContext {
         self.targetViewController = targetViewController
         self.targetTransitionsHandler = targetTransitionsHandler
         
-        self.transitionStyle = context.transitionStyle
-        self.animationTargetParameters = TransitionAnimationTargetParameters(viewController: sourceViewController)
-        
         self.storableParameters = context.storableParameters
-        self.animator = context.animator
         
-        self.transitionId = context.transitionId
+        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+            transitionStyle: context.animationLaunchingContext.transitionStyle,
+            animator: context.animationLaunchingContext.animator,
+            animationSourceParameters: context.animationLaunchingContext.animationSourceParameters,
+            animationTargetParameters: TransitionAnimationTargetParameters(viewController: sourceViewController)
+        )
     }
 }

@@ -24,7 +24,7 @@ final class ApplicationAssemblyImpl: ApplicationAssembly  {
         tabBarController.viewControllers = controllersAndHandlers.0
         
         let tabTransitionsHandler = tabBarController.wrappedInTabBarTransitionsHandler()
-        tabTransitionsHandler.tabTransitionHandlers = controllersAndHandlers.1
+        tabTransitionsHandler.tabTransitionsHandlers = controllersAndHandlers.1
         
         let router = ApplicationRouterImpl(
             transitionsHandler: tabTransitionsHandler,
@@ -51,46 +51,46 @@ final class ApplicationAssemblyImpl: ApplicationAssembly  {
         -> ([UIViewController], [TransitionsHandler])
     {
         let firstNavigation = UINavigationController()
-        let firstTransitionHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
+        let firstTransitionsHandler = firstNavigation.wrappedInNavigationTransitionsHandler()
         
         do {
-            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule("1", presentingTransitionsHandler: nil, transitionId: sharedTransitionId, transitionsHandler: firstTransitionHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
+            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule("1", presentingTransitionsHandler: nil, transitionId: sharedTransitionId, transitionsHandler: firstTransitionsHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true).0
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: firstViewController,
-                transitionsHandler: firstTransitionHandler,
+                transitionsHandler: firstTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
-            firstTransitionHandler.resetWithTransition(context: resetContext)
+            firstTransitionsHandler.resetWithTransition(context: resetContext)
         }
         
         let secondNavigation = UINavigationController()
-        let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
+        let secondTransitionsHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
         do {
-            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil).0
+            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionsHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil).0
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: secondViewController,
-                transitionsHandler: secondTransitionHandler,
+                transitionsHandler: secondTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
-            secondTransitionHandler.resetWithTransition(context: resetContext)
+            secondTransitionsHandler.resetWithTransition(context: resetContext)
         }
         
         let thirdNavigation = UINavigationController()
-        let thirdTransitionHandler = thirdNavigation.wrappedInNavigationTransitionsHandler()
+        let thirdTransitionsHandler = thirdNavigation.wrappedInNavigationTransitionsHandler()
         do {
             let viewController = UIViewController()
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: viewController,
-                transitionsHandler: thirdTransitionHandler,
+                transitionsHandler: thirdTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
-            thirdTransitionHandler.resetWithTransition(context: resetContext)
+            thirdTransitionsHandler.resetWithTransition(context: resetContext)
         }
         
         
@@ -99,12 +99,12 @@ final class ApplicationAssemblyImpl: ApplicationAssembly  {
         thirdNavigation.tabBarItem.title = "3"
         
         let controllers = [firstNavigation, secondNavigation, thirdNavigation]
-        return (controllers, [firstTransitionHandler, secondTransitionHandler, thirdTransitionHandler])
+        return (controllers, [firstTransitionsHandler, secondTransitionsHandler, thirdTransitionsHandler])
     }
     
     private func createTabControllersIpad(sharedTransitionId sharedTransitionId: TransitionId) -> ([UIViewController], [TransitionsHandler]) {
         let firstSplit = UISplitViewController()
-        let firstSplitTransitionHandler = firstSplit.wrappedInSplitViewTransitionsHandler()
+        let firstSplitTransitionsHandler = firstSplit.wrappedInSplitViewTransitionsHandler()
         do {
             let sharedFirstTransitionId = transitionIdGenerator.generateNewTransitionId()
             
@@ -140,37 +140,37 @@ final class ApplicationAssemblyImpl: ApplicationAssembly  {
                 detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
             }
             
-            firstSplitTransitionHandler.masterTransitionsHandler = masterTransitionsHandler
-            firstSplitTransitionHandler.detailTransitionsHandler = detailTransitionsHandler
+            firstSplitTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
+            firstSplitTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
         }
         
         let secondNavigation = UINavigationController()
-        let secondTransitionHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
+        let secondTransitionsHandler = secondNavigation.wrappedInNavigationTransitionsHandler()
         do {
-            let second = AssemblyFactory.secondModuleAssembly().ipadModule(secondTransitionHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil).0
+            let second = AssemblyFactory.secondModuleAssembly().ipadModule(secondTransitionsHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil).0
 
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: second,
-                transitionsHandler: secondTransitionHandler,
+                transitionsHandler: secondTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
-            secondTransitionHandler.resetWithTransition(context: resetContext)
+            secondTransitionsHandler.resetWithTransition(context: resetContext)
         }
 
         
         let thirdNavigation = UINavigationController()
-        let thirdTransitionHandler = thirdNavigation.wrappedInNavigationTransitionsHandler()
+        let thirdTransitionsHandler = thirdNavigation.wrappedInNavigationTransitionsHandler()
         do {
             let viewController = UIViewController()
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: viewController,
-                transitionsHandler: thirdTransitionHandler,
+                transitionsHandler: thirdTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
-            thirdTransitionHandler.resetWithTransition(context: resetContext)
+            thirdTransitionsHandler.resetWithTransition(context: resetContext)
         }
         
         firstSplit.tabBarItem.title = "1"
@@ -178,7 +178,7 @@ final class ApplicationAssemblyImpl: ApplicationAssembly  {
         thirdNavigation.tabBarItem.title = "3"
 
         let controllers = [firstSplit, secondNavigation, thirdNavigation]
-        return (controllers, [firstSplitTransitionHandler, secondTransitionHandler, thirdTransitionHandler])
+        return (controllers, [firstSplitTransitionsHandler, secondTransitionsHandler, thirdTransitionsHandler])
     }
 }
 

@@ -9,6 +9,16 @@ class TransitionContextsStackClientImpl {
 }
 
 extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
+    func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> RestoredTransitionContext?
+    {
+        if let last = stack.last
+            where last.wasPerfromedByTransitionsHandler(transitionsHandler) {
+                return last
+        }
+        return nil
+    }
+    
     func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
@@ -117,19 +127,6 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         if context.sourceTransitionsHandler === transitionsHandler {
             stack.append(context)
         }
-    }
-}
-
-// MARK: - heplers
-private extension TransitionContextsStackClientImpl {
-    func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
-        -> RestoredTransitionContext?
-    {
-        if let last = stack.last
-            where last.wasPerfromedByTransitionsHandler(transitionsHandler) {
-                return last
-        }
-        return nil
     }
 }
 

@@ -34,13 +34,6 @@ extension PopoverTranstionsAnimator: TransitionsAnimator {
         context.popoverController.dismissPopoverAnimated(true)
     }
     
-    func animateUndoingAllTransitions(animationContext context: TransitionAnimationContext) {
-        guard let context = context as? PopoverAnimationContext
-            else { assert(false, "bad animation context"); return }
-        
-        context.popoverController.dismissPopoverAnimated(true)
-    }
-    
     func animateResettingWithTransition(animationContext context: TransitionAnimationContext) {
         assert(false, "must not be called")
     }

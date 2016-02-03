@@ -79,6 +79,7 @@ extension NavigationTransitionsHandler : TransitionsHandler {
     {
         forwardUndoingAllChainedTransitionsIfNeeded()
         undoChainedTransitionIfNeeded()
+        // TODO: стек до chained transition не очищается
         resetWithTransitionImpl(context: context)
     }
 }
@@ -127,7 +128,7 @@ private extension NavigationTransitionsHandler {
         
         // при пробрасывании push переходов нужно обновлять ссылку на обработчика переходов показываемого модуля
         let contextToForward = (context.targetTransitionsHandler === self) // только в случае push переходов
-        ? ForwardTransitionContext(context: context, forwardedTotransitionsHandler: chainedTransitionsHandler)
+        ? ForwardTransitionContext(context: context, changingTargetTransitionsHandler: chainedTransitionsHandler)
         : context
         
         chainedTransitionsHandler.performTransition(context: contextToForward)
@@ -319,8 +320,8 @@ private extension NavigationTransitionsHandler {
     @warn_unused_result
     func createAnimationSourceParameters(
         transitionStyle transitionStyle: TransitionStyle,
-        storableParameters: TransitionStorableParameters?) -> TransitionAnimationSourceParameters? {
-        
+        storableParameters: TransitionStorableParameters?) -> TransitionAnimationSourceParameters?
+    {
         switch transitionStyle {
         case .Push, .Modal:
             let result = NavigationAnimationSourceParameters(navigationController: navigationController)
@@ -339,7 +340,9 @@ private extension NavigationTransitionsHandler {
     }
     
     @warn_unused_result
-    func createAnimationContextForForwardTransition(context context: ForwardTransitionContext) -> TransitionAnimationContext? {
+    func createAnimationContextForForwardTransition(context context: ForwardTransitionContext)
+        -> TransitionAnimationContext?
+    {
         guard let animationSourceParameters = createAnimationSourceParameters(
             transitionStyle: context.transitionStyle,
             storableParameters: context.storableParameters)
@@ -353,7 +356,9 @@ private extension NavigationTransitionsHandler {
     }
     
     @warn_unused_result
-    func createAnimationContextForRestoredTransition(context context: RestoredTransitionContext) -> TransitionAnimationContext? {
+    func createAnimationContextForRestoredTransition(context context: RestoredTransitionContext)
+        -> TransitionAnimationContext?
+    {
         guard let animationSourceParameters = createAnimationSourceParameters(
             transitionStyle: context.transitionStyle,
             storableParameters: context.storableParameters)

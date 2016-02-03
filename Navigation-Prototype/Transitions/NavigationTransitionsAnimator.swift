@@ -30,18 +30,6 @@ extension NavigationTransitionsAnimator: TransitionsAnimator {
         }
     }
     
-    func animateUndoingAllTransitions(animationContext context: TransitionAnimationContext) {
-        guard let context = context as? NavigationAnimationContext
-            else { assert(false, "bad animation context"); return }
-        
-        switch context.animationStyle {
-        case .Push:
-            context.navigationController.popToRootViewControllerAnimated(true)
-        case .Modal:
-            context.navigationController.dismissViewControllerAnimated(true, completion: nil)
-        }
-    }
-    
     func animateResettingWithTransition(animationContext context: TransitionAnimationContext) {
         guard let context = context as? NavigationAnimationContext
             else { assert(false, "bad animation context"); return }

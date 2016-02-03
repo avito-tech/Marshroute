@@ -1,6 +1,9 @@
 import Foundation
 
 protocol TransitionContextsStackClient: class {
+    func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> RestoredTransitionContext?
+    
     func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
 

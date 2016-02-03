@@ -15,8 +15,6 @@ class NavigationTransitionsHandler {
         self.stackClient = transitionsStackClient
         self.transitionContextConverter = transitionContextConverter
     }
-    
-    weak var navigationTransitionsHandlerDelegate: NavigationTransitionsHandlerDelegate?
 }
 
 // MARK: - TransitionsHandler
@@ -201,11 +199,6 @@ private extension NavigationTransitionsHandler {
             context: completedTransitionContext,
             forTransitionsHandler: self
         )
-        
-        if context.targetTransitionsHandler !== self {
-            // показали модальное окно или поповер
-            navigationTransitionsHandlerDelegate?.navigationTransitionsHandlerDidBecomeFirstResponder(self)
-        }
     }
 
     func undoTransitionsAfter(
@@ -264,8 +257,6 @@ private extension NavigationTransitionsHandler {
     {
         if let chainedContext = chainedContext {
             undoTransitionImpl(context: chainedContext)
-            navigationTransitionsHandlerDelegate?.navigationTransitionsHandlerDidResignFirstResponder(self)
-            // TODO: сделать тут commit, если анимации будут выполняться асинхронно
         }
         
         if let pushContexts = pushContexts {

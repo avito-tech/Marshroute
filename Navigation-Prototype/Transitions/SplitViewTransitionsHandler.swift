@@ -2,66 +2,42 @@ import UIKit
 
 class SplitViewTransitionsHandler {
     private unowned let splitViewController: UISplitViewController
+    let transitionsCoordinator: TransitionsCoordinator
     
     init(splitViewController: UISplitViewController) {
         self.splitViewController = splitViewController
     }
     
-    var masterTransitionsHandler: NavigationTransitionsHandler? {
-        didSet {
-            masterTransitionsHandler?.navigationTransitionsHandlerDelegate = self
-        }
-    }
-    
-    var detailTransitionsHandler: NavigationTransitionsHandler? {
-        didSet {
-            detailTransitionsHandler?.navigationTransitionsHandlerDelegate = self
-        }
-    }
-    
-    var transitinsHandler: TransitionsHandler? {
-        return firstResponderTransitionsHandler ?? masterTransitionsHandler
-    }
-    
-    private var firstResponderTransitionsHandler: TransitionsHandler?
+    var masterTransitionsHandler: TransitionsHandler?
+    var detailTransitionsHandler: TransitionsHandler?
 }
 
 // MARK: - TransitionsHandler
-extension SplitViewTransitionsHandler: TransitionsHandler {
-    func performTransition(context context: ForwardTransitionContext) {
-        transitinsHandler?.performTransition(context: context)
-    }
-    
-    func undoTransitionsAfter(transitionId transitionId: TransitionId) {
-        transitinsHandler?.undoTransitionsAfter(transitionId: transitionId)
-    }
-    
-    func undoTransitionWith(transitionId transitionId: TransitionId) {
-        transitinsHandler?.undoTransitionWith(transitionId: transitionId)
-    }
-    
-    func undoAllChainedTransitions() {
-        transitinsHandler?.undoAllChainedTransitions()
-    }
-    
-    func undoAllTransitions() {
-        transitinsHandler?.undoAllTransitions()
-    }
-    
-    func resetWithTransition(context context: ForwardTransitionContext) {
-        transitinsHandler?.resetWithTransition(context: context)
-    }
-}
+extension SplitViewTransitionsHandler: TransitionsHandler { }
 
-// MARK: - NavigationTransitionsHandlerDelegate
-extension SplitViewTransitionsHandler: NavigationTransitionsHandlerDelegate {
-    func navigationTransitionsHandlerDidBecomeFirstResponder(handler: NavigationTransitionsHandler) {
-        firstResponderTransitionsHandler = handler
+//MARK: - TransitionsCoordinatorStorer
+extension SplitViewTransitionsHandler: TransitionsCoordinatorStorer {}
+
+//MARK: - TransitionsHandlersContainer
+extension SplitViewTransitionsHandler: TransitionsHandlersContainer {
+    var allTransitionsHandlers: [TransitionsHandler] {
+        return transitionsHandlers
     }
     
-    func navigationTransitionsHandlerDidResignFirstResponder(handler: NavigationTransitionsHandler) {
-        // эта реализация по умолчанию прокидывает сообщения в master.
-        // можно написать вторую отдельную реализацию, если нужно
-        firstResponderTransitionsHandler = masterTransitionsHandler
+    var visibleTransitionsHandlers: [TransitionsHandler] {
+        return transitionsHandlers
+    }
+    
+    private var transitionsHandlers: [TransitionsHandler] {
+        var result = [TransitionsHandler]()
+        
+        if let masterTransitionsHandler = masterTransitionsHandler {
+            result.append(masterTransitionsHandler)
+        }
+        if let detailTransitionsHandler = detailTransitionsHandler {
+            result.append(detailTransitionsHandler)
+        }
+        
+        return result
     }
 }

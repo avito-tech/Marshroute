@@ -19,7 +19,6 @@
 		CC84B8991C60C78500F966DE /* NavigationAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8671C60C78500F966DE /* NavigationAnimationStyle.swift */; };
 		CC84B89A1C60C78500F966DE /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8681C60C78500F966DE /* NavigationTransitionsAnimator.swift */; };
 		CC84B89B1C60C78500F966DE /* NavigationTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8691C60C78500F966DE /* NavigationTransitionsHandler.swift */; };
-		CC84B89C1C60C78500F966DE /* NavigationTransitionsHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B86A1C60C78500F966DE /* NavigationTransitionsHandlerDelegate.swift */; };
 		CC84B89D1C60C78500F966DE /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B86B1C60C78500F966DE /* NavigationTransitionStorableParameters.swift */; };
 		CC84B89E1C60C78500F966DE /* NavigationTransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B86C1C60C78500F966DE /* NavigationTransitionStyleConverter.swift */; };
 		CC84B89F1C60C78500F966DE /* PopoverAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B86D1C60C78500F966DE /* PopoverAnimationContext.swift */; };
@@ -63,6 +62,7 @@
 		CC84B8DC1C625B1700F966DE /* TransitionsHandlersContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8DB1C625B1700F966DE /* TransitionsHandlersContainer.swift */; };
 		CC84B8DE1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8DD1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift */; };
 		CC84B8E01C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8DF1C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift */; };
+		CC84B8E21C626B1800F966DE /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8E11C626B1800F966DE /* TransitionsCoordinatorImpl.swift */; };
 		CCB348D51C5BAA83005BD40F /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB348CC1C5BAA83005BD40F /* ApplicationAssembly.swift */; };
 		CCB348D61C5BAA83005BD40F /* ApplicationAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB348CD1C5BAA83005BD40F /* ApplicationAssemblyImpl.swift */; };
 		CCB348D71C5BAA83005BD40F /* ApplicationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB348CE1C5BAA83005BD40F /* ApplicationInteractor.swift */; };
@@ -137,7 +137,6 @@
 		CC84B8671C60C78500F966DE /* NavigationAnimationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationStyle.swift; sourceTree = "<group>"; };
 		CC84B8681C60C78500F966DE /* NavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CC84B8691C60C78500F966DE /* NavigationTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandler.swift; sourceTree = "<group>"; };
-		CC84B86A1C60C78500F966DE /* NavigationTransitionsHandlerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerDelegate.swift; sourceTree = "<group>"; };
 		CC84B86B1C60C78500F966DE /* NavigationTransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionStorableParameters.swift; sourceTree = "<group>"; };
 		CC84B86C1C60C78500F966DE /* NavigationTransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionStyleConverter.swift; sourceTree = "<group>"; };
 		CC84B86D1C60C78500F966DE /* PopoverAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationContext.swift; sourceTree = "<group>"; };
@@ -181,6 +180,7 @@
 		CC84B8DB1C625B1700F966DE /* TransitionsHandlersContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersContainer.swift; sourceTree = "<group>"; };
 		CC84B8DD1C625B3E00F966DE /* TransitionContextsStackClientProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProvider.swift; sourceTree = "<group>"; };
 		CC84B8DF1C625B6A00F966DE /* TransitionContextsStackClientProviderStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderStorer.swift; sourceTree = "<group>"; };
+		CC84B8E11C626B1800F966DE /* TransitionsCoordinatorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorImpl.swift; sourceTree = "<group>"; };
 		CCB348CC1C5BAA83005BD40F /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		CCB348CD1C5BAA83005BD40F /* ApplicationAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssemblyImpl.swift; sourceTree = "<group>"; };
 		CCB348CE1C5BAA83005BD40F /* ApplicationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationInteractor.swift; sourceTree = "<group>"; };
@@ -271,7 +271,6 @@
 				CC84B8671C60C78500F966DE /* NavigationAnimationStyle.swift */,
 				CC84B8681C60C78500F966DE /* NavigationTransitionsAnimator.swift */,
 				CC84B8691C60C78500F966DE /* NavigationTransitionsHandler.swift */,
-				CC84B86A1C60C78500F966DE /* NavigationTransitionsHandlerDelegate.swift */,
 				CC84B86B1C60C78500F966DE /* NavigationTransitionStorableParameters.swift */,
 				CC84B86C1C60C78500F966DE /* NavigationTransitionStyleConverter.swift */,
 				CC84B86D1C60C78500F966DE /* PopoverAnimationContext.swift */,
@@ -312,6 +311,7 @@
 				CC84B88D1C60C78500F966DE /* TransitionStyle.swift */,
 				CC84B88E1C60C78500F966DE /* TransitionStyleConverter.swift */,
 				CC84B8D51C625A7000F966DE /* TransitionsCoordinator.swift */,
+				CC84B8E11C626B1800F966DE /* TransitionsCoordinatorImpl.swift */,
 				CC84B8D71C625AC000F966DE /* TransitionsCoordinatorStorer.swift */,
 				CC84B8DB1C625B1700F966DE /* TransitionsHandlersContainer.swift */,
 				CC84B88F1C60C78500F966DE /* UIViewController+Wrapping.swift */,
@@ -573,7 +573,6 @@
 				CC84B8A91C60C78500F966DE /* RouterIdentifiable.swift in Sources */,
 				CC84B8991C60C78500F966DE /* NavigationAnimationStyle.swift in Sources */,
 				CCE8C9CB1C563A610041801D /* AuthorizationAssembly.swift in Sources */,
-				CC84B89C1C60C78500F966DE /* NavigationTransitionsHandlerDelegate.swift in Sources */,
 				CCE8C9D81C563A610041801D /* AuthorizationViewOutput.swift in Sources */,
 				CC84B8BB1C60C78500F966DE /* TransitionIdGeneratorStorer.swift in Sources */,
 				CCE8C96E1C561C780041801D /* FirstViewInput.swift in Sources */,
@@ -610,6 +609,7 @@
 				CC84B8901C60C78500F966DE /* BaseMasterDetailRouter.swift in Sources */,
 				CC84B8981C60C78500F966DE /* NavigationAnimationSourceParameters.swift in Sources */,
 				CCE8C9D71C563A610041801D /* AuthorizationModuleOutput.swift in Sources */,
+				CC84B8E21C626B1800F966DE /* TransitionsCoordinatorImpl.swift in Sources */,
 				CC84B8B91C60C78500F966DE /* TransitionIdGenerator.swift in Sources */,
 				CCE8C9621C561C780041801D /* FirstInteractorImpl.swift in Sources */,
 				CC84B8AE1C60C78500F966DE /* TransitionAnimationContext.swift in Sources */,

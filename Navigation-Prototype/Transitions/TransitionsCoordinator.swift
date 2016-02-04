@@ -292,7 +292,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         let chainedTransition = transitionsToUndo.chainedTransition
         let pushTransitions = transitionsToUndo.pushTransitions
         
-        guard let firstTransitionId = chainedTransition?.transitionId ?? pushTransitions?.first?.transitionId
+        guard let firstTransitionId = pushTransitions?.first?.transitionId
             else { return }
         
         coordinateUndoingTransitionsImpl(
@@ -509,6 +509,10 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
+        guard let transitionsHandler = transitionsHandler as? AnimatingTransitionsHandler else {
+            assert(false, "метод reset посылаем только анимирующим обработчикам переходов")
+        }
+        
         // сокрытие модальных окон и поповеров, показанных внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsIfNeededImpl(forTransitionsHandler: transitionsHandler)
         
@@ -518,11 +522,13 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         let pushTransitions = transitionsToUndo.pushTransitions
         
         // удаляем записи о первом и последующих переходах
-        if let firstTransitionId = chainedTransition?.transitionId ?? pushTransitions?.first?.transitionId {
-            commitUndoingTransitionsAfter(
-                transitionId: firstTransitionId,
-                includingTransitionWithId: true,
-                forTransitionsHandler: transitionsHandler,
+        if let firstTransitionId = pushTransitions?.first?.transitionId {
+            coordinateUndoingTransitionsImpl(
+                chainedTransition: chainedTransition,
+                pushTransitions: pushTransitions,
+                forAnimatingTransitionsHandler: transitionsHandler,
+                andCommitUndoingTransitionsAfter: firstTransitionId,
+                includingTransitionWithId: false,
                 withStackClient: stackClient
             )
         }

@@ -1,6 +1,6 @@
 import Foundation
 
-class ApplicationInteractorImpl {
+final class ApplicationInteractorImpl {
     weak var output: ApplicationPresenter?
     
     var authorizationClosure: (Bool -> Void)?

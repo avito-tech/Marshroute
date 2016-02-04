@@ -17,13 +17,16 @@ private class NavigationRootsHolderImpl: NavigationRootsHolder {
     static var instance = NavigationRootsHolderImpl()
     
     private var rootTransitionsHandler: TransitionsHandler?
+    
     private var window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
-    private var transitionsCoordinator = TransitionsCoordinatorImpl(
+    
+    private var transitionsCoordinator: TransitionsCoordinator
+    = TransitionsCoordinatorImpl(stackClientProvider: TransitionContextsStackClientProviderImpl())
 }
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     weak var applicationModuleInput: ApplicationModuleInput? // Presenter
     

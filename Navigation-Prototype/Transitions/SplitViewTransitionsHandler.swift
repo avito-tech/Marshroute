@@ -1,6 +1,6 @@
 import UIKit
 
-class SplitViewTransitionsHandler {
+final class SplitViewTransitionsHandler {
     private unowned let splitViewController: UISplitViewController
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
     

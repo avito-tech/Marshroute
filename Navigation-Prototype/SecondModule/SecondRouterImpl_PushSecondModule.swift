@@ -1,6 +1,6 @@
 import UIKit
 
-final class SecondRouterImpl_PushSecondModule: BaseRouter {
+final class SecondRouterImpl_PushSecondModule: BaseRouterImpl {
     
 }
 
@@ -16,7 +16,8 @@ extension SecondRouterImpl_PushSecondModule: SecondRouter {
                     canShowFirstModule: true,
                     canShowSecondModule: false,
                     dismissable: true,
-                    withTimer: true).0
+                    withTimer: true,
+                    transitionsCoordinator: transitionsCoordinator).0
             
             return viewController
         })
@@ -31,7 +32,8 @@ extension SecondRouterImpl_PushSecondModule: SecondRouter {
                     withTimer: true,
                     canShowModule1: true,
                     transitionId: transitionId,
-                    presentingTransitionsHandler: self.transitionsHandler).0
+                    presentingTransitionsHandler: self.transitionsHandler,
+                    transitionsCoordinator: transitionsCoordinator).0
             
             return viewController
         })

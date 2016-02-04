@@ -1,6 +1,6 @@
 import Foundation
 
-class SecondPresenter {
+final class SecondPresenter {
     private let interactor: SecondInteractor
     private let router: SecondRouter
     

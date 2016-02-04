@@ -1,6 +1,6 @@
 import Foundation
 
-class TransitionIdGeneratorImpl {
+final class TransitionIdGeneratorImpl {
     static let instance = TransitionIdGeneratorImpl()
 }
 

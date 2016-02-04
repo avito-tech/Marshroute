@@ -1,6 +1,6 @@
 import UIKit
 
-class TabBarTransitionsHandler {
+final class TabBarTransitionsHandler {
     private unowned let tabBarController: UITabBarController
     let transitionsCoordinator: TransitionsCoordinator
     

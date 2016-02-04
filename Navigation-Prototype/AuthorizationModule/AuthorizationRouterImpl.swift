@@ -1,3 +1,3 @@
 import UIKit
 
-final class AuthorizationRouterImpl: BaseRouter, AuthorizationRouter {}
+final class AuthorizationRouterImpl: BaseRouterImpl, AuthorizationRouter {}

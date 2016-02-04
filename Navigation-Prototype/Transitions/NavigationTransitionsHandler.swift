@@ -1,6 +1,6 @@
 import UIKit
 
-class NavigationTransitionsHandler {
+final class NavigationTransitionsHandler {
     
     private unowned let navigationController: UINavigationController
     private let transitionsCoordinatorPrivate: TransitionsCoordinator

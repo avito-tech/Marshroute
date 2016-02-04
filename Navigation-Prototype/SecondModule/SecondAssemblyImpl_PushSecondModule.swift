@@ -8,7 +8,8 @@ final class SecondAssemblyImpl_PushSecondModule: SecondAssembly {
         withTimer: Bool,
         canShowModule1: Bool,
         transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?)
+        presentingTransitionsHandler: TransitionsHandler?,
+        transitionsCoordinator: TransitionsCoordinator)
         -> (UIViewController, SecondModuleInput)
     {
         debugPrint("iphone 2 - \(transitionId)")
@@ -18,7 +19,8 @@ final class SecondAssemblyImpl_PushSecondModule: SecondAssembly {
         let router = SecondRouterImpl_PushSecondModule(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler,
+            transitionsCoordinator: transitionsCoordinator)
         
         let presenter = SecondPresenter(
             interactor: interactor,
@@ -46,7 +48,8 @@ final class SecondAssemblyImpl_PushSecondModule: SecondAssembly {
         withTimer: Bool,
         canShowModule1: Bool,
         transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?)
+        presentingTransitionsHandler: TransitionsHandler?,
+        transitionsCoordinator: TransitionsCoordinator)
         -> (UIViewController, SecondModuleInput)
     {
         debugPrint("ipad 2 - \(transitionId)")
@@ -56,7 +59,8 @@ final class SecondAssemblyImpl_PushSecondModule: SecondAssembly {
         let router = SecondRouterImpl_iPad_PushSecondModule(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler,
+            transitionsCoordinator: transitionsCoordinator)
         
         let presenter = SecondPresenter(
             interactor: interactor,

@@ -10,7 +10,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
-        withTimer: Bool)
+        withTimer: Bool,
+        transitionsCoordinator: TransitionsCoordinator)
         -> (FirstViewController, FirstModuleInput)
     {
         debugPrint("iphone 1 - \(transitionId)")
@@ -20,7 +21,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         let router = FirstRouterImpl(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler,
+            transitionsCoordinator: transitionsCoordinator)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -50,7 +52,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
-        withTimer: Bool)
+        withTimer: Bool,
+        transitionsCoordinator: TransitionsCoordinator)
         -> (FirstViewController, FirstModuleInput)
     {
         debugPrint("ipad detail 1 - \(transitionId)")
@@ -60,7 +63,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         let router = FirstRouterImpl_IpadDetail(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler,
+            transitionsCoordinator: transitionsCoordinator)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -91,7 +95,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
-        withTimer: Bool)
+        withTimer: Bool,
+        transitionsCoordinator: TransitionsCoordinator)
         -> (FirstViewController, FirstModuleInput)
     {
         debugPrint("ipad master 1 - \(transitionId)")
@@ -102,7 +107,8 @@ final class FirstAssemblyImpl: FirstAssembly {
             masterTransitionsHandler: transitionsHandler,
             detailTransitionsHandler: detailTransitionsHandler,
             transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler)
+            presentingTransitionsHandler: presentingTransitionsHandler,
+            transitionsCoordinator: transitionsCoordinator)
         
         let presenter = FirstPresenter(
             interactor: interactor,

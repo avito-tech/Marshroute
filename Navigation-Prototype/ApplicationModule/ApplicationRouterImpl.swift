@@ -1,6 +1,6 @@
 import UIKit
 
-final class ApplicationRouterImpl: BaseRouter {
+final class ApplicationRouterImpl: BaseRouterImpl {
     
 }
 
@@ -12,7 +12,8 @@ extension ApplicationRouterImpl: ApplicationRouter {
                     self.transitionsHandler,
                     transitionId: transitionId,
                     transitionsHandler: transitionsHandler,
-                    moduleOutput: output)
+                    moduleOutput: output,
+                    transitionsCoordinator: transitionsCoordinator)
             return module.0
         }
     }

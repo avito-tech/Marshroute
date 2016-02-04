@@ -6,7 +6,8 @@ final class AuthorizationAssemblyImpl: AuthorizationAssembly {
         presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
-        moduleOutput: AuthorizationModuleOutput)
+        moduleOutput: AuthorizationModuleOutput,
+        transitionsCoordinator: TransitionsCoordinator)
         
         -> (UIViewController, AuthorizationModuleInput)
     {
@@ -16,7 +17,8 @@ final class AuthorizationAssemblyImpl: AuthorizationAssembly {
         let router = AuthorizationRouterImpl(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler
+            presentingTransitionsHandler: presentingTransitionsHandler,
+            transitionsCoordinator: transitionsCoordinator
         )
         
         let presenter = AuthorizationPresenter(

@@ -1,6 +1,6 @@
 import UIKit
 
-final class SecondRouterImpl_iPad: BaseRouter {
+final class SecondRouterImpl_iPad: BaseRouterImpl {
     
 }
 
@@ -22,7 +22,8 @@ extension  SecondRouterImpl_iPad: SecondRouter {
                         canShowFirstModule: true,
                         canShowSecondModule: false,
                         dismissable: true,
-                        withTimer: true).0
+                        withTimer: true,
+                        transitionsCoordinator: transitionsCoordinator).0
                 return viewController
         })
     }
@@ -41,7 +42,8 @@ extension  SecondRouterImpl_iPad: SecondRouter {
                         withTimer: false,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        presentingTransitionsHandler: self.transitionsHandler).0
+                        presentingTransitionsHandler: self.transitionsHandler,
+                        transitionsCoordinator: transitionsCoordinator).0
                 return viewController
         })
     }

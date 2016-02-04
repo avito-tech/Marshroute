@@ -1,6 +1,6 @@
 import Foundation
 
-class SecondInteractorImpl {
+final class SecondInteractorImpl {
     weak var output: SecondInteractorOutput?
 
     private let withTimer: Bool

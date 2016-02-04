@@ -1,6 +1,6 @@
 import Foundation
 
-class AuthorizationInteractorImpl {
+final class AuthorizationInteractorImpl {
     weak var output: AuthorizationPresenter?
 }
 

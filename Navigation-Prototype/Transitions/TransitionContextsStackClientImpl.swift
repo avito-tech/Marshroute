@@ -1,6 +1,6 @@
 import Foundation
 
-class TransitionContextsStackClientImpl {
+final class TransitionContextsStackClientImpl {
     private let stack: TransitionContextsStack
     
     init(transitionContextsStack: TransitionContextsStack = TransitionContextsStackImpl()) {

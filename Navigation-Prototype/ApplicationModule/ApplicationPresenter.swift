@@ -1,6 +1,6 @@
 import Foundation
 
-class ApplicationPresenter {
+final class ApplicationPresenter {
     private let interactor: ApplicationInteractor
     var router: ApplicationRouter?
     

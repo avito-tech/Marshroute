@@ -9,12 +9,12 @@ final class TransitionsCoordinatorImpl {
     }
 }
 
-// MARK: - TransitionsCoordinator
-extension TransitionsCoordinatorImpl: TransitionsCoordinator {}
-
 // MARK: - TransitionContextsStackClientProviderStorer
 extension TransitionsCoordinatorImpl: TransitionContextsStackClientProviderStorer {
     var stackClientProvider: TransitionContextsStackClientProvider {
         return stackClientProviderPrivate
     }
 }
+
+// MARK: - TransitionsCoordinator
+extension TransitionsCoordinatorImpl: TransitionsCoordinator {}

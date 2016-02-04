@@ -1,6 +1,6 @@
 import Foundation
 
-class AuthorizationPresenter {
+final class AuthorizationPresenter {
     private let interactor: AuthorizationInteractor
     private let router: AuthorizationRouter
     

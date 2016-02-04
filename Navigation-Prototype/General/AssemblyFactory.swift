@@ -1,4 +1,4 @@
-class AssemblyFactory {
+final class AssemblyFactory {
     static func applicationModuleAssembly() -> ApplicationAssembly {
         return ApplicationAssemblyImpl()
     }

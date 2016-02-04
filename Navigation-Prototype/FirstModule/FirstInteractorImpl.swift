@@ -1,6 +1,6 @@
 import Foundation
 
-class FirstInteractorImpl {
+final class FirstInteractorImpl {
     weak var output: FirstInteractorOutput? 
     
     private let firstRedModuleEnabled: Bool

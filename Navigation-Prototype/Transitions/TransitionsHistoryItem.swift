@@ -2,16 +2,7 @@ import Foundation
 
 struct TransitionsHistoryItem {
     let stackClient: TransitionContextsStackClient
-    
-    weak var transitionsHandler: TransitionsHandler? {
-        didSet {
-            if transitionsHandler == nil {
-                delegate?.transitionsHistoryItemDidLooseTransitionsHandler(self)
-            }
-        }
-    }
-    
-    weak var delegate: TransitionsHistoryItemDelegate?
+    weak var transitionsHandler: TransitionsHandler?
     
     init (stackClient: TransitionContextsStackClient,
         transitionsHandler: TransitionsHandler)

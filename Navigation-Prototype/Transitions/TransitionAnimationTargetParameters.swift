@@ -5,5 +5,5 @@ import UIKit
  *  о конечной точке прямого или обратного перехода
  */
 struct TransitionAnimationTargetParameters {
-    let viewController: UIViewController
+    unowned let viewController: UIViewController
 }

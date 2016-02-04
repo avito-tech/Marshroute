@@ -40,7 +40,7 @@ extension NavigationTransitionsHandler: TransitionsAnimatorClient {
     {
         // готовим анимационный контекст и запускаем анимации обратного перехода
         if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {
-            launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
+            launchingContext.animator.animateUndoingTransition(animationContext: animationContext)
         }
     }
     
@@ -48,7 +48,7 @@ extension NavigationTransitionsHandler: TransitionsAnimatorClient {
     {
         // готовим анимационный контекст и запускаем анимации обновления
         if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {
-            launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
+            launchingContext.animator.animateResettingWithTransition(animationContext: animationContext)
         }
     }
 }
@@ -70,7 +70,7 @@ private extension NavigationTransitionsHandler {
             break
         }
         
-        // готовим анимационный контекст
+        // создаем анимационный контекст
         let result = launchingContextConverter.convertAnimationLaunchingContextToAnimationContext(launchingContext)
         return result
     }

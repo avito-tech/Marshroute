@@ -9,14 +9,20 @@ extension TransitionContextsStackClientProviderImpl: TransitionContextsStackClie
     func stackClient(forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> TransitionContextsStackClient?
     {
-        let historyItem = historyItems.filter { $0.transitionsHandler === transitionsHandler }
-        assert(historyItem.count <= 1)
-        return historyItem.first?.stackClient
+        updateHistoryItems()
+        
+        let matchingHistoryItems = historyItems.filter { $0.transitionsHandler === transitionsHandler }
+        
+        assert(matchingHistoryItems.count <= 1)
+        
+        return matchingHistoryItems.first?.stackClient
     }
     
     func createStackClient(forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> TransitionContextsStackClient
     {
+        updateHistoryItems()
+        
         let stackClient = TransitionContextsStackClientImpl()
 
         let newHistoryItem = TransitionsHistoryItem(
@@ -29,12 +35,10 @@ extension TransitionContextsStackClientProviderImpl: TransitionContextsStackClie
     }
 }
 
-// MARK: - TransitionsHistoryItemDelegate
-extension TransitionContextsStackClientProviderImpl: TransitionsHistoryItemDelegate {
-    func transitionsHistoryItemDidLooseTransitionsHandler(historyItem: TransitionsHistoryItem)
+// MARK: - helpers
+private extension TransitionContextsStackClientProviderImpl {
+    func updateHistoryItems()
     {
-        if let index = historyItems.indexOf({ $0.stackClient === historyItem.stackClient }) {
-            historyItems.removeAtIndex(index)
-        }
+        historyItems = historyItems.filter { $0.transitionsHandler != nil }
     }
 }

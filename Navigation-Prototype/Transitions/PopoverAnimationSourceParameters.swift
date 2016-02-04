@@ -1,5 +1,5 @@
 import UIKit
 
 struct PopoverAnimationSourceParameters: TransitionAnimationSourceParameters {
-    let popoverController: UIPopoverController
+    unowned let popoverController: UIPopoverController
 }

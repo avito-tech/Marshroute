@@ -104,19 +104,20 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             amongTransitionsHandlers: notContainerTransitionsHandlers)
             else { return }
         
-        guard let selectedAnimatingTransitionsHandler = selectedTransitionsHandler as? AnimatingTransitionsHandler
-            else { return }
+        guard let animatingTransitionsHandler = selectedTransitionsHandler as? AnimatingTransitionsHandler
+            else { assert(false, "к этому моменту должен быть выбран анимирующий обработчик переходов"); return }
         
-        guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: selectedAnimatingTransitionsHandler)
+        guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             else { return }
         
         // вызов анимации
-        selectedAnimatingTransitionsHandler.launchAnimatingOfPerformingTransition(launchingContext: context.animationLaunchingContext)
+        animatingTransitionsHandler.launchAnimatingOfPerformingTransition(launchingContext: context.animationLaunchingContext)
         
         // запись об успешно совершенном переходе
         commitPerformingTransition(
             context: context,
-            forTransitionsHandler: selectedAnimatingTransitionsHandler,
+            forTransitionsHandler: transitionsHandler,
+            animatingTransitionsHandler: animatingTransitionsHandler,
             withStackClient: stackClient
         )
     }
@@ -139,7 +140,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         coordinateUndoingChainedTransitionsIfNeededImpl(forTransitionsHandler: transitionsHandler)
         
         guard let animatingTransitionsHandler = selectedTransitionsHandler as? AnimatingTransitionsHandler
-            else { return }
+            else { assert(false, "к этому моменту должен быть выбран анимирующий обработчик переходов"); return }
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             else { return }
@@ -179,7 +180,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             animatingTransitionsHandler.launchAnimatingOfUndoingTransition(launchingContext: animationLaunchingContext)
         }
         
-        // вызов анимаций возвращения по навигационному стеку
+        // вызов анимаций возвращения по навигационному стеку, минуя промежуточные переходы
         if let animationLaunchingContext = pushTransitions?.first?.animationLaunchingContext {
             animatingTransitionsHandler.launchAnimatingOfUndoingTransition(launchingContext: animationLaunchingContext)
         }
@@ -317,14 +318,14 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             else { return }
         
         guard let animatingTransitionsHandler = selectedTransitionsHandler as? AnimatingTransitionsHandler
-            else { return }
+            else { assert(false, "к этому моменту должен быть выбран анимирующий обработчик переходов"); return }
         
         // достаем существующую историю переходов или создаем новую
         let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             ?? stackClientProvider.createStackClient(forTransitionsHandler: animatingTransitionsHandler)
         
         // вызов анимации
-        animatingTransitionsHandler.launchAnimatingOfPerformingTransition(launchingContext: context.animationLaunchingContext)
+        animatingTransitionsHandler.launchAnimatingOfResettingWithTransition(launchingContext: context.animationLaunchingContext)
         
         // запись об успешно совершенном переходе
         commitResettingWithTransition(
@@ -394,7 +395,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             chainedTransitionsHandlers.append(chainedTransitionsHandler)
         }
         
-        // если нашли несколько дочерних обработчиков на одинаковой глубине вложенности, то берем любой
+        // если нашли несколько дочерних обработчиков на одинаковой глубине вложенности, то берем любой.
         // у Split'а будет master, если ни master, ни detail не показывали модальных окон или поповеров
         if chainedTransitionsHandlers.isEmpty {
             return transitionsHandlers.first
@@ -445,13 +446,16 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
     func commitPerformingTransition(
         context context: ForwardTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
+        animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
+        // в случае, когда push переход был прокинут дочернему обработчику переходов, нужно обновлять
+        // targetTransitionsHandler
         let fixedContext = (context.targetTransitionsHandler === transitionsHandler) // только в случае push переходов
-            ? ForwardTransitionContext(context: context, changingTargetTransitionsHandler: transitionsHandler)
+            ? ForwardTransitionContext(context: context, changingTargetTransitionsHandler: animatingTransitionsHandler)
             : context
         
-        guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(transitionsHandler) else {
+        guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) else {
             assert(false, "нужно было вызывать resetWithTransition(context:). а не performTransition(context:)")
             return
         }
@@ -459,12 +463,12 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: fixedContext,
             sourceViewController: lastTransition.targetViewController,
-            sourceTransitionsHandler: transitionsHandler
+            sourceTransitionsHandler: animatingTransitionsHandler
         )
         
         stackClient.appendTransition(
             context: completedTransitionContext,
-            forTransitionsHandler: transitionsHandler
+            forTransitionsHandler: animatingTransitionsHandler
         )
     }
     
@@ -486,18 +490,31 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
+        // сокрытие модальных окон и поповеров, показанных внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsIfNeededImpl(forTransitionsHandler: transitionsHandler)
         
-        let fixedContext = (context.targetTransitionsHandler === transitionsHandler) // только в случае push переходов
-            ? ForwardTransitionContext(context: context, changingTargetTransitionsHandler: transitionsHandler)
-            : context
+        // ищем идентификатор самого первого перехода
+        let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(transitionsHandler)
+        let chainedTransition = transitionsToUndo.chainedTransition
+        let pushTransitions = transitionsToUndo.pushTransitions
+        
+        // удаляем записи о первом и последующих переходах
+        if let firstTransitionId = chainedTransition?.transitionId ?? pushTransitions?.first?.transitionId {
+            commitUndoingTransitionsAfter(
+                transitionId: firstTransitionId,
+                includingTransitionWithId: true,
+                forTransitionsHandler: transitionsHandler,
+                withStackClient: stackClient
+            )
+        }
         
         let completedTransitionContext = CompletedTransitionContext(
-            forwardTransitionContext: fixedContext,
+            forwardTransitionContext: context,
             sourceViewController: context.targetViewController, // при reset source == target
             sourceTransitionsHandler: transitionsHandler
         )
         
+        // создаем новую запись о переходе
         stackClient.appendTransition(
             context: completedTransitionContext,
             forTransitionsHandler: transitionsHandler

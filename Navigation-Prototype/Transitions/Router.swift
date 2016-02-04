@@ -76,7 +76,7 @@ protocol Router: class {
 }
 
 // MARK: - Router Default Impl
-extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionsGeneratorStorer {
+extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionsGeneratorStorer, Self: TransitionsCoordinatorStorer {
     func pushViewControllerDerivedFrom(
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
@@ -141,9 +141,17 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     {
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
-        let masterTransitionsHandler = masterNavigationController.wrappedInNavigationTransitionsHandler()
-        let detailTransitionsHandler = detailNavigationController.wrappedInNavigationTransitionsHandler()
-        let splitViewTransitionsHandler = splitViewController.wrappedInSplitViewTransitionsHandler()
+        let masterTransitionsHandler = NavigationTransitionsHandler(
+            navigationController: masterNavigationController,
+            transitionsCoordinator: transitionsCoordinator)
+        
+        let detailTransitionsHandler = NavigationTransitionsHandler(
+            navigationController: detailNavigationController,
+            transitionsCoordinator: transitionsCoordinator)
+        
+        let splitViewTransitionsHandler = SplitViewTransitionsHandler(
+            splitViewController: splitViewController,
+            transitionsCoordinator: transitionsCoordinator)
         
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
         splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
@@ -212,7 +220,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         animator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
-        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        let navigationTransitionsHandler = NavigationTransitionsHandler(
+            navigationController: navigationController,
+            transitionsCoordinator: transitionsCoordinator)
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
@@ -279,7 +289,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
-        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        let navigationTransitionsHandler = NavigationTransitionsHandler(
+            navigationController: navigationController,
+            transitionsCoordinator: transitionsCoordinator)
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
@@ -297,7 +309,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             navigationTransitionsHandler.resetWithTransition(context: resetContext)
         }
         
-        let popoverController = navigationController.wrappedInPopoverController()
+        let popoverController = UIPopoverController(contentViewController: navigationController)
         
         let popoverContext = ForwardTransitionContext(
             presentingViewController: viewController,
@@ -346,7 +358,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
-        let navigationTransitionsHandler = navigationController.wrappedInNavigationTransitionsHandler()
+        let navigationTransitionsHandler = NavigationTransitionsHandler(
+            navigationController: navigationController,
+            transitionsCoordinator: transitionsCoordinator)
 
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
@@ -364,7 +378,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             navigationTransitionsHandler.resetWithTransition(context: resetContext)
         }
         
-        let popoverController = navigationController.wrappedInPopoverController()
+        let popoverController = UIPopoverController(contentViewController: navigationController)
     
         let popoverContext = ForwardTransitionContext(
             presentingViewController: viewController,

@@ -10,6 +10,7 @@ import UIKit
 
 protocol NavigationRootsHolder: class {
     var rootTransitionsHandler: TransitionsHandler? { get set }
+    var transitionsCoordinator: TransitionsCoordinator { get }
 }
 
 private class NavigationRootsHolderImpl: NavigationRootsHolder {
@@ -17,6 +18,7 @@ private class NavigationRootsHolderImpl: NavigationRootsHolder {
     
     private var rootTransitionsHandler: TransitionsHandler?
     private var window: UIWindow = UIWindow(frame: UIScreen.mainScreen().bounds)
+    private var transitionsCoordinator = TransitionsCoordinatorImpl(
 }
 
 

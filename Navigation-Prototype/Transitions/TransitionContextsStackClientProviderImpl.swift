@@ -1,5 +1,9 @@
 import Foundation
 
-class TransitionContextsStackClientProviderImpl {
+final class TransitionContextsStackClientProviderImpl {
+    
+}
+
+extension TransitionContextsStackClientProviderImpl: TransitionContextsStackClientProvider {
     
 }

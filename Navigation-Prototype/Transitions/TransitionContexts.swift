@@ -197,11 +197,11 @@ struct ForwardTransitionContext {
     }
     
     init(context: ForwardTransitionContext, changingTargetTransitionsHandler transitionsHandler: TransitionsHandler) {
-        transitionId = context.transitionId
-        targetTransitionsHandler = transitionsHandler // меняем только обработчика переходов
-        targetViewController = context.targetViewController
-        storableParameters = context.storableParameters
-        animationLaunchingContext = context.animationLaunchingContext
+        self.transitionId = context.transitionId
+        self.targetTransitionsHandler = transitionsHandler // меняем только обработчика переходов
+        self.targetViewController = context.targetViewController
+        self.storableParameters = context.storableParameters
+        self.animationLaunchingContext = context.animationLaunchingContext
     }
 }
 

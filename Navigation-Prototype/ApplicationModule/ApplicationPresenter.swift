@@ -14,6 +14,7 @@ final class ApplicationPresenter {
     }
     
     var isShowingAuthorizationModule = false
+    var authorizationCompletionBlock: (Bool -> Void)?
 }
 
 //MARK: - ApplicationInput
@@ -46,14 +47,14 @@ extension ApplicationPresenter: ApplicationViewOutput  {
     
     private func showAuthorizationModuleImpl(completion completion: (authed: Bool) -> Void) {
         if isShowingAuthorizationModule {
-            interactor.setAuthorizationCompletionBlock(completion)
-            return;
+            authorizationCompletionBlock = completion
+            return
         }
 
         interactor.requestAuthorizationStatus { [weak self] (authorized) -> Void in
             if let strongSelf = self where !authorized {
                 strongSelf.isShowingAuthorizationModule = true
-                strongSelf.interactor.setAuthorizationCompletionBlock(completion)
+                strongSelf.authorizationCompletionBlock = completion
                 strongSelf.router?.showAuthorization(output: strongSelf)
             }
         }
@@ -62,7 +63,8 @@ extension ApplicationPresenter: ApplicationViewOutput  {
 
 extension ApplicationPresenter: AuthorizationModuleOutput {
     func didFinishWith(success success: Bool) {
-        interactor.executeAuthorizationCompletionBlockAndDeleteAfterExecution(success)
+        authorizationCompletionBlock?(success)
+        authorizationCompletionBlock = nil
         isShowingAuthorizationModule = false
     }
 }

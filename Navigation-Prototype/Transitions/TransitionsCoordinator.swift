@@ -449,11 +449,20 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        // в случае, когда push переход был прокинут дочернему обработчику переходов, нужно обновлять
-        // targetTransitionsHandler
-        let fixedContext = (context.targetTransitionsHandler === transitionsHandler) // только в случае push переходов
-            ? ForwardTransitionContext(context: context, changingTargetTransitionsHandler: animatingTransitionsHandler)
-            : context
+        // в случае, когда push переход был прокинут дочернему обработчику переходов,
+        // нужно обновлять targetTransitionsHandler, чтобы не было зацикливаний при последующем прокидывании
+        let fixedContext: ForwardTransitionContext
+        
+        
+        if transitionsHandler === context.targetTransitionsHandler && transitionsHandler !== animatingTransitionsHandler {
+            fixedContext =  ForwardTransitionContext(
+                context: context,
+                changingTargetTransitionsHandler: animatingTransitionsHandler
+            )
+        }
+        else {
+            fixedContext = context
+        }
         
         guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) else {
             assert(false, "нужно было вызывать resetWithTransition(context:). а не performTransition(context:)")
@@ -462,8 +471,8 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: fixedContext,
-            sourceViewController: lastTransition.targetViewController,
-            sourceTransitionsHandler: animatingTransitionsHandler
+            sourceViewController: lastTransition.targetViewController, // откуда ушли
+            sourceTransitionsHandler: animatingTransitionsHandler // кем выполнен переход
         )
         
         stackClient.appendTransition(

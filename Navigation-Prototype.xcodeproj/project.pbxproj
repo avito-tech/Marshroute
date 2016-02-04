@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC84B8901C60C78500F966DE /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B85E1C60C78500F966DE /* BaseMasterDetailRouter.swift */; };
+		CC84B8901C60C78500F966DE /* BaseMasterDetailRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B85E1C60C78500F966DE /* BaseMasterDetailRouterImpl.swift */; };
 		CC84B8911C60C78500F966DE /* BaseRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B85F1C60C78500F966DE /* BaseRouterImpl.swift */; };
 		CC84B8921C60C78500F966DE /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8601C60C78500F966DE /* DetailRouter.swift */; };
 		CC84B8931C60C78500F966DE /* DetaiRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC84B8611C60C78500F966DE /* DetaiRouterTransitionable.swift */; };
@@ -125,7 +125,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC84B85E1C60C78500F966DE /* BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CC84B85E1C60C78500F966DE /* BaseMasterDetailRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouterImpl.swift; sourceTree = "<group>"; };
 		CC84B85F1C60C78500F966DE /* BaseRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterImpl.swift; sourceTree = "<group>"; };
 		CC84B8601C60C78500F966DE /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		CC84B8611C60C78500F966DE /* DetaiRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetaiRouterTransitionable.swift; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				CC84B85F1C60C78500F966DE /* BaseRouterImpl.swift */,
-				CC84B85E1C60C78500F966DE /* BaseMasterDetailRouter.swift */,
+				CC84B85E1C60C78500F966DE /* BaseMasterDetailRouterImpl.swift */,
 				CC84B8601C60C78500F966DE /* DetailRouter.swift */,
 				CC84B8611C60C78500F966DE /* DetaiRouterTransitionable.swift */,
 				CC84B8621C60C78500F966DE /* MasterRouter.swift */,
@@ -607,7 +607,7 @@
 				CCE8C97A1C561C780041801D /* SecondViewController.swift in Sources */,
 				CCB348E31C5BB204005BD40F /* AuthorizationViewInput.swift in Sources */,
 				CC84B8AB1C60C78500F966DE /* RouterTransitionable.swift in Sources */,
-				CC84B8901C60C78500F966DE /* BaseMasterDetailRouter.swift in Sources */,
+				CC84B8901C60C78500F966DE /* BaseMasterDetailRouterImpl.swift in Sources */,
 				CC84B8981C60C78500F966DE /* NavigationAnimationSourceParameters.swift in Sources */,
 				CCE8C9D71C563A610041801D /* AuthorizationModuleOutput.swift in Sources */,
 				CC84B8E21C626B1800F966DE /* TransitionsCoordinatorImpl.swift in Sources */,

@@ -57,15 +57,15 @@ extension TransitionsHandler where Self: TransitionsCoordinatorStorer, Self: Tra
     }
     
     func undoAllChainedTransitions() {
-        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только листовому обработчику")
+        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
     func undoAllTransitions() {
-        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только листовому обработчику")
+        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
     func resetWithTransition(context context: ForwardTransitionContext) {
-        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только листовому обработчику")
+        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
 }
 

@@ -135,7 +135,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             amongTransitionsHandlers: notContainerTransitionsHandlers,
             toUndoTransitionsAfterId: transitionId,
             includingTransitionWithId: includingTransitionWithId)
-            else { return }
+            else { assert(false, "к этому моменту должен быть найден обработчик, выполнивший переход с этим id"); return }
         
         coordinateUndoingChainedTransitionsIfNeededImpl(forTransitionsHandler: transitionsHandler)
         
@@ -366,7 +366,6 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
                     }
                 }
             }
-            
         }
         else {
             result = [transitionsHandler]
@@ -418,7 +417,11 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
                 else { continue }
             
             // если какой-то обработчик выполнял переход с переданным id, возвращаем его
-            if stackClient.transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler) != nil {
+            let transitionWithId = stackClient.transitionWith(
+                transitionId: transitionId,
+                forTransitionsHandler: transitionsHandler)
+
+            if transitionWithId != nil {
                 return transitionsHandler
             }
             
@@ -429,7 +432,12 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
                 guard let chainedStackClient = stackClientProvider.stackClient(forTransitionsHandler: chainedTransitionsHandler!)
                     else { break }
                 
-                if chainedStackClient.transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler) != nil {
+                // если какой-то дочерний обработчик выполнял переход с переданным id, возвращаем его                
+                let chainedTransitionWithId = chainedStackClient.transitionWith(
+                    transitionId: transitionId,
+                    forTransitionsHandler: chainedTransitionsHandler!)
+                
+                if  chainedTransitionWithId != nil {
                     return chainedTransitionsHandler
                 }
                 
@@ -464,11 +472,13 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             fixedContext = context
         }
         
+        // ищем последний переход, выполненный анимирующим обработчиком
         guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) else {
             assert(false, "нужно было вызывать resetWithTransition(context:). а не performTransition(context:)")
             return
         }
         
+        // достаем view controller, откуда ушли, в результате текущего перехода, и записываем в историю
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: fixedContext,
             sourceViewController: lastTransition.targetViewController, // откуда ушли

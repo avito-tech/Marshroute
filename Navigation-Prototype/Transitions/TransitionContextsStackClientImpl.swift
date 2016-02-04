@@ -1,5 +1,3 @@
-import Foundation
-
 final class TransitionContextsStackClientImpl {
     private let stack: TransitionContextsStack
     

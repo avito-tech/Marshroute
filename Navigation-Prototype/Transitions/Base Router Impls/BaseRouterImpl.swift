@@ -1,5 +1,6 @@
 import Foundation
 
+/// Обычный роутер, работающий только одним обработчиком переходов
 class BaseRouterImpl {
     private unowned let transitionsHandlerPrivate: TransitionsHandler
     private let transitionIdPrivate: TransitionId

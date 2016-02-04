@@ -1,5 +1,6 @@
 import UIKit
 
+///Стили переходов
 enum TransitionStyle {
     case Modal
     

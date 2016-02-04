@@ -1,5 +1,4 @@
-import Foundation
-
+/// Запуск анимирования переходов
 protocol TransitionsAnimatorClient: class {
     func launchAnimatingOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     func launchAnimatingOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)

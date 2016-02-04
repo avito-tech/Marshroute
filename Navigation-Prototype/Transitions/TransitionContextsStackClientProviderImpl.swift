@@ -1,5 +1,3 @@
-import Foundation
-
 final class TransitionContextsStackClientProviderImpl {
     var historyItems = [TransitionsHistoryItem]()
 }

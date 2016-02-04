@@ -1,5 +1,3 @@
-import Foundation
-
 typealias TransitionId = String
 
 protocol TransitionIdGenerator: class {

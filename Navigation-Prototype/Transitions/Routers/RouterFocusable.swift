@@ -1,8 +1,4 @@
-import UIKit
-
-/**
- *  Методы, чтобы вернуться на экран текущего модуля
- */
+/// Методы, чтобы вернуться на экран текущего модуля
 protocol RouterFocusable: class {
     func focusOnCurrentModule()
 }

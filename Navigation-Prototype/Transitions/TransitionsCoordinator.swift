@@ -1,6 +1,4 @@
-import Foundation
-
-/// Протокол описывает передачу обработки перехода в центр управления переходами
+/// Протокол описывает передачу обработки и отмены переходов в центр управления переходами
 protocol TransitionsCoordinator: class {
     func coordinatePerformingTransition(
         context context: ForwardTransitionContext,

@@ -1,5 +1,7 @@
 import Foundation
 
+/// Роутер для master контроллера внутри SplitViewController'а
+/// Работаюет с двумя обработчиками переходов (master и detail)
 class BaseMasterDetailRouterImpl {
     private unowned let masterTransitionsHandlerPrivate: TransitionsHandler
     private unowned let detailTransitionsHandlerPrivate: TransitionsHandler

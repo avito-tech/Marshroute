@@ -1,5 +1,3 @@
-import Foundation
-
 final class TransitionsCoordinatorImpl {
     private let stackClientProviderPrivate: TransitionContextsStackClientProvider
     

@@ -1,5 +1,3 @@
-import Foundation
-
 protocol TransitionsGeneratorStorer: class {
     var transitionIdGenerator: TransitionIdGenerator { get set }
 }

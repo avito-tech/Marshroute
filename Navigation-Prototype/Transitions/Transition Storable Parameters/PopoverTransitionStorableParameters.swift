@@ -32,11 +32,14 @@ final class PopoverTransitionStorableParameters: NSObject, TransitionStorablePar
 
 // MARK: - UIPopoverControllerDelegate
 extension PopoverTransitionStorableParameters: UIPopoverControllerDelegate {
-    func popoverControllerShouldDismissPopover(popoverController: UIPopoverController) -> Bool {
+    func popoverControllerShouldDismissPopover(popoverController: UIPopoverController)
+        -> Bool
+    {
         return true
     }
     
-    func popoverControllerDidDismissPopover(popoverController: UIPopoverController) {
+    func popoverControllerDidDismissPopover(popoverController: UIPopoverController)
+    {
         self.popoverController = nil
     }
 }

@@ -1,5 +1,4 @@
-import Foundation
-
+/// Клиент, выполняющий обращения к стеку переходов
 protocol TransitionContextsStackClient: class {
     func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?

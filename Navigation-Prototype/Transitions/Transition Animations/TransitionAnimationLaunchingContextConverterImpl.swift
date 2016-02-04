@@ -26,8 +26,8 @@ extension TransitionAnimationLaunchingContextConverterImpl: TransitionAnimationL
             
         case .PopoverFromButtonItem(_), .PopoverFromView(_, _):
             guard let popoverAnimationSourceParameters = context.animationSourceParameters as? PopoverAnimationSourceParameters else {
-                assert(false, "You passed wrong source animation parameters \(context.animationSourceParameters)" +
-                    "for popover transition: \(context)")
+                assert(false, "нужны другие исходные параметры анимации \(context.animationSourceParameters)" +
+                    "для переходов с вызовом поповеров: \(context)")
                 break
             }
             

@@ -1,3 +1,4 @@
+/// Создание анимационного контекста
 protocol TransitionAnimationContextCreator: class {
     typealias TransitionAnimationSourceParameters
     

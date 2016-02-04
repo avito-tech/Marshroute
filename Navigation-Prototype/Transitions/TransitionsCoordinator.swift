@@ -309,20 +309,34 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         context context: ForwardTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
     {
-        let notContainerTransitionsHandlers = findNotContainerTransitionsHandlers(
-            forTransitionsHandler: transitionsHandler,
-            amongVisibleChildTransitionHandlers: true)
-        
-        guard let selectedTransitionsHandler = selectTransitionsHandlerToPerformOrReset(
-            amongTransitionsHandlers: notContainerTransitionsHandlers)
-            else { return }
-        
-        guard let animatingTransitionsHandler = selectedTransitionsHandler as? AnimatingTransitionsHandler
-            else { assert(false, "к этому моменту должен быть выбран анимирующий обработчик переходов"); return }
+        guard let animatingTransitionsHandler = transitionsHandler as? AnimatingTransitionsHandler else {
+            assert(false, "метод reset посылаем только анимирующим обработчикам переходов")
+        }
+
+        // сокрытие модальных окон и поповеров, показанных внутри модальных окон и поповеров текущего обработчика
+        coordinateUndoingChainedTransitionsIfNeededImpl(forTransitionsHandler: transitionsHandler)
         
         // достаем существующую историю переходов или создаем новую
         let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             ?? stackClientProvider.createStackClient(forTransitionsHandler: animatingTransitionsHandler)
+        
+        // ищем идентификатор самого первого перехода
+        let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(transitionsHandler)
+        let chainedTransition = transitionsToUndo.chainedTransition
+        let pushTransitions = transitionsToUndo.pushTransitions
+        
+        // скрываем модальные окна и поповеры текущего обработчика переходов
+        // удаляем записи о первом и последующих переходах
+        if let firstTransitionId = pushTransitions?.first?.transitionId {
+            coordinateUndoingTransitionsImpl(
+                chainedTransition: chainedTransition,
+                pushTransitions: nil, // только модальные окна и поповеры
+                forAnimatingTransitionsHandler: animatingTransitionsHandler,
+                andCommitUndoingTransitionsAfter: firstTransitionId,
+                includingTransitionWithId: false,
+                withStackClient: stackClient
+            )
+        }
         
         // вызов анимации
         animatingTransitionsHandler.launchAnimatingOfResettingWithTransition(launchingContext: context.animationLaunchingContext)
@@ -461,7 +475,6 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         // нужно обновлять targetTransitionsHandler, чтобы не было зацикливаний при последующем прокидывании
         let fixedContext: ForwardTransitionContext
         
-        
         if transitionsHandler === context.targetTransitionsHandler && transitionsHandler !== animatingTransitionsHandler {
             fixedContext =  ForwardTransitionContext(
                 context: context,
@@ -485,6 +498,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             sourceTransitionsHandler: animatingTransitionsHandler // кем выполнен переход
         )
         
+        // записываем в историю
         stackClient.appendTransition(
             context: completedTransitionContext,
             forTransitionsHandler: animatingTransitionsHandler
@@ -509,30 +523,6 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        guard let transitionsHandler = transitionsHandler as? AnimatingTransitionsHandler else {
-            assert(false, "метод reset посылаем только анимирующим обработчикам переходов")
-        }
-        
-        // сокрытие модальных окон и поповеров, показанных внутри модальных окон и поповеров текущего обработчика
-        coordinateUndoingChainedTransitionsIfNeededImpl(forTransitionsHandler: transitionsHandler)
-        
-        // ищем идентификатор самого первого перехода
-        let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(transitionsHandler)
-        let chainedTransition = transitionsToUndo.chainedTransition
-        let pushTransitions = transitionsToUndo.pushTransitions
-        
-        // удаляем записи о первом и последующих переходах
-        if let firstTransitionId = pushTransitions?.first?.transitionId {
-            coordinateUndoingTransitionsImpl(
-                chainedTransition: chainedTransition,
-                pushTransitions: pushTransitions,
-                forAnimatingTransitionsHandler: transitionsHandler,
-                andCommitUndoingTransitionsAfter: firstTransitionId,
-                includingTransitionWithId: false,
-                withStackClient: stackClient
-            )
-        }
-        
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,
             sourceViewController: context.targetViewController, // при reset source == target

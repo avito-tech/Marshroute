@@ -1,8 +1,8 @@
 import UIKit
 
-final class FirstRouterImpl_iPadMaster: BaseMasterDetailRouterImpl {}
+final class FirstRouterImpl_iPadMasterDetail: BaseMasterDetailRouterImpl {}
 
-extension FirstRouterImpl_iPadMaster: FirstRouter {
+extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
         let detailTransitionsHandler = self.detailTransitionsHandler
         
@@ -80,5 +80,17 @@ extension FirstRouterImpl_iPadMaster: FirstRouter {
                 }
             }
         })
+    }
+    
+    func focusOnCurrentModuleAndResetDetail() {
+        // master
+        focusOnCurrentModule()
+        
+        // detail
+        setDetailViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+            let result = UIViewController()
+            result.view.backgroundColor = .redColor()
+            return result
+        }
     }
 }

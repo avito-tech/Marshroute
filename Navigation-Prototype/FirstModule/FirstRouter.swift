@@ -7,4 +7,6 @@ protocol FirstRouter: class, RouterDismisable, RouterFocusable {
     func showSecondModule(sender sender: AnyObject?)
     
     func showSecondModuleIfAuthorizationSucceeds()
+    
+    func focusOnCurrentModuleAndResetDetail()
 }

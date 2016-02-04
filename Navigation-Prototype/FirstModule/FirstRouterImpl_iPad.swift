@@ -1,8 +1,8 @@
 import UIKit
 
-final class FirstRouterImpl_IpadDetail: BaseRouterImpl {}
+final class FirstRouterImpl_iPad: BaseRouterImpl {}
 
-extension FirstRouterImpl_IpadDetail: FirstRouter {
+extension FirstRouterImpl_iPad: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
         pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
@@ -75,5 +75,9 @@ extension FirstRouterImpl_IpadDetail: FirstRouter {
                 }
             }
         })
+    }
+    
+    func focusOnCurrentModuleAndResetDetail() {
+        focusOnCurrentModule()
     }
 }

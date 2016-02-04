@@ -70,4 +70,8 @@ extension FirstRouterImpl: FirstRouter {
             }
         })
     }
+    
+    func focusOnCurrentModuleAndResetDetail() {
+        focusOnCurrentModule()
+    }
 }

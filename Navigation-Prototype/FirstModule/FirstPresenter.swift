@@ -69,7 +69,7 @@ extension FirstPresenter: FirstInteractorOutput {
     }
     
     func timerFired() {
-        router.focusOnCurrentModule()
+        router.focusOnCurrentModuleAndResetDetail()
         viewInput?.setTimerInteractionEnabled(true)
         viewInput?.setSecondsUntilTimerEnabled(0)
     }

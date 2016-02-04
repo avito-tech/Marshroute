@@ -60,7 +60,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
-        let router = FirstRouterImpl_IpadDetail(
+        let router = FirstRouterImpl_iPad(
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
@@ -103,7 +103,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
-        let router = FirstRouterImpl_iPadMaster(
+        let router = FirstRouterImpl_iPadMasterDetail(
             masterTransitionsHandler: transitionsHandler,
             detailTransitionsHandler: detailTransitionsHandler,
             transitionId: transitionId,

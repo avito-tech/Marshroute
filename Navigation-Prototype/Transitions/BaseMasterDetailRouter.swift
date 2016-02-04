@@ -1,9 +1,9 @@
 import Foundation
 
 class BaseMasterDetailRouter {
-    private unowned var masterTransitionsHandlerPrivate: TransitionsHandler
-    private unowned var detailTransitionsHandlerPrivate: TransitionsHandler
-    private var transitionIdPrivate: TransitionId
+    private unowned let masterTransitionsHandlerPrivate: TransitionsHandler
+    private unowned let detailTransitionsHandlerPrivate: TransitionsHandler
+    private let transitionIdPrivate: TransitionId
     private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
     
     init(

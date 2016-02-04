@@ -1,8 +1,8 @@
 import Foundation
 
 class BaseRouter {
-    private unowned var transitionsHandlerPrivate: TransitionsHandler
-    private var transitionIdPrivate: TransitionId
+    private unowned let transitionsHandlerPrivate: TransitionsHandler
+    private let transitionIdPrivate: TransitionId
     private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
     
     init(

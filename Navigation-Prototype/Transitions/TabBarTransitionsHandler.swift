@@ -2,9 +2,13 @@ import UIKit
 
 class TabBarTransitionsHandler {
     private unowned let tabBarController: UITabBarController
+    let transitionsCoordinator: TransitionsCoordinator
     
-    init(tabBarController: UITabBarController) {
+    init(tabBarController: UITabBarController,
+        transitionsCoordinator: TransitionsCoordinator)
+    {
         self.tabBarController = tabBarController
+        self.transitionsCoordinator = transitionsCoordinator
     }
     
     var tabTransitionsHandlers: [TransitionsHandler]? {
@@ -15,44 +19,33 @@ class TabBarTransitionsHandler {
 }
 
 // MARK: - TransitionsHandler
-extension TabBarTransitionsHandler: TransitionsHandler {
-    func performTransition(context context: ForwardTransitionContext) {
-        selectedTransitionsHandler?.performTransition(context: context)
+extension TabBarTransitionsHandler: TransitionsHandler { }
+
+//MARK: - TransitionsCoordinatorStorer
+extension TabBarTransitionsHandler: TransitionsCoordinatorStorer {}
+
+//MARK: - TransitionsHandlersContainer
+extension TabBarTransitionsHandler: TransitionsHandlersContainer {
+    var allTransitionsHandlers: [TransitionsHandler]? {
+        return tabTransitionsHandlers
     }
     
-    func undoTransitionsAfter(transitionId transitionId: TransitionId) {
-        if let tabTransitionsHandlers = tabTransitionsHandlers {
-            for transitionsHandler in tabTransitionsHandlers {
-                transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
-            }
+    var visibleTransitionsHandlers: [TransitionsHandler]? {
+        if let selectedTransitionsHandler = selectedTransitionsHandler {
+            return [selectedTransitionsHandler]
         }
-    }
-    
-    func undoTransitionWith(transitionId transitionId: TransitionId) {
-        if let tabTransitionsHandlers = tabTransitionsHandlers {
-            for transitionsHandler in tabTransitionsHandlers {
-                transitionsHandler.undoTransitionWith(transitionId: transitionId)
-            }
-        }
-    }
-    
-    func undoAllChainedTransitions() {
-        selectedTransitionsHandler?.undoAllChainedTransitions()
-    }
-    
-    func undoAllTransitions() {
-        selectedTransitionsHandler?.undoAllTransitions()
-    }
-    
-    func resetWithTransition(context context: ForwardTransitionContext) {
-        selectedTransitionsHandler?.resetWithTransition(context: context)
+        return nil
     }
 }
 
 // MARK: - helpers
-extension TabBarTransitionsHandler {
+private extension TabBarTransitionsHandler {
     var selectedTransitionsHandler: TransitionsHandler? {
-        let index = tabBarController.selectedIndex
-        return (index < tabTransitionsHandlers?.count) ? tabTransitionsHandlers?[index] : nil
+        if let tabTransitionsHandlers = tabTransitionsHandlers {
+            if tabBarController.selectedIndex < tabTransitionsHandlers.count {
+                return tabTransitionsHandlers[tabBarController.selectedIndex]
+            }
+        }
+        return nil
     }
 }

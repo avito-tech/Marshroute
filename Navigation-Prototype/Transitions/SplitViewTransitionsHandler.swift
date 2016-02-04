@@ -2,10 +2,13 @@ import UIKit
 
 class SplitViewTransitionsHandler {
     private unowned let splitViewController: UISplitViewController
-    let transitionsCoordinator: TransitionsCoordinator
+    private let transitionsCoordinatorPrivate: TransitionsCoordinator
     
-    init(splitViewController: UISplitViewController) {
+    init(splitViewController: UISplitViewController,
+        transitionsCoordinator: TransitionsCoordinator)
+    {
         self.splitViewController = splitViewController
+        self.transitionsCoordinatorPrivate = transitionsCoordinator
     }
     
     var masterTransitionsHandler: TransitionsHandler?
@@ -16,28 +19,26 @@ class SplitViewTransitionsHandler {
 extension SplitViewTransitionsHandler: TransitionsHandler { }
 
 //MARK: - TransitionsCoordinatorStorer
-extension SplitViewTransitionsHandler: TransitionsCoordinatorStorer {}
+extension SplitViewTransitionsHandler: TransitionsCoordinatorStorer {
+    var transitionsCoordinator: TransitionsCoordinator {
+        return transitionsCoordinatorPrivate
+    }
+}
 
 //MARK: - TransitionsHandlersContainer
 extension SplitViewTransitionsHandler: TransitionsHandlersContainer {
-    var allTransitionsHandlers: [TransitionsHandler] {
+    var allTransitionsHandlers: [TransitionsHandler]? {
         return transitionsHandlers
     }
     
-    var visibleTransitionsHandlers: [TransitionsHandler] {
+    var visibleTransitionsHandlers: [TransitionsHandler]? {
         return transitionsHandlers
     }
-    
-    private var transitionsHandlers: [TransitionsHandler] {
-        var result = [TransitionsHandler]()
-        
-        if let masterTransitionsHandler = masterTransitionsHandler {
-            result.append(masterTransitionsHandler)
-        }
-        if let detailTransitionsHandler = detailTransitionsHandler {
-            result.append(detailTransitionsHandler)
-        }
-        
-        return result
+}
+
+// MARK: - helpers
+private extension SplitViewTransitionsHandler {
+    var transitionsHandlers: [TransitionsHandler] {
+        return [masterTransitionsHandler, detailTransitionsHandler].flatMap { $0 }
     }
 }

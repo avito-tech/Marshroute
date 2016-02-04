@@ -11,7 +11,7 @@ struct TransitionAnimationLaunchingContext {
     let animator: TransitionsAnimator
 
     /// параметры анимации перехода, получаемые из информации об исходной точке прямого или обратного перехода
-    let animationSourceParameters: TransitionAnimationSourceParameters?
+    var animationSourceParameters: TransitionAnimationSourceParameters?
     
     /// параметры анимации перехода, получаемые из информации о конечной точке прямого или обратного перехода
     let animationTargetParameters: TransitionAnimationTargetParameters

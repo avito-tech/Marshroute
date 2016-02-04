@@ -346,23 +346,26 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         
         if let transitionsHandler = transitionsHandler as? TransitionsHandlersContainer {
             let nextTransitionsHandlers = (amongVisibleChildTransitionHandlers)
-                // при perform, reset прокидываем только видимым обработчикам
+                    // при perform, reset прокидываем только видимым обработчикам
                 ? transitionsHandler.visibleTransitionsHandlers
                     // при undo прокидывание может понадобиться любому обработчику
                 : transitionsHandler.allTransitionsHandlers
             
-            result = [TransitionsHandler]()
-            
-            for nextTransitionsHandler in nextTransitionsHandlers {
-                if let subResult = findNotContainerTransitionsHandlers(
-                    forTransitionsHandler: nextTransitionsHandler,
-                    amongVisibleChildTransitionHandlers: amongVisibleChildTransitionHandlers)
-                {
-                    for subResultItem in subResult {
-                        result?.append(subResultItem)
+            if let nextTransitionsHandlers = nextTransitionsHandlers {
+                result = [TransitionsHandler]()
+                
+                for nextTransitionsHandler in nextTransitionsHandlers {
+                    if let subResult = findNotContainerTransitionsHandlers(
+                        forTransitionsHandler: nextTransitionsHandler,
+                        amongVisibleChildTransitionHandlers: amongVisibleChildTransitionHandlers)
+                    {
+                        for subResultItem in subResult {
+                            result?.append(subResultItem)
+                        }
                     }
                 }
             }
+            
         }
         else {
             result = [transitionsHandler]

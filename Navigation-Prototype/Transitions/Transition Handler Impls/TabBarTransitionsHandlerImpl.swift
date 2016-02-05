@@ -1,6 +1,6 @@
 import UIKit
 
-final class TabBarTransitionsHandler {
+final class TabBarTransitionsHandlerImpl {
     private unowned let tabBarController: UITabBarController
     let transitionsCoordinator: TransitionsCoordinator
     
@@ -19,13 +19,13 @@ final class TabBarTransitionsHandler {
 }
 
 // MARK: - TransitionsHandler
-extension TabBarTransitionsHandler: TransitionsHandler { }
+extension TabBarTransitionsHandlerImpl: TransitionsHandler { }
 
 //MARK: - TransitionsCoordinatorStorer
-extension TabBarTransitionsHandler: TransitionsCoordinatorStorer {}
+extension TabBarTransitionsHandlerImpl: TransitionsCoordinatorStorer {}
 
 //MARK: - TransitionsHandlersContainer
-extension TabBarTransitionsHandler: TransitionsHandlersContainer {
+extension TabBarTransitionsHandlerImpl: TransitionsHandlersContainer {
     var allTransitionsHandlers: [TransitionsHandler]? {
         return tabTransitionsHandlers
     }
@@ -39,7 +39,7 @@ extension TabBarTransitionsHandler: TransitionsHandlersContainer {
 }
 
 // MARK: - helpers
-private extension TabBarTransitionsHandler {
+private extension TabBarTransitionsHandlerImpl {
     var selectedTransitionsHandler: TransitionsHandler? {
         if let tabTransitionsHandlers = tabTransitionsHandlers {
             if tabBarController.selectedIndex < tabTransitionsHandlers.count {

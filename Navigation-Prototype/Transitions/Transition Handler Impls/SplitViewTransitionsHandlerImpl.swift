@@ -1,6 +1,6 @@
 import UIKit
 
-final class SplitViewTransitionsHandler {
+final class SplitViewTransitionsHandlerImpl {
     private unowned let splitViewController: UISplitViewController
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
     
@@ -16,17 +16,17 @@ final class SplitViewTransitionsHandler {
 }
 
 // MARK: - TransitionsHandler
-extension SplitViewTransitionsHandler: TransitionsHandler { }
+extension SplitViewTransitionsHandlerImpl: TransitionsHandler { }
 
 //MARK: - TransitionsCoordinatorStorer
-extension SplitViewTransitionsHandler: TransitionsCoordinatorStorer {
+extension SplitViewTransitionsHandlerImpl: TransitionsCoordinatorStorer {
     var transitionsCoordinator: TransitionsCoordinator {
         return transitionsCoordinatorPrivate
     }
 }
 
 //MARK: - TransitionsHandlersContainer
-extension SplitViewTransitionsHandler: TransitionsHandlersContainer {
+extension SplitViewTransitionsHandlerImpl: TransitionsHandlersContainer {
     var allTransitionsHandlers: [TransitionsHandler]? {
         return transitionsHandlers
     }
@@ -37,7 +37,7 @@ extension SplitViewTransitionsHandler: TransitionsHandlersContainer {
 }
 
 // MARK: - helpers
-private extension SplitViewTransitionsHandler {
+private extension SplitViewTransitionsHandlerImpl {
     var transitionsHandlers: [TransitionsHandler] {
         return [masterTransitionsHandler, detailTransitionsHandler].flatMap { $0 }
     }

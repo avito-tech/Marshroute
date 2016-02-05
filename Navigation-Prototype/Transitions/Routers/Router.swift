@@ -141,15 +141,15 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     {
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
-        let masterTransitionsHandler = NavigationTransitionsHandler(
+        let masterTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: masterNavigationController,
             transitionsCoordinator: transitionsCoordinator)
         
-        let detailTransitionsHandler = NavigationTransitionsHandler(
+        let detailTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: detailNavigationController,
             transitionsCoordinator: transitionsCoordinator)
         
-        let splitViewTransitionsHandler = SplitViewTransitionsHandler(
+        let splitViewTransitionsHandler = SplitViewTransitionsHandlerImpl(
             splitViewController: splitViewController,
             transitionsCoordinator: transitionsCoordinator)
         
@@ -220,7 +220,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         animator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
-        let navigationTransitionsHandler = NavigationTransitionsHandler(
+        let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)
         
@@ -289,7 +289,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
-        let navigationTransitionsHandler = NavigationTransitionsHandler(
+        let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)
         
@@ -358,7 +358,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
-        let navigationTransitionsHandler = NavigationTransitionsHandler(
+        let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)
 

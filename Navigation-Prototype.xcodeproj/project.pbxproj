@@ -40,9 +40,9 @@
 		CC63D2311C63AF3B004D9599 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1F61C63AF3B004D9599 /* TransitionsAnimator.swift */; };
 		CC63D2321C63AF3B004D9599 /* TransitionsAnimatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1F71C63AF3B004D9599 /* TransitionsAnimatorClient.swift */; };
 		CC63D2331C63AF3B004D9599 /* TransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1F81C63AF3B004D9599 /* TransitionStyleConverter.swift */; };
-		CC63D2341C63AF3B004D9599 /* NavigationTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FA1C63AF3B004D9599 /* NavigationTransitionsHandler.swift */; };
-		CC63D2351C63AF3B004D9599 /* SplitViewTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FB1C63AF3B004D9599 /* SplitViewTransitionsHandler.swift */; };
-		CC63D2361C63AF3B004D9599 /* TabBarTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FC1C63AF3B004D9599 /* TabBarTransitionsHandler.swift */; };
+		CC63D2341C63AF3B004D9599 /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FA1C63AF3B004D9599 /* NavigationTransitionsHandlerImpl.swift */; };
+		CC63D2351C63AF3B004D9599 /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FB1C63AF3B004D9599 /* SplitViewTransitionsHandlerImpl.swift */; };
+		CC63D2361C63AF3B004D9599 /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FC1C63AF3B004D9599 /* TabBarTransitionsHandlerImpl.swift */; };
 		CC63D2371C63AF3B004D9599 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FE1C63AF3B004D9599 /* NavigationTransitionStorableParameters.swift */; };
 		CC63D2381C63AF3B004D9599 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1FF1C63AF3B004D9599 /* PopoverTransitionStorableParameters.swift */; };
 		CC63D2391C63AF3B004D9599 /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D2001C63AF3B004D9599 /* TransitionStorableParameters.swift */; };
@@ -155,9 +155,9 @@
 		CC63D1F61C63AF3B004D9599 /* TransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimator.swift; sourceTree = "<group>"; };
 		CC63D1F71C63AF3B004D9599 /* TransitionsAnimatorClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimatorClient.swift; sourceTree = "<group>"; };
 		CC63D1F81C63AF3B004D9599 /* TransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyleConverter.swift; sourceTree = "<group>"; };
-		CC63D1FA1C63AF3B004D9599 /* NavigationTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandler.swift; sourceTree = "<group>"; };
-		CC63D1FB1C63AF3B004D9599 /* SplitViewTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandler.swift; sourceTree = "<group>"; };
-		CC63D1FC1C63AF3B004D9599 /* TabBarTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandler.swift; sourceTree = "<group>"; };
+		CC63D1FA1C63AF3B004D9599 /* NavigationTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
+		CC63D1FB1C63AF3B004D9599 /* SplitViewTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
+		CC63D1FC1C63AF3B004D9599 /* TabBarTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
 		CC63D1FE1C63AF3B004D9599 /* NavigationTransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionStorableParameters.swift; sourceTree = "<group>"; };
 		CC63D1FF1C63AF3B004D9599 /* PopoverTransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionStorableParameters.swift; sourceTree = "<group>"; };
 		CC63D2001C63AF3B004D9599 /* TransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStorableParameters.swift; sourceTree = "<group>"; };
@@ -323,9 +323,9 @@
 		CC63D1F91C63AF3B004D9599 /* Transition Handler Impls */ = {
 			isa = PBXGroup;
 			children = (
-				CC63D1FA1C63AF3B004D9599 /* NavigationTransitionsHandler.swift */,
-				CC63D1FB1C63AF3B004D9599 /* SplitViewTransitionsHandler.swift */,
-				CC63D1FC1C63AF3B004D9599 /* TabBarTransitionsHandler.swift */,
+				CC63D1FA1C63AF3B004D9599 /* NavigationTransitionsHandlerImpl.swift */,
+				CC63D1FB1C63AF3B004D9599 /* SplitViewTransitionsHandlerImpl.swift */,
+				CC63D1FC1C63AF3B004D9599 /* TabBarTransitionsHandlerImpl.swift */,
 			);
 			path = "Transition Handler Impls";
 			sourceTree = "<group>";
@@ -600,7 +600,7 @@
 				CCE8C9791C561C780041801D /* SecondRouterImpl_iPad.swift in Sources */,
 				CCF6F0031C64926E00852522 /* TransitionContextsStackClientProviderStorer.swift in Sources */,
 				CCB348DA1C5BAA83005BD40F /* ApplicationPresenter.swift in Sources */,
-				CC63D2351C63AF3B004D9599 /* SplitViewTransitionsHandler.swift in Sources */,
+				CC63D2351C63AF3B004D9599 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
 				CCE8C96F1C561C780041801D /* SecondAssembly.swift in Sources */,
 				CC63D22C1C63AF3B004D9599 /* TransitionAnimationContextCreator.swift in Sources */,
 				CCF6F00C1C64926E00852522 /* TransitionsHandlersContainer.swift in Sources */,
@@ -624,9 +624,9 @@
 				CC63D21F1C63AF3B004D9599 /* NavigationAnimationContext.swift in Sources */,
 				CCE8C9CB1C563A610041801D /* AuthorizationAssembly.swift in Sources */,
 				CC63D22B1C63AF3B004D9599 /* TransitionAnimationContext.swift in Sources */,
-				CC63D2361C63AF3B004D9599 /* TabBarTransitionsHandler.swift in Sources */,
+				CC63D2361C63AF3B004D9599 /* TabBarTransitionsHandlerImpl.swift in Sources */,
 				CCE8C9D81C563A610041801D /* AuthorizationViewOutput.swift in Sources */,
-				CC63D2341C63AF3B004D9599 /* NavigationTransitionsHandler.swift in Sources */,
+				CC63D2341C63AF3B004D9599 /* NavigationTransitionsHandlerImpl.swift in Sources */,
 				CCE8C96E1C561C780041801D /* FirstViewInput.swift in Sources */,
 				CC63D22A1C63AF3B004D9599 /* PopoverTranstionsAnimator.swift in Sources */,
 				CC63D2281C63AF3B004D9599 /* PopoverAnimationStyle.swift in Sources */,

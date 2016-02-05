@@ -71,7 +71,7 @@ private extension ApplicationAssemblyImpl {
 
         tabBarController.viewControllers = controllersAndHandlers.0
         
-        let tabTransitionsHandler = TabBarTransitionsHandler(
+        let tabTransitionsHandler = TabBarTransitionsHandlerImpl(
             tabBarController: tabBarController,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
@@ -112,7 +112,7 @@ private extension ApplicationAssemblyImpl {
         -> ([UIViewController], [TransitionsHandler])
     {
         let firstNavigation = UINavigationController()
-        let firstTransitionsHandler = NavigationTransitionsHandler(
+        let firstTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: firstNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
@@ -129,7 +129,7 @@ private extension ApplicationAssemblyImpl {
         }
         
         let secondNavigation = UINavigationController()
-        let secondTransitionsHandler = NavigationTransitionsHandler(
+        let secondTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: secondNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
@@ -146,7 +146,7 @@ private extension ApplicationAssemblyImpl {
         }
         
         let thirdNavigation = UINavigationController()
-        let thirdTransitionsHandler = NavigationTransitionsHandler(
+        let thirdTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: thirdNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
         do {
@@ -176,7 +176,7 @@ private extension ApplicationAssemblyImpl {
         -> ([UIViewController], [TransitionsHandler])
     {
         let firstSplit = UISplitViewController()
-        let firstSplitTransitionsHandler = SplitViewTransitionsHandler(
+        let firstSplitTransitionsHandler = SplitViewTransitionsHandlerImpl(
             splitViewController: firstSplit,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
@@ -188,11 +188,11 @@ private extension ApplicationAssemblyImpl {
             
             firstSplit.viewControllers = [masterNavigation, detailNavigation]
             
-            let masterTransitionsHandler = NavigationTransitionsHandler(
+            let masterTransitionsHandler = NavigationTransitionsHandlerImpl(
                 navigationController: masterNavigation,
                 transitionsCoordinator: sharedTransitionsCoordinator)
             
-            let detailTransitionsHandler = NavigationTransitionsHandler(
+            let detailTransitionsHandler = NavigationTransitionsHandlerImpl(
                 navigationController: detailNavigation,
                 transitionsCoordinator: sharedTransitionsCoordinator)
             
@@ -225,7 +225,7 @@ private extension ApplicationAssemblyImpl {
         }
         
         let secondNavigation = UINavigationController()
-        let secondTransitionsHandler = NavigationTransitionsHandler(
+        let secondTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: secondNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
@@ -243,7 +243,7 @@ private extension ApplicationAssemblyImpl {
 
         
         let thirdNavigation = UINavigationController()
-        let thirdTransitionsHandler = NavigationTransitionsHandler(
+        let thirdTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: thirdNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
         

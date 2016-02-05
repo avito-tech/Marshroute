@@ -1,6 +1,6 @@
 import UIKit
 
-final class NavigationTransitionsHandler {
+final class NavigationTransitionsHandlerImpl {
     
     private unowned let navigationController: UINavigationController
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
@@ -17,17 +17,17 @@ final class NavigationTransitionsHandler {
 }
 
 // MARK: - TransitionsHandler
-extension NavigationTransitionsHandler: TransitionsHandler {}
+extension NavigationTransitionsHandlerImpl: TransitionsHandler {}
 
 // MARK: - TransitionsCoordinatorStorer
-extension NavigationTransitionsHandler: TransitionsCoordinatorStorer {
+extension NavigationTransitionsHandlerImpl: TransitionsCoordinatorStorer {
     var transitionsCoordinator: TransitionsCoordinator {
         return transitionsCoordinatorPrivate
     }
 }
 
 // MARK: - TransitionsAnimatorClient
-extension NavigationTransitionsHandler: TransitionsAnimatorClient {
+extension NavigationTransitionsHandlerImpl: TransitionsAnimatorClient {
     func launchAnimatingOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
         // готовим анимационный контекст и запускаем анимации перехода
@@ -54,7 +54,7 @@ extension NavigationTransitionsHandler: TransitionsAnimatorClient {
 }
 
 // MARK: - helpers
-private extension NavigationTransitionsHandler {
+private extension NavigationTransitionsHandlerImpl {
     func createAnimationContextFor(var animationLaunchingContext launchingContext: TransitionAnimationLaunchingContext)
         -> TransitionAnimationContext?
     {

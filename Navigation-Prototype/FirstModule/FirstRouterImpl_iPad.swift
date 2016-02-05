@@ -60,8 +60,7 @@ extension FirstRouterImpl_iPad: FirstRouter {
         applicationModuleInput.showAuthorizationModule( { [weak self] (authed) -> Void in
             if (authed) {
                 if let strongSelf = self {
-                    
-                    strongSelf.presentModalViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+                    strongSelf.presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
                         let viewController = AssemblyFactory.secondModuleAssembly()
                             .ipadModule(
                                 transitionsHandler,
@@ -72,7 +71,7 @@ extension FirstRouterImpl_iPad: FirstRouter {
                                 presentingTransitionsHandler: strongSelf.transitionsHandler,
                                 transitionsCoordinator: strongSelf.transitionsCoordinator).0
                         return viewController
-                    }
+                    }, animator: CustomAnimator1())
                 }
             }
         })

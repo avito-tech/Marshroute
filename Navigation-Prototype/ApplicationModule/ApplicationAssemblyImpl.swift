@@ -1,10 +1,54 @@
-import Foundation
 import UIKit
 
+// MARK: - NavigationRootsHolder, NavigationRootsHolderimpl
+private protocol NavigationRootsHolder: class {
+    var rootTransitionsHandler: TransitionsHandler? { get set }
+    var transitionsCoordinator: TransitionsCoordinator { get }
+}
+
+private class NavigationRootsHolderImpl: NavigationRootsHolder {
+    static let instance = NavigationRootsHolderImpl()
+    
+    private var rootTransitionsHandler: TransitionsHandler?
+
+    private let transitionsCoordinator: TransitionsCoordinator
+    = TransitionsCoordinatorImpl(stackClientProvider: TransitionContextsStackClientProviderImpl())
+}
+
+// MARK: - ApplicationModuleHolder, ApplicationModuleHolderImpl
+private protocol ApplicationModuleHolder {
+    var applicationModule: (UIViewController, ApplicationModuleInput)? { get set }
+}
+
+private class ApplicationModuleHolderImpl: ApplicationModuleHolder {
+    static let instance = ApplicationModuleHolderImpl()
+    
+    private var applicationModule: (UIViewController, ApplicationModuleInput)?
+}
+
+// MARK: - ApplicationAssemblyImpl
 final class ApplicationAssemblyImpl: ApplicationAssembly  {
     
-    func module(navigationRootsHolder: NavigationRootsHolder) -> (UIViewController, ApplicationModuleInput) {
+    func module() -> (UIViewController, ApplicationModuleInput) {
+        let applicationModuleHolder = ApplicationModuleHolderImpl.instance
         
+        if let applicationModule = applicationModuleHolder.applicationModule {
+            return applicationModule
+        }
+        
+        let navigationRootsHolder = NavigationRootsHolderImpl.instance
+        
+        let applicationModule = module(navigationRootsHolder: navigationRootsHolder)
+        
+        applicationModuleHolder.applicationModule = applicationModule
+        
+        return applicationModule
+    }
+}
+
+// MARK: - helpers
+private extension ApplicationAssemblyImpl {
+    func module(navigationRootsHolder navigationRootsHolder: NavigationRootsHolder) -> (UIViewController, ApplicationModuleInput) {
         let interactor = ApplicationInteractorImpl()
         
         let presenter = ApplicationPresenter(
@@ -46,7 +90,7 @@ final class ApplicationAssemblyImpl: ApplicationAssembly  {
         
         return (tabBarController, presenter)
     }
-    
+
     private func createTabControllers(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)

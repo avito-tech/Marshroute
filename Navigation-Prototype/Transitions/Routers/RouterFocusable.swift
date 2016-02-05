@@ -6,6 +6,6 @@ protocol RouterFocusable: class {
 // MARK: - RouterFocusable Default Impl
 extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable {
     func focusOnCurrentModule() {
-        transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
+        transitionsHandler?.undoTransitionsAfter(transitionId: transitionId)
     }
 }

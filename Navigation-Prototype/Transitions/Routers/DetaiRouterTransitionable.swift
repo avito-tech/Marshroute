@@ -1,4 +1,4 @@
 protocol DetailRouterTransitionable: class {
     /// слабая ссылка на обработчика переходов
-    unowned var detailTransitionsHandler: TransitionsHandler { get }
+    weak var detailTransitionsHandler: TransitionsHandler? { get }
 }

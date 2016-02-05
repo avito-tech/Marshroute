@@ -23,6 +23,9 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdent
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
+        guard let masterTransitionsHandler = masterTransitionsHandler
+            else { assert(false); return }
+        
         let viewController = closure(
             transitionId: transitionId,
             transitionsHandler: masterTransitionsHandler)

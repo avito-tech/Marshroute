@@ -1,7 +1,7 @@
 import UIKit
 
 final class TabBarTransitionsHandlerImpl {
-    private unowned let tabBarController: UITabBarController
+    private weak var tabBarController: UITabBarController?
     let transitionsCoordinator: TransitionsCoordinator
     
     init(tabBarController: UITabBarController,
@@ -13,7 +13,9 @@ final class TabBarTransitionsHandlerImpl {
     
     var tabTransitionsHandlers: [TransitionsHandler]? {
         didSet {
-            assert(tabTransitionsHandlers?.count == tabBarController.viewControllers?.count)
+            if let tabBarController = tabBarController {
+                assert(tabTransitionsHandlers?.count == tabBarController.viewControllers?.count)
+            }
         }
     }
 }
@@ -42,9 +44,11 @@ extension TabBarTransitionsHandlerImpl: TransitionsHandlersContainer {
 private extension TabBarTransitionsHandlerImpl {
     var selectedTransitionsHandler: TransitionsHandler? {
         if let tabTransitionsHandlers = tabTransitionsHandlers {
+            if let tabBarController = tabBarController {
             if tabBarController.selectedIndex < tabTransitionsHandlers.count {
                 return tabTransitionsHandlers[tabBarController.selectedIndex]
             }
+        }
         }
         return nil
     }

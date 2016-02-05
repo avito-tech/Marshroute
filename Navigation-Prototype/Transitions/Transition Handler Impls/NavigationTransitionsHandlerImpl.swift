@@ -2,7 +2,7 @@ import UIKit
 
 final class NavigationTransitionsHandlerImpl {
     
-    private unowned let navigationController: UINavigationController
+    private weak var navigationController: UINavigationController?
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
     private let launchingContextConverter: TransitionAnimationLaunchingContextConverter
     

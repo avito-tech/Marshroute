@@ -4,7 +4,8 @@ final class FirstRouterImpl_iPadMasterDetail: BaseMasterDetailRouterImpl {}
 
 extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        let detailTransitionsHandler = self.detailTransitionsHandler
+        guard let detailTransitionsHandler = detailTransitionsHandler
+            else { assert(false); return }
         
         pushViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
@@ -23,7 +24,8 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        let detailTransitionsHandler = self.detailTransitionsHandler
+        guard let detailTransitionsHandler = detailTransitionsHandler
+            else { assert(false); return }
         
         setDetailViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(

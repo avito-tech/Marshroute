@@ -3,8 +3,8 @@ import Foundation
 /// Роутер для master контроллера внутри SplitViewController'а
 /// Работаюет с двумя обработчиками переходов (master и detail)
 class BaseMasterDetailRouterImpl {
-    private unowned let masterTransitionsHandlerPrivate: TransitionsHandler
-    private unowned let detailTransitionsHandlerPrivate: TransitionsHandler
+    private weak var masterTransitionsHandlerPrivate: TransitionsHandler?
+    private weak var detailTransitionsHandlerPrivate: TransitionsHandler?
     private let transitionIdPrivate: TransitionId
     private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
@@ -40,21 +40,21 @@ extension BaseMasterDetailRouterImpl: RouterPresentable {
 
 // MARK: - MasterRouterTransitionable
 extension BaseMasterDetailRouterImpl: MasterRouterTransitionable {
-    var masterTransitionsHandler: TransitionsHandler {
+    var masterTransitionsHandler: TransitionsHandler? {
         return masterTransitionsHandlerPrivate
     }
 }
 
 // MARK: - DetailRouterTransitionable
 extension BaseMasterDetailRouterImpl: DetailRouterTransitionable {
-    var detailTransitionsHandler: TransitionsHandler {
+    var detailTransitionsHandler: TransitionsHandler? {
         return detailTransitionsHandlerPrivate
     }
 }
 
 // MARK: - RouterTransitionable
 extension BaseMasterDetailRouterImpl: RouterTransitionable {
-    var transitionsHandler: TransitionsHandler {
+    var transitionsHandler: TransitionsHandler? {
         return masterTransitionsHandlerPrivate
     }
 }

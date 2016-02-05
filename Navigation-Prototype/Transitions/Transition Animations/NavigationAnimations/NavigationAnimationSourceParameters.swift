@@ -1,5 +1,5 @@
 import UIKit
 
 struct NavigationAnimationSourceParameters: TransitionAnimationSourceParameters {
-    unowned let navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
 }

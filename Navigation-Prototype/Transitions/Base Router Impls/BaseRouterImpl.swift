@@ -2,7 +2,7 @@ import Foundation
 
 /// Обычный роутер, работающий только одним обработчиком переходов
 class BaseRouterImpl {
-    private unowned let transitionsHandlerPrivate: TransitionsHandler
+    private weak var transitionsHandlerPrivate: TransitionsHandler?
     private let transitionIdPrivate: TransitionId
     private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
@@ -36,14 +36,14 @@ extension BaseRouterImpl: RouterPresentable {
 
 // MARK: - MasterRouterTransitionable
 extension BaseRouterImpl: MasterRouterTransitionable {
-    var masterTransitionsHandler: TransitionsHandler {
+    var masterTransitionsHandler: TransitionsHandler? {
         return transitionsHandlerPrivate
     }
 }
 
 // MARK: - RouterTransitionable
 extension BaseRouterImpl: RouterTransitionable {
-    var transitionsHandler: TransitionsHandler {
+    var transitionsHandler: TransitionsHandler? {
         return transitionsHandlerPrivate
     }
 }

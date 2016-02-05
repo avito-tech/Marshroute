@@ -15,8 +15,11 @@ extension PopoverAnimationContextCreator: TransitionAnimationContextCreator {
             guard let animationStyle = transitionStyleConverter.convertTransitionStyle(transitionStyle)
                 else { return nil }
             
+            guard let popoverController = animationSourceParameters.popoverController
+                else { return nil }
+            
             let result = PopoverAnimationContext(
-                popoverController: animationSourceParameters.popoverController,
+                popoverController: popoverController,
                 animationStyle: animationStyle)
 
             return result

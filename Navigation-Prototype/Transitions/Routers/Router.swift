@@ -90,6 +90,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
+        guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let viewController = closure(
@@ -139,6 +142,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         detailNavigationController: UINavigationController,
         splitViewController: UISplitViewController)
     {
+        guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
         let masterTransitionsHandler = NavigationTransitionsHandlerImpl(
@@ -220,6 +226,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         animator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
+        guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)
@@ -289,6 +298,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
+        guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)
@@ -358,6 +370,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
+        guard let transitionsHandler = transitionsHandler
+            else { assert(false); return }
+        
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)

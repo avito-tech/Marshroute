@@ -18,9 +18,15 @@ extension NavigationAnimationContextCreator: TransitionAnimationContextCreator {
             guard let animationTargetParameters = animationTargetParameters
                 else { return nil }
             
+            guard let navigationController = animationSourceParameters.navigationController
+                else { return nil }
+            
+            guard let targetViewController = animationTargetParameters.viewController
+                else { return nil }
+            
             let result = NavigationAnimationContext(
-                navigationController: animationSourceParameters.navigationController,
-                targetViewController: animationTargetParameters.viewController,
+                navigationController: navigationController,
+                targetViewController: targetViewController,
                 animationStyle: animationStyle)
             
             return result

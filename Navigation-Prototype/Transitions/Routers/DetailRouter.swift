@@ -21,6 +21,9 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
+        guard let detailTransitionsHandler = detailTransitionsHandler
+            else { assert(false); return }        
+        
         let viewController = closure(
             transitionId: transitionId,
             transitionsHandler: detailTransitionsHandler)

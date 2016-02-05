@@ -33,8 +33,8 @@ extension ApplicationViewController: UITabBarControllerDelegate {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController)
         -> Bool
     {
-        if let index = tabBarController.viewControllers?.indexOf(viewController) {
-            if let tab = ApplicationTabs(rawValue: index) {
+        if let index = tabBarController.viewControllers?.indexOf(viewController) where index != tabBarController.selectedIndex {
+            if let tab = ApplicationTabs(rawValue: index){
                 output.userDidAskTab(tab)
             }
         }

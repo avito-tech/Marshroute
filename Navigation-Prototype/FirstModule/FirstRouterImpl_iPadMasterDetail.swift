@@ -6,7 +6,7 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
         let detailTransitionsHandler = self.detailTransitionsHandler
         
-        pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
                 String(count + 1),
                 presentingTransitionsHandler: self.transitionsHandler,
@@ -19,7 +19,7 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
                 withTimer: false,
                 transitionsCoordinator: transitionsCoordinator).0
             return viewController
-        }
+        }, animator: CustomAnimator2())
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {

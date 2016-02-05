@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC5A34191C64DF92003FA62F /* CustomAnimator1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */; };
+		CC5A341B1C64DF99003FA62F /* CustomAnimator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */; };
 		CC63D2131C63AF3B004D9599 /* BaseMasterDetailRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D41C63AF3B004D9599 /* BaseMasterDetailRouterImpl.swift */; };
 		CC63D2141C63AF3B004D9599 /* BaseRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D51C63AF3B004D9599 /* BaseRouterImpl.swift */; };
 		CC63D2151C63AF3B004D9599 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D71C63AF3B004D9599 /* DetailRouter.swift */; };
@@ -122,6 +124,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimator1.swift; sourceTree = "<group>"; };
+		CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimator2.swift; sourceTree = "<group>"; };
 		CC63D1D41C63AF3B004D9599 /* BaseMasterDetailRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouterImpl.swift; sourceTree = "<group>"; };
 		CC63D1D51C63AF3B004D9599 /* BaseRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterImpl.swift; sourceTree = "<group>"; };
 		CC63D1D71C63AF3B004D9599 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				CCE12EF91C50ECBA00909924 /* AppDelegate.swift */,
+				CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */,
+				CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */,
 				CC84B85D1C60C78500F966DE /* Transitions */,
 				CCE12F2C1C50F00E00909924 /* General */,
 				CCE12F2F1C50F0A500909924 /* ApplicationModule */,
@@ -576,6 +582,7 @@
 				CCF6EFFE1C64926E00852522 /* TransitionContextsStack.swift in Sources */,
 				CCE8C97C1C561C780041801D /* SecondViewInput.swift in Sources */,
 				CCB348E11C5BABB2005BD40F /* ApplicationViewOutput.swift in Sources */,
+				CC5A34191C64DF92003FA62F /* CustomAnimator1.swift in Sources */,
 				CCE8C9671C561C780041801D /* FirstPresenter.swift in Sources */,
 				CC63D21B1C63AF3B004D9599 /* RouterFocusable.swift in Sources */,
 				CCF6F0091C64926E00852522 /* TransitionsCoordinatorImpl.swift in Sources */,
@@ -601,6 +608,7 @@
 				CCF6F0031C64926E00852522 /* TransitionContextsStackClientProviderStorer.swift in Sources */,
 				CCB348DA1C5BAA83005BD40F /* ApplicationPresenter.swift in Sources */,
 				CC63D2351C63AF3B004D9599 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
+				CC5A341B1C64DF99003FA62F /* CustomAnimator2.swift in Sources */,
 				CCE8C96F1C561C780041801D /* SecondAssembly.swift in Sources */,
 				CC63D22C1C63AF3B004D9599 /* TransitionAnimationContextCreator.swift in Sources */,
 				CCF6F00C1C64926E00852522 /* TransitionsHandlersContainer.swift in Sources */,

@@ -1,5 +1,5 @@
 import UIKit
 
 protocol ApplicationAssembly {
-    func module() -> (UIViewController, ApplicationModuleInput)
+    func module() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput)
 }

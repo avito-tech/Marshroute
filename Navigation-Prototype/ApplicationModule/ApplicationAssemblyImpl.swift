@@ -11,8 +11,9 @@ private class NavigationRootsHolderImpl: NavigationRootsHolder {
     
     private var rootTransitionsHandler: TransitionsHandler?
 
-    private let transitionsCoordinator: TransitionsCoordinator
-    = TransitionsCoordinatorImpl(stackClientProvider: TransitionContextsStackClientProviderImpl())
+    private let transitionsCoordinator: TransitionsCoordinator = TransitionsCoordinatorImpl(
+        stackClientProvider: TransitionContextsStackClientProviderImpl()
+    )
 }
 
 // MARK: - ApplicationModuleHolder, ApplicationModuleHolderImpl
@@ -29,7 +30,7 @@ private class ApplicationModuleHolderImpl: ApplicationModuleHolder {
 // MARK: - ApplicationAssemblyImpl
 final class ApplicationAssemblyImpl: ApplicationAssembly  {
     
-    func module() -> (UIViewController, ApplicationModuleInput) {
+    func module() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
         let applicationModuleHolder = ApplicationModuleHolderImpl.instance
         
         if let applicationModule = applicationModuleHolder.applicationModule {

@@ -24,7 +24,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let applicationModule = AssemblyFactory.applicationModuleAssembly().module()
         
-        window.rootViewController = applicationModule.0
+        window.rootViewController = applicationModule.viewController
         window.makeKeyAndVisible()
         
         return true

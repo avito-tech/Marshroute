@@ -43,12 +43,10 @@ extension TabBarTransitionsHandlerImpl: TransitionsHandlersContainer {
 // MARK: - helpers
 private extension TabBarTransitionsHandlerImpl {
     var selectedTransitionsHandler: TransitionsHandler? {
-        if let tabTransitionsHandlers = tabTransitionsHandlers {
-            if let tabBarController = tabBarController {
-            if tabBarController.selectedIndex < tabTransitionsHandlers.count {
-                return tabTransitionsHandlers[tabBarController.selectedIndex]
-            }
-        }
+        if let tabTransitionsHandlers = tabTransitionsHandlers, let selectedIndex = tabBarController?.selectedIndex
+            where selectedIndex < tabTransitionsHandlers.count
+        {
+            return tabTransitionsHandlers[selectedIndex]
         }
         return nil
     }

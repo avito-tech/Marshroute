@@ -20,7 +20,7 @@ private class ApplicationModuleHolder {
 
 // MARK: - ApplicationAssemblyImpl
 final class ApplicationAssemblyImpl: ApplicationAssembly {
-    func module() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
+    func sharedModule() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
         let applicationModuleHolder = ApplicationModuleHolder.instance
         
         if let applicationModule = applicationModuleHolder.applicationModule {
@@ -29,7 +29,7 @@ final class ApplicationAssemblyImpl: ApplicationAssembly {
         
         let navigationRootsHolder = NavigationRootsHolder.instance
         
-        let applicationModule = module(navigationRootsHolder: navigationRootsHolder)
+        let applicationModule = sharedModule(navigationRootsHolder: navigationRootsHolder)
         
         applicationModuleHolder.applicationModule = applicationModule
         
@@ -39,7 +39,7 @@ final class ApplicationAssemblyImpl: ApplicationAssembly {
 
 // MARK: - helpers
 private extension ApplicationAssemblyImpl {
-    func module(navigationRootsHolder navigationRootsHolder: NavigationRootsHolder) -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
+    func sharedModule(navigationRootsHolder navigationRootsHolder: NavigationRootsHolder) -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
         let interactor = ApplicationInteractorImpl()
         
         let presenter = ApplicationPresenter(

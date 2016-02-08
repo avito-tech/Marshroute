@@ -22,7 +22,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let windowHolder = WindowHolderImpl.instance
         let window = windowHolder.window
         
-        let applicationModule = AssemblyFactory.applicationModuleAssembly().module()
+        let applicationModule = AssemblyFactory.applicationModuleAssembly().sharedModule()
         
         window.rootViewController = applicationModule.viewController
         window.makeKeyAndVisible()

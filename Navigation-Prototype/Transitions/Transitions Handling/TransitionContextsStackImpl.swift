@@ -61,10 +61,8 @@ class TransitionContextsStackImpl: TransitionContextsStack {
 
 // MARK: - private
 private extension TransitionContextsStackImpl {
-    /**
-     Убирает из стека те записи о совершенных переходах, в которых контроллер,
-     на который осуществлялся переход, уже освобожден
-     */
+    /// Убирает из стека те записи о совершенных переходах, в которых контроллер,
+    /// на который осуществлялся переход, уже освобожден
     func updateStack()
     {
         let stack = self.storage.filter({ !$0.isZombie })
@@ -109,9 +107,7 @@ private extension TransitionContextsStackImpl {
         return restored
     }
     
-    /**
-     Выходит до индекса невключительно
-     */
+    /// Выходит до индекса невключительно
     func popTo(index index: Int?)
         -> [RestoredTransitionContext]?
     {

@@ -59,7 +59,7 @@ extension FirstRouterImpl_iPad: FirstRouter {
     }
     
     func showSecondModuleIfAuthorizationSucceeds() {
-        let applicationModuleInput = AssemblyFactory.applicationModuleAssembly().sharedModule().moduleInput
+        let applicationModuleInput = AssemblyFactory.applicationModuleAssembly().sharedModuleInput()
         applicationModuleInput.showAuthorizationModule( { [weak self] (authed) -> Void in
             if (authed) {
                 if let strongSelf = self {

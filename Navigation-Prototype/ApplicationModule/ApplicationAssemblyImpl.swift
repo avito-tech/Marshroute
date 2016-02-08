@@ -24,7 +24,7 @@ final class ApplicationAssemblyImpl: ApplicationAssembly {
         return TransitionIdGeneratorImpl.instance
     }
     
-    func sharedModule() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
+    func module() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
         let applicationModuleHolder = ApplicationModuleHolder.instance
         
         if let applicationModule = applicationModuleHolder.applicationModule {
@@ -33,17 +33,21 @@ final class ApplicationAssemblyImpl: ApplicationAssembly {
         
         let navigationRootsHolder = NavigationRootsHolder.instance
         
-        let applicationModule = sharedModule(navigationRootsHolder: navigationRootsHolder)
+        let applicationModule = module(navigationRootsHolder: navigationRootsHolder)
         
         applicationModuleHolder.applicationModule = applicationModule
         
         return applicationModule
     }
+    
+    func sharedModuleInput() -> ApplicationModuleInput {
+        return module().moduleInput
+    }
 }
 
 // MARK: - helpers
 private extension ApplicationAssemblyImpl {
-    func sharedModule(navigationRootsHolder navigationRootsHolder: NavigationRootsHolder) -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
+    func module(navigationRootsHolder navigationRootsHolder: NavigationRootsHolder) -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
         let interactor = ApplicationInteractorImpl()
         
         let presenter = ApplicationPresenter(

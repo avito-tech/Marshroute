@@ -6,6 +6,7 @@ protocol AuthorizationAssembly {
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         moduleOutput: AuthorizationModuleOutput,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (UIViewController, AuthorizationModuleInput)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: UIViewController, moduleInput: AuthorizationModuleInput)
 }

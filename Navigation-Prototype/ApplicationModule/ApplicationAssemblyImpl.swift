@@ -20,6 +20,10 @@ private class ApplicationModuleHolder {
 
 // MARK: - ApplicationAssemblyImpl
 final class ApplicationAssemblyImpl: ApplicationAssembly {
+    var sharedTransitionIdGenerator: TransitionIdGenerator {
+        return TransitionIdGeneratorImpl.instance
+    }
+    
     func sharedModule() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
         let applicationModuleHolder = ApplicationModuleHolder.instance
         
@@ -52,7 +56,7 @@ private extension ApplicationAssemblyImpl {
         
         presenter.viewInput = tabBarController
         
-        let sharedTransitionId = transitionIdGenerator.generateNewTransitionId()
+        let sharedTransitionId = sharedTransitionIdGenerator.generateNewTransitionId()
         let sharedTransitionsCoordinator = navigationRootsHolder.transitionsCoordinator
         
         let (viewControllers, tabBarTransitionsHandlers) = createTabControllers(
@@ -71,7 +75,8 @@ private extension ApplicationAssemblyImpl {
             transitionsHandler: tabBarTransitionsHandler,
             transitionId: sharedTransitionId,
             presentingTransitionsHandler: nil,
-            transitionsCoordinator: sharedTransitionsCoordinator
+            transitionsCoordinator: sharedTransitionsCoordinator,
+            transitionIdGenerator: sharedTransitionIdGenerator
         )
         
         presenter.router = router
@@ -98,7 +103,7 @@ private extension ApplicationAssemblyImpl {
 }
 
 // MARK: - iPhone
-private extension ApplicationAssembly {
+private extension ApplicationAssemblyImpl {
     private func createTabControllersIphone(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
@@ -139,7 +144,16 @@ private extension ApplicationAssembly {
             transitionsCoordinator: sharedTransitionsCoordinator)
         
         do {
-            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule("1", presentingTransitionsHandler: nil, transitionId: sharedTransitionId, transitionsHandler: firstTransitionsHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true, transitionsCoordinator: sharedTransitionsCoordinator).0
+            let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
+                "1", presentingTransitionsHandler: nil,
+                transitionId: sharedTransitionId,
+                transitionsHandler: firstTransitionsHandler,
+                canShowFirstModule: true,
+                canShowSecondModule: false,
+                dismissable: false,
+                withTimer: true,
+                transitionsCoordinator: sharedTransitionsCoordinator,
+                transitionIdGenerator: sharedTransitionIdGenerator).viewController
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: firstViewController,
@@ -166,7 +180,14 @@ private extension ApplicationAssembly {
             transitionsCoordinator: sharedTransitionsCoordinator)
         
         do {
-            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(secondTransitionsHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil, transitionsCoordinator: sharedTransitionsCoordinator).0
+            let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(
+                secondTransitionsHandler,
+                title: "1", withTimer: true,
+                canShowModule1: true,
+                transitionId: sharedTransitionId,
+                presentingTransitionsHandler: nil,
+                transitionsCoordinator: sharedTransitionsCoordinator,
+                transitionIdGenerator: sharedTransitionIdGenerator).viewController
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: secondViewController,
@@ -252,7 +273,7 @@ private extension ApplicationAssemblyImpl {
             transitionsCoordinator: sharedTransitionsCoordinator)
         
         do {
-            let sharedFirstTransitionId = transitionIdGenerator.generateNewTransitionId()
+            let sharedFirstTransitionId = sharedTransitionIdGenerator.generateNewTransitionId()
             
             let masterNavigation = UINavigationController()
             let detailNavigation = UINavigationController()
@@ -268,7 +289,18 @@ private extension ApplicationAssemblyImpl {
                 transitionsCoordinator: sharedTransitionsCoordinator)
             
             do {
-                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule("1", presentingTransitionsHandler: nil, transitionId: sharedFirstTransitionId, transitionsHandler: masterTransitionsHandler, detailTransitionsHandler: detailTransitionsHandler, canShowFirstModule: true, canShowSecondModule: false, dismissable: false, withTimer: true, transitionsCoordinator: sharedTransitionsCoordinator).0
+                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
+                    "1",
+                    presentingTransitionsHandler: nil,
+                    transitionId: sharedFirstTransitionId,
+                    transitionsHandler: masterTransitionsHandler,
+                    detailTransitionsHandler: detailTransitionsHandler,
+                    canShowFirstModule: true,
+                    canShowSecondModule: false,
+                    dismissable: false,
+                    withTimer: true,
+                    transitionsCoordinator: sharedTransitionsCoordinator,
+                    transitionIdGenerator: sharedTransitionIdGenerator).viewController
                 
                 let resetMasterContext = ForwardTransitionContext(
                     resetingWithViewController: masterViewController,
@@ -311,7 +343,15 @@ private extension ApplicationAssemblyImpl {
             transitionsCoordinator: sharedTransitionsCoordinator)
         
         do {
-            let second = AssemblyFactory.secondModuleAssembly().ipadModule(secondTransitionsHandler, title: "1", withTimer: true, canShowModule1: true, transitionId: sharedTransitionId, presentingTransitionsHandler: nil, transitionsCoordinator: sharedTransitionsCoordinator).0
+            let second = AssemblyFactory.secondModuleAssembly().ipadModule(
+                secondTransitionsHandler,
+                title: "1",
+                withTimer: true,
+                canShowModule1: true,
+                transitionId: sharedTransitionId,
+                presentingTransitionsHandler: nil,
+                transitionsCoordinator: sharedTransitionsCoordinator,
+                transitionIdGenerator: sharedTransitionIdGenerator).viewController
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: second,
@@ -354,7 +394,3 @@ private extension ApplicationAssemblyImpl {
         return (thirdNavigation, thirdTransitionsHandler)
     }
 }
-
-
-// MARK: - TransitionsGeneratorStorer
-extension ApplicationAssemblyImpl: TransitionsGeneratorStorer {}

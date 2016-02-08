@@ -8,19 +8,22 @@ class BaseMasterDetailRouterImpl {
     private let transitionIdPrivate: TransitionId
     private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
+    private let transitionIdGeneratorPrivate: TransitionIdGenerator
     
     init(
         masterTransitionsHandler: TransitionsHandler,
         detailTransitionsHandler: TransitionsHandler,
         transitionId: TransitionId,
         presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
     {
         self.transitionIdPrivate = transitionId
         self.masterTransitionsHandlerPrivate = masterTransitionsHandler
         self.detailTransitionsHandlerPrivate = detailTransitionsHandler
         self.presentingTransitionsHandlerPrivate = presentingTransitionsHandler
         self.transitionsCoordinatorPrivate = transitionsCoordinator
+        self.transitionIdGeneratorPrivate = transitionIdGenerator
     }
 }
 
@@ -67,7 +70,11 @@ extension BaseMasterDetailRouterImpl: TransitionsCoordinatorStorer {
 }
 
 // MARK: - TransitionsGeneratorStorer
-extension BaseMasterDetailRouterImpl: TransitionsGeneratorStorer {}
+extension BaseMasterDetailRouterImpl: TransitionsGeneratorStorer {
+    var transitionIdGenerator: TransitionIdGenerator {
+        return transitionIdGeneratorPrivate
+    }
+}
 
 // MARK: - Router
 extension BaseMasterDetailRouterImpl: Router {}

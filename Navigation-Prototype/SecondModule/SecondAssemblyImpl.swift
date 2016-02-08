@@ -9,8 +9,9 @@ final class SecondAssemblyImpl: SecondAssembly {
         canShowModule1: Bool,
         transitionId: TransitionId,
         presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (UIViewController, SecondModuleInput)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: UIViewController, moduleInput: SecondModuleInput)
     {
         debugPrint("iphone 2 - \(transitionId)")
         
@@ -20,7 +21,8 @@ final class SecondAssemblyImpl: SecondAssembly {
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator)
+            transitionsCoordinator: transitionsCoordinator,
+            transitionIdGenerator: transitionIdGenerator)
         
         let presenter = SecondPresenter(
             interactor: interactor,
@@ -49,8 +51,9 @@ final class SecondAssemblyImpl: SecondAssembly {
         canShowModule1: Bool,
         transitionId: TransitionId,
         presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (UIViewController, SecondModuleInput)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: UIViewController, moduleInput: SecondModuleInput)
     {
         debugPrint("ipad 2 - \(transitionId)")
     
@@ -60,7 +63,8 @@ final class SecondAssemblyImpl: SecondAssembly {
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator)
+            transitionsCoordinator: transitionsCoordinator,
+            transitionIdGenerator: transitionIdGenerator)
         
         let presenter = SecondPresenter(
             interactor: interactor,

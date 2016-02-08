@@ -7,9 +7,10 @@ final class AuthorizationAssemblyImpl: AuthorizationAssembly {
         transitionId: TransitionId,
         transitionsHandler: TransitionsHandler,
         moduleOutput: AuthorizationModuleOutput,
-        transitionsCoordinator: TransitionsCoordinator)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
         
-        -> (UIViewController, AuthorizationModuleInput)
+        -> (viewController: UIViewController, moduleInput: AuthorizationModuleInput)
     {
         
         let interactor = AuthorizationInteractorImpl()
@@ -18,7 +19,8 @@ final class AuthorizationAssemblyImpl: AuthorizationAssembly {
             transitionsHandler: transitionsHandler,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator
+            transitionsCoordinator: transitionsCoordinator,
+            transitionIdGenerator: transitionIdGenerator
         )
         
         let presenter = AuthorizationPresenter(

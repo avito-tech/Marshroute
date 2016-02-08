@@ -14,7 +14,8 @@ extension FirstRouterImpl: FirstRouter {
                 canShowSecondModule: canShowSecondModule,
                 dismissable: false,
                 withTimer: false,
-                transitionsCoordinator: transitionsCoordinator).0
+                transitionsCoordinator: transitionsCoordinator,
+                transitionIdGenerator: transitionIdGenerator).viewController
             return viewController
         }
     }
@@ -30,7 +31,8 @@ extension FirstRouterImpl: FirstRouter {
                 canShowSecondModule: canShowSecondModule,
                 dismissable: false,
                 withTimer: false,
-                transitionsCoordinator: transitionsCoordinator).0
+                transitionsCoordinator: transitionsCoordinator,
+                transitionIdGenerator: transitionIdGenerator).viewController
             return viewController
         }
     }
@@ -45,7 +47,8 @@ extension FirstRouterImpl: FirstRouter {
                     canShowModule1: true,
                     transitionId: transitionId,
                     presentingTransitionsHandler: self.transitionsHandler,
-                    transitionsCoordinator: transitionsCoordinator).0
+                    transitionsCoordinator: transitionsCoordinator,
+                    transitionIdGenerator: transitionIdGenerator).viewController
             return viewController
         }
     }
@@ -64,7 +67,8 @@ extension FirstRouterImpl: FirstRouter {
                                 canShowModule1: true,
                                 transitionId: transitionId,
                                 presentingTransitionsHandler: strongSelf.transitionsHandler,
-                                transitionsCoordinator: strongSelf.transitionsCoordinator).0
+                                transitionsCoordinator: strongSelf.transitionsCoordinator,
+                                transitionIdGenerator: strongSelf.transitionIdGenerator).viewController
                         return viewController
                     }
                 }

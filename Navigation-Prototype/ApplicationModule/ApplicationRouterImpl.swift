@@ -13,7 +13,8 @@ extension ApplicationRouterImpl: ApplicationRouter {
                     transitionId: transitionId,
                     transitionsHandler: transitionsHandler,
                     moduleOutput: output,
-                    transitionsCoordinator: transitionsCoordinator)
+                    transitionsCoordinator: transitionsCoordinator,
+                    transitionIdGenerator: transitionIdGenerator)
             return module.0
         }, animator: CustomAnimator1())
     }

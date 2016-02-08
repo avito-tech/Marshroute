@@ -10,8 +10,9 @@ protocol FirstAssembly {
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (FirstViewController, FirstModuleInput)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
     
     func ipadDetailModule(
         title: String,
@@ -22,8 +23,9 @@ protocol FirstAssembly {
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (FirstViewController, FirstModuleInput)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
     
     func ipadMasterModule(
         title: String,
@@ -35,7 +37,7 @@ protocol FirstAssembly {
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (FirstViewController, FirstModuleInput)
-    
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
 }

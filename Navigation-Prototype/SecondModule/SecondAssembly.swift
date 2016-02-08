@@ -8,8 +8,9 @@ protocol SecondAssembly {
         canShowModule1: Bool,
         transitionId: TransitionId,
         presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (UIViewController, SecondModuleInput)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: UIViewController, moduleInput: SecondModuleInput)
     
     func ipadModule(
         transitionsHandler: TransitionsHandler,
@@ -18,6 +19,7 @@ protocol SecondAssembly {
         canShowModule1: Bool,
         transitionId: TransitionId,
         presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator)
-        -> (UIViewController, SecondModuleInput)
+        transitionsCoordinator: TransitionsCoordinator,
+        transitionIdGenerator: TransitionIdGenerator)
+        -> (viewController: UIViewController, moduleInput: SecondModuleInput)
 }

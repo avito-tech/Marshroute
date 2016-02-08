@@ -2,11 +2,11 @@ import Foundation
 
 /// Обычный роутер, работающий только одним обработчиком переходов
 class BaseRouterImpl {
-    private weak var transitionsHandlerPrivate: TransitionsHandler?
-    private let transitionIdPrivate: TransitionId
-    private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
-    private let transitionsCoordinatorPrivate: TransitionsCoordinator
-    private let transitionIdGeneratorPrivate: TransitionIdGenerator
+    weak var transitionsHandler: TransitionsHandler?
+    let transitionId: TransitionId
+    weak var presentingTransitionsHandler: TransitionsHandler?
+    let transitionsCoordinator: TransitionsCoordinator
+    let transitionIdGenerator: TransitionIdGenerator
     
     init(
         transitionsHandler: TransitionsHandler,
@@ -15,55 +15,35 @@ class BaseRouterImpl {
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
     {
-        self.transitionIdPrivate = transitionId
-        self.transitionsHandlerPrivate = transitionsHandler
-        self.presentingTransitionsHandlerPrivate = presentingTransitionsHandler
-        self.transitionsCoordinatorPrivate = transitionsCoordinator
-        self.transitionIdGeneratorPrivate = transitionIdGenerator
+        self.transitionId = transitionId
+        self.transitionsHandler = transitionsHandler
+        self.presentingTransitionsHandler = presentingTransitionsHandler
+        self.transitionsCoordinator = transitionsCoordinator
+        self.transitionIdGenerator = transitionIdGenerator
     }
 }
 
 // MARK: - RouterIdentifiable
-extension BaseRouterImpl: RouterIdentifiable {
-    var transitionId: TransitionId {
-        return transitionIdPrivate
-    }
-}
+extension BaseRouterImpl: RouterIdentifiable {}
 
 // MARK: - RouterPresentable
-extension BaseRouterImpl: RouterPresentable {
-    weak var presentingTransitionsHandler: TransitionsHandler? {
-        return presentingTransitionsHandlerPrivate
-    }
-}
+extension BaseRouterImpl: RouterPresentable {}
 
 // MARK: - MasterRouterTransitionable
 extension BaseRouterImpl: MasterRouterTransitionable {
     var masterTransitionsHandler: TransitionsHandler? {
-        return transitionsHandlerPrivate
+        return transitionsHandler
     }
 }
 
 // MARK: - RouterTransitionable
-extension BaseRouterImpl: RouterTransitionable {
-    var transitionsHandler: TransitionsHandler? {
-        return transitionsHandlerPrivate
-    }
-}
+extension BaseRouterImpl: RouterTransitionable {}
 
 // MARK: - TransitionsCoordinatorStorer
-extension BaseRouterImpl: TransitionsCoordinatorStorer {
-    var transitionsCoordinator: TransitionsCoordinator {
-        return transitionsCoordinatorPrivate
-    }
-}
+extension BaseRouterImpl: TransitionsCoordinatorStorer {}
 
 // MARK: - TransitionsGeneratorStorer
-extension BaseRouterImpl: TransitionsGeneratorStorer {
-    var transitionIdGenerator: TransitionIdGenerator {
-        return transitionIdGeneratorPrivate
-    }
-}
+extension BaseRouterImpl: TransitionsGeneratorStorer {}
 
 // MARK: - MasterRouter
 extension BaseRouterImpl: MasterRouter {}
@@ -75,4 +55,4 @@ extension BaseRouterImpl: Router {}
 extension BaseRouterImpl: RouterFocusable {}
 
 // MARK: - RouterDismisable
-extension BaseRouterImpl: RouterDismisable  {}
+extension BaseRouterImpl: RouterDismisable {}

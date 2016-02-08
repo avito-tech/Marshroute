@@ -3,12 +3,12 @@ import Foundation
 /// Роутер для master контроллера внутри SplitViewController'а
 /// Работаюет с двумя обработчиками переходов (master и detail)
 class BaseMasterDetailRouterImpl {
-    private weak var masterTransitionsHandlerPrivate: TransitionsHandler?
-    private weak var detailTransitionsHandlerPrivate: TransitionsHandler?
-    private let transitionIdPrivate: TransitionId
-    private weak var presentingTransitionsHandlerPrivate: TransitionsHandler?
-    private let transitionsCoordinatorPrivate: TransitionsCoordinator
-    private let transitionIdGeneratorPrivate: TransitionIdGenerator
+    weak var masterTransitionsHandler: TransitionsHandler?
+    weak var detailTransitionsHandler: TransitionsHandler?
+    let transitionId: TransitionId
+    weak var presentingTransitionsHandler: TransitionsHandler?
+    let transitionsCoordinator: TransitionsCoordinator
+    let transitionIdGenerator: TransitionIdGenerator
     
     init(
         masterTransitionsHandler: TransitionsHandler,
@@ -18,63 +18,39 @@ class BaseMasterDetailRouterImpl {
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
     {
-        self.transitionIdPrivate = transitionId
-        self.masterTransitionsHandlerPrivate = masterTransitionsHandler
-        self.detailTransitionsHandlerPrivate = detailTransitionsHandler
-        self.presentingTransitionsHandlerPrivate = presentingTransitionsHandler
-        self.transitionsCoordinatorPrivate = transitionsCoordinator
-        self.transitionIdGeneratorPrivate = transitionIdGenerator
+        self.transitionId = transitionId
+        self.masterTransitionsHandler = masterTransitionsHandler
+        self.detailTransitionsHandler = detailTransitionsHandler
+        self.presentingTransitionsHandler = presentingTransitionsHandler
+        self.transitionsCoordinator = transitionsCoordinator
+        self.transitionIdGenerator = transitionIdGenerator
     }
 }
 
 // MARK: - RouterIdentifiable
-extension BaseMasterDetailRouterImpl: RouterIdentifiable {
-    var transitionId: TransitionId {
-        return transitionIdPrivate
-    }
-}
+extension BaseMasterDetailRouterImpl: RouterIdentifiable {}
 
 // MARK: - RouterPresentable
-extension BaseMasterDetailRouterImpl: RouterPresentable {
-    weak var presentingTransitionsHandler: TransitionsHandler? {
-        return presentingTransitionsHandlerPrivate
-    }
-}
+extension BaseMasterDetailRouterImpl: RouterPresentable {}
 
 // MARK: - MasterRouterTransitionable
-extension BaseMasterDetailRouterImpl: MasterRouterTransitionable {
-    var masterTransitionsHandler: TransitionsHandler? {
-        return masterTransitionsHandlerPrivate
-    }
-}
+extension BaseMasterDetailRouterImpl: MasterRouterTransitionable {}
 
 // MARK: - DetailRouterTransitionable
 extension BaseMasterDetailRouterImpl: DetailRouterTransitionable {
-    var detailTransitionsHandler: TransitionsHandler? {
-        return detailTransitionsHandlerPrivate
+    weak var transitionsHandler: TransitionsHandler? {
+        return masterTransitionsHandler
     }
 }
 
 // MARK: - RouterTransitionable
-extension BaseMasterDetailRouterImpl: RouterTransitionable {
-    var transitionsHandler: TransitionsHandler? {
-        return masterTransitionsHandlerPrivate
-    }
-}
+extension BaseMasterDetailRouterImpl: RouterTransitionable {}
 
 // MARK: - TransitionsCoordinatorStorer
-extension BaseMasterDetailRouterImpl: TransitionsCoordinatorStorer {
-    var transitionsCoordinator: TransitionsCoordinator {
-        return transitionsCoordinatorPrivate
-    }
-}
+extension BaseMasterDetailRouterImpl: TransitionsCoordinatorStorer {}
 
 // MARK: - TransitionsGeneratorStorer
-extension BaseMasterDetailRouterImpl: TransitionsGeneratorStorer {
-    var transitionIdGenerator: TransitionIdGenerator {
-        return transitionIdGeneratorPrivate
-    }
-}
+extension BaseMasterDetailRouterImpl: TransitionsGeneratorStorer {}
 
 // MARK: - Router
 extension BaseMasterDetailRouterImpl: Router {}

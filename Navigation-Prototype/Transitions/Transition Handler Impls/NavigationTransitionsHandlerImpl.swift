@@ -28,7 +28,7 @@ extension NavigationTransitionsHandlerImpl: TransitionsCoordinatorStorer {
 
 // MARK: - TransitionsAnimatorClient
 extension NavigationTransitionsHandlerImpl: TransitionsAnimatorClient {
-    func launchAnimatingOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
         // готовим анимационный контекст и запускаем анимации перехода
         if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {
@@ -36,7 +36,7 @@ extension NavigationTransitionsHandlerImpl: TransitionsAnimatorClient {
         }
     }
     
-    func launchAnimatingOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
         // готовим анимационный контекст и запускаем анимации обратного перехода
         if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {
@@ -44,7 +44,7 @@ extension NavigationTransitionsHandlerImpl: TransitionsAnimatorClient {
         }
     }
     
-    func launchAnimatingOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
         // готовим анимационный контекст и запускаем анимации обновления
         if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {

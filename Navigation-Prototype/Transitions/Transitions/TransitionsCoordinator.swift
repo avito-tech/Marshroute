@@ -113,7 +113,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             else { return }
         
         // вызываем анимации
-        animatingTransitionsHandler.launchAnimatingOfPerformingTransition(launchingContext: context.animationLaunchingContext)
+        animatingTransitionsHandler.launchAnimationOfPerformingTransition(launchingContext: context.animationLaunchingContext)
         
         // создаем новую запись о переходе
         commitPerformingTransition(
@@ -323,7 +323,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         }
         
         // вызываем анимации
-        animatingTransitionsHandler.launchAnimatingOfResettingWithTransition(launchingContext: context.animationLaunchingContext)
+        animatingTransitionsHandler.launchAnimationOfResettingWithTransition(launchingContext: context.animationLaunchingContext)
         
         // создаем новую запись о переходе
         commitResettingWithTransition(
@@ -347,12 +347,12 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         
         // вызываем анимации сокрытия модальных окон и поповеров
         if let animationLaunchingContext = chainedTransition?.animationLaunchingContext {
-            animatingTransitionsHandler.launchAnimatingOfUndoingTransition(launchingContext: animationLaunchingContext)
+            animatingTransitionsHandler.launchAnimationOfUndoingTransition(launchingContext: animationLaunchingContext)
         }
         
         // вызываем анимации возвращения по навигационному стеку, минуя промежуточные переходы
         if let animationLaunchingContext = pushTransitions?.first?.animationLaunchingContext {
-            animatingTransitionsHandler.launchAnimatingOfUndoingTransition(launchingContext: animationLaunchingContext)
+            animatingTransitionsHandler.launchAnimationOfUndoingTransition(launchingContext: animationLaunchingContext)
         }
         
         // удаляем записи об отмененных переходах

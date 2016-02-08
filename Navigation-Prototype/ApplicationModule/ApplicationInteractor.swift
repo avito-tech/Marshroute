@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ApplicationInteractor: class {
-    func requestAuthorizationStatus(completion: (authorized: Bool) -> Void)
+    func authorizationStatus(completion: (authorized: Bool) -> Void)
 }

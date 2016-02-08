@@ -57,26 +57,25 @@ private extension ApplicationAssemblyImpl {
         )
         
         let tabBarController = ApplicationViewController(
-            output: presenter
+            viewOutput: presenter
         )
         
         presenter.viewInput = tabBarController
-        interactor.output = presenter
         
         let sharedTransitionId = transitionIdGenerator.generateNewTransitionId()
         let sharedTransitionsCoordinator = navigationRootsHolder.transitionsCoordinator
         
-        let controllersAndHandlers = createTabControllers(
+        let (viewControllers, tabBarTransitionsHandlers) = createTabControllers(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator)
 
-        tabBarController.viewControllers = controllersAndHandlers.0
+        tabBarController.viewControllers = viewControllers
         
         let tabBarTransitionsHandler = TabBarTransitionsHandlerImpl(
             tabBarController: tabBarController,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
-        tabBarTransitionsHandler.tabTransitionsHandlers = controllersAndHandlers.1
+        tabBarTransitionsHandler.tabTransitionsHandlers = tabBarTransitionsHandlers
         
         let router = ApplicationRouterImpl(
             transitionsHandler: tabBarTransitionsHandler,

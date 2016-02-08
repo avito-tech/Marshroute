@@ -19,7 +19,7 @@ final class ApplicationPresenter {
 
 //MARK: - ApplicationInput
 extension ApplicationPresenter: ApplicationModuleInput  {
-    func showAuthorizationModule(completion: (authed: Bool) -> Void) {
+    func showAuthorizationModule(completion: (isAuthorized: Bool) -> Void) {
         showAuthorizationModuleImpl(completion: completion)
     }
 }
@@ -27,8 +27,8 @@ extension ApplicationPresenter: ApplicationModuleInput  {
 //MARK: - ApplicationViewOutput
 extension ApplicationPresenter: ApplicationViewOutput  {
     func userDidRunOutOfMemory() {
-        showAuthorizationModuleImpl { (authed) -> Void in
-            debugPrint("==== AUTHED ? \(authed)")
+        showAuthorizationModuleImpl { (isAuthorized) -> Void in
+            debugPrint("==== isAuthorized ? \(isAuthorized)")
         }
     }
     
@@ -45,14 +45,14 @@ extension ApplicationPresenter: ApplicationViewOutput  {
         }
     }
     
-    private func showAuthorizationModuleImpl(completion completion: (authed: Bool) -> Void) {
+    private func showAuthorizationModuleImpl(completion completion: (isAuthorized: Bool) -> Void) {
         if isShowingAuthorizationModule {
             authorizationCompletionBlock = completion
             return
         }
 
-        interactor.requestAuthorizationStatus { [weak self] (authorized) -> Void in
-            if let strongSelf = self where !authorized {
+        interactor.authorizationStatus { [weak self] (isAuthorized) -> Void in
+            if let strongSelf = self where !isAuthorized {
                 strongSelf.isShowingAuthorizationModule = true
                 strongSelf.authorizationCompletionBlock = completion
                 strongSelf.router?.showAuthorization(output: strongSelf)

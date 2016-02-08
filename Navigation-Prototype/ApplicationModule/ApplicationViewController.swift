@@ -1,11 +1,11 @@
 import UIKit
 
 final class ApplicationViewController: UITabBarController {
-	let output: ApplicationViewOutput
+	let viewOutput: ApplicationViewOutput
 
 	//MARK: - Init
-    init(output: ApplicationViewOutput) {
-        self.output = output
+    init(viewOutput: ApplicationViewOutput) {
+        self.viewOutput = viewOutput
         super.init(nibName: nil, bundle: nil)
         delegate = self
     }
@@ -17,7 +17,7 @@ final class ApplicationViewController: UITabBarController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-        output.userDidRunOutOfMemory()
+        viewOutput.userDidRunOutOfMemory()
     }
 }
 
@@ -35,7 +35,7 @@ extension ApplicationViewController: UITabBarControllerDelegate {
     {
         if let index = tabBarController.viewControllers?.indexOf(viewController) where index != tabBarController.selectedIndex {
             if let tab = ApplicationTabs(rawValue: index){
-                output.userDidAskTab(tab)
+                viewOutput.userDidAskTab(tab)
             }
         }
         return false

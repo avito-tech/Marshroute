@@ -2,74 +2,74 @@ import UIKit
 
 protocol Router: class {
     func pushViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
     func pushViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        @noescape detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveMasterViewController deriveMasterViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveDetailViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        @noescape detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveDetailViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        @noescape detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveDetailViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
         splitViewController: UISplitViewController)
 
     func presentModalViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
     func presentModalViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     
     func presentModalViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         navigationController: UINavigationController)
 
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator)
     
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
     
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator)
     
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
@@ -78,16 +78,16 @@ protocol Router: class {
 // MARK: - Router Default Impl
 extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionsGeneratorStorer, Self: TransitionsCoordinatorStorer {
     func pushViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         pushViewControllerDerivedFrom(
-            closure,
+            deriveViewController,
             animator: NavigationTransitionsAnimator()
         )
     }
     
     func pushViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
         guard let transitionsHandler = transitionsHandler
@@ -95,7 +95,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        let viewController = closure(
+        let viewController = deriveViewController(
             transitionId: generatedTransitionId,
             transitionsHandler: transitionsHandler)
         
@@ -109,24 +109,24 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     }
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        @noescape detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveMasterViewController deriveMasterViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveDetailViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         presentModalMasterDetailViewControllerDerivedFrom(
-            masterDeriviationClosure: masterClosure,
-            detailDeriviationClosure: detailClosure,
+            deriveMasterViewController: deriveMasterViewController,
+            deriveDetailViewController: deriveDetailViewController,
             animator: NavigationTransitionsAnimator()
         )
     }
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        @noescape detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveDetailViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
         presentModalMasterDetailViewControllerDerivedFrom(
-            masterDeriviationClosure: masterClosure,
-            detailDeriviationClosure: detailClosure,
+            deriveMasterViewController: deriveMasterViewController,
+            deriveDetailViewController: deriveDetailViewController,
             animator: animator,
             masterNavigationController: UINavigationController(),
             detailNavigationController: UINavigationController(),
@@ -135,8 +135,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     }
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape masterDeriviationClosure masterClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        @noescape detailDeriviationClosure detailClosure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveDetailViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
@@ -165,7 +165,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
 
         do {
-            let masterViewController = masterClosure(
+            let masterViewController = deriveMasterViewController(
                 transitionId: transitionId,
                 transitionsHandler: masterTransitionsHandler)
             
@@ -179,7 +179,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         }
         
         do {
-            let detailViewController = detailClosure(
+            let detailViewController = deriveDetailViewController(
                 transitionId: generatedTransitionId,
                 transitionsHandler: detailTransitionsHandler)
             
@@ -202,27 +202,27 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     }
     
     func presentModalViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         presentModalViewControllerDerivedFrom(
-            closure,
+            deriveViewController,
             animator: NavigationTransitionsAnimator()
         )
     }
 
     func presentModalViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
         presentModalViewControllerDerivedFrom(
-            closure,
+            deriveViewController,
             animator: animator,
             navigationController: UINavigationController()
         )
     }
     
     func presentModalViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         navigationController: UINavigationController)
     {
@@ -235,7 +235,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        let viewController = closure(
+        let viewController = deriveViewController(
             transitionId: generatedTransitionId,
             transitionsHandler: navigationTransitionsHandler)
         
@@ -262,12 +262,12 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         presentPopoverFromRect(
             rect,
             inView: view,
-            withViewControllerDerivedFrom: closure,
+            withViewControllerDerivedFrom: deriveViewController,
             animator: PopoverTranstionsAnimator(),
             resetAnimator: NavigationTransitionsAnimator()
         )
@@ -276,14 +276,14 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator)
     {
         presentPopoverFromRect(
             rect,
             inView: view,
-            withViewControllerDerivedFrom: closure,
+            withViewControllerDerivedFrom: deriveViewController,
             animator: animator,
             resetAnimator: resetAnimator,
             navigationController: UINavigationController()
@@ -293,7 +293,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
@@ -307,7 +307,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        let viewController = closure(
+        let viewController = deriveViewController(
             transitionId: generatedTransitionId,
             transitionsHandler: navigationTransitionsHandler)
         
@@ -338,11 +338,11 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: closure,
+            withViewControllerDerivedFrom: deriveViewController,
             animator: PopoverTranstionsAnimator(),
             resetAnimator: NavigationTransitionsAnimator()
         )
@@ -350,13 +350,13 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator)
     {
         presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: closure,
+            withViewControllerDerivedFrom: deriveViewController,
             animator: animator,
             resetAnimator: resetAnimator,
             navigationController: UINavigationController()
@@ -365,7 +365,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     
     func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape withViewControllerDerivedFrom deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator,
         resetAnimator: TransitionsAnimator,
         navigationController: UINavigationController)
@@ -379,7 +379,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
 
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        let viewController = closure(
+        let viewController = deriveViewController(
             transitionId: generatedTransitionId,
             transitionsHandler: navigationTransitionsHandler)
         

@@ -12,7 +12,7 @@
 		CC63D2131C63AF3B004D9599 /* BaseMasterDetailRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D41C63AF3B004D9599 /* BaseMasterDetailRouterImpl.swift */; };
 		CC63D2141C63AF3B004D9599 /* BaseRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D51C63AF3B004D9599 /* BaseRouterImpl.swift */; };
 		CC63D2151C63AF3B004D9599 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D71C63AF3B004D9599 /* DetailRouter.swift */; };
-		CC63D2161C63AF3B004D9599 /* DetaiRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D81C63AF3B004D9599 /* DetaiRouterTransitionable.swift */; };
+		CC63D2161C63AF3B004D9599 /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D81C63AF3B004D9599 /* DetailRouterTransitionable.swift */; };
 		CC63D2171C63AF3B004D9599 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1D91C63AF3B004D9599 /* MasterRouter.swift */; };
 		CC63D2181C63AF3B004D9599 /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1DA1C63AF3B004D9599 /* MasterRouterTransitionable.swift */; };
 		CC63D2191C63AF3B004D9599 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC63D1DB1C63AF3B004D9599 /* Router.swift */; };
@@ -129,7 +129,7 @@
 		CC63D1D41C63AF3B004D9599 /* BaseMasterDetailRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouterImpl.swift; sourceTree = "<group>"; };
 		CC63D1D51C63AF3B004D9599 /* BaseRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterImpl.swift; sourceTree = "<group>"; };
 		CC63D1D71C63AF3B004D9599 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
-		CC63D1D81C63AF3B004D9599 /* DetaiRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetaiRouterTransitionable.swift; sourceTree = "<group>"; };
+		CC63D1D81C63AF3B004D9599 /* DetailRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTransitionable.swift; sourceTree = "<group>"; };
 		CC63D1D91C63AF3B004D9599 /* MasterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterRouter.swift; sourceTree = "<group>"; };
 		CC63D1DA1C63AF3B004D9599 /* MasterRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterRouterTransitionable.swift; sourceTree = "<group>"; };
 		CC63D1DB1C63AF3B004D9599 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				CC63D1D71C63AF3B004D9599 /* DetailRouter.swift */,
-				CC63D1D81C63AF3B004D9599 /* DetaiRouterTransitionable.swift */,
+				CC63D1D81C63AF3B004D9599 /* DetailRouterTransitionable.swift */,
 				CC63D1D91C63AF3B004D9599 /* MasterRouter.swift */,
 				CC63D1DA1C63AF3B004D9599 /* MasterRouterTransitionable.swift */,
 				CC63D1DB1C63AF3B004D9599 /* Router.swift */,
@@ -619,7 +619,7 @@
 				CCE8C9601C561C780041801D /* FirstAssemblyImpl.swift in Sources */,
 				CCE8C9D11C563A610041801D /* AuthorizationRouterImpl.swift in Sources */,
 				CCE8C9CC1C563A610041801D /* AuthorizationAssemblyImpl.swift in Sources */,
-				CC63D2161C63AF3B004D9599 /* DetaiRouterTransitionable.swift in Sources */,
+				CC63D2161C63AF3B004D9599 /* DetailRouterTransitionable.swift in Sources */,
 				CCF6F0051C64926E00852522 /* TransitionIdGenerator.swift in Sources */,
 				CCE8C9711C561C780041801D /* SecondInteractor.swift in Sources */,
 				CCF6F0001C64926E00852522 /* TransitionContextsStackClientImpl.swift in Sources */,

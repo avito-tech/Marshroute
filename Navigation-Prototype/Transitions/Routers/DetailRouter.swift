@@ -18,13 +18,13 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     func setDetailViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
         guard let detailTransitionsHandler = detailTransitionsHandler
             else { assert(false); return }        
         
-        let viewController = closure(
+        let viewController = deriveViewController(
             transitionId: transitionId,
             transitionsHandler: detailTransitionsHandler)
         

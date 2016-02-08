@@ -1,13 +1,8 @@
 import UIKit
 
-// MARK: - NavigationRootsHolder, NavigationRootsHolderimpl
-private protocol NavigationRootsHolder: class {
-    var rootTransitionsHandler: TransitionsHandler? { get set }
-    var transitionsCoordinator: TransitionsCoordinator { get }
-}
-
-private class NavigationRootsHolderImpl: NavigationRootsHolder {
-    static let instance = NavigationRootsHolderImpl()
+/// NavigationRootsHolder
+private class NavigationRootsHolder {
+    static let instance = NavigationRootsHolder()
     
     private var rootTransitionsHandler: TransitionsHandler?
 
@@ -16,28 +11,23 @@ private class NavigationRootsHolderImpl: NavigationRootsHolder {
     )
 }
 
-// MARK: - ApplicationModuleHolder, ApplicationModuleHolderImpl
-private protocol ApplicationModuleHolder {
-    var applicationModule: (UIViewController, ApplicationModuleInput)? { get set }
-}
-
-private class ApplicationModuleHolderImpl: ApplicationModuleHolder {
-    static let instance = ApplicationModuleHolderImpl()
+/// ApplicationModuleHolder
+private class ApplicationModuleHolder {
+    static let instance = ApplicationModuleHolder()
     
     private var applicationModule: (UIViewController, ApplicationModuleInput)?
 }
 
 // MARK: - ApplicationAssemblyImpl
-final class ApplicationAssemblyImpl: ApplicationAssembly  {
-    
+final class ApplicationAssemblyImpl: ApplicationAssembly {
     func module() -> (viewController: UIViewController, moduleInput: ApplicationModuleInput) {
-        let applicationModuleHolder = ApplicationModuleHolderImpl.instance
+        let applicationModuleHolder = ApplicationModuleHolder.instance
         
         if let applicationModule = applicationModuleHolder.applicationModule {
             return applicationModule
         }
         
-        let navigationRootsHolder = NavigationRootsHolderImpl.instance
+        let navigationRootsHolder = NavigationRootsHolder.instance
         
         let applicationModule = module(navigationRootsHolder: navigationRootsHolder)
         
@@ -108,7 +98,7 @@ private extension ApplicationAssemblyImpl {
 }
 
 // MARK: - iPhone
-private extension ApplicationAssemblyImpl {
+private extension ApplicationAssembly {
     private func createTabControllersIphone(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)

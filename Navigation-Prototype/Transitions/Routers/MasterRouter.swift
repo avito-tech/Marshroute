@@ -20,13 +20,13 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdent
     }
 
     func setMasterViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
     {
         guard let masterTransitionsHandler = masterTransitionsHandler
             else { assert(false); return }
         
-        let viewController = closure(
+        let viewController = deriveViewController(
             transitionId: transitionId,
             transitionsHandler: masterTransitionsHandler)
         

@@ -3,18 +3,17 @@ import Foundation
 final class ApplicationPresenter {
     private let interactor: ApplicationInteractor
     var router: ApplicationRouter?
-    
     weak var viewInput: ApplicationViewInput?
     
-    weak var authInput: AuthorizationModuleInput?
+    private weak var authInput: AuthorizationModuleInput?
     
     //MARK: - Init
     init(interactor: ApplicationInteractor){
         self.interactor = interactor
     }
     
-    var isShowingAuthorizationModule = false
-    var authorizationCompletionBlock: (Bool -> Void)?
+    private var isShowingAuthorizationModule = false
+    private var authorizationCompletionBlock: (Bool -> Void)?
 }
 
 //MARK: - ApplicationInput

@@ -1,7 +1,7 @@
 import UIKit
 
 final class ApplicationViewController: UITabBarController {
-	let viewOutput: ApplicationViewOutput
+	private let viewOutput: ApplicationViewOutput
 
 	//MARK: - Init
     init(viewOutput: ApplicationViewOutput) {

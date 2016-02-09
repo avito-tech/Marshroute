@@ -1,23 +1,5 @@
 import UIKit
 
-/// NavigationRootsHolder
-private class NavigationRootsHolder {
-    static let instance = NavigationRootsHolder()
-    
-    private var rootTransitionsHandler: TransitionsHandler?
-
-    private let transitionsCoordinator: TransitionsCoordinator = TransitionsCoordinatorImpl(
-        stackClientProvider: TransitionContextsStackClientProviderImpl()
-    )
-}
-
-/// ApplicationModuleHolder
-private class ApplicationModuleHolder {
-    static let instance = ApplicationModuleHolder()
-    
-    private var applicationModule: (UIViewController, ApplicationModuleInput)?
-}
-
 // MARK: - ApplicationAssemblyImpl
 final class ApplicationAssemblyImpl: ApplicationAssembly {
     var sharedTransitionIdGenerator: TransitionIdGenerator {

@@ -27,51 +27,123 @@ extension NavigationTransitionsHandlerImpl: TransitionsCoordinatorStorer {
 extension NavigationTransitionsHandlerImpl: TransitionsAnimatorClient {
     func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
+        // дополняем исходные параметры анимации информацией о своем навигационным контроллере, если нужно
+        var fixedLaunchingContext = launchingContext
+        fillMissingAnimationSourceParametersFor(animationLaunchingContext: &fixedLaunchingContext)
+
         // готовим анимационный контекст и запускаем анимации перехода
-        if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {
-            launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
+        switch fixedLaunchingContext.transitionStyle {
+        case .Push(let animator):
+            let converter = NavigationAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animatePerformingNavigationTransition(animationContext: animationContext)
+            }
+        
+        case .Modal(let animator):
+            let converter = NavigationAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animatePerformingNavigationTransition(animationContext: animationContext)
+            }
+        
+        case .PopoverFromButtonItem(_, let animator):
+            let converter = PopoverAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animatePerformingPopoverTransition(animationContext: animationContext)
+            }
+
+        case .PopoverFromView(_, _, let animator):
+            let converter = PopoverAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animatePerformingPopoverTransition(animationContext: animationContext)
+            }
         }
     }
+
     
     func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
+        // дополняем исходные параметры анимации информацией о своем навигационным контроллере, если нужно
+        var fixedLaunchingContext = launchingContext
+        fillMissingAnimationSourceParametersFor(animationLaunchingContext: &fixedLaunchingContext)
+        
         // готовим анимационный контекст и запускаем анимации обратного перехода
-        if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {
-            launchingContext.animator.animateUndoingTransition(animationContext: animationContext)
+        switch fixedLaunchingContext.transitionStyle {
+        case .Push(let animator):
+            let converter = NavigationAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateUndoingNavigationTransition(animationContext: animationContext)
+            }
+            
+        case .Modal(let animator):
+            let converter = NavigationAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateUndoingNavigationTransition(animationContext: animationContext)
+            }
+            
+        case .PopoverFromButtonItem(_, let animator):
+            let converter = PopoverAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateUndoingPopoverTransition(animationContext: animationContext)
+            }
+            
+        case .PopoverFromView(_, _, let animator):
+            let converter = PopoverAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateUndoingPopoverTransition(animationContext: animationContext)
+            }
         }
     }
     
     func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
+        // дополняем исходные параметры анимации информацией о своем навигационным контроллере, если нужно
+        var fixedLaunchingContext = launchingContext
+        fillMissingAnimationSourceParametersFor(animationLaunchingContext: &fixedLaunchingContext)
+        
         // готовим анимационный контекст и запускаем анимации обновления
-        if let animationContext = createAnimationContextFor(animationLaunchingContext: launchingContext) {
-            launchingContext.animator.animateResettingWithTransition(animationContext: animationContext)
+        switch fixedLaunchingContext.transitionStyle {
+        case .Push(let animator):
+            let converter = NavigationAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateResettingWithNavigationTransition(animationContext: animationContext)
+            }
+            
+        case .Modal(let animator):
+            let converter = NavigationAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateResettingWithNavigationTransition(animationContext: animationContext)
+            }
+            
+        case .PopoverFromButtonItem(_, let animator):
+            let converter = PopoverAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateResettingWithPopoverTransition(animationContext: animationContext)
+            }
+            
+        case .PopoverFromView(_, _, let animator):
+            let converter = PopoverAnimationLaunchingContextConverterImpl()
+            if let animationContext = converter.convertAnimationLaunchingContextToAnimationContext(fixedLaunchingContext) {
+                animator.animateResettingWithPopoverTransition(animationContext: animationContext)
+            }
         }
     }
 }
 
 // MARK: - helpers
 private extension NavigationTransitionsHandlerImpl {
-    func createAnimationContextFor(var animationLaunchingContext launchingContext: TransitionAnimationLaunchingContext)
-        -> TransitionAnimationContext?
+
+    func fillMissingAnimationSourceParametersFor(inout animationLaunchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
-        var result: TransitionAnimationContext?
-        
         // дополняем исходные параметры анимации информацией о своем навигационным контроллере, если нужно
         switch launchingContext.transitionStyle {
-        case .Push, .Modal:
+        case .Push(_), .Modal(_):
             guard launchingContext.animationSourceParameters == nil
                 else { assert(false, "такой случай не рассмотрен. нужно мерджить чужие и свои параметры анимации"); break }
             
             launchingContext.animationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)
-            let converter = NavigationAnimationLaunchingContextConverterImpl()
-            result = converter.convertAnimationLaunchingContextToAnimationContext(launchingContext)
-
-        case .PopoverFromButtonItem(_), .PopoverFromView(_, _):
-            let converter = PopoverAnimationLaunchingContextConverterImpl()
-            result = converter.convertAnimationLaunchingContextToAnimationContext(launchingContext)
+            
+        default:
+            break
         }
-        
-        return result
     }
 }

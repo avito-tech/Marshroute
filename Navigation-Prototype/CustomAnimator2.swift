@@ -114,6 +114,3 @@ extension ViewControllerAnimatedTransitioningDelegateImpl: UIViewControllerAnima
         
     }
 }
-
-// MARK: - TransitionsAnimator
-extension CustomAnimator2: TransitionsAnimator {}

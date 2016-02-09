@@ -8,7 +8,7 @@ extension PopoverAnimationLaunchingContextConverterImpl: TransitionAnimationLaun
         var animationContext: TransitionAnimationContext? = nil
         
         switch context.transitionStyle {
-        case .PopoverFromButtonItem(_), .PopoverFromView(_, _):
+        case .PopoverFromButtonItem(_, _), .PopoverFromView(_, _, _):
             guard let popoverAnimationSourceParameters = context.animationSourceParameters as? PopoverAnimationSourceParameters else {
                 assert(false, "нужны другие исходные параметры анимации \(context.animationSourceParameters)" +
                     "для переходов с вызовом поповеров: \(context)")

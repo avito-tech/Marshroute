@@ -8,7 +8,7 @@ extension NavigationAnimationLaunchingContextConverterImpl: TransitionAnimationL
         var animationContext: TransitionAnimationContext? = nil
         
         switch context.transitionStyle {
-        case .Push, .Modal:
+        case .Push(_), .Modal(_):
             guard let navigationAnimationSourceParameters = context.animationSourceParameters as? NavigationAnimationSourceParameters else {
                 assert(false, "нужны другие исходные параметры анимации \(context.animationSourceParameters)" +
                     "для навигационного перехода: \(context)")

@@ -5,9 +5,9 @@ extension NavigationTransitionStyleConverter: TransitionStyleConverter {
     
     func convertTransitionStyle(style: TransitionStyle) -> NavigationAnimationStyle? {
         switch style {
-        case .Push:
+        case .Push(_):
             return .Push
-        case .Modal:
+        case .Modal(_):
             return .Modal
         default:
             return nil

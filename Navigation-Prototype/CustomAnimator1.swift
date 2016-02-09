@@ -40,6 +40,3 @@ extension CustomAnimator1: NavigationTransitionsAnimator {
         }
     }
 }
-
-// MARK: - TransitionsAnimator
-extension CustomAnimator1: TransitionsAnimator {}

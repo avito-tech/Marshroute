@@ -55,7 +55,6 @@ struct RestoredTransitionContext {
         
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
             transitionStyle: context.animationLaunchingContext.transitionStyle,
-            animator: context.animationLaunchingContext.animator,
             animationSourceParameters: context.animationLaunchingContext.animationSourceParameters,
             animationTargetParameters: TransitionAnimationTargetParameters(viewController: sourceViewController)
         )

@@ -33,6 +33,3 @@ extension PopoverTransitionsAnimatorImpl: PopoverTransitionsAnimator {
         assert(false, "must not be called")
     }
 }
-
-// MARK: - TransitionsAnimator
-extension PopoverTransitionsAnimatorImpl: TransitionsAnimator {}

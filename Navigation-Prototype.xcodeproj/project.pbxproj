@@ -96,7 +96,6 @@
 		CCEAF0B21C689C3E00D00583 /* TransitionAnimationLaunchingContextConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0731C689C3E00D00583 /* TransitionAnimationLaunchingContextConverter.swift */; };
 		CCEAF0B41C689C3E00D00583 /* TransitionAnimationSourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0751C689C3E00D00583 /* TransitionAnimationSourceParameters.swift */; };
 		CCEAF0B51C689C3E00D00583 /* TransitionAnimationTargetParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0761C689C3E00D00583 /* TransitionAnimationTargetParameters.swift */; };
-		CCEAF0B61C689C3E00D00583 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0771C689C3E00D00583 /* TransitionsAnimator.swift */; };
 		CCEAF0B71C689C3E00D00583 /* TransitionsAnimatorClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0781C689C3E00D00583 /* TransitionsAnimatorClient.swift */; };
 		CCEAF0B81C689C3E00D00583 /* TransitionStyleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0791C689C3E00D00583 /* TransitionStyleConverter.swift */; };
 		CCEAF0B91C689C3E00D00583 /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF07B1C689C3E00D00583 /* CompletedTransitionContext.swift */; };
@@ -220,7 +219,6 @@
 		CCEAF0731C689C3E00D00583 /* TransitionAnimationLaunchingContextConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationLaunchingContextConverter.swift; sourceTree = "<group>"; };
 		CCEAF0751C689C3E00D00583 /* TransitionAnimationSourceParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationSourceParameters.swift; sourceTree = "<group>"; };
 		CCEAF0761C689C3E00D00583 /* TransitionAnimationTargetParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationTargetParameters.swift; sourceTree = "<group>"; };
-		CCEAF0771C689C3E00D00583 /* TransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCEAF0781C689C3E00D00583 /* TransitionsAnimatorClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimatorClient.swift; sourceTree = "<group>"; };
 		CCEAF0791C689C3E00D00583 /* TransitionStyleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStyleConverter.swift; sourceTree = "<group>"; };
 		CCEAF07B1C689C3E00D00583 /* CompletedTransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContext.swift; sourceTree = "<group>"; };
@@ -459,7 +457,6 @@
 				CCEAF0731C689C3E00D00583 /* TransitionAnimationLaunchingContextConverter.swift */,
 				CCEAF0751C689C3E00D00583 /* TransitionAnimationSourceParameters.swift */,
 				CCEAF0761C689C3E00D00583 /* TransitionAnimationTargetParameters.swift */,
-				CCEAF0771C689C3E00D00583 /* TransitionsAnimator.swift */,
 				CCEAF0781C689C3E00D00583 /* TransitionsAnimatorClient.swift */,
 				CCEAF0791C689C3E00D00583 /* TransitionStyleConverter.swift */,
 			);
@@ -616,7 +613,6 @@
 				CCEAF0AD1C689C3E00D00583 /* PopoverAnimationStyle.swift in Sources */,
 				CCE8C97C1C561C780041801D /* SecondViewInput.swift in Sources */,
 				CCB348E11C5BABB2005BD40F /* ApplicationViewOutput.swift in Sources */,
-				CCEAF0B61C689C3E00D00583 /* TransitionsAnimator.swift in Sources */,
 				CC5A34191C64DF92003FA62F /* CustomAnimator1.swift in Sources */,
 				CCE5F2611C6A21B0001067FF /* ApplicationModuleHolder.swift in Sources */,
 				CCE8C9671C561C780041801D /* FirstPresenter.swift in Sources */,

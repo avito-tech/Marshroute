@@ -34,6 +34,3 @@ extension NavigationTransitionsAnimatorImpl: NavigationTransitionsAnimator {
         }
     }
 }
-
-// MARK: - TransitionsAnimator
-extension NavigationTransitionsAnimatorImpl: TransitionsAnimator {}

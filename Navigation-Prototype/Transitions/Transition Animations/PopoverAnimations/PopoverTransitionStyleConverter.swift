@@ -5,9 +5,9 @@ extension PopoverTransitionStyleConverter: TransitionStyleConverter {
     
     func convertTransitionStyle(style: TransitionStyle) -> PopoverAnimationStyle? {
         switch style {
-        case .PopoverFromButtonItem(let buttonItem):
+        case .PopoverFromButtonItem(let buttonItem, _):
             return .PresentFromBarButtonItem(buttonItem: buttonItem)
-        case .PopoverFromView(let sourceView, let sourceRect):
+        case .PopoverFromView(let sourceView, let sourceRect, _):
             return .PresentFromView(sourceView: sourceView, sourceRect: sourceRect)
         default:
             return nil

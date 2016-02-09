@@ -2,16 +2,22 @@ import UIKit
 
 ///Стили переходов
 enum TransitionStyle {
-    case Modal
+    case Modal(
+        animator: NavigationTransitionsAnimator
+    )
     
-    case Push
+    case Push(
+        animator: NavigationTransitionsAnimator
+    )
     
     case PopoverFromView(
         sourceView: UIView,
-        sourceRect: CGRect
+        sourceRect: CGRect,
+        animator: PopoverTransitionsAnimator
     )
     
     case PopoverFromButtonItem(
-        buttonItem: UIBarButtonItem
+        buttonItem: UIBarButtonItem,
+        animator: PopoverTransitionsAnimator
     )
 }

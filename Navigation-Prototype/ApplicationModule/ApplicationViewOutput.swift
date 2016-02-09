@@ -7,6 +7,6 @@ enum ApplicationTabs: Int {
 }
 
 protocol ApplicationViewOutput: class {
-    func userDidRunOutOfMemory()
+    func viewDidRunOutOfMemory()
     func userDidAskTab(tab: ApplicationTabs)
 }

@@ -26,7 +26,7 @@ struct ForwardTransitionContext {
     /// проставление корневого контроллера в UINavigationController
     init(resetingWithViewController initialViewController: UIViewController,
         transitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -36,8 +36,7 @@ struct ForwardTransitionContext {
         self.storableParameters = nil
         
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: .Push,
-            animator: animator,
+            transitionStyle: .Push(animator: animator),
             animationSourceParameters: nil,
             animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
         )
@@ -46,7 +45,7 @@ struct ForwardTransitionContext {
     /// Контекст описывает последовательный переход внутри UINavigationController'а текущего модуля
     init(pushingViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -56,8 +55,7 @@ struct ForwardTransitionContext {
         self.storableParameters = nil
         
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: .Push,
-            animator: animator,
+            transitionStyle: .Push(animator: animator),
             animationSourceParameters: nil,
             animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
         )
@@ -67,7 +65,7 @@ struct ForwardTransitionContext {
     /// UISplitViewController, UITabBarViewController
     init(presentingModalMasterDetailViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -79,8 +77,7 @@ struct ForwardTransitionContext {
         )
         
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: .Modal,
-            animator: animator,
+            transitionStyle: .Modal(animator: animator),
             animationSourceParameters: nil,
             animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
         )
@@ -90,7 +87,7 @@ struct ForwardTransitionContext {
     init(presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         assert(
@@ -107,8 +104,7 @@ struct ForwardTransitionContext {
         )
         
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: .Modal,
-            animator: animator,
+            transitionStyle: .Modal(animator: animator),
             animationSourceParameters: nil,
             animationTargetParameters: TransitionAnimationTargetParameters(viewController: navigationController)
         )
@@ -121,7 +117,7 @@ struct ForwardTransitionContext {
         fromRect rect: CGRect,
         inView view: UIView,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: PopoverTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.targetViewController = targetViewController
@@ -134,8 +130,7 @@ struct ForwardTransitionContext {
         )
         
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: .PopoverFromView(sourceView: view, sourceRect: rect),
-            animator: animator,
+            transitionStyle: .PopoverFromView(sourceView: view, sourceRect: rect, animator: animator),
             animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
             animationTargetParameters: TransitionAnimationTargetParameters(viewController: navigationController)
         )
@@ -147,7 +142,7 @@ struct ForwardTransitionContext {
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: PopoverTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -160,8 +155,7 @@ struct ForwardTransitionContext {
         )
         
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: .PopoverFromButtonItem(buttonItem: buttonItem),
-            animator: animator,
+            transitionStyle: .PopoverFromButtonItem(buttonItem: buttonItem, animator: animator),
             animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
             animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
         )

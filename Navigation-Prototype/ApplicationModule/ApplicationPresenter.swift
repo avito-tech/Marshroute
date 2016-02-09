@@ -26,7 +26,7 @@ extension ApplicationPresenter: ApplicationModuleInput  {
 
 //MARK: - ApplicationViewOutput
 extension ApplicationPresenter: ApplicationViewOutput  {
-    func userDidRunOutOfMemory() {
+    func viewDidRunOutOfMemory() {
         showAuthorizationModuleImpl { (isAuthorized) -> Void in
             debugPrint("==== isAuthorized ? \(isAuthorized)")
         }

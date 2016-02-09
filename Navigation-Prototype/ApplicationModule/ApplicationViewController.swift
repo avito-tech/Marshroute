@@ -17,7 +17,7 @@ final class ApplicationViewController: UITabBarController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
-        viewOutput.userDidRunOutOfMemory()
+        viewOutput.viewDidRunOutOfMemory()
     }
 }
 

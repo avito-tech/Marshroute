@@ -82,7 +82,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     {
         pushViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimator()
+            animator: NavigationTransitionsAnimatorImpl()
         )
     }
     
@@ -115,7 +115,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         presentModalMasterDetailViewControllerDerivedFrom(
             deriveMasterViewController: deriveMasterViewController,
             deriveDetailViewController: deriveDetailViewController,
-            animator: NavigationTransitionsAnimator()
+            animator: NavigationTransitionsAnimatorImpl()
         )
     }
     
@@ -206,7 +206,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     {
         presentModalViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimator()
+            animator: NavigationTransitionsAnimatorImpl()
         )
     }
 
@@ -268,8 +268,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             rect,
             inView: view,
             withViewControllerDerivedFrom: deriveViewController,
-            animator: PopoverTranstionsAnimator(),
-            resetAnimator: NavigationTransitionsAnimator()
+            animator: PopoverTransitionsAnimatorImpl(),
+            resetAnimator: NavigationTransitionsAnimatorImpl()
         )
     }
     
@@ -343,8 +343,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         presentPopoverFromBarButtonItem(
             barButtonItem,
             withViewControllerDerivedFrom: deriveViewController,
-            animator: PopoverTranstionsAnimator(),
-            resetAnimator: NavigationTransitionsAnimator()
+            animator: PopoverTransitionsAnimatorImpl(),
+            resetAnimator: NavigationTransitionsAnimatorImpl()
         )
     }
     

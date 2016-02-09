@@ -1,12 +1,10 @@
 import Foundation
 
-final class PopoverTranstionsAnimator {}
+final class PopoverTransitionsAnimatorImpl {}
 
-extension PopoverTranstionsAnimator: TransitionsAnimator {
-    func animatePerformingTransition(animationContext context: TransitionAnimationContext) {
-        guard let context = context as? PopoverAnimationContext
-            else { assert(false, "bad animation context"); return }
-        
+// MARK: - PopoverTransitionsAnimator
+extension PopoverTransitionsAnimatorImpl: PopoverTransitionsAnimator {
+    func animatePerformingPopoverTransition(animationContext context: PopoverAnimationContext) {
         switch context.animationStyle {
         case .PresentFromBarButtonItem(let buttonItem):
             context.popoverController.presentPopoverFromBarButtonItem(
@@ -27,14 +25,14 @@ extension PopoverTranstionsAnimator: TransitionsAnimator {
         })
     }
     
-    func animateUndoingTransition(animationContext context: TransitionAnimationContext) {
-        guard let context = context as? PopoverAnimationContext
-            else { assert(false, "bad animation context"); return }
-        
+    func animateUndoingPopoverTransition(animationContext context: PopoverAnimationContext) {
         context.popoverController.dismissPopoverAnimated(true)
     }
     
-    func animateResettingWithTransition(animationContext context: TransitionAnimationContext) {
+    func animateResettingWithPopoverTransition(animationContext context: PopoverAnimationContext) {
         assert(false, "must not be called")
     }
 }
+
+// MARK: - TransitionsAnimator
+extension PopoverTransitionsAnimatorImpl: TransitionsAnimator {}

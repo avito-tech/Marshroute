@@ -2,19 +2,22 @@ import UIKit
 
 protocol DetailRouter: class {
     func setDetailViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
     func setDetailViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
 }
 
 // MARK: - DetailRouter Default Impl
 extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable {
     func setDetailViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
-        setDetailViewControllerDerivedFrom(closure, animator: NavigationTransitionsAnimator())
+        setDetailViewControllerDerivedFrom(
+            deriveViewController,
+            animator: NavigationTransitionsAnimatorImpl()
+        )
     }
     
     func setDetailViewControllerDerivedFrom(

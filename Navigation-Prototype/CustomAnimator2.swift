@@ -1,17 +1,29 @@
 import UIKit
 
-class CustomAnimator2: NSObject {}
+// MARK: - NavigationControllerDelegate
+final private class NavigationControllerDelegate: NSObject {
+    weak var viewControllerAnimatedTransitioningDelegate: ViewControllerAnimatedTransitioningDelegateImpl?
+}
 
-// MARK: - TransitionsAnimator
-extension CustomAnimator2: TransitionsAnimator {
-    func animatePerformingTransition(animationContext context: TransitionAnimationContext) {
-        guard let context = context as? NavigationAnimationContext
-            else { assert(false, "bad animation context"); return }
-        
+// MARK: - ViewControllerAnimatedTransitioningDelegateImpl
+final private class ViewControllerAnimatedTransitioningDelegateImpl: NSObject {}
+
+class CustomAnimator2 {
+    private let navigationControllerDelegate = NavigationControllerDelegate()
+    private let viewControllerAnimatedTransitioningDelegate = ViewControllerAnimatedTransitioningDelegateImpl()
+    
+    init() {
+        navigationControllerDelegate.viewControllerAnimatedTransitioningDelegate = viewControllerAnimatedTransitioningDelegate
+    }
+}
+
+// MARK: - NavigationTransitionsAnimator
+extension CustomAnimator2: NavigationTransitionsAnimator {
+    func animatePerformingNavigationTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             let nvc = context.navigationController
-            nvc.delegate = self
+            nvc.delegate = navigationControllerDelegate
             
             context.navigationController.pushViewController(
                 context.targetViewController,
@@ -24,10 +36,7 @@ extension CustomAnimator2: TransitionsAnimator {
         }
     }
     
-    func animateUndoingTransition(animationContext context: TransitionAnimationContext) {
-        guard let context = context as? NavigationAnimationContext
-            else { assert(false, "bad animation context"); return }
-        
+    func animateUndoingNavigationTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.popToViewController(context.targetViewController, animated: true)
@@ -36,33 +45,30 @@ extension CustomAnimator2: TransitionsAnimator {
         }
     }
     
-    func animateResettingWithTransition(animationContext context: TransitionAnimationContext) {
-        guard let context = context as? NavigationAnimationContext
-            else { assert(false, "bad animation context"); return }
-        
+    func animateResettingWithNavigationTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.setViewControllers([context.targetViewController], animated: true)
         case .Modal:
-            assert(false, "must not be called")
+            assert(false, "must not be called"); break
         }
     }
 }
 
 // MARK: - UINavigationControllerDelegate
-extension CustomAnimator2: UINavigationControllerDelegate {
+extension NavigationControllerDelegate: UINavigationControllerDelegate {
     @objc func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return self
+        return viewControllerAnimatedTransitioningDelegate
     }
 }
 
 // MARK: - UIViewControllerAnimatedTransitioning
-extension CustomAnimator2: UIViewControllerAnimatedTransitioning {
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+extension ViewControllerAnimatedTransitioningDelegateImpl: UIViewControllerAnimatedTransitioning {
+    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.7
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         // get reference to our fromView, toView and the container view that we should perform the transition in
         if #available(iOS 8.0, *) {
             guard let container = transitionContext.containerView()
@@ -104,7 +110,10 @@ extension CustomAnimator2: UIViewControllerAnimatedTransitioning {
         }
     }
     
-    func animationEnded(transitionCompleted: Bool) {
+    @objc func animationEnded(transitionCompleted: Bool) {
         
     }
 }
+
+// MARK: - TransitionsAnimator
+extension CustomAnimator2: TransitionsAnimator {}

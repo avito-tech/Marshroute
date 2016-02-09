@@ -2,20 +2,21 @@ import UIKit
 
 protocol MasterRouter: class {
     func setMasterViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+   
     func setMasterViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
         animator: TransitionsAnimator)
 }
 
 // MARK: - MasterRouter Default Impl
 extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdentifiable {
-
     func setMasterViewControllerDerivedFrom(
-        @noescape closure: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
         setMasterViewControllerDerivedFrom(
-            closure, animator: NavigationTransitionsAnimator()
+            deriveViewController,
+            animator: NavigationTransitionsAnimatorImpl()
         )
     }
 

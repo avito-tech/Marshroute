@@ -1,11 +1,9 @@
-final class TransitionAnimationLaunchingContextConverterImpl {}
+final class NavigationAnimationLaunchingContextConverterImpl {}
 
 // MARK: - TransitionAnimationLaunchingContextConverter
-extension TransitionAnimationLaunchingContextConverterImpl: TransitionAnimationLaunchingContextConverter {
-
-    @warn_unused_result
+extension NavigationAnimationLaunchingContextConverterImpl: TransitionAnimationLaunchingContextConverter {
     func convertAnimationLaunchingContextToAnimationContext(context: TransitionAnimationLaunchingContext)
-        -> TransitionAnimationContext?
+        -> NavigationAnimationContext?
     {
         var animationContext: TransitionAnimationContext? = nil
         
@@ -16,7 +14,7 @@ extension TransitionAnimationLaunchingContextConverterImpl: TransitionAnimationL
                     "для навигационного перехода: \(context)")
                 break
             }
-
+            
             let creator = NavigationAnimationContextCreator()
             
             animationContext = creator.createAnimationContextForTransition(
@@ -24,19 +22,8 @@ extension TransitionAnimationLaunchingContextConverterImpl: TransitionAnimationL
                 animationSourceParameters: navigationAnimationSourceParameters,
                 animationTargetParameters: context.animationTargetParameters)
             
-        case .PopoverFromButtonItem(_), .PopoverFromView(_, _):
-            guard let popoverAnimationSourceParameters = context.animationSourceParameters as? PopoverAnimationSourceParameters else {
-                assert(false, "нужны другие исходные параметры анимации \(context.animationSourceParameters)" +
-                    "для переходов с вызовом поповеров: \(context)")
-                break
-            }
-            
-            let creator = PopoverAnimationContextCreator()
-            
-            animationContext = creator.createAnimationContextForTransition(
-                transitionStyle: context.transitionStyle,
-                animationSourceParameters: popoverAnimationSourceParameters,
-                animationTargetParameters: context.animationTargetParameters)
+        default:
+            assert(false, "must not be called"); break
         }
         
         return animationContext

@@ -4,15 +4,12 @@ final class NavigationTransitionsHandlerImpl {
     
     private weak var navigationController: UINavigationController?
     private let transitionsCoordinatorPrivate: TransitionsCoordinator
-    private let launchingContextConverter: TransitionAnimationLaunchingContextConverter
     
     init(navigationController: UINavigationController,
-        transitionsCoordinator: TransitionsCoordinator,
-        animationLaunchingContextConverter: TransitionAnimationLaunchingContextConverter = TransitionAnimationLaunchingContextConverterImpl())
+        transitionsCoordinator: TransitionsCoordinator)
     {
         self.navigationController = navigationController
         self.transitionsCoordinatorPrivate = transitionsCoordinator
-        self.launchingContextConverter = animationLaunchingContextConverter
     }
 }
 
@@ -58,20 +55,23 @@ private extension NavigationTransitionsHandlerImpl {
     func createAnimationContextFor(var animationLaunchingContext launchingContext: TransitionAnimationLaunchingContext)
         -> TransitionAnimationContext?
     {
+        var result: TransitionAnimationContext?
+        
         // дополняем исходные параметры анимации информацией о своем навигационным контроллере, если нужно
         switch launchingContext.transitionStyle {
         case .Push, .Modal:
-            guard launchingContext.animationSourceParameters == nil else {
-                assert(false, "такой случай не рассмотрен. нужно мерджить чужие и свои параметры анимации")
-                break
-            }
+            guard launchingContext.animationSourceParameters == nil
+                else { assert(false, "такой случай не рассмотрен. нужно мерджить чужие и свои параметры анимации"); break }
+            
             launchingContext.animationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)
-        default:
-            break
+            let converter = NavigationAnimationLaunchingContextConverterImpl()
+            result = converter.convertAnimationLaunchingContextToAnimationContext(launchingContext)
+
+        case .PopoverFromButtonItem(_), .PopoverFromView(_, _):
+            let converter = PopoverAnimationLaunchingContextConverterImpl()
+            result = converter.convertAnimationLaunchingContextToAnimationContext(launchingContext)
         }
         
-        // создаем анимационный контекст
-        let result = launchingContextConverter.convertAnimationLaunchingContextToAnimationContext(launchingContext)
         return result
     }
 }

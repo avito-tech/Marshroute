@@ -1,27 +1,22 @@
-class CustomAnimator1 {}
+final class NavigationTransitionsAnimatorImpl {}
 
 // MARK: - NavigationTransitionsAnimator
-extension CustomAnimator1: NavigationTransitionsAnimator {
-    func animatePerformingNavigationTransition(animationContext context: NavigationAnimationContext)
-    {
+extension NavigationTransitionsAnimatorImpl: NavigationTransitionsAnimator {
+    func animatePerformingNavigationTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.pushViewController(
                 context.targetViewController,
                 animated: true)
         case .Modal:
-            let viewController = context.targetViewController
-            viewController.modalPresentationStyle = .FormSheet
-            
             context.navigationController.presentViewController(
-                viewController,
+                context.targetViewController,
                 animated: true,
                 completion: nil)
         }
     }
     
-    func animateUndoingNavigationTransition(animationContext context: NavigationAnimationContext)
-    {
+    func animateUndoingNavigationTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.popToViewController(context.targetViewController, animated: true)
@@ -30,8 +25,7 @@ extension CustomAnimator1: NavigationTransitionsAnimator {
         }
     }
     
-    func animateResettingWithNavigationTransition(animationContext context: NavigationAnimationContext)
-    {
+    func animateResettingWithNavigationTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.setViewControllers([context.targetViewController], animated: true)
@@ -42,4 +36,4 @@ extension CustomAnimator1: NavigationTransitionsAnimator {
 }
 
 // MARK: - TransitionsAnimator
-extension CustomAnimator1: TransitionsAnimator {}
+extension NavigationTransitionsAnimatorImpl: TransitionsAnimator {}

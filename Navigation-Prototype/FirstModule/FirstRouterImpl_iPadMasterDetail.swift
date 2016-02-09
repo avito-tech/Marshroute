@@ -19,7 +19,7 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
                 dismissable: false,
                 withTimer: false,
                 transitionsCoordinator: transitionsCoordinator,
-                transitionIdGenerator: transitionIdGenerator).viewController
+                transitionIdGenerator: transitionIdGenerator)
             return viewController
         }, animator: CustomAnimator2())
     }
@@ -39,7 +39,7 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
                 dismissable: false,
                 withTimer: false,
                 transitionsCoordinator: transitionsCoordinator,
-                transitionIdGenerator: transitionIdGenerator).viewController
+                transitionIdGenerator: transitionIdGenerator)
             return viewController
         }
     }
@@ -60,7 +60,7 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
                         transitionId: transitionId,
                         presentingTransitionsHandler: self.transitionsHandler,
                         transitionsCoordinator: transitionsCoordinator,
-                        transitionIdGenerator: transitionIdGenerator).viewController
+                        transitionIdGenerator: transitionIdGenerator)
                 return viewController
         })
     }
@@ -81,7 +81,7 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
                                 transitionId: transitionId,
                                 presentingTransitionsHandler: strongSelf.transitionsHandler,
                                 transitionsCoordinator: strongSelf.transitionsCoordinator,
-                                transitionIdGenerator: strongSelf.transitionIdGenerator).viewController
+                                transitionIdGenerator: strongSelf.transitionIdGenerator)
                         return viewController
                     }
                 }

@@ -11,7 +11,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         presentingTransitionsHandler: TransitionsHandler?,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: UIViewController, moduleInput: SecondModuleInput)
+        -> UIViewController
     {
         debugPrint("iphone 2 - \(transitionId)")
         
@@ -41,7 +41,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         presenter.viewInput = viewController
         interactor.output = presenter
         
-        return (viewController, presenter)
+        return viewController
     }
     
     func ipadModule(
@@ -53,7 +53,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         presentingTransitionsHandler: TransitionsHandler?,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: UIViewController, moduleInput: SecondModuleInput)
+        -> UIViewController
     {
         debugPrint("ipad 2 - \(transitionId)")
     
@@ -83,6 +83,6 @@ final class SecondAssemblyImpl: SecondAssembly {
         presenter.viewInput = viewController
         interactor.output = presenter
         
-        return (viewController, presenter)
+        return viewController
     }
 }

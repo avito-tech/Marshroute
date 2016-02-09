@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class FirstAssemblyImpl: FirstAssembly {
     
@@ -13,7 +13,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
+        -> UIViewController
     {
         debugPrint("iphone 1 - \(transitionId)")
         
@@ -43,7 +43,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         presenter.viewInput = viewController
         interactor.output = presenter
         
-        return (viewController, presenter)
+        return viewController
     }
     
     func ipadDetailModule(
@@ -57,7 +57,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
+        -> UIViewController
     {
         debugPrint("ipad detail 1 - \(transitionId)")
         
@@ -87,7 +87,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         presenter.viewInput = viewController
         interactor.output = presenter
         
-        return (viewController, presenter)
+        return viewController
     }
     
     func ipadMasterModule(
@@ -102,7 +102,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         withTimer: Bool,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
+        -> UIViewController
     {
         debugPrint("ipad master 1 - \(transitionId)")
         
@@ -133,6 +133,6 @@ final class FirstAssemblyImpl: FirstAssembly {
         presenter.viewInput = viewController
         interactor.output = presenter
         
-        return (viewController, presenter)
+        return viewController
     }
 }

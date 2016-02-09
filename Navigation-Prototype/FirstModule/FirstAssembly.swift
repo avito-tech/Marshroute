@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 protocol FirstAssembly {
     func iphoneModule(
@@ -12,7 +12,7 @@ protocol FirstAssembly {
         withTimer: Bool,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
+        -> UIViewController
     
     func ipadDetailModule(
         title: String,
@@ -25,7 +25,7 @@ protocol FirstAssembly {
         withTimer: Bool,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
+        -> UIViewController
     
     func ipadMasterModule(
         title: String,
@@ -39,5 +39,5 @@ protocol FirstAssembly {
         withTimer: Bool,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
-        -> (viewController: FirstViewController, moduleInput: FirstModuleInput)
+        -> UIViewController
 }

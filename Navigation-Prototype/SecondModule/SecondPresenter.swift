@@ -19,11 +19,6 @@ final class SecondPresenter {
     
 }
 
-//MARK: - SecondInput
-extension SecondPresenter: SecondModuleInput  {
-    
-}
-
 //MARK: - SecondViewOutput
 extension SecondPresenter: SecondViewOutput  {
     func next(sender sender: AnyObject, title: Int) {

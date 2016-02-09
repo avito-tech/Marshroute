@@ -21,11 +21,6 @@ final class FirstPresenter {
     
 }
 
-//MARK: - FirstInput
-extension FirstPresenter: FirstModuleInput  {
-    
-}
-
 //MARK: - FirstViewOutput
 extension FirstPresenter: FirstViewOutput  {
     func onUserNextModule(count: Int) {

@@ -32,9 +32,7 @@
 		CCE8C9611C561C780041801D /* FirstInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9411C561C780041801D /* FirstInteractor.swift */; };
 		CCE8C9621C561C780041801D /* FirstInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9421C561C780041801D /* FirstInteractorImpl.swift */; };
 		CCE8C9631C561C780041801D /* FirstInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9431C561C780041801D /* FirstInteractorOutput.swift */; };
-		CCE8C9641C561C780041801D /* FirstModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9441C561C780041801D /* FirstModuleInput.swift */; };
-		CCE8C9651C561C780041801D /* FirstModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9451C561C780041801D /* FirstModuleOutput.swift */; };
-		CCE8C9661C561C780041801D /* FirstOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9461C561C780041801D /* FirstOutput.swift */; };
+		CCE8C9661C561C780041801D /* FirstViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9461C561C780041801D /* FirstViewOutput.swift */; };
 		CCE8C9671C561C780041801D /* FirstPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9471C561C780041801D /* FirstPresenter.swift */; };
 		CCE8C9681C561C780041801D /* FirstRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9481C561C780041801D /* FirstRouter.swift */; };
 		CCE8C9691C561C780041801D /* FirstRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9491C561C780041801D /* FirstRouterImpl.swift */; };
@@ -47,8 +45,6 @@
 		CCE8C9711C561C780041801D /* SecondInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9521C561C780041801D /* SecondInteractor.swift */; };
 		CCE8C9721C561C780041801D /* SecondInteractorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9531C561C780041801D /* SecondInteractorImpl.swift */; };
 		CCE8C9731C561C780041801D /* SecondInteractorOuput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9541C561C780041801D /* SecondInteractorOuput.swift */; };
-		CCE8C9741C561C780041801D /* SecondModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9551C561C780041801D /* SecondModuleInput.swift */; };
-		CCE8C9751C561C780041801D /* SecondModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9561C561C780041801D /* SecondModuleOutput.swift */; };
 		CCE8C9761C561C780041801D /* SecondPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9571C561C780041801D /* SecondPresenter.swift */; };
 		CCE8C9771C561C780041801D /* SecondRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9581C561C780041801D /* SecondRouter.swift */; };
 		CCE8C9781C561C780041801D /* SecondRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9591C561C780041801D /* SecondRouterImpl.swift */; };
@@ -160,9 +156,7 @@
 		CCE8C9411C561C780041801D /* FirstInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstInteractor.swift; sourceTree = "<group>"; };
 		CCE8C9421C561C780041801D /* FirstInteractorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstInteractorImpl.swift; sourceTree = "<group>"; };
 		CCE8C9431C561C780041801D /* FirstInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstInteractorOutput.swift; sourceTree = "<group>"; };
-		CCE8C9441C561C780041801D /* FirstModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstModuleInput.swift; sourceTree = "<group>"; };
-		CCE8C9451C561C780041801D /* FirstModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstModuleOutput.swift; sourceTree = "<group>"; };
-		CCE8C9461C561C780041801D /* FirstOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstOutput.swift; sourceTree = "<group>"; };
+		CCE8C9461C561C780041801D /* FirstViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewOutput.swift; sourceTree = "<group>"; };
 		CCE8C9471C561C780041801D /* FirstPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstPresenter.swift; sourceTree = "<group>"; };
 		CCE8C9481C561C780041801D /* FirstRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRouter.swift; sourceTree = "<group>"; };
 		CCE8C9491C561C780041801D /* FirstRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRouterImpl.swift; sourceTree = "<group>"; };
@@ -175,8 +169,6 @@
 		CCE8C9521C561C780041801D /* SecondInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondInteractor.swift; sourceTree = "<group>"; };
 		CCE8C9531C561C780041801D /* SecondInteractorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondInteractorImpl.swift; sourceTree = "<group>"; };
 		CCE8C9541C561C780041801D /* SecondInteractorOuput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondInteractorOuput.swift; sourceTree = "<group>"; };
-		CCE8C9551C561C780041801D /* SecondModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModuleInput.swift; sourceTree = "<group>"; };
-		CCE8C9561C561C780041801D /* SecondModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondModuleOutput.swift; sourceTree = "<group>"; };
 		CCE8C9571C561C780041801D /* SecondPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondPresenter.swift; sourceTree = "<group>"; };
 		CCE8C9581C561C780041801D /* SecondRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouter.swift; sourceTree = "<group>"; };
 		CCE8C9591C561C780041801D /* SecondRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondRouterImpl.swift; sourceTree = "<group>"; };
@@ -349,16 +341,14 @@
 				CCE8C9411C561C780041801D /* FirstInteractor.swift */,
 				CCE8C9421C561C780041801D /* FirstInteractorImpl.swift */,
 				CCE8C9431C561C780041801D /* FirstInteractorOutput.swift */,
-				CCE8C9441C561C780041801D /* FirstModuleInput.swift */,
-				CCE8C9451C561C780041801D /* FirstModuleOutput.swift */,
-				CCE8C9461C561C780041801D /* FirstOutput.swift */,
 				CCE8C9471C561C780041801D /* FirstPresenter.swift */,
 				CCE8C9481C561C780041801D /* FirstRouter.swift */,
-				CCE8C9491C561C780041801D /* FirstRouterImpl.swift */,
 				CCE8C94A1C561C780041801D /* FirstRouterImpl_iPad.swift */,
 				CCE8C94B1C561C780041801D /* FirstRouterImpl_iPadMasterDetail.swift */,
+				CCE8C9491C561C780041801D /* FirstRouterImpl.swift */,
 				CCE8C94D1C561C780041801D /* FirstViewController.swift */,
 				CCE8C94E1C561C780041801D /* FirstViewInput.swift */,
+				CCE8C9461C561C780041801D /* FirstViewOutput.swift */,
 			);
 			path = FirstModule;
 			sourceTree = "<group>";
@@ -371,8 +361,6 @@
 				CCE8C9521C561C780041801D /* SecondInteractor.swift */,
 				CCE8C9531C561C780041801D /* SecondInteractorImpl.swift */,
 				CCE8C9541C561C780041801D /* SecondInteractorOuput.swift */,
-				CCE8C9551C561C780041801D /* SecondModuleInput.swift */,
-				CCE8C9561C561C780041801D /* SecondModuleOutput.swift */,
 				CCE8C9571C561C780041801D /* SecondPresenter.swift */,
 				CCE8C9581C561C780041801D /* SecondRouter.swift */,
 				CCE8C9591C561C780041801D /* SecondRouterImpl.swift */,
@@ -636,7 +624,7 @@
 				CCE8C9781C561C780041801D /* SecondRouterImpl.swift in Sources */,
 				CCE8C97D1C561C780041801D /* SecondViewOutput.swift in Sources */,
 				CCEAF0C61C689C3E00D00583 /* TransitionContextsStackImpl.swift in Sources */,
-				CCE8C9661C561C780041801D /* FirstOutput.swift in Sources */,
+				CCE8C9661C561C780041801D /* FirstViewOutput.swift in Sources */,
 				CCEAF0C11C689C3E00D00583 /* TransitionContextsStackClient.swift in Sources */,
 				CCEAF09E1C689C3E00D00583 /* RouterIdentifiable.swift in Sources */,
 				CCEAF0C51C689C3E00D00583 /* TransitionContextsStackClientProviderStorer.swift in Sources */,
@@ -646,7 +634,6 @@
 				CCEAF0A81C689C3E00D00583 /* NavigationTransitionsAnimatorImpl.swift in Sources */,
 				CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */,
 				CCEAF0AB1C689C3E00D00583 /* PopoverAnimationContextCreator.swift in Sources */,
-				CCE8C9641C561C780041801D /* FirstModuleInput.swift in Sources */,
 				CCEAF0B01C689C3E00D00583 /* TransitionAnimationContext.swift in Sources */,
 				CCEAF0A71C689C3E00D00583 /* NavigationAnimationStyle.swift in Sources */,
 				CCE8C96B1C561C780041801D /* FirstRouterImpl_iPadMasterDetail.swift in Sources */,
@@ -672,7 +659,6 @@
 				CCEAF0961C689C3E00D00583 /* BaseRouterImpl.swift in Sources */,
 				CCE8C9711C561C780041801D /* SecondInteractor.swift in Sources */,
 				CCEAF0A01C689C3E00D00583 /* RouterTransitionable.swift in Sources */,
-				CCE8C9751C561C780041801D /* SecondModuleOutput.swift in Sources */,
 				CCEAF09C1C689C3E00D00583 /* RouterDismisable.swift in Sources */,
 				CCEAF0AC1C689C3E00D00583 /* PopoverAnimationSourceParameters.swift in Sources */,
 				CCEAF09D1C689C3E00D00583 /* RouterFocusable.swift in Sources */,
@@ -692,7 +678,6 @@
 				CCEAF0A51C689C3E00D00583 /* NavigationAnimationContextCreator.swift in Sources */,
 				CCE8C9631C561C780041801D /* FirstInteractorOutput.swift in Sources */,
 				CCEAF0C01C689C3E00D00583 /* TransitionContextsStack.swift in Sources */,
-				CCE8C9741C561C780041801D /* SecondModuleInput.swift in Sources */,
 				CCB348D51C5BAA83005BD40F /* ApplicationAssembly.swift in Sources */,
 				CCE5F25D1C6A1FEE001067FF /* PopoverTransitionsAnimator.swift in Sources */,
 				CCE8C9761C561C780041801D /* SecondPresenter.swift in Sources */,
@@ -735,7 +720,6 @@
 				CCE12F2E1C50F02A00909924 /* AssemblyFactory.swift in Sources */,
 				CCE8C97B1C561C780041801D /* SecondViewImpl.swift in Sources */,
 				CCB348DB1C5BAA83005BD40F /* ApplicationRouter.swift in Sources */,
-				CCE8C9651C561C780041801D /* FirstModuleOutput.swift in Sources */,
 				CCEAF0A31C689C3E00D00583 /* TabBarTransitionsHandlerImpl.swift in Sources */,
 				CCE8C9CE1C563A610041801D /* AuthorizationInteractorImpl.swift in Sources */,
 				CCEAF0B21C689C3E00D00583 /* TransitionAnimationLaunchingContextConverter.swift in Sources */,

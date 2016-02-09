@@ -139,7 +139,7 @@ private extension ApplicationAssemblyImpl {
                 dismissable: false,
                 withTimer: true,
                 transitionsCoordinator: sharedTransitionsCoordinator,
-                transitionIdGenerator: sharedTransitionIdGenerator).viewController
+                transitionIdGenerator: sharedTransitionIdGenerator)
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: firstViewController,
@@ -173,7 +173,7 @@ private extension ApplicationAssemblyImpl {
                 transitionId: sharedTransitionId,
                 presentingTransitionsHandler: nil,
                 transitionsCoordinator: sharedTransitionsCoordinator,
-                transitionIdGenerator: sharedTransitionIdGenerator).viewController
+                transitionIdGenerator: sharedTransitionIdGenerator)
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: secondViewController,
@@ -286,7 +286,7 @@ private extension ApplicationAssemblyImpl {
                     dismissable: false,
                     withTimer: true,
                     transitionsCoordinator: sharedTransitionsCoordinator,
-                    transitionIdGenerator: sharedTransitionIdGenerator).viewController
+                    transitionIdGenerator: sharedTransitionIdGenerator)
                 
                 let resetMasterContext = ForwardTransitionContext(
                     resetingWithViewController: masterViewController,
@@ -337,7 +337,7 @@ private extension ApplicationAssemblyImpl {
                 transitionId: sharedTransitionId,
                 presentingTransitionsHandler: nil,
                 transitionsCoordinator: sharedTransitionsCoordinator,
-                transitionIdGenerator: sharedTransitionIdGenerator).viewController
+                transitionIdGenerator: sharedTransitionIdGenerator)
             
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: second,

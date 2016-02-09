@@ -24,7 +24,7 @@ extension  SecondRouterImpl_iPad: SecondRouter {
                         dismissable: true,
                         withTimer: true,
                         transitionsCoordinator: transitionsCoordinator,
-                        transitionIdGenerator: transitionIdGenerator).viewController
+                        transitionIdGenerator: transitionIdGenerator)
                 return viewController
         })
     }
@@ -45,7 +45,7 @@ extension  SecondRouterImpl_iPad: SecondRouter {
                         transitionId: transitionId,
                         presentingTransitionsHandler: self.transitionsHandler,
                         transitionsCoordinator: transitionsCoordinator,
-                        transitionIdGenerator: transitionIdGenerator).viewController
+                        transitionIdGenerator: transitionIdGenerator)
                 return viewController
         })
     }

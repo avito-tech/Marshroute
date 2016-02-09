@@ -46,6 +46,9 @@ struct CompletedTransitionContext {
         self.animationLaunchingContext = context.animationLaunchingContext
     }
     
+    /// Все важные ссылки хранятся слабо, чтобы не нарушать UIKit'овый цикл управления памятью.
+    /// т.е. чтобы спокойно пользоваться кнопкой `< Back`, например, и targetViewController освободится.
+    /// запись об таком переходе очищается лениво
     var isZombie: Bool {
         return targetViewController == nil
     }

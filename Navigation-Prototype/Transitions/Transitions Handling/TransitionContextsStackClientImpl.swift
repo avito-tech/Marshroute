@@ -6,6 +6,7 @@ final class TransitionContextsStackClientImpl {
     }
 }
 
+// MARK: - TransitionContextsStackClient
 extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
     func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?

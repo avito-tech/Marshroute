@@ -1,6 +1,8 @@
 import UIKit
 
 protocol Router: class {
+    //MARK: navigation
+    
     func pushViewControllerDerivedFrom(
         @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     
@@ -37,6 +39,8 @@ protocol Router: class {
         animator: TransitionsAnimator,
         navigationController: UINavigationController)
 
+    //MARK: popover
+    
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
@@ -77,6 +81,8 @@ protocol Router: class {
 
 // MARK: - Router Default Impl
 extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionsGeneratorStorer, Self: TransitionsCoordinatorStorer {
+    //MARK: navigation
+    
     func pushViewControllerDerivedFrom(
         @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
     {
@@ -258,6 +264,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
 
         transitionsHandler.performTransition(context: modalContext)
     }
+    
+    //MARK: popover
     
     func presentPopoverFromRect(
         rect: CGRect,

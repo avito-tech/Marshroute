@@ -129,15 +129,15 @@ class TransitionContextsStackClientTests: XCTestCase {
 
     func testCallingAppendOnStackSpy_AfterCallingAppendOnStackClient_WithGoodParameters() {
         guard let __stackImplSpy = __stackImplSpy
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let __stackClientImpl = __stackClientImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
 
         XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
         XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
@@ -171,15 +171,15 @@ class TransitionContextsStackClientTests: XCTestCase {
     
     func testCallingAppendOnStackSpy_AfterCallingAppendOnStackClient_WithBadParameters() {
         guard let __stackImplSpy = __stackImplSpy
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let __stackClientImpl = __stackClientImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
         XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
@@ -213,15 +213,15 @@ class TransitionContextsStackClientTests: XCTestCase {
     
     func testCallingAppendOnStackSpy_AfterCallingAppendOnStackClient_WithGoodAndBadParameters() {
         guard let __stackImplSpy = __stackImplSpy
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let __stackClientImpl = __stackClientImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
         XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])

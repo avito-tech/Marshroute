@@ -73,9 +73,9 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
 
         subtest_StackToBeEmptyAtStart(__stackImpl)
 
@@ -98,9 +98,9 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingNotZombie() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         subtest_StackToBeEmptyAtStart(__stackImpl)
         
@@ -126,11 +126,11 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie_AddingNotZombie() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         subtest_StackToBeEmptyAtStart(__stackImpl)
         
@@ -149,11 +149,11 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie_AddingNotZombie_PoppingNotZombie() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         subtest_StackToBeEmptyAtStart(__stackImpl)
         
@@ -192,13 +192,13 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie_AddingNotZombie_AddingNotZombie2() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         subtest_StackToBeEmptyAtStart(__stackImpl)
         
@@ -243,13 +243,13 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique1() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         subtest_StackToBeEmptyAtStart(__stackImpl)
         
@@ -300,13 +300,13 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique2() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         subtest_StackToBeEmptyAtStart(__stackImpl)
         
@@ -359,13 +359,13 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique1_PoppingNotZombie1ViaTechnique1() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
 
         subtest_StackToBeEmptyAtStart(__stackImpl)
         
@@ -407,13 +407,13 @@ class TransitionContextsStackTests: XCTestCase {
     
     func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique2_PoppingNotZombie1ViaTechnique1() {
         guard let __stackImpl = __stackImpl
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
-            else { XCTAssert(false); return }
+            else { XCTFail(); return }
         
         subtest_StackToBeEmptyAtStart(__stackImpl)
         

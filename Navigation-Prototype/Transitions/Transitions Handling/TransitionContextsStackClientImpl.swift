@@ -111,12 +111,14 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
     {
+        guard let first = stack.first where first.wasPerfromedByTransitionsHandler(transitionsHandler)
+            else { return }
+        
         var lastPopped = stack.popTo(transitionId: transitionId)?.first
         
         if includingTransitionWithId {
             lastPopped = stack.popLast()
         }
-        assert(lastPopped == nil || lastPopped!.wasPerfromedByTransitionsHandler(transitionsHandler))
     }
     
     func appendTransition(

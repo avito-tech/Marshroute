@@ -1,17 +1,13 @@
 import UIKit
 
-///Стили переходов
-enum TransitionStyle {
-    case Modal
-    
-    case Push
-    
+/// Стили переходов с участием UIPopoverController
+enum PopoverTransitionStyle {
     case PopoverFromView(
         sourceView: UIView,
         sourceRect: CGRect
     )
     
-    case PopoverFromButtonItem(
+    case PopoverFromBarButtonItem(
         buttonItem: UIBarButtonItem
     )
 }

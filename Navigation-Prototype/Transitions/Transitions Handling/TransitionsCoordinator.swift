@@ -25,8 +25,8 @@ protocol TransitionsCoordinator: class {
 
 // MARK: - TransitionsCoordinator Default Impl
 extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderStorer {
-    typealias AnimatingTransitionsHandler = protocol<TransitionsHandler, TransitionsAnimatorClient>
-    
+    typealias AnimatingTransitionsHandler = TransitionsHandlerAnimator
+
     func coordinatePerformingTransition(
         context context: ForwardTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
@@ -341,7 +341,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         var result: [TransitionsHandler]? = nil
         
         // поиск проводится только для контейнеров-обработчиков
-        if let transitionsHandler = transitionsHandler as? TransitionsHandlersContainer {
+        if let transitionsHandler = transitionsHandler as? TransitionsHandlerContainer {
             let nextTransitionsHandlers = (amongVisibleChildTransitionHandlers)
                     // при perform, reset прокидываем только видимым обработчикам
                 ? transitionsHandler.visibleTransitionsHandlers

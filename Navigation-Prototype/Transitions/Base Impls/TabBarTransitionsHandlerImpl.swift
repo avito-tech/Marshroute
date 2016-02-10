@@ -2,6 +2,7 @@ import UIKit
 
 final class TabBarTransitionsHandlerImpl {
     private weak var tabBarController: UITabBarController?
+
     let transitionsCoordinator: TransitionsCoordinator
     
     init(tabBarController: UITabBarController,
@@ -26,8 +27,8 @@ extension TabBarTransitionsHandlerImpl: TransitionsHandler { }
 //MARK: - TransitionsCoordinatorStorer
 extension TabBarTransitionsHandlerImpl: TransitionsCoordinatorStorer {}
 
-//MARK: - TransitionsHandlersContainer
-extension TabBarTransitionsHandlerImpl: TransitionsHandlersContainer {
+//MARK: - TransitionsHandlerContainer
+extension TabBarTransitionsHandlerImpl: TransitionsHandlerContainer {
     var allTransitionsHandlers: [TransitionsHandler]? {
         return tabTransitionsHandlers
     }

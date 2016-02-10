@@ -21,12 +21,13 @@ struct ForwardTransitionContext {
     /// параметры запуска анимации перехода
     let animationLaunchingContext: TransitionAnimationLaunchingContext
     
-
+    // MARK: - Navigation
+    
     /// Контекст описывает первоначальную настройку (или обновление) обработчика переходов, т.е
     /// проставление корневого контроллера в UINavigationController
     init(resetingWithViewController initialViewController: UIViewController,
         transitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: BaseNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -35,18 +36,18 @@ struct ForwardTransitionContext {
         
         self.storableParameters = nil
         
-        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+        let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Push,
-            animator: animator,
-            animationSourceParameters: nil,
-            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
-        )
+            animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
+            animator: animator)
+        
+        self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
     
     /// Контекст описывает последовательный переход внутри UINavigationController'а текущего модуля
     init(pushingViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: BaseNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -55,19 +56,19 @@ struct ForwardTransitionContext {
        
         self.storableParameters = nil
         
-        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+        let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Push,
-            animator: animator,
-            animationSourceParameters: nil,
-            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
-        )
+            animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
+            animator: animator)
+        
+        self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
     
     /// Контекст описывает переход на модальный контроллер, который нельзя! положить в UINavigationController:
     /// UISplitViewController, UITabBarViewController
     init(presentingModalMasterDetailViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: BaseNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -78,19 +79,19 @@ struct ForwardTransitionContext {
             presentedTransitionsHandler: targetTransitionsHandler
         )
         
-        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+        let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Modal,
-            animator: animator,
-            animationSourceParameters: nil,
-            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
-        )
+            animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
+            animator: animator)
+        
+        self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
     
     /// Контекст описывает переход на модальный контроллер, который положен в UINavigationController
     init(presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: BaseNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         assert(
@@ -106,13 +107,15 @@ struct ForwardTransitionContext {
             presentedTransitionsHandler: targetTransitionsHandler
         )
         
-        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+        let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Modal,
-            animator: animator,
-            animationSourceParameters: nil,
-            animationTargetParameters: TransitionAnimationTargetParameters(viewController: navigationController)
-        )
+            animationTargetParameters: NavigationAnimationTargetParameters(viewController: navigationController),
+            animator: animator)
+        
+        self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
+    
+    // MARK: - Popover
     
     /// Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
     init(presentingViewController targetViewController: UIViewController,
@@ -121,7 +124,7 @@ struct ForwardTransitionContext {
         fromRect rect: CGRect,
         inView view: UIView,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: BasePopoverTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.targetViewController = targetViewController
@@ -133,12 +136,13 @@ struct ForwardTransitionContext {
             presentedTransitionsHandler: targetTransitionsHandler
         )
         
-        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
+        let popoverAnimationLaunchingContext = PopoverAnimationLaunchingContext(
             transitionStyle: .PopoverFromView(sourceView: view, sourceRect: rect),
-            animator: animator,
             animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
-            animationTargetParameters: TransitionAnimationTargetParameters(viewController: navigationController)
-        )
+            animationTargetParameters: PopoverAnimationTargetParameters(viewController: targetViewController),
+            animator: animator)
+        
+        self.animationLaunchingContext = .Popover(launchingContext: popoverAnimationLaunchingContext)
     }
     
     /// Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
@@ -147,7 +151,7 @@ struct ForwardTransitionContext {
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
         targetTransitionsHandler: TransitionsHandler,
-        animator: TransitionsAnimator,
+        animator: BasePopoverTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -159,13 +163,16 @@ struct ForwardTransitionContext {
             presentedTransitionsHandler: targetTransitionsHandler
         )
         
-        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: .PopoverFromButtonItem(buttonItem: buttonItem),
-            animator: animator,
+        let popoverAnimationLaunchingContext = PopoverAnimationLaunchingContext(
+            transitionStyle: .PopoverFromBarButtonItem(buttonItem: buttonItem),
             animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
-            animationTargetParameters: TransitionAnimationTargetParameters(viewController: targetViewController)
-        )
+            animationTargetParameters: PopoverAnimationTargetParameters(viewController: targetViewController),            
+            animator: animator)
+        
+        self.animationLaunchingContext = .Popover(launchingContext: popoverAnimationLaunchingContext)
     }
+    
+    // MARK: - Convenience
     
     /// Контекст с обновленным обработчиком переходов
     init(context: ForwardTransitionContext, changingTargetTransitionsHandler transitionsHandler: TransitionsHandler) {

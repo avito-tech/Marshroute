@@ -13,7 +13,6 @@ protocol TransitionsHandler: class {
     /// Вызывается роутером, чтобы скрыть всю последовательность дочерних модулей,
     /// но текущий модуль оставить нетронутым
     func undoAllChainedTransitions()
-    
 
     /// Вызывается роутером, чтобы скрыть всю последовательность дочерних модулей
     /// и отменить все переходы внутри модуля (аналог popToRootViewController).
@@ -31,7 +30,7 @@ protocol TransitionsHandler: class {
 }
 
 // MARK: - TransitionsHandler Default Impl 1 (for containers: i.e. split or tabbar transitions handlers)
-extension TransitionsHandler where Self: TransitionsCoordinatorStorer, Self: TransitionsHandlersContainer {
+extension TransitionsHandler where Self: TransitionsHandlerContainer, Self: TransitionsCoordinatorStorer {
     func performTransition(context context: ForwardTransitionContext) {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forTransitionsHandler: self)
     }
@@ -45,20 +44,20 @@ extension TransitionsHandler where Self: TransitionsCoordinatorStorer, Self: Tra
     }
     
     func undoAllChainedTransitions() {
-        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только анимирующему обработчику")
+        assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
     func undoAllTransitions() {
-        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только анимирующему обработчику")
+        assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
     func resetWithTransition(context context: ForwardTransitionContext) {
-        assert(false, "такой метод нельзя послать контейнеру обработчиков переходов. только анимирующему обработчику")
+        assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
 }
 
 // MARK: - TransitionsHandler Default Impl 2 (for not containers: i.e. navigation transitions handlers)
-extension TransitionsHandler where Self: TransitionsCoordinatorStorer, Self: TransitionsAnimatorClient {
+extension TransitionsHandler where Self: TransitionsCoordinatorStorer, Self: TransitionAnimationsLauncher {
     func performTransition(context context: ForwardTransitionContext) {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forTransitionsHandler: self)
     }

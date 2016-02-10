@@ -6,7 +6,7 @@ protocol DetailRouter: class {
     
     func setDetailViewControllerDerivedFrom(
         @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: TransitionsAnimator)
+        animator: BaseNavigationTransitionsAnimator)
 }
 
 // MARK: - DetailRouter Default Impl
@@ -16,13 +16,13 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     {
         setDetailViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimatorImpl()
+            animator: NavigationTransitionsAnimator()
         )
     }
     
     func setDetailViewControllerDerivedFrom(
         @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: TransitionsAnimator)
+        animator: BaseNavigationTransitionsAnimator)
     {
         guard let detailTransitionsHandler = detailTransitionsHandler
             else { assert(false); return }        

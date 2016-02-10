@@ -53,11 +53,10 @@ struct RestoredTransitionContext {
         
         self.storableParameters = context.storableParameters
         
+        // обновляем информацию о конечной точке анимации
         self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            transitionStyle: context.animationLaunchingContext.transitionStyle,
-            animator: context.animationLaunchingContext.animator,
-            animationSourceParameters: context.animationLaunchingContext.animationSourceParameters,
-            animationTargetParameters: TransitionAnimationTargetParameters(viewController: sourceViewController)
+            context: context.animationLaunchingContext,
+            targetViewController: sourceViewController
         )
     }
 }

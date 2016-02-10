@@ -2,13 +2,14 @@ import UIKit
 
 final class SplitViewTransitionsHandlerImpl {
     private weak var splitViewController: UISplitViewController?
-    private let transitionsCoordinatorPrivate: TransitionsCoordinator
+   
+    let transitionsCoordinator: TransitionsCoordinator
     
     init(splitViewController: UISplitViewController,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.splitViewController = splitViewController
-        self.transitionsCoordinatorPrivate = transitionsCoordinator
+        self.transitionsCoordinator = transitionsCoordinator
     }
     
     var masterTransitionsHandler: TransitionsHandler?
@@ -19,14 +20,10 @@ final class SplitViewTransitionsHandlerImpl {
 extension SplitViewTransitionsHandlerImpl: TransitionsHandler { }
 
 //MARK: - TransitionsCoordinatorStorer
-extension SplitViewTransitionsHandlerImpl: TransitionsCoordinatorStorer {
-    var transitionsCoordinator: TransitionsCoordinator {
-        return transitionsCoordinatorPrivate
-    }
-}
+extension SplitViewTransitionsHandlerImpl: TransitionsCoordinatorStorer {}
 
-//MARK: - TransitionsHandlersContainer
-extension SplitViewTransitionsHandlerImpl: TransitionsHandlersContainer {
+//MARK: - TransitionsHandlerContainer
+extension SplitViewTransitionsHandlerImpl: TransitionsHandlerContainer {
     var allTransitionsHandlers: [TransitionsHandler]? {
         return transitionsHandlers
     }

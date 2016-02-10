@@ -1,17 +1,16 @@
 import Foundation
 
-final class PopoverTransitionsAnimatorImpl {}
-
-// MARK: - PopoverTransitionsAnimator
-extension PopoverTransitionsAnimatorImpl: PopoverTransitionsAnimator {
-    func animatePerformingPopoverTransition(animationContext context: PopoverAnimationContext) {
+final class PopoverTransitionsAnimator: BasePopoverTransitionsAnimator {
+    override func animatePerformingTransition(animationContext context: PopoverAnimationContext)
+    {
         switch context.animationStyle {
-        case .PresentFromBarButtonItem(let buttonItem):
+        case .PopoverFromBarButtonItem(let buttonItem):
             context.popoverController.presentPopoverFromBarButtonItem(
                 buttonItem,
                 permittedArrowDirections: .Any,
                 animated: true)
-        case .PresentFromView(let sourceView, let sourceRect):
+            
+        case .PopoverFromView(let sourceView, let sourceRect):
             context.popoverController.presentPopoverFromRect(
                 sourceRect,
                 inView: sourceView,
@@ -25,14 +24,8 @@ extension PopoverTransitionsAnimatorImpl: PopoverTransitionsAnimator {
         })
     }
     
-    func animateUndoingPopoverTransition(animationContext context: PopoverAnimationContext) {
+    override func animateUndoingTransition(animationContext context: PopoverAnimationContext)
+    {
         context.popoverController.dismissPopoverAnimated(true)
     }
-    
-    func animateResettingWithPopoverTransition(animationContext context: PopoverAnimationContext) {
-        assert(false, "must not be called")
-    }
 }
-
-// MARK: - TransitionsAnimator
-extension PopoverTransitionsAnimatorImpl: TransitionsAnimator {}

@@ -1,5 +1,4 @@
-/// Запуск анимирования переходов
-protocol TransitionsAnimatorClient: class {
+protocol TransitionAnimationsLauncher: class {
     func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)

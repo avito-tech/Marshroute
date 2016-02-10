@@ -1,6 +1,6 @@
 import UIKit
 
-final class SecondRouterImpl_iPad: BaseRouterImpl {
+final class SecondRouterImpl_iPad: BaseRouter {
     
 }
 

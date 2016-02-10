@@ -1,6 +1,6 @@
 import UIKit
 
-final class ApplicationRouterImpl: BaseRouterImpl {
+final class ApplicationRouterImpl: BaseRouter {
     
 }
 

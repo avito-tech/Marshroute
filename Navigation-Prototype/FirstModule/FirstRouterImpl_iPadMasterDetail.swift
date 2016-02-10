@@ -1,6 +1,6 @@
 import UIKit
 
-final class FirstRouterImpl_iPadMasterDetail: BaseMasterDetailRouterImpl {}
+final class FirstRouterImpl_iPadMasterDetail: BaseMasterDetailRouter {}
 
 extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {

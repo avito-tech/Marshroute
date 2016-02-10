@@ -1,6 +1,6 @@
 import UIKit
 
-final class FirstRouterImpl_iPad: BaseRouterImpl {}
+final class FirstRouterImpl_iPad: BaseRouter {}
 
 extension FirstRouterImpl_iPad: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {

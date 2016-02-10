@@ -1,7 +1,7 @@
 import Foundation
 
 /// Обычный роутер, работающий только одним обработчиком переходов
-class BaseRouterImpl {
+class BaseRouter {
     weak var transitionsHandler: TransitionsHandler?
     let transitionId: TransitionId
     weak var presentingTransitionsHandler: TransitionsHandler?
@@ -24,35 +24,35 @@ class BaseRouterImpl {
 }
 
 // MARK: - RouterIdentifiable
-extension BaseRouterImpl: RouterIdentifiable {}
+extension BaseRouter: RouterIdentifiable {}
 
 // MARK: - RouterPresentable
-extension BaseRouterImpl: RouterPresentable {}
+extension BaseRouter: RouterPresentable {}
 
 // MARK: - MasterRouterTransitionable
-extension BaseRouterImpl: MasterRouterTransitionable {
+extension BaseRouter: MasterRouterTransitionable {
     var masterTransitionsHandler: TransitionsHandler? {
         return transitionsHandler
     }
 }
 
 // MARK: - RouterTransitionable
-extension BaseRouterImpl: RouterTransitionable {}
+extension BaseRouter: RouterTransitionable {}
 
 // MARK: - TransitionsCoordinatorStorer
-extension BaseRouterImpl: TransitionsCoordinatorStorer {}
+extension BaseRouter: TransitionsCoordinatorStorer {}
 
 // MARK: - TransitionsGeneratorStorer
-extension BaseRouterImpl: TransitionsGeneratorStorer {}
+extension BaseRouter: TransitionsGeneratorStorer {}
 
 // MARK: - MasterRouter
-extension BaseRouterImpl: MasterRouter {}
+extension BaseRouter: MasterRouter {}
 
 // MARK: - Router
-extension BaseRouterImpl: Router {}
+extension BaseRouter: Router {}
 
 // MARK: - RouterFocusable
-extension BaseRouterImpl: RouterFocusable {}
+extension BaseRouter: RouterFocusable {}
 
 // MARK: - RouterDismisable
-extension BaseRouterImpl: RouterDismisable {}
+extension BaseRouter: RouterDismisable {}

@@ -2,7 +2,7 @@ import Foundation
 
 /// Роутер для master контроллера внутри SplitViewController'а
 /// Работаюет с двумя обработчиками переходов (master и detail)
-class BaseMasterDetailRouterImpl {
+class BaseMasterDetailRouter {
     weak var masterTransitionsHandler: TransitionsHandler?
     weak var detailTransitionsHandler: TransitionsHandler?
     let transitionId: TransitionId
@@ -28,41 +28,41 @@ class BaseMasterDetailRouterImpl {
 }
 
 // MARK: - RouterIdentifiable
-extension BaseMasterDetailRouterImpl: RouterIdentifiable {}
+extension BaseMasterDetailRouter: RouterIdentifiable {}
 
 // MARK: - RouterPresentable
-extension BaseMasterDetailRouterImpl: RouterPresentable {}
+extension BaseMasterDetailRouter: RouterPresentable {}
 
 // MARK: - MasterRouterTransitionable
-extension BaseMasterDetailRouterImpl: MasterRouterTransitionable {}
+extension BaseMasterDetailRouter: MasterRouterTransitionable {}
 
 // MARK: - DetailRouterTransitionable
-extension BaseMasterDetailRouterImpl: DetailRouterTransitionable {
+extension BaseMasterDetailRouter: DetailRouterTransitionable {
     weak var transitionsHandler: TransitionsHandler? {
         return masterTransitionsHandler
     }
 }
 
 // MARK: - RouterTransitionable
-extension BaseMasterDetailRouterImpl: RouterTransitionable {}
+extension BaseMasterDetailRouter: RouterTransitionable {}
 
 // MARK: - TransitionsCoordinatorStorer
-extension BaseMasterDetailRouterImpl: TransitionsCoordinatorStorer {}
+extension BaseMasterDetailRouter: TransitionsCoordinatorStorer {}
 
 // MARK: - TransitionsGeneratorStorer
-extension BaseMasterDetailRouterImpl: TransitionsGeneratorStorer {}
+extension BaseMasterDetailRouter: TransitionsGeneratorStorer {}
 
 // MARK: - Router
-extension BaseMasterDetailRouterImpl: Router {}
+extension BaseMasterDetailRouter: Router {}
 
 // MARK: - MasterRouter
-extension BaseMasterDetailRouterImpl: MasterRouter {}
+extension BaseMasterDetailRouter: MasterRouter {}
 
 // MARK: - DetailRouter
-extension BaseMasterDetailRouterImpl: DetailRouter {}
+extension BaseMasterDetailRouter: DetailRouter {}
 
 // MARK: - RouterFocusable
-extension BaseMasterDetailRouterImpl: RouterFocusable {}
+extension BaseMasterDetailRouter: RouterFocusable {}
 
 // MARK: - RouterDismisable
-extension BaseMasterDetailRouterImpl: RouterDismisable  {}
+extension BaseMasterDetailRouter: RouterDismisable  {}

@@ -63,7 +63,7 @@
 		CC74723D1C6B5D5D00742F7A /* CustomAnimator1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */; };
 		CC74723E1C6B5D5D00742F7A /* CustomAnimator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */; };
 		CC74723F1C6B5D6000742F7A /* AssemblyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12F2D1C50F02A00909924 /* AssemblyFactory.swift */; };
-		CC7472401C6B5D6300742F7A /* BaseMasterDetailRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouterImpl.swift */; };
+		CC7472401C6B5D6300742F7A /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouter.swift */; };
 		CC7472411C6B5D6300742F7A /* BaseRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0511C689C3D00D00583 /* BaseRouterImpl.swift */; };
 		CC7472421C6B5D6600742F7A /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0531C689C3D00D00583 /* DetailRouter.swift */; };
 		CC7472431C6B5D6600742F7A /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0541C689C3D00D00583 /* DetailRouterTransitionable.swift */; };
@@ -221,7 +221,7 @@
 		CCE8C9D61C563A610041801D /* AuthorizationModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C71C563A610041801D /* AuthorizationModuleInput.swift */; };
 		CCE8C9D71C563A610041801D /* AuthorizationModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C81C563A610041801D /* AuthorizationModuleOutput.swift */; };
 		CCE8C9D81C563A610041801D /* AuthorizationViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9C91C563A610041801D /* AuthorizationViewOutput.swift */; };
-		CCEAF0951C689C3E00D00583 /* BaseMasterDetailRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouterImpl.swift */; };
+		CCEAF0951C689C3E00D00583 /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouter.swift */; };
 		CCEAF0961C689C3E00D00583 /* BaseRouterImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0511C689C3D00D00583 /* BaseRouterImpl.swift */; };
 		CCEAF0971C689C3E00D00583 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0531C689C3D00D00583 /* DetailRouter.swift */; };
 		CCEAF0981C689C3E00D00583 /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEAF0541C689C3D00D00583 /* DetailRouterTransitionable.swift */; };
@@ -353,7 +353,7 @@
 		CCE8C9C71C563A610041801D /* AuthorizationModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleInput.swift; sourceTree = "<group>"; };
 		CCE8C9C81C563A610041801D /* AuthorizationModuleOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleOutput.swift; sourceTree = "<group>"; };
 		CCE8C9C91C563A610041801D /* AuthorizationViewOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewOutput.swift; sourceTree = "<group>"; };
-		CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouterImpl.swift; sourceTree = "<group>"; };
+		CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
 		CCEAF0511C689C3D00D00583 /* BaseRouterImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterImpl.swift; sourceTree = "<group>"; };
 		CCEAF0531C689C3D00D00583 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		CCEAF0541C689C3D00D00583 /* DetailRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTransitionable.swift; sourceTree = "<group>"; };
@@ -658,7 +658,7 @@
 		CCEAF04F1C689C3D00D00583 /* Base Impls */ = {
 			isa = PBXGroup;
 			children = (
-				CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouterImpl.swift */,
+				CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouter.swift */,
 				CCEAF0511C689C3D00D00583 /* BaseRouterImpl.swift */,
 			);
 			path = "Base Impls";
@@ -870,7 +870,7 @@
 				CC7472461C6B5D6600742F7A /* Router.swift in Sources */,
 				CC017E811C6B68CD003FC250 /* AuthorizationRouter.swift in Sources */,
 				CC7472731C6B5D7D00742F7A /* TransitionsHandlerAnimator.swift in Sources */,
-				CC7472401C6B5D6300742F7A /* BaseMasterDetailRouterImpl.swift in Sources */,
+				CC7472401C6B5D6300742F7A /* BaseMasterDetailRouter.swift in Sources */,
 				CC74726E1C6B5D7D00742F7A /* TransitionIdGeneratorStorer.swift in Sources */,
 				CC017E901C6B68D1003FC250 /* SecondRouterImpl_iPad.swift in Sources */,
 				CC74725B1C6B5D7A00742F7A /* PopoverTransitionsAnimator.swift in Sources */,
@@ -969,7 +969,7 @@
 				CCDE6E0E1C6B37FA0038F7AB /* PopoverTransitionsAnimator.swift in Sources */,
 				CCE8C96D1C561C780041801D /* FirstViewController.swift in Sources */,
 				CC74723A1C6B5D5000742F7A /* TabBarTransitionsHandlerImpl.swift in Sources */,
-				CCEAF0951C689C3E00D00583 /* BaseMasterDetailRouterImpl.swift in Sources */,
+				CCEAF0951C689C3E00D00583 /* BaseMasterDetailRouter.swift in Sources */,
 				CCEAF09F1C689C3E00D00583 /* RouterPresentable.swift in Sources */,
 				CCDE6E141C6B37FA0038F7AB /* PopoverTransitionStorableParameters.swift in Sources */,
 				CCE8C9611C561C780041801D /* FirstInteractor.swift in Sources */,

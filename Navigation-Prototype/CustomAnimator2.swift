@@ -9,7 +9,7 @@ final private class NavigationControllerDelegate: NSObject {
 final private class ViewControllerAnimatedTransitioningDelegateImpl: NSObject {}
 
 // MARK: - CustomAnimator2
-class CustomAnimator2: BaseNavigationTransitionsAnimator {
+class CustomAnimator2: NavigationTransitionsAnimator {
     private let navigationControllerDelegate = NavigationControllerDelegate()
     private let viewControllerAnimatedTransitioningDelegate = ViewControllerAnimatedTransitioningDelegateImpl()
     

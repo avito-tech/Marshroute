@@ -7,5 +7,5 @@ struct NavigationAnimationLaunchingContext {
     let animationTargetParameters: NavigationAnimationTargetParameters
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
-    let animator: BaseNavigationTransitionsAnimator
+    let animator: NavigationTransitionsAnimator
 }

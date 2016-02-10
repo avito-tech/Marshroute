@@ -1,4 +1,4 @@
-class CustomAnimator1: BaseNavigationTransitionsAnimator {
+class CustomAnimator1: NavigationTransitionsAnimator {
     override func animatePerformingTransition(animationContext context: NavigationAnimationContext)
     {
         switch context.transitionStyle {

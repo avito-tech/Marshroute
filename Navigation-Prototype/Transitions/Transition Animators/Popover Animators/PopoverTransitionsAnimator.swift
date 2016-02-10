@@ -1,7 +1,7 @@
 import Foundation
 
-final class PopoverTransitionsAnimator: BasePopoverTransitionsAnimator {
-    override func animatePerformingTransition(animationContext context: PopoverAnimationContext)
+class PopoverTransitionsAnimator: TransitionsAnimator {
+    func animatePerformingTransition(animationContext context: PopoverAnimationContext)
     {
         switch context.transitionStyle {
         case .PopoverFromBarButtonItem(let buttonItem):
@@ -24,8 +24,13 @@ final class PopoverTransitionsAnimator: BasePopoverTransitionsAnimator {
         })
     }
     
-    override func animateUndoingTransition(animationContext context: PopoverAnimationContext)
+    func animateUndoingTransition(animationContext context: PopoverAnimationContext)
     {
         context.popoverController.dismissPopoverAnimated(true)
+    }
+    
+    func animateResettingWithTransition(animationContext context: PopoverAnimationContext)
+    {
+        assert(false, "must not be called")
     }
 }

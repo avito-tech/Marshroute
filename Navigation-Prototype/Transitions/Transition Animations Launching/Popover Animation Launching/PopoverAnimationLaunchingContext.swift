@@ -10,5 +10,5 @@ struct PopoverAnimationLaunchingContext {
     let animationTargetParameters: PopoverAnimationTargetParameters
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
-    let animator: BasePopoverTransitionsAnimator
+    let animator: PopoverTransitionsAnimator
 }

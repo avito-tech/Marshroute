@@ -1,5 +1,6 @@
-final class NavigationTransitionsAnimator: BaseNavigationTransitionsAnimator {
-    override func animatePerformingTransition(animationContext context: NavigationAnimationContext) {
+class NavigationTransitionsAnimator: TransitionsAnimator {
+    func animatePerformingTransition(animationContext context: NavigationAnimationContext)
+    {
         switch context.transitionStyle {
         case .Push:
             context.navigationController.pushViewController(
@@ -14,7 +15,8 @@ final class NavigationTransitionsAnimator: BaseNavigationTransitionsAnimator {
         }
     }
     
-    override func animateUndoingTransition(animationContext context: NavigationAnimationContext) {
+    func animateUndoingTransition(animationContext context: NavigationAnimationContext)
+    {
         switch context.transitionStyle {
         case .Push:
             context.navigationController.popToViewController(context.targetViewController, animated: true)
@@ -23,7 +25,8 @@ final class NavigationTransitionsAnimator: BaseNavigationTransitionsAnimator {
         }
     }
     
-    override func animateResettingWithTransition(animationContext context: NavigationAnimationContext) {
+    func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
+    {
         switch context.transitionStyle {
         case .Push:
             context.navigationController.setViewControllers([context.targetViewController], animated: true)

@@ -27,7 +27,7 @@ struct ForwardTransitionContext {
     /// проставление корневого контроллера в UINavigationController
     init(resetingWithViewController initialViewController: UIViewController,
         transitionsHandler: TransitionsHandler,
-        animator: BaseNavigationTransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -47,7 +47,7 @@ struct ForwardTransitionContext {
     /// Контекст описывает последовательный переход внутри UINavigationController'а текущего модуля
     init(pushingViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: BaseNavigationTransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -68,7 +68,7 @@ struct ForwardTransitionContext {
     /// UISplitViewController, UITabBarViewController
     init(presentingModalMasterDetailViewController targetViewController: UIViewController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: BaseNavigationTransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -91,7 +91,7 @@ struct ForwardTransitionContext {
     init(presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         targetTransitionsHandler: TransitionsHandler,
-        animator: BaseNavigationTransitionsAnimator,
+        animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         assert(
@@ -124,7 +124,7 @@ struct ForwardTransitionContext {
         fromRect rect: CGRect,
         inView view: UIView,
         targetTransitionsHandler: TransitionsHandler,
-        animator: BasePopoverTransitionsAnimator,
+        animator: PopoverTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.targetViewController = targetViewController
@@ -151,7 +151,7 @@ struct ForwardTransitionContext {
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
         targetTransitionsHandler: TransitionsHandler,
-        animator: BasePopoverTransitionsAnimator,
+        animator: PopoverTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId

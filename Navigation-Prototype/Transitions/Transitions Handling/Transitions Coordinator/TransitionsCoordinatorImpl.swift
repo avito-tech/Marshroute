@@ -7,8 +7,8 @@ final class TransitionsCoordinatorImpl {
     }
 }
 
-// MARK: - TransitionContextsStackClientProviderStorer
-extension TransitionsCoordinatorImpl: TransitionContextsStackClientProviderStorer {
+// MARK: - TransitionContextsStackClientProviderHolder
+extension TransitionsCoordinatorImpl: TransitionContextsStackClientProviderHolder {
     var stackClientProvider: TransitionContextsStackClientProvider {
         return stackClientProviderPrivate
     }

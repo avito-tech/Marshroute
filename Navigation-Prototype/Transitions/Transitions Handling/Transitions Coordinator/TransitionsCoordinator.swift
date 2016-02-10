@@ -24,7 +24,7 @@ protocol TransitionsCoordinator: class {
 }
 
 // MARK: - TransitionsCoordinator Default Impl
-extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderStorer {
+extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     typealias AnimatingTransitionsHandler = TransitionsHandlerAnimator
 
     func coordinatePerformingTransition(
@@ -221,7 +221,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
 }
 
 // MARK: - helpers
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderStorer {
+private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     func coordinateUndoingTransitionsImpl(
         afterTransitionId transitionId: TransitionId,
         includingTransitionWithId: Bool,
@@ -329,7 +329,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
 }
 
 // MARK: - fetching data from the history
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderStorer {
+private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     
     /// Поиск вложенных анимирующих обработчиков переходов
     /// (например, для split'а, найдутся его master и detail)
@@ -450,7 +450,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
 }
 
 // MARK: - committing to the history
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderStorer {
+private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     func commitPerformingTransition(
         context context: ForwardTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
@@ -524,7 +524,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
 }
 
 // MARK: - assertions
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderStorer {
+private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     func assertAnimatorClientsOnPerformTransitionOperation(
         animatorClients animatorClients: [TransitionsHandler]?)
     {

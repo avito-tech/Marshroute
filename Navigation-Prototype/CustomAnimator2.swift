@@ -8,18 +8,18 @@ final private class NavigationControllerDelegate: NSObject {
 // MARK: - ViewControllerAnimatedTransitioningDelegateImpl
 final private class ViewControllerAnimatedTransitioningDelegateImpl: NSObject {}
 
-class CustomAnimator2 {
+// MARK: - CustomAnimator2
+class CustomAnimator2: BaseNavigationTransitionsAnimator {
     private let navigationControllerDelegate = NavigationControllerDelegate()
     private let viewControllerAnimatedTransitioningDelegate = ViewControllerAnimatedTransitioningDelegateImpl()
     
-    init() {
+    override init() {
+        super.init()
         navigationControllerDelegate.viewControllerAnimatedTransitioningDelegate = viewControllerAnimatedTransitioningDelegate
     }
-}
-
-// MARK: - NavigationTransitionsAnimator
-extension CustomAnimator2: NavigationTransitionsAnimator {
-    func animatePerformingNavigationTransition(animationContext context: NavigationAnimationContext) {
+    
+    override func animatePerformingTransition(animationContext context: NavigationAnimationContext)
+    {
         switch context.animationStyle {
         case .Push:
             let nvc = context.navigationController
@@ -36,7 +36,8 @@ extension CustomAnimator2: NavigationTransitionsAnimator {
         }
     }
     
-    func animateUndoingNavigationTransition(animationContext context: NavigationAnimationContext) {
+    override func animateUndoingTransition(animationContext context: NavigationAnimationContext)
+    {
         switch context.animationStyle {
         case .Push:
             context.navigationController.popToViewController(context.targetViewController, animated: true)
@@ -45,7 +46,7 @@ extension CustomAnimator2: NavigationTransitionsAnimator {
         }
     }
     
-    func animateResettingWithNavigationTransition(animationContext context: NavigationAnimationContext) {
+    override func animateResettingWithTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.setViewControllers([context.targetViewController], animated: true)

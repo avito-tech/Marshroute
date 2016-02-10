@@ -1,8 +1,5 @@
-class CustomAnimator1 {}
-
-// MARK: - NavigationTransitionsAnimator
-extension CustomAnimator1: NavigationTransitionsAnimator {
-    func animatePerformingNavigationTransition(animationContext context: NavigationAnimationContext)
+class CustomAnimator1: BaseNavigationTransitionsAnimator {
+    override func animatePerformingTransition(animationContext context: NavigationAnimationContext)
     {
         switch context.animationStyle {
         case .Push:
@@ -20,7 +17,7 @@ extension CustomAnimator1: NavigationTransitionsAnimator {
         }
     }
     
-    func animateUndoingNavigationTransition(animationContext context: NavigationAnimationContext)
+    override func animateUndoingTransition(animationContext context: NavigationAnimationContext)
     {
         switch context.animationStyle {
         case .Push:
@@ -30,7 +27,7 @@ extension CustomAnimator1: NavigationTransitionsAnimator {
         }
     }
     
-    func animateResettingWithNavigationTransition(animationContext context: NavigationAnimationContext)
+    override func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
     {
         switch context.animationStyle {
         case .Push:

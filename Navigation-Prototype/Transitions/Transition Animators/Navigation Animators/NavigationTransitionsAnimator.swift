@@ -1,13 +1,11 @@
-final class NavigationTransitionsAnimatorImpl {}
-
-// MARK: - NavigationTransitionsAnimator
-extension NavigationTransitionsAnimatorImpl: NavigationTransitionsAnimator {
-    func animatePerformingNavigationTransition(animationContext context: NavigationAnimationContext) {
+final class NavigationTransitionsAnimator: BaseNavigationTransitionsAnimator {
+    override func animatePerformingTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.pushViewController(
                 context.targetViewController,
                 animated: true)
+            
         case .Modal:
             context.navigationController.presentViewController(
                 context.targetViewController,
@@ -16,7 +14,7 @@ extension NavigationTransitionsAnimatorImpl: NavigationTransitionsAnimator {
         }
     }
     
-    func animateUndoingNavigationTransition(animationContext context: NavigationAnimationContext) {
+    override func animateUndoingTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.popToViewController(context.targetViewController, animated: true)
@@ -25,7 +23,7 @@ extension NavigationTransitionsAnimatorImpl: NavigationTransitionsAnimator {
         }
     }
     
-    func animateResettingWithNavigationTransition(animationContext context: NavigationAnimationContext) {
+    override func animateResettingWithTransition(animationContext context: NavigationAnimationContext) {
         switch context.animationStyle {
         case .Push:
             context.navigationController.setViewControllers([context.targetViewController], animated: true)

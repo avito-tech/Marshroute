@@ -6,7 +6,7 @@ protocol MasterRouter: class {
    
     func setMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: NavigationTransitionsAnimator)
+        animator: BaseNavigationTransitionsAnimator)
 }
 
 // MARK: - MasterRouter Default Impl
@@ -16,13 +16,13 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdent
     {
         setMasterViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimatorImpl()
+            animator: NavigationTransitionsAnimator()
         )
     }
 
     func setMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
-        animator: NavigationTransitionsAnimator)
+        animator: BaseNavigationTransitionsAnimator)
     {
         guard let masterTransitionsHandler = masterTransitionsHandler
             else { assert(false); return }

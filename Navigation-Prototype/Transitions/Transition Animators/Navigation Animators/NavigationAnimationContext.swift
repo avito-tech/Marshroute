@@ -1,6 +1,7 @@
 import UIKit
 
-struct NavigationAnimationContext: TransitionAnimationContext {
+/// Описание параметров анимаций с участием UINavigationController
+struct NavigationAnimationContext {
     /// контроллер навигации, выполняющий push/pop или presentModal
     let navigationController: UINavigationController
     

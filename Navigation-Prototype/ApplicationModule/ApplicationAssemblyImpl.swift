@@ -144,7 +144,7 @@ private extension ApplicationAssemblyImpl {
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: firstViewController,
                 transitionsHandler: firstTransitionsHandler,
-                animator: NavigationTransitionsAnimatorImpl(),
+                animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
             firstTransitionsHandler.resetWithTransition(context: resetContext)
@@ -178,7 +178,7 @@ private extension ApplicationAssemblyImpl {
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: secondViewController,
                 transitionsHandler: secondTransitionsHandler,
-                animator: NavigationTransitionsAnimatorImpl(),
+                animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
             secondTransitionsHandler.resetWithTransition(context: resetContext)
@@ -204,7 +204,7 @@ private extension ApplicationAssemblyImpl {
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: viewController,
                 transitionsHandler: thirdTransitionsHandler,
-                animator: NavigationTransitionsAnimatorImpl(),
+                animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
             thirdTransitionsHandler.resetWithTransition(context: resetContext)
@@ -291,7 +291,7 @@ private extension ApplicationAssemblyImpl {
                 let resetMasterContext = ForwardTransitionContext(
                     resetingWithViewController: masterViewController,
                     transitionsHandler: masterTransitionsHandler,
-                    animator: NavigationTransitionsAnimatorImpl(),
+                    animator: NavigationTransitionsAnimator(),
                     transitionId: sharedFirstTransitionId)
                 
                 masterTransitionsHandler.resetWithTransition(context: resetMasterContext)
@@ -303,7 +303,7 @@ private extension ApplicationAssemblyImpl {
                 let resetDetailContext = ForwardTransitionContext(
                     resetingWithViewController: detailViewController,
                     transitionsHandler: detailTransitionsHandler,
-                    animator: NavigationTransitionsAnimatorImpl(),
+                    animator: NavigationTransitionsAnimator(),
                     transitionId: sharedFirstTransitionId)
                 
                 detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
@@ -342,7 +342,7 @@ private extension ApplicationAssemblyImpl {
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: second,
                 transitionsHandler: secondTransitionsHandler,
-                animator: NavigationTransitionsAnimatorImpl(),
+                animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
             secondTransitionsHandler.resetWithTransition(context: resetContext)
@@ -369,7 +369,7 @@ private extension ApplicationAssemblyImpl {
             let resetContext = ForwardTransitionContext(
                 resetingWithViewController: viewController,
                 transitionsHandler: thirdTransitionsHandler,
-                animator: NavigationTransitionsAnimatorImpl(),
+                animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
             thirdTransitionsHandler.resetWithTransition(context: resetContext)

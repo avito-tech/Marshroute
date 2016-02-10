@@ -1,4 +1,5 @@
-/// Клиент, выполняющий обращения к стеку переходов
+/// Удобный клиент для работы с TransitionContextsStack.
+/// Используется TransitionsCoordinator'ом, чтобы искать самого последнего TransitionsHandler'а в цепочке
 protocol TransitionContextsStackClient: class {
     func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?

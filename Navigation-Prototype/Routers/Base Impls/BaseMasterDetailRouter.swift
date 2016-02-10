@@ -46,11 +46,11 @@ extension BaseMasterDetailRouter: DetailRouterTransitionable {
 // MARK: - RouterTransitionable
 extension BaseMasterDetailRouter: RouterTransitionable {}
 
-// MARK: - TransitionsCoordinatorStorer
-extension BaseMasterDetailRouter: TransitionsCoordinatorStorer {}
+// MARK: - TransitionsCoordinatorHolder
+extension BaseMasterDetailRouter: TransitionsCoordinatorHolder {}
 
-// MARK: - TransitionsGeneratorStorer
-extension BaseMasterDetailRouter: TransitionsGeneratorStorer {}
+// MARK: - TransitionsGeneratorHolder
+extension BaseMasterDetailRouter: TransitionsGeneratorHolder {}
 
 // MARK: - Router
 extension BaseMasterDetailRouter: Router {}

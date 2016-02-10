@@ -19,8 +19,8 @@ final class SplitViewTransitionsHandlerImpl {
 // MARK: - TransitionsHandler
 extension SplitViewTransitionsHandlerImpl: TransitionsHandler { }
 
-//MARK: - TransitionsCoordinatorStorer
-extension SplitViewTransitionsHandlerImpl: TransitionsCoordinatorStorer {}
+//MARK: - TransitionsCoordinatorHolder
+extension SplitViewTransitionsHandlerImpl: TransitionsCoordinatorHolder {}
 
 //MARK: - TransitionsHandlerContainer
 extension SplitViewTransitionsHandlerImpl: TransitionsHandlerContainer {

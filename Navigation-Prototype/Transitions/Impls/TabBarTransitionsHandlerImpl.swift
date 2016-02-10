@@ -24,8 +24,8 @@ final class TabBarTransitionsHandlerImpl {
 // MARK: - TransitionsHandler
 extension TabBarTransitionsHandlerImpl: TransitionsHandler { }
 
-//MARK: - TransitionsCoordinatorStorer
-extension TabBarTransitionsHandlerImpl: TransitionsCoordinatorStorer {}
+//MARK: - TransitionsCoordinatorHolder
+extension TabBarTransitionsHandlerImpl: TransitionsCoordinatorHolder {}
 
 //MARK: - TransitionsHandlerContainer
 extension TabBarTransitionsHandlerImpl: TransitionsHandlerContainer {

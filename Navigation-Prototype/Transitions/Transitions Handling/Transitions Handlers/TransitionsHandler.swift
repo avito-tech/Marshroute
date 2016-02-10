@@ -30,7 +30,7 @@ protocol TransitionsHandler: class {
 }
 
 // MARK: - TransitionsHandler Default Impl 1 (for containers: i.e. split or tabbar transitions handlers)
-extension TransitionsHandler where Self: TransitionsHandlerContainer, Self: TransitionsCoordinatorStorer {
+extension TransitionsHandler where Self: TransitionsHandlerContainer, Self: TransitionsCoordinatorHolder {
     func performTransition(context context: ForwardTransitionContext) {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forTransitionsHandler: self)
     }
@@ -57,7 +57,7 @@ extension TransitionsHandler where Self: TransitionsHandlerContainer, Self: Tran
 }
 
 // MARK: - TransitionsHandler Default Impl 2 (for not containers: i.e. navigation transitions handlers)
-extension TransitionsHandler where Self: TransitionsCoordinatorStorer, Self: TransitionAnimationsLauncher {
+extension TransitionsHandler where Self: TransitionsCoordinatorHolder, Self: TransitionAnimationsLauncher {
     func performTransition(context context: ForwardTransitionContext) {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forTransitionsHandler: self)
     }

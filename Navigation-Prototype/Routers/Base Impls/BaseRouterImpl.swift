@@ -39,11 +39,11 @@ extension BaseRouter: MasterRouterTransitionable {
 // MARK: - RouterTransitionable
 extension BaseRouter: RouterTransitionable {}
 
-// MARK: - TransitionsCoordinatorStorer
-extension BaseRouter: TransitionsCoordinatorStorer {}
+// MARK: - TransitionsCoordinatorHolder
+extension BaseRouter: TransitionsCoordinatorHolder {}
 
-// MARK: - TransitionsGeneratorStorer
-extension BaseRouter: TransitionsGeneratorStorer {}
+// MARK: - TransitionsGeneratorHolder
+extension BaseRouter: TransitionsGeneratorHolder {}
 
 // MARK: - MasterRouter
 extension BaseRouter: MasterRouter {}

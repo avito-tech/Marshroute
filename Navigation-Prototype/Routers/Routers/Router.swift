@@ -80,7 +80,7 @@ protocol Router: class {
 }
 
 // MARK: - Router Default Impl
-extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionsGeneratorStorer, Self: TransitionsCoordinatorStorer {
+extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionsGeneratorHolder, Self: TransitionsCoordinatorHolder {
     //MARK: navigation
     
     func pushViewControllerDerivedFrom(

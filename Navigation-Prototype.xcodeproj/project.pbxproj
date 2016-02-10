@@ -52,14 +52,14 @@
 		CC01A9E61C6BAABE0044672E /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9CF1C6BAABE0044672E /* TransitionIdGenerator.swift */; };
 		CC01A9E71C6BAABE0044672E /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D01C6BAABE0044672E /* TransitionIdGeneratorImpl.swift */; };
 		CC01A9E81C6BAABE0044672E /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D01C6BAABE0044672E /* TransitionIdGeneratorImpl.swift */; };
-		CC01A9E91C6BAABE0044672E /* TransitionIdGeneratorStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D11C6BAABE0044672E /* TransitionIdGeneratorStorer.swift */; };
-		CC01A9EA1C6BAABE0044672E /* TransitionIdGeneratorStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D11C6BAABE0044672E /* TransitionIdGeneratorStorer.swift */; };
+		CC01A9E91C6BAABE0044672E /* TransitionsGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D11C6BAABE0044672E /* TransitionsGeneratorHolder.swift */; };
+		CC01A9EA1C6BAABE0044672E /* TransitionsGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D11C6BAABE0044672E /* TransitionsGeneratorHolder.swift */; };
 		CC01A9EB1C6BAABE0044672E /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D31C6BAABE0044672E /* TransitionsCoordinator.swift */; };
 		CC01A9EC1C6BAABE0044672E /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D31C6BAABE0044672E /* TransitionsCoordinator.swift */; };
 		CC01A9ED1C6BAABE0044672E /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D41C6BAABE0044672E /* TransitionsCoordinatorImpl.swift */; };
 		CC01A9EE1C6BAABE0044672E /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D41C6BAABE0044672E /* TransitionsCoordinatorImpl.swift */; };
-		CC01A9EF1C6BAABE0044672E /* TransitionsCoordinatorStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorStorer.swift */; };
-		CC01A9F01C6BAABE0044672E /* TransitionsCoordinatorStorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorStorer.swift */; };
+		CC01A9EF1C6BAABE0044672E /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorHolder.swift */; };
+		CC01A9F01C6BAABE0044672E /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorHolder.swift */; };
 		CC01A9F11C6BAABE0044672E /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D61C6BAABE0044672E /* TransitionsHistoryItem.swift */; };
 		CC01A9F21C6BAABE0044672E /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D61C6BAABE0044672E /* TransitionsHistoryItem.swift */; };
 		CC01A9F31C6BAABE0044672E /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC01A9D81C6BAABE0044672E /* TransitionsHandler.swift */; };
@@ -244,10 +244,10 @@
 		CC01A9CE1C6BAABE0044672E /* TransitionId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionId.swift; sourceTree = "<group>"; };
 		CC01A9CF1C6BAABE0044672E /* TransitionIdGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionIdGenerator.swift; sourceTree = "<group>"; };
 		CC01A9D01C6BAABE0044672E /* TransitionIdGeneratorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorImpl.swift; sourceTree = "<group>"; };
-		CC01A9D11C6BAABE0044672E /* TransitionIdGeneratorStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorStorer.swift; sourceTree = "<group>"; };
+		CC01A9D11C6BAABE0044672E /* TransitionsGeneratorHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsGeneratorHolder.swift; sourceTree = "<group>"; };
 		CC01A9D31C6BAABE0044672E /* TransitionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinator.swift; sourceTree = "<group>"; };
 		CC01A9D41C6BAABE0044672E /* TransitionsCoordinatorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorImpl.swift; sourceTree = "<group>"; };
-		CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorStorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorStorer.swift; sourceTree = "<group>"; };
+		CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorHolder.swift; sourceTree = "<group>"; };
 		CC01A9D61C6BAABE0044672E /* TransitionsHistoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHistoryItem.swift; sourceTree = "<group>"; };
 		CC01A9D81C6BAABE0044672E /* TransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandler.swift; sourceTree = "<group>"; };
 		CC01A9D91C6BAABE0044672E /* TransitionsHandlerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerAnimator.swift; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 				CC01A9CE1C6BAABE0044672E /* TransitionId.swift */,
 				CC01A9CF1C6BAABE0044672E /* TransitionIdGenerator.swift */,
 				CC01A9D01C6BAABE0044672E /* TransitionIdGeneratorImpl.swift */,
-				CC01A9D11C6BAABE0044672E /* TransitionIdGeneratorStorer.swift */,
+				CC01A9D11C6BAABE0044672E /* TransitionsGeneratorHolder.swift */,
 			);
 			path = "Transition Id";
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 			children = (
 				CC01A9D31C6BAABE0044672E /* TransitionsCoordinator.swift */,
 				CC01A9D41C6BAABE0044672E /* TransitionsCoordinatorImpl.swift */,
-				CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorStorer.swift */,
+				CC01A9D51C6BAABE0044672E /* TransitionsCoordinatorHolder.swift */,
 				CC01A9D61C6BAABE0044672E /* TransitionsHistoryItem.swift */,
 			);
 			path = "Transitions Coordinator";
@@ -826,7 +826,7 @@
 				CC017E881C6B68D1003FC250 /* SecondAssembly.swift in Sources */,
 				CC74725E1C6B5D7A00742F7A /* TransitionsAnimator.swift in Sources */,
 				CC01A9E81C6BAABE0044672E /* TransitionIdGeneratorImpl.swift in Sources */,
-				CC01A9EA1C6BAABE0044672E /* TransitionIdGeneratorStorer.swift in Sources */,
+				CC01A9EA1C6BAABE0044672E /* TransitionsGeneratorHolder.swift in Sources */,
 				CC7472821C6B5D8500742F7A /* NavigationRootsHolder.swift in Sources */,
 				CC7472451C6B5D6600742F7A /* MasterRouterTransitionable.swift in Sources */,
 				CC7472581C6B5D7A00742F7A /* NavigationAnimationContext.swift in Sources */,
@@ -922,7 +922,7 @@
 				CC017E831C6B68CD003FC250 /* AuthorizationViewController.swift in Sources */,
 				CC74727A1C6B5D8100742F7A /* ApplicationModuleInput.swift in Sources */,
 				CC7472771C6B5D8100742F7A /* ApplicationAssemblyImpl.swift in Sources */,
-				CC01A9F01C6BAABE0044672E /* TransitionsCoordinatorStorer.swift in Sources */,
+				CC01A9F01C6BAABE0044672E /* TransitionsCoordinatorHolder.swift in Sources */,
 				CC7472571C6B5D7A00742F7A /* NavigationTransitionsAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -960,7 +960,7 @@
 				CCB348DA1C5BAA83005BD40F /* ApplicationPresenter.swift in Sources */,
 				CC01A9F31C6BAABE0044672E /* TransitionsHandler.swift in Sources */,
 				CCDE6E151C6B37FA0038F7AB /* TransitionStorableParameters.swift in Sources */,
-				CC01A9EF1C6BAABE0044672E /* TransitionsCoordinatorStorer.swift in Sources */,
+				CC01A9EF1C6BAABE0044672E /* TransitionsCoordinatorHolder.swift in Sources */,
 				CCDE6E131C6B37FA0038F7AB /* NavigationTransitionStorableParameters.swift in Sources */,
 				CC5A341B1C64DF99003FA62F /* CustomAnimator2.swift in Sources */,
 				CCE8C96F1C561C780041801D /* SecondAssembly.swift in Sources */,
@@ -1006,7 +1006,7 @@
 				CCE8C9761C561C780041801D /* SecondPresenter.swift in Sources */,
 				CC01AA051C6BAABE0044672E /* TransitionContextsStackImpl.swift in Sources */,
 				CCE8C9681C561C780041801D /* FirstRouter.swift in Sources */,
-				CC01A9E91C6BAABE0044672E /* TransitionIdGeneratorStorer.swift in Sources */,
+				CC01A9E91C6BAABE0044672E /* TransitionsGeneratorHolder.swift in Sources */,
 				CC01AA031C6BAABE0044672E /* TransitionContextsStackClientProviderImpl.swift in Sources */,
 				CCEAF09B1C689C3E00D00583 /* Router.swift in Sources */,
 				CCB348D81C5BAA83005BD40F /* ApplicationInteractorImpl.swift in Sources */,

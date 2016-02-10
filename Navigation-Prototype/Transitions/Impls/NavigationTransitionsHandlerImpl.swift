@@ -16,8 +16,8 @@ final class NavigationTransitionsHandlerImpl {
 // MARK: - TransitionsHandler
 extension NavigationTransitionsHandlerImpl: TransitionsHandler {}
 
-// MARK: - TransitionsCoordinatorStorer
-extension NavigationTransitionsHandlerImpl: TransitionsCoordinatorStorer {}
+// MARK: - TransitionsCoordinatorHolder
+extension NavigationTransitionsHandlerImpl: TransitionsCoordinatorHolder {}
 
 // MARK: - TransitionAnimationsLauncher
 extension NavigationTransitionsHandlerImpl: TransitionAnimationsLauncher {

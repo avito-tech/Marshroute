@@ -60,3 +60,10 @@ struct RestoredTransitionContext {
         )
     }
 }
+
+// MARK: - Equatable
+extension RestoredTransitionContext: Equatable {}
+
+func ==(lhs: RestoredTransitionContext, rhs: RestoredTransitionContext) -> Bool {
+    return lhs.transitionId == rhs.transitionId
+}

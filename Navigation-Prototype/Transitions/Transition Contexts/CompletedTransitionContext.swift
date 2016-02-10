@@ -53,3 +53,23 @@ struct CompletedTransitionContext {
         return targetViewController == nil
     }
 }
+
+// MARK: - convenience
+extension CompletedTransitionContext {
+    init(transitionId: TransitionId,
+        sourceViewController: UIViewController?,
+        sourceTransitionsHandler: TransitionsHandler?,
+        targetViewController: UIViewController?,
+        targetTransitionsHandler: TransitionsHandler?,
+        storableParameters: TransitionStorableParameters?,
+        animationLaunchingContext: TransitionAnimationLaunchingContext)
+    {
+        self.transitionId = transitionId
+        self.sourceViewController = sourceViewController
+        self.sourceTransitionsHandler = sourceTransitionsHandler
+        self.targetViewController = targetViewController
+        self.targetTransitionsHandler = targetTransitionsHandler
+        self.storableParameters = storableParameters
+        self.animationLaunchingContext = animationLaunchingContext
+    }
+}

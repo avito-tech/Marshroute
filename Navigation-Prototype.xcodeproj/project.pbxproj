@@ -88,11 +88,9 @@
 		CC7472561C6B5D7A00742F7A /* BaseNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DD91C6B37FA0038F7AB /* BaseNavigationTransitionsAnimator.swift */; };
 		CC7472571C6B5D7A00742F7A /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDC1C6B37FA0038F7AB /* NavigationTransitionsAnimator.swift */; };
 		CC7472581C6B5D7A00742F7A /* NavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDA1C6B37FA0038F7AB /* NavigationAnimationContext.swift */; };
-		CC7472591C6B5D7A00742F7A /* NavigationAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDB1C6B37FA0038F7AB /* NavigationAnimationStyle.swift */; };
 		CC74725A1C6B5D7A00742F7A /* BasePopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDE1C6B37FA0038F7AB /* BasePopoverTransitionsAnimator.swift */; };
 		CC74725B1C6B5D7A00742F7A /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE11C6B37FA0038F7AB /* PopoverTransitionsAnimator.swift */; };
 		CC74725C1C6B5D7A00742F7A /* PopoverAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDF1C6B37FA0038F7AB /* PopoverAnimationContext.swift */; };
-		CC74725D1C6B5D7A00742F7A /* PopoverAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE01C6B37FA0038F7AB /* PopoverAnimationStyle.swift */; };
 		CC74725E1C6B5D7A00742F7A /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE21C6B37FA0038F7AB /* TransitionsAnimator.swift */; };
 		CC74725F1C6B5D7A00742F7A /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE41C6B37FA0038F7AB /* CompletedTransitionContext.swift */; };
 		CC7472601C6B5D7A00742F7A /* ForwardTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE51C6B37FA0038F7AB /* ForwardTransitionContext.swift */; };
@@ -152,11 +150,9 @@
 		CCDE6E061C6B37FA0038F7AB /* TransitionAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DD61C6B37FA0038F7AB /* TransitionAnimationLaunchingContext.swift */; };
 		CCDE6E071C6B37FA0038F7AB /* BaseNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DD91C6B37FA0038F7AB /* BaseNavigationTransitionsAnimator.swift */; };
 		CCDE6E081C6B37FA0038F7AB /* NavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDA1C6B37FA0038F7AB /* NavigationAnimationContext.swift */; };
-		CCDE6E091C6B37FA0038F7AB /* NavigationAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDB1C6B37FA0038F7AB /* NavigationAnimationStyle.swift */; };
 		CCDE6E0A1C6B37FA0038F7AB /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDC1C6B37FA0038F7AB /* NavigationTransitionsAnimator.swift */; };
 		CCDE6E0B1C6B37FA0038F7AB /* BasePopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDE1C6B37FA0038F7AB /* BasePopoverTransitionsAnimator.swift */; };
 		CCDE6E0C1C6B37FA0038F7AB /* PopoverAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DDF1C6B37FA0038F7AB /* PopoverAnimationContext.swift */; };
-		CCDE6E0D1C6B37FA0038F7AB /* PopoverAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE01C6B37FA0038F7AB /* PopoverAnimationStyle.swift */; };
 		CCDE6E0E1C6B37FA0038F7AB /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE11C6B37FA0038F7AB /* PopoverTransitionsAnimator.swift */; };
 		CCDE6E0F1C6B37FA0038F7AB /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE21C6B37FA0038F7AB /* TransitionsAnimator.swift */; };
 		CCDE6E101C6B37FA0038F7AB /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDE6DE41C6B37FA0038F7AB /* CompletedTransitionContext.swift */; };
@@ -281,11 +277,9 @@
 		CCDE6DD61C6B37FA0038F7AB /* TransitionAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		CCDE6DD91C6B37FA0038F7AB /* BaseNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCDE6DDA1C6B37FA0038F7AB /* NavigationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationContext.swift; sourceTree = "<group>"; };
-		CCDE6DDB1C6B37FA0038F7AB /* NavigationAnimationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationAnimationStyle.swift; sourceTree = "<group>"; };
 		CCDE6DDC1C6B37FA0038F7AB /* NavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCDE6DDE1C6B37FA0038F7AB /* BasePopoverTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePopoverTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCDE6DDF1C6B37FA0038F7AB /* PopoverAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationContext.swift; sourceTree = "<group>"; };
-		CCDE6DE01C6B37FA0038F7AB /* PopoverAnimationStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimationStyle.swift; sourceTree = "<group>"; };
 		CCDE6DE11C6B37FA0038F7AB /* PopoverTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCDE6DE21C6B37FA0038F7AB /* TransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCDE6DE41C6B37FA0038F7AB /* CompletedTransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContext.swift; sourceTree = "<group>"; };
@@ -454,7 +448,6 @@
 				CCDE6DD91C6B37FA0038F7AB /* BaseNavigationTransitionsAnimator.swift */,
 				CCDE6DDC1C6B37FA0038F7AB /* NavigationTransitionsAnimator.swift */,
 				CCDE6DDA1C6B37FA0038F7AB /* NavigationAnimationContext.swift */,
-				CCDE6DDB1C6B37FA0038F7AB /* NavigationAnimationStyle.swift */,
 			);
 			path = "Navigation Animators";
 			sourceTree = "<group>";
@@ -465,7 +458,6 @@
 				CCDE6DDE1C6B37FA0038F7AB /* BasePopoverTransitionsAnimator.swift */,
 				CCDE6DE11C6B37FA0038F7AB /* PopoverTransitionsAnimator.swift */,
 				CCDE6DDF1C6B37FA0038F7AB /* PopoverAnimationContext.swift */,
-				CCDE6DE01C6B37FA0038F7AB /* PopoverAnimationStyle.swift */,
 			);
 			path = "Popover Animators";
 			sourceTree = "<group>";
@@ -795,7 +787,6 @@
 			files = (
 				CC7472751C6B5D7D00742F7A /* TransitionsHistoryItem.swift in Sources */,
 				CC017E9C1C6B68D5003FC250 /* FirstRouterImpl_iPad.swift in Sources */,
-				CC74725D1C6B5D7A00742F7A /* PopoverAnimationStyle.swift in Sources */,
 				CC7472601C6B5D7A00742F7A /* ForwardTransitionContext.swift in Sources */,
 				CC7472541C6B5D7A00742F7A /* PopoverAnimationTargetParameters.swift in Sources */,
 				CC7472511C6B5D7A00742F7A /* NavigationTransitionStyle.swift in Sources */,
@@ -855,7 +846,6 @@
 				CC017E9B1C6B68D5003FC250 /* FirstRouter.swift in Sources */,
 				CC017E8B1C6B68D1003FC250 /* SecondInteractorImpl.swift in Sources */,
 				CC7472501C6B5D7A00742F7A /* NavigationAnimationTargetParameters.swift in Sources */,
-				CC7472591C6B5D7A00742F7A /* NavigationAnimationStyle.swift in Sources */,
 				CC017E841C6B68CD003FC250 /* AuthorizationViewInput.swift in Sources */,
 				CC7472431C6B5D6600742F7A /* DetailRouterTransitionable.swift in Sources */,
 				CC7472491C6B5D6600742F7A /* RouterIdentifiable.swift in Sources */,
@@ -937,7 +927,6 @@
 				CCE12EFA1C50ECBA00909924 /* AppDelegate.swift in Sources */,
 				CCE8C96B1C561C780041801D /* FirstRouterImpl_iPadMasterDetail.swift in Sources */,
 				CCB348DC1C5BAA83005BD40F /* ApplicationRouterImpl.swift in Sources */,
-				CCDE6E0D1C6B37FA0038F7AB /* PopoverAnimationStyle.swift in Sources */,
 				CCDE6E111C6B37FA0038F7AB /* ForwardTransitionContext.swift in Sources */,
 				CCE5F2621C6A21B0001067FF /* NavigationRootsHolder.swift in Sources */,
 				CCE8C9791C561C780041801D /* SecondRouterImpl_iPad.swift in Sources */,
@@ -1000,7 +989,6 @@
 				CCB348D71C5BAA83005BD40F /* ApplicationInteractor.swift in Sources */,
 				CCDE6E051C6B37FA0038F7AB /* PopoverTransitionStyle.swift in Sources */,
 				CCE8C9D31C563A610041801D /* AuthorizationViewController.swift in Sources */,
-				CCDE6E091C6B37FA0038F7AB /* NavigationAnimationStyle.swift in Sources */,
 				CCE8C9691C561C780041801D /* FirstRouterImpl.swift in Sources */,
 				CCEAF0971C689C3E00D00583 /* DetailRouter.swift in Sources */,
 				CCE8C96A1C561C780041801D /* FirstRouterImpl_iPad.swift in Sources */,

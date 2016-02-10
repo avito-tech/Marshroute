@@ -1,1 +1,0 @@
-typealias PopoverAnimationStyle = PopoverTransitionStyle

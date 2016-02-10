@@ -85,12 +85,10 @@ private extension TransitionAnimationLaunchingContext {
             guard let targetViewController = launchingContext.animationTargetParameters.viewController
                 else { return }
             
-            let animationStyle: NavigationAnimationStyle = launchingContext.transitionStyle
-            
             let animationContext = NavigationAnimationContext(
                 navigationController: navigationController,
                 targetViewController: targetViewController,
-                animationStyle: animationStyle
+                transitionStyle: launchingContext.transitionStyle
             )
             
             launchAnimation(animator: launchingContext.animator,
@@ -102,11 +100,9 @@ private extension TransitionAnimationLaunchingContext {
             guard let popoverController = launchingContext.animationSourceParameters.popoverController
                 else { return }
             
-            let animationStyle: PopoverAnimationStyle = launchingContext.transitionStyle
-            
             let animationContext = PopoverAnimationContext(
                 popoverController: popoverController,
-                animationStyle: animationStyle)
+                transitionStyle: launchingContext.transitionStyle)
             
             launchAnimation(animator: launchingContext.animator,
                 animationContext: animationContext,

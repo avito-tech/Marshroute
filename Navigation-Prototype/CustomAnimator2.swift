@@ -20,7 +20,7 @@ class CustomAnimator2: BaseNavigationTransitionsAnimator {
     
     override func animatePerformingTransition(animationContext context: NavigationAnimationContext)
     {
-        switch context.animationStyle {
+        switch context.transitionStyle {
         case .Push:
             let nvc = context.navigationController
             nvc.delegate = navigationControllerDelegate
@@ -38,7 +38,7 @@ class CustomAnimator2: BaseNavigationTransitionsAnimator {
     
     override func animateUndoingTransition(animationContext context: NavigationAnimationContext)
     {
-        switch context.animationStyle {
+        switch context.transitionStyle {
         case .Push:
             context.navigationController.popToViewController(context.targetViewController, animated: true)
         case .Modal:
@@ -47,7 +47,7 @@ class CustomAnimator2: BaseNavigationTransitionsAnimator {
     }
     
     override func animateResettingWithTransition(animationContext context: NavigationAnimationContext) {
-        switch context.animationStyle {
+        switch context.transitionStyle {
         case .Push:
             context.navigationController.setViewControllers([context.targetViewController], animated: true)
         case .Modal:

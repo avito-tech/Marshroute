@@ -8,5 +8,5 @@ struct NavigationAnimationContext {
     /// контроллер, куда осуществляется прямой или обратный переход
     let targetViewController: UIViewController
     
-    let animationStyle: NavigationAnimationStyle
+    let transitionStyle: NavigationTransitionStyle
 }

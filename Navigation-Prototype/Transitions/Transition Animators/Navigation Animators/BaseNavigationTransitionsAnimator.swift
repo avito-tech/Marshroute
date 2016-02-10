@@ -12,7 +12,7 @@ class BaseNavigationTransitionsAnimator: TransitionsAnimator {
     
     func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
     {
-        switch context.animationStyle {
+        switch context.transitionStyle {
         case .Modal:
             assert(false, "must never be called"); break
         default:

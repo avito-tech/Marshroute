@@ -3,7 +3,7 @@ import Foundation
 final class PopoverTransitionsAnimator: BasePopoverTransitionsAnimator {
     override func animatePerformingTransition(animationContext context: PopoverAnimationContext)
     {
-        switch context.animationStyle {
+        switch context.transitionStyle {
         case .PopoverFromBarButtonItem(let buttonItem):
             context.popoverController.presentPopoverFromBarButtonItem(
                 buttonItem,

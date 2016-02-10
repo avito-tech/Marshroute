@@ -15,7 +15,7 @@ extension ApplicationRouterImpl: ApplicationRouter {
                     moduleOutput: output,
                     transitionsCoordinator: transitionsCoordinator,
                     transitionIdGenerator: transitionIdGenerator)
-            return module.0
+            return module.viewController
         }, animator: CustomAnimator1())
     }
 }

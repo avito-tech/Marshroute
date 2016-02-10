@@ -45,6 +45,7 @@
 		CC017E9F1C6B68D5003FC250 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C94D1C561C780041801D /* FirstViewController.swift */; };
 		CC017EA01C6B68D5003FC250 /* FirstViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C94E1C561C780041801D /* FirstViewInput.swift */; };
 		CC017EA11C6B68D5003FC250 /* FirstViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE8C9461C561C780041801D /* FirstViewOutput.swift */; };
+		CC017EA51C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017EA41C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift */; };
 		CC5A34191C64DF92003FA62F /* CustomAnimator1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */; };
 		CC5A341B1C64DF99003FA62F /* CustomAnimator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */; };
 		CC74721D1C6B47BC00742F7A /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC74721C1C6B47BC00742F7A /* TransitionAnimationsLauncher.swift */; };
@@ -245,6 +246,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC017EA41C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient_Tests.swift; sourceTree = "<group>"; };
 		CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimator1.swift; sourceTree = "<group>"; };
 		CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimator2.swift; sourceTree = "<group>"; };
 		CC74721C1C6B47BC00742F7A /* TransitionAnimationsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationsLauncher.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				CC74722A1C6B5D1500742F7A /* TransitionContextsStack_Tests.swift */,
+				CC017EA41C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift */,
 				CC74722C1C6B5D1500742F7A /* Info.plist */,
 			);
 			path = "Navigation-Prototype-Tests";
@@ -826,6 +829,7 @@
 				CC74726A1C6B5D7D00742F7A /* TransitionContextsStackClientProviderStorer.swift in Sources */,
 				CC017EA01C6B68D5003FC250 /* FirstViewInput.swift in Sources */,
 				CC7472641C6B5D7A00742F7A /* TransitionStorableParameters.swift in Sources */,
+				CC017EA51C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift in Sources */,
 				CC017E911C6B68D1003FC250 /* SecondViewController.swift in Sources */,
 				CC017E971C6B68D5003FC250 /* FirstInteractor.swift in Sources */,
 				CC017E861C6B68CD003FC250 /* AuthorizationModuleInput.swift in Sources */,

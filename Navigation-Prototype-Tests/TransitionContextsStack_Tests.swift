@@ -39,13 +39,16 @@ class TransitionContextsStackTests: XCTestCase {
     var autoZombieContext: CompletedTransitionContext?
     var neverZombieContext1: CompletedTransitionContext?
     var neverZombieContext2: CompletedTransitionContext?
+    var oneDayZombieContext: CompletedTransitionContext?
     private let targetViewController = UIViewController()
+    private var nillableTargetViewController: UIViewController?
     private let sourceViewController = UIViewController()
     private let dummyTransitionsHandler = DummyTransitionsHandler()
     
     override func setUp() {
         super.setUp()
         __stackImpl = TransitionContextsStackImpl()
+        nillableTargetViewController = UIViewController()
         
         autoZombieContext = createCompletedTransitionContext(
             sourceViewController: nil,
@@ -64,11 +67,12 @@ class TransitionContextsStackTests: XCTestCase {
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: targetViewController,
             targetTransitionsHandler: dummyTransitionsHandler)
-    }
-    
-    func subtest_StackToBeEmptyAtStart(__stackImpl: TransitionContextsStack) {
-        XCTAssertNil(__stackImpl.first, "в начале стек должен быть пуст")
-        XCTAssertNil(__stackImpl.last, "в начале стек должен быть пуст")
+        
+        oneDayZombieContext = createCompletedTransitionContext(
+            sourceViewController: sourceViewController,
+            sourceTransitionsHandler: dummyTransitionsHandler,
+            targetViewController: nillableTargetViewController,
+            targetTransitionsHandler: dummyTransitionsHandler)
     }
     
     func test_AddingZombie() {
@@ -76,8 +80,6 @@ class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
             else { XCTFail(); return }
-
-        subtest_StackToBeEmptyAtStart(__stackImpl)
 
         // append zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -96,23 +98,21 @@ class TransitionContextsStackTests: XCTestCase {
         XCTAssertNil(__stackImpl.popTo(transitionId: autoZombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
     }
     
-    func test_AddingNotZombie() {
+    func test_AddingNeverZombie() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
         
-        subtest_StackToBeEmptyAtStart(__stackImpl)
-        
         // append not zombie. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
     }
     
     func subtest_Stack(__stackImpl: TransitionContextsStack,
-        toBeNotEmptyAfterAddingNotZombie1 neverZombieContext1: CompletedTransitionContext)
+        toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext)
     {
         XCTAssertNotNil(__stackImpl.first, "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
         XCTAssertNotNil(__stackImpl.last, "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
@@ -124,15 +124,32 @@ class TransitionContextsStackTests: XCTestCase {
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext1.transitionId), "добавили одну запись. после нее нет других записей")
     }
     
-    func test_AddingZombie_AddingNotZombie() {
+    func test_AddingOneDayZombie_AndTurningItIntoZombie() {
+        guard let __stackImpl = __stackImpl
+            else { XCTFail(); return }
+        guard let oneDayZombieContext = oneDayZombieContext
+            else { XCTFail(); return }
+
+        // append one day zombie. must become not empty
+        __stackImpl.append(oneDayZombieContext)
+        subtest_Stack(__stackImpl,
+            toBeNotEmptyAfterAddingNeverZombie1: oneDayZombieContext
+        )
+        
+        // turn one day zombie into zombie. must become empty
+        nillableTargetViewController = nil
+        subtest_Stack(__stackImpl,
+            toBeEmptyAfterAddingZombie: oneDayZombieContext
+        )
+    }
+    
+    func test_AddingZombie_AddingNeverZombie() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
             else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
-        
-        subtest_StackToBeEmptyAtStart(__stackImpl)
         
         // append zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -143,19 +160,17 @@ class TransitionContextsStackTests: XCTestCase {
         // append not zombie. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
     }
     
-    func test_AddingZombie_AddingNotZombie_PoppingNotZombie() {
+    func test_AddingZombie_AddingNeverZombie_PoppingNeverZombie() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
             else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
-        
-        subtest_StackToBeEmptyAtStart(__stackImpl)
         
         // append zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -166,19 +181,19 @@ class TransitionContextsStackTests: XCTestCase {
         // append not zombie 1. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
 
         // pop via technique 1. must become empty again
         let neverZombie1_popped = __stackImpl.popLast()
         subtest_Stack(__stackImpl,
-            toBeEmptyAfterAddingNotZombie1: neverZombieContext1,
+            toBeEmptyAfterAddingNeverZombie1: neverZombieContext1,
             andPoppingNeverZombie1: neverZombie1_popped
         )
     }
     
     func subtest_Stack(__stackImpl: TransitionContextsStack,
-        toBeEmptyAfterAddingNotZombie1 neverZombieContext1: CompletedTransitionContext,
+        toBeEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
         andPoppingNeverZombie1 neverZombie1_popped: RestoredTransitionContext?)
     {
         XCTAssertNotNil(neverZombie1_popped, "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
@@ -190,7 +205,7 @@ class TransitionContextsStackTests: XCTestCase {
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext1.transitionId), "один append, один pop. должно быть пусто")
     }
     
-    func test_AddingZombie_AddingNotZombie_AddingNotZombie2() {
+    func test_AddingZombie_AddingNeverZombie_AddingNeverZombie2() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
@@ -199,8 +214,6 @@ class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
             else { XCTFail(); return }
-        
-        subtest_StackToBeEmptyAtStart(__stackImpl)
         
         // append not zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -211,20 +224,20 @@ class TransitionContextsStackTests: XCTestCase {
         // append not zombie 1. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
         
         // append not zombie 2. must remain not empty
         __stackImpl.append(neverZombieContext2)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            andAddingNotZombie2: neverZombieContext2
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            andAddingNeverZombie2: neverZombieContext2
         )
     }
     
     func subtest_Stack(__stackImpl: TransitionContextsStack,
-        toBeNotEmptyAfterAddingNotZombie1 neverZombieContext1: CompletedTransitionContext,
-        andAddingNotZombie2 neverZombieContext2: CompletedTransitionContext)
+        toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
+        andAddingNeverZombie2 neverZombieContext2: CompletedTransitionContext)
     {
         XCTAssertNotNil(__stackImpl.first, "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
         XCTAssertNotNil(__stackImpl.last, "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
@@ -241,7 +254,7 @@ class TransitionContextsStackTests: XCTestCase {
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext2.transitionId), "после второго не зомби никого не должно быть")
     }
     
-    func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique1() {
+    func test_AddingZombie_AddingNeverZombie_AddingNeverZombie2_PoppingNeverZombie2ViaTechnique1() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
@@ -250,8 +263,6 @@ class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
             else { XCTFail(); return }
-        
-        subtest_StackToBeEmptyAtStart(__stackImpl)
         
         // append not zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -262,28 +273,28 @@ class TransitionContextsStackTests: XCTestCase {
         // append not zombie 1. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
         
         // append not zombie 2. must remain not empty
         __stackImpl.append(neverZombieContext2)
         subtest_Stack(__stackImpl, 
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            andAddingNotZombie2: neverZombieContext2
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            andAddingNeverZombie2: neverZombieContext2
         )
         
         // pop via technique 1. must remain not empty
         let neverZombie2_popped = __stackImpl.popLast()
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            addingNotZombie2: neverZombieContext2,
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            addingNeverZombie2: neverZombieContext2,
             andPoppingNeverZombie2ViaTechnique1: neverZombie2_popped
         )
     }
     
     func subtest_Stack(__stackImpl: TransitionContextsStack,
-        toBeNotEmptyAfterAddingNotZombie1 neverZombieContext1: CompletedTransitionContext,
-        addingNotZombie2 neverZombieContext2: CompletedTransitionContext,
+        toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
+        addingNeverZombie2 neverZombieContext2: CompletedTransitionContext,
         andPoppingNeverZombie2ViaTechnique1 neverZombie2_popped: RestoredTransitionContext?)
     {
         XCTAssertNotNil(neverZombie2_popped, "после первого не зомби должен был быть второй не зомби")
@@ -298,7 +309,7 @@ class TransitionContextsStackTests: XCTestCase {
         XCTAssertEqual(__stackImpl.first!.transitionId, neverZombieContext1.transitionId, "первый должен остаться в стеке")
     }
     
-    func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique2() {
+    func test_AddingZombie_AddingNeverZombie_AddingNeverZombie2_PoppingNeverZombie2ViaTechnique2() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
@@ -307,8 +318,6 @@ class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
             else { XCTFail(); return }
-        
-        subtest_StackToBeEmptyAtStart(__stackImpl)
         
         // append not zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -319,28 +328,28 @@ class TransitionContextsStackTests: XCTestCase {
         // append not zombie 1. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
         
         // append not zombie 2. must remain not empty
         __stackImpl.append(neverZombieContext2)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            andAddingNotZombie2: neverZombieContext2
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            andAddingNeverZombie2: neverZombieContext2
         )
         
         // pop via technique 2. must remain not empty
         let neverZombie2_poppedAsArray = __stackImpl.popTo(transitionId: neverZombieContext1.transitionId)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            addingNotZombie2: neverZombieContext2,
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            addingNeverZombie2: neverZombieContext2,
             andPoppingNeverZombie2ViaTechnique2: neverZombie2_poppedAsArray
         )
     }
     
     func subtest_Stack(__stackImpl: TransitionContextsStack,
-        toBeNotEmptyAfterAddingNotZombie1 neverZombieContext1: CompletedTransitionContext,
-        addingNotZombie2 neverZombieContext2: CompletedTransitionContext,
+        toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
+        addingNeverZombie2 neverZombieContext2: CompletedTransitionContext,
         andPoppingNeverZombie2ViaTechnique2 neverZombie2_poppedAsArray: [RestoredTransitionContext]?)
     {
     
@@ -357,7 +366,7 @@ class TransitionContextsStackTests: XCTestCase {
         XCTAssertEqual(__stackImpl.first!.transitionId, neverZombieContext1.transitionId, "первый должен остаться в стеке")
     }
     
-    func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique1_PoppingNotZombie1ViaTechnique1() {
+    func test_AddingZombie_AddingNeverZombie_AddingNeverZombie2_PoppingNeverZombie2ViaTechnique1_PoppingNeverZombie1ViaTechnique1() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
@@ -366,8 +375,6 @@ class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
             else { XCTFail(); return }
-
-        subtest_StackToBeEmptyAtStart(__stackImpl)
         
         // append not zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -378,34 +385,34 @@ class TransitionContextsStackTests: XCTestCase {
         // append not zombie 1. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
         
         // append not zombie 2. must remain not empty
         __stackImpl.append(neverZombieContext2)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            andAddingNotZombie2: neverZombieContext2
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            andAddingNeverZombie2: neverZombieContext2
         )
         
         // pop not zombie 2 via technique 1. must remain not empty
         let neverZombie2_popped = __stackImpl.popLast()
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            addingNotZombie2: neverZombieContext2,
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            addingNeverZombie2: neverZombieContext2,
             andPoppingNeverZombie2ViaTechnique1: neverZombie2_popped
         )
         
         // pop not zombie 1 via technique 1. must become empty again
         let neverZombie1_popped = __stackImpl.popLast()
         subtest_Stack(__stackImpl,
-            toBeEmptyAfterAddingNotZombie1: neverZombieContext1,
-            addingNotZombie2: neverZombieContext2,
-            poppingNotZombie2AndPoppingNotZombie1: neverZombie1_popped
+            toBeEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            addingNeverZombie2: neverZombieContext2,
+            poppingNeverZombie2AndPoppingNeverZombie1: neverZombie1_popped
         )
     }
     
-    func test_AddingZombie_AddingNotZombie_AddingNotZombie2_PoppingNotZombie2ViaTechnique2_PoppingNotZombie1ViaTechnique1() {
+    func test_AddingZombie_AddingNeverZombie_AddingNeverZombie2_PoppingNeverZombie2ViaTechnique2_PoppingNeverZombie1ViaTechnique1() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let autoZombieContext = autoZombieContext
@@ -414,8 +421,6 @@ class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
             else { XCTFail(); return }
-        
-        subtest_StackToBeEmptyAtStart(__stackImpl)
         
         // append not zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -426,37 +431,37 @@ class TransitionContextsStackTests: XCTestCase {
         // append not zombie 1. must become not empty
         __stackImpl.append(neverZombieContext1)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1
         )
         
         // append not zombie 2. must remain not empty
         __stackImpl.append(neverZombieContext2)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            andAddingNotZombie2: neverZombieContext2
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            andAddingNeverZombie2: neverZombieContext2
         )
         
         // pop via technique 2. must remain not empty
         let neverZombie2_poppedAsArray = __stackImpl.popTo(transitionId: neverZombieContext1.transitionId)
         subtest_Stack(__stackImpl,
-            toBeNotEmptyAfterAddingNotZombie1: neverZombieContext1,
-            addingNotZombie2: neverZombieContext2,
+            toBeNotEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            addingNeverZombie2: neverZombieContext2,
             andPoppingNeverZombie2ViaTechnique2: neverZombie2_poppedAsArray
         )
         
         // pop not zombie 1 via technique 1. must become empty again
         let neverZombie1_popped = __stackImpl.popLast()
         subtest_Stack(__stackImpl,
-            toBeEmptyAfterAddingNotZombie1: neverZombieContext1,
-            addingNotZombie2: neverZombieContext2,
-            poppingNotZombie2AndPoppingNotZombie1: neverZombie1_popped
+            toBeEmptyAfterAddingNeverZombie1: neverZombieContext1,
+            addingNeverZombie2: neverZombieContext2,
+            poppingNeverZombie2AndPoppingNeverZombie1: neverZombie1_popped
         )
     }
     
     func subtest_Stack(__stackImpl: TransitionContextsStack,
-        toBeEmptyAfterAddingNotZombie1 neverZombieContext1: CompletedTransitionContext,
-        addingNotZombie2 neverZombieContext2: CompletedTransitionContext,
-        poppingNotZombie2AndPoppingNotZombie1 neverZombie1_popped: RestoredTransitionContext?)
+        toBeEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
+        addingNeverZombie2 neverZombieContext2: CompletedTransitionContext,
+        poppingNeverZombie2AndPoppingNeverZombie1 neverZombie1_popped: RestoredTransitionContext?)
     {
         XCTAssertNotNil(neverZombie1_popped, "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
         XCTAssertEqual(neverZombie1_popped!.transitionId, neverZombieContext1.transitionId, "вставили не зомби. должны достать его же")

@@ -81,6 +81,7 @@ class TransitionContextsStackClientTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
         
+        __stackClientImpl = nil
         autoZombieContext = nil
         neverZombieContext1 = nil
         neverZombieContext2 = nil

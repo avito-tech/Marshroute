@@ -28,8 +28,10 @@ protocol TransitionContextsStackClient: class {
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
+        -> Bool
     
     func appendTransition(
         context context: CompletedTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> Bool
 }

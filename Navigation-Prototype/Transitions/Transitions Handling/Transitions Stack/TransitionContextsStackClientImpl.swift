@@ -110,24 +110,43 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
+        -> Bool
     {
         guard let first = stack.first where first.wasPerfromedByTransitionsHandler(transitionsHandler)
-            else { return }
+            else { return false }
         
-        var lastPopped = stack.popTo(transitionId: transitionId)?.first
+        guard let _ = transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler)
+            else { return false }
         
         if includingTransitionWithId {
-            lastPopped = stack.popLast()
+            stack.popTo(transitionId: transitionId)?.first
+            return stack.popLast() != nil
+        }
+        else {
+            return stack.popTo(transitionId: transitionId)?.first != nil
         }
     }
     
     func appendTransition(
         context context: CompletedTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> Bool
     {
-        if context.sourceTransitionsHandler === transitionsHandler {
-            stack.append(context)
-        }
+        guard context.isMatchingTransitionsHandler(transitionsHandler)
+            else { return false }
+        
+        stack.append(context)
+        return true
+    }
+}
+
+// MARK: - CompletedTransitionContext helpers
+private extension CompletedTransitionContext {
+    func isMatchingTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> Bool
+    {
+        let result = (sourceTransitionsHandler === transitionsHandler)
+        return result
     }
 }
 

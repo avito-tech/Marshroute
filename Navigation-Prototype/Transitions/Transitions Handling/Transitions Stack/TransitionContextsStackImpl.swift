@@ -130,6 +130,8 @@ private extension TransitionContextsStackImpl {
 // MARK: - CustomDebugStringConvertible
 extension TransitionContextsStackImpl: CustomDebugStringConvertible {
     var debugDescription: String {
+        updateStack()
+        
         var description = "TransitionContextsStack: " + String(unsafeAddressOf(self))
         description += "\n   --- all ids: \(storage.map( { $0.transitionId } ))"
         return description

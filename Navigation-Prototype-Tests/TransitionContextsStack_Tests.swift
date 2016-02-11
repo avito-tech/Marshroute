@@ -75,6 +75,17 @@ class TransitionContextsStackTests: XCTestCase {
             targetTransitionsHandler: dummyTransitionsHandler)
     }
     
+    override func tearDown() {
+        super.tearDown()
+        
+        __stackImpl = nil
+        autoZombieContext = nil
+        neverZombieContext1 = nil
+        neverZombieContext2 = nil
+        oneDayZombieContext = nil
+        nillableTargetViewController = nil
+    }
+    
     func test_AddingZombie() {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
@@ -89,13 +100,13 @@ class TransitionContextsStackTests: XCTestCase {
     }
     
     func subtest_Stack(__stackImpl: TransitionContextsStack,
-        toBeEmptyAfterAddingZombie autoZombieContext: CompletedTransitionContext)
+        toBeEmptyAfterAddingZombie zombieContext: CompletedTransitionContext)
     {
         XCTAssertNil(__stackImpl.first, "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
         XCTAssertNil(__stackImpl.last, "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
-        XCTAssertNil(__stackImpl[autoZombieContext.transitionId], "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
-        XCTAssertNil(__stackImpl.preceding(transitionId:autoZombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
-        XCTAssertNil(__stackImpl.popTo(transitionId: autoZombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
+        XCTAssertNil(__stackImpl[zombieContext.transitionId], "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
+        XCTAssertNil(__stackImpl.preceding(transitionId:zombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
+        XCTAssertNil(__stackImpl.popTo(transitionId: zombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
     }
     
     func test_AddingNeverZombie() {
@@ -138,6 +149,7 @@ class TransitionContextsStackTests: XCTestCase {
         
         // turn one day zombie into zombie. must become empty
         nillableTargetViewController = nil
+        
         subtest_Stack(__stackImpl,
             toBeEmptyAfterAddingZombie: oneDayZombieContext
         )

@@ -33,80 +33,25 @@ private func createCompletedTransitionContext(
     )
 }
 
-class TransitionContextsStackSpy: TransitionContextsStack {
-    private (set) var firstTimes = 0
-    private (set) var lastTimes = 0
-    private (set) var popLastTimes = 0
-    
-    private (set) var appendTimesPerParameter = [TransitionId : Int]()
-    var appendTimesTotal: Int { return appendTimesPerParameter.map({ $1 }).reduce(0, combine: +) }
-    
-    private (set) var subscriptTimesPerParameter = [TransitionId : Int]()
-    var subscriptTimes: Int { return subscriptTimesPerParameter.map({ $1 }).reduce(0, combine: +) }
-    
-    private (set) var popToTimesPerParameter = [TransitionId : Int]()
-    var popToTimesTotal: Int { return popToTimesPerParameter.map({ $1 }).reduce(0, combine: +) }
-    
-    private (set) var precedingTimesPerParameter = [TransitionId : Int]()
-    var precedingTimesTotal: Int {  return precedingTimesPerParameter.map({ $1 }).reduce(0, combine: +) }
-    
-    var first: RestoredTransitionContext? {
-        firstTimes++; return nil
-    }
-    
-    var last: RestoredTransitionContext? {
-        lastTimes++; return nil
-    }
-    
-    func popLast() -> RestoredTransitionContext? {
-        popLastTimes++
-        return nil
-    }
-
-    func append(context: CompletedTransitionContext) {
-        let appendTimes = appendTimesPerParameter[context.transitionId] ?? 0
-        appendTimesPerParameter[context.transitionId] = appendTimes + 1
-    }
-    
-    subscript (transitionId: TransitionId) -> RestoredTransitionContext? {
-        let subscriptTimes = subscriptTimesPerParameter[transitionId] ?? 0
-        subscriptTimesPerParameter[transitionId] = subscriptTimes + 1
-        return nil
-    }
-    
-    func popTo(transitionId transitionId: TransitionId) -> [RestoredTransitionContext]? {
-        let popToTimes = popToTimesPerParameter[transitionId] ?? 0
-        popToTimesPerParameter[transitionId] = popToTimes + 1
-        return nil
-    }
-    
-    func preceding(transitionId transitionId: TransitionId) -> RestoredTransitionContext? {
-        let precedingTimes = precedingTimesPerParameter[transitionId] ?? 0
-        precedingTimesPerParameter[transitionId] = precedingTimes + 1
-        return nil
-    }
-}
-
-
 // MARK: - TransitionContextsStackTests
 class TransitionContextsStackClientTests: XCTestCase {
-
-    var __stackImplSpy: TransitionContextsStackSpy?
+    
     var __stackClientImpl: TransitionContextsStackClient?
-
+    
     var autoZombieContext: CompletedTransitionContext?
     var neverZombieContext1: CompletedTransitionContext?
     var neverZombieContext2: CompletedTransitionContext?
-
+    var oneDayZombieContext: CompletedTransitionContext?
+    
     private let targetViewController = UIViewController()
+    private var nillableTargetViewController: UIViewController?
     private let sourceViewController = UIViewController()
     private let dummyTransitionsHandler = DummyTransitionsHandler()
     private let dummyThirdPartyTransitionsHandler = DummyTransitionsHandler()
     
     override func setUp() {
         super.setUp()
-        __stackImplSpy = TransitionContextsStackSpy()
-        __stackClientImpl = TransitionContextsStackClientImpl(transitionContextsStack: __stackImplSpy!)
+        __stackClientImpl = TransitionContextsStackClientImpl()
         
         autoZombieContext = createCompletedTransitionContext(
             sourceViewController: nil,
@@ -125,155 +70,110 @@ class TransitionContextsStackClientTests: XCTestCase {
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: targetViewController,
             targetTransitionsHandler: dummyTransitionsHandler)
-    }
-
-    func testCallingAppendOnStackSpy_AfterCallingAppendOnStackClient_WithGoodParameters() {
-        guard let __stackImplSpy = __stackImplSpy
-            else { XCTFail(); return }
-        guard let __stackClientImpl = __stackClientImpl
-            else { XCTFail(); return }
-        guard let autoZombieContext = autoZombieContext
-            else { XCTFail(); return }
-        guard let neverZombieContext1 = neverZombieContext1
-            else { XCTFail(); return }
-        guard let neverZombieContext2 = neverZombieContext2
-            else { XCTFail(); return }
-
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 0)
         
-        // passing good transitions handler: the one matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-
-        // passing good transitions handler: the one matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext1, forTransitionsHandler: dummyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 3)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId], 1)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-
-        // passing good transitions handler: the one matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 6)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId], 1)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId], 3)
+        oneDayZombieContext = createCompletedTransitionContext(
+            sourceViewController: sourceViewController,
+            sourceTransitionsHandler: dummyTransitionsHandler,
+            targetViewController: nillableTargetViewController,
+            targetTransitionsHandler: dummyTransitionsHandler)
     }
     
-    func testCallingAppendOnStackSpy_AfterCallingAppendOnStackClient_WithBadParameters() {
-        guard let __stackImplSpy = __stackImplSpy
-            else { XCTFail(); return }
-        guard let __stackClientImpl = __stackClientImpl
-            else { XCTFail(); return }
-        guard let autoZombieContext = autoZombieContext
-            else { XCTFail(); return }
-        guard let neverZombieContext1 = neverZombieContext1
-            else { XCTFail(); return }
-        guard let neverZombieContext2 = neverZombieContext2
-            else { XCTFail(); return }
+    override func tearDown() {
+        super.tearDown()
         
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 0)
-        
-        // passing bad transitions handler: the one not matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 0)
-        
-        // passing bad transitions handler: the one not matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext1, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 0)
-        
-        // passing bad transitions handler: the one not matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 0)
+        autoZombieContext = nil
+        neverZombieContext1 = nil
+        neverZombieContext2 = nil
+        oneDayZombieContext = nil
+        nillableTargetViewController = nil
     }
     
-    func testCallingAppendOnStackSpy_AfterCallingAppendOnStackClient_WithGoodAndBadParameters() {
-        guard let __stackImplSpy = __stackImplSpy
-            else { XCTFail(); return }
+    func test_AppendingTransitionContextsWithGoodParameters() {
         guard let __stackClientImpl = __stackClientImpl
-            else { XCTFail(); return }
-        guard let autoZombieContext = autoZombieContext
             else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
             else { XCTFail(); return }
         
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 0)
+        // adding transitions handler matching the context. must be added to the stack
+        let appended = __stackClientImpl.appendTransition(context: neverZombieContext1, forTransitionsHandler: dummyTransitionsHandler)
+        XCTAssertTrue(appended, "добавили переход, выполненный правильным обработчиком переходов. должен был добавиться")
         
-        // passing bad transitions handler: the one not matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 0)
+        do { // lastTransitionForTransitionsHandler
+            let lastTransition = __stackClientImpl.lastTransitionForTransitionsHandler(dummyTransitionsHandler)
+            XCTAssertNotNil(lastTransition, "добавили переход, выполненный правильным обработчиком переходов. должен был добавиться")
+            XCTAssertEqual(lastTransition!.transitionId, neverZombieContext1.transitionId, "добавили переход, выполненный правильным обработчиком переходов. должен был добавиться")
+            
+            XCTAssertNil(__stackClientImpl.lastTransitionForTransitionsHandler(dummyThirdPartyTransitionsHandler), "переход для этого обработчика не добавляли. его не должно быть в стеке")
+        }
         
-        // passing good transitions handler: the one matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: autoZombieContext, forTransitionsHandler: dummyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
+        do { // chainedTransitionForTransitionsHandler
+            XCTAssertNil(__stackClientImpl.chainedTransitionForTransitionsHandler(dummyTransitionsHandler), "добавили один переход. дочерних переходов не было")
+            XCTAssertNil(__stackClientImpl.chainedTransitionForTransitionsHandler(dummyThirdPartyTransitionsHandler), "переход для этого обработчика не добавляли. для него не должно быть дочерних переходов")
+            
+        }
         
-        // passing bad transitions handler: the one not matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext1, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId])
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
+        do { // chainedTransitionsHandlerForTransitionsHandler
+            XCTAssertNil(__stackClientImpl.chainedTransitionsHandlerForTransitionsHandler(dummyTransitionsHandler), "добавили один переход. дочерних переходов не было")
+            XCTAssertNil(__stackClientImpl.chainedTransitionsHandlerForTransitionsHandler(dummyThirdPartyTransitionsHandler), "добавили один переход. дочерних переходов не было")
+        }
         
-        // passing good transitions handler: the one matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext1, forTransitionsHandler: dummyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 3)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId], 1)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
+        do { // transitionWith
+            let transitionWithId = __stackClientImpl.transitionWith(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyTransitionsHandler)
+            XCTAssertNotNil(transitionWithId, "добавили переход, выполненный правильным обработчиком переходов. должен был добавиться")
+            XCTAssertEqual(transitionWithId!.transitionId, neverZombieContext1.transitionId, "добавили переход, выполненный правильным обработчиком переходов. должен был добавиться")
+            
+            let transitionWithNotAppenededId = __stackClientImpl.transitionWith(transitionId: neverZombieContext2.transitionId, forTransitionsHandler: dummyTransitionsHandler)
+            XCTAssertNil(transitionWithNotAppenededId, "этот переход не добавляли. его не должно быть в стеке")
+            
+            let transitionWithNotAppendedTransitionsHandler = __stackClientImpl.transitionWith(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
+            XCTAssertNil(transitionWithNotAppendedTransitionsHandler, "переход для этого обработчика не добавляли. его не должно быть в стеке")
+        }
         
-        // passing bad transitions handler: the one not matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyThirdPartyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 3)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId], 1)
-        XCTAssertNil(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId])
+        do { // allTransitionsForTransitionsHandler
+            let (chainedTransition, pushTransitions) = __stackClientImpl.allTransitionsForTransitionsHandler(dummyTransitionsHandler)
+            XCTAssertNil(chainedTransition, "добавили один переход. дочерних переходов не было")
+            XCTAssertNotNil(pushTransitions, "сделали один переход. должен был добавиться")
+            XCTAssertEqual(pushTransitions!.count, 1, "сделали один переход. должен был добавиться")
+            XCTAssertEqual(pushTransitions!.first?.transitionId, neverZombieContext1.transitionId, "сделали один переход. должен был добавиться")
+            
+            let allTransitionsForNotAppededTransitionsHandler = __stackClientImpl.allTransitionsForTransitionsHandler(dummyThirdPartyTransitionsHandler)
+            XCTAssertNil(allTransitionsForNotAppededTransitionsHandler.chainedTransition, "переход для этого обработчика не добавляли. для него не должно быть дочерних переходов")
+            XCTAssertNil(allTransitionsForNotAppededTransitionsHandler.pushTransitions, "переход для этого обработчика не добавляли. для него не должно быть push переходов")
+        }
         
-        // passing good transitions handler: the one matching the context we want to append to the stack
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyTransitionsHandler)
-        __stackClientImpl.appendTransition(context: neverZombieContext2, forTransitionsHandler: dummyTransitionsHandler)
-        XCTAssertEqual(__stackImplSpy.appendTimesTotal, 6)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[autoZombieContext.transitionId], 2)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[neverZombieContext1.transitionId], 1)
-        XCTAssertEqual(__stackImplSpy.appendTimesPerParameter[neverZombieContext2.transitionId], 3)
+        do { // transitionsAfter
+            let transitionsAfter = __stackClientImpl.transitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: false)
+            XCTAssertNil(transitionsAfter.chainedTransition , "добавили один переход. после него переходов не должно быть")
+            XCTAssertNil(transitionsAfter.pushTransitions , "добавили один переход. после него переходов не должно быть")
+            
+            let transitionsAfterIncludingTransitionWithId = __stackClientImpl.transitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: true)
+            XCTAssertNil(transitionsAfterIncludingTransitionWithId.chainedTransition , "добавили один переход. после него переходов не должно быть")
+            XCTAssertNotNil(transitionsAfterIncludingTransitionWithId.pushTransitions , "добавили один переход. должен был добавиться")
+            XCTAssertEqual(transitionsAfterIncludingTransitionWithId.pushTransitions!.first?.transitionId, neverZombieContext1.transitionId, "сделали один переход. должен был добавиться")
+            
+            
+            let transitionsAfterForNotAppededTransitionsHandler = __stackClientImpl.transitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler, includingTransitionWithId: false)
+            XCTAssertNil(transitionsAfterForNotAppededTransitionsHandler.chainedTransition, "переход для этого обработчика не добавляли. для него не должно быть chained переходов")
+            XCTAssertNil(transitionsAfterForNotAppededTransitionsHandler.pushTransitions, "переход для этого обработчика не добавляли. для него не должно быть chained переходов")
+            
+            let transitionsAfterIncludingTransitionWithIdForNotAppededTransitionsHandler = __stackClientImpl.transitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler, includingTransitionWithId: true)
+            XCTAssertNil(transitionsAfterIncludingTransitionWithIdForNotAppededTransitionsHandler.chainedTransition, "переход для этого обработчика не добавляли. для него не должно быть chained переходов")
+            XCTAssertNil(transitionsAfterIncludingTransitionWithIdForNotAppededTransitionsHandler.pushTransitions, "переход для этого обработчика не добавляли. для него не должно быть chained переходов")
+        }
+        
+        do { // deleteTransitionsAfter
+            XCTAssertFalse(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext2.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: false), "этот переход вообще не добавляли. он не должен удалиться")
+            XCTAssertFalse(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext2.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: true), "этот переход вообще не добавляли. он не должен удалиться")
+            XCTAssertFalse(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext2.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler, includingTransitionWithId: false), "переход для этого обработчика не добавляли. он не должен удалиться")
+            XCTAssertFalse(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext2.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler, includingTransitionWithId: true), "переход для этого обработчика не добавляли. он не должен удалиться")
+
+            XCTAssertFalse(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler, includingTransitionWithId: false), "переход для этого обработчика не добавляли. он не должен удалиться")
+            XCTAssertFalse(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler, includingTransitionWithId: true), "переход для этого обработчика не добавляли. он не должен удалиться")
+            XCTAssertFalse(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: false), "добавили один переход. после него переходов не должно быть")
+            
+            XCTAssertTrue(__stackClientImpl.deleteTransitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: true), "добавили один переход. должен был добавиться. поэтому должен удалиться")
+        }
     }
 }

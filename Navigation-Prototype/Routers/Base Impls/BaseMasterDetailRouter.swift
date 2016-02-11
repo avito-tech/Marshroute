@@ -50,7 +50,7 @@ extension BaseMasterDetailRouter: RouterTransitionable {}
 extension BaseMasterDetailRouter: TransitionsCoordinatorHolder {}
 
 // MARK: - TransitionsGeneratorHolder
-extension BaseMasterDetailRouter: TransitionsGeneratorHolder {}
+extension BaseMasterDetailRouter: TransitionsIdGeneratorHolder {}
 
 // MARK: - Router
 extension BaseMasterDetailRouter: Router {}

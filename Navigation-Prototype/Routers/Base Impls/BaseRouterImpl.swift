@@ -43,7 +43,7 @@ extension BaseRouter: RouterTransitionable {}
 extension BaseRouter: TransitionsCoordinatorHolder {}
 
 // MARK: - TransitionsGeneratorHolder
-extension BaseRouter: TransitionsGeneratorHolder {}
+extension BaseRouter: TransitionsIdGeneratorHolder {}
 
 // MARK: - MasterRouter
 extension BaseRouter: MasterRouter {}

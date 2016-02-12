@@ -1,34 +1,24 @@
 import UIKit
 
-final class SplitViewTransitionsHandlerImpl {
+final class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
     private weak var splitViewController: UISplitViewController?
-   
-    let transitionsCoordinator: TransitionsCoordinator
     
     init(splitViewController: UISplitViewController,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.splitViewController = splitViewController
-        self.transitionsCoordinator = transitionsCoordinator
+        super.init(transitionsCoordinator: transitionsCoordinator)
     }
     
     var masterTransitionsHandler: AnimatingTransitionsHandler?
     var detailTransitionsHandler: AnimatingTransitionsHandler?
-}
-
-// MARK: - TransitionsHandler
-extension SplitViewTransitionsHandlerImpl: TransitionsHandler { }
-
-//MARK: - TransitionsCoordinatorHolder
-extension SplitViewTransitionsHandlerImpl: TransitionsCoordinatorHolder {}
-
-//MARK: - TransitionsHandlerContainer
-extension SplitViewTransitionsHandlerImpl: TransitionsHandlerContainer {
-    var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    
+    //MARK: - TransitionsHandlerContainer
+    override var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return transitionsHandlers
     }
     
-    var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    override var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return transitionsHandlers
     }
 }

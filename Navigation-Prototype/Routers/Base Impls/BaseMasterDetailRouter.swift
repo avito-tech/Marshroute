@@ -2,7 +2,20 @@ import Foundation
 
 /// Роутер для master контроллера внутри SplitViewController'а
 /// Работаюет с двумя обработчиками переходов (master и detail)
-class BaseMasterDetailRouter {
+class BaseMasterDetailRouter:
+    TransitionsCoordinatorHolder,
+    TransitionIdGeneratorHolder,
+    RouterIdentifiable,
+    RouterPresentable,
+    RouterTransitionable,
+    Router,
+    RouterFocusable,
+    RouterDismisable,
+    MasterRouterTransitionable,
+    MasterRouter,
+    DetailRouterTransitionable,
+    DetailRouter
+{
     let masterTransitionsHandlerBox: RouterTransitionsHandlerBox?
     let detailTransitionsHandlerBox: RouterTransitionsHandlerBox?
     let transitionId: TransitionId
@@ -20,44 +33,9 @@ class BaseMasterDetailRouter {
         self.transitionsCoordinator = seed.transitionsCoordinator
         self.transitionIdGenerator = seed.transitionIdGenerator
     }
-}
 
-// MARK: - RouterIdentifiable
-extension BaseMasterDetailRouter: RouterIdentifiable {}
-
-// MARK: - RouterPresentable
-extension BaseMasterDetailRouter: RouterPresentable {}
-
-// MARK: - MasterRouterTransitionable
-extension BaseMasterDetailRouter: MasterRouterTransitionable {}
-
-// MARK: - DetailRouterTransitionable
-extension BaseMasterDetailRouter: DetailRouterTransitionable {}
-
-// MARK: - RouterTransitionable
-extension BaseMasterDetailRouter: RouterTransitionable {
+    // MARK: - RouterTransitionable
     var transitionsHandlerBox: RouterTransitionsHandlerBox? {
         return masterTransitionsHandlerBox
     }
 }
-
-// MARK: - TransitionsCoordinatorHolder
-extension BaseMasterDetailRouter: TransitionsCoordinatorHolder {}
-
-// MARK: - TransitionsGeneratorHolder
-extension BaseMasterDetailRouter: TransitionIdGeneratorHolder {}
-
-// MARK: - Router
-extension BaseMasterDetailRouter: Router {}
-
-// MARK: - MasterRouter
-extension BaseMasterDetailRouter: MasterRouter {}
-
-// MARK: - DetailRouter
-extension BaseMasterDetailRouter: DetailRouter {}
-
-// MARK: - RouterFocusable
-extension BaseMasterDetailRouter: RouterFocusable {}
-
-// MARK: - RouterDismisable
-extension BaseMasterDetailRouter: RouterDismisable  {}

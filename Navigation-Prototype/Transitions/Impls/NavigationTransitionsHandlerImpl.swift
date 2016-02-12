@@ -1,27 +1,17 @@
 import UIKit
 
-final class NavigationTransitionsHandlerImpl {
+final class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
     private weak var navigationController: UINavigationController?
-    
-    let transitionsCoordinator: TransitionsCoordinator
     
     init(navigationController: UINavigationController,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.navigationController = navigationController
-        self.transitionsCoordinator = transitionsCoordinator
+        super.init(transitionsCoordinator: transitionsCoordinator)
     }
-}
 
-// MARK: - TransitionsHandler
-extension NavigationTransitionsHandlerImpl: TransitionsHandler {}
-
-// MARK: - TransitionsCoordinatorHolder
-extension NavigationTransitionsHandlerImpl: TransitionsCoordinatorHolder {}
-
-// MARK: - TransitionAnimationsLauncher
-extension NavigationTransitionsHandlerImpl: TransitionAnimationsLauncher {
-    func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    // MARK: - TransitionAnimationsLauncher
+    override func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
         if launchingContext.needsNavigationAnimationSourceParameters {
             let navigationAnimationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)
@@ -32,7 +22,7 @@ extension NavigationTransitionsHandlerImpl: TransitionAnimationsLauncher {
         }
     }
     
-    func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    override func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
         if launchingContext.needsNavigationAnimationSourceParameters {
             let navigationAnimationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)
@@ -43,7 +33,7 @@ extension NavigationTransitionsHandlerImpl: TransitionAnimationsLauncher {
         }
     }
     
-    func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    override func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
         if launchingContext.needsNavigationAnimationSourceParameters {
             let navigationAnimationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)

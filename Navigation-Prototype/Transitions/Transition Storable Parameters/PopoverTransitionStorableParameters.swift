@@ -1,6 +1,6 @@
 import UIKit
 
-final class PopoverTransitionStorableParameters: NSObject, TransitionStorableParameters {
+final class PopoverTransitionStorableParameters: NSObject  {
     /// если показывать дочерний контроллер внутри поповера,
     /// то кто-то должен держать сильную ссылку на этот поповер
     var popoverController: UIPopoverController? {
@@ -41,5 +41,13 @@ extension PopoverTransitionStorableParameters: UIPopoverControllerDelegate {
     func popoverControllerDidDismissPopover(popoverController: UIPopoverController)
     {
         self.popoverController = nil
+    }
+}
+
+// MARK: - TransitionStorableParameters
+extension PopoverTransitionStorableParameters: TransitionStorableParameters {
+    func releaseStorableParameters() {
+        popoverController?.dismissPopoverAnimated(false)
+        popoverController = nil
     }
 }

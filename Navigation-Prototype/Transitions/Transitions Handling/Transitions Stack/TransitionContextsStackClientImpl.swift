@@ -120,10 +120,10 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         
         if includingTransitionWithId {
             stack.popTo(transitionId: transitionId)?.first
-            return stack.popLast() != nil
+            return (stack.popLast() != nil)
         }
         else {
-            return stack.popTo(transitionId: transitionId)?.first != nil
+            return (stack.popTo(transitionId: transitionId)?.first != nil)
         }
     }
     

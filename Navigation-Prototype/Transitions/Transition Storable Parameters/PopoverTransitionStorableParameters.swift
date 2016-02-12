@@ -46,8 +46,12 @@ extension PopoverTransitionStorableParameters: UIPopoverControllerDelegate {
 
 // MARK: - TransitionStorableParameters
 extension PopoverTransitionStorableParameters: TransitionStorableParameters {
-    func releaseStorableParameters() {
+    func releaseStorableParameters()
+    {
         popoverController?.dismissPopoverAnimated(false)
         popoverController = nil
+        presentedTransitionsHandler = nil
+    }
+}
     }
 }

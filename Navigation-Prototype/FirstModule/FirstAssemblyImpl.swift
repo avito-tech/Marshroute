@@ -3,10 +3,10 @@ import UIKit
 final class FirstAssemblyImpl: FirstAssembly {
     
     func iphoneModule(
-        title: String,
+        title title: String,
         presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
@@ -20,7 +20,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
         let router = FirstRouterImpl(
-            transitionsHandler: transitionsHandler,
+            transitionsHandlerBox: transitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
             transitionsCoordinator: transitionsCoordinator,
@@ -47,10 +47,10 @@ final class FirstAssemblyImpl: FirstAssembly {
     }
     
     func ipadDetailModule(
-        title: String,
+        title title: String,
         presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
@@ -64,7 +64,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
         let router = FirstRouterImpl_iPad(
-            transitionsHandler: transitionsHandler,
+            transitionsHandlerBox: transitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
             transitionsCoordinator: transitionsCoordinator,
@@ -91,11 +91,11 @@ final class FirstAssemblyImpl: FirstAssembly {
     }
     
     func ipadMasterModule(
-        title: String,
+        title title: String,
         presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
-        detailTransitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
+        detailTransitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
@@ -109,8 +109,8 @@ final class FirstAssemblyImpl: FirstAssembly {
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
         let router = FirstRouterImpl_iPadMasterDetail(
-            masterTransitionsHandler: transitionsHandler,
-            detailTransitionsHandler: detailTransitionsHandler,
+            masterTransitionsHandlerBox: transitionsHandlerBox,
+            detailTransitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
             transitionsCoordinator: transitionsCoordinator,

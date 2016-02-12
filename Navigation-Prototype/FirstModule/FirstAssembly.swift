@@ -2,10 +2,10 @@ import UIKit
 
 protocol FirstAssembly {
     func iphoneModule(
-        title: String,
+        title title: String,
         presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
@@ -15,10 +15,10 @@ protocol FirstAssembly {
         -> UIViewController
     
     func ipadDetailModule(
-        title: String,
+        title title: String,
         presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
@@ -28,11 +28,11 @@ protocol FirstAssembly {
         -> UIViewController
     
     func ipadMasterModule(
-        title: String,
+        title title: String,
         presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
-        detailTransitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
+        detailTransitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,

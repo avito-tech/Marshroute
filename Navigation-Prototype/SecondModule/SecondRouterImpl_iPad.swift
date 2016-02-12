@@ -11,14 +11,14 @@ extension  SecondRouterImpl_iPad: SecondRouter {
         
         presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: { (transitionId, transitionsHandler) -> UIViewController in
+            withViewControllerDerivedFrom: { (transitionId, transitionsHandlerBox) -> UIViewController in
                 
                 let viewController = AssemblyFactory.firstModuleAssembly()
                     .ipadDetailModule( // 2
-                        "1",
-                        presentingTransitionsHandler: self.transitionsHandler,
+                        title: "1",
+                        presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                         transitionId: transitionId,
-                        transitionsHandler: transitionsHandler,
+                        transitionsHandlerBox: transitionsHandlerBox,
                         canShowFirstModule: true,
                         canShowSecondModule: false,
                         dismissable: true,
@@ -35,15 +35,15 @@ extension  SecondRouterImpl_iPad: SecondRouter {
 
         presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: { (transitionId, transitionsHandler) -> UIViewController in
+            withViewControllerDerivedFrom: { (transitionId, transitionsHandlerBox) -> UIViewController in
                 let viewController = AssemblyFactory.secondModuleAssembly()
                     .ipadModule( // 2
-                        transitionsHandler,
+                        transitionsHandlerBox: transitionsHandlerBox,
                         title: String(title + 1),
                         withTimer: false,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        presentingTransitionsHandler: self.transitionsHandler,
+                        presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                         transitionsCoordinator: transitionsCoordinator,
                         transitionIdGenerator: transitionIdGenerator)
                 return viewController

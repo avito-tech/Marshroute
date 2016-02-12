@@ -1,3 +1,3 @@
-protocol TransitionsIdGeneratorHolder: class {
+protocol TransitionIdGeneratorHolder: class {
     var transitionIdGenerator: TransitionIdGenerator { get }
 }

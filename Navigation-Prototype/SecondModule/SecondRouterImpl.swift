@@ -6,13 +6,13 @@ final class SecondRouterImpl: BaseRouter {
 
 extension SecondRouterImpl: SecondRouter {
     func showFirstModule(sender sender: AnyObject) {
-        presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
+        presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandlerBox) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly()
                 .iphoneModule(
-                    "1",
-                    presentingTransitionsHandler: self.transitionsHandler,
+                    title: "1",
+                    presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                     transitionId: transitionId,
-                    transitionsHandler: transitionsHandler,
+                    transitionsHandlerBox: transitionsHandlerBox,
                     canShowFirstModule: true,
                     canShowSecondModule: false,
                     dismissable: true,
@@ -25,15 +25,15 @@ extension SecondRouterImpl: SecondRouter {
     }
     
     func showSecondModule(sender sender: AnyObject, title: Int) {
-        presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
+        presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandlerBox) -> UIViewController in
             let viewController = AssemblyFactory.secondModuleAssembly()
                 .iphoneModule( // 2
-                    transitionsHandler,
+                    transitionsHandlerBox: transitionsHandlerBox,
                     title: String(title + 1),
                     withTimer: false,
                     canShowModule1: true,
                     transitionId: transitionId,
-                    presentingTransitionsHandler: self.transitionsHandler,
+                    presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                     transitionsCoordinator: transitionsCoordinator,
                     transitionIdGenerator: transitionIdGenerator)
             

@@ -30,6 +30,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput  {
         // дожидаемся, пока наш модуль будет сокрыт, а затем сообщаем о результате работы в выход
         router.dismissCurrentModule { [weak self]  () -> Void in
             self?.moduleOutput?.didFinishWith(success: false)
+            self?.moduleOutput = nil
         }
     }
     
@@ -37,6 +38,7 @@ extension AuthorizationPresenter: AuthorizationViewOutput  {
         // дожидаемся, пока наш модуль будет сокрыт, а затем сообщаем о результате работы в выход
         router.dismissCurrentModule { [weak self]  () -> Void in
             self?.moduleOutput?.didFinishWith(success: true)
+            self?.moduleOutput = nil            
         }
     }
 }

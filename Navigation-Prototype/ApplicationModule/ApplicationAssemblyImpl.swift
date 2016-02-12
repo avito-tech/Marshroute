@@ -45,7 +45,7 @@ private extension ApplicationAssemblyImpl {
         let sharedTransitionId = sharedTransitionIdGenerator.generateNewTransitionId()
         let sharedTransitionsCoordinator = navigationRootsHolder.transitionsCoordinator
         
-        let (viewControllers, tabBarTransitionsHandlers) = createTabControllers(
+        let (viewControllers, animatingTransitionsHandlers, containingTransitinsHandlers) = createTabControllers(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator)
 
@@ -55,10 +55,13 @@ private extension ApplicationAssemblyImpl {
             tabBarController: tabBarController,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
-        tabBarTransitionsHandler.tabTransitionsHandlers = tabBarTransitionsHandlers
+        tabBarTransitionsHandler.animatingTransitionsHandlers = animatingTransitionsHandlers
+        tabBarTransitionsHandler.containingTransitionsHandlers = containingTransitinsHandlers
+        
+        let tabBarTransitionsHandlerBox = RouterTransitionsHandlerBox(containingTransitionsHandler: tabBarTransitionsHandler)
         
         let router = ApplicationRouterImpl(
-            transitionsHandler: tabBarTransitionsHandler,
+            transitionsHandlerBox: tabBarTransitionsHandlerBox,
             transitionId: sharedTransitionId,
             presentingTransitionsHandler: nil,
             transitionsCoordinator: sharedTransitionsCoordinator,
@@ -75,7 +78,7 @@ private extension ApplicationAssemblyImpl {
     func createTabControllers(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        ->  ([UIViewController], [TransitionsHandler])
+        ->  ([UIViewController], [Int: AnimatingTransitionsHandler], [Int: ContainingTransitionsHandler])
     {
         return (UIDevice.currentDevice().userInterfaceIdiom == .Pad)
             ? createTabControllersIpad(
@@ -93,28 +96,29 @@ private extension ApplicationAssemblyImpl {
     private func createTabControllersIphone(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewControllers: [UIViewController], transitionsHandlers: [TransitionsHandler])
+        ->  ([UIViewController], [Int: AnimatingTransitionsHandler], [Int: ContainingTransitionsHandler])
     {
-        let firstTab = createFirstTabControllerIphone(
+        let (firstViewController, firstTransitionsHandler) = createFirstTabControllerIphone(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator
         )
         
-        let secondTab = createSecondTabControllerIphone(
+        let (secondViewController , secondTransitionsHandler) = createSecondTabControllerIphone(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator
         )
         
-        let thirdTab = createThirdTabControllerIphone(
+        let (thirdViewController, thirdTransitionsHandler) = createThirdTabControllerIphone(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator
         )
         
-        let controllers = [firstTab.viewController, secondTab.viewController, thirdTab.viewController]
+        let controllers = [firstViewController, secondViewController, thirdViewController]
         
         let result = (
             controllers,
-            [firstTab.transitionsHandler, secondTab.transitionsHandler, thirdTab.transitionsHandler]
+            [0 : firstTransitionsHandler, 1 : secondTransitionsHandler, 2 : thirdTransitionsHandler],
+            [Int: ContainingTransitionsHandler]()
         )
         return result
     }
@@ -122,18 +126,20 @@ private extension ApplicationAssemblyImpl {
     func createFirstTabControllerIphone(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewController: UIViewController, transitionsHandler: TransitionsHandler)
+        ->  (UIViewController, AnimatingTransitionsHandler)
     {
         let firstNavigation = UINavigationController()
         let firstTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: firstNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
+        let firstTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: firstTransitionsHandler)
         
         do {
             let firstViewController = AssemblyFactory.firstModuleAssembly().iphoneModule(
-                "1", presentingTransitionsHandler: nil,
+                title: "1",
+                presentingTransitionsHandler: nil,
                 transitionId: sharedTransitionId,
-                transitionsHandler: firstTransitionsHandler,
+                transitionsHandlerBox: firstTransitionsHandlerBox,
                 canShowFirstModule: true,
                 canShowSecondModule: false,
                 dismissable: false,
@@ -142,8 +148,8 @@ private extension ApplicationAssemblyImpl {
                 transitionIdGenerator: sharedTransitionIdGenerator)
             
             let resetContext = ForwardTransitionContext(
-                resetingWithViewController: firstViewController,
-                transitionsHandler: firstTransitionsHandler,
+                resettingWithViewController: firstViewController,
+                animatingTransitionsHandler: firstTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
@@ -158,16 +164,18 @@ private extension ApplicationAssemblyImpl {
     func createSecondTabControllerIphone(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewController: UIViewController, transitionsHandler: TransitionsHandler)
+        ->  (UIViewController, AnimatingTransitionsHandler)
     {
         let secondNavigation = UINavigationController()
         let secondTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: secondNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
+        let secondTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: secondTransitionsHandler)
+        
         do {
             let secondViewController = AssemblyFactory.secondModuleAssembly().iphoneModule(
-                secondTransitionsHandler,
+                transitionsHandlerBox: secondTransitionsHandlerBox,
                 title: "1", withTimer: true,
                 canShowModule1: true,
                 transitionId: sharedTransitionId,
@@ -176,8 +184,8 @@ private extension ApplicationAssemblyImpl {
                 transitionIdGenerator: sharedTransitionIdGenerator)
             
             let resetContext = ForwardTransitionContext(
-                resetingWithViewController: secondViewController,
-                transitionsHandler: secondTransitionsHandler,
+                resettingWithViewController: secondViewController,
+                animatingTransitionsHandler: secondTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
@@ -192,7 +200,7 @@ private extension ApplicationAssemblyImpl {
     func createThirdTabControllerIphone(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewController: UIViewController, transitionsHandler: TransitionsHandler)
+        ->  (UIViewController, AnimatingTransitionsHandler)
     {
         let thirdNavigation = UINavigationController()
         let thirdTransitionsHandler = NavigationTransitionsHandlerImpl(
@@ -202,8 +210,8 @@ private extension ApplicationAssemblyImpl {
             let viewController = UIViewController()
             
             let resetContext = ForwardTransitionContext(
-                resetingWithViewController: viewController,
-                transitionsHandler: thirdTransitionsHandler,
+                resettingWithViewController: viewController,
+                animatingTransitionsHandler: thirdTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
@@ -221,28 +229,29 @@ private extension ApplicationAssemblyImpl {
     func createTabControllersIpad(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewControllers: [UIViewController], transitionsHandlers: [TransitionsHandler])
+        ->  ([UIViewController], [Int: AnimatingTransitionsHandler], [Int: ContainingTransitionsHandler])
     {
-        let firstTab = createFirstTabControllerIpad(
+        let (firstViewController, firstTransitionsHandler) = createFirstTabControllerIpad(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator
         )
         
-        let secondTab = createSecondTabControllerIpad(
+        let (secondViewController, secondTransitionsHandler) = createSecondTabControllerIpad(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator
         )
         
-        let thirdTab = createThirdTabControllerIpad(
+        let (thirdViewController, thirdTransitionsHandler)  = createThirdTabControllerIpad(
             sharedTransitionId: sharedTransitionId,
             sharedTransitionsCoordinator: sharedTransitionsCoordinator
         )
         
-        let controllers = [firstTab.viewController, secondTab.viewController, thirdTab.viewController]
+        let controllers = [firstViewController, secondViewController, thirdViewController]
         
         let result = (
             controllers,
-            [firstTab.transitionsHandler, secondTab.transitionsHandler, thirdTab.transitionsHandler]
+            [1 : secondTransitionsHandler, 2 : thirdTransitionsHandler],
+            [0 : firstTransitionsHandler]
         )
         
         return result
@@ -251,7 +260,7 @@ private extension ApplicationAssemblyImpl {
     func createFirstTabControllerIpad(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewController: UIViewController, transitionsHandler: TransitionsHandler)
+        -> (UIViewController, ContainingTransitionsHandler)
     {
         let firstSplit = UISplitViewController()
         let firstSplitTransitionsHandler = SplitViewTransitionsHandlerImpl(
@@ -274,13 +283,20 @@ private extension ApplicationAssemblyImpl {
                 navigationController: detailNavigation,
                 transitionsCoordinator: sharedTransitionsCoordinator)
             
+            
+            firstSplitTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
+            firstSplitTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
+            
+            let masterTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: masterTransitionsHandler)
+            let detailTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: detailTransitionsHandler)
+            
             do {
                 let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
-                    "1",
+                    title: "1",
                     presentingTransitionsHandler: nil,
                     transitionId: sharedFirstTransitionId,
-                    transitionsHandler: masterTransitionsHandler,
-                    detailTransitionsHandler: detailTransitionsHandler,
+                    transitionsHandlerBox: masterTransitionsHandlerBox,
+                    detailTransitionsHandlerBox: detailTransitionsHandlerBox,
                     canShowFirstModule: true,
                     canShowSecondModule: false,
                     dismissable: false,
@@ -289,8 +305,8 @@ private extension ApplicationAssemblyImpl {
                     transitionIdGenerator: sharedTransitionIdGenerator)
                 
                 let resetMasterContext = ForwardTransitionContext(
-                    resetingWithViewController: masterViewController,
-                    transitionsHandler: masterTransitionsHandler,
+                    resettingWithViewController: masterViewController,
+                    animatingTransitionsHandler: masterTransitionsHandler,
                     animator: NavigationTransitionsAnimator(),
                     transitionId: sharedFirstTransitionId)
                 
@@ -301,16 +317,14 @@ private extension ApplicationAssemblyImpl {
                 let detailViewController = UIViewController()
                 
                 let resetDetailContext = ForwardTransitionContext(
-                    resetingWithViewController: detailViewController,
-                    transitionsHandler: detailTransitionsHandler,
+                    resettingWithViewController: detailViewController,
+                    animatingTransitionsHandler: detailTransitionsHandler,
                     animator: NavigationTransitionsAnimator(),
                     transitionId: sharedFirstTransitionId)
                 
                 detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
             }
-            
-            firstSplitTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
-            firstSplitTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
+
         }
         
         firstSplit.tabBarItem.title = "1"
@@ -321,16 +335,18 @@ private extension ApplicationAssemblyImpl {
     func createSecondTabControllerIpad(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewController: UIViewController, transitionsHandler: TransitionsHandler)
+        -> (UIViewController, AnimatingTransitionsHandler)
     {
         let secondNavigation = UINavigationController()
         let secondTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: secondNavigation,
             transitionsCoordinator: sharedTransitionsCoordinator)
         
+        let secondTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: secondTransitionsHandler)
+        
         do {
             let second = AssemblyFactory.secondModuleAssembly().ipadModule(
-                secondTransitionsHandler,
+                transitionsHandlerBox: secondTransitionsHandlerBox,
                 title: "1",
                 withTimer: true,
                 canShowModule1: true,
@@ -340,8 +356,8 @@ private extension ApplicationAssemblyImpl {
                 transitionIdGenerator: sharedTransitionIdGenerator)
             
             let resetContext = ForwardTransitionContext(
-                resetingWithViewController: second,
-                transitionsHandler: secondTransitionsHandler,
+                resettingWithViewController: second,
+                animatingTransitionsHandler: secondTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             
@@ -356,7 +372,7 @@ private extension ApplicationAssemblyImpl {
     func createThirdTabControllerIpad(
         sharedTransitionId sharedTransitionId: TransitionId,
         sharedTransitionsCoordinator: TransitionsCoordinator)
-        -> (viewController: UIViewController, transitionsHandler: TransitionsHandler)
+        -> (UIViewController, AnimatingTransitionsHandler)
     {
         let thirdNavigation = UINavigationController()
         let thirdTransitionsHandler = NavigationTransitionsHandlerImpl(
@@ -367,8 +383,8 @@ private extension ApplicationAssemblyImpl {
             let viewController = UIViewController()
             
             let resetContext = ForwardTransitionContext(
-                resetingWithViewController: viewController,
-                transitionsHandler: thirdTransitionsHandler,
+                resettingWithViewController: viewController,
+                animatingTransitionsHandler: thirdTransitionsHandler,
                 animator: NavigationTransitionsAnimator(),
                 transitionId: sharedTransitionId)
             

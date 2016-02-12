@@ -12,8 +12,8 @@ final class SplitViewTransitionsHandlerImpl {
         self.transitionsCoordinator = transitionsCoordinator
     }
     
-    var masterTransitionsHandler: TransitionsHandler?
-    var detailTransitionsHandler: TransitionsHandler?
+    var masterTransitionsHandler: AnimatingTransitionsHandler?
+    var detailTransitionsHandler: AnimatingTransitionsHandler?
 }
 
 // MARK: - TransitionsHandler
@@ -24,18 +24,18 @@ extension SplitViewTransitionsHandlerImpl: TransitionsCoordinatorHolder {}
 
 //MARK: - TransitionsHandlerContainer
 extension SplitViewTransitionsHandlerImpl: TransitionsHandlerContainer {
-    var allTransitionsHandlers: [TransitionsHandler]? {
+    var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return transitionsHandlers
     }
     
-    var visibleTransitionsHandlers: [TransitionsHandler]? {
+    var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return transitionsHandlers
     }
 }
 
 // MARK: - helpers
 private extension SplitViewTransitionsHandlerImpl {
-    var transitionsHandlers: [TransitionsHandler] {
+    var transitionsHandlers: [AnimatingTransitionsHandler] {
         return [masterTransitionsHandler, detailTransitionsHandler].flatMap { $0 }
     }
 }

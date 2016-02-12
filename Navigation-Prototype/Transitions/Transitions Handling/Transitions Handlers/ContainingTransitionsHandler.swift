@@ -1,0 +1,1 @@
+typealias ContainingTransitionsHandler = protocol<TransitionsHandler, TransitionsHandlerContainer>

@@ -6,12 +6,12 @@ final class ApplicationRouterImpl: BaseRouter {
 
 extension ApplicationRouterImpl: ApplicationRouter {
     func showAuthorization(output output: AuthorizationModuleOutput) {        
-        presentModalViewControllerDerivedFrom({ (transitionId, transitionsHandler) -> UIViewController in
+        presentModalViewControllerDerivedFrom({ (transitionId, transitionsHandlerBox) -> UIViewController in
             let module = AssemblyFactory.authModuleAssembly()
                 .module(
-                    self.transitionsHandler,
+                    presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                     transitionId: transitionId,
-                    transitionsHandler: transitionsHandler,
+                    transitionsHandlerBox: transitionsHandlerBox,
                     moduleOutput: output,
                     transitionsCoordinator: transitionsCoordinator,
                     transitionIdGenerator: transitionIdGenerator)

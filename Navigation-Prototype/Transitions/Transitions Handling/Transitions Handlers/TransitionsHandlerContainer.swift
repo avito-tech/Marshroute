@@ -1,4 +1,4 @@
 protocol TransitionsHandlerContainer: class {
-    var allTransitionsHandlers: [TransitionsHandler]? { get }
-    var visibleTransitionsHandlers: [TransitionsHandler]? { get }
+    var allTransitionsHandlers: [AnimatingTransitionsHandler]? { get }
+    var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? { get }
 }

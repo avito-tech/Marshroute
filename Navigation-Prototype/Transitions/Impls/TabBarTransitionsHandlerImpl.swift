@@ -12,13 +12,8 @@ final class TabBarTransitionsHandlerImpl {
         self.transitionsCoordinator = transitionsCoordinator
     }
     
-    var tabTransitionsHandlers: [TransitionsHandler]? {
-        didSet {
-            if let tabBarController = tabBarController {
-                assert(tabTransitionsHandlers?.count == tabBarController.viewControllers?.count)
-            }
-        }
-    }
+    var animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler]?
+    var containingTransitionsHandlers: [Int: ContainingTransitionsHandler]?
 }
 
 // MARK: - TransitionsHandler
@@ -29,26 +24,56 @@ extension TabBarTransitionsHandlerImpl: TransitionsCoordinatorHolder {}
 
 //MARK: - TransitionsHandlerContainer
 extension TabBarTransitionsHandlerImpl: TransitionsHandlerContainer {
-    var allTransitionsHandlers: [TransitionsHandler]? {
-        return tabTransitionsHandlers
+    var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
+        guard let tabsCount = tabBarController?.viewControllers?.count where tabsCount > 0
+            else { return nil }
+
+        return animatingTransitionsHandlersPerEveryTab(
+            fromTabIndex: 0,
+            toTabIndex: tabsCount,
+            containingTransitionsHandlersProcessor: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                return containingTransitionsHandler.allTransitionsHandlers
+            }
+        )
     }
     
-    var visibleTransitionsHandlers: [TransitionsHandler]? {
-        if let selectedTransitionsHandler = selectedTransitionsHandler {
-            return [selectedTransitionsHandler]
-        }
-        return nil
+    var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
+        guard tabBarController?.viewControllers?.count > 0
+            else { return nil }
+        guard let selectedIndex = tabBarController?.selectedIndex
+            else { return nil }
+        
+        return animatingTransitionsHandlersPerEveryTab(
+            fromTabIndex: selectedIndex,
+            toTabIndex: selectedIndex + 1,
+            containingTransitionsHandlersProcessor: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                return containingTransitionsHandler.allTransitionsHandlers
+        })
     }
 }
 
 // MARK: - helpers
 private extension TabBarTransitionsHandlerImpl {
-    var selectedTransitionsHandler: TransitionsHandler? {
-        if let tabTransitionsHandlers = tabTransitionsHandlers, let selectedIndex = tabBarController?.selectedIndex
-            where selectedIndex < tabTransitionsHandlers.count
-        {
-            return tabTransitionsHandlers[selectedIndex]
+    func animatingTransitionsHandlersPerEveryTab(
+        fromTabIndex fromTabIndex: Int,
+        toTabIndex: Int,
+        containingTransitionsHandlersProcessor: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> [AnimatingTransitionsHandler]
+    {
+        var result = [AnimatingTransitionsHandler]()
+        
+        for index in fromTabIndex..<toTabIndex {
+            if let animatingTransitionsHandler = animatingTransitionsHandlers?[index] {
+                result.append(animatingTransitionsHandler)
+            }
+            
+            if let containingTransitionsHandler = containingTransitionsHandlers?[index] {
+                if let childAnimatingTransitionHandlers = containingTransitionsHandlersProcessor(containingTransitionsHandler) {
+                    result.appendContentsOf(childAnimatingTransitionHandlers)
+                }
+            }
         }
-        return nil
+        
+        return result
     }
 }

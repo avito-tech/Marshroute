@@ -21,7 +21,7 @@ struct CompletedTransitionContext {
     private (set) weak var targetViewController: UIViewController?
     
     /// обработчик переходов для роутера модуля, на контроллер которого перешли
-    private (set) weak var targetTransitionsHandler: TransitionsHandler?
+    let targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     let storableParameters: TransitionStorableParameters?
@@ -29,17 +29,22 @@ struct CompletedTransitionContext {
     /// параметры запуска анимации перехода
     let animationLaunchingContext: TransitionAnimationLaunchingContext
     
-    init(forwardTransitionContext context: ForwardTransitionContext,
+    init?(forwardTransitionContext context: ForwardTransitionContext,
         sourceViewController: UIViewController,
         sourceTransitionsHandler: TransitionsHandler)
     {
+        assert(!context.needsTargetTransitionsHandler, "проставьте это значение раньше")
+        
+        guard let targetTransitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(forwardTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox)
+            else { return nil }
+        
         self.transitionId = context.transitionId
         
         self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
         
         self.targetViewController = context.targetViewController
-        self.targetTransitionsHandler = context.targetTransitionsHandler
+        self.targetTransitionsHandlerBox = targetTransitionsHandlerBox
         
         self.storableParameters = context.storableParameters
 
@@ -60,7 +65,7 @@ extension CompletedTransitionContext {
         sourceViewController: UIViewController?,
         sourceTransitionsHandler: TransitionsHandler?,
         targetViewController: UIViewController?,
-        targetTransitionsHandler: TransitionsHandler?,
+        targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
         storableParameters: TransitionStorableParameters?,
         animationLaunchingContext: TransitionAnimationLaunchingContext)
     {
@@ -68,7 +73,7 @@ extension CompletedTransitionContext {
         self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
         self.targetViewController = targetViewController
-        self.targetTransitionsHandler = targetTransitionsHandler
+        self.targetTransitionsHandlerBox = targetTransitionsHandlerBox
         self.storableParameters = storableParameters
         self.animationLaunchingContext = animationLaunchingContext
     }

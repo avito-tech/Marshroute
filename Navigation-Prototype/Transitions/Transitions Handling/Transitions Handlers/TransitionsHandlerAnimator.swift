@@ -1,1 +1,0 @@
-typealias TransitionsHandlerAnimator = protocol<TransitionsHandler, TransitionAnimationsLauncher>

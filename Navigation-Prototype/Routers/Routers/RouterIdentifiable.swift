@@ -1,4 +1,4 @@
 protocol RouterIdentifiable: class {
-    /// идентификатор перехода на роутер
+    /// идентификатор перехода на модуль роутера
     var transitionId: TransitionId { get }
 }

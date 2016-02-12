@@ -7,8 +7,8 @@ protocol TransitionContextsStackClient: class {
     func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
 
-    func chainedTransitionsHandlerForTransitionsHandler(transitionsHandler: TransitionsHandler)
-        -> TransitionsHandler?
+    func chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> RestoredTransitionTargetTransitionsHandlerBox?
 
     func transitionWith(
         transitionId transitionId: TransitionId,

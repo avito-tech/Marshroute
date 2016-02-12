@@ -3,24 +3,24 @@ import Foundation
 /// Роутер для master контроллера внутри SplitViewController'а
 /// Работаюет с двумя обработчиками переходов (master и detail)
 class BaseMasterDetailRouter {
-    weak var masterTransitionsHandler: TransitionsHandler?
-    weak var detailTransitionsHandler: TransitionsHandler?
+    let masterTransitionsHandlerBox: RouterTransitionsHandlerBox?
+    let detailTransitionsHandlerBox: RouterTransitionsHandlerBox?
     let transitionId: TransitionId
     weak var presentingTransitionsHandler: TransitionsHandler?
     let transitionsCoordinator: TransitionsCoordinator
     let transitionIdGenerator: TransitionIdGenerator
     
     init(
-        masterTransitionsHandler: TransitionsHandler,
-        detailTransitionsHandler: TransitionsHandler,
+        masterTransitionsHandlerBox: RouterTransitionsHandlerBox,
+        detailTransitionsHandlerBox: RouterTransitionsHandlerBox,
         transitionId: TransitionId,
         presentingTransitionsHandler: TransitionsHandler?,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
     {
         self.transitionId = transitionId
-        self.masterTransitionsHandler = masterTransitionsHandler
-        self.detailTransitionsHandler = detailTransitionsHandler
+        self.masterTransitionsHandlerBox = masterTransitionsHandlerBox
+        self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
         self.presentingTransitionsHandler = presentingTransitionsHandler
         self.transitionsCoordinator = transitionsCoordinator
         self.transitionIdGenerator = transitionIdGenerator
@@ -37,20 +37,20 @@ extension BaseMasterDetailRouter: RouterPresentable {}
 extension BaseMasterDetailRouter: MasterRouterTransitionable {}
 
 // MARK: - DetailRouterTransitionable
-extension BaseMasterDetailRouter: DetailRouterTransitionable {
-    weak var transitionsHandler: TransitionsHandler? {
-        return masterTransitionsHandler
-    }
-}
+extension BaseMasterDetailRouter: DetailRouterTransitionable {}
 
 // MARK: - RouterTransitionable
-extension BaseMasterDetailRouter: RouterTransitionable {}
+extension BaseMasterDetailRouter: RouterTransitionable {
+    var transitionsHandlerBox: RouterTransitionsHandlerBox? {
+        return masterTransitionsHandlerBox
+    }
+}
 
 // MARK: - TransitionsCoordinatorHolder
 extension BaseMasterDetailRouter: TransitionsCoordinatorHolder {}
 
 // MARK: - TransitionsGeneratorHolder
-extension BaseMasterDetailRouter: TransitionsIdGeneratorHolder {}
+extension BaseMasterDetailRouter: TransitionIdGeneratorHolder {}
 
 // MARK: - Router
 extension BaseMasterDetailRouter: Router {}

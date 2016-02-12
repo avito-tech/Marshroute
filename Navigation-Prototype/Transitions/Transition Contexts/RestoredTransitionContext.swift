@@ -20,7 +20,7 @@ struct RestoredTransitionContext {
     let targetViewController: UIViewController
     
     /// обработчик переходов для роутера модуля, на контроллер которого перешли
-    let targetTransitionsHandler: TransitionsHandler
+    let targetTransitionsHandlerBox: RestoredTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     let storableParameters: TransitionStorableParameters?
@@ -35,12 +35,15 @@ struct RestoredTransitionContext {
         
         guard let sourceViewController = context.sourceViewController
             else { return nil }
+        
         guard let sourceTransitionsHandler = context.sourceTransitionsHandler
             else { return nil }
         
         guard let targetViewController = context.targetViewController
             else { return nil }
-        guard let targetTransitionsHandler = context.targetTransitionsHandler
+        
+        guard let targetTransitionsHandlerBox = RestoredTransitionTargetTransitionsHandlerBox(
+            completedTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox)
             else { return nil }
         
         self.transitionId = context.transitionId
@@ -49,7 +52,7 @@ struct RestoredTransitionContext {
         self.sourceTransitionsHandler = sourceTransitionsHandler
         
         self.targetViewController = targetViewController
-        self.targetTransitionsHandler = targetTransitionsHandler
+        self.targetTransitionsHandlerBox = targetTransitionsHandlerBox
         
         self.storableParameters = context.storableParameters
         

@@ -2,9 +2,9 @@ import UIKit
 
 protocol AuthorizationAssembly {
     func module(
-        presentingTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
         moduleOutput: AuthorizationModuleOutput,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)

@@ -2,7 +2,7 @@ import UIKit
 
 protocol SecondAssembly {
     func iphoneModule(
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,
@@ -13,7 +13,7 @@ protocol SecondAssembly {
         -> UIViewController
     
     func ipadModule(
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,

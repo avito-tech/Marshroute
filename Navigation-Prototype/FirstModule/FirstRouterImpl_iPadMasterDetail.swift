@@ -4,16 +4,16 @@ final class FirstRouterImpl_iPadMasterDetail: BaseMasterDetailRouter {}
 
 extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        guard let detailTransitionsHandler = detailTransitionsHandler
+        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
             else { assert(false); return }
         
-        pushViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom( { (transitionId, transitionsHandlerBox) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
-                String(count + 1),
-                presentingTransitionsHandler: self.transitionsHandler,
+                title: String(count + 1),
+                presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                 transitionId: transitionId,
-                transitionsHandler: transitionsHandler,
-                detailTransitionsHandler: detailTransitionsHandler,
+                transitionsHandlerBox: transitionsHandlerBox,
+                detailTransitionsHandlerBox: detailTransitionsHandlerBox,
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,
                 dismissable: false,
@@ -25,15 +25,15 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        guard let detailTransitionsHandler = detailTransitionsHandler
+        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
             else { assert(false); return }
         
-        setDetailViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+        setDetailViewControllerDerivedFrom { (transitionId, transitionsHandlerBox) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
-                String(count + 1),
-                presentingTransitionsHandler: self.transitionsHandler,
+                title: String(count + 1),
+                presentingTransitionsHandler: nil,
                 transitionId: transitionId,
-                transitionsHandler: detailTransitionsHandler,
+                transitionsHandlerBox: detailTransitionsHandlerBox,
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,
                 dismissable: false,
@@ -50,15 +50,15 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
         
         presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: { (transitionId, transitionsHandler) -> UIViewController in
+            withViewControllerDerivedFrom: { (transitionId, transitionsHandlerBox) -> UIViewController in
                 let viewController = AssemblyFactory.secondModuleAssembly()
                     .ipadModule(
-                        transitionsHandler,
+                        transitionsHandlerBox: transitionsHandlerBox,
                         title: "1",
                         withTimer: true,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        presentingTransitionsHandler: self.transitionsHandler,
+                        presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                         transitionsCoordinator: transitionsCoordinator,
                         transitionIdGenerator: transitionIdGenerator)
                 return viewController
@@ -71,15 +71,15 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
             if (authed) {
                 if let strongSelf = self {
                     
-                    strongSelf.presentModalViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+                    strongSelf.presentModalViewControllerDerivedFrom { (transitionId, transitionsHandlerBox) -> UIViewController in
                         let viewController = AssemblyFactory.secondModuleAssembly()
                             .ipadModule(
-                                transitionsHandler,
+                                transitionsHandlerBox: transitionsHandlerBox,
                                 title: "1",
                                 withTimer: true,
                                 canShowModule1: true,
                                 transitionId: transitionId,
-                                presentingTransitionsHandler: strongSelf.transitionsHandler,
+                                presentingTransitionsHandler: strongSelf.transitionsHandlerBox?.unbox(),
                                 transitionsCoordinator: strongSelf.transitionsCoordinator,
                                 transitionIdGenerator: strongSelf.transitionIdGenerator)
                         return viewController
@@ -94,7 +94,7 @@ extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
         focusOnCurrentModule()
         
         // detail
-        setDetailViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+        setDetailViewControllerDerivedFrom { (transitionId, transitionsHandlerBox) -> UIViewController in
             let result = UIViewController()
             result.view.backgroundColor = .redColor()
             return result

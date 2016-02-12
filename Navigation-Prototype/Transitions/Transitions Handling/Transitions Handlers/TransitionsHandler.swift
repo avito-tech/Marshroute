@@ -32,15 +32,15 @@ protocol TransitionsHandler: class {
 // MARK: - TransitionsHandler Default Impl 1 (for containers: i.e. split or tabbar transitions handlers)
 extension TransitionsHandler where Self: TransitionsHandlerContainer, Self: TransitionsCoordinatorHolder {
     func performTransition(context context: ForwardTransitionContext) {
-        transitionsCoordinator.coordinatePerformingTransition(context: context, forTransitionsHandler: self)
+        transitionsCoordinator.coordinatePerformingTransition(context: context, forContainingTransitionsHandler: self)
     }
     
     func undoTransitionsAfter(transitionId transitionId: TransitionId) {
-        transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forTransitionsHandler: self)
+        transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forContainingTransitionsHandler: self)
     }
     
     func undoTransitionWith(transitionId transitionId: TransitionId) {
-        transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forTransitionsHandler: self)
+        transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forContainingTransitionsHandler: self)
     }
     
     func undoAllChainedTransitions() {
@@ -59,26 +59,26 @@ extension TransitionsHandler where Self: TransitionsHandlerContainer, Self: Tran
 // MARK: - TransitionsHandler Default Impl 2 (for not containers: i.e. navigation transitions handlers)
 extension TransitionsHandler where Self: TransitionsCoordinatorHolder, Self: TransitionAnimationsLauncher {
     func performTransition(context context: ForwardTransitionContext) {
-        transitionsCoordinator.coordinatePerformingTransition(context: context, forTransitionsHandler: self)
+        transitionsCoordinator.coordinatePerformingTransition(context: context, forAnimatingTransitionsHandler: self)
     }
     
     func undoTransitionsAfter(transitionId transitionId: TransitionId) {
-        transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forTransitionsHandler: self)
+        transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forAnimatingTransitionsHandler: self)
     }
     
     func undoTransitionWith(transitionId transitionId: TransitionId) {
-        transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forTransitionsHandler: self)
+        transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forAnimatingTransitionsHandler: self)
     }
     
     func undoAllChainedTransitions() {
-        transitionsCoordinator.coordinateUndoingAllChainedTransitions(forTransitionsHandler: self)
+        transitionsCoordinator.coordinateUndoingAllChainedTransitions(forAnimatingTransitionsHandler: self)
     }
     
     func undoAllTransitions() {
-        transitionsCoordinator.coordinateUndoingAllTransitions(forTransitionsHandler: self)
+        transitionsCoordinator.coordinateUndoingAllTransitions(forAnimatingTransitionsHandler: self)
     }
     
     func resetWithTransition(context context: ForwardTransitionContext) {
-        transitionsCoordinator.coordinateResettingWithTransition(context: context, forTransitionsHandler: self)
+        transitionsCoordinator.coordinateResettingWithTransition(context: context, forAnimatingTransitionsHandler: self)
     }
 }

@@ -28,11 +28,11 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         return nil
     }
     
-    func chainedTransitionsHandlerForTransitionsHandler(transitionsHandler: TransitionsHandler)
-        -> TransitionsHandler?
+    func chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler: TransitionsHandler)
+        -> RestoredTransitionTargetTransitionsHandlerBox?
     {
         let chainedTransition = chainedTransitionForTransitionsHandler(transitionsHandler)
-        return chainedTransition?.targetTransitionsHandler
+        return chainedTransition?.targetTransitionsHandlerBox
     }
     
     func transitionWith(
@@ -162,7 +162,7 @@ private extension RestoredTransitionContext {
     func isChainedForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> Bool
     {
-        let result = (targetTransitionsHandler !== transitionsHandler)
+        let result = (targetTransitionsHandlerBox.unbox() !== transitionsHandler)
         return result
     }
 }

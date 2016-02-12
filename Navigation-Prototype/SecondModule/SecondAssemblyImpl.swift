@@ -3,7 +3,7 @@ import UIKit
 final class SecondAssemblyImpl: SecondAssembly {
     
     func iphoneModule(
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,
@@ -18,7 +18,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
 
         let router = SecondRouterImpl(
-            transitionsHandler: transitionsHandler,
+            transitionsHandlerBox: transitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
             transitionsCoordinator: transitionsCoordinator,
@@ -45,7 +45,7 @@ final class SecondAssemblyImpl: SecondAssembly {
     }
     
     func ipadModule(
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
         title: String,
         withTimer: Bool,
         canShowModule1: Bool,
@@ -60,7 +60,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
 
         let router = SecondRouterImpl_iPad(
-            transitionsHandler: transitionsHandler,
+            transitionsHandlerBox: transitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
             transitionsCoordinator: transitionsCoordinator,

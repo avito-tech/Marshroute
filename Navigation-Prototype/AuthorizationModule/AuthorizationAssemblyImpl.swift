@@ -3,9 +3,9 @@ import UIKit
 final class AuthorizationAssemblyImpl: AuthorizationAssembly {
     
     func module(
-        presentingTransitionsHandler: TransitionsHandler?,
+        presentingTransitionsHandler presentingTransitionsHandler: TransitionsHandler?,
         transitionId: TransitionId,
-        transitionsHandler: TransitionsHandler,
+        transitionsHandlerBox: RouterTransitionsHandlerBox,
         moduleOutput: AuthorizationModuleOutput,
         transitionsCoordinator: TransitionsCoordinator,
         transitionIdGenerator: TransitionIdGenerator)
@@ -16,7 +16,7 @@ final class AuthorizationAssemblyImpl: AuthorizationAssembly {
         let interactor = AuthorizationInteractorImpl()
         
         let router = AuthorizationRouterImpl(
-            transitionsHandler: transitionsHandler,
+            transitionsHandlerBox: transitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: presentingTransitionsHandler,
             transitionsCoordinator: transitionsCoordinator,

@@ -2,17 +2,17 @@ import UIKit
 
 protocol DetailRouter: class {
     func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController)
     
     func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController,
         animator: NavigationTransitionsAnimator)
 }
 
 // MARK: - DetailRouter Default Impl
 extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable {
     func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController)
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController)
     {
         setDetailViewControllerDerivedFrom(
             deriveViewController,
@@ -21,22 +21,24 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandler: TransitionsHandler) -> UIViewController,
+        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
-        guard let detailTransitionsHandler = detailTransitionsHandler
+        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
             else { assert(false); return }        
+        guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
+            else { assert(false); return }
         
         let viewController = deriveViewController(
             transitionId: transitionId,
-            transitionsHandler: detailTransitionsHandler)
+            transitionsHandlerBox: detailTransitionsHandlerBox)
         
         let resetDetailContext = ForwardTransitionContext(
-            resetingWithViewController: viewController,
-            transitionsHandler: detailTransitionsHandler,
+            resettingWithViewController: viewController,
+            animatingTransitionsHandler: animatingDetailTransitionsHandler,
             animator: animator,
             transitionId: transitionId)
 
-        detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
+        animatingDetailTransitionsHandler.resetWithTransition(context: resetDetailContext)
     }
 }

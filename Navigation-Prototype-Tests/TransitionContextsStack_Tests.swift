@@ -1,19 +1,23 @@
 import XCTest
 
-private class DummyTransitionsHandler: TransitionsHandler {
+private class DummyTransitionsHandler: AnimatingTransitionsHandler {
     func performTransition(context context: ForwardTransitionContext) {}
     func undoTransitionsAfter(transitionId transitionId: TransitionId) {}
     func undoTransitionWith(transitionId transitionId: TransitionId) {}
     func undoAllChainedTransitions() {}
     func undoAllTransitions() {}
     func resetWithTransition(context context: ForwardTransitionContext) {}
+    
+    func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
+    func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
+    func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
 }
 
 private func createCompletedTransitionContext(
     sourceViewController sourceViewController: UIViewController?,
     sourceTransitionsHandler: TransitionsHandler,
     targetViewController: UIViewController?,
-    targetTransitionsHandler: TransitionsHandler)
+    targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
     -> CompletedTransitionContext
 {
     let animationLaunchingContext = NavigationAnimationLaunchingContext(
@@ -27,7 +31,7 @@ private func createCompletedTransitionContext(
         sourceViewController: sourceViewController,
         sourceTransitionsHandler: sourceTransitionsHandler,
         targetViewController: targetViewController,
-        targetTransitionsHandler: targetTransitionsHandler,
+        targetTransitionsHandlerBox: targetTransitionsHandlerBox,
         storableParameters: nil,
         animationLaunchingContext: .Navigation(launchingContext: animationLaunchingContext)
     )
@@ -54,25 +58,25 @@ class TransitionContextsStackTests: XCTestCase {
             sourceViewController: nil,
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: nil,
-            targetTransitionsHandler: dummyTransitionsHandler)
+            targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
         neverZombieContext1 = createCompletedTransitionContext(
             sourceViewController: sourceViewController,
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: targetViewController,
-            targetTransitionsHandler: dummyTransitionsHandler)
+            targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
         neverZombieContext2 = createCompletedTransitionContext(
             sourceViewController: sourceViewController,
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: targetViewController,
-            targetTransitionsHandler: dummyTransitionsHandler)
+            targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
         oneDayZombieContext = createCompletedTransitionContext(
             sourceViewController: sourceViewController,
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: nillableTargetViewController,
-            targetTransitionsHandler: dummyTransitionsHandler)
+            targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
     }
     
     override func tearDown() {

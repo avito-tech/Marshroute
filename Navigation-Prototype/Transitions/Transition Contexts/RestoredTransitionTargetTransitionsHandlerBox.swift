@@ -1,0 +1,2 @@
+/// Варианты хранения обработчика переходов показанного модуля
+typealias RestoredTransitionTargetTransitionsHandlerBox = TransitionsHandlerBox

@@ -4,12 +4,12 @@ final class FirstRouterImpl_iPad: BaseRouter {}
 
 extension FirstRouterImpl_iPad: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom { (transitionId, transitionsHandlerBox) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
-                String(count + 1),
-                presentingTransitionsHandler: self.transitionsHandler,
+                title: String(count + 1),
+                presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                 transitionId: transitionId,
-                transitionsHandler: transitionsHandler,
+                transitionsHandlerBox: transitionsHandlerBox,
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,
                 dismissable: false,
@@ -21,12 +21,12 @@ extension FirstRouterImpl_iPad: FirstRouter {
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        pushViewControllerDerivedFrom { (transitionId, transitionsHandler) -> UIViewController in
+        pushViewControllerDerivedFrom { (transitionId, transitionsHandlerBox) -> UIViewController in
             let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
-                String(count + 1),
-                presentingTransitionsHandler: self.transitionsHandler,
+                title: String(count + 1),
+                presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                 transitionId: transitionId,
-                transitionsHandler: transitionsHandler,
+                transitionsHandlerBox: transitionsHandlerBox,
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,
                 dismissable: false,
@@ -43,15 +43,15 @@ extension FirstRouterImpl_iPad: FirstRouter {
         
         presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: { (transitionId, transitionsHandler) -> UIViewController in
+            withViewControllerDerivedFrom: { (transitionId, transitionsHandlerBox) -> UIViewController in
                 let viewController = AssemblyFactory.secondModuleAssembly()
                     .ipadModule(
-                        transitionsHandler,
+                        transitionsHandlerBox: transitionsHandlerBox,
                         title: "1",
                         withTimer: true,
                         canShowModule1: true,
                         transitionId: transitionId,
-                        presentingTransitionsHandler: self.transitionsHandler,
+                        presentingTransitionsHandler: self.transitionsHandlerBox?.unbox(),
                         transitionsCoordinator: transitionsCoordinator,
                         transitionIdGenerator: transitionIdGenerator)
                 return viewController
@@ -63,15 +63,15 @@ extension FirstRouterImpl_iPad: FirstRouter {
         applicationModuleInput.showAuthorizationModule( { [weak self] (authed) -> Void in
             if (authed) {
                 if let strongSelf = self {
-                    strongSelf.presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandler) -> UIViewController in
+                    strongSelf.presentModalViewControllerDerivedFrom( { (transitionId, transitionsHandlerBox) -> UIViewController in
                         let viewController = AssemblyFactory.secondModuleAssembly()
                             .ipadModule(
-                                transitionsHandler,
+                                transitionsHandlerBox: transitionsHandlerBox,
                                 title: "1",
                                 withTimer: true,
                                 canShowModule1: true,
                                 transitionId: transitionId,
-                                presentingTransitionsHandler: strongSelf.transitionsHandler,
+                                presentingTransitionsHandler: strongSelf.transitionsHandlerBox?.unbox(),
                                 transitionsCoordinator: strongSelf.transitionsCoordinator,
                                 transitionIdGenerator: strongSelf.transitionIdGenerator)
                         return viewController

@@ -9,10 +9,12 @@ extension CompletedTransitionTargetTransitionsHandlerBox {
     init?(forwardTransitionTargetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox) {
         switch forwardTransitionTargetTransitionsHandlerBox {
         case .Animating(let animatingTransitionsHandlerStrongBox):
-            self = .Animating(AnimatingTransitionsHandlerWeakBox(strongBox: animatingTransitionsHandlerStrongBox))
+            let animatingTransitionsHandler = animatingTransitionsHandlerStrongBox.transitionsHandler
+            self = .init(animatingTransitionsHandler: animatingTransitionsHandler)
             
         case .Containing(let containingTransitionsHandlerStrongBox):
-            self = .Containing(ContainingTransitionsHandlerWeakBox(strongBox: containingTransitionsHandlerStrongBox))
+            let containingTransitionsHandler = containingTransitionsHandlerStrongBox.transitionsHandler
+            self = .init(containingTransitionsHandler: containingTransitionsHandler)
 
         default:
             return nil

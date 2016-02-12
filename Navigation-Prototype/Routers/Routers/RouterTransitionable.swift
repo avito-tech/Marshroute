@@ -1,4 +1,4 @@
 protocol RouterTransitionable: class {
-    /// ссылка на обработчика переходов
+    /// обработчик переходов роутера
     var transitionsHandlerBox: RouterTransitionsHandlerBox? { get }
 }

@@ -9,15 +9,15 @@ extension TransitionsHandlerBox {
     init?(completedTransitionTargetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
     {
         switch completedTransitionTargetTransitionsHandlerBox {
-        case .Animating(let AnimatingTransitionsHandlerWeakBox):
-            if let transitionsHandler = AnimatingTransitionsHandlerWeakBox.transitionsHandler {
-                self = .Animating(AnimatingTransitionsHandlerStrongBox(transitionsHandler: transitionsHandler))
+        case .Animating(let animatingTransitionsHandlerWeakBox):
+            if let animatingTransitionsHandler = animatingTransitionsHandlerWeakBox.transitionsHandler {
+                self = .init(animatingTransitionsHandler: animatingTransitionsHandler)
             }
             else { return nil }
 
-        case .Containing(let ContainingTransitionsHandlerWeakBox):
-            if let transitionsHandler = ContainingTransitionsHandlerWeakBox.transitionsHandler {
-                self = .Containing(ContainingTransitionsHandlerStrongBox(transitionsHandler: transitionsHandler))
+        case .Containing(let containingTransitionsHandlerWeakBox):
+            if let containingTransitionsHandler = containingTransitionsHandlerWeakBox.transitionsHandler {
+                self = .init(containingTransitionsHandler: containingTransitionsHandler)
             }
             else { return nil }
         }
@@ -34,17 +34,6 @@ extension TransitionsHandlerBox {
 
 // MARK: - helpers
 extension TransitionsHandlerBox {
-    func matches(transitionsHandler transitionsHandler: TransitionsHandler) -> Bool
-    {
-        switch self {
-        case .Animating(let AnimatingTransitionsHandlerStrongBox):
-            return (AnimatingTransitionsHandlerStrongBox.transitionsHandler === transitionsHandler)
-            
-        case .Containing(let ContainingTransitionsHandlerStrongBox):
-            return (ContainingTransitionsHandlerStrongBox.transitionsHandler === transitionsHandler)
-        }
-    }
-    
     func unbox() -> TransitionsHandler
     {
         switch self {

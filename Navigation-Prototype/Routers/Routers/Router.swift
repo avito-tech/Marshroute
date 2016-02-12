@@ -174,6 +174,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
         splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
         
+        // один на master и detail модули. см описание TransitionId
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
 
         do {
@@ -423,7 +424,6 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         
         let viewController = deriveViewController(routerSeed: routerSeed)
 
-        
         do {
             let resetContext = ForwardTransitionContext(
                 resettingWithViewController: viewController,

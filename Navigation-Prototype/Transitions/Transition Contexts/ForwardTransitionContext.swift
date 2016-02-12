@@ -180,7 +180,7 @@ extension ForwardTransitionContext {
     }
     
     /// Контекст с обновленным обработчиком переходов
-    init(context: ForwardTransitionContext, changingTargetAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler) {
+    init(context: ForwardTransitionContext, withTargetTransitionsHandler transitionsHandler: AnimatingTransitionsHandler) {
         self.transitionId = context.transitionId
         self.targetViewController = context.targetViewController
         self.storableParameters = context.storableParameters

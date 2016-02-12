@@ -2,17 +2,18 @@ import UIKit
 
 protocol MasterRouter: class {
     func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     
     func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
 }
 
 // MARK: - MasterRouter Default Impl
-extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdentifiable {
+extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder {
+    
     func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
         setMasterViewControllerDerivedFrom(
             deriveViewController,
@@ -21,7 +22,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdent
     }
     
     func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (transitionId: TransitionId, transitionsHandlerBox: RouterTransitionsHandlerBox) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         guard let masterTransitionsHandlerBox = masterTransitionsHandlerBox
@@ -29,9 +30,13 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: RouterIdent
         guard let animatingMasterTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
-        let viewController = deriveViewController(
+        let routerSeed = BaseRouterSeed(transitionsHandlerBox: masterTransitionsHandlerBox,
             transitionId: transitionId,
-            transitionsHandlerBox: masterTransitionsHandlerBox)
+            presentingTransitionsHandler: nil,
+            transitionsCoordinator: transitionsCoordinator,
+            transitionIdGenerator: transitionIdGenerator)
+        
+        let viewController = deriveViewController(routerSeed: routerSeed)
         
         let resetMasterContext = ForwardTransitionContext(
             resettingWithViewController: viewController,

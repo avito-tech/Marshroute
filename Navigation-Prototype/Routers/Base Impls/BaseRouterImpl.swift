@@ -8,18 +8,13 @@ class BaseRouter {
     let transitionsCoordinator: TransitionsCoordinator
     let transitionIdGenerator: TransitionIdGenerator
     
-    init(
-        transitionsHandlerBox: RouterTransitionsHandlerBox,
-        transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+    init(routerSeed seed: BaseRouterSeed)
     {
-        self.transitionId = transitionId
-        self.transitionsHandlerBox = transitionsHandlerBox
-        self.presentingTransitionsHandler = presentingTransitionsHandler
-        self.transitionsCoordinator = transitionsCoordinator
-        self.transitionIdGenerator = transitionIdGenerator
+        self.transitionId = seed.transitionId
+        self.transitionsHandlerBox = seed.transitionsHandlerBox
+        self.presentingTransitionsHandler = seed.presentingTransitionsHandler
+        self.transitionsCoordinator = seed.transitionsCoordinator
+        self.transitionIdGenerator = seed.transitionIdGenerator
     }
 }
 

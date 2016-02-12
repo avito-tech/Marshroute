@@ -10,20 +10,15 @@ class BaseMasterDetailRouter {
     let transitionsCoordinator: TransitionsCoordinator
     let transitionIdGenerator: TransitionIdGenerator
     
-    init(
-        masterTransitionsHandlerBox: RouterTransitionsHandlerBox,
-        detailTransitionsHandlerBox: RouterTransitionsHandlerBox,
-        transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+    init(routerSeed seed: BaseRouterSeed,
+        detailTransitionsHandlerBox: RouterTransitionsHandlerBox)
     {
-        self.transitionId = transitionId
-        self.masterTransitionsHandlerBox = masterTransitionsHandlerBox
+        self.transitionId = seed.transitionId
+        self.masterTransitionsHandlerBox = seed.transitionsHandlerBox
         self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
-        self.presentingTransitionsHandler = presentingTransitionsHandler
-        self.transitionsCoordinator = transitionsCoordinator
-        self.transitionIdGenerator = transitionIdGenerator
+        self.presentingTransitionsHandler = seed.presentingTransitionsHandler
+        self.transitionsCoordinator = seed.transitionsCoordinator
+        self.transitionIdGenerator = seed.transitionIdGenerator
     }
 }
 

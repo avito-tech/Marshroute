@@ -1,28 +1,18 @@
 import UIKit
 
 final class SecondAssemblyImpl: SecondAssembly {
-    
     func iphoneModule(
-        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
-        title: String,
+        title title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        routerSeed: BaseRouterSeed)
         -> UIViewController
     {
-        debugPrint("iphone 2 - \(transitionId)")
+        debugPrint("iphone 2 - \(routerSeed.transitionId)")
         
         let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
 
-        let router = SecondRouterImpl(
-            transitionsHandlerBox: transitionsHandlerBox,
-            transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+        let router = SecondRouterImpl(routerSeed: routerSeed)
         
         let presenter = SecondPresenter(
             interactor: interactor,
@@ -31,7 +21,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         
         let viewController = SecondViewController(
             presenter: presenter,
-            dismissable: presentingTransitionsHandler != nil,
+            dismissable: routerSeed.presentingTransitionsHandler != nil,
             canShowModule1: canShowModule1
         )
         viewController.view.backgroundColor = .yellowColor()
@@ -45,26 +35,17 @@ final class SecondAssemblyImpl: SecondAssembly {
     }
     
     func ipadModule(
-        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
-        title: String,
+        title title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        routerSeed: BaseRouterSeed)
         -> UIViewController
     {
-        debugPrint("ipad 2 - \(transitionId)")
+        debugPrint("ipad 2 - \(routerSeed.transitionId)")
     
         let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
 
-        let router = SecondRouterImpl_iPad(
-            transitionsHandlerBox: transitionsHandlerBox,
-            transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+        let router = SecondRouterImpl_iPad(routerSeed: routerSeed)
         
         let presenter = SecondPresenter(
             interactor: interactor,
@@ -73,7 +54,7 @@ final class SecondAssemblyImpl: SecondAssembly {
         
         let viewController = SecondViewController(
             presenter: presenter,
-            dismissable: presentingTransitionsHandler != nil,
+            dismissable: routerSeed.presentingTransitionsHandler != nil,
             canShowModule1: canShowModule1
         )
         viewController.view.backgroundColor = .yellowColor()

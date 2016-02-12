@@ -247,6 +247,8 @@
 		CCEB1A1A1C6DDE90000AF50C /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEB1A181C6DDE90000AF50C /* RouterTransitionsHandlerBox.swift */; };
 		CCEB1A1C1C6E16C5000AF50C /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEB1A1B1C6E16C5000AF50C /* TransitionsHandlerBox.swift */; };
 		CCEB1A1D1C6E16C5000AF50C /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEB1A1B1C6E16C5000AF50C /* TransitionsHandlerBox.swift */; };
+		CCEB1A1F1C6E35C8000AF50C /* BaseRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEB1A1E1C6E35C8000AF50C /* BaseRouterSeed.swift */; };
+		CCEB1A201C6E35C8000AF50C /* BaseRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEB1A1E1C6E35C8000AF50C /* BaseRouterSeed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -386,6 +388,7 @@
 		CCEB1A0F1C6DCE37000AF50C /* ContainingTransitionsHandlerWeakBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandlerWeakBox.swift; sourceTree = "<group>"; };
 		CCEB1A181C6DDE90000AF50C /* RouterTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		CCEB1A1B1C6E16C5000AF50C /* TransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCEB1A1E1C6E35C8000AF50C /* BaseRouterSeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterSeed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -715,6 +718,7 @@
 			children = (
 				CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouter.swift */,
 				CCEAF0511C689C3D00D00583 /* BaseRouterImpl.swift */,
+				CCEB1A1E1C6E35C8000AF50C /* BaseRouterSeed.swift */,
 			);
 			path = "Base Impls";
 			sourceTree = "<group>";
@@ -933,6 +937,7 @@
 				CC01A9F21C6BAABE0044672E /* TransitionsHistoryItem.swift in Sources */,
 				CCEB1A041C6DCD2E000AF50C /* RestoredTransitionContext.swift in Sources */,
 				CC7472491C6B5D6600742F7A /* RouterIdentifiable.swift in Sources */,
+				CCEB1A201C6E35C8000AF50C /* BaseRouterSeed.swift in Sources */,
 				CCEB19FC1C6DCD2E000AF50C /* CompletedTransitionContext.swift in Sources */,
 				CC01A9EE1C6BAABE0044672E /* TransitionsCoordinatorImpl.swift in Sources */,
 				CC74725C1C6B5D7A00742F7A /* PopoverAnimationContext.swift in Sources */,
@@ -1057,6 +1062,7 @@
 				CCE8C96E1C561C780041801D /* FirstViewInput.swift in Sources */,
 				CCE8C9721C561C780041801D /* SecondInteractorImpl.swift in Sources */,
 				CCEB1A051C6DCD2E000AF50C /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCEB1A1F1C6E35C8000AF50C /* BaseRouterSeed.swift in Sources */,
 				CC01A9E31C6BAABE0044672E /* TransitionId.swift in Sources */,
 				CC01A9FB1C6BAABE0044672E /* TransitionContextsStackClient.swift in Sources */,
 				CC7472361C6B5D5000742F7A /* NavigationTransitionsHandlerImpl.swift in Sources */,

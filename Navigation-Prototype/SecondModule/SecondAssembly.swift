@@ -2,24 +2,16 @@ import UIKit
 
 protocol SecondAssembly {
     func iphoneModule(
-        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
-        title: String,
+        title title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        routerSeed: BaseRouterSeed)
         -> UIViewController
     
     func ipadModule(
-        transitionsHandlerBox transitionsHandlerBox: RouterTransitionsHandlerBox,
-        title: String,
+        title title: String,
         withTimer: Bool,
         canShowModule1: Bool,
-        transitionId: TransitionId,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        routerSeed: BaseRouterSeed)
         -> UIViewController
 }

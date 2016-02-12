@@ -4,27 +4,18 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func iphoneModule(
         title title: String,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId,
-        transitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        routerSeed: BaseRouterSeed)
         -> UIViewController
-    {
-        debugPrint("iphone 1 - \(transitionId)")
+       {
+        debugPrint("iphone 1 - \(routerSeed.transitionId)")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
-        let router = FirstRouterImpl(
-            transitionsHandlerBox: transitionsHandlerBox,
-            transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+        let router = FirstRouterImpl(routerSeed: routerSeed)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -48,27 +39,18 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadDetailModule(
         title title: String,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId,
-        transitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        routerSeed: BaseRouterSeed)
         -> UIViewController
     {
-        debugPrint("ipad detail 1 - \(transitionId)")
+        debugPrint("ipad detail 1 - \(routerSeed.transitionId)")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
-        let router = FirstRouterImpl_iPad(
-            transitionsHandlerBox: transitionsHandlerBox,
-            transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+        let router = FirstRouterImpl_iPad(routerSeed: routerSeed)
         
         let presenter = FirstPresenter(
             interactor: interactor,
@@ -92,29 +74,21 @@ final class FirstAssemblyImpl: FirstAssembly {
     
     func ipadMasterModule(
         title title: String,
-        presentingTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId,
-        transitionsHandlerBox: RouterTransitionsHandlerBox,
-        detailTransitionsHandlerBox: RouterTransitionsHandlerBox,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        routerSeed: BaseRouterSeed,
+        detailTransitionsHandlerBox: RouterTransitionsHandlerBox)
         -> UIViewController
     {
-        debugPrint("ipad master 1 - \(transitionId)")
+        debugPrint("ipad master 1 - \(routerSeed.transitionId)")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
         let router = FirstRouterImpl_iPadMasterDetail(
-            masterTransitionsHandlerBox: transitionsHandlerBox,
-            detailTransitionsHandlerBox: detailTransitionsHandlerBox,
-            transitionId: transitionId,
-            presentingTransitionsHandler: presentingTransitionsHandler,
-            transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+            routerSeed: routerSeed,
+            detailTransitionsHandlerBox: detailTransitionsHandlerBox)
         
         let presenter = FirstPresenter(
             interactor: interactor,

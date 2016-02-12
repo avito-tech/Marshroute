@@ -2,11 +2,7 @@ import UIKit
 
 protocol AuthorizationAssembly {
     func module(
-        presentingTransitionsHandler presentingTransitionsHandler: TransitionsHandler?,
-        transitionId: TransitionId,
-        transitionsHandlerBox: RouterTransitionsHandlerBox,
-        moduleOutput: AuthorizationModuleOutput,
-        transitionsCoordinator: TransitionsCoordinator,
-        transitionIdGenerator: TransitionIdGenerator)
+        moduleOutput moduleOutput: AuthorizationModuleOutput,
+        routerSeed: BaseRouterSeed)
         -> (viewController: UIViewController, moduleInput: AuthorizationModuleInput)
 }

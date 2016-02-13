@@ -1,18 +1,14 @@
 final class TransitionsCoordinatorImpl {
-    private let stackClientProviderPrivate: TransitionContextsStackClientProvider
+    let stackClientProvider: TransitionContextsStackClientProvider
     
     init(stackClientProvider: TransitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl())
     {
-        self.stackClientProviderPrivate = stackClientProvider
+        self.stackClientProvider = stackClientProvider
     }
 }
 
 // MARK: - TransitionContextsStackClientProviderHolder
-extension TransitionsCoordinatorImpl: TransitionContextsStackClientProviderHolder {
-    var stackClientProvider: TransitionContextsStackClientProvider {
-        return stackClientProviderPrivate
-    }
-}
+extension TransitionsCoordinatorImpl: TransitionContextsStackClientProviderHolder {}
 
 // MARK: - TransitionsCoordinator
 extension TransitionsCoordinatorImpl: TransitionsCoordinator {}

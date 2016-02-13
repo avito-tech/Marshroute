@@ -25,7 +25,8 @@ extension TransitionContextsStackClientProviderImpl: TransitionContextsStackClie
 
         let newHistoryItem = TransitionsHistoryItem(
             stackClient: stackClient,
-            transitionsHandler: transitionsHandler)
+            transitionsHandler: transitionsHandler
+        )
         
         historyItems.append(newHistoryItem)
         

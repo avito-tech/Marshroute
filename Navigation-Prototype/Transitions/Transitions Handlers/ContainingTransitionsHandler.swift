@@ -2,9 +2,7 @@
 class ContainingTransitionsHandler: TransitionsHandlerContainer, TransitionsCoordinatorHolder {
 
 // пришлось сделать классом, а не композицией протоколов и не typealias'ом на композицию протоколов,
-// из-за странного поведения. 
-// `typealias P = protocol<A, B>` не будет подходить под ограничение
-// `where T: B` на дженерик тип `T`
+// из-за того, что этот обработчик переходов кладется в дженерик `Box<T>`
 
     // MARK: - TransitionsCoordinatorHolder    
     let transitionsCoordinator: TransitionsCoordinator
@@ -26,27 +24,33 @@ class ContainingTransitionsHandler: TransitionsHandlerContainer, TransitionsCoor
 
 // MARK: - TransitionsHandler
 extension ContainingTransitionsHandler: TransitionsHandler {
-    func performTransition(context context: ForwardTransitionContext) {
+    func performTransition(context context: ForwardTransitionContext)
+    {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forContainingTransitionsHandler: self)
     }
     
-    func undoTransitionsAfter(transitionId transitionId: TransitionId) {
+    func undoTransitionsAfter(transitionId transitionId: TransitionId)
+    {
         transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forContainingTransitionsHandler: self)
     }
     
-    func undoTransitionWith(transitionId transitionId: TransitionId) {
+    func undoTransitionWith(transitionId transitionId: TransitionId)
+    {
         transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forContainingTransitionsHandler: self)
     }
     
-    func undoAllChainedTransitions() {
+    func undoAllChainedTransitions()
+    {
         assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
-    func undoAllTransitions() {
+    func undoAllTransitions()
+    {
         assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
-    func resetWithTransition(context context: ForwardTransitionContext) {
+    func resetWithTransition(context context: ForwardTransitionContext)
+    {
         assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
 }

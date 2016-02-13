@@ -86,7 +86,8 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
         // среди всех анимирующих обработчиков (то есть среди всех tab'ов tabbar'a)
-        coordinateUndoingTransitionsImpl(afterTransitionId: transitionId,
+        coordinateUndoingTransitionsImpl(
+            afterTransitionId: transitionId,
             includingTransitionWithId: false,
             forTransitionsHandlers: [transitionsHandler],
             unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
@@ -106,7 +107,8 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         guard let animatingTransitionsHandlers = transitionsHandler.allTransitionsHandlers
             else { return }
             
-        coordinateUndoingTransitionsImpl(afterTransitionId: transitionId,
+        coordinateUndoingTransitionsImpl(
+            afterTransitionId: transitionId,
             includingTransitionWithId: false,
             forTransitionsHandlers: animatingTransitionsHandlers,
             unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
@@ -123,7 +125,8 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
         // среди всех анимирующих обработчиков (то есть среди всех tab'ов tabbar'a)
-        coordinateUndoingTransitionsImpl(afterTransitionId: transitionId,
+        coordinateUndoingTransitionsImpl(
+            afterTransitionId: transitionId,
             includingTransitionWithId: true,
             forTransitionsHandlers: [transitionsHandler],
             unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
@@ -143,7 +146,8 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
        guard let animatingTransitionsHandlers = transitionsHandler.allTransitionsHandlers
             else { return }
         
-        coordinateUndoingTransitionsImpl(afterTransitionId: transitionId,
+        coordinateUndoingTransitionsImpl(
+            afterTransitionId: transitionId,
             includingTransitionWithId: true,
             forTransitionsHandlers: animatingTransitionsHandlers,
             unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in

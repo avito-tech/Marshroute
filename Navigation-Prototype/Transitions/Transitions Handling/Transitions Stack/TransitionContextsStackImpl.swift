@@ -7,15 +7,13 @@ class TransitionContextsStackImpl: TransitionContextsStack {
         storage.append(context)
     }
     
-    var first: RestoredTransitionContext?
-    {
+    var first: RestoredTransitionContext? {
         updateStack()
         let result: RestoredTransitionContext? = self[0]
         return result
     }
         
-    var last: RestoredTransitionContext?
-    {
+    var last: RestoredTransitionContext? {
         updateStack()
         let last = storage.last
         let restored = RestoredTransitionContext(completedTransition: last)
@@ -33,8 +31,7 @@ class TransitionContextsStackImpl: TransitionContextsStack {
     }
     
     subscript (transitionId: TransitionId)
-        -> RestoredTransitionContext?
-    {
+        -> RestoredTransitionContext? {
         updateStack()
         let index = indexOfCompletedTransition(transitionId: transitionId)
         let restored: RestoredTransitionContext? = self[index]
@@ -101,8 +98,7 @@ private extension TransitionContextsStackImpl {
     }
     
     subscript (index: Int?)
-        -> RestoredTransitionContext?
-    {
+        -> RestoredTransitionContext? {
         let completed: CompletedTransitionContext? = self[index]
         let restored = RestoredTransitionContext(completedTransition: completed)
         return restored

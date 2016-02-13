@@ -2,9 +2,7 @@
 class AnimatingTransitionsHandler: TransitionAnimationsLauncher, TransitionsCoordinatorHolder {
     
 // пришлось сделать классом, а не композицией протоколов и не typealias'ом на композицию протоколов,
-// из-за странного поведения.
-// `typealias P = protocol<A, B>` не будет подходить под ограничение
-// `where T: B` на дженерик тип `T`
+// из-за того, что этот обработчик переходов кладется в дженерик `Box<T>`
     
     // MARK: - TransitionsCoordinatorHolder
     let transitionsCoordinator: TransitionsCoordinator
@@ -24,27 +22,33 @@ class AnimatingTransitionsHandler: TransitionAnimationsLauncher, TransitionsCoor
 
 // MARK: - TransitionsHandler
 extension AnimatingTransitionsHandler: TransitionsHandler {
-    func performTransition(context context: ForwardTransitionContext) {
+    func performTransition(context context: ForwardTransitionContext)
+    {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forAnimatingTransitionsHandler: self)
     }
     
-    func undoTransitionsAfter(transitionId transitionId: TransitionId) {
+    func undoTransitionsAfter(transitionId transitionId: TransitionId)
+    {
         transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forAnimatingTransitionsHandler: self)
     }
     
-    func undoTransitionWith(transitionId transitionId: TransitionId) {
+    func undoTransitionWith(transitionId transitionId: TransitionId)
+    {
         transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forAnimatingTransitionsHandler: self)
     }
     
-    func undoAllChainedTransitions() {
+    func undoAllChainedTransitions()
+    {
         transitionsCoordinator.coordinateUndoingAllChainedTransitions(forAnimatingTransitionsHandler: self)
     }
     
-    func undoAllTransitions() {
+    func undoAllTransitions()
+    {
         transitionsCoordinator.coordinateUndoingAllTransitions(forAnimatingTransitionsHandler: self)
     }
     
-    func resetWithTransition(context context: ForwardTransitionContext) {
+    func resetWithTransition(context context: ForwardTransitionContext)
+    {
         transitionsCoordinator.coordinateResettingWithTransition(context: context, forAnimatingTransitionsHandler: self)
     }
 }

@@ -15,17 +15,17 @@ final class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
     
     //MARK: - TransitionsHandlerContainer
     override var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        return transitionsHandlers // все == видимые
+        return bothTransitionsHandlers // все == видимые
     }
     
     override var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        return transitionsHandlers // все == видимые
+        return bothTransitionsHandlers // все == видимые
     }
 }
 
 // MARK: - helpers
 private extension SplitViewTransitionsHandlerImpl {
-    var transitionsHandlers: [AnimatingTransitionsHandler] {
+    var bothTransitionsHandlers: [AnimatingTransitionsHandler] {
         return [masterTransitionsHandler, detailTransitionsHandler].flatMap { $0 }
     }
 }

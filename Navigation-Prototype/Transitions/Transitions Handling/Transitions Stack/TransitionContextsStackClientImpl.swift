@@ -100,7 +100,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
                     pushTransitions.insert(previous, atIndex: 0)
                 }
             }
-            else { loopTransitionId = nil }
+            else { loopTransitionId = nil } // останавливаем цикл
         }
         
         return (chainedTransition, pushTransitions)

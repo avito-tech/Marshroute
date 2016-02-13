@@ -37,6 +37,7 @@ extension TransitionAnimationLaunchingContext {
         switch self {
         case .Navigation(_):
             return true
+            
         default:
             return false
         }

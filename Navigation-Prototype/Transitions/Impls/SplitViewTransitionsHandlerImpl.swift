@@ -15,11 +15,11 @@ final class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
     
     //MARK: - TransitionsHandlerContainer
     override var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        return transitionsHandlers
+        return transitionsHandlers // все == видимые
     }
     
     override var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        return transitionsHandlers
+        return transitionsHandlers // все == видимые
     }
 }
 

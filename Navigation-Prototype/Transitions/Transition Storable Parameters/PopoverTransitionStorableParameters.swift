@@ -53,5 +53,3 @@ extension PopoverTransitionStorableParameters: TransitionStorableParameters {
         presentedTransitionsHandler = nil
     }
 }
-    }
-}

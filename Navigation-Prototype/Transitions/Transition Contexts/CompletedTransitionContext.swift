@@ -33,7 +33,7 @@ struct CompletedTransitionContext {
         sourceViewController: UIViewController,
         sourceTransitionsHandler: TransitionsHandler)
     {
-        assert(!context.needsTargetTransitionsHandler, "проставьте это значение раньше")
+        assert(!context.needsAnimatingTargetTransitionHandler, "проставьте это значение раньше")
         
         guard let targetTransitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(forwardTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox)
             else { return nil }

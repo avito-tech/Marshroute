@@ -504,15 +504,15 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
 // MARK: - committing to the history (methods work only with AnimatingTransitionsHandler)
 private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     func commitPerformingTransition(
-        context context: ForwardTransitionContext,
+        var context context: ForwardTransitionContext,
         byTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
         // если при инициировании перехода не указывали targetTransitionsHander'а, то указываем анимирующий
-        let fixedContext: ForwardTransitionContext = (context.needsTargetTransitionsHandler)
-            ? ForwardTransitionContext(context: context, withTargetTransitionsHandler: animatingTransitionsHandler)
-            : context
-        
+        if (context.needsAnimatingTargetTransitionHandler) {
+            context.setAnimatingTargetTransitionsHandler(animatingTransitionsHandler)
+        }
+
         // ищем последний переход, выполненный анимирующим обработчиком
         guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) else {
             assert(false, "нужно было вызывать resetWithTransition(context:). а не performTransition(context:)")
@@ -521,7 +521,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         
         // достаем view controller, откуда ушли, в результате текущего перехода
         let completedTransitionContext = CompletedTransitionContext(
-            forwardTransitionContext: fixedContext,
+            forwardTransitionContext: context,
             sourceViewController: lastTransition.targetViewController, // откуда ушли
             sourceTransitionsHandler: animatingTransitionsHandler // кем выполнен переход
         )
@@ -550,12 +550,14 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
     }
     
     func commitResettingWithTransition(
-        context context: ForwardTransitionContext,
+        var context context: ForwardTransitionContext,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        guard !context.needsTargetTransitionsHandler
-            else { assert(false, "проставьте это значение раньшье"); return }
+        // если при инициировании перехода не указывали targetTransitionsHander'а, то указываем анимирующий
+        if (context.needsAnimatingTargetTransitionHandler) {
+            context.setAnimatingTargetTransitionsHandler(animatingTransitionsHandler)
+        }
         
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,

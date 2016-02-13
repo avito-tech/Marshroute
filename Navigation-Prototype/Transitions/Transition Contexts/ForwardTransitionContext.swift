@@ -13,7 +13,7 @@ struct ForwardTransitionContext {
     
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    let targetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox
+    private (set) var targetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     let storableParameters: TransitionStorableParameters?
@@ -51,7 +51,7 @@ struct ForwardTransitionContext {
     {
         self.transitionId = transitionId
         self.targetViewController = targetViewController
-        self.targetTransitionsHandlerBox = .Pending
+        self.targetTransitionsHandlerBox = .PendingAnimating
        
         self.storableParameters = nil
         
@@ -174,19 +174,15 @@ struct ForwardTransitionContext {
 
 // MARK: - Convenience
 extension ForwardTransitionContext {
-    var needsTargetTransitionsHandler: Bool {
-        let result = self.targetTransitionsHandlerBox.unbox() == nil
+    var needsAnimatingTargetTransitionHandler: Bool {
+        let result = self.targetTransitionsHandlerBox.needsAnimatingTargetTransitionHandler
         return result
     }
     
-    /// Контекст с обновленным обработчиком переходов
-    init(context: ForwardTransitionContext, withTargetTransitionsHandler transitionsHandler: AnimatingTransitionsHandler) {
-        self.transitionId = context.transitionId
-        self.targetViewController = context.targetViewController
-        self.storableParameters = context.storableParameters
-        self.animationLaunchingContext = context.animationLaunchingContext
-        
-        // меняем только обработчика переходов
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: transitionsHandler)
+    /// Проставляем непроставленного ранее обработчика переходов
+    mutating func setAnimatingTargetTransitionsHandler(transitionsHandler: AnimatingTransitionsHandler)
+    {
+        assert(needsAnimatingTargetTransitionHandler)
+        targetTransitionsHandlerBox = .init(animatingTransitionsHandler: transitionsHandler)
     }
 }

@@ -6,7 +6,8 @@ enum CompletedTransitionTargetTransitionsHandlerBox {
 
 // MARK: - convenience
 extension CompletedTransitionTargetTransitionsHandlerBox {
-    init?(forwardTransitionTargetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox) {
+    init?(forwardTransitionTargetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox)
+    {
         switch forwardTransitionTargetTransitionsHandlerBox {
         case .Animating(let strongBox):
             let animatingTransitionsHandler = strongBox.unbox()
@@ -21,11 +22,13 @@ extension CompletedTransitionTargetTransitionsHandlerBox {
         }
     }
 
-    init(animatingTransitionsHandler: AnimatingTransitionsHandler) {
+    init(animatingTransitionsHandler: AnimatingTransitionsHandler)
+    {
         self = .Animating(WeakBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
     }
     
-    init(containingTransitionsHandler: ContainingTransitionsHandler) {
+    init(containingTransitionsHandler: ContainingTransitionsHandler)
+    {
         self = .Containing(WeakBox<ContainingTransitionsHandler>(containingTransitionsHandler))
     }
 }

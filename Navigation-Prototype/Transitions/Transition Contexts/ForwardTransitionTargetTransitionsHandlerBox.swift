@@ -2,16 +2,18 @@
 enum ForwardTransitionTargetTransitionsHandlerBox {
     case Animating(StrongBox<AnimatingTransitionsHandler>)
     case Containing(StrongBox<ContainingTransitionsHandler>)
-    case Pending // обработчик переходов будет выставлен позже
+    case PendingAnimating // обработчик переходов будет выставлен позже
 }
 
 // MARK: - convenience
 extension ForwardTransitionTargetTransitionsHandlerBox {
-    init(animatingTransitionsHandler: AnimatingTransitionsHandler) {
+    init(animatingTransitionsHandler: AnimatingTransitionsHandler)
+    {
         self = .Animating(StrongBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
     }
     
-    init(containingTransitionsHandler: ContainingTransitionsHandler) {
+    init(containingTransitionsHandler: ContainingTransitionsHandler)
+    {
         self = .Containing(StrongBox<ContainingTransitionsHandler>(containingTransitionsHandler))
     }
 }
@@ -27,7 +29,7 @@ extension ForwardTransitionTargetTransitionsHandlerBox {
         case .Containing(let weakBox):
             return weakBox.unbox()
             
-        case .Pending:
+        case .PendingAnimating:
             return nil
         }
     }
@@ -51,6 +53,16 @@ extension ForwardTransitionTargetTransitionsHandlerBox {
             
         default:
             return nil
+        }
+    }
+    
+    var needsAnimatingTargetTransitionHandler: Bool {
+        switch self {
+        case .PendingAnimating:
+            return true
+
+        default:
+            return false
         }
     }
 }

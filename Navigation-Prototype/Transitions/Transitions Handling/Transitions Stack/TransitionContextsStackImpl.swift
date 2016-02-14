@@ -30,8 +30,7 @@ class TransitionContextsStackImpl: TransitionContextsStack {
         return restored
     }
     
-    subscript (transitionId: TransitionId)
-        -> RestoredTransitionContext? {
+    subscript(transitionId: TransitionId) -> RestoredTransitionContext? {
         updateStack()
         let index = indexOfCompletedTransition(transitionId: transitionId)
         let restored: RestoredTransitionContext? = self[index]
@@ -88,34 +87,36 @@ private extension TransitionContextsStackImpl {
         return nil
     }
     
-    subscript (index: Int?)
-        -> CompletedTransitionContext?
-    {
-        if let index = index where index < storage.count {
+    subscript(index: Int?) -> CompletedTransitionContext? {
+        if let index = index where index >= 0 && index < storage.count {
             return storage[index]
         }
         return nil
     }
     
-    subscript (index: Int?)
-        -> RestoredTransitionContext? {
+    subscript(index: Int?) -> RestoredTransitionContext? {
         let completed: CompletedTransitionContext? = self[index]
         let restored = RestoredTransitionContext(completedTransition: completed)
         return restored
     }
     
-    /// Выходит до индекса невключительно
+    /// Выходит до индекса невключительно. То есть максимально выходит до первой записи
     func popTo(index index: Int?)
         -> [RestoredTransitionContext]?
     {
-        guard let index = index where index + 1 < storage.count
+        guard let nonNegative = index where nonNegative >= 0
+            else { return nil }
+        
+        // заранее проверяем, если не попадем в цикл for, чтобы не создавать пустой массив result
+        guard let fromIndex = (nonNegative + 1) as Int? where fromIndex < storage.count
             else { return nil }
         
         var result = [RestoredTransitionContext]()
         
-        for _ in index + 1 ..< storage.count {
+        for _ in fromIndex ..< storage.count {
             if let last = popLast() {
-                result.insert(last, atIndex: 0)
+                // складываем в том порядке как вынимали
+                result.append(last)
             }
             else { break }
         }

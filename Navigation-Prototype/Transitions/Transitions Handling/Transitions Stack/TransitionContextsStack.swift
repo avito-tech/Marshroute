@@ -16,8 +16,7 @@ protocol TransitionContextsStack: class {
         -> RestoredTransitionContext?
     
     /// возвращает, но не удаляет запись с переданным Id
-    subscript (transitionId: TransitionId)
-        -> RestoredTransitionContext? { get }
+    subscript(transitionId: TransitionId) -> RestoredTransitionContext? { get }
     
     /// удаляет записи по одной с конца до записи с переданным Id невключительно, если запись с переданным Id вообще есть
     func popTo(transitionId transitionId: TransitionId)

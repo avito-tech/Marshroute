@@ -10,7 +10,7 @@ protocol FirstAssembly {
         routerSeed: BaseRouterSeed)
         -> UIViewController
     
-    func ipadDetailModule(
+    func ipadModule(
         title title: String,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
@@ -19,13 +19,12 @@ protocol FirstAssembly {
         routerSeed: BaseRouterSeed)
         -> UIViewController
     
-    func ipadMasterModule(
+    func ipadMasterDetailModule(
         title title: String,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        routerSeed: BaseRouterSeed,
-        detailTransitionsHandlerBox: RouterTransitionsHandlerBox)
+        routerSeed: BaseMasterDetailRouterSeed)
         -> UIViewController
 }

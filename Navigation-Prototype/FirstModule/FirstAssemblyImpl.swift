@@ -37,7 +37,7 @@ final class FirstAssemblyImpl: FirstAssembly {
         return viewController
     }
     
-    func ipadDetailModule(
+    func ipadModule(
         title title: String,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
@@ -72,23 +72,21 @@ final class FirstAssemblyImpl: FirstAssembly {
         return viewController
     }
     
-    func ipadMasterModule(
+    func ipadMasterDetailModule(
         title title: String,
         canShowFirstModule: Bool,
         canShowSecondModule: Bool,
         dismissable: Bool,
         withTimer: Bool,
-        routerSeed: BaseRouterSeed,
-        detailTransitionsHandlerBox: RouterTransitionsHandlerBox)
+        routerSeed: BaseMasterDetailRouterSeed)
         -> UIViewController
     {
         debugPrint("ipad master 1 - \(routerSeed.transitionId)")
         
         let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
         
-        let router = FirstRouterImpl_iPadMasterDetail(
-            routerSeed: routerSeed,
-            detailTransitionsHandlerBox: detailTransitionsHandlerBox)
+        let router = FirstRouterImpl_iPadMaster(
+            routerSeed: routerSeed)
         
         let presenter = FirstPresenter(
             interactor: interactor,

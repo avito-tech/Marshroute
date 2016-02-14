@@ -48,6 +48,8 @@
 		CC017EA51C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC017EA41C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift */; };
 		CC5A34191C64DF92003FA62F /* CustomAnimator1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */; };
 		CC5A341B1C64DF99003FA62F /* CustomAnimator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */; };
+		CC7098DD1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7098DC1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift */; };
+		CC7098DE1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7098DC1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift */; };
 		CC74722B1C6B5D1500742F7A /* TransitionContextsStack_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC74722A1C6B5D1500742F7A /* TransitionContextsStack_Tests.swift */; };
 		CC74723C1C6B5D5D00742F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EF91C50ECBA00909924 /* AppDelegate.swift */; };
 		CC74723D1C6B5D5D00742F7A /* CustomAnimator1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */; };
@@ -254,6 +256,7 @@
 		CC017EA41C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient_Tests.swift; sourceTree = "<group>"; };
 		CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimator1.swift; sourceTree = "<group>"; };
 		CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimator2.swift; sourceTree = "<group>"; };
+		CC7098DC1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouterSeed.swift; sourceTree = "<group>"; };
 		CC7472281C6B5D1500742F7A /* Navigation-Prototype-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Navigation-Prototype-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC74722A1C6B5D1500742F7A /* TransitionContextsStack_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack_Tests.swift; sourceTree = "<group>"; };
 		CC74722C1C6B5D1500742F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -552,6 +555,7 @@
 			isa = PBXGroup;
 			children = (
 				CCEAF0501C689C3D00D00583 /* BaseMasterDetailRouter.swift */,
+				CC7098DC1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift */,
 				CCEAF0511C689C3D00D00583 /* BaseRouter.swift */,
 				CCEB1A1E1C6E35C8000AF50C /* BaseRouterSeed.swift */,
 			);
@@ -914,6 +918,7 @@
 				CC7472431C6B5D6600742F7A /* DetailRouterTransitionable.swift in Sources */,
 				CC7472491C6B5D6600742F7A /* RouterIdentifiable.swift in Sources */,
 				CCEB1A201C6E35C8000AF50C /* BaseRouterSeed.swift in Sources */,
+				CC7098DE1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift in Sources */,
 				CC017E7C1C6B68CD003FC250 /* AuthorizationAssembly.swift in Sources */,
 				CC017EA11C6B68D5003FC250 /* FirstViewOutput.swift in Sources */,
 				CC74727C1C6B5D8100742F7A /* ApplicationRouter.swift in Sources */,
@@ -975,6 +980,7 @@
 				CCEB1A8F1C6E9F62000AF50C /* CompletedTransitionContext.swift in Sources */,
 				CCEC6A581C70819900652BE4 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
 				CCEAF09A1C689C3E00D00583 /* MasterRouterTransitionable.swift in Sources */,
+				CC7098DD1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift in Sources */,
 				CCE8C9CF1C563A610041801D /* AuthorizationPresenter.swift in Sources */,
 				CCEC6A531C70819900652BE4 /* TransitionsHandler.swift in Sources */,
 				CCE8C97C1C561C780041801D /* SecondViewInput.swift in Sources */,

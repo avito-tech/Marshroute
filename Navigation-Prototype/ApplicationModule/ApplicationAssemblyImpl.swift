@@ -60,7 +60,8 @@ private extension ApplicationAssemblyImpl {
         
         let tabBarTransitionsHandlerBox = RouterTransitionsHandlerBox(containingTransitionsHandler: tabBarTransitionsHandler)
         
-        let routerSeed = BaseRouterSeed(transitionsHandlerBox: tabBarTransitionsHandlerBox,
+        let routerSeed = BaseRouterSeed(
+            transitionsHandlerBox: tabBarTransitionsHandlerBox,
             transitionId: sharedTransitionId,
             presentingTransitionsHandler: nil,
             transitionsCoordinator: sharedTransitionsCoordinator,
@@ -135,7 +136,8 @@ private extension ApplicationAssemblyImpl {
         let firstTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: firstTransitionsHandler)
         
         do {
-            let firstRouterSeed = BaseRouterSeed(transitionsHandlerBox: firstTransitionsHandlerBox,
+            let firstRouterSeed = BaseRouterSeed(
+                transitionsHandlerBox: firstTransitionsHandlerBox,
                 transitionId: sharedTransitionId,
                 presentingTransitionsHandler: nil,
                 transitionsCoordinator: sharedTransitionsCoordinator,
@@ -176,7 +178,8 @@ private extension ApplicationAssemblyImpl {
         let secondTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: secondTransitionsHandler)
         
         do {
-            let secondRouterSeed = BaseRouterSeed(transitionsHandlerBox: secondTransitionsHandlerBox,
+            let secondRouterSeed = BaseRouterSeed(
+                transitionsHandlerBox: secondTransitionsHandlerBox,
                 transitionId: sharedTransitionId,
                 presentingTransitionsHandler: nil,
                 transitionsCoordinator: sharedTransitionsCoordinator,
@@ -294,20 +297,21 @@ private extension ApplicationAssemblyImpl {
             let detailTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: detailTransitionsHandler)
             
             do {
-                let masterRouterSeed = BaseRouterSeed(transitionsHandlerBox: masterTransitionsHandlerBox,
+                let masterDetailRouterSeed = BaseMasterDetailRouterSeed(
+                    masterTransitionsHandlerBox: masterTransitionsHandlerBox,
+                    detailTransitionsHandlerBox: detailTransitionsHandlerBox,
                     transitionId: sharedTransitionId,
                     presentingTransitionsHandler: nil,
                     transitionsCoordinator: sharedTransitionsCoordinator,
                     transitionIdGenerator: sharedTransitionIdGenerator)
                 
-                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
+                let masterViewController = AssemblyFactory.firstModuleAssembly().ipadMasterDetailModule(
                     title: "1",
                     canShowFirstModule: true,
                     canShowSecondModule: false,
                     dismissable: false,
                     withTimer: true,
-                    routerSeed: masterRouterSeed,
-                    detailTransitionsHandlerBox: detailTransitionsHandlerBox)
+                    routerSeed: masterDetailRouterSeed)
                 
                 let resetMasterContext = ForwardTransitionContext(
                     resettingWithViewController: masterViewController,
@@ -350,7 +354,8 @@ private extension ApplicationAssemblyImpl {
         let secondTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: secondTransitionsHandler)
         
         do {
-            let secondRouterSeed = BaseRouterSeed(transitionsHandlerBox: secondTransitionsHandlerBox,
+            let secondRouterSeed = BaseRouterSeed(
+                transitionsHandlerBox: secondTransitionsHandlerBox,
                 transitionId: sharedTransitionId,
                 presentingTransitionsHandler: nil,
                 transitionsCoordinator: sharedTransitionsCoordinator,

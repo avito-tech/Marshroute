@@ -1,6 +1,8 @@
-import Foundation
+import UIKit
 
-/// Обычный роутер, работающий только одним обработчиком переходов
+/// Роутер, управляющий одним экраном (одним UINavigationController'ом)
+/// Работает с одим обработчиком переходов (detail).
+/// Например, роутер обычного экрана iPhone-приложения или роутер экрана внутри UIPopoverController'а
 class BaseRouter:
     TransitionsCoordinatorHolder,
     TransitionIdGeneratorHolder,
@@ -10,8 +12,8 @@ class BaseRouter:
     Router,
     RouterFocusable,
     RouterDismisable,
-    MasterRouterTransitionable,
-    MasterRouter
+    DetailRouterTransitionable,
+    DetailRouter
 {
     let transitionsHandlerBox: RouterTransitionsHandlerBox?
     let transitionId: TransitionId
@@ -28,8 +30,8 @@ class BaseRouter:
         self.transitionIdGenerator = seed.transitionIdGenerator
     }
 
-    // MARK: - MasterRouterTransitionable
-    var masterTransitionsHandlerBox: RouterTransitionsHandlerBox? {
+    // MARK: - DetailRouterTransitionable
+    var detailTransitionsHandlerBox: RouterTransitionsHandlerBox? {
         return transitionsHandlerBox
     }
 }

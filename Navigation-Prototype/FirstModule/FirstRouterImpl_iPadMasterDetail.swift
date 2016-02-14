@@ -1,28 +1,24 @@
 import UIKit
 
-final class FirstRouterImpl_iPadMasterDetail: BaseMasterDetailRouter {}
+final class FirstRouterImpl_iPadMaster: BaseMasterDetailRouter {}
 
-extension FirstRouterImpl_iPadMasterDetail: FirstRouter {
+extension FirstRouterImpl_iPadMaster: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
-        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
-            else { assert(false); return }
-        
-        pushViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
-            let viewController = AssemblyFactory.firstModuleAssembly().ipadMasterModule(
+        pushMasterViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+            let viewController = AssemblyFactory.firstModuleAssembly().ipadMasterDetailModule(
                 title: String(count + 1),
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,
                 dismissable: false,
                 withTimer: false,
-                routerSeed: routerSeed,
-                detailTransitionsHandlerBox: detailTransitionsHandlerBox)
+                routerSeed: routerSeed)
             return viewController
         }, animator: CustomAnimator2())
     }
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {        
         setDetailViewControllerDerivedFrom { (routerSeed) -> UIViewController in
-            let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
+            let viewController = AssemblyFactory.firstModuleAssembly().ipadModule(
                 title: String(count + 1),
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,

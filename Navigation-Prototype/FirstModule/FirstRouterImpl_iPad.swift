@@ -5,7 +5,7 @@ final class FirstRouterImpl_iPad: BaseRouter {}
 extension FirstRouterImpl_iPad: FirstRouter {
     func showWhiteModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
         pushViewControllerDerivedFrom { (routerSeed) -> UIViewController in
-            let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
+            let viewController = AssemblyFactory.firstModuleAssembly().ipadModule(
                 title: String(count + 1),
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,
@@ -18,7 +18,7 @@ extension FirstRouterImpl_iPad: FirstRouter {
     
     func showRedModule(count: Int, canShowFirstModule: Bool, canShowSecondModule: Bool) {
         pushViewControllerDerivedFrom { (routerSeed) -> UIViewController in
-            let viewController = AssemblyFactory.firstModuleAssembly().ipadDetailModule(
+            let viewController = AssemblyFactory.firstModuleAssembly().ipadModule(
                 title: String(count + 1),
                 canShowFirstModule: canShowFirstModule,
                 canShowSecondModule: canShowSecondModule,

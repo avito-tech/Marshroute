@@ -14,7 +14,7 @@ extension  SecondRouterImpl_iPad: SecondRouter {
             withViewControllerDerivedFrom: { (routerSeed) -> UIViewController in
                 
                 let viewController = AssemblyFactory.firstModuleAssembly()
-                    .ipadDetailModule( // 2
+                    .ipadModule( // 2
                         title: "1",
                         canShowFirstModule: true,
                         canShowSecondModule: false,

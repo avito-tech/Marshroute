@@ -1,7 +1,8 @@
-import Foundation
+import UIKit
 
-/// Роутер для master контроллера внутри SplitViewController'а
-/// Работаюет с двумя обработчиками переходов (master и detail)
+/// Роутер, управляющий двумя экранами (двумя UINavigationController'ами)
+/// Работает с двумя обработчиками переходов (master и detail).
+/// Например, роутер master-контроллера внутри SplitViewController'а
 class BaseMasterDetailRouter:
     TransitionsCoordinatorHolder,
     TransitionIdGeneratorHolder,
@@ -23,12 +24,11 @@ class BaseMasterDetailRouter:
     let transitionsCoordinator: TransitionsCoordinator
     let transitionIdGenerator: TransitionIdGenerator
     
-    init(routerSeed seed: BaseRouterSeed,
-        detailTransitionsHandlerBox: RouterTransitionsHandlerBox)
+    init(routerSeed seed: BaseMasterDetailRouterSeed)
     {
         self.transitionId = seed.transitionId
-        self.masterTransitionsHandlerBox = seed.transitionsHandlerBox
-        self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
+        self.masterTransitionsHandlerBox = seed.masterTransitionsHandlerBox
+        self.detailTransitionsHandlerBox = seed.detailTransitionsHandlerBox
         self.presentingTransitionsHandler = seed.presentingTransitionsHandler
         self.transitionsCoordinator = seed.transitionsCoordinator
         self.transitionIdGenerator = seed.transitionIdGenerator

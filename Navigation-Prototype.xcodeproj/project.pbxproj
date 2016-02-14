@@ -50,6 +50,13 @@
 		CC5A341B1C64DF99003FA62F /* CustomAnimator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A341A1C64DF99003FA62F /* CustomAnimator2.swift */; };
 		CC7098DD1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7098DC1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift */; };
 		CC7098DE1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7098DC1C70961C00B9E53B /* BaseMasterDetailRouterSeed.swift */; };
+		CC7098DF1C7104C400B9E53B /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6A4B1C70819900652BE4 /* TransitionsHandler.swift */; };
+		CC7098E01C71058600B9E53B /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6A4E1C70819900652BE4 /* AnimatingTransitionsHandler.swift */; };
+		CC7098E11C71058C00B9E53B /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6A4F1C70819900652BE4 /* ContainingTransitionsHandler.swift */; };
+		CC7098E21C71059000B9E53B /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6A501C70819900652BE4 /* NavigationTransitionsHandlerImpl.swift */; };
+		CC7098E31C71059300B9E53B /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6A511C70819900652BE4 /* SplitViewTransitionsHandlerImpl.swift */; };
+		CC7098E41C71059700B9E53B /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6A521C70819900652BE4 /* TabBarTransitionsHandlerImpl.swift */; };
+		CC7098E51C7105BA00B9E53B /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6A4C1C70819900652BE4 /* TransitionsHandlerContainer.swift */; };
 		CC74722B1C6B5D1500742F7A /* TransitionContextsStack_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC74722A1C6B5D1500742F7A /* TransitionContextsStack_Tests.swift */; };
 		CC74723C1C6B5D5D00742F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE12EF91C50ECBA00909924 /* AppDelegate.swift */; };
 		CC74723D1C6B5D5D00742F7A /* CustomAnimator1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5A34181C64DF92003FA62F /* CustomAnimator1.swift */; };
@@ -861,6 +868,7 @@
 				CC017E8E1C6B68D1003FC250 /* SecondRouter.swift in Sources */,
 				CCEB1ABC1C6E9F62000AF50C /* TransitionContextsStack.swift in Sources */,
 				CCEB1A761C6E9F62000AF50C /* NavigationAnimationTargetParameters.swift in Sources */,
+				CC7098DF1C7104C400B9E53B /* TransitionsHandler.swift in Sources */,
 				CC017E881C6B68D1003FC250 /* SecondAssembly.swift in Sources */,
 				CCEB1ABA1C6E9F62000AF50C /* TransitionsHistoryItem.swift in Sources */,
 				CCEB1A8E1C6E9F62000AF50C /* TransitionsAnimator.swift in Sources */,
@@ -868,6 +876,8 @@
 				CC7472451C6B5D6600742F7A /* MasterRouterTransitionable.swift in Sources */,
 				CC7472801C6B5D8100742F7A /* ApplicationViewOutput.swift in Sources */,
 				CC7472811C6B5D8500742F7A /* ApplicationModuleHolder.swift in Sources */,
+				CC7098E51C7105BA00B9E53B /* TransitionsHandlerContainer.swift in Sources */,
+				CC7098E21C71059000B9E53B /* NavigationTransitionsHandlerImpl.swift in Sources */,
 				CC7472441C6B5D6600742F7A /* MasterRouter.swift in Sources */,
 				CC74727D1C6B5D8100742F7A /* ApplicationRouterImpl.swift in Sources */,
 				CCEB1A9A1C6E9F62000AF50C /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
@@ -884,6 +894,7 @@
 				CCEC6A5E1C7081B600652BE4 /* StrongBox.swift in Sources */,
 				CCEB1A881C6E9F62000AF50C /* NavigationTransitionsAnimator.swift in Sources */,
 				CC7472481C6B5D6600742F7A /* RouterFocusable.swift in Sources */,
+				CC7098E11C71058C00B9E53B /* ContainingTransitionsHandler.swift in Sources */,
 				CC017EA01C6B68D5003FC250 /* FirstViewInput.swift in Sources */,
 				CCEB1AA21C6E9F62000AF50C /* TransitionStorableParameters.swift in Sources */,
 				CC017EA51C6B9450003FC250 /* TransitionContextsStackClient_Tests.swift in Sources */,
@@ -943,6 +954,7 @@
 				CC017E961C6B68D5003FC250 /* FirstAssemblyImpl.swift in Sources */,
 				CCEB1A901C6E9F62000AF50C /* CompletedTransitionContext.swift in Sources */,
 				CCEB1AAC1C6E9F62000AF50C /* TransitionId.swift in Sources */,
+				CC7098E31C71059300B9E53B /* SplitViewTransitionsHandlerImpl.swift in Sources */,
 				CC017E7D1C6B68CD003FC250 /* AuthorizationAssemblyImpl.swift in Sources */,
 				CC017E931C6B68D1003FC250 /* SecondViewInput.swift in Sources */,
 				CC017E991C6B68D5003FC250 /* FirstInteractorOutput.swift in Sources */,
@@ -965,6 +977,8 @@
 				CCEB1AB41C6E9F62000AF50C /* TransitionsCoordinator.swift in Sources */,
 				CCEB1A921C6E9F62000AF50C /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CC017E831C6B68CD003FC250 /* AuthorizationViewController.swift in Sources */,
+				CC7098E41C71059700B9E53B /* TabBarTransitionsHandlerImpl.swift in Sources */,
+				CC7098E01C71058600B9E53B /* AnimatingTransitionsHandler.swift in Sources */,
 				CC74727A1C6B5D8100742F7A /* ApplicationModuleInput.swift in Sources */,
 				CC7472771C6B5D8100742F7A /* ApplicationAssemblyImpl.swift in Sources */,
 				CCEB1AC41C6E9F62000AF50C /* TransitionContextsStackClientProviderHolder.swift in Sources */,

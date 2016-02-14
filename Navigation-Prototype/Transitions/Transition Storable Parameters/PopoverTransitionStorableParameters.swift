@@ -7,7 +7,7 @@ final class PopoverTransitionStorableParameters: NSObject  {
         willSet {
             // старые версии iOS крешились, если не убирать зануляемый поповер
             if newValue == nil {
-                popoverController?.dismissPopoverAnimated(true)
+                popoverController?.dismissPopoverAnimated(false)
             }
         }
     }
@@ -48,7 +48,6 @@ extension PopoverTransitionStorableParameters: UIPopoverControllerDelegate {
 extension PopoverTransitionStorableParameters: TransitionStorableParameters {
     func releaseStorableParameters()
     {
-        popoverController?.dismissPopoverAnimated(false)
         popoverController = nil
         presentedTransitionsHandler = nil
     }

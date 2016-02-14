@@ -1,7 +1,14 @@
-struct NavigationTransitionStorableParameters: TransitionStorableParameters {
+struct NavigationTransitionStorableParameters {
     /// если показывать модально UITabBarController или UISplitViewController,
     /// или  UINavigationController, то кто-то должен держать сильную ссылку 
     /// на соответствующего обработчика переходов.
     /// роутеры держат слабые ссылки на свои обработчики переходов
-    let presentedTransitionsHandler: TransitionsHandler
+    var presentedTransitionsHandler: TransitionsHandler?
+}
+
+// MARK: - TransitionStorableParameters
+extension NavigationTransitionStorableParameters: TransitionStorableParameters {
+    mutating func releaseStorableParameters() {
+        presentedTransitionsHandler = nil
+    }
 }

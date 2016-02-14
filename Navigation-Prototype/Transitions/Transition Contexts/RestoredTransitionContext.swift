@@ -23,7 +23,7 @@ struct RestoredTransitionContext {
     let targetTransitionsHandlerBox: RestoredTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
-    let storableParameters: TransitionStorableParameters?
+    var storableParameters: TransitionStorableParameters?
     
     /// параметры запуска анимации перехода
     let animationLaunchingContext: TransitionAnimationLaunchingContext

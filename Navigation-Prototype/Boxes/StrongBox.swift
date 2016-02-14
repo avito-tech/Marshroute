@@ -6,7 +6,7 @@ struct StrongBox<T where T: AnyObject> {
         self.boxedValue = boxedValue
     }
     
-    func unbox()-> T
+    func unbox() -> T
     {
         return boxedValue
     }

@@ -6,11 +6,15 @@ struct WeakBox<T where T: AnyObject> {
         self.boxedValue = boxedValue
     }
     
-    func unbox()-> T?
+    func unbox() -> T?
     {
         return boxedValue
     }
 }
+
+/*
+ * если раскомментировать, то получим Segmentation fault: 11
+ * до лучших времен Swift'а
 
 extension WeakBox {
     init(other: StrongBox<T>)
@@ -18,3 +22,5 @@ extension WeakBox {
         self.boxedValue = other.unbox()
     }
 }
+
+*/

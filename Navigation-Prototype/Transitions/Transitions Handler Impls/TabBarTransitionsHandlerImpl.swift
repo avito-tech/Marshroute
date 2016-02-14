@@ -13,7 +13,7 @@ final class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
     var animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler]?
     var containingTransitionsHandlers: [Int: ContainingTransitionsHandler]?
 
-    //MARK: - TransitionsHandlerContainer
+    // MARK: - TransitionsHandlerContainer
     override var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
         guard let tabsCount = tabBarController?.viewControllers?.count where tabsCount > 0
             else { return nil }
@@ -37,6 +37,7 @@ final class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
             fromTabIndex: selectedIndex,
             toTabIndex: selectedIndex + 1,
             unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // у видимого вложенного содержащего обработчика спрашиваем всех обработчиков, а не видимых
                 return containingTransitionsHandler.allTransitionsHandlers
         })
     }

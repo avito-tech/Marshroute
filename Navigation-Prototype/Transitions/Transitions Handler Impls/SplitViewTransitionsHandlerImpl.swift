@@ -13,7 +13,7 @@ final class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
     var masterTransitionsHandler: AnimatingTransitionsHandler?
     var detailTransitionsHandler: AnimatingTransitionsHandler?
     
-    //MARK: - TransitionsHandlerContainer
+    // MARK: - TransitionsHandlerContainer
     override var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return bothTransitionsHandlers // все == видимые
     }

@@ -20,6 +20,7 @@ class NavigationTransitionsAnimator: TransitionsAnimator {
         switch context.transitionStyle {
         case .Push:
             context.navigationController.popToViewController(context.targetViewController, animated: true)
+
         case .Modal:
             context.navigationController.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -30,6 +31,7 @@ class NavigationTransitionsAnimator: TransitionsAnimator {
         switch context.transitionStyle {
         case .Push:
             context.navigationController.setViewControllers([context.targetViewController], animated: true)
+        
         case .Modal:
             assert(false, "must not be called"); break
         }

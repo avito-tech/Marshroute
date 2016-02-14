@@ -6,6 +6,7 @@ class CustomAnimator1: NavigationTransitionsAnimator {
             context.navigationController.pushViewController(
                 context.targetViewController,
                 animated: true)
+        
         case .Modal:
             let viewController = context.targetViewController
             viewController.modalPresentationStyle = .FormSheet
@@ -14,26 +15,6 @@ class CustomAnimator1: NavigationTransitionsAnimator {
                 viewController,
                 animated: true,
                 completion: nil)
-        }
-    }
-    
-    override func animateUndoingTransition(animationContext context: NavigationAnimationContext)
-    {
-        switch context.transitionStyle {
-        case .Push:
-            context.navigationController.popToViewController(context.targetViewController, animated: true)
-        case .Modal:
-            context.navigationController.dismissViewControllerAnimated(true, completion: nil)
-        }
-    }
-    
-    override func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
-    {
-        switch context.transitionStyle {
-        case .Push:
-            context.navigationController.setViewControllers([context.targetViewController], animated: true)
-        case .Modal:
-            assert(false, "must not be called"); break
         }
     }
 }

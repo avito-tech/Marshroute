@@ -26,7 +26,6 @@ class TransitionContextsStackImpl: TransitionContextsStack {
         updateStack()
         let last = storage.popLast()
         let restored = RestoredTransitionContext(completedTransition: last)
-        restored?.storableParameters?.releaseStorableParameters() // ломаем retain cycle'ы
         return restored
     }
     

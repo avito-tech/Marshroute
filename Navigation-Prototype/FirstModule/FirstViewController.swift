@@ -34,7 +34,7 @@ final class FirstViewController: UIViewController {
     }
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("                      deinit \(self)")
     }
 
     override var title: String? {

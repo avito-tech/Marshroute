@@ -181,8 +181,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             targetTransitionsHandler: splitViewTransitionsHandler,
             animator: animator,
             transitionId: generatedTransitionId)
-
-         transitionsHandlerBox.unbox().performTransition(context: modalContext)
+        
+        transitionsHandlerBox.unbox().performTransition(context: modalContext)
     }
     
     func presentModalViewControllerDerivedFrom(

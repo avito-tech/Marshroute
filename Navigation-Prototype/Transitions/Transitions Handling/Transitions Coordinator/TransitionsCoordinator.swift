@@ -143,7 +143,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
         // среди всех анимирующих обработчиков (то есть среди всех tab'ов tabbar'a)
-       guard let animatingTransitionsHandlers = transitionsHandler.allTransitionsHandlers
+        guard let animatingTransitionsHandlers = transitionsHandler.allTransitionsHandlers
             else { return }
         
         coordinateUndoingTransitionsImpl(
@@ -218,7 +218,6 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
     {
         // скрываем модальные окна и поповеры, показанных внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: transitionsHandler)
-        
         // ищем существующую историю переходов или создаем новую
         let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
             ?? stackClientProvider.createStackClient(forTransitionsHandler: transitionsHandler)
@@ -266,7 +265,8 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             forTransitionsHandlers: animatingTransitionsHandlers,
             toUndoTransitionsAfterId: transitionId,
             includingTransitionWithId: includingTransitionWithId,
-            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler)
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
         
         initiateUndoingTransitions(
             afterTransitionId: transitionId,
@@ -297,11 +297,35 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         // а) на iOS 7 не показывать поповер в поповере
         // б) на iOS 7 не показывать поповеры внутри модальных окон
         // в) игнорировать пункты а) и б), но не вызывать сокрытие целой цепочки модальных окон и поповеров
+    
+        // в итоге только очищаем историю, но не выполняем анимаций
+        coordinateUndoingChainedTransitionsWithoutAnimations(forTransitionsHandler: transitionsHandler)
+    }
+    
+    func coordinateUndoingChainedTransitionsWithoutAnimations(forTransitionsHandler transitionsHandler: TransitionsHandler)
+    {
+        guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
+            else { return }
         
-        // guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
-        //     else { return }
-        // let chainedTransitionsHandlerBox = stackClient.chainedTransitionsHandlerBoxForTransitionsHandler(self)
-        // chainedTransitionsHandlerBox?.unbox().undoAllChainedTransitions()
+        guard let chainedTransition = stackClient.chainedTransitionForTransitionsHandler(transitionsHandler)
+            else { return }
+        
+        guard let chainedAnimatingTransitionsHandler = chainedTransition.targetTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
+            else { return }
+        
+        // начинаем с самого далекого дочернего обработчика
+        coordinateUndoingChainedTransitionsWithoutAnimations(forTransitionsHandler: chainedAnimatingTransitionsHandler)
+        
+        guard let chainedStackClient = stackClientProvider.stackClient(forTransitionsHandler: chainedAnimatingTransitionsHandler)
+            else { return }
+        
+        // с дочерним закончили, удаляем историю текущего обработчика
+        commitUndoingTransitionsAfter(
+            transitionId: chainedTransition.transitionId,
+            includingTransitionWithId: true,
+            forTransitionsHandler: chainedAnimatingTransitionsHandler,
+            withStackClient: chainedStackClient
+        )
     }
 }
 
@@ -370,7 +394,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         includingTransitionWithId: Bool,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        // скрываем модальные окна и поповеры, показанных внутри модальных окон и поповеров текущего обработчика
+        // скрываем модальные окна и поповеры, показанные внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: animatingTransitionsHandler)
         
         // вызываем анимации сокрытия модальных окон и поповеров

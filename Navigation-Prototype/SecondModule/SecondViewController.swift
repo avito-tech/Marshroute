@@ -27,7 +27,7 @@ final class SecondViewController: UIViewController {
     }
     
     deinit {
-        debugPrint("deinit \(self)")
+        debugPrint("                      deinit \(self)")
     }
 
     required init?(coder aDecoder: NSCoder) {

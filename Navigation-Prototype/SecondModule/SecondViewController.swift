@@ -14,16 +14,15 @@ final class SecondViewController: UIViewController {
         self.canShowModule1 = canShowModule1
         
         timerButton = UIButton(type: .Custom)
-        defer {
-            timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
-            timerButton.tintColor = .blueColor()
-            timerButton.setTitleColor(.blackColor(), forState: .Normal)
-            timerButton.titleLabel?.numberOfLines = 0
-            timerButton.hidden = true
-            view.addSubview(timerButton)
-        }
         
         super.init(nibName: nil, bundle: nil)
+        
+        timerButton.addTarget(self, action: "onTimerButton:", forControlEvents: [.TouchUpInside])
+        timerButton.tintColor = .blueColor()
+        timerButton.setTitleColor(.blackColor(), forState: .Normal)
+        timerButton.titleLabel?.numberOfLines = 0
+        timerButton.hidden = true
+        view.addSubview(timerButton)
     }
     
     deinit {

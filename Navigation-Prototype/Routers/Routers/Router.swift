@@ -5,16 +5,16 @@ protocol Router: class {
     //MARK: navigation
     
     func presentModalMasterViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     
     func presentModalMasterViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     
     func presentModalMasterViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator,
         masterNavigationController: UINavigationController,
@@ -79,7 +79,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     //MARK: navigation
     
     func presentModalMasterViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
         presentModalMasterViewControllerDerivedFrom(
@@ -90,7 +90,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     }
     
     func presentModalMasterViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
@@ -105,7 +105,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     }
     
     func presentModalMasterViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator,
         masterNavigationController: UINavigationController,
@@ -139,8 +139,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
 
         do {
-            let masterRouterSeed = BaseRouterSeed(
-                transitionsHandlerBox: masterTransitionsHandlerBox,
+            let masterRouterSeed = BaseMasterDetailRouterSeed(
+                masterTransitionsHandlerBox: masterTransitionsHandlerBox,
+                detailTransitionsHandlerBox: detailTransitionsHandlerBox,
                 transitionId: generatedTransitionId,
                 presentingTransitionsHandler: transitionsHandlerBox.unbox(),
                 transitionsCoordinator: transitionsCoordinator,

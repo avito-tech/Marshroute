@@ -1,1 +1,0 @@
-typealias RouterTransitionsHandlerBox = TransitionsHandlerBox

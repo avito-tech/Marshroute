@@ -10,7 +10,11 @@ final class SecondAssemblyImpl: SecondAssembly {
     {
         debugPrint("iphone 2 - \(routerSeed.transitionId)")
         
-        let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
+        let interactor = SecondInteractorImpl(
+            withTimer: withTimer,
+            timerSeconds: 5,
+            canShowModule1: canShowModule1
+        )
 
         let router = SecondRouterImpl(routerSeed: routerSeed)
         
@@ -19,12 +23,14 @@ final class SecondAssemblyImpl: SecondAssembly {
             router: router
         )
         
+        let dismissable = routerSeed.presentingTransitionsHandler != nil
         let viewController = SecondViewController(
             presenter: presenter,
-            dismissable: routerSeed.presentingTransitionsHandler != nil,
+            dismissable: dismissable,
             canShowModule1: canShowModule1
         )
-        viewController.view.backgroundColor = .yellowColor()
+        
+        viewController.view.backgroundColor = UIColor.yellowColor()
         viewController.title = title
         viewController.output = presenter
         
@@ -43,7 +49,11 @@ final class SecondAssemblyImpl: SecondAssembly {
     {
         debugPrint("ipad 2 - \(routerSeed.transitionId)")
     
-        let interactor = SecondInteractorImpl(withTimer: withTimer, timerSeconds: 5, canShowModule1: canShowModule1)
+        let interactor = SecondInteractorImpl(
+            withTimer: withTimer,
+            timerSeconds: 5,
+            canShowModule1: canShowModule1
+        )
 
         let router = SecondRouterImpl_iPad(routerSeed: routerSeed)
         
@@ -52,12 +62,13 @@ final class SecondAssemblyImpl: SecondAssembly {
             router: router
         )
         
+        let dismissable = routerSeed.presentingTransitionsHandler != nil
         let viewController = SecondViewController(
             presenter: presenter,
-            dismissable: routerSeed.presentingTransitionsHandler != nil,
+            dismissable: dismissable,
             canShowModule1: canShowModule1
         )
-        viewController.view.backgroundColor = .yellowColor()
+        viewController.view.backgroundColor = UIColor.yellowColor()
         viewController.title = title
         viewController.output = presenter
         

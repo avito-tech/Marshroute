@@ -13,7 +13,12 @@ final class FirstAssemblyImpl: FirstAssembly {
        {
         debugPrint("iphone 1 - \(routerSeed.transitionId)")
         
-        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
+        let interactor = FirstInteractorImpl(
+            canShowFirstModule: canShowFirstModule,
+            canShowSecondModule: canShowSecondModule,
+            withTimer: withTimer,
+            timerSeconds: 5
+        )
         
         let router = FirstRouterImpl(routerSeed: routerSeed)
         
@@ -28,6 +33,7 @@ final class FirstAssemblyImpl: FirstAssembly {
             withTimer: withTimer,
             canShowFirstModule: canShowFirstModule
         )
+        
         viewController.title = title
         viewController.output = presenter
         
@@ -48,7 +54,12 @@ final class FirstAssemblyImpl: FirstAssembly {
     {
         debugPrint("ipad detail 1 - \(routerSeed.transitionId)")
         
-        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
+        let interactor = FirstInteractorImpl(
+            canShowFirstModule: canShowFirstModule,
+            canShowSecondModule: canShowSecondModule,
+            withTimer: withTimer,
+            timerSeconds: 5
+        )
         
         let router = FirstRouterImpl_iPad(routerSeed: routerSeed)
         
@@ -83,7 +94,12 @@ final class FirstAssemblyImpl: FirstAssembly {
     {
         debugPrint("ipad master 1 - \(routerSeed.transitionId)")
         
-        let interactor = FirstInteractorImpl(canShowFirstModule: canShowFirstModule, canShowSecondModule: canShowSecondModule, withTimer: withTimer, timerSeconds: 5)
+        let interactor = FirstInteractorImpl(
+            canShowFirstModule: canShowFirstModule,
+            canShowSecondModule: canShowSecondModule,
+            withTimer: withTimer,
+            timerSeconds: 5
+        )
         
         let router = FirstRouterImpl_iPadMaster(
             routerSeed: routerSeed)

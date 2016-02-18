@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0CB3191C7624FD0042780F /* DummyTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0CB3181C7624FD0042780F /* DummyTransitionsHandler.swift */; };
 		CCE90FC21C75BAEC00AF5E26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FC11C75BAEC00AF5E26 /* AppDelegate.swift */; };
 		CCE910361C75BB7B00AF5E26 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
 		CCE910371C75BB7B00AF5E26 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
@@ -151,6 +152,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC0CB3181C7624FD0042780F /* DummyTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyTransitionsHandler.swift; sourceTree = "<group>"; };
 		CCE90FBE1C75BAEC00AF5E26 /* Avito-ios-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avito-ios-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE90FC11C75BAEC00AF5E26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE90FCF1C75BAED00AF5E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			children = (
 				CCE910B61C75BB8300AF5E26 /* TransitionContextsStack_Tests.swift */,
 				CCE910B71C75BB8300AF5E26 /* TransitionContextsStackClient_Tests.swift */,
+				CC0CB3181C7624FD0042780F /* DummyTransitionsHandler.swift */,
 				CCE90FDA1C75BAED00AF5E26 /* Info.plist */,
 			);
 			path = "Avito-ios-navigationTests";
@@ -681,6 +684,7 @@
 				CCE9108D1C75BB7B00AF5E26 /* TransitionsHandlerContainer.swift in Sources */,
 				CCE910991C75BB7B00AF5E26 /* TransitionId.swift in Sources */,
 				CCE910671C75BB7B00AF5E26 /* PopoverTransitionStyle.swift in Sources */,
+				CC0CB3191C7624FD0042780F /* DummyTransitionsHandler.swift in Sources */,
 				CCE910771C75BB7B00AF5E26 /* CompletedTransitionContext.swift in Sources */,
 				CCE910911C75BB7B00AF5E26 /* ContainingTransitionsHandler.swift in Sources */,
 				CCE910831C75BB7B00AF5E26 /* TransitionsHandlerBox.swift in Sources */,

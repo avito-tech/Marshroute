@@ -1,34 +1,15 @@
 import XCTest
 
-private class DummyTransitionsHandler: AnimatingTransitionsHandler {
-    override func performTransition(context context: ForwardTransitionContext) {}
-    override func undoTransitionsAfter(transitionId transitionId: TransitionId) {}
-    override func undoTransitionWith(transitionId transitionId: TransitionId) {}
-    override func undoAllChainedTransitions() {}
-    override func undoAllTransitions() {}
-    override func resetWithTransition(context context: ForwardTransitionContext) {}
-    
-    override func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
-    override func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
-    override func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
-    
-    init() {
-        let coodinator = TransitionsCoordinatorImpl()
-        super.init(transitionsCoordinator: coodinator)
-    }
-}
-
-
 private func createCompletedTransitionContext(
     sourceViewController sourceViewController: UIViewController?,
     sourceTransitionsHandler: TransitionsHandler,
-    targetViewController: UIViewController?,
+    targetViewController: UIViewController,
     targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
     -> CompletedTransitionContext
 {
     let animationLaunchingContext = NavigationAnimationLaunchingContext(
         transitionStyle: .Push,
-        animationTargetParameters: NavigationAnimationTargetParameters(),
+        animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
         animator: NavigationTransitionsAnimator()
     )
     
@@ -61,12 +42,16 @@ class TransitionContextsStackClientTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
         __stackClientImpl = TransitionContextsStackClientImpl()
+        nillableTargetViewController = UIViewController()
+        
+        let autoZombieViewController = UIViewController()
         
         autoZombieContext = createCompletedTransitionContext(
-            sourceViewController: nil,
+            sourceViewController: autoZombieViewController,
             sourceTransitionsHandler: dummyTransitionsHandler,
-            targetViewController: nil,
+            targetViewController: autoZombieViewController,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
         neverZombieContext1 = createCompletedTransitionContext(
@@ -84,7 +69,7 @@ class TransitionContextsStackClientTests: XCTestCase {
         oneDayZombieContext = createCompletedTransitionContext(
             sourceViewController: sourceViewController,
             sourceTransitionsHandler: dummyTransitionsHandler,
-            targetViewController: nillableTargetViewController,
+            targetViewController: nillableTargetViewController!,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
     }
     

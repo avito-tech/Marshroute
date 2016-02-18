@@ -1,20 +1,20 @@
 import UIKit
 
-final class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
+final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
     private weak var tabBarController: UITabBarController?
     
-    init(tabBarController: UITabBarController,
+    public init(tabBarController: UITabBarController,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.tabBarController = tabBarController
         super.init(transitionsCoordinator: transitionsCoordinator)
     }
     
-    var animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler]?
-    var containingTransitionsHandlers: [Int: ContainingTransitionsHandler]?
+    public var animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler]?
+    public var containingTransitionsHandlers: [Int: ContainingTransitionsHandler]?
 
     // MARK: - TransitionsHandlerContainer
-    override var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    override public var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
         guard let tabsCount = tabBarController?.viewControllers?.count where tabsCount > 0
             else { return nil }
 
@@ -27,7 +27,7 @@ final class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
         )
     }
     
-    override var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    override public var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
         guard tabBarController?.viewControllers?.count > 0
             else { return nil }
         guard let selectedIndex = tabBarController?.selectedIndex

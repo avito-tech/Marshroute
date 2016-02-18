@@ -1,4 +1,4 @@
-protocol TransitionsAnimator: class {
+public protocol TransitionsAnimator: class {
     typealias AnimationContext
     
     func animatePerformingTransition(animationContext context: AnimationContext)

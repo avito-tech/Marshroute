@@ -1,24 +1,24 @@
 import UIKit
 
-final class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
+final public class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
     private weak var splitViewController: UISplitViewController?
     
-    init(splitViewController: UISplitViewController,
+    public init(splitViewController: UISplitViewController,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.splitViewController = splitViewController
         super.init(transitionsCoordinator: transitionsCoordinator)
     }
     
-    var masterTransitionsHandler: AnimatingTransitionsHandler?
-    var detailTransitionsHandler: AnimatingTransitionsHandler?
+    public var masterTransitionsHandler: AnimatingTransitionsHandler?
+    public var detailTransitionsHandler: AnimatingTransitionsHandler?
     
     // MARK: - TransitionsHandlerContainer
-    override var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    override public var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return bothTransitionsHandlers // все == видимые
     }
     
-    override var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    override public var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return bothTransitionsHandlers // все == видимые
     }
 }

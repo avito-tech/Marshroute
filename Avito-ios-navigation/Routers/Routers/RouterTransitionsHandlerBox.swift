@@ -1,1 +1,1 @@
-typealias RouterTransitionsHandlerBox = TransitionsHandlerBox
+public typealias RouterTransitionsHandlerBox = TransitionsHandlerBox

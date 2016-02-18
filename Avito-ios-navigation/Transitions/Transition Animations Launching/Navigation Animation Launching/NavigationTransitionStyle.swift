@@ -1,7 +1,7 @@
 import UIKit
 
 /// Стили переходов с участием UINavigationController
-enum NavigationTransitionStyle {
+public enum NavigationTransitionStyle {
     case Modal
     case Push
 }

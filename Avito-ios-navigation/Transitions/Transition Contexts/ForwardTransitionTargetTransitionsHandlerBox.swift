@@ -1,12 +1,12 @@
 /// Варианты хранения обработчика переходов показываемого модуля
-enum ForwardTransitionTargetTransitionsHandlerBox {
+public enum ForwardTransitionTargetTransitionsHandlerBox {
     case Animating(StrongBox<AnimatingTransitionsHandler>)
     case Containing(StrongBox<ContainingTransitionsHandler>)
     case PendingAnimating // обработчик переходов будет выставлен позже
 }
 
 // MARK: - convenience
-extension ForwardTransitionTargetTransitionsHandlerBox {
+public extension ForwardTransitionTargetTransitionsHandlerBox {
     init(animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         self = .Animating(StrongBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
@@ -19,7 +19,7 @@ extension ForwardTransitionTargetTransitionsHandlerBox {
 }
 
 // MARK: - helpers
-extension ForwardTransitionTargetTransitionsHandlerBox {
+public extension ForwardTransitionTargetTransitionsHandlerBox {
     func unbox() -> TransitionsHandler?
     {
         switch self {

@@ -1,5 +1,8 @@
-class NavigationTransitionsAnimator: TransitionsAnimator {
-    func animatePerformingTransition(animationContext context: NavigationAnimationContext)
+public class NavigationTransitionsAnimator: TransitionsAnimator {
+    
+    public init() {}
+    
+    public func animatePerformingTransition(animationContext context: NavigationAnimationContext)
     {
         switch context.transitionStyle {
         case .Push:
@@ -15,7 +18,7 @@ class NavigationTransitionsAnimator: TransitionsAnimator {
         }
     }
     
-    func animateUndoingTransition(animationContext context: NavigationAnimationContext)
+    public func animateUndoingTransition(animationContext context: NavigationAnimationContext)
     {
         switch context.transitionStyle {
         case .Push:
@@ -26,7 +29,7 @@ class NavigationTransitionsAnimator: TransitionsAnimator {
         }
     }
     
-    func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
+    public func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
     {
         switch context.transitionStyle {
         case .Push:

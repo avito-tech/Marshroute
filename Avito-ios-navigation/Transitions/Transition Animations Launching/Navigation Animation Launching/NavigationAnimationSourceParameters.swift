@@ -1,5 +1,10 @@
 import UIKit
 
-struct NavigationAnimationSourceParameters {
-    weak var navigationController: UINavigationController?
+public struct NavigationAnimationSourceParameters {
+    public private (set) weak var navigationController: UINavigationController?
+    
+    public init(navigationController: UINavigationController)
+    {
+        self.navigationController = navigationController
+    }
 }

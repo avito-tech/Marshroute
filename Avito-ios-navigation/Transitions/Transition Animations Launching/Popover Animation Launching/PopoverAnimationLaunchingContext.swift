@@ -1,14 +1,26 @@
 /// Описание параметров запуска анимаций с участием UIPopoverController
-struct PopoverAnimationLaunchingContext {
+public struct PopoverAnimationLaunchingContext {
     /// стиль перехода
-    let transitionStyle: PopoverTransitionStyle
+    public let transitionStyle: PopoverTransitionStyle
     
     /// параметры анимации перехода, получаемые из информации об исходной точке прямого или обратного перехода
-    var animationSourceParameters: PopoverAnimationSourceParameters
+    public var animationSourceParameters: PopoverAnimationSourceParameters
     
     /// параметры анимации перехода, получаемые из информации о конечной точке прямого или обратного перехода
-    let animationTargetParameters: PopoverAnimationTargetParameters
+    public let animationTargetParameters: PopoverAnimationTargetParameters
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
-    let animator: PopoverTransitionsAnimator
+    public let animator: PopoverTransitionsAnimator
+    
+    public init(
+        transitionStyle: PopoverTransitionStyle,
+        animationSourceParameters: PopoverAnimationSourceParameters,
+        animationTargetParameters: PopoverAnimationTargetParameters,
+        animator: PopoverTransitionsAnimator)
+    {
+        self.transitionStyle = transitionStyle
+        self.animationSourceParameters = animationSourceParameters
+        self.animationTargetParameters = animationTargetParameters
+        self.animator = animator
+    }
 }

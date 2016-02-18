@@ -1,7 +1,7 @@
 import UIKit
 
 /// Стили переходов с участием UIPopoverController
-enum PopoverTransitionStyle {
+public enum PopoverTransitionStyle {
     case PopoverFromView(
         sourceView: UIView,
         sourceRect: CGRect

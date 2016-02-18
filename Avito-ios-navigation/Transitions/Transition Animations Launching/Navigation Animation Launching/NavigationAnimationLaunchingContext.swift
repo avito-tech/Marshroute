@@ -1,11 +1,21 @@
 /// Описание параметров запуска анимаций с участием UINavigationController
-struct NavigationAnimationLaunchingContext {
+public struct NavigationAnimationLaunchingContext {
     /// стиль перехода
-    let transitionStyle: NavigationTransitionStyle
+    public let transitionStyle: NavigationTransitionStyle
     
     /// параметры анимации перехода, получаемые из информации о конечной точке прямого или обратного перехода
-    let animationTargetParameters: NavigationAnimationTargetParameters
+    public let animationTargetParameters: NavigationAnimationTargetParameters
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
-    let animator: NavigationTransitionsAnimator
+    public let animator: NavigationTransitionsAnimator
+    
+    public init(
+        transitionStyle: NavigationTransitionStyle,
+        animationTargetParameters: NavigationAnimationTargetParameters,
+        animator: NavigationTransitionsAnimator)
+    {
+        self.transitionStyle = transitionStyle
+        self.animationTargetParameters = animationTargetParameters
+        self.animator = animator
+    }
 }

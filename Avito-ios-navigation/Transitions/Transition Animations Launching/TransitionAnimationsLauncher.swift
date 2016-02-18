@@ -1,4 +1,4 @@
-protocol TransitionAnimationsLauncher: class {
+public protocol TransitionAnimationsLauncher: class {
     func launchAnimationOfPerformingTransition(
         launchingContext launchingContext: TransitionAnimationLaunchingContext)
  

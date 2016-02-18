@@ -3,7 +3,7 @@ import UIKit
 /// Роутер, управляющий двумя экранами (двумя UINavigationController'ами)
 /// Работает с двумя обработчиками переходов (master и detail).
 /// Например, роутер master-контроллера внутри SplitViewController'а
-class BaseMasterDetailRouter:
+public class BaseMasterDetailRouter:
     TransitionsCoordinatorHolder,
     TransitionIdGeneratorHolder,
     RouterIdentifiable,
@@ -17,14 +17,14 @@ class BaseMasterDetailRouter:
     DetailRouterTransitionable,
     DetailRouter
 {
-    let masterTransitionsHandlerBox: RouterTransitionsHandlerBox?
-    let detailTransitionsHandlerBox: RouterTransitionsHandlerBox?
-    let transitionId: TransitionId
-    weak var presentingTransitionsHandler: TransitionsHandler?
-    let transitionsCoordinator: TransitionsCoordinator
-    let transitionIdGenerator: TransitionIdGenerator
+    public let masterTransitionsHandlerBox: RouterTransitionsHandlerBox?
+    public let detailTransitionsHandlerBox: RouterTransitionsHandlerBox?
+    public let transitionId: TransitionId
+    public private (set) weak var presentingTransitionsHandler: TransitionsHandler?
+    public let transitionsCoordinator: TransitionsCoordinator
+    public let transitionIdGenerator: TransitionIdGenerator
     
-    init(routerSeed seed: BaseMasterDetailRouterSeed)
+    public init(routerSeed seed: BaseMasterDetailRouterSeed)
     {
         self.transitionId = seed.transitionId
         self.masterTransitionsHandlerBox = seed.masterTransitionsHandlerBox
@@ -33,9 +33,9 @@ class BaseMasterDetailRouter:
         self.transitionsCoordinator = seed.transitionsCoordinator
         self.transitionIdGenerator = seed.transitionIdGenerator
     }
-
+    
     // MARK: - RouterTransitionable
-    var transitionsHandlerBox: RouterTransitionsHandlerBox? {
+    public var transitionsHandlerBox: RouterTransitionsHandlerBox? {
         return masterTransitionsHandlerBox
     }
 }

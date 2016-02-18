@@ -1,11 +1,11 @@
 import Foundation
 
-final class TransitionIdGeneratorImpl {
-    static let instance = TransitionIdGeneratorImpl()
+public final class TransitionIdGeneratorImpl {
+    public init() {}
 }
 
 extension TransitionIdGeneratorImpl: TransitionIdGenerator {
-    func generateNewTransitionId()
+    public func generateNewTransitionId()
         -> TransitionId
     {
         let result = NSUUID().UUIDString

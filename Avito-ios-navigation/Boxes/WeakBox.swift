@@ -1,12 +1,12 @@
-struct WeakBox<T where T: AnyObject> {
+public struct WeakBox<T where T: AnyObject> {
     private weak var boxedValue: T?
     
-    init(_ boxedValue: T)
+    public init(_ boxedValue: T)
     {
         self.boxedValue = boxedValue
     }
     
-    func unbox() -> T?
+    public func unbox() -> T?
     {
         return boxedValue
     }

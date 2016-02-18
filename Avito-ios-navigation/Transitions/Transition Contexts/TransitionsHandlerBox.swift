@@ -1,11 +1,11 @@
 /// Варианты хранения обработчика переходов показанного модуля
-enum TransitionsHandlerBox {
+public enum TransitionsHandlerBox {
     case Animating(StrongBox<AnimatingTransitionsHandler>)
     case Containing(StrongBox<ContainingTransitionsHandler>)
 }
 
 // MARK: - convenience
-extension TransitionsHandlerBox {
+public extension TransitionsHandlerBox {
     init?(completedTransitionTargetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
     {
         switch completedTransitionTargetTransitionsHandlerBox {
@@ -33,8 +33,8 @@ extension TransitionsHandlerBox {
 }
 
 // MARK: - helpers
-extension TransitionsHandlerBox {
-    func unbox() -> TransitionsHandler
+public extension TransitionsHandlerBox {
+    public func unbox() -> TransitionsHandler
     {
         switch self {
         case .Animating(let weakBox):
@@ -45,7 +45,7 @@ extension TransitionsHandlerBox {
         }
     }
     
-    func unboxAnimatingTransitionsHandler() -> AnimatingTransitionsHandler?
+    public func unboxAnimatingTransitionsHandler() -> AnimatingTransitionsHandler?
     {
         switch self {
         case .Animating(let weakBox):
@@ -56,7 +56,7 @@ extension TransitionsHandlerBox {
         }
     }
     
-    func unboxContainingTransitionsHandler() -> ContainingTransitionsHandler?
+    public func unboxContainingTransitionsHandler() -> ContainingTransitionsHandler?
     {
         switch self {
         case .Containing(let weakBox):

@@ -1,18 +1,18 @@
-struct StrongBox<T where T: AnyObject> {
+public struct StrongBox<T where T: AnyObject> {
     private let boxedValue: T
     
-    init(_ boxedValue: T)
+    public init(_ boxedValue: T)
     {
         self.boxedValue = boxedValue
     }
     
-    func unbox() -> T
+    public func unbox() -> T
     {
         return boxedValue
     }
 }
 
-extension StrongBox {
+public extension StrongBox {
     init?(other: WeakBox<T>)
     {
         guard let boxedValue = other.unbox()

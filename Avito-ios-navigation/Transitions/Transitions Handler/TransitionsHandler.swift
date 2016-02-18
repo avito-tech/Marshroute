@@ -1,5 +1,5 @@
 /// Действия, вызываемые роутером для влияния на состояние навигации приложения
-protocol TransitionsHandler: class {
+public protocol TransitionsHandler: class {
     /// Вызывается роутером, чтобы осуществить переход на другой модуль
     func performTransition(context context: ForwardTransitionContext)
     

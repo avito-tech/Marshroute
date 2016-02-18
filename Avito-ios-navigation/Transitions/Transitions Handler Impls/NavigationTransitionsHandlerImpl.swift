@@ -1,9 +1,9 @@
 import UIKit
 
-final class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
+final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
     private weak var navigationController: UINavigationController?
     
-    init(navigationController: UINavigationController,
+    public init(navigationController: UINavigationController,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.navigationController = navigationController
@@ -11,8 +11,11 @@ final class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
     }
 
     // MARK: - TransitionAnimationsLauncher
-    override func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    override public func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
+        guard let navigationController = navigationController
+            else { return }
+        
         if launchingContext.needsNavigationAnimationSourceParameters {
             let navigationAnimationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)
             launchingContext.launchAnimationOfPerformingTransition(navigationAnimationSourceParameters)
@@ -22,8 +25,11 @@ final class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
         }
     }
     
-    override func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    override public func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
+        guard let navigationController = navigationController
+            else { return }
+        
         if launchingContext.needsNavigationAnimationSourceParameters {
             let navigationAnimationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)
             launchingContext.launchAnimationOfUndoingTransition(navigationAnimationSourceParameters)
@@ -33,8 +39,11 @@ final class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
         }
     }
     
-    override func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
+    override public func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
+        guard let navigationController = navigationController
+            else { return }
+        
         if launchingContext.needsNavigationAnimationSourceParameters {
             let navigationAnimationSourceParameters = NavigationAnimationSourceParameters(navigationController: navigationController)
             launchingContext.launchAnimationOfResettingWithTransition(navigationAnimationSourceParameters)

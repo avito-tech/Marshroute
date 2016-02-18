@@ -1,31 +1,31 @@
 import UIKit
 
 /// Описание перехода `вперед` на следующий модуль
-struct ForwardTransitionContext {
+public struct ForwardTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
     /// undoTransitionWith(transitionId:)
-    let transitionId: TransitionId
+    public let transitionId: TransitionId
     
     /// контроллер, на который нужно перейти
-    let targetViewController: UIViewController
+    public let targetViewController: UIViewController
     
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    private (set) var targetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox
+    public private (set) var targetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
-    let storableParameters: TransitionStorableParameters?
+    public let storableParameters: TransitionStorableParameters?
     
     /// параметры запуска анимации перехода
-    let animationLaunchingContext: TransitionAnimationLaunchingContext
+    public let animationLaunchingContext: TransitionAnimationLaunchingContext
     
     // MARK: - Navigation
     
     /// Контекст описывает первоначальную настройку (или обновление) обработчика переходов, т.е
     /// проставление корневого контроллера в UINavigationController
-    init(resettingWithViewController initialViewController: UIViewController,
+    public init(resettingWithViewController initialViewController: UIViewController,
         animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler,
         animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
@@ -45,7 +45,7 @@ struct ForwardTransitionContext {
     }
     
     /// Контекст описывает последовательный переход внутри UINavigationController'а текущего модуля
-    init(pushingViewController targetViewController: UIViewController,
+    public init(pushingViewController targetViewController: UIViewController,
         animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
@@ -65,7 +65,7 @@ struct ForwardTransitionContext {
     
     /// Контекст описывает переход на модальный контроллер, который нельзя! положить в UINavigationController:
     /// UISplitViewController, UITabBarViewController
-    init(presentingModalMasterDetailViewController targetViewController: UIViewController,
+    public init(presentingModalMasterDetailViewController targetViewController: UIViewController,
         targetTransitionsHandler: ContainingTransitionsHandler,
         animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
@@ -87,7 +87,7 @@ struct ForwardTransitionContext {
     }
     
     /// Контекст описывает переход на модальный контроллер, который положен в UINavigationController
-    init(presentingModalViewController targetViewController: UIViewController,
+    public init(presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         targetTransitionsHandler: AnimatingTransitionsHandler,
         animator: NavigationTransitionsAnimator,
@@ -117,7 +117,7 @@ struct ForwardTransitionContext {
     // MARK: - Popover
     
     /// Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
-    init(presentingViewController targetViewController: UIViewController,
+    public init(presentingViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromRect rect: CGRect,
@@ -145,7 +145,7 @@ struct ForwardTransitionContext {
     }
     
     /// Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
-    init(presentingViewController targetViewController: UIViewController,
+    public init(presentingViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,

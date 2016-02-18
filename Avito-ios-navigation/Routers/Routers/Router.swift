@@ -1,6 +1,6 @@
 import UIKit
 
-protocol Router: class {
+public protocol Router: class {
 
     //MARK: navigation
     
@@ -78,7 +78,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     
     //MARK: navigation
     
-    func presentModalMasterViewControllerDerivedFrom(
+    public func presentModalMasterViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
@@ -89,7 +89,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    func presentModalMasterViewControllerDerivedFrom(
+    public func presentModalMasterViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
@@ -104,7 +104,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    func presentModalMasterViewControllerDerivedFrom(
+    public func presentModalMasterViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator,
@@ -186,7 +186,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         transitionsHandlerBox.unbox().performTransition(context: modalContext)
     }
     
-    func presentModalViewControllerDerivedFrom(
+    public func presentModalViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
         presentModalViewControllerDerivedFrom(
@@ -195,7 +195,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
 
-    func presentModalViewControllerDerivedFrom(
+    public func presentModalViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
@@ -206,7 +206,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    func presentModalViewControllerDerivedFrom(
+    public func presentModalViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator,
         navigationController: UINavigationController)
@@ -253,7 +253,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     
     //MARK: popover
     
-    func presentPopoverFromRect(
+    public func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
@@ -267,7 +267,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    func presentPopoverFromRect(
+    public func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
@@ -284,7 +284,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    func presentPopoverFromRect(
+    public func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
@@ -337,7 +337,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         transitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
     
-    func presentPopoverFromBarButtonItem(
+    public func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
@@ -349,7 +349,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    func presentPopoverFromBarButtonItem(
+    public func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator,
@@ -364,7 +364,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    func presentPopoverFromBarButtonItem(
+    public func presentPopoverFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator,

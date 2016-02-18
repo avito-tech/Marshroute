@@ -1,12 +1,23 @@
 import UIKit
 
 /// Описание параметров анимаций с участием UINavigationController
-struct NavigationAnimationContext {
+public struct NavigationAnimationContext {
     /// контроллер навигации, выполняющий push/pop или presentModal
-    let navigationController: UINavigationController
+    public let navigationController: UINavigationController
     
     /// контроллер, куда осуществляется прямой или обратный переход
-    let targetViewController: UIViewController
+    public let targetViewController: UIViewController
     
-    let transitionStyle: NavigationTransitionStyle
+    /// стиль перехода
+    public let transitionStyle: NavigationTransitionStyle
+    
+    public init(
+        navigationController: UINavigationController,
+        targetViewController: UIViewController,
+        transitionStyle: NavigationTransitionStyle)
+    {
+        self.navigationController = navigationController
+        self.targetViewController = targetViewController
+        self.transitionStyle = transitionStyle
+    }
 }

@@ -1,10 +1,12 @@
-final class TransitionContextsStackClientProviderImpl {
+public final class TransitionContextsStackClientProviderImpl {
     var historyItems = [TransitionsHistoryItem]()
+    
+    public init() {}
 }
 
 // MARK: - TransitionContextsStackClientProvider
 extension TransitionContextsStackClientProviderImpl: TransitionContextsStackClientProvider {
-    func stackClient(forTransitionsHandler transitionsHandler: TransitionsHandler)
+    public func stackClient(forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> TransitionContextsStackClient?
     {
         updateHistoryItems()
@@ -16,7 +18,7 @@ extension TransitionContextsStackClientProviderImpl: TransitionContextsStackClie
         return matchingHistoryItems.first?.stackClient
     }
     
-    func createStackClient(forTransitionsHandler transitionsHandler: TransitionsHandler)
+    public func createStackClient(forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> TransitionContextsStackClient
     {
         updateHistoryItems()

@@ -1,7 +1,7 @@
-final class TransitionsCoordinatorImpl {
-    let stackClientProvider: TransitionContextsStackClientProvider
+public final class TransitionsCoordinatorImpl {
+    public let stackClientProvider: TransitionContextsStackClientProvider
     
-    init(stackClientProvider: TransitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl())
+    public init(stackClientProvider: TransitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl())
     {
         self.stackClientProvider = stackClientProvider
     }

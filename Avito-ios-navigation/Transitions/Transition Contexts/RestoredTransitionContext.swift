@@ -3,30 +3,30 @@ import UIKit
 /// Описание одного из совершенных обработчиком переходов, восстановленное из истории
 /// Заведомо известно, что живы все участники изначального перехода.
 /// Отличается от CompletedTransitionContext тем, что все поля в нем уже не `optional` и не `weak`
-struct RestoredTransitionContext {
+public struct RestoredTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
     /// ```swift
     /// undoTransitionWith(transitionId:)
-    let transitionId: TransitionId
+    public let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.
-    let sourceViewController: UIViewController
+    public let sourceViewController: UIViewController
     
     /// обработчик переходов для роутера модуля, с контоллера которого перешли
-    let sourceTransitionsHandler: TransitionsHandler
+    public let sourceTransitionsHandler: TransitionsHandler
     
     /// контроллер, на который перешли
-    let targetViewController: UIViewController
+    public let targetViewController: UIViewController
     
     /// обработчик переходов для роутера модуля, на контроллер которого перешли
-    let targetTransitionsHandlerBox: RestoredTransitionTargetTransitionsHandlerBox
+    public let targetTransitionsHandlerBox: RestoredTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
-    let storableParameters: TransitionStorableParameters?
+    public let storableParameters: TransitionStorableParameters?
     
     /// параметры запуска анимации перехода
-    let animationLaunchingContext: TransitionAnimationLaunchingContext
+    public let animationLaunchingContext: TransitionAnimationLaunchingContext
     
     init?(completedTransition context: CompletedTransitionContext?)
     {
@@ -67,6 +67,6 @@ struct RestoredTransitionContext {
 // MARK: - Equatable
 extension RestoredTransitionContext: Equatable {}
 
-func ==(lhs: RestoredTransitionContext, rhs: RestoredTransitionContext) -> Bool {
+public func ==(lhs: RestoredTransitionContext, rhs: RestoredTransitionContext) -> Bool {
     return lhs.transitionId == rhs.transitionId
 }

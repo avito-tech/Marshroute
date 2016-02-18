@@ -1,2 +1,2 @@
 /// Варианты хранения обработчика переходов показанного модуля
-typealias RestoredTransitionTargetTransitionsHandlerBox = TransitionsHandlerBox
+public typealias RestoredTransitionTargetTransitionsHandlerBox = TransitionsHandlerBox

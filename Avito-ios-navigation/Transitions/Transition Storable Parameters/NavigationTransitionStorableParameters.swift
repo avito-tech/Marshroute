@@ -3,5 +3,5 @@ struct NavigationTransitionStorableParameters: TransitionStorableParameters {
     /// или  UINavigationController, то кто-то должен держать сильную ссылку 
     /// на соответствующего обработчика переходов.
     /// роутеры держат слабые ссылки на свои обработчики переходов
-    var presentedTransitionsHandler: TransitionsHandler?
+    let presentedTransitionsHandler: TransitionsHandler
 }

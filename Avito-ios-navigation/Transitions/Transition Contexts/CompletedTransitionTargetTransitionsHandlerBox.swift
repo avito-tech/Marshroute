@@ -1,5 +1,5 @@
 /// Варианты хранения обработчика переходов показанного модуля
-enum CompletedTransitionTargetTransitionsHandlerBox {
+public enum CompletedTransitionTargetTransitionsHandlerBox {
     case Animating(WeakBox<AnimatingTransitionsHandler>)
     case Containing(WeakBox<ContainingTransitionsHandler>)
 }

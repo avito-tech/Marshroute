@@ -1,6 +1,6 @@
 import UIKit
 
-protocol DetailRouter: class {
+public protocol DetailRouter: class {
     func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     
@@ -19,7 +19,7 @@ protocol DetailRouter: class {
 // MARK: - DetailRouter Default Impl
 extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder {
     
-    func setViewControllerDerivedFrom(
+    public func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
         setViewControllerDerivedFrom(
@@ -28,7 +28,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         )
     }
     
-    func setViewControllerDerivedFrom(
+    public func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
@@ -55,7 +55,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         animatingDetailTransitionsHandler.resetWithTransition(context: resetContext)
     }
     
-    func pushViewControllerDerivedFrom(
+    public func pushViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
         pushViewControllerDerivedFrom(
@@ -64,7 +64,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         )
     }
     
-    func pushViewControllerDerivedFrom(
+    public func pushViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {

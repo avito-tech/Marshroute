@@ -1,6 +1,6 @@
 import UIKit
 
-protocol MasterRouter {
+public protocol MasterRouter {
     func setMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController)
     
@@ -33,7 +33,7 @@ protocol MasterRouter {
 // MARK: - MasterRouter Default Impl
 extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder {
     
-    func setMasterViewControllerDerivedFrom(
+    public func setMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController)
     {
         setMasterViewControllerDerivedFrom(
@@ -42,7 +42,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         )
     }
     
-    func setMasterViewControllerDerivedFrom(
+    public func setMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
@@ -72,7 +72,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         animatingMasterTransitionsHandler.resetWithTransition(context: resetMasterContext)
     }
     
-    func pushMasterViewControllerDerivedFrom(
+    public func pushMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController)
     {
         pushMasterViewControllerDerivedFrom(
@@ -81,7 +81,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         )
     }
     
-    func pushMasterViewControllerDerivedFrom(
+    public func pushMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
@@ -110,7 +110,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         masterTransitionsHandlerBox.unbox().performTransition(context: pushContext)
     }
     
-    func setDetailViewControllerDerivedFrom(
+    public func setDetailViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
         setDetailViewControllerDerivedFrom(
@@ -119,7 +119,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         )
     }
     
-    func setDetailViewControllerDerivedFrom(
+    public func setDetailViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
@@ -146,7 +146,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         animatingDetailTransitionsHandler.resetWithTransition(context: resetDetailContext)
     }
     
-    func pushDetailViewControllerDerivedFrom(
+    public func pushDetailViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
     {
         pushDetailViewControllerDerivedFrom(
@@ -155,7 +155,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         )
     }
     
-    func pushDetailViewControllerDerivedFrom(
+    public func pushDetailViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {

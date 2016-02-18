@@ -1,5 +1,5 @@
 /// Протокол описывает передачу обработки и отмены переходов в центр управления переходами
-protocol TransitionsCoordinator: class {
+public protocol TransitionsCoordinator: class {
     func coordinatePerformingTransition(
         context context: ForwardTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
@@ -37,7 +37,7 @@ protocol TransitionsCoordinator: class {
 
 // MARK: - TransitionsCoordinator Default Impl
 extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
-    func coordinatePerformingTransition(
+    public func coordinatePerformingTransition(
         context context: ForwardTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
@@ -56,7 +56,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinatePerformingTransition(
+    public func coordinatePerformingTransition(
         context context: ForwardTransitionContext,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
@@ -80,7 +80,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinateUndoingTransitionsAfter(
+    public func coordinateUndoingTransitionsAfter(
         transitionId transitionId: TransitionId,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
@@ -98,7 +98,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinateUndoingTransitionsAfter(
+    public func coordinateUndoingTransitionsAfter(
         transitionId transitionId: TransitionId,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
@@ -119,7 +119,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinateUndoingTransitionWith(
+    public func coordinateUndoingTransitionWith(
         transitionId transitionId: TransitionId,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
@@ -137,7 +137,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinateUndoingTransitionWith(
+    public func coordinateUndoingTransitionWith(
         transitionId transitionId: TransitionId,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
@@ -158,7 +158,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinateUndoingAllChainedTransitions(
+    public func coordinateUndoingAllChainedTransitions(
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
         // скрываем модальные окна и поповеры, показанных внутри модальных окон и поповеров текущего обработчика
@@ -181,7 +181,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinateUndoingAllTransitions(
+    public func coordinateUndoingAllTransitions(
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
         // скрываем модальные окна и поповеры, показанных внутри модальных окон и поповеров текущего обработчика
@@ -212,7 +212,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
         )
     }
     
-    func coordinateResettingWithTransition(
+    public func coordinateResettingWithTransition(
         context context: ForwardTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {

@@ -1,13 +1,13 @@
 import UIKit
 
 /// Описание параметров запуска любого вида анимаций
-enum TransitionAnimationLaunchingContext {
+public enum TransitionAnimationLaunchingContext {
     case Navigation(launchingContext: NavigationAnimationLaunchingContext)
     case Popover(launchingContext: PopoverAnimationLaunchingContext)
 }
 
 // MARK: - convenience
-extension TransitionAnimationLaunchingContext {
+public extension TransitionAnimationLaunchingContext {
     init(context: TransitionAnimationLaunchingContext, targetViewController viewController: UIViewController)
     {
         switch context {
@@ -32,7 +32,7 @@ extension TransitionAnimationLaunchingContext {
 }
 
 // MARK: - public methods
-extension TransitionAnimationLaunchingContext {
+public extension TransitionAnimationLaunchingContext {
     var needsNavigationAnimationSourceParameters: Bool {
         switch self {
         case .Navigation(_):

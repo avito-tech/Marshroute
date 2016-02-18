@@ -1,4 +1,4 @@
-class TransitionContextsStackImpl: TransitionContextsStack {
+public class TransitionContextsStackImpl: TransitionContextsStack {
     private var storage = [CompletedTransitionContext]()
     
     func append(context: CompletedTransitionContext)
@@ -126,7 +126,7 @@ private extension TransitionContextsStackImpl {
 
 // MARK: - CustomDebugStringConvertible
 extension TransitionContextsStackImpl: CustomDebugStringConvertible {
-    var debugDescription: String {
+    public var debugDescription: String {
         updateStack()
         
         var description = "TransitionContextsStack: " + String(unsafeAddressOf(self))

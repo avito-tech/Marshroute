@@ -2,31 +2,31 @@ import UIKit
 
 public protocol MasterRouter {
     func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController)
     
     func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     
     func pushMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController)
     
     func pushMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     
     func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     
     func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     
     func pushDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     
     func pushDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
 }
 
@@ -34,7 +34,7 @@ public protocol MasterRouter {
 extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder {
     
     public func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController)
     {
         setMasterViewControllerDerivedFrom(
             deriveViewController,
@@ -43,7 +43,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     }
     
     public func setMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         guard let masterTransitionsHandlerBox = masterTransitionsHandlerBox
@@ -53,7 +53,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         guard let animatingMasterTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
-        let masterDetailRouterSeed = BaseMasterDetailRouterSeed(
+        let masterDetailRouterSeed = MasterDetailRouterSeed(
             masterTransitionsHandlerBox: masterTransitionsHandlerBox,
             detailTransitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
@@ -73,7 +73,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     }
     
     public func pushMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController)
     {
         pushMasterViewControllerDerivedFrom(
             deriveViewController,
@@ -82,7 +82,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     }
     
     public func pushMasterViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseMasterDetailRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         guard let masterTransitionsHandlerBox = masterTransitionsHandlerBox
@@ -92,7 +92,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        let masterDetailRouterSeed = BaseMasterDetailRouterSeed(
+        let masterDetailRouterSeed = MasterDetailRouterSeed(
             masterTransitionsHandlerBox: masterTransitionsHandlerBox,
             detailTransitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: generatedTransitionId,
@@ -111,7 +111,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     }
     
     public func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     {
         setDetailViewControllerDerivedFrom(
             deriveViewController,
@@ -120,7 +120,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     }
     
     public func setDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
@@ -128,7 +128,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
-        let detailRouterSeed = BaseRouterSeed(
+        let detailRouterSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
@@ -147,7 +147,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     }
     
     public func pushDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     {
         pushDetailViewControllerDerivedFrom(
             deriveViewController,
@@ -156,7 +156,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     }
     
     public func pushDetailViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
@@ -164,7 +164,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        let detailRouterSeed = BaseRouterSeed(
+        let detailRouterSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),

@@ -24,7 +24,7 @@ public class BaseMasterDetailRouter:
     public let transitionsCoordinator: TransitionsCoordinator
     public let transitionIdGenerator: TransitionIdGenerator
     
-    public init(routerSeed seed: BaseMasterDetailRouterSeed)
+    public init(routerSeed seed: MasterDetailRouterSeed)
     {
         self.transitionId = seed.transitionId
         self.masterTransitionsHandlerBox = seed.masterTransitionsHandlerBox

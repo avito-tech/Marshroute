@@ -1,12 +1,13 @@
 Pod::Spec.new do |s|
-  s.name         = 'Avito_ios_navigation'
-  s.version      = '0.0.0'
-  s.summary      = 'Avito-ios-navigation by Timur Yusipov'
-  s.homepage     = ''
-  s.license      = 'MIT'
-  s.author       = { 'Timur Yusipov' => 'tyusipov@avito.ru' }
-  s.source       = { :git => 'http://tyusipov@stash.se.avito.ru/scm/ma/avito-ios-navigation.git', :branch => 'master' }
-  s.platform     = :ios, '7.0'
+  s.name                   = 'Avito_ios_navigation'
+  s.version                = '0.0.0'
+  s.summary                = 'Avito-ios-navigation by Timur Yusipov'
+  s.homepage               = ''
+  s.license                = 'MIT'
+  s.author                 = { 'Timur Yusipov' => 'tyusipov@avito.ru' }
+  s.source                 = { :git => 'http://tyusipov@stash.se.avito.ru/scm/ma/avito-ios-navigation.git', :branch => 'master' } #:tag => "v#{s.version}"
+  s.platform               = :ios, '7.0'
+  s.ios.deployment_target = "7.0"
   s.requires_arc = true
   
 

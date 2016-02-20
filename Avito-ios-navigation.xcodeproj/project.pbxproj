@@ -8,6 +8,73 @@
 
 /* Begin PBXBuildFile section */
 		CC0CB3191C7624FD0042780F /* DummyTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0CB3181C7624FD0042780F /* DummyTransitionsHandler.swift */; };
+		CCE04BB21C784B2C000F4ECC /* Avito-ios-navigation-framework.h in Headers */ = {isa = PBXBuildFile; fileRef = CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCE04BB61C784B2C000F4ECC /* Avito_ios_navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */; };
+		CCE04BB71C784B2C000F4ECC /* Avito_ios_navigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CCE04BBB1C784B38000F4ECC /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
+		CCE04BBC1C784B38000F4ECC /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE51C75BB7B00AF5E26 /* WeakBox.swift */; };
+		CCE04BBD1C784B41000F4ECC /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FED1C75BB7B00AF5E26 /* DetailRouter.swift */; };
+		CCE04BBE1C784B41000F4ECC /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FEE1C75BB7B00AF5E26 /* DetailRouterTransitionable.swift */; };
+		CCE04BBF1C784B41000F4ECC /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FEF1C75BB7B00AF5E26 /* MasterRouter.swift */; };
+		CCE04BC01C784B41000F4ECC /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF01C75BB7B00AF5E26 /* MasterRouterTransitionable.swift */; };
+		CCE04BC11C784B41000F4ECC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF11C75BB7B00AF5E26 /* Router.swift */; };
+		CCE04BC21C784B41000F4ECC /* RouterDismisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF21C75BB7B00AF5E26 /* RouterDismisable.swift */; };
+		CCE04BC31C784B41000F4ECC /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF31C75BB7B00AF5E26 /* RouterFocusable.swift */; };
+		CCE04BC41C784B41000F4ECC /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF41C75BB7B00AF5E26 /* RouterIdentifiable.swift */; };
+		CCE04BC51C784B41000F4ECC /* RouterPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF51C75BB7B00AF5E26 /* RouterPresentable.swift */; };
+		CCE04BC61C784B41000F4ECC /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF61C75BB7B00AF5E26 /* RouterTransitionable.swift */; };
+		CCE04BC71C784B41000F4ECC /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF71C75BB7B00AF5E26 /* RouterTransitionsHandlerBox.swift */; };
+		CCE04BC81C784B45000F4ECC /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE81C75BB7B00AF5E26 /* BaseMasterDetailRouter.swift */; };
+		CCE04BC91C784B45000F4ECC /* BaseMasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE91C75BB7B00AF5E26 /* BaseMasterDetailRouterSeed.swift */; };
+		CCE04BCA1C784B45000F4ECC /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FEA1C75BB7B00AF5E26 /* BaseRouter.swift */; };
+		CCE04BCB1C784B45000F4ECC /* BaseRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FEB1C75BB7B00AF5E26 /* BaseRouterSeed.swift */; };
+		CCE04BCC1C784B51000F4ECC /* NavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FFB1C75BB7B00AF5E26 /* NavigationAnimationLaunchingContext.swift */; };
+		CCE04BCD1C784B51000F4ECC /* NavigationAnimationSourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FFC1C75BB7B00AF5E26 /* NavigationAnimationSourceParameters.swift */; };
+		CCE04BCE1C784B51000F4ECC /* NavigationAnimationTargetParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FFD1C75BB7B00AF5E26 /* NavigationAnimationTargetParameters.swift */; };
+		CCE04BCF1C784B51000F4ECC /* NavigationTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FFE1C75BB7B00AF5E26 /* NavigationTransitionStyle.swift */; };
+		CCE04BD01C784B54000F4ECC /* TransitionAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910041C75BB7B00AF5E26 /* TransitionAnimationLaunchingContext.swift */; };
+		CCE04BD11C784B54000F4ECC /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910051C75BB7B00AF5E26 /* TransitionAnimationsLauncher.swift */; };
+		CCE04BD21C784B57000F4ECC /* PopoverAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910001C75BB7B00AF5E26 /* PopoverAnimationLaunchingContext.swift */; };
+		CCE04BD31C784B57000F4ECC /* PopoverAnimationSourceParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910011C75BB7B00AF5E26 /* PopoverAnimationSourceParameters.swift */; };
+		CCE04BD41C784B57000F4ECC /* PopoverAnimationTargetParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910021C75BB7B00AF5E26 /* PopoverAnimationTargetParameters.swift */; };
+		CCE04BD51C784B57000F4ECC /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910031C75BB7B00AF5E26 /* PopoverTransitionStyle.swift */; };
+		CCE04BD61C784B5C000F4ECC /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9100D1C75BB7B00AF5E26 /* TransitionsAnimator.swift */; };
+		CCE04BD71C784B5F000F4ECC /* PopoverAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9100B1C75BB7B00AF5E26 /* PopoverAnimationContext.swift */; };
+		CCE04BD81C784B5F000F4ECC /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9100C1C75BB7B00AF5E26 /* PopoverTransitionsAnimator.swift */; };
+		CCE04BD91C784B63000F4ECC /* NavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910081C75BB7B00AF5E26 /* NavigationAnimationContext.swift */; };
+		CCE04BDA1C784B63000F4ECC /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910091C75BB7B00AF5E26 /* NavigationTransitionsAnimator.swift */; };
+		CCE04BDB1C784B67000F4ECC /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9100F1C75BB7B00AF5E26 /* CompletedTransitionContext.swift */; };
+		CCE04BDC1C784B67000F4ECC /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910101C75BB7B00AF5E26 /* CompletedTransitionTargetTransitionsHandlerBox.swift */; };
+		CCE04BDD1C784B67000F4ECC /* ForwardTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910111C75BB7B00AF5E26 /* ForwardTransitionContext.swift */; };
+		CCE04BDE1C784B67000F4ECC /* ForwardTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910121C75BB7B00AF5E26 /* ForwardTransitionTargetTransitionsHandlerBox.swift */; };
+		CCE04BDF1C784B67000F4ECC /* RestoredTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910131C75BB7B00AF5E26 /* RestoredTransitionContext.swift */; };
+		CCE04BE01C784B67000F4ECC /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910141C75BB7B00AF5E26 /* RestoredTransitionTargetTransitionsHandlerBox.swift */; };
+		CCE04BE11C784B67000F4ECC /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910151C75BB7B00AF5E26 /* TransitionsHandlerBox.swift */; };
+		CCE04BE21C784B6B000F4ECC /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910171C75BB7B00AF5E26 /* NavigationTransitionStorableParameters.swift */; };
+		CCE04BE31C784B6B000F4ECC /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910181C75BB7B00AF5E26 /* PopoverTransitionStorableParameters.swift */; };
+		CCE04BE41C784B6B000F4ECC /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910191C75BB7B00AF5E26 /* TransitionStorableParameters.swift */; };
+		CCE04BE51C784B6F000F4ECC /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9101B1C75BB7B00AF5E26 /* TransitionsHandler.swift */; };
+		CCE04BE61C784B6F000F4ECC /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9101C1C75BB7B00AF5E26 /* TransitionsHandlerContainer.swift */; };
+		CCE04BE71C784B75000F4ECC /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9101E1C75BB7B00AF5E26 /* AnimatingTransitionsHandler.swift */; };
+		CCE04BE81C784B75000F4ECC /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9101F1C75BB7B00AF5E26 /* ContainingTransitionsHandler.swift */; };
+		CCE04BE91C784B75000F4ECC /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910201C75BB7B00AF5E26 /* NavigationTransitionsHandlerImpl.swift */; };
+		CCE04BEA1C784B75000F4ECC /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910211C75BB7B00AF5E26 /* SplitViewTransitionsHandlerImpl.swift */; };
+		CCE04BEB1C784B75000F4ECC /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910221C75BB7B00AF5E26 /* TabBarTransitionsHandlerImpl.swift */; };
+		CCE04BEC1C784B7B000F4ECC /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9102F1C75BB7B00AF5E26 /* TransitionContextsStack.swift */; };
+		CCE04BED1C784B7B000F4ECC /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910301C75BB7B00AF5E26 /* TransitionContextsStackClient.swift */; };
+		CCE04BEE1C784B7B000F4ECC /* TransitionContextsStackClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910311C75BB7B00AF5E26 /* TransitionContextsStackClientImpl.swift */; };
+		CCE04BEF1C784B7B000F4ECC /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910321C75BB7B00AF5E26 /* TransitionContextsStackClientProvider.swift */; };
+		CCE04BF01C784B7B000F4ECC /* TransitionContextsStackClientProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910331C75BB7B00AF5E26 /* TransitionContextsStackClientProviderHolder.swift */; };
+		CCE04BF11C784B7B000F4ECC /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910341C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift */; };
+		CCE04BF21C784B7B000F4ECC /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910351C75BB7B00AF5E26 /* TransitionContextsStackImpl.swift */; };
+		CCE04BF31C784B7F000F4ECC /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9102A1C75BB7B00AF5E26 /* TransitionsCoordinator.swift */; };
+		CCE04BF41C784B7F000F4ECC /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9102B1C75BB7B00AF5E26 /* TransitionsCoordinatorHolder.swift */; };
+		CCE04BF51C784B7F000F4ECC /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9102C1C75BB7B00AF5E26 /* TransitionsCoordinatorImpl.swift */; };
+		CCE04BF61C784B7F000F4ECC /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9102D1C75BB7B00AF5E26 /* TransitionsHistoryItem.swift */; };
+		CCE04BF71C784B83000F4ECC /* TransitionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910251C75BB7B00AF5E26 /* TransitionId.swift */; };
+		CCE04BF81C784B83000F4ECC /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910261C75BB7B00AF5E26 /* TransitionIdGenerator.swift */; };
+		CCE04BF91C784B83000F4ECC /* TransitionIdGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910271C75BB7B00AF5E26 /* TransitionIdGeneratorHolder.swift */; };
+		CCE04BFA1C784B83000F4ECC /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910281C75BB7B00AF5E26 /* TransitionIdGeneratorImpl.swift */; };
 		CCE90FC21C75BAEC00AF5E26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FC11C75BAEC00AF5E26 /* AppDelegate.swift */; };
 		CCE910361C75BB7B00AF5E26 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
 		CCE910371C75BB7B00AF5E26 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
@@ -142,6 +209,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CCE04BB41C784B2C000F4ECC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCE90FB61C75BAEC00AF5E26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCE04BAE1C784B2C000F4ECC;
+			remoteInfo = "Avito-ios-navigation-framework";
+		};
 		CCE90FD51C75BAED00AF5E26 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CCE90FB61C75BAEC00AF5E26 /* Project object */;
@@ -151,8 +225,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CCC7741E1C775B90002840CA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CCE04BB71C784B2C000F4ECC /* Avito_ios_navigation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		CC0CB3181C7624FD0042780F /* DummyTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Avito_ios_navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avito-ios-navigation-framework.h"; sourceTree = "<group>"; };
+		CCE04BB31C784B2C000F4ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE90FBE1C75BAEC00AF5E26 /* Avito-ios-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avito-ios-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE90FC11C75BAEC00AF5E26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE90FCF1C75BAED00AF5E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,10 +318,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CCE04BAB1C784B2C000F4ECC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CCE90FBB1C75BAEC00AF5E26 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCE04BB61C784B2C000F4ECC /* Avito_ios_navigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,11 +343,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CCE04BB01C784B2C000F4ECC /* Avito-ios-navigation-framework */ = {
+			isa = PBXGroup;
+			children = (
+				CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */,
+				CCE04BB31C784B2C000F4ECC /* Info.plist */,
+			);
+			path = "Avito-ios-navigation-framework";
+			sourceTree = "<group>";
+		};
 		CCE90FB51C75BAEC00AF5E26 = {
 			isa = PBXGroup;
 			children = (
 				CCE90FC01C75BAEC00AF5E26 /* Avito-ios-navigation */,
 				CCE90FD71C75BAED00AF5E26 /* Avito-ios-navigationTests */,
+				CCE04BB01C784B2C000F4ECC /* Avito-ios-navigation-framework */,
 				CCE90FBF1C75BAEC00AF5E26 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -258,6 +367,7 @@
 			children = (
 				CCE90FBE1C75BAEC00AF5E26 /* Avito-ios-navigation.app */,
 				CCE90FD41C75BAED00AF5E26 /* Avito-ios-navigationTests.xctest */,
+				CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -500,7 +610,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		CCE04BAC1C784B2C000F4ECC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCE04BB21C784B2C000F4ECC /* Avito-ios-navigation-framework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		CCE04BAE1C784B2C000F4ECC /* Avito-ios-navigation-framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCE04BB81C784B2C000F4ECC /* Build configuration list for PBXNativeTarget "Avito-ios-navigation-framework" */;
+			buildPhases = (
+				CCE04BAA1C784B2C000F4ECC /* Sources */,
+				CCE04BAB1C784B2C000F4ECC /* Frameworks */,
+				CCE04BAC1C784B2C000F4ECC /* Headers */,
+				CCE04BAD1C784B2C000F4ECC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Avito-ios-navigation-framework";
+			productName = "Avito-ios-navigation-framework";
+			productReference = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		CCE90FBD1C75BAEC00AF5E26 /* Avito-ios-navigation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCE90FDD1C75BAED00AF5E26 /* Build configuration list for PBXNativeTarget "Avito-ios-navigation" */;
@@ -508,10 +647,12 @@
 				CCE90FBA1C75BAEC00AF5E26 /* Sources */,
 				CCE90FBB1C75BAEC00AF5E26 /* Frameworks */,
 				CCE90FBC1C75BAEC00AF5E26 /* Resources */,
+				CCC7741E1C775B90002840CA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CCE04BB51C784B2C000F4ECC /* PBXTargetDependency */,
 			);
 			name = "Avito-ios-navigation";
 			productName = "Avito-ios-navigation";
@@ -546,6 +687,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Тимур Юсипов";
 				TargetAttributes = {
+					CCE04BAE1C784B2C000F4ECC = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 5PHGGKL9UQ;
+					};
 					CCE90FBD1C75BAEC00AF5E26 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 5PHGGKL9UQ;
@@ -571,11 +716,19 @@
 			targets = (
 				CCE90FBD1C75BAEC00AF5E26 /* Avito-ios-navigation */,
 				CCE90FD31C75BAED00AF5E26 /* Avito-ios-navigationTests */,
+				CCE04BAE1C784B2C000F4ECC /* Avito-ios-navigation-framework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CCE04BAD1C784B2C000F4ECC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CCE90FBC1C75BAEC00AF5E26 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,6 +746,77 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CCE04BAA1C784B2C000F4ECC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCE04BC51C784B41000F4ECC /* RouterPresentable.swift in Sources */,
+				CCE04BDC1C784B67000F4ECC /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCE04BE21C784B6B000F4ECC /* NavigationTransitionStorableParameters.swift in Sources */,
+				CCE04BCB1C784B45000F4ECC /* BaseRouterSeed.swift in Sources */,
+				CCE04BD21C784B57000F4ECC /* PopoverAnimationLaunchingContext.swift in Sources */,
+				CCE04BF21C784B7B000F4ECC /* TransitionContextsStackImpl.swift in Sources */,
+				CCE04BEA1C784B75000F4ECC /* SplitViewTransitionsHandlerImpl.swift in Sources */,
+				CCE04BF51C784B7F000F4ECC /* TransitionsCoordinatorImpl.swift in Sources */,
+				CCE04BC91C784B45000F4ECC /* BaseMasterDetailRouterSeed.swift in Sources */,
+				CCE04BF71C784B83000F4ECC /* TransitionId.swift in Sources */,
+				CCE04BF91C784B83000F4ECC /* TransitionIdGeneratorHolder.swift in Sources */,
+				CCE04BFA1C784B83000F4ECC /* TransitionIdGeneratorImpl.swift in Sources */,
+				CCE04BDE1C784B67000F4ECC /* ForwardTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCE04BC41C784B41000F4ECC /* RouterIdentifiable.swift in Sources */,
+				CCE04BE11C784B67000F4ECC /* TransitionsHandlerBox.swift in Sources */,
+				CCE04BCF1C784B51000F4ECC /* NavigationTransitionStyle.swift in Sources */,
+				CCE04BE41C784B6B000F4ECC /* TransitionStorableParameters.swift in Sources */,
+				CCE04BF81C784B83000F4ECC /* TransitionIdGenerator.swift in Sources */,
+				CCE04BED1C784B7B000F4ECC /* TransitionContextsStackClient.swift in Sources */,
+				CCE04BCC1C784B51000F4ECC /* NavigationAnimationLaunchingContext.swift in Sources */,
+				CCE04BC31C784B41000F4ECC /* RouterFocusable.swift in Sources */,
+				CCE04BC01C784B41000F4ECC /* MasterRouterTransitionable.swift in Sources */,
+				CCE04BEC1C784B7B000F4ECC /* TransitionContextsStack.swift in Sources */,
+				CCE04BC81C784B45000F4ECC /* BaseMasterDetailRouter.swift in Sources */,
+				CCE04BE91C784B75000F4ECC /* NavigationTransitionsHandlerImpl.swift in Sources */,
+				CCE04BD81C784B5F000F4ECC /* PopoverTransitionsAnimator.swift in Sources */,
+				CCE04BD01C784B54000F4ECC /* TransitionAnimationLaunchingContext.swift in Sources */,
+				CCE04BF01C784B7B000F4ECC /* TransitionContextsStackClientProviderHolder.swift in Sources */,
+				CCE04BE71C784B75000F4ECC /* AnimatingTransitionsHandler.swift in Sources */,
+				CCE04BE51C784B6F000F4ECC /* TransitionsHandler.swift in Sources */,
+				CCE04BBE1C784B41000F4ECC /* DetailRouterTransitionable.swift in Sources */,
+				CCE04BCA1C784B45000F4ECC /* BaseRouter.swift in Sources */,
+				CCE04BD61C784B5C000F4ECC /* TransitionsAnimator.swift in Sources */,
+				CCE04BCD1C784B51000F4ECC /* NavigationAnimationSourceParameters.swift in Sources */,
+				CCE04BDD1C784B67000F4ECC /* ForwardTransitionContext.swift in Sources */,
+				CCE04BC61C784B41000F4ECC /* RouterTransitionable.swift in Sources */,
+				CCE04BC71C784B41000F4ECC /* RouterTransitionsHandlerBox.swift in Sources */,
+				CCE04BD51C784B57000F4ECC /* PopoverTransitionStyle.swift in Sources */,
+				CCE04BBF1C784B41000F4ECC /* MasterRouter.swift in Sources */,
+				CCE04BD11C784B54000F4ECC /* TransitionAnimationsLauncher.swift in Sources */,
+				CCE04BC11C784B41000F4ECC /* Router.swift in Sources */,
+				CCE04BE01C784B67000F4ECC /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCE04BF61C784B7F000F4ECC /* TransitionsHistoryItem.swift in Sources */,
+				CCE04BEB1C784B75000F4ECC /* TabBarTransitionsHandlerImpl.swift in Sources */,
+				CCE04BD31C784B57000F4ECC /* PopoverAnimationSourceParameters.swift in Sources */,
+				CCE04BE31C784B6B000F4ECC /* PopoverTransitionStorableParameters.swift in Sources */,
+				CCE04BE81C784B75000F4ECC /* ContainingTransitionsHandler.swift in Sources */,
+				CCE04BD71C784B5F000F4ECC /* PopoverAnimationContext.swift in Sources */,
+				CCE04BCE1C784B51000F4ECC /* NavigationAnimationTargetParameters.swift in Sources */,
+				CCE04BF41C784B7F000F4ECC /* TransitionsCoordinatorHolder.swift in Sources */,
+				CCE04BBD1C784B41000F4ECC /* DetailRouter.swift in Sources */,
+				CCE04BDF1C784B67000F4ECC /* RestoredTransitionContext.swift in Sources */,
+				CCE04BBB1C784B38000F4ECC /* StrongBox.swift in Sources */,
+				CCE04BE61C784B6F000F4ECC /* TransitionsHandlerContainer.swift in Sources */,
+				CCE04BBC1C784B38000F4ECC /* WeakBox.swift in Sources */,
+				CCE04BC21C784B41000F4ECC /* RouterDismisable.swift in Sources */,
+				CCE04BF31C784B7F000F4ECC /* TransitionsCoordinator.swift in Sources */,
+				CCE04BEF1C784B7B000F4ECC /* TransitionContextsStackClientProvider.swift in Sources */,
+				CCE04BF11C784B7B000F4ECC /* TransitionContextsStackClientProviderImpl.swift in Sources */,
+				CCE04BD41C784B57000F4ECC /* PopoverAnimationTargetParameters.swift in Sources */,
+				CCE04BEE1C784B7B000F4ECC /* TransitionContextsStackClientImpl.swift in Sources */,
+				CCE04BD91C784B63000F4ECC /* NavigationAnimationContext.swift in Sources */,
+				CCE04BDA1C784B63000F4ECC /* NavigationTransitionsAnimator.swift in Sources */,
+				CCE04BDB1C784B67000F4ECC /* CompletedTransitionContext.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CCE90FBA1C75BAEC00AF5E26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -742,6 +966,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CCE04BB51C784B2C000F4ECC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCE04BAE1C784B2C000F4ECC /* Avito-ios-navigation-framework */;
+			targetProxy = CCE04BB41C784B2C000F4ECC /* PBXContainerItemProxy */;
+		};
 		CCE90FD61C75BAED00AF5E26 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CCE90FBD1C75BAEC00AF5E26 /* Avito-ios-navigation */;
@@ -750,6 +979,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CCE04BB91C784B2C000F4ECC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Avito-ios-navigation-framework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigation-framework";
+				PRODUCT_NAME = Avito_ios_navigation;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CCE04BBA1C784B2C000F4ECC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Avito-ios-navigation-framework/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigation-framework";
+				PRODUCT_NAME = Avito_ios_navigation;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		CCE90FDB1C75BAED00AF5E26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -838,6 +1109,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Avito-ios-navigation/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -851,6 +1123,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Avito-ios-navigation/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -886,6 +1159,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CCE04BB81C784B2C000F4ECC /* Build configuration list for PBXNativeTarget "Avito-ios-navigation-framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCE04BB91C784B2C000F4ECC /* Debug */,
+				CCE04BBA1C784B2C000F4ECC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CCE90FB91C75BAEC00AF5E26 /* Build configuration list for PBXProject "Avito-ios-navigation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

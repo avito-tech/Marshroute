@@ -15,7 +15,7 @@ public struct CompletedTransitionContext {
     public private (set) weak var sourceViewController: UIViewController?
     
     /// обработчик переходов для роутера модуля, вызвавшего переход
-    public private (set) weak var sourceTransitionsHandler: TransitionsHandler?
+    public private (set) weak var sourceTransitionsHandler: AnimatingTransitionsHandler?
     
     /// контроллер, на который перешли
     public private (set) weak var targetViewController: UIViewController?
@@ -31,7 +31,7 @@ public struct CompletedTransitionContext {
     
     init?(forwardTransitionContext context: ForwardTransitionContext,
         sourceViewController: UIViewController,
-        sourceTransitionsHandler: TransitionsHandler)
+        sourceTransitionsHandler: AnimatingTransitionsHandler)
     {
         assert(!context.needsAnimatingTargetTransitionHandler, "проставьте это значение раньше")
         
@@ -63,7 +63,7 @@ public struct CompletedTransitionContext {
 extension CompletedTransitionContext {
     init(transitionId: TransitionId,
         sourceViewController: UIViewController?,
-        sourceTransitionsHandler: TransitionsHandler?,
+        sourceTransitionsHandler: AnimatingTransitionsHandler?,
         targetViewController: UIViewController?,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
         storableParameters: TransitionStorableParameters?,

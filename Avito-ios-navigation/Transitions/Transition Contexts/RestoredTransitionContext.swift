@@ -14,7 +14,7 @@ public struct RestoredTransitionContext {
     public let sourceViewController: UIViewController
     
     /// обработчик переходов для роутера модуля, с контоллера которого перешли
-    public let sourceTransitionsHandler: TransitionsHandler
+    public let sourceTransitionsHandler: AnimatingTransitionsHandler
     
     /// контроллер, на который перешли
     public let targetViewController: UIViewController

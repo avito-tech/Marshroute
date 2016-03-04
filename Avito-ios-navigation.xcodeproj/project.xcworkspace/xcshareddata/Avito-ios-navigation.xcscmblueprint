@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "951661A0BE35E2B765D2B1A5E73808D12385AC9E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "951661A0BE35E2B765D2B1A5E73808D12385AC9E" : 0,
+    "40D2492B9C61FA893A68126290D7D8553B929D1D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7DE2624E-34B4-4BDC-B635-A21C7A432542",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "951661A0BE35E2B765D2B1A5E73808D12385AC9E" : "Avito-ios-navigation\/",
+    "40D2492B9C61FA893A68126290D7D8553B929D1D" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Avito-ios-navigation",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Avito-ios-navigation.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/stash.se.avito.ru\/scm\/ma\/avito-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40D2492B9C61FA893A68126290D7D8553B929D1D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/stash.se.avito.ru\/scm\/ma\/avito-ios-navigation.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "951661A0BE35E2B765D2B1A5E73808D12385AC9E"
+    }
+  ]
+}

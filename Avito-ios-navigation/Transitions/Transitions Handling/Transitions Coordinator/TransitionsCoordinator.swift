@@ -493,10 +493,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
                         else { assert(false); break }
                     
                     // если какой-то дочерний анимирующий обработчик выполнял переход с переданным id, возвращаем его
-                    if (chainedStackClient.transitionWith(
-                        transitionId: transitionId,
-                        forTransitionsHandler: chainedAnimatingTransitionsHandler) != nil)
-                    {
+                    if (chainedStackClient.transitionWith(transitionId: transitionId, forTransitionsHandler: chainedAnimatingTransitionsHandler) != nil) {
                         return chainedAnimatingTransitionsHandler
                     }
                     

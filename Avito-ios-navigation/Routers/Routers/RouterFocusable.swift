@@ -8,9 +8,15 @@ public protocol RouterFocusable: class {
 // MARK: - RouterFocusable Default Impl
 extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable {
     public func focusOnCurrentModule(completion completion: (() -> Void)?) {
+        guard let transitionsHandlerBox = transitionsHandlerBox
+            else { return }
+        
+        guard let animatingTransitionsHandler = transitionsHandlerBox.unboxAnimatingTransitionsHandler()
+            else { assert(false, "`focusOnCurrentModule:` нельзя вызывать у роутеров с неанимирующих обработчиков переходов") }
+        
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации возвращения на текущий модуль
-        transitionsHandlerBox?.unbox().undoTransitionsAfter(transitionId: transitionId)
+        animatingTransitionsHandler.undoTransitionsAfter(transitionId: transitionId)
         CATransaction.commit()
     }
 }

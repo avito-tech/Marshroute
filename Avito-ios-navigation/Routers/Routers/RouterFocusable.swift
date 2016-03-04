@@ -12,7 +12,7 @@ extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifi
             else { return }
         
         guard let animatingTransitionsHandler = transitionsHandlerBox.unboxAnimatingTransitionsHandler()
-            else { assert(false, "`focusOnCurrentModule:` нельзя вызывать у роутеров с неанимирующих обработчиков переходов") }
+            else { assert(false, "`focusOnCurrentModule:` нельзя вызывать у роутеров с неанимирующих обработчиков переходов"); return }
         
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации возвращения на текущий модуль

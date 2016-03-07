@@ -13,12 +13,6 @@ public enum ModalPresentationStyle : Int {
     case FormSheet
     case CurrentContext
     case Custom
-    @available(iOS 8.0, *)
-    case OverFullScreen
-    @available(iOS 8.0, *)
-    case OverCurrentContext
-    @available(iOS 8.0, *)
-    case Popover
     case None
 }
 

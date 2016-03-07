@@ -17,15 +17,21 @@ public enum ModalPresentationStyle : Int {
 }
 
 public final class NavigationModalTransitionsAnimator: NavigationTransitionsAnimator {
-    public let modalTransitionStyle: ModalTransitionStyle
-    public let modalPresentationStyle: ModalPresentationStyle
+    public let sourceModalTransitionStyle: ModalTransitionStyle
+    public let sourceModalPresentationStyle: ModalPresentationStyle
+    public let targetModalTransitionStyle: ModalTransitionStyle
+    public let targetModalPresentationStyle: ModalPresentationStyle
     
     public init(
-        modalTransitionStyle: ModalTransitionStyle?,
-        modalPresentationStyle: ModalPresentationStyle?)
+        sourceModalTransitionStyle: ModalTransitionStyle?,
+        sourceModalPresentationStyle: ModalPresentationStyle?,
+        targetModalTransitionStyle: ModalTransitionStyle?,
+        targetModalPresentationStyle: ModalPresentationStyle?)
     {
-        self.modalTransitionStyle = modalTransitionStyle ?? .CoverVertical
-        self.modalPresentationStyle = modalPresentationStyle ?? .FullScreen
+        self.sourceModalTransitionStyle = sourceModalTransitionStyle ?? .CoverVertical
+        self.sourceModalPresentationStyle = sourceModalPresentationStyle ?? .FullScreen
+        self.targetModalTransitionStyle = targetModalTransitionStyle ?? .CoverVertical
+        self.targetModalPresentationStyle = targetModalPresentationStyle ?? .FullScreen
 
         super.init()
     }
@@ -35,12 +41,20 @@ public final class NavigationModalTransitionsAnimator: NavigationTransitionsAnim
         switch context.transitionStyle {
         case .Modal:
             
-            if let modalTransitionStyle = UIModalTransitionStyle(rawValue: modalTransitionStyle.rawValue) {
-                context.targetViewController.modalTransitionStyle = modalTransitionStyle
+            if let sourceModalTransitionStyle = UIModalTransitionStyle(rawValue: sourceModalTransitionStyle.rawValue) {
+                context.navigationController.modalTransitionStyle = sourceModalTransitionStyle
             }
             
-            if let modalPresentationStyle = UIModalPresentationStyle(rawValue: modalPresentationStyle.rawValue) {
-                context.targetViewController.modalPresentationStyle = modalPresentationStyle
+            if let sourceModalPresentationStyle = UIModalPresentationStyle(rawValue: sourceModalPresentationStyle.rawValue) {
+                context.navigationController.modalPresentationStyle = sourceModalPresentationStyle
+            }
+            
+            if let targetModalTransitionStyle = UIModalTransitionStyle(rawValue: targetModalTransitionStyle.rawValue) {
+                context.targetViewController.modalTransitionStyle = targetModalTransitionStyle
+            }
+            
+            if let targetModalPresentationStyle = UIModalPresentationStyle(rawValue: targetModalPresentationStyle.rawValue) {
+                context.targetViewController.modalPresentationStyle = targetModalPresentationStyle
             }
             
         default:

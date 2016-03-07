@@ -74,7 +74,7 @@ public protocol Router: class {
 }
 
 // MARK: - Router Default Impl
-extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder {
+extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder, Self: RouterControllersProviderHolder {
     
     //MARK: navigation
     
@@ -98,9 +98,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             deriveMasterViewController: deriveMasterViewController,
             deriveDetailViewController: deriveDetailViewController,
             animator: animator,
-            masterNavigationController: UINavigationController(),
-            detailNavigationController: UINavigationController(),
-            splitViewController: UISplitViewController()
+            masterNavigationController: controllersProvider.navigationController(),
+            detailNavigationController: controllersProvider.navigationController(),
+            splitViewController: controllersProvider.splitViewController()
         )
     }
     
@@ -119,18 +119,21 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         
         let masterTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: masterNavigationController,
-            transitionsCoordinator: transitionsCoordinator)
+            transitionsCoordinator: transitionsCoordinator
+        )
         
         let detailTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: detailNavigationController,
-            transitionsCoordinator: transitionsCoordinator)
+            transitionsCoordinator: transitionsCoordinator
+        )
         
         let masterTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: masterTransitionsHandler)
         let detailTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: detailTransitionsHandler)
         
         let splitViewTransitionsHandler = SplitViewTransitionsHandlerImpl(
             splitViewController: splitViewController,
-            transitionsCoordinator: transitionsCoordinator)
+            transitionsCoordinator: transitionsCoordinator
+        )
         
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
         splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
@@ -145,7 +148,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
                 transitionId: generatedTransitionId,
                 presentingTransitionsHandler: transitionsHandlerBox.unbox(),
                 transitionsCoordinator: transitionsCoordinator,
-                transitionIdGenerator: transitionIdGenerator)
+                transitionIdGenerator: transitionIdGenerator,
+                controllersProvider: controllersProvider
+            )
             
             let masterViewController = deriveMasterViewController(routerSeed: masterRouterSeed)
             
@@ -153,7 +158,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
                 resettingWithViewController: masterViewController,
                 animatingTransitionsHandler: masterTransitionsHandler,
                 animator: animator,
-                transitionId: generatedTransitionId)
+                transitionId: generatedTransitionId
+            )
             
             masterTransitionsHandler.resetWithTransition(context: resetMasterContext)
         }
@@ -164,7 +170,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
                 transitionId: generatedTransitionId,
                 presentingTransitionsHandler: transitionsHandlerBox.unbox(),
                 transitionsCoordinator: transitionsCoordinator,
-                transitionIdGenerator: transitionIdGenerator)
+                transitionIdGenerator: transitionIdGenerator,
+                controllersProvider: controllersProvider
+            )
             
             let detailViewController = deriveDetailViewController(routerSeed: detailRouterSeed)
             
@@ -172,7 +180,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
                 resettingWithViewController: detailViewController,
                 animatingTransitionsHandler: detailTransitionsHandler,
                 animator: animator,
-                transitionId: generatedTransitionId)
+                transitionId: generatedTransitionId
+            )
             
             detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
         }
@@ -181,7 +190,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             presentingModalMasterDetailViewController: splitViewController,
             targetTransitionsHandler: splitViewTransitionsHandler,
             animator: animator,
-            transitionId: generatedTransitionId)
+            transitionId: generatedTransitionId
+        )
         
         transitionsHandlerBox.unbox().performTransition(context: modalContext)
     }
@@ -202,7 +212,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         presentModalViewControllerDerivedFrom(
             deriveViewController,
             animator: animator,
-            navigationController: UINavigationController()
+            navigationController: controllersProvider.navigationController()
         )
     }
     
@@ -216,7 +226,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
-            transitionsCoordinator: transitionsCoordinator)
+            transitionsCoordinator: transitionsCoordinator
+        )
         
         let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: navigationTransitionsHandler)
         
@@ -227,7 +238,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
             transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+            transitionIdGenerator: transitionIdGenerator,
+            controllersProvider: controllersProvider
+        )
         
         let viewController = deriveViewController(routerSeed: routerSeed)
         
@@ -236,7 +249,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
                 resettingWithViewController: viewController,
                 animatingTransitionsHandler: navigationTransitionsHandler,
                 animator: animator,
-                transitionId: generatedTransitionId)
+                transitionId: generatedTransitionId
+            )
             
             navigationTransitionsHandler.resetWithTransition(context: resetContext)
         }
@@ -246,7 +260,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             inNavigationController: navigationController,
             targetTransitionsHandler: navigationTransitionsHandler,
             animator: animator,
-            transitionId: generatedTransitionId)
+            transitionId: generatedTransitionId
+        )
 
         transitionsHandlerBox.unbox().performTransition(context: modalContext)
     }
@@ -280,7 +295,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             withViewControllerDerivedFrom: deriveViewController,
             animator: animator,
             resetAnimator: resetAnimator,
-            navigationController: UINavigationController()
+            navigationController: controllersProvider.navigationController()
         )
     }
     
@@ -297,7 +312,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
-            transitionsCoordinator: transitionsCoordinator)
+            transitionsCoordinator: transitionsCoordinator
+        )
         
         let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: navigationTransitionsHandler)
         
@@ -308,7 +324,9 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
             transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+            transitionIdGenerator: transitionIdGenerator,
+            controllersProvider: controllersProvider
+        )
         
         let viewController = deriveViewController(routerSeed: routerSeed)
         
@@ -317,7 +335,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
                 resettingWithViewController: viewController,
                 animatingTransitionsHandler: navigationTransitionsHandler,
                 animator: resetAnimator,
-                transitionId: generatedTransitionId)
+                transitionId: generatedTransitionId
+            )
             
             navigationTransitionsHandler.resetWithTransition(context: resetContext)
         }
@@ -332,7 +351,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             inView: view,
             targetTransitionsHandler: navigationTransitionsHandler,
             animator: animator,
-            transitionId: generatedTransitionId)
+            transitionId: generatedTransitionId
+        )
 
         transitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
@@ -360,7 +380,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             withViewControllerDerivedFrom: deriveViewController,
             animator: animator,
             resetAnimator: resetAnimator,
-            navigationController: UINavigationController()
+            navigationController: controllersProvider.navigationController()
         )
     }
     
@@ -387,7 +407,10 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
             transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+            transitionIdGenerator: transitionIdGenerator,
+            controllersProvider: controllersProvider
+        )
+
         
         let viewController = deriveViewController(routerSeed: routerSeed)
 
@@ -396,7 +419,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
                 resettingWithViewController: viewController,
                 animatingTransitionsHandler: navigationTransitionsHandler,
                 animator: resetAnimator,
-                transitionId: generatedTransitionId)
+                transitionId: generatedTransitionId
+            )
             
             navigationTransitionsHandler.resetWithTransition(context: resetContext)
         }
@@ -410,7 +434,8 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
             fromBarButtonItem: barButtonItem,
             targetTransitionsHandler: navigationTransitionsHandler,
             animator: animator,
-            transitionId: generatedTransitionId)
+            transitionId: generatedTransitionId
+        )
 
         transitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }

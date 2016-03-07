@@ -17,7 +17,7 @@ public protocol DetailRouter: class {
 }
 
 // MARK: - DetailRouter Default Impl
-extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder {
+extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder, Self: RouterControllersProviderHolder {
     
     public func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
@@ -42,7 +42,9 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
             transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+            transitionIdGenerator: transitionIdGenerator,
+            controllersProvider: controllersProvider
+        )
         
         let viewController = deriveViewController(routerSeed: routerSeed)
         
@@ -50,7 +52,8 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             resettingWithViewController: viewController,
             animatingTransitionsHandler: animatingDetailTransitionsHandler,
             animator: animator,
-            transitionId: transitionId)
+            transitionId: transitionId
+        )
         
         animatingDetailTransitionsHandler.resetWithTransition(context: resetContext)
     }
@@ -78,14 +81,17 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),
             transitionsCoordinator: transitionsCoordinator,
-            transitionIdGenerator: transitionIdGenerator)
+            transitionIdGenerator: transitionIdGenerator,
+            controllersProvider: controllersProvider
+        )
         
         let viewController = deriveViewController(routerSeed: routerSeed)
         
         let pushContext = ForwardTransitionContext(
             pushingViewController: viewController,
             animator: animator,
-            transitionId: generatedTransitionId)
+            transitionId: generatedTransitionId
+        )
         
         detailTransitionsHandlerBox.unbox().performTransition(context: pushContext)
     }

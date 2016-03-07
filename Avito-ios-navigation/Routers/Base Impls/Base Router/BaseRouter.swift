@@ -13,13 +13,15 @@ public class BaseRouter:
     RouterFocusable,
     RouterDismisable,
     DetailRouterTransitionable,
-    DetailRouter
+    DetailRouter,
+    RouterControllersProviderHolder
 {
     public let transitionsHandlerBox: RouterTransitionsHandlerBox?
     public let transitionId: TransitionId
     public private (set) weak var presentingTransitionsHandler: TransitionsHandler?
     public let transitionsCoordinator: TransitionsCoordinator
     public let transitionIdGenerator: TransitionIdGenerator
+    public let controllersProvider: RouterControllersProvider
     
     public init(routerSeed seed: RouterSeed)
     {
@@ -28,6 +30,7 @@ public class BaseRouter:
         self.presentingTransitionsHandler = seed.presentingTransitionsHandler
         self.transitionsCoordinator = seed.transitionsCoordinator
         self.transitionIdGenerator = seed.transitionIdGenerator
+        self.controllersProvider = seed.controllersProvider
     }
 
     // MARK: - DetailRouterTransitionable

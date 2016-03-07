@@ -15,7 +15,8 @@ public class BaseMasterDetailRouter:
     MasterRouterTransitionable,
     MasterRouter,
     DetailRouterTransitionable,
-    DetailRouter
+    DetailRouter,
+    RouterControllersProviderHolder
 {
     public let masterTransitionsHandlerBox: RouterTransitionsHandlerBox?
     public let detailTransitionsHandlerBox: RouterTransitionsHandlerBox?
@@ -23,6 +24,7 @@ public class BaseMasterDetailRouter:
     public private (set) weak var presentingTransitionsHandler: TransitionsHandler?
     public let transitionsCoordinator: TransitionsCoordinator
     public let transitionIdGenerator: TransitionIdGenerator
+    public let controllersProvider: RouterControllersProvider
     
     public init(routerSeed seed: MasterDetailRouterSeed)
     {
@@ -32,6 +34,7 @@ public class BaseMasterDetailRouter:
         self.presentingTransitionsHandler = seed.presentingTransitionsHandler
         self.transitionsCoordinator = seed.transitionsCoordinator
         self.transitionIdGenerator = seed.transitionIdGenerator
+        self.controllersProvider = seed.controllersProvider
     }
     
     // MARK: - RouterTransitionable

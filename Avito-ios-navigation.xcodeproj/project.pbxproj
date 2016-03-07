@@ -23,6 +23,15 @@
 		CC3988071C8D664700E3035C /* NavigationModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3988061C8D664700E3035C /* NavigationModalTransitionsAnimator.swift */; };
 		CC3988081C8D664700E3035C /* NavigationModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3988061C8D664700E3035C /* NavigationModalTransitionsAnimator.swift */; };
 		CC3988091C8D664700E3035C /* NavigationModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3988061C8D664700E3035C /* NavigationModalTransitionsAnimator.swift */; };
+		CC39880D1C8D753000E3035C /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880A1C8D753000E3035C /* RouterControllersProvider.swift */; };
+		CC39880E1C8D753000E3035C /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880A1C8D753000E3035C /* RouterControllersProvider.swift */; };
+		CC39880F1C8D753000E3035C /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880A1C8D753000E3035C /* RouterControllersProvider.swift */; };
+		CC3988101C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */; };
+		CC3988111C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */; };
+		CC3988121C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */; };
+		CC3988131C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */; };
+		CC3988141C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */; };
+		CC3988151C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */; };
 		CCE04BB21C784B2C000F4ECC /* Avito-ios-navigation-framework.h in Headers */ = {isa = PBXBuildFile; fileRef = CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CCE04BB61C784B2C000F4ECC /* Avito_ios_navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */; };
 		CCE04BB71C784B2C000F4ECC /* Avito_ios_navigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -249,6 +258,9 @@
 		CC3987F81C8D642D00E3035C /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		CC3987F91C8D642D00E3035C /* RouterSeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterSeed.swift; sourceTree = "<group>"; };
 		CC3988061C8D664700E3035C /* NavigationModalTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationModalTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CC39880A1C8D753000E3035C /* RouterControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProvider.swift; sourceTree = "<group>"; };
+		CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderHolder.swift; sourceTree = "<group>"; };
+		CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderImpl.swift; sourceTree = "<group>"; };
 		CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Avito_ios_navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avito-ios-navigation-framework.h"; sourceTree = "<group>"; };
 		CCE04BB31C784B2C000F4ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -452,6 +464,9 @@
 				CCE90FEF1C75BB7B00AF5E26 /* MasterRouter.swift */,
 				CCE90FF01C75BB7B00AF5E26 /* MasterRouterTransitionable.swift */,
 				CCE90FF11C75BB7B00AF5E26 /* Router.swift */,
+				CC39880A1C8D753000E3035C /* RouterControllersProvider.swift */,
+				CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */,
+				CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */,
 				CCE90FF21C75BB7B00AF5E26 /* RouterDismisable.swift */,
 				CCE90FF31C75BB7B00AF5E26 /* RouterFocusable.swift */,
 				CCE90FF41C75BB7B00AF5E26 /* RouterIdentifiable.swift */,
@@ -778,6 +793,7 @@
 				CCE04BF21C784B7B000F4ECC /* TransitionContextsStackImpl.swift in Sources */,
 				CCE04BEA1C784B75000F4ECC /* SplitViewTransitionsHandlerImpl.swift in Sources */,
 				CCE04BF51C784B7F000F4ECC /* TransitionsCoordinatorImpl.swift in Sources */,
+				CC3988151C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */,
 				CCE04BF71C784B83000F4ECC /* TransitionId.swift in Sources */,
 				CCE04BF91C784B83000F4ECC /* TransitionIdGeneratorHolder.swift in Sources */,
 				CCE04BFA1C784B83000F4ECC /* TransitionIdGeneratorImpl.swift in Sources */,
@@ -818,6 +834,7 @@
 				CCE04BEB1C784B75000F4ECC /* TabBarTransitionsHandlerImpl.swift in Sources */,
 				CCE04BD31C784B57000F4ECC /* PopoverAnimationSourceParameters.swift in Sources */,
 				CCE04BE31C784B6B000F4ECC /* PopoverTransitionStorableParameters.swift in Sources */,
+				CC39880F1C8D753000E3035C /* RouterControllersProvider.swift in Sources */,
 				CCE04BE81C784B75000F4ECC /* ContainingTransitionsHandler.swift in Sources */,
 				CCE04BD71C784B5F000F4ECC /* PopoverAnimationContext.swift in Sources */,
 				CCE04BCE1C784B51000F4ECC /* NavigationAnimationTargetParameters.swift in Sources */,
@@ -835,6 +852,7 @@
 				CCE04BEE1C784B7B000F4ECC /* TransitionContextsStackClientImpl.swift in Sources */,
 				CCE04BD91C784B63000F4ECC /* NavigationAnimationContext.swift in Sources */,
 				CCE04BDA1C784B63000F4ECC /* NavigationTransitionsAnimator.swift in Sources */,
+				CC3988121C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */,
 				CCE04BDB1C784B67000F4ECC /* CompletedTransitionContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,6 +863,7 @@
 			files = (
 				CCE9109C1C75BB7B00AF5E26 /* TransitionIdGeneratorHolder.swift in Sources */,
 				CCE9107E1C75BB7B00AF5E26 /* RestoredTransitionContext.swift in Sources */,
+				CC3988131C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */,
 				CCE9104C1C75BB7B00AF5E26 /* RouterDismisable.swift in Sources */,
 				CCE910681C75BB7B00AF5E26 /* TransitionAnimationLaunchingContext.swift in Sources */,
 				CCE9104E1C75BB7B00AF5E26 /* RouterFocusable.swift in Sources */,
@@ -862,6 +881,7 @@
 				CCE910901C75BB7B00AF5E26 /* ContainingTransitionsHandler.swift in Sources */,
 				CCE910821C75BB7B00AF5E26 /* TransitionsHandlerBox.swift in Sources */,
 				CCE910AA1C75BB7B00AF5E26 /* TransitionContextsStackClient.swift in Sources */,
+				CC39880D1C8D753000E3035C /* RouterControllersProvider.swift in Sources */,
 				CCE910921C75BB7B00AF5E26 /* NavigationTransitionsHandlerImpl.swift in Sources */,
 				CCE9107C1C75BB7B00AF5E26 /* ForwardTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCE910B01C75BB7B00AF5E26 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
@@ -903,6 +923,7 @@
 				CCE910A21C75BB7B00AF5E26 /* TransitionsCoordinatorHolder.swift in Sources */,
 				CCE9105A1C75BB7B00AF5E26 /* NavigationAnimationSourceParameters.swift in Sources */,
 				CCE910A01C75BB7B00AF5E26 /* TransitionsCoordinator.swift in Sources */,
+				CC3988101C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */,
 				CCE910441C75BB7B00AF5E26 /* DetailRouterTransitionable.swift in Sources */,
 				CCE9105E1C75BB7B00AF5E26 /* NavigationTransitionStyle.swift in Sources */,
 				CCE910721C75BB7B00AF5E26 /* PopoverTransitionsAnimator.swift in Sources */,
@@ -929,7 +950,9 @@
 				CCE910651C75BB7B00AF5E26 /* PopoverAnimationTargetParameters.swift in Sources */,
 				CC3987FB1C8D642D00E3035C /* BaseMasterDetailRouter.swift in Sources */,
 				CCE910811C75BB7B00AF5E26 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CC3988111C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */,
 				CCE910371C75BB7B00AF5E26 /* StrongBox.swift in Sources */,
+				CC3988141C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */,
 				CCE9108D1C75BB7B00AF5E26 /* TransitionsHandlerContainer.swift in Sources */,
 				CCE910991C75BB7B00AF5E26 /* TransitionId.swift in Sources */,
 				CCE910671C75BB7B00AF5E26 /* PopoverTransitionStyle.swift in Sources */,
@@ -939,6 +962,7 @@
 				CCE910831C75BB7B00AF5E26 /* TransitionsHandlerBox.swift in Sources */,
 				CCE910AB1C75BB7B00AF5E26 /* TransitionContextsStackClient.swift in Sources */,
 				CCE910931C75BB7B00AF5E26 /* NavigationTransitionsHandlerImpl.swift in Sources */,
+				CC39880E1C8D753000E3035C /* RouterControllersProvider.swift in Sources */,
 				CCE9107D1C75BB7B00AF5E26 /* ForwardTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCE910B11C75BB7B00AF5E26 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
 				CCE910491C75BB7B00AF5E26 /* MasterRouterTransitionable.swift in Sources */,

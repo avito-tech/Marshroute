@@ -2,17 +2,17 @@ import UIKit
 
 public protocol DetailRouter: class {
     func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     
     func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     
     func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     
     func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
 }
 
@@ -20,7 +20,7 @@ public protocol DetailRouter: class {
 extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder {
     
     public func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     {
         setViewControllerDerivedFrom(
             deriveViewController,
@@ -29,7 +29,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     public func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
@@ -37,7 +37,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
-        let routerSeed = BaseRouterSeed(
+        let routerSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
@@ -56,7 +56,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     public func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController)
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     {
         pushViewControllerDerivedFrom(
             deriveViewController,
@@ -65,7 +65,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     public func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: BaseRouterSeed) -> UIViewController,
+        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
@@ -73,7 +73,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
-        let routerSeed = BaseRouterSeed(
+        let routerSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),

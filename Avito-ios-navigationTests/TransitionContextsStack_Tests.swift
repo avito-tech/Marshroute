@@ -3,7 +3,7 @@ import XCTest
 
 private func createCompletedTransitionContext(
     sourceViewController sourceViewController: UIViewController,
-    sourceTransitionsHandler: TransitionsHandler,
+    sourceTransitionsHandler: AnimatingTransitionsHandler,
     targetViewController: UIViewController,
     targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
     -> CompletedTransitionContext?

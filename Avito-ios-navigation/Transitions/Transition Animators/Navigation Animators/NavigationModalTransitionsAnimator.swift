@@ -16,7 +16,7 @@ public enum ModalPresentationStyle : Int {
     case None
 }
 
-public final class NavigationModalTransitionsAnimator: NavigationTransitionsAnimator {
+public class NavigationModalTransitionsAnimator: NavigationTransitionsAnimator {
     public let sourceModalTransitionStyle: ModalTransitionStyle
     public let sourceModalPresentationStyle: ModalPresentationStyle
     public let targetModalTransitionStyle: ModalTransitionStyle

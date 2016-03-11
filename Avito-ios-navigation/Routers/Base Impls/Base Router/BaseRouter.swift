@@ -18,7 +18,7 @@ public class BaseRouter:
 {
     public let transitionsHandlerBox: RouterTransitionsHandlerBox?
     public let transitionId: TransitionId
-    public private (set) weak var presentingTransitionsHandler: TransitionsHandler?
+    public private(set) weak var presentingTransitionsHandler: TransitionsHandler?
     public let transitionsCoordinator: TransitionsCoordinator
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider

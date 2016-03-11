@@ -12,13 +12,13 @@ public struct CompletedTransitionContext {
     public let transitionId: TransitionId
     
     /// контроллер роутера, вызвавшего переход.
-    public private (set) weak var sourceViewController: UIViewController?
+    public private(set) weak var sourceViewController: UIViewController?
     
     /// обработчик переходов для роутера модуля, вызвавшего переход
-    public private (set) weak var sourceTransitionsHandler: AnimatingTransitionsHandler?
+    public private(set) weak var sourceTransitionsHandler: AnimatingTransitionsHandler?
     
     /// контроллер, на который перешли
-    public private (set) weak var targetViewController: UIViewController?
+    public private(set) weak var targetViewController: UIViewController?
     
     /// обработчик переходов для роутера модуля, на контроллер которого перешли
     public let targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox

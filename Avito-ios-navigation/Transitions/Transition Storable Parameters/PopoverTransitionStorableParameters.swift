@@ -3,7 +3,7 @@ import UIKit
 final class PopoverTransitionStorableParameters: NSObject, TransitionStorableParameters {
     /// если показывать дочерний контроллер внутри поповера,
     /// то кто-то должен держать сильную ссылку на этот поповер
-    private (set) var popoverController: UIPopoverController? {
+    private(set) var popoverController: UIPopoverController? {
         willSet {
             // старые версии iOS крешились, если не убирать зануляемый поповер
             if newValue == nil {

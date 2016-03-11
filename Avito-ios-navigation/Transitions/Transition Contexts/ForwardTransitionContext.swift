@@ -13,7 +13,7 @@ public struct ForwardTransitionContext {
     
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    public private (set) var targetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox
+    public private(set) var targetTransitionsHandlerBox: ForwardTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?

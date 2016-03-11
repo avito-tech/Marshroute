@@ -1,3 +1,5 @@
+import UIKit
+
 /// Протокол описывает передачу обработки и отмены переходов в центр управления переходами
 public protocol TransitionsCoordinator: class {
     func coordinatePerformingTransition(
@@ -523,6 +525,44 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             }
         }
         return nil
+    }
+}
+
+// MARK: - for TopViewControllerFindable
+extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
+    func findTopViewControllerImpl(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler?)
+        -> UIViewController?
+    {
+        guard let transitionsHandler = transitionsHandler
+            else { return nil }
+        
+        guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
+            else { return nil }
+        
+        guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(transitionsHandler)
+            else { return nil }
+        
+        return lastTransition.targetViewController
+    }
+    
+    func findTopViewControllerImpl(containingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
+        -> UIViewController?
+    {
+        // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+        // среди видимых анимирующих обработчиков (то есть в выбранном tab'e tabbar'a)
+        let animatingTransitionsHandlers = transitionsHandler.visibleTransitionsHandlers
+        
+        // выбираем из найденных анимирующих обработчиков один с самым глубоким дочерним анимирующим обработчиком
+        // и получаем этого дочернего обработчика, чтобы прокинуть ему обработку перехода
+        let animatingTransitionsHandler = deepestChainedAnimatingTransitionsHandler(
+            forTransitionsHandlers: animatingTransitionsHandlers,
+            unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // продолжаем искать среди видимых анимирующих обработчиков (чтобы пользователь видел анимацию)
+                return containingTransitionsHandler.visibleTransitionsHandlers
+            }
+        )
+        
+        return findTopViewControllerImpl(animatingTransitionsHandler: animatingTransitionsHandler)
     }
 }
 

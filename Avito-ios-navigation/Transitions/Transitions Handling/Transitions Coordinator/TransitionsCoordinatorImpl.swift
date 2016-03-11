@@ -1,3 +1,5 @@
+import UIKit
+
 public final class TransitionsCoordinatorImpl {
     public let stackClientProvider: TransitionContextsStackClientProvider
     
@@ -12,3 +14,18 @@ extension TransitionsCoordinatorImpl: TransitionContextsStackClientProviderHolde
 
 // MARK: - TransitionsCoordinator
 extension TransitionsCoordinatorImpl: TransitionsCoordinator {}
+
+// MARK: - TopViewControllerFindable
+extension TransitionsCoordinatorImpl: TopViewControllerFindable {
+    public func findTopViewController(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
+        -> UIViewController?
+    {
+        return findTopViewControllerImpl(animatingTransitionsHandler: transitionsHandler)
+    }
+
+    public func findTopViewController(containingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
+        -> UIViewController?
+    {
+        return findTopViewControllerImpl(containingTransitionsHandler: transitionsHandler)
+    }
+}

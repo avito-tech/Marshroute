@@ -4,16 +4,16 @@ public protocol Router: class {
 
     //MARK: navigation
     
-    func presentModalMasterViewControllerDerivedFrom(
+    func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController)
     
-    func presentModalMasterViewControllerDerivedFrom(
+    func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     
-    func presentModalMasterViewControllerDerivedFrom(
+    func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator,
@@ -78,23 +78,23 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
     
     //MARK: navigation
     
-    public func presentModalMasterViewControllerDerivedFrom(
+    public func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController)
     {
-        presentModalMasterViewControllerDerivedFrom(
+        presentModalMasterDetailViewControllerDerivedFrom(
             deriveMasterViewController: deriveMasterViewController,
             deriveDetailViewController: deriveDetailViewController,
             animator: NavigationTransitionsAnimator()
         )
     }
     
-    public func presentModalMasterViewControllerDerivedFrom(
+    public func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
-        presentModalMasterViewControllerDerivedFrom(
+        presentModalMasterDetailViewControllerDerivedFrom(
             deriveMasterViewController: deriveMasterViewController,
             deriveDetailViewController: deriveDetailViewController,
             animator: animator,
@@ -104,7 +104,7 @@ extension Router where Self: RouterTransitionable, Self: RouterIdentifiable, Sel
         )
     }
     
-    public func presentModalMasterViewControllerDerivedFrom(
+    public func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator,

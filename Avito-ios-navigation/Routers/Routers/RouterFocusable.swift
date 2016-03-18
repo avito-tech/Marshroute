@@ -6,17 +6,20 @@ public protocol RouterFocusable: class {
 }
 
 // MARK: - RouterFocusable Default Impl
-extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable {
+extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
     public func focusOnCurrentModule(completion completion: (() -> Void)?) {
         guard let transitionsHandlerBox = transitionsHandlerBox
             else { return }
         
-        guard let animatingTransitionsHandler = transitionsHandlerBox.unboxAnimatingTransitionsHandler()
-            else { assert(false, "`focusOnCurrentModule:` нельзя вызывать у роутеров с неанимирующих обработчиков переходов"); return }
+        let transitionsHandler = transitionsHandlerBox.unbox()
         
+        if transitionsHandler === transitionsHandlerBox.unboxContainingTransitionsHandler() {
+            assert(presentingTransitionsHandler != nil, "`focusOnCurrentModule:` нельзя вызывать у корневого роутера приложения")
+        }
+    
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации возвращения на текущий модуль
-        animatingTransitionsHandler.undoTransitionsAfter(transitionId: transitionId)
+        transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
         CATransaction.commit()
     }
 }

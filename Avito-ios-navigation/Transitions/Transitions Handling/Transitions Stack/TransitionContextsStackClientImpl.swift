@@ -1,14 +1,12 @@
-final class TransitionContextsStackClientImpl {
+final public class TransitionContextsStackClientImpl: TransitionContextsStackClient {
     private let stack: TransitionContextsStack
     
-    init(transitionContextsStack: TransitionContextsStack = TransitionContextsStackImpl()) {
+    public init(transitionContextsStack: TransitionContextsStack = TransitionContextsStackImpl()) {
         stack = transitionContextsStack
     }
-}
-
-// MARK: - TransitionContextsStackClient
-extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
-    func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    
+    // MARK: - TransitionContextsStackClient
+    public func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
         if let last = stack.last
@@ -18,7 +16,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         return nil
     }
     
-    func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    public func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
         if let last = lastTransitionForTransitionsHandler(transitionsHandler)
@@ -28,14 +26,14 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         return nil
     }
     
-    func chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    public func chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionTargetTransitionsHandlerBox?
     {
         let chainedTransition = chainedTransitionForTransitionsHandler(transitionsHandler)
         return chainedTransition?.targetTransitionsHandlerBox
     }
     
-    func transitionWith(
+    public func transitionWith(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
@@ -47,7 +45,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         return nil
     }
     
-    func allTransitionsForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    public func allTransitionsForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
     {
         guard let first = stack.first where first.wasPerfromedByTransitionsHandler(transitionsHandler)
@@ -60,7 +58,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         )
     }
     
-    func transitionsAfter(
+    public func transitionsAfter(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
@@ -106,7 +104,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         return (chainedTransition, pushTransitions)
     }
 
-    func deleteTransitionsAfter(
+    public func deleteTransitionsAfter(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
@@ -127,7 +125,7 @@ extension TransitionContextsStackClientImpl: TransitionContextsStackClient {
         }
     }
     
-    func appendTransition(
+    public func appendTransition(
         context context: CompletedTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> Bool

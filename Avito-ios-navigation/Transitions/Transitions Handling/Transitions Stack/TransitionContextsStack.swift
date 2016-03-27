@@ -1,7 +1,7 @@
 /// Стэк, который хранит CompletedTransitionContext, а возвращает RestoredTransitionContext.
 /// Стэк хранит историю переходов по одному навигационному контроллеру.
 /// Стэк может завершаться переходом на дочернего обработчика переходов (на модальное окно или поповер)
-protocol TransitionContextsStack: class {
+public protocol TransitionContextsStack: class {
     /// добавляет запись
     func append(context: CompletedTransitionContext)
 

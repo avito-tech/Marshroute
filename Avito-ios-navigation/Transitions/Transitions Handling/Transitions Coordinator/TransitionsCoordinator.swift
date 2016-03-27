@@ -163,7 +163,7 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
     public func coordinateUndoingAllChainedTransitions(
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        // скрываем модальные окна и поповеры, показанных внутри модальных окон и поповеров текущего обработчика
+        // скрываем модальные окна и поповеры, показанные внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: transitionsHandler)
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
@@ -569,10 +569,12 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
 // MARK: - committing to the history (methods work only with AnimatingTransitionsHandler)
 private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     func commitPerformingTransition(
-        var context context: ForwardTransitionContext,
+        context _context: ForwardTransitionContext,
         byTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
+        var context = _context
+        
         // если при инициировании перехода не указывали targetTransitionsHander'а, то указываем анимирующий
         if (context.needsAnimatingTargetTransitionHandler) {
             context.setAnimatingTargetTransitionsHandler(animatingTransitionsHandler)
@@ -584,7 +586,7 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             return
         }
         
-        // достаем view controller, откуда ушли, в результате текущего перехода
+        // достаем view controller, откуда ушли в результате текущего перехода
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,
             sourceViewController: lastTransition.targetViewController, // откуда ушли
@@ -615,10 +617,12 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
     }
     
     func commitResettingWithTransition(
-        var context context: ForwardTransitionContext,
+        context _context: ForwardTransitionContext,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
+        var context = _context
+        
         // если при инициировании перехода не указывали targetTransitionsHander'а, то указываем анимирующий
         if (context.needsAnimatingTargetTransitionHandler) {
             context.setAnimatingTargetTransitionsHandler(animatingTransitionsHandler)

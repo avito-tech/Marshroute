@@ -61,8 +61,8 @@ private extension TransitionContextsStackImpl {
     /// на который осуществлялся переход, уже освобожден
     func updateStack()
     {
-        let stack = self.storage.filter({ !$0.isZombie })
-        self.storage = stack
+        let stack = storage.filter { !$0.isZombie }
+        storage = stack
     }
     
     func indexOfCompletedTransition(transitionId transitionId: TransitionId)

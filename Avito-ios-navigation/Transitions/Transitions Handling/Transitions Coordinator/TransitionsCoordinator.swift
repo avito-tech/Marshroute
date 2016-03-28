@@ -359,8 +359,10 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         includingTransitionWithId: Bool,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler?)
     {
-        guard let animatingTransitionsHandler = animatingTransitionsHandler
-            else { assert(false, "к этому моменту должен быть найден обработчик, выполнивший переход с этим id"); return }
+        guard let animatingTransitionsHandler = animatingTransitionsHandler else {
+            debugPrint("обработчик, выполнивший переход с transitionId: \(transitionId), не найден. возможен лишний вызов метода отмены перехода")
+            return
+        }
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             else { return }

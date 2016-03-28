@@ -1,26 +1,27 @@
-public class TransitionContextsStackImpl: TransitionContextsStack {
+public final class TransitionContextsStackImpl: TransitionContextsStack {
     private var storage = [CompletedTransitionContext]()
     
-    func append(context: CompletedTransitionContext)
+    // MARK: - TransitionContextsStack
+    public func append(context: CompletedTransitionContext)
     {
         updateStack()
         storage.append(context)
     }
     
-    var first: RestoredTransitionContext? {
+    public var first: RestoredTransitionContext? {
         updateStack()
         let result: RestoredTransitionContext? = self[0]
         return result
     }
         
-    var last: RestoredTransitionContext? {
+    public var last: RestoredTransitionContext? {
         updateStack()
         let last = storage.last
         let restored = RestoredTransitionContext(completedTransition: last)
         return restored
     }
     
-    func popLast()
+    public func popLast()
         -> RestoredTransitionContext?
     {
         updateStack()
@@ -29,14 +30,14 @@ public class TransitionContextsStackImpl: TransitionContextsStack {
         return restored
     }
     
-    subscript(transitionId: TransitionId) -> RestoredTransitionContext? {
+    public subscript(transitionId: TransitionId) -> RestoredTransitionContext? {
         updateStack()
         let index = indexOfCompletedTransition(transitionId: transitionId)
         let restored: RestoredTransitionContext? = self[index]
         return restored
     }
     
-    func popTo(transitionId transitionId: TransitionId)
+    public func popTo(transitionId transitionId: TransitionId)
         -> [RestoredTransitionContext]?
     {
         updateStack()
@@ -45,7 +46,7 @@ public class TransitionContextsStackImpl: TransitionContextsStack {
         return result
     }
     
-    func preceding(transitionId transitionId: TransitionId)
+    public func preceding(transitionId transitionId: TransitionId)
         -> RestoredTransitionContext?
     {
         updateStack()
@@ -61,8 +62,8 @@ private extension TransitionContextsStackImpl {
     /// на который осуществлялся переход, уже освобожден
     func updateStack()
     {
-        let stack = self.storage.filter({ !$0.isZombie })
-        self.storage = stack
+        let stack = storage.filter { !$0.isZombie }
+        storage = stack
     }
     
     func indexOfCompletedTransition(transitionId transitionId: TransitionId)
@@ -103,7 +104,7 @@ private extension TransitionContextsStackImpl {
     func popTo(index index: Int?)
         -> [RestoredTransitionContext]?
     {
-        guard let nonNegative = index where nonNegative >= 0
+        guard let nonNegative = index where index >= 0
             else { return nil }
         
         // заранее проверяем, если не попадем в цикл for, чтобы не создавать пустой массив result

@@ -1,7 +1,7 @@
 import Foundation
 
 public class PopoverTransitionsAnimator: TransitionsAnimator {
-    private var animated = true
+    public var shouldAnimate = true
     
     // MARK: - Init
     public init() {}
@@ -13,14 +13,16 @@ public class PopoverTransitionsAnimator: TransitionsAnimator {
             context.popoverController.presentPopoverFromBarButtonItem(
                 buttonItem,
                 permittedArrowDirections: .Any,
-                animated: animated)
+                animated: shouldAnimate
+            )
             
         case .PopoverFromView(let sourceView, let sourceRect):
             context.popoverController.presentPopoverFromRect(
                 sourceRect,
                 inView: sourceView,
                 permittedArrowDirections: .Any,
-                animated: animated)
+                animated: shouldAnimate
+            )
         }
         
         // только так можно отключить кнопки на navigation bar'е из которого, вызвали поповер
@@ -28,27 +30,22 @@ public class PopoverTransitionsAnimator: TransitionsAnimator {
             context.popoverController.passthroughViews = nil
         })
         
-        becomeAnimated()
+        shouldAnimate = true
     }
     
     public func animateUndoingTransition(animationContext context: PopoverAnimationContext)
     {
-        context.popoverController.dismissPopoverAnimated(animated)
-        becomeAnimated()
+        context.popoverController.dismissPopoverAnimated(
+            shouldAnimate
+        )
+        
+        shouldAnimate = true
     }
     
     public func animateResettingWithTransition(animationContext context: PopoverAnimationContext)
     {
         assert(false, "must not be called")
-        becomeAnimated()
-    }
-    
-    // MARK: - public
-    public func becomeAnimated() {
-        animated = true
-    }
-    
-    public func becomeNotAnimated() {
-        animated = false
+        
+        shouldAnimate = true
     }
 }

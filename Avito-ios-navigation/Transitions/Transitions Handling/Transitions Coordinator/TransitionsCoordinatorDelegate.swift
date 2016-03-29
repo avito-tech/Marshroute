@@ -1,24 +1,24 @@
 import Foundation
 
-public enum TransitionAnimationContext {
+public enum TransitionAnimatorBox {
     case Navigation(animator: NavigationTransitionsAnimator)
     case Popover(animator: PopoverTransitionsAnimator)
     
-    public func becomeAnimated() {
+    public func enableAnimations() {
         switch self {
         case .Navigation(let animator):
-            animator.becomeAnimated()
+            animator.shouldAnimate = true
         case .Popover(let animator):
-            animator.becomeAnimated()
+            animator.shouldAnimate = true
         }
     }
     
-    public func becomeNotAnimated() {
+    public func disableAnimations() {
         switch self {
         case .Navigation(let animator):
-            animator.becomeNotAnimated()
+            animator.shouldAnimate = false
         case .Popover(let animator):
-            animator.becomeNotAnimated()
+            animator.shouldAnimate = false
         }
     }
 }
@@ -26,21 +26,21 @@ public enum TransitionAnimationContext {
 public protocol TransitionsCoordinatorDelegate: class {
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchResettingAnimation context: TransitionAnimationContext,
+        willLaunchResettingAnimation animatorBox: TransitionAnimatorBox,
         ofTransitionWith transitionId: TransitionId)
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchPerfromingAnimation context: TransitionAnimationContext,
+        willLaunchPerfromingAnimation animatorBox: TransitionAnimatorBox,
         ofTransitionWithId transitionId: TransitionId)
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchUndoingAnimation context: TransitionAnimationContext,
+        willLaunchUndoingAnimation animatorBox: TransitionAnimatorBox,
         ofTransitionsAfterId transitionId: TransitionId)
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchUndoingAnimation context: TransitionAnimationContext,
+        willLaunchUndoingAnimation animatorBox: TransitionAnimatorBox,
         ofTransitionWithId transitionId: TransitionId)
 }

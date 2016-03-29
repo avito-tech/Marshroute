@@ -248,7 +248,7 @@ extension TransitionsCoordinator where
         // уведомляем делегата до вызова `reset` анимаций
         transitionsCoordinatorDelegate?.transitionsCoordinator(
             coordinator: self,
-            willLaunchResettingAnimation: context.animationLaunchingContext.transitionAnimationContext,
+            willLaunchResettingAnimation: context.animationLaunchingContext.transitionAnimatorBox,
             ofTransitionWith: context.transitionId
         )
         
@@ -364,7 +364,7 @@ private extension TransitionsCoordinator where
         // уведомляем делегата до вызова `perform` анимаций
         transitionsCoordinatorDelegate?.transitionsCoordinator(
             coordinator: self,
-            willLaunchPerfromingAnimation: context.animationLaunchingContext.transitionAnimationContext,
+            willLaunchPerfromingAnimation: context.animationLaunchingContext.transitionAnimatorBox,
             ofTransitionWithId: context.transitionId
         )
         
@@ -431,19 +431,19 @@ private extension TransitionsCoordinator where
         // вызываем анимации сокрытия модальных окон и поповеров
         if let chainedTransition = chainedTransition {
             // уведомляем делегата до вызова `undo` анимаций сокрытия модальных окон и поповеров
-            let transitionAnimationContext = chainedTransition.animationLaunchingContext.transitionAnimationContext
+            let transitionAnimatorBox = chainedTransition.animationLaunchingContext.transitionAnimatorBox
             
             if includingTransitionWithId {
                 transitionsCoordinatorDelegate?.transitionsCoordinator(
                     coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    willLaunchUndoingAnimation: transitionAnimatorBox,
                     ofTransitionWithId: transitionId
                 )
             }
             else {
                 transitionsCoordinatorDelegate?.transitionsCoordinator(
                     coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    willLaunchUndoingAnimation: transitionAnimatorBox,
                     ofTransitionsAfterId: transitionId
                 )
             }
@@ -456,19 +456,19 @@ private extension TransitionsCoordinator where
         // вызываем анимации возвращения по навигационному стеку, минуя промежуточные переходы
         if let firstPushTransition = pushTransitions?.first {
             // уведомляем делегата до вызова `undo` анимаций возвращения по навигационному стеку, минуя промежуточные переходы
-            let transitionAnimationContext = firstPushTransition.animationLaunchingContext.transitionAnimationContext
+            let transitionAnimatorBox = firstPushTransition.animationLaunchingContext.transitionAnimatorBox
             
             if includingTransitionWithId {
                 transitionsCoordinatorDelegate?.transitionsCoordinator(
                     coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    willLaunchUndoingAnimation: transitionAnimatorBox,
                     ofTransitionWithId: transitionId
                 )
             }
             else {
                 transitionsCoordinatorDelegate?.transitionsCoordinator(
                     coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    willLaunchUndoingAnimation: transitionAnimatorBox,
                     ofTransitionsAfterId: transitionId
                 )
             }
@@ -723,7 +723,7 @@ private extension TransitionsCoordinator where
 }
 
 private extension TransitionAnimationLaunchingContext {
-    var transitionAnimationContext: TransitionAnimationContext {
+    var transitionAnimatorBox: TransitionAnimatorBox {
         switch self {
         case .Navigation(let launchingContext):
             return .Navigation(animator: launchingContext.animator)

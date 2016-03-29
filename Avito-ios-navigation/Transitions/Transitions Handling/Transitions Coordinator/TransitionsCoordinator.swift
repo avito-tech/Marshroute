@@ -38,7 +38,10 @@ public protocol TransitionsCoordinator: class {
 }
 
 // MARK: - TransitionsCoordinator Default Impl
-extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
+extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
     public func coordinatePerformingTransition(
         context context: ForwardTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
@@ -242,8 +245,17 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
             )
         }
         
+        // уведомляем делегата до вызова `reset` анимаций
+        transitionsCoordinatorDelegate?.transitionsCoordinator(
+            coordinator: self,
+            willLaunchResettingAnimation: context.animationLaunchingContext.transitionAnimationContext,
+            ofTransitionWith: context.transitionId
+        )
+        
         // вызываем анимации
-        transitionsHandler.launchAnimationOfResettingWithTransition(launchingContext: context.animationLaunchingContext)
+        transitionsHandler.launchAnimationOfResettingWithTransition(
+            launchingContext: context.animationLaunchingContext
+        )
         
         // создаем новую запись о переходе
         commitResettingWithTransition(
@@ -255,7 +267,10 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
 }
 
 // MARK: - preparing for undo
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
+private extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
     func coordinateUndoingTransitionsImpl(
         afterTransitionId transitionId: TransitionId,
         includingTransitionWithId: Bool,
@@ -332,7 +347,10 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
 }
 
 // MARK: - initiating transitions (methods work only with AnimatingTransitionsHandler)
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
+private extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
     func initiatePerformingTransition(
         context context: ForwardTransitionContext,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler?)
@@ -343,8 +361,17 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             else { assert(false, "сначала нужно было делать resetWithTransitions, а не performTransition"); return }
         
+        // уведомляем делегата до вызова `perform` анимаций
+        transitionsCoordinatorDelegate?.transitionsCoordinator(
+            coordinator: self,
+            willLaunchPerfromingAnimation: context.animationLaunchingContext.transitionAnimationContext,
+            ofTransitionWithId: context.transitionId
+        )
+        
         // вызываем анимации
-        animatingTransitionsHandler.launchAnimationOfPerformingTransition(launchingContext: context.animationLaunchingContext)
+        animatingTransitionsHandler.launchAnimationOfPerformingTransition(
+            launchingContext: context.animationLaunchingContext
+        )
         
         // создаем новую запись о переходе
         commitPerformingTransition(
@@ -402,13 +429,53 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
         coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: animatingTransitionsHandler)
         
         // вызываем анимации сокрытия модальных окон и поповеров
-        if let animationLaunchingContext = chainedTransition?.animationLaunchingContext {
-            animatingTransitionsHandler.launchAnimationOfUndoingTransition(launchingContext: animationLaunchingContext)
+        if let chainedTransition = chainedTransition {
+            // уведомляем делегата до вызова `undo` анимаций сокрытия модальных окон и поповеров
+            let transitionAnimationContext = chainedTransition.animationLaunchingContext.transitionAnimationContext
+            
+            if includingTransitionWithId {
+                transitionsCoordinatorDelegate?.transitionsCoordinator(
+                    coordinator: self,
+                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    ofTransitionWithId: transitionId
+                )
+            }
+            else {
+                transitionsCoordinatorDelegate?.transitionsCoordinator(
+                    coordinator: self,
+                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    ofTransitionsAfterId: transitionId
+                )
+            }
+           
+            animatingTransitionsHandler.launchAnimationOfUndoingTransition(
+                launchingContext: chainedTransition.animationLaunchingContext
+            )
         }
         
         // вызываем анимации возвращения по навигационному стеку, минуя промежуточные переходы
-        if let animationLaunchingContext = pushTransitions?.first?.animationLaunchingContext {
-            animatingTransitionsHandler.launchAnimationOfUndoingTransition(launchingContext: animationLaunchingContext)
+        if let firstPushTransition = pushTransitions?.first {
+            // уведомляем делегата до вызова `undo` анимаций возвращения по навигационному стеку, минуя промежуточные переходы
+            let transitionAnimationContext = firstPushTransition.animationLaunchingContext.transitionAnimationContext
+            
+            if includingTransitionWithId {
+                transitionsCoordinatorDelegate?.transitionsCoordinator(
+                    coordinator: self,
+                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    ofTransitionWithId: transitionId
+                )
+            }
+            else {
+                transitionsCoordinatorDelegate?.transitionsCoordinator(
+                    coordinator: self,
+                    willLaunchUndoingAnimation: transitionAnimationContext,
+                    ofTransitionsAfterId: transitionId
+                )
+            }
+            
+            animatingTransitionsHandler.launchAnimationOfUndoingTransition(
+                launchingContext: firstPushTransition.animationLaunchingContext
+            )
         }
         
         // удаляем записи об отмененных переходах
@@ -422,8 +489,10 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
 }
 
 // MARK: - fetching data from the history (methods work only with AnimatingTransitionsHandler)
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
-    
+private extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
     /// Выбор из обработчиков переходов одного с самым глубоким дочерним обработчиком.
     /// Возвращается найденный самый глубокий обработчик, чтобы прокинуть ему обработку перехода
     func deepestChainedAnimatingTransitionsHandler(
@@ -531,7 +600,10 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
 }
 
 // MARK: - for TopViewControllerFindable
-extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
+extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
     func findTopViewControllerImpl(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler?)
         -> UIViewController?
     {
@@ -569,7 +641,10 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
 }
 
 // MARK: - committing to the history (methods work only with AnimatingTransitionsHandler)
-private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
+private extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
     func commitPerformingTransition(
         context _context: ForwardTransitionContext,
         byTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
@@ -644,5 +719,16 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
             context: completedTransitionContext!,
             forTransitionsHandler: animatingTransitionsHandler
         )
+    }
+}
+
+private extension TransitionAnimationLaunchingContext {
+    var transitionAnimationContext: TransitionAnimationContext {
+        switch self {
+        case .Navigation(let launchingContext):
+            return .Navigation(animator: launchingContext.animator)
+        case .Popover(let launchingContext):
+            return .Popover(animator: launchingContext.animator)
+        }
     }
 }

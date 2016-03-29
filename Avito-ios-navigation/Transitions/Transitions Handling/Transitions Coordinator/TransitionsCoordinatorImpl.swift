@@ -1,22 +1,24 @@
 import UIKit
 
-public final class TransitionsCoordinatorImpl {
+public final class TransitionsCoordinatorImpl:
+    TransitionContextsStackClientProviderHolder,
+    TransitionsCoordinatorDelegateHolder,
+    TransitionsCoordinator,
+    TopViewControllerFindable
+{
+    // MARK: - TransitionContextsStackClientProviderHolder
     public let stackClientProvider: TransitionContextsStackClientProvider
     
+    // MARK: - TransitionsCoordinatorDelegateHolder
+    public weak var transitionsCoordinatorDelegate: TransitionsCoordinatorDelegate?
+    
+    // MARK: - Init
     public init(stackClientProvider: TransitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl())
     {
         self.stackClientProvider = stackClientProvider
     }
-}
-
-// MARK: - TransitionContextsStackClientProviderHolder
-extension TransitionsCoordinatorImpl: TransitionContextsStackClientProviderHolder {}
-
-// MARK: - TransitionsCoordinator
-extension TransitionsCoordinatorImpl: TransitionsCoordinator {}
-
-// MARK: - TopViewControllerFindable
-extension TransitionsCoordinatorImpl: TopViewControllerFindable {
+    
+    // MARK: - TopViewControllerFindable
     public func findTopViewController(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
         -> UIViewController?
     {

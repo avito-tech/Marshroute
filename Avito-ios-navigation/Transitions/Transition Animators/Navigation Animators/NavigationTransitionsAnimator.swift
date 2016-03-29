@@ -1,6 +1,6 @@
 public class NavigationTransitionsAnimator: TransitionsAnimator {
     
-    private var animated = true
+    public var shouldAnimate = true
     
     // MARK: - Init
     public init() {}
@@ -12,16 +12,18 @@ public class NavigationTransitionsAnimator: TransitionsAnimator {
         case .Push:
             context.navigationController.pushViewController(
                 context.targetViewController,
-                animated: animated)
+                animated: shouldAnimate
+            )
             
         case .Modal:
             context.navigationController.presentViewController(
                 context.targetViewController,
-                animated: animated,
-                completion: nil)
+                animated: shouldAnimate,
+                completion: nil
+            )
         }
         
-        becomeAnimated()
+        shouldAnimate = true
     }
     
     public func animateUndoingTransition(animationContext context: NavigationAnimationContext)
@@ -30,17 +32,17 @@ public class NavigationTransitionsAnimator: TransitionsAnimator {
         case .Push:
             context.navigationController.popToViewController(
                 context.targetViewController,
-                animated: animated
+                animated: shouldAnimate
             )
 
         case .Modal:
             context.navigationController.dismissViewControllerAnimated(
-                animated,
+                shouldAnimate,
                 completion: nil
             )
         }
         
-        becomeAnimated()
+        shouldAnimate = true
     }
     
     public func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
@@ -49,22 +51,13 @@ public class NavigationTransitionsAnimator: TransitionsAnimator {
         case .Push:
             context.navigationController.setViewControllers(
                 [context.targetViewController],
-                animated: animated
+                animated: shouldAnimate
             )
         
         case .Modal:
             assert(false, "must not be called"); break
         }
         
-        becomeAnimated()
-    }
-    
-    // MARK: - public
-    public func becomeAnimated() {
-        animated = true
-    }
-    
-    public func becomeNotAnimated() {
-        animated = false
+        shouldAnimate = true
     }
 }

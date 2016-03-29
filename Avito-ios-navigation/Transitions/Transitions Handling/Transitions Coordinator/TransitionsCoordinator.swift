@@ -571,11 +571,11 @@ extension TransitionsCoordinator where Self: TransitionContextsStackClientProvid
 // MARK: - committing to the history (methods work only with AnimatingTransitionsHandler)
 private extension TransitionsCoordinator where Self: TransitionContextsStackClientProviderHolder {
     func commitPerformingTransition(
-        context _context: ForwardTransitionContext,
+        context context: ForwardTransitionContext,
         byTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        var context = _context
+        var context = context
         
         // если при инициировании перехода не указывали targetTransitionsHander'а, то указываем анимирующий
         if (context.needsAnimatingTargetTransitionHandler) {
@@ -619,11 +619,11 @@ private extension TransitionsCoordinator where Self: TransitionContextsStackClie
     }
     
     func commitResettingWithTransition(
-        context _context: ForwardTransitionContext,
+        context context: ForwardTransitionContext,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        var context = _context
+        var context = context
         
         // если при инициировании перехода не указывали targetTransitionsHander'а, то указываем анимирующий
         if (context.needsAnimatingTargetTransitionHandler) {

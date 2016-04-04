@@ -10,7 +10,7 @@ public class BaseMasterDetailRouter:
     RouterPresentable,
     RouterTransitionable,
     Router,
-    DeadEndRouter,    
+    EndPointRouter,    
     RouterFocusable,
     RouterDismisable,
     MasterRouterTransitionable,

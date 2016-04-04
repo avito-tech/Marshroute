@@ -10,7 +10,7 @@ public class BaseRouter:
     RouterPresentable,
     RouterTransitionable,
     Router,
-    DeadEndRouter,
+    EndPointRouter,
     RouterFocusable,
     RouterDismisable,
     DetailRouterTransitionable,

@@ -1,18 +1,18 @@
 import UIKit
 
-public protocol DeadEndRouter: class {
+public protocol EndPointRouter: class {
     func presentModalNavigationController(
         navigationController: UINavigationController,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
     
     func presentModalNavigationController(
         navigationController: UINavigationController,
-        animator: DeadEndNavigationTransitionsAnimator,
+        animator: EndPointNavigationTransitionsAnimator,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
 }
 
-// MARK: - DeadEndRouter Default Impl
-extension DeadEndRouter where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder, Self: RouterControllersProviderHolder {
+// MARK: - EndPointRouter Default Impl
+extension EndPointRouter where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder, Self: RouterControllersProviderHolder {
     
     public func presentModalNavigationController(
         navigationController: UINavigationController,
@@ -20,14 +20,14 @@ extension DeadEndRouter where Self: RouterTransitionable, Self: RouterIdentifiab
     {
         presentModalNavigationController(
             navigationController,
-            animator: DeadEndNavigationTransitionsAnimator(),
+            animator: EndPointNavigationTransitionsAnimator(),
             prepareForTransition: prepareForTransition
         )
     }
     
     public func presentModalNavigationController(
         navigationController: UINavigationController,
-        animator: DeadEndNavigationTransitionsAnimator,
+        animator: EndPointNavigationTransitionsAnimator,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
     {
         guard let transitionsHandlerBox = transitionsHandlerBox

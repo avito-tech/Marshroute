@@ -1,4 +1,4 @@
-public class EndPointNavigationTransitionsAnimator: NavigationTransitionsAnimator {
+public class EndpointNavigationTransitionsAnimator: NavigationTransitionsAnimator {
         
     override public func animateResettingWithTransition(animationContext context: NavigationAnimationContext)
     {

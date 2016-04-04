@@ -114,6 +114,29 @@ public struct ForwardTransitionContext {
         self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
     
+    /// Контекст описывает переход на модальный UINavigationController 
+    /// использовать для MFMailComposeViewController, UIImagePickerViewController
+    public init(presentingModalNavigationController navigationController: UINavigationController,
+        targetTransitionsHandler: AnimatingTransitionsHandler,
+        animator: NavigationTransitionsAnimator,
+        transitionId: TransitionId)
+    {        
+        self.transitionId = transitionId
+        self.targetViewController = navigationController
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: targetTransitionsHandler)
+        
+        self.storableParameters = NavigationTransitionStorableParameters(
+            presentedTransitionsHandler: targetTransitionsHandler
+        )
+        
+        let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
+            transitionStyle: .Modal,
+            animationTargetParameters: NavigationAnimationTargetParameters(viewController: navigationController),
+            animator: animator)
+        
+        self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
+    }
+    
     // MARK: - Popover
     
     /// Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController

@@ -1,6 +1,8 @@
 public final class TransitionContextsStackImpl: TransitionContextsStack {
     private var storage = [CompletedTransitionContext]()
     
+    public init() {}
+    
     // MARK: - TransitionContextsStack
     public func append(context: CompletedTransitionContext)
     {

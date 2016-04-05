@@ -1210,6 +1210,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigation";
+				PRODUCT_MODULE_NAME = AvitoNavigation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1224,6 +1225,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigation";
+				PRODUCT_MODULE_NAME = AvitoNavigation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1235,6 +1237,7 @@
 				INFOPLIST_FILE = "Avito-ios-navigationTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigationTests";
+				PRODUCT_MODULE_NAME = AvitoNavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Avito-ios-navigation.app/Avito-ios-navigation";
 			};
@@ -1247,6 +1250,7 @@
 				INFOPLIST_FILE = "Avito-ios-navigationTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigationTests";
+				PRODUCT_MODULE_NAME = AvitoNavigationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Avito-ios-navigation.app/Avito-ios-navigation";
 			};

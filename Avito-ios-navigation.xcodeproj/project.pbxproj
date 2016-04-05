@@ -48,8 +48,8 @@
 		CCE003471C92BB1A00B52D8A /* TopViewControllerFindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */; };
 		CCE003481C92BB1A00B52D8A /* TopViewControllerFindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */; };
 		CCE04BB21C784B2C000F4ECC /* Avito-ios-navigation-framework.h in Headers */ = {isa = PBXBuildFile; fileRef = CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CCE04BB61C784B2C000F4ECC /* Avito_ios_navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */; };
-		CCE04BB71C784B2C000F4ECC /* Avito_ios_navigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CCE04BB61C784B2C000F4ECC /* AvitoNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* AvitoNavigation.framework */; };
+		CCE04BB71C784B2C000F4ECC /* AvitoNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCE04BAF1C784B2C000F4ECC /* AvitoNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CCE04BBB1C784B38000F4ECC /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
 		CCE04BBC1C784B38000F4ECC /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE51C75BB7B00AF5E26 /* WeakBox.swift */; };
 		CCE04BBD1C784B41000F4ECC /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FED1C75BB7B00AF5E26 /* DetailRouter.swift */; };
@@ -259,7 +259,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CCE04BB71C784B2C000F4ECC /* Avito_ios_navigation.framework in Embed Frameworks */,
+				CCE04BB71C784B2C000F4ECC /* AvitoNavigation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +281,7 @@
 		CCCE51621CAAB69F0010259C /* TransitionsCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		CCCE51631CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegateHolder.swift; sourceTree = "<group>"; };
 		CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewControllerFindable.swift; sourceTree = "<group>"; };
-		CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Avito_ios_navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCE04BAF1C784B2C000F4ECC /* AvitoNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AvitoNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avito-ios-navigation-framework.h"; sourceTree = "<group>"; };
 		CCE04BB31C784B2C000F4ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE90FBE1C75BAEC00AF5E26 /* Avito-ios-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avito-ios-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -365,7 +365,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE04BB61C784B2C000F4ECC /* Avito_ios_navigation.framework in Frameworks */,
+				CCE04BB61C784B2C000F4ECC /* AvitoNavigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +429,7 @@
 			children = (
 				CCE90FBE1C75BAEC00AF5E26 /* Avito-ios-navigation.app */,
 				CCE90FD41C75BAED00AF5E26 /* Avito-ios-navigationTests.xctest */,
-				CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */,
+				CCE04BAF1C784B2C000F4ECC /* AvitoNavigation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -706,7 +706,7 @@
 			);
 			name = "Avito-ios-navigation-framework";
 			productName = "Avito-ios-navigation-framework";
-			productReference = CCE04BAF1C784B2C000F4ECC /* Avito_ios_navigation.framework */;
+			productReference = CCE04BAF1C784B2C000F4ECC /* AvitoNavigation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		CCE90FBD1C75BAEC00AF5E26 /* Avito-ios-navigation */ = {
@@ -1089,7 +1089,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigation-framework";
-				PRODUCT_NAME = Avito_ios_navigation;
+				PRODUCT_NAME = AvitoNavigation;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1110,7 +1110,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation.Avito-ios-navigation-framework";
-				PRODUCT_NAME = Avito_ios_navigation;
+				PRODUCT_NAME = AvitoNavigation;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

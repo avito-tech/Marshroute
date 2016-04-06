@@ -1,5 +1,5 @@
 public protocol TransitionsAnimator: class {
-    typealias AnimationContext
+    associatedtype AnimationContext
     
     func animatePerformingTransition(animationContext context: AnimationContext)
     func animateUndoingTransition(animationContext context: AnimationContext)

@@ -11,9 +11,6 @@ public struct CompletedTransitionContext {
     /// undoTransitionWith(transitionId:)
     public let transitionId: TransitionId
     
-    /// контроллер роутера, вызвавшего переход.
-    public private(set) weak var sourceViewController: UIViewController?
-    
     /// обработчик переходов для роутера модуля, вызвавшего переход
     public private(set) weak var sourceTransitionsHandler: AnimatingTransitionsHandler?
     
@@ -30,17 +27,15 @@ public struct CompletedTransitionContext {
     public let animationLaunchingContext: TransitionAnimationLaunchingContext
     
     init?(forwardTransitionContext context: ForwardTransitionContext,
-        sourceViewController: UIViewController,
         sourceTransitionsHandler: AnimatingTransitionsHandler)
     {
-        assert(!context.needsAnimatingTargetTransitionHandler, "проставьте это значение раньше")
+        assert(!context.needsAnimatingTargetTransitionHandler, "проставьте `targetTransitionsHandlerBox` раньше")
         
         guard let targetTransitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(forwardTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox)
             else { return nil }
         
         self.transitionId = context.transitionId
         
-        self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
         
         self.targetViewController = context.targetViewController
@@ -62,7 +57,6 @@ public struct CompletedTransitionContext {
 // MARK: - convenience
 extension CompletedTransitionContext {
     init(transitionId: TransitionId,
-        sourceViewController: UIViewController?,
         sourceTransitionsHandler: AnimatingTransitionsHandler?,
         targetViewController: UIViewController?,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
@@ -70,7 +64,6 @@ extension CompletedTransitionContext {
         animationLaunchingContext: TransitionAnimationLaunchingContext)
     {
         self.transitionId = transitionId
-        self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
         self.targetViewController = targetViewController
         self.targetTransitionsHandlerBox = targetTransitionsHandlerBox

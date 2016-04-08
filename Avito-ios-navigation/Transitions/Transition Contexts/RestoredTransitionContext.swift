@@ -10,9 +10,6 @@ public struct RestoredTransitionContext {
     /// undoTransitionWith(transitionId:)
     public let transitionId: TransitionId
     
-    /// контроллер роутера, вызвавшего переход.
-    public let sourceViewController: UIViewController
-    
     /// обработчик переходов для роутера модуля, с контоллера которого перешли
     public let sourceTransitionsHandler: AnimatingTransitionsHandler
     
@@ -25,15 +22,22 @@ public struct RestoredTransitionContext {
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?
     
-    /// параметры запуска анимации перехода
-    public let animationLaunchingContext: TransitionAnimationLaunchingContext
+    /// параметры запуска анимации прямого перехода
+    public let forwardAnimationLaunchingContext: TransitionAnimationLaunchingContext
+
+    /// параметры запуска анимации обратного перехода
+    public func backwardAnimationLaunchingContext(targetViewController targetViewController: UIViewController)
+        -> TransitionAnimationLaunchingContext
+    {
+        return TransitionAnimationLaunchingContext(
+            context: forwardAnimationLaunchingContext,
+            targetViewController: targetViewController
+        )
+    }
     
     init?(completedTransition context: CompletedTransitionContext?)
     {
         guard let context = context
-            else { return nil }
-        
-        guard let sourceViewController = context.sourceViewController
             else { return nil }
         
         guard let sourceTransitionsHandler = context.sourceTransitionsHandler
@@ -48,7 +52,6 @@ public struct RestoredTransitionContext {
         
         self.transitionId = context.transitionId
         
-        self.sourceViewController = sourceViewController
         self.sourceTransitionsHandler = sourceTransitionsHandler
         
         self.targetViewController = targetViewController
@@ -56,11 +59,14 @@ public struct RestoredTransitionContext {
         
         self.storableParameters = context.storableParameters
         
-        // обновляем информацию о конечной точке анимации
-        self.animationLaunchingContext = TransitionAnimationLaunchingContext(
-            context: context.animationLaunchingContext,
-            targetViewController: sourceViewController
-        )
+        self.forwardAnimationLaunchingContext = context.animationLaunchingContext
+    }
+    
+    /// Аниматор, выполнивший прямой переход. В будущем этот же аниматор выполнит обратный переход
+    var transitionAnimatorBox: TransitionAnimatorBox {
+        // берем аниматора из описания параметров анимации прямого перехода, 
+        // так как для прямого и обратного перехода используется один и тот же аниматор
+        return forwardAnimationLaunchingContext.transitionAnimatorBox
     }
 }
 

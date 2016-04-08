@@ -33,6 +33,18 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
         return chainedTransition?.targetTransitionsHandlerBox
     }
     
+    public func transitionBefore(
+        transitionId transitionId: TransitionId,
+        forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> RestoredTransitionContext?
+    {
+        if let restored = stack.preceding(transitionId: transitionId)
+            where restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
+                return restored
+        }
+        return nil
+    }
+    
     public func transitionWith(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
@@ -79,7 +91,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
             
         var loopTransitionId: TransitionId? = last.transitionId
         
-        // только последний переход может не push-переходом (описывать модальное окно или поповер)
+        // только последний переход может быть не push-переходом (описывать модальное окно или поповер)
         if last.isChainedForTransitionsHandler(transitionsHandler) {
             chainedTransition = last
         }
@@ -87,7 +99,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
             pushTransitions.insert(last, atIndex: 0)
         }
         
-        // идем по push-переходам, кладем в массив в историческом порядке
+        // идем по push-переходам, кладем в массив в порядке, в котором их выполняли
         while loopTransitionId != nil && !didMatchId {
             if let previous = stack.preceding(transitionId: loopTransitionId!) {
                 loopTransitionId = previous.transitionId

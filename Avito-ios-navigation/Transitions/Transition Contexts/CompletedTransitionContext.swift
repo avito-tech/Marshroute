@@ -29,9 +29,14 @@ public struct CompletedTransitionContext {
     init?(forwardTransitionContext context: ForwardTransitionContext,
         sourceTransitionsHandler: AnimatingTransitionsHandler)
     {
-        assert(!context.needsAnimatingTargetTransitionHandler, "проставьте `targetTransitionsHandlerBox` раньше")
+        guard !context.needsAnimatingTargetTransitionHandler else {
+            assert(false, "заполните `targetTransitionsHandlerBox` анимирующим обработчиком переходов раньше - до выполнения самого перехода")
+            return nil
+        }
         
-        guard let targetTransitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(forwardTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox)
+        guard let targetTransitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(
+            forwardTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox
+        )
             else { return nil }
         
         self.transitionId = context.transitionId

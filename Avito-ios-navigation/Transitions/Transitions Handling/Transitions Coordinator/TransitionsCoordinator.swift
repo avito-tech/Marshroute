@@ -189,7 +189,7 @@ extension TransitionsCoordinator where
     public func coordinateUndoingAllTransitions(
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        // скрываем модальные окна и поповеры, показанных внутри модальных окон и поповеров текущего обработчика
+        // скрываем модальные окна и поповеры, показанные внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: transitionsHandler)
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
@@ -221,8 +221,9 @@ extension TransitionsCoordinator where
         context context: ForwardTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        // скрываем модальные окна и поповеры, показанных внутри модальных окон и поповеров текущего обработчика
+        // скрываем модальные окна и поповеры, показанные внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: transitionsHandler)
+        
         // ищем существующую историю переходов или создаем новую
         let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
             ?? stackClientProvider.createStackClient(forTransitionsHandler: transitionsHandler)
@@ -359,7 +360,7 @@ private extension TransitionsCoordinator where
             else { assert(false, "к этому моменту должен быть найден анимирующий обработчик"); return }
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
-            else { assert(false, "сначала нужно было делать resetWithTransitions, а не performTransition"); return }
+            else { assert(false, "сначала нужно было делать resetWithTransition, а не performTransition"); return }
         
         // уведомляем делегата до вызова `perform` анимаций
         transitionsCoordinatorDelegate?.transitionsCoordinator(
@@ -430,51 +431,23 @@ private extension TransitionsCoordinator where
         
         // вызываем анимации сокрытия модальных окон и поповеров
         if let chainedTransition = chainedTransition {
-            // уведомляем делегата до вызова `undo` анимаций сокрытия модальных окон и поповеров
-            let transitionAnimatorBox = chainedTransition.animationLaunchingContext.transitionAnimatorBox
-            
-            if includingTransitionWithId {
-                transitionsCoordinatorDelegate?.transitionsCoordinator(
-                    coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimatorBox,
-                    ofTransitionWithId: transitionId
-                )
-            }
-            else {
-                transitionsCoordinatorDelegate?.transitionsCoordinator(
-                    coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimatorBox,
-                    ofTransitionsAfterId: transitionId
-                )
-            }
-           
-            animatingTransitionsHandler.launchAnimationOfUndoingTransition(
-                launchingContext: chainedTransition.animationLaunchingContext
+            initiateUndoingTransition(
+                context: chainedTransition,
+                whileUndoingTransitionWithId: transitionId,
+                includingTransitionWithId: includingTransitionWithId,
+                forTransitionsHandler: animatingTransitionsHandler,
+                withStackClient: stackClient
             )
         }
         
         // вызываем анимации возвращения по навигационному стеку, минуя промежуточные переходы
         if let firstPushTransition = pushTransitions?.first {
-            // уведомляем делегата до вызова `undo` анимаций возвращения по навигационному стеку, минуя промежуточные переходы
-            let transitionAnimatorBox = firstPushTransition.animationLaunchingContext.transitionAnimatorBox
-            
-            if includingTransitionWithId {
-                transitionsCoordinatorDelegate?.transitionsCoordinator(
-                    coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimatorBox,
-                    ofTransitionWithId: transitionId
-                )
-            }
-            else {
-                transitionsCoordinatorDelegate?.transitionsCoordinator(
-                    coordinator: self,
-                    willLaunchUndoingAnimation: transitionAnimatorBox,
-                    ofTransitionsAfterId: transitionId
-                )
-            }
-            
-            animatingTransitionsHandler.launchAnimationOfUndoingTransition(
-                launchingContext: firstPushTransition.animationLaunchingContext
+            initiateUndoingTransition(
+                context: firstPushTransition,
+                whileUndoingTransitionWithId: transitionId,
+                includingTransitionWithId: includingTransitionWithId,
+                forTransitionsHandler: animatingTransitionsHandler,
+                withStackClient: stackClient
             )
         }
         
@@ -484,6 +457,49 @@ private extension TransitionsCoordinator where
             includingTransitionWithId: includingTransitionWithId,
             forTransitionsHandler: animatingTransitionsHandler,
             withStackClient: stackClient
+        )
+    }
+    
+    func initiateUndoingTransition(
+        context context: RestoredTransitionContext,
+        whileUndoingTransitionWithId targetTransitionId: TransitionId,
+        includingTransitionWithId: Bool,
+        forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
+        withStackClient stackClient: TransitionContextsStackClient)
+    {
+        // получаем информацию о переходе, предшествующем отменяемому переходу
+        guard let precedingTransition = stackClient.transitionBefore(
+            transitionId: context.transitionId,
+            forTransitionsHandler: animatingTransitionsHandler
+        ) else {
+            assert(false, "нужно вызвать `resetWithTransition:` вместо того, чтобы отменять самый первый переход"); return
+        }
+        
+        // уведомляем делегата до вызова анимации обратного перехода. делегат может настроить анимированность обратного перехода
+        if includingTransitionWithId {
+            transitionsCoordinatorDelegate?.transitionsCoordinator(
+                coordinator: self,
+                willLaunchUndoingAnimation: context.transitionAnimatorBox,
+                ofTransitionWithId: targetTransitionId
+            )
+        }
+        else {
+            transitionsCoordinatorDelegate?.transitionsCoordinator(
+                coordinator: self,
+                willLaunchUndoingAnimation: context.transitionAnimatorBox,
+                ofTransitionsAfterId: targetTransitionId
+            )
+        }
+        
+        // готовим параметры запуска анимации обратного перехода
+        let backwardAnimationLaunchingContext = TransitionAnimationLaunchingContext(
+            sourceAnimationLaunchingContext: context.forwardAnimationLaunchingContext,
+            targetViewController: precedingTransition.targetViewController
+        )
+        
+        // запускаем анимацию обратного перехода
+        animatingTransitionsHandler.launchAnimationOfUndoingTransition(
+            launchingContext: backwardAnimationLaunchingContext
         )
     }
 }
@@ -658,15 +674,13 @@ private extension TransitionsCoordinator where
         }
 
         // ищем последний переход, выполненный анимирующим обработчиком
-        guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) else {
+        guard stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) != nil else {
             assert(false, "нужно было вызывать resetWithTransition(context:). а не performTransition(context:)")
             return
         }
         
-        // достаем view controller, откуда ушли в результате текущего перехода
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,
-            sourceViewController: lastTransition.targetViewController, // откуда ушли
             sourceTransitionsHandler: animatingTransitionsHandler // кем выполнен переход
         )
         
@@ -707,7 +721,6 @@ private extension TransitionsCoordinator where
         
         let completedTransitionContext = CompletedTransitionContext(
             forwardTransitionContext: context,
-            sourceViewController: context.targetViewController, // при reset source == target
             sourceTransitionsHandler: animatingTransitionsHandler // кем выполнен переход
         )
         
@@ -719,16 +732,5 @@ private extension TransitionsCoordinator where
             context: completedTransitionContext!,
             forTransitionsHandler: animatingTransitionsHandler
         )
-    }
-}
-
-private extension TransitionAnimationLaunchingContext {
-    var transitionAnimatorBox: TransitionAnimatorBox {
-        switch self {
-        case .Navigation(let launchingContext):
-            return .Navigation(animator: launchingContext.animator)
-        case .Popover(let launchingContext):
-            return .Popover(animator: launchingContext.animator)
-        }
     }
 }

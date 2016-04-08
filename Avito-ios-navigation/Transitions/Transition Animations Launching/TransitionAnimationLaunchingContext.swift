@@ -1,5 +1,38 @@
 import UIKit
 
+// TODO: (tyusipov) вынести в отдельный файл
+/// Описание аниматора перехода
+public enum TransitionAnimatorBox {
+    case Navigation(animator: NavigationTransitionsAnimator)
+    case Popover(animator: PopoverTransitionsAnimator)
+    
+    public func enableAnimations() {
+        switch self {
+        case .Navigation(let animator):
+            animator.shouldAnimate = true
+        case .Popover(let animator):
+            animator.shouldAnimate = true
+        }
+    }
+    
+    public func disableAnimations() {
+        switch self {
+        case .Navigation(let animator):
+            animator.shouldAnimate = false
+        case .Popover(let animator):
+            animator.shouldAnimate = false
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
 /// Описание параметров запуска любого вида анимаций
 public enum TransitionAnimationLaunchingContext {
     case Navigation(launchingContext: NavigationAnimationLaunchingContext)
@@ -8,14 +41,16 @@ public enum TransitionAnimationLaunchingContext {
 
 // MARK: - convenience
 public extension TransitionAnimationLaunchingContext {
-    init(context: TransitionAnimationLaunchingContext, targetViewController viewController: UIViewController)
+    init(sourceAnimationLaunchingContext: TransitionAnimationLaunchingContext,
+        targetViewController viewController: UIViewController)
     {
-        switch context {
+        switch sourceAnimationLaunchingContext {
         case .Navigation(let launchingContext):
             let updatedNavigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
                 transitionStyle: launchingContext.transitionStyle,
                 animationTargetParameters: NavigationAnimationTargetParameters(viewController: viewController),
-                animator: launchingContext.animator)
+                animator: launchingContext.animator
+            )
             
             self = .Navigation(launchingContext: updatedNavigationAnimationLaunchingContext)
             
@@ -24,9 +59,22 @@ public extension TransitionAnimationLaunchingContext {
                 transitionStyle: launchingContext.transitionStyle,
                 animationSourceParameters: launchingContext.animationSourceParameters,
                 animationTargetParameters: PopoverAnimationTargetParameters(viewController: viewController),
-                animator: launchingContext.animator)
+                animator: launchingContext.animator
+            )
             
             self = .Popover(launchingContext: updatedPopoverAnimationLaunchingContext)
+        }
+    }
+}
+
+// MARK: - convenience
+extension TransitionAnimationLaunchingContext {
+    var transitionAnimatorBox: TransitionAnimatorBox {
+        switch self {
+        case .Navigation(let launchingContext):
+            return .Navigation(animator: launchingContext.animator)
+        case .Popover(let launchingContext):
+            return .Popover(animator: launchingContext.animator)
         }
     }
 }
@@ -37,8 +85,7 @@ public extension TransitionAnimationLaunchingContext {
         switch self {
         case .Navigation(_):
             return true
-            
-        default:
+        case .Popover(_):
             return false
         }
     }

@@ -10,6 +10,11 @@ public protocol TransitionContextsStackClient: class {
     func chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler: TransitionsHandler)
         -> RestoredTransitionTargetTransitionsHandlerBox?
 
+    func transitionBefore(
+        transitionId transitionId: TransitionId,
+        forTransitionsHandler transitionsHandler: TransitionsHandler)
+        -> RestoredTransitionContext?
+    
     func transitionWith(
         transitionId transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler)

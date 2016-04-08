@@ -1,7 +1,5 @@
 import XCTest
 
-// TODO: fix tests
-
 private func createCompletedTransitionContext(
     sourceTransitionsHandler sourceTransitionsHandler: AnimatingTransitionsHandler,
     targetViewController: UIViewController,

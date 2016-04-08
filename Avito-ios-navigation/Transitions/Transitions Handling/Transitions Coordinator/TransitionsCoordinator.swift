@@ -492,7 +492,8 @@ private extension TransitionsCoordinator where
         }
         
         // готовим параметры запуска анимации обратного перехода
-        let backwardAnimationLaunchingContext = context.backwardAnimationLaunchingContext(
+        let backwardAnimationLaunchingContext = TransitionAnimationLaunchingContext(
+            sourceAnimationLaunchingContext: context.forwardAnimationLaunchingContext,
             targetViewController: precedingTransition.targetViewController
         )
         

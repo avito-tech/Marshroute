@@ -24,16 +24,6 @@ public struct RestoredTransitionContext {
     
     /// параметры запуска анимации прямого перехода
     public let forwardAnimationLaunchingContext: TransitionAnimationLaunchingContext
-
-    /// параметры запуска анимации обратного перехода
-    public func backwardAnimationLaunchingContext(targetViewController targetViewController: UIViewController)
-        -> TransitionAnimationLaunchingContext
-    {
-        return TransitionAnimationLaunchingContext(
-            context: forwardAnimationLaunchingContext,
-            targetViewController: targetViewController
-        )
-    }
     
     init?(completedTransition context: CompletedTransitionContext?)
     {

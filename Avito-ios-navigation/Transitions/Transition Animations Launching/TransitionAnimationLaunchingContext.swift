@@ -41,9 +41,10 @@ public enum TransitionAnimationLaunchingContext {
 
 // MARK: - convenience
 public extension TransitionAnimationLaunchingContext {
-    init(context: TransitionAnimationLaunchingContext, targetViewController viewController: UIViewController)
+    init(sourceAnimationLaunchingContext: TransitionAnimationLaunchingContext,
+        targetViewController viewController: UIViewController)
     {
-        switch context {
+        switch sourceAnimationLaunchingContext {
         case .Navigation(let launchingContext):
             let updatedNavigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
                 transitionStyle: launchingContext.transitionStyle,

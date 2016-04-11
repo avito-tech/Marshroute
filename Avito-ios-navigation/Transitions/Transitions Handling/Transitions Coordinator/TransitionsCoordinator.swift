@@ -249,7 +249,7 @@ extension TransitionsCoordinator where
         // уведомляем делегата до вызова `reset` анимаций
         transitionsCoordinatorDelegate?.transitionsCoordinator(
             coordinator: self,
-            willLaunchResettingAnimation: context.animationLaunchingContext.transitionAnimatorBox,
+            willLaunchResettingAnimation: context.animationLaunchingContext.transitionsAnimatorBox,
             ofTransitionWith: context.transitionId
         )
         
@@ -365,7 +365,7 @@ private extension TransitionsCoordinator where
         // уведомляем делегата до вызова `perform` анимаций
         transitionsCoordinatorDelegate?.transitionsCoordinator(
             coordinator: self,
-            willLaunchPerfromingAnimation: context.animationLaunchingContext.transitionAnimatorBox,
+            willLaunchPerfromingAnimation: context.animationLaunchingContext.transitionsAnimatorBox,
             ofTransitionWithId: context.transitionId
         )
         
@@ -479,14 +479,14 @@ private extension TransitionsCoordinator where
         if includingTransitionWithId {
             transitionsCoordinatorDelegate?.transitionsCoordinator(
                 coordinator: self,
-                willLaunchUndoingAnimation: context.transitionAnimatorBox,
+                willLaunchUndoingAnimation: context.transitionsAnimatorBox,
                 ofTransitionWithId: targetTransitionId
             )
         }
         else {
             transitionsCoordinatorDelegate?.transitionsCoordinator(
                 coordinator: self,
-                willLaunchUndoingAnimation: context.transitionAnimatorBox,
+                willLaunchUndoingAnimation: context.transitionsAnimatorBox,
                 ofTransitionsAfterId: targetTransitionId
             )
         }

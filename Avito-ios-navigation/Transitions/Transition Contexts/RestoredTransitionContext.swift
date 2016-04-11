@@ -53,7 +53,7 @@ public struct RestoredTransitionContext {
     }
     
     /// Аниматор, выполнивший прямой переход. В будущем этот же аниматор выполнит обратный переход
-    var transitionsAnimatorBox: TransitionsAnimatorBox {
+    public var transitionsAnimatorBox: TransitionsAnimatorBox {
         // берем аниматора из описания параметров анимации прямого перехода, 
         // так как для прямого и обратного перехода используется один и тот же аниматор
         return forwardAnimationLaunchingContext.transitionsAnimatorBox

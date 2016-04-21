@@ -9,11 +9,17 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
     }
     
     // MARK: - TransitionAnimationsLauncher
-    public func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
+    public func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {
+        launchingContext.launchAnimationOfPerformingTransition()
+    }
 
-    public func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
+    public func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {
+        launchingContext.launchAnimationOfUndoingTransition()
+    }
     
-    public func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
+    public func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {
+        launchingContext.launchAnimationOfResettingWithTransition()
+    }
 
     // MARK: - TransitionsHandler
     public func performTransition(context context: ForwardTransitionContext)

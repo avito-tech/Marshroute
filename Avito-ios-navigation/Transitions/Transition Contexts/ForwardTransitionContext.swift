@@ -23,7 +23,9 @@ public struct ForwardTransitionContext {
     
     // MARK: - Navigation
     
-    /// Контекст описывает первоначальную настройку (или обновление) обработчика переходов, т.е
+    /// Контекст описывает первоначальную настройку (или обновление) обработчика переходов.
+    /// В случае, когда initialViewController - обычный `UIViewController`,
+    /// с показом UINavigationController'
     /// проставление корневого контроллера в UINavigationController
     public init(resettingWithViewController initialViewController: UIViewController,
         animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler,
@@ -39,7 +41,8 @@ public struct ForwardTransitionContext {
         let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Push,
             animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
-            animator: animator)
+            animator: animator
+        )
         
         self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
@@ -58,7 +61,8 @@ public struct ForwardTransitionContext {
         let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Push,
             animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
-            animator: animator)
+            animator: animator
+        )
         
         self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
@@ -81,7 +85,8 @@ public struct ForwardTransitionContext {
         let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Modal,
             animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
-            animator: animator)
+            animator: animator
+        )
         
         self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
@@ -109,7 +114,8 @@ public struct ForwardTransitionContext {
         let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Modal,
             animationTargetParameters: NavigationAnimationTargetParameters(viewController: navigationController),
-            animator: animator)
+            animator: animator
+        )
         
         self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
@@ -132,7 +138,32 @@ public struct ForwardTransitionContext {
         let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
             transitionStyle: .Modal,
             animationTargetParameters: NavigationAnimationTargetParameters(viewController: navigationController),
-            animator: animator)
+            animator: animator
+        )
+        
+        self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
+    }
+    
+    /// Контекст описывает переход на модальный UINavigationController
+    /// использовать для MFMailComposeViewController, UIImagePickerViewController
+    public init(presentingModalViewController viewController: UIViewController,
+                targetTransitionsHandler: AnimatingTransitionsHandler,
+                animator: NavigationTransitionsAnimator,
+                transitionId: TransitionId)
+    {
+        self.transitionId = transitionId
+        self.targetViewController = viewController
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: targetTransitionsHandler)
+        
+        self.storableParameters = NavigationTransitionStorableParameters(
+            presentedTransitionsHandler: targetTransitionsHandler
+        )
+        
+        let navigationAnimationLaunchingContext = NavigationAnimationLaunchingContext(
+            transitionStyle: .Modal,
+            animationTargetParameters: NavigationAnimationTargetParameters(viewController: viewController),
+            animator: animator
+        )
         
         self.animationLaunchingContext = .Navigation(launchingContext: navigationAnimationLaunchingContext)
     }
@@ -162,7 +193,8 @@ public struct ForwardTransitionContext {
             transitionStyle: .PopoverFromView(sourceView: view, sourceRect: rect),
             animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
             animationTargetParameters: PopoverAnimationTargetParameters(viewController: targetViewController),
-            animator: animator)
+            animator: animator
+        )
         
         self.animationLaunchingContext = .Popover(launchingContext: popoverAnimationLaunchingContext)
     }
@@ -189,7 +221,8 @@ public struct ForwardTransitionContext {
             transitionStyle: .PopoverFromBarButtonItem(buttonItem: buttonItem),
             animationSourceParameters: PopoverAnimationSourceParameters(popoverController: popoverController),
             animationTargetParameters: PopoverAnimationTargetParameters(viewController: targetViewController),            
-            animator: animator)
+            animator: animator
+        )
         
         self.animationLaunchingContext = .Popover(launchingContext: popoverAnimationLaunchingContext)
     }

@@ -4,12 +4,12 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
     private weak var navigationController: UINavigationController?
     
     public init(navigationController: UINavigationController,
-        transitionsCoordinator: TransitionsCoordinator)
+                transitionsCoordinator: TransitionsCoordinator)
     {
         self.navigationController = navigationController
         super.init(transitionsCoordinator: transitionsCoordinator)
     }
-
+    
     // MARK: - TransitionAnimationsLauncher
     override public func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext)
     {
@@ -21,7 +21,7 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
             launchingContext.launchAnimationOfPerformingTransition(navigationAnimationSourceParameters)
         }
         else {
-            launchingContext.launchAnimationOfPerformingTransition()
+            super.launchAnimationOfPerformingTransition(launchingContext: launchingContext)
         }
     }
     
@@ -35,7 +35,7 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
             launchingContext.launchAnimationOfUndoingTransition(navigationAnimationSourceParameters)
         }
         else {
-            launchingContext.launchAnimationOfUndoingTransition()
+            super.launchAnimationOfUndoingTransition(launchingContext: launchingContext)
         }
     }
     
@@ -49,7 +49,7 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
             launchingContext.launchAnimationOfResettingWithTransition(navigationAnimationSourceParameters)
         }
         else {
-            launchingContext.launchAnimationOfResettingWithTransition()
+            super.launchAnimationOfResettingWithTransition(launchingContext: launchingContext)
         }
     }
 }

@@ -5,22 +5,41 @@ public enum TransitionsAnimatorBox {
     case Navigation(animator: NavigationTransitionsAnimator)
     case Popover(animator: PopoverTransitionsAnimator)
     case PopoverNavigation(animator: PopoverNavigationTransitionsAnimator)
-    case Reset(animator: ResetTransitionsAnimator)
     
     public func enableAnimations() {
         switch self {
+        case .Modal(let animator):
+            animator.shouldAnimate = true
+            
+        case .ModalNavigation(let animator):
+            animator.shouldAnimate = true
+            
         case .Navigation(let animator):
             animator.shouldAnimate = true
+            
         case .Popover(let animator):
+            animator.shouldAnimate = true
+            
+        case .PopoverNavigation(let animator):
             animator.shouldAnimate = true
         }
     }
     
     public func disableAnimations() {
         switch self {
+        case .Modal(let animator):
+            animator.shouldAnimate = false
+            
+        case .ModalNavigation(let animator):
+            animator.shouldAnimate = false
+            
         case .Navigation(let animator):
             animator.shouldAnimate = false
+            
         case .Popover(let animator):
+            animator.shouldAnimate = false
+            
+        case .PopoverNavigation(let animator):
             animator.shouldAnimate = false
         }
     }

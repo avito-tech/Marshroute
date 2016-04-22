@@ -30,4 +30,25 @@ public struct PopoverNavigationPresentationAnimationContext {
         self.sourceViewController = sourceViewController
         self.popoverController = popoverController
     }
+    
+    public init?(
+        popoverNavigationPresentationAnimationLaunchingContext: PopoverNavigationPresentationAnimationLaunchingContext)
+    {
+        guard let targetViewController = popoverNavigationPresentationAnimationLaunchingContext.targetViewController
+            else { return nil }
+        
+        guard let targetNavigationController = popoverNavigationPresentationAnimationLaunchingContext.targetNavigationController
+            else { return nil }
+        
+        guard let sourceViewController = popoverNavigationPresentationAnimationLaunchingContext.sourceViewController
+            else { return nil }
+        
+        guard let popoverController = popoverNavigationPresentationAnimationLaunchingContext.popoverController
+            else { return nil }
+        
+        self.targetViewController = targetViewController
+        self.targetNavigationController = targetNavigationController
+        self.sourceViewController = sourceViewController
+        self.popoverController = popoverController
+    }
 }

@@ -3,16 +3,29 @@ import UIKit
 /// Описание параметров запуска reset-анимаций с участием UINavigationController
 public struct ResettingAnimationContext {
     /// контроллер, который нужно вставить в `UINavigationController`
-    public let targetViewController: UIViewController
+    public let rootViewController: UIViewController
     
     // навигационный контроллер, осуществляющий reset-переход
     public let navigationController: UINavigationController
     
     public init(
-        targetViewController: UIViewController,
+        rootViewController: UIViewController,
         navigationController: UINavigationController)
     {
-        self.targetViewController = targetViewController
+        self.rootViewController = rootViewController
+        self.navigationController = navigationController
+    }
+    
+    public init?(
+        resettingAnimationLaunchingContext: ResettingAnimationLaunchingContext)
+    {
+        guard let rootViewController = resettingAnimationLaunchingContext.rootViewController
+            else { return nil }
+        
+        guard let navigationController = resettingAnimationLaunchingContext.navigationController
+            else { return nil }
+        
+        self.rootViewController = rootViewController
         self.navigationController = navigationController
     }
 }

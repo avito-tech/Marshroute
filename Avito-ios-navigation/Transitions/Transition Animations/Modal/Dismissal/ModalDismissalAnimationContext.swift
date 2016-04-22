@@ -6,7 +6,7 @@ public struct ModalDismissalAnimationContext {
     public let targetViewController: UIViewController
     
     /// контроллер, с которого нужно осуществить обратный модальный переход
-    public let sourceViewController: UIViewController?
+    public let sourceViewController: UIViewController
     
     public init(
         targetViewController: UIViewController,
@@ -14,5 +14,12 @@ public struct ModalDismissalAnimationContext {
     {
         self.targetViewController = targetViewController
         self.sourceViewController = sourceViewController
+    }
+    
+    public init(
+        modalDismissalAnimationLaunchingContext: ModalDismissalAnimationLaunchingContext)
+    {
+        self.targetViewController = modalDismissalAnimationLaunchingContext.targetViewController
+        self.sourceViewController = modalDismissalAnimationLaunchingContext.sourceViewController
     }
 }

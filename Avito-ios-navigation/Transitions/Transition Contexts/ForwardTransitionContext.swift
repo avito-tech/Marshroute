@@ -17,9 +17,9 @@ public struct ForwardTransitionContext {
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?
-    
-    /// параметры запуска анимации перехода
-    public let animationLaunchingContext: TransitionAnimationLaunchingContext
+
+    /// параметры запуска анимации прямого перехода
+    public let presentationAnimationLaunchingContextBox: PresentationAnimationLaunchingContextBox
     
     // MARK: - Navigation
     

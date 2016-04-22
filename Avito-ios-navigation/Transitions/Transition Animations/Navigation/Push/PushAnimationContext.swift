@@ -20,4 +20,21 @@ public struct PushAnimationContext {
         self.sourceViewController = sourceViewController
         self.navigationController = navigationController
     }
+    
+    public init?(
+        pushAnimationLaunchingContext: PushAnimationLaunchingContext)
+    {
+        guard let targetViewController = pushAnimationLaunchingContext.targetViewController
+            else { return nil }
+        
+        guard let sourceViewController = pushAnimationLaunchingContext.sourceViewController
+            else { return nil }
+        
+        guard let navigationController = pushAnimationLaunchingContext.navigationController
+            else { return nil }
+        
+        self.targetViewController = targetViewController
+        self.sourceViewController = sourceViewController
+        self.navigationController = navigationController
+    }
 }

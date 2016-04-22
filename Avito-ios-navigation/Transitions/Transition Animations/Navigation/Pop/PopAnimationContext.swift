@@ -20,4 +20,12 @@ public struct PopAnimationContext {
         self.sourceViewController = sourceViewController
         self.navigationController = navigationController
     }
+    
+    public init(
+        popAnimationLaunchingContext: PopAnimationLaunchingContext)
+    {
+        self.targetViewController = popAnimationLaunchingContext.targetViewController
+        self.sourceViewController = popAnimationLaunchingContext.sourceViewController
+        self.navigationController = popAnimationLaunchingContext.navigationController
+    }
 }

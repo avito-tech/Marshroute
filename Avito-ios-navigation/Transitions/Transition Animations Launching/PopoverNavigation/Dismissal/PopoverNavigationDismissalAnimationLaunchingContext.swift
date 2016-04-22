@@ -35,4 +35,25 @@ public struct PopoverNavigationDismissalAnimationLaunchingContext {
         self.popoverController = popoverController
         self.animator = animator
     }
+    
+    public init?(
+        popoverNavigationPresentationAnimationLaunchingContext: PopoverNavigationPresentationAnimationLaunchingContext,
+        targetViewController: UIViewController)
+    {
+        guard let sourceViewController = popoverNavigationPresentationAnimationLaunchingContext.targetViewController
+            else { return nil }
+        
+        guard let sourceNavigationController = popoverNavigationPresentationAnimationLaunchingContext.targetNavigationController
+            else { return nil }
+        
+        guard let popoverController = popoverNavigationPresentationAnimationLaunchingContext.popoverController
+            else { return nil }
+        
+        self.transitionStyle = popoverNavigationPresentationAnimationLaunchingContext.transitionStyle
+        self.targetViewController = targetViewController
+        self.sourceViewController = sourceViewController
+        self.sourceNavigationController = sourceNavigationController
+        self.popoverController = popoverController
+        self.animator = popoverNavigationPresentationAnimationLaunchingContext.animator
+    }
 }

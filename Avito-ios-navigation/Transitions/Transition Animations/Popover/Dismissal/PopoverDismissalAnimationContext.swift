@@ -25,4 +25,13 @@ public struct PopoverDismissalAnimationContext {
         self.sourceViewController = sourceViewController
         self.popoverController = popoverController
     }
+    
+    public init(
+        popoverDismissalAnimationLaunchingContext: PopoverDismissalAnimationLaunchingContext)
+    {
+        self.transitionStyle = popoverDismissalAnimationLaunchingContext.transitionStyle
+        self.targetViewController = popoverDismissalAnimationLaunchingContext.targetViewController
+        self.sourceViewController = popoverDismissalAnimationLaunchingContext.sourceViewController
+        self.popoverController = popoverDismissalAnimationLaunchingContext.popoverController
+    }
 }

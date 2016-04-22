@@ -23,7 +23,7 @@ public struct RestoredTransitionContext {
     public let storableParameters: TransitionStorableParameters?
     
     /// параметры запуска анимации прямого перехода
-    public let forwardAnimationLaunchingContext: TransitionAnimationLaunchingContext
+    public let presentationAnimationLaunchingContextBox: PresentationAnimationLaunchingContextBox
     
     init?(completedTransition context: CompletedTransitionContext?)
     {
@@ -49,14 +49,14 @@ public struct RestoredTransitionContext {
         
         self.storableParameters = context.storableParameters
         
-        self.forwardAnimationLaunchingContext = context.animationLaunchingContext
+        self.presentationAnimationLaunchingContextBox = context.presentationAnimationLaunchingContextBox
     }
     
     /// Аниматор, выполнивший прямой переход. В будущем этот же аниматор выполнит обратный переход
     public var transitionsAnimatorBox: TransitionsAnimatorBox {
         // берем аниматора из описания параметров анимации прямого перехода, 
         // так как для прямого и обратного перехода используется один и тот же аниматор
-        return forwardAnimationLaunchingContext.transitionsAnimatorBox
+        return presentationAnimationLaunchingContextBox.transitionsAnimatorBox
     }
 }
 

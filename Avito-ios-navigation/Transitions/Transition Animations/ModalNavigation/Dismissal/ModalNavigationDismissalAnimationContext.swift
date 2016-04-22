@@ -20,4 +20,12 @@ public struct ModalNavigationDismissalAnimationContext {
         self.sourceViewController = sourceViewController
         self.sourceNavigationController = sourceNavigationController
     }
+    
+    public init(
+        modalNavigationDismissalAnimationLaunchingContext: ModalNavigationDismissalAnimationLaunchingContext)
+    {
+        self.targetViewController = modalNavigationDismissalAnimationLaunchingContext.targetViewController
+        self.sourceViewController = modalNavigationDismissalAnimationLaunchingContext.sourceViewController
+        self.sourceNavigationController = modalNavigationDismissalAnimationLaunchingContext.sourceNavigationController
+    }
 }

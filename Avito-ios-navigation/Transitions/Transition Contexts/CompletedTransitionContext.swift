@@ -23,8 +23,8 @@ public struct CompletedTransitionContext {
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?
     
-    /// параметры запуска анимации перехода
-    public let animationLaunchingContext: TransitionAnimationLaunchingContext
+    /// параметры запуска анимации прямого перехода
+    public let presentationAnimationLaunchingContextBox: PresentationAnimationLaunchingContextBox
     
     init?(forwardTransitionContext context: ForwardTransitionContext,
         sourceTransitionsHandler: AnimatingTransitionsHandler)
@@ -48,7 +48,7 @@ public struct CompletedTransitionContext {
         
         self.storableParameters = context.storableParameters
 
-        self.animationLaunchingContext = context.animationLaunchingContext
+        self.presentationAnimationLaunchingContextBox = context.presentationAnimationLaunchingContextBox
     }
     
     /// Все важные ссылки хранятся слабо, чтобы не нарушать UIKit'овый цикл управления памятью.
@@ -66,13 +66,13 @@ extension CompletedTransitionContext {
         targetViewController: UIViewController?,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
         storableParameters: TransitionStorableParameters?,
-        animationLaunchingContext: TransitionAnimationLaunchingContext)
+        presentationAnimationLaunchingContextBox: PresentationAnimationLaunchingContextBox)
     {
         self.transitionId = transitionId
         self.sourceTransitionsHandler = sourceTransitionsHandler
         self.targetViewController = targetViewController
         self.targetTransitionsHandlerBox = targetTransitionsHandlerBox
         self.storableParameters = storableParameters
-        self.animationLaunchingContext = animationLaunchingContext
+        self.presentationAnimationLaunchingContextBox = presentationAnimationLaunchingContextBox
     }
 }

@@ -6,13 +6,13 @@ public struct PopoverDismissalAnimationLaunchingContext {
     public let transitionStyle: PopoverTransitionStyle
     
     /// контроллер, под которым лежит поповер
-    public private(set) weak var targetViewController: UIViewController?
+    public let targetViewController: UIViewController
     
     /// контроллер, лежащий в поповере
-    public private(set) weak var sourceViewController: UIViewController?
+    public let sourceViewController: UIViewController
     
     // поповер, котороый нужно сокрыть
-    public private(set) weak var popoverController: UIPopoverController?
+    public let popoverController: UIPopoverController
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
     public let animator: PopoverTransitionsAnimator
@@ -29,5 +29,22 @@ public struct PopoverDismissalAnimationLaunchingContext {
         self.sourceViewController = sourceViewController
         self.popoverController = popoverController
         self.animator = animator
+    }
+    
+    public init?(
+        popoverPresentationAnimationLaunchingContext: PopoverPresentationAnimationLaunchingContext,
+        targetViewController: UIViewController)
+    {
+        guard let sourceViewController = popoverPresentationAnimationLaunchingContext.targetViewController
+            else { return nil }
+        
+        guard let popoverController = popoverPresentationAnimationLaunchingContext.popoverController
+            else { return nil }
+        
+        self.transitionStyle = popoverPresentationAnimationLaunchingContext.transitionStyle
+        self.targetViewController = targetViewController
+        self.sourceViewController = sourceViewController
+        self.popoverController = popoverController
+        self.animator = popoverPresentationAnimationLaunchingContext.animator
     }
 }

@@ -9,16 +9,27 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
     }
     
     // MARK: - TransitionAnimationsLauncher
-    public func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {
-        launchingContext.launchAnimationOfPerformingTransition()
+    public func launchPresentationAnimation(
+        launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox)
+    {
+        guard !launchingContextBox.needsNavigationAnimationSourceParameters
+            else { assert(false, "you were supposed to create `NavigationTransitionsHandlerImpl`"); return }
+        
+        launchingContextBox.launchAnimationOfPerformingTransition()
     }
 
-    public func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {
-        launchingContext.launchAnimationOfUndoingTransition()
+    public func launchDismissalAnimation(
+        launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox)
+    {
+        launchingContextBox.launchAnimationOfUndoingTransition()
     }
     
-    public func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {
-        launchingContext.launchAnimationOfResettingWithTransition()
+    public func launchResettingAnimation(
+        launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
+    {
+        guard !launchingContextBox.needsNavigationAnimationSourceParameters
+            else { assert(false, "you were supposed to create `NavigationTransitionsHandlerImpl`"); return }
+        launchingContextBox.launchAnimationOfResettingWithTransition()
     }
 
     // MARK: - TransitionsHandler

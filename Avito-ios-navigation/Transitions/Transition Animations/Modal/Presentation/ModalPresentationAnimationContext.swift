@@ -15,4 +15,17 @@ public struct ModalPresentationAnimationContext {
         self.targetViewController = targetViewController
         self.sourceViewController = sourceViewController
     }
+    
+    public init?(
+        modalPresentationAnimationLaunchingContext: ModalPresentationAnimationLaunchingContext)
+    {
+        guard let targetViewController = modalPresentationAnimationLaunchingContext.targetViewController
+            else { return nil }
+        
+        guard let sourceViewController = modalPresentationAnimationLaunchingContext.sourceViewController
+            else { return nil }
+        
+        self.targetViewController = targetViewController
+        self.sourceViewController = sourceViewController
+    }
 }

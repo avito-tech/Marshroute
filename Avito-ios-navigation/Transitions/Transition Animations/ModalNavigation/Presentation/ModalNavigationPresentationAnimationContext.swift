@@ -20,4 +20,21 @@ public struct ModalNavigationPresentationAnimationContext {
         self.targetNavigationController = targetNavigationController
         self.sourceViewController = sourceViewController
     }
+    
+    public init?(
+        modalNavigationPresentationAnimationLaunchingContext: ModalNavigationPresentationAnimationLaunchingContext)
+    {
+        guard let targetViewController = modalNavigationPresentationAnimationLaunchingContext.targetViewController
+            else { return nil }
+        
+        guard let targetNavigationController = modalNavigationPresentationAnimationLaunchingContext.targetNavigationController
+            else { return nil }
+        
+        guard let sourceViewController = modalNavigationPresentationAnimationLaunchingContext.sourceViewController
+            else { return nil }
+        
+        self.targetViewController = targetViewController
+        self.targetNavigationController = targetNavigationController
+        self.sourceViewController = sourceViewController
+    }
 }

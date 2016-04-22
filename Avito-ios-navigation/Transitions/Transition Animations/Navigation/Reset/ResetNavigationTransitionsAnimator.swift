@@ -1,4 +1,4 @@
-public class ResetTransitionsAnimatorImpl: ResetTransitionsAnimator
+public class ResetNavigationTransitionsAnimator: ResetTransitionsAnimator
 {
     public var shouldAnimate = true
 
@@ -6,10 +6,10 @@ public class ResetTransitionsAnimatorImpl: ResetTransitionsAnimator
     public init() {}
 
     // MARK: - ResetTransitionsAnimator
-    public func animateResettingWithTransition(animationContext context: ResettingAnimationContext)
+    public func animateResettingWithTransition(animationContext context: ResettingNavigationAnimationContext)
     {
         context.navigationController.setViewControllers(
-            [context.targetViewController],
+            [context.rootViewController],
             animated: shouldAnimate
         )
         shouldAnimate = true

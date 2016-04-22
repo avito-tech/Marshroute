@@ -6,5 +6,5 @@ public protocol TransitionAnimationsLauncher: class {
         launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox)
     
     func launchResettingAnimation(
-        launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox)
+        launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
 }

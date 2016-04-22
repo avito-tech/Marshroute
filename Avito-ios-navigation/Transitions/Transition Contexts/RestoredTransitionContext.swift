@@ -24,7 +24,10 @@ public struct RestoredTransitionContext {
     
     /// параметры запуска анимации прямого перехода
     public let presentationAnimationLaunchingContextBox: PresentationAnimationLaunchingContextBox
-    
+}
+
+// MARK: - Init
+public extension RestoredTransitionContext {
     init?(completedTransition context: CompletedTransitionContext?)
     {
         guard let context = context
@@ -40,6 +43,11 @@ public struct RestoredTransitionContext {
             completedTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox)
             else { return nil }
         
+        let sourceAnimationLaunchingContextBox = context.sourceAnimationLaunchingContextBox
+        
+        guard let presentationAnimationLaunchingContextBox = sourceAnimationLaunchingContextBox.unboxPresentationAnimationLaunchingContextBox()
+            else { debugPrint("YOU CANNOT RESTORE `ResettingTransitionContext`"); return nil }
+        
         self.transitionId = context.transitionId
         
         self.sourceTransitionsHandler = sourceTransitionsHandler
@@ -49,14 +57,7 @@ public struct RestoredTransitionContext {
         
         self.storableParameters = context.storableParameters
         
-        self.presentationAnimationLaunchingContextBox = context.presentationAnimationLaunchingContextBox
-    }
-    
-    /// Аниматор, выполнивший прямой переход. В будущем этот же аниматор выполнит обратный переход
-    public var transitionsAnimatorBox: TransitionsAnimatorBox {
-        // берем аниматора из описания параметров анимации прямого перехода, 
-        // так как для прямого и обратного перехода используется один и тот же аниматор
-        return presentationAnimationLaunchingContextBox.transitionsAnimatorBox
+        self.presentationAnimationLaunchingContextBox = presentationAnimationLaunchingContextBox
     }
 }
 

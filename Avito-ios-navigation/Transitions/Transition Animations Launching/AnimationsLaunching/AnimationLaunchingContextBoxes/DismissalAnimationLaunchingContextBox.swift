@@ -5,6 +5,7 @@ import UIKit
 public enum DismissalAnimationLaunchingContextBox {
     case Modal(launchingContext: ModalDismissalAnimationLaunchingContext)
     case ModalNavigation(launchingContext: ModalNavigationDismissalAnimationLaunchingContext)
+    case ModalEndpointNavigation(launchingContext: ModalEndpointNavigationDismissalAnimationLaunchingContext)
     case Pop(launchingContext: PopAnimationLaunchingContext)
     case Popover(launchingContext: PopoverDismissalAnimationLaunchingContext)
     case PopoverNavigation(launchingContext: PopoverNavigationDismissalAnimationLaunchingContext)
@@ -34,6 +35,18 @@ public enum DismissalAnimationLaunchingContextBox {
             
             if let launchingContext = modalNavigationDismissalAnimationLaunchingContext {
                 self = .ModalNavigation(launchingContext: launchingContext)
+            } else {
+                return nil
+            }
+            
+        case .ModalEndpointNavigation(let launchingContext):
+            let modalEndpointNavigationDismissalAnimationLaunchingContext = ModalEndpointNavigationDismissalAnimationLaunchingContext(
+                modalEndpointNavigationPresentationAnimationLaunchingContext: launchingContext,
+                targetViewController: targetViewController
+            )
+            
+            if let launchingContext = modalEndpointNavigationDismissalAnimationLaunchingContext {
+                self = .ModalEndpointNavigation(launchingContext: launchingContext)
             } else {
                 return nil
             }
@@ -76,43 +89,26 @@ public enum DismissalAnimationLaunchingContextBox {
         }
     }
     
-    public func launchDismissalAnimation()
+    public var transitionsAnimatorBox: TransitionsAnimatorBox
     {
         switch self {
         case .Modal(let launchingContext):
-            let modalDismissalAnimationContext = ModalDismissalAnimationContext(
-                modalDismissalAnimationLaunchingContext: launchingContext
-            )
-            
-            launchingContext.animator.animateUndoingTransition(animationContext: modalDismissalAnimationContext)
+            return .Modal(animator: launchingContext.animator)
             
         case .ModalNavigation(let launchingContext):
-            let modalNavigationDismissalAnimationContext = ModalNavigationDismissalAnimationContext(
-                modalNavigationDismissalAnimationLaunchingContext: launchingContext
-            )
+            return .ModalNavigation(animator: launchingContext.animator)
             
-            launchingContext.animator.animateUndoingTransition(animationContext: modalNavigationDismissalAnimationContext)
+        case .ModalEndpointNavigation(let launchingContext):
+            return .ModalEndpointNavigation(animator: launchingContext.animator)
             
         case .Pop(let launchingContext):
-            let popAnimationContext = PopAnimationContext(
-                popAnimationLaunchingContext: launchingContext
-            )
-        
-            launchingContext.animator.animateUndoingTransition(animationContext: popAnimationContext)
+            return .Navigation(animator: launchingContext.animator)
             
         case .Popover(let launchingContext):
-            let popoverDismissalAnimationContext = PopoverDismissalAnimationContext(
-                popoverDismissalAnimationLaunchingContext: launchingContext
-            )
-            
-            launchingContext.animator.animateUndoingTransition(animationContext: popoverDismissalAnimationContext)
+            return .Popover(animator: launchingContext.animator)
             
         case .PopoverNavigation(let launchingContext):
-            let popoverNavigationDismissalAnimationContext = PopoverNavigationDismissalAnimationContext(
-                popoverNavigationDismissalAnimationLaunchingContext: launchingContext
-            )
-            
-            launchingContext.animator.animateUndoingTransition(animationContext: popoverNavigationDismissalAnimationContext)
+            return .PopoverNavigation(animator: launchingContext.animator)
         }
     }
 }

@@ -3,7 +3,7 @@ import Foundation
 public protocol TransitionsCoordinatorDelegate: class {
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchResettingAnimation animatorBox: TransitionsAnimatorBox,
+        willLaunchResettingAnimation animatorBox: ResettingTransitionsAnimatorBox,
         ofTransitionWith transitionId: TransitionId)
     
     func transitionsCoordinator(

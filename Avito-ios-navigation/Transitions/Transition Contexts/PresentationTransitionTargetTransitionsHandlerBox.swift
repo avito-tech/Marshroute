@@ -1,25 +1,22 @@
 /// Варианты хранения обработчика переходов показываемого модуля
-public enum ForwardTransitionTargetTransitionsHandlerBox {
+public enum PresentationTransitionTargetTransitionsHandlerBox {
     case Animating(StrongBox<AnimatingTransitionsHandler>)
     case Containing(StrongBox<ContainingTransitionsHandler>)
     case PendingAnimating // обработчик переходов будет выставлен позже
-}
 
-// MARK: - convenience
-public extension ForwardTransitionTargetTransitionsHandlerBox {
-    init(animatingTransitionsHandler: AnimatingTransitionsHandler)
+    public init(animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         self = .Animating(StrongBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
     }
     
-    init(containingTransitionsHandler: ContainingTransitionsHandler)
+    public init(containingTransitionsHandler: ContainingTransitionsHandler)
     {
         self = .Containing(StrongBox<ContainingTransitionsHandler>(containingTransitionsHandler))
     }
 }
 
 // MARK: - helpers
-public extension ForwardTransitionTargetTransitionsHandlerBox {
+public extension PresentationTransitionTargetTransitionsHandlerBox {
     func unbox() -> TransitionsHandler?
     {
         switch self {
@@ -40,7 +37,10 @@ public extension ForwardTransitionTargetTransitionsHandlerBox {
         case .Animating(let weakBox):
             return weakBox.unbox()
             
-        default:
+        case .Containing(_):
+            return nil
+            
+        case .PendingAnimating:
             return nil
         }
     }
@@ -48,21 +48,27 @@ public extension ForwardTransitionTargetTransitionsHandlerBox {
     func unboxContainingTransitionsHandler() -> ContainingTransitionsHandler?
     {
         switch self {
+        case .Animating(_):
+            return nil
+            
         case .Containing(let weakBox):
             return weakBox.unbox()
             
-        default:
+        case .PendingAnimating:
             return nil
         }
     }
     
     var needsAnimatingTargetTransitionHandler: Bool {
         switch self {
+        case .Animating(_):
+            return false
+            
+        case .Containing(_):
+           return false
+            
         case .PendingAnimating:
             return true
-
-        default:
-            return false
         }
     }
 }

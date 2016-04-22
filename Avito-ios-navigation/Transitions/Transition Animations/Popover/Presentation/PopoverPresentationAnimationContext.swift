@@ -11,7 +11,7 @@ public struct PopoverPresentationAnimationContext {
     /// контроллер, над которым нужно показать поповер
     public let sourceViewController: UIViewController
     
-    // поповер, котороый нужно показать
+    // поповер, который нужно показать
     public let popoverController: UIPopoverController
     
     public init(
@@ -38,6 +38,7 @@ public struct PopoverPresentationAnimationContext {
         guard let popoverController = popoverPresentationAnimationLaunchingContext.popoverController
             else { return nil }
         
+        self.transitionStyle = popoverPresentationAnimationLaunchingContext.transitionStyle
         self.targetViewController = targetViewController
         self.sourceViewController = sourceViewController
         self.popoverController = popoverController

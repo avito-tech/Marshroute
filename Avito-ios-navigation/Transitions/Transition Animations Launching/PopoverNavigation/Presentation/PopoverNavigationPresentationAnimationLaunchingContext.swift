@@ -11,7 +11,7 @@ public struct PopoverNavigationPresentationAnimationLaunchingContext {
     /// контроллер, лежащий в поповере, который нужно показать
     public private(set) weak var targetNavigationController: UINavigationController?
     
-    // поповер, котороый нужно показать
+    // поповер, который нужно показать
     public private(set) weak var popoverController: UIPopoverController?
     
     /// аниматор, выполняющий анимации прямого и обратного перехода

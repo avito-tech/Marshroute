@@ -11,7 +11,7 @@ public struct PopoverDismissalAnimationContext {
     /// контроллер, который лежит в поповере
     public let sourceViewController: UIViewController
     
-    // поповер, котороый нужно сокрыть
+    // поповер, который нужно сокрыть
     public let popoverController: UIPopoverController
     
     public init(

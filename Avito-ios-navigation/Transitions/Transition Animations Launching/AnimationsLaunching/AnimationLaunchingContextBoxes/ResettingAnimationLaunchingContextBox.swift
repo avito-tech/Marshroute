@@ -2,32 +2,35 @@ import UIKit
 
 /// Описание параметров запуска reset-анимаций
 public enum ResettingAnimationLaunchingContextBox {
-    case Reset(launchingContext: ResettingAnimationLaunchingContext)
-
-    public var needsNavigationControllerForResettingAnimation: Bool
+    case SetNavigation(launchingContext: SettingAnimationLaunchingContext)
+    case ResetNavigation(launchingContext: ResettingAnimationLaunchingContext)
+    case Reset
+    
+    public var resettingTransitionsAnimatorBox: ResettingTransitionsAnimatorBox
     {
         switch self {
-        case .Reset(_):
-            return true
+        case .SetNavigation(let launchingContext):
+            return .SetNavigation(animator: launchingContext.animator)
+            
+        case .ResetNavigation(let launchingContext):
+            return .ResetNavigation(animator: launchingContext.animator)
+            
+        case .Reset:
+            return .Reset
         }
     }
     
-    public func launchResettingAnimation(navigationController navigationController: UINavigationController?)
+    public mutating func appendSourceViewController(sourceViewController: UIViewController)
     {
-        guard needsNavigationControllerForResettingAnimation == (navigationController != nil)
-            else { return }
-        
         switch self {
-        case .Reset(var launchingContext):
-            launchingContext.navigationController = navigationController
+        case .SetNavigation(_):
+            break // has no source view controller property
             
-            let resettingAnimationContext = ResettingAnimationContext(
-                resettingAnimationLaunchingContext: launchingContext
-            )
+        case .ResetNavigation(var launchingContext):
+            launchingContext.sourceViewController = sourceViewController
             
-            if let animationContext = resettingAnimationContext {
-                launchingContext.animator.animateResettingWithTransition(animationContext: animationContext)
-            }
+        case .Reset:
+            break // no need for animations
         }
     }
 }

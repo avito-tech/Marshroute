@@ -18,7 +18,7 @@ public class ContainingTransitionsHandler: TransitionsHandlerContainer, Transiti
     }
 
     // MARK: - TransitionsHandler
-    public func performTransition(context context: ForwardTransitionContext)
+    public func performTransition(context context: PresentationTransitionContext)
     {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forContainingTransitionsHandler: self)
     }
@@ -43,7 +43,7 @@ public class ContainingTransitionsHandler: TransitionsHandlerContainer, Transiti
         assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
-    public func resetWithTransition(context context: ForwardTransitionContext)
+    public func resetWithTransition(context context: ResettingTransitionContext)
     {
         assert(false, "такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }

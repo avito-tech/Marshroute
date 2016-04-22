@@ -1,7 +1,8 @@
 import UIKit
 
-/// Описание параметров запуска reset-анимаций с участием UINavigationController
-public struct ResettingAnimationContext {
+/// Описание параметров reset-анимаций
+/// для первоначального проставления корневого контроллера в UINavigationController
+public struct SettingNavigationAnimationContext {
     /// контроллер, который нужно вставить в `UINavigationController`
     public let rootViewController: UIViewController
     
@@ -17,12 +18,12 @@ public struct ResettingAnimationContext {
     }
     
     public init?(
-        resettingAnimationLaunchingContext: ResettingAnimationLaunchingContext)
+        settingAnimationLaunchingContext: SettingAnimationLaunchingContext)
     {
-        guard let rootViewController = resettingAnimationLaunchingContext.rootViewController
+        guard let rootViewController = settingAnimationLaunchingContext.rootViewController
             else { return nil }
         
-        guard let navigationController = resettingAnimationLaunchingContext.navigationController
+        guard let navigationController = settingAnimationLaunchingContext.navigationController
             else { return nil }
         
         self.rootViewController = rootViewController

@@ -6,16 +6,16 @@ public struct PopoverNavigationDismissalAnimationLaunchingContext {
     public let transitionStyle: PopoverTransitionStyle
     
     /// контроллер, под которым лежит поповер
-    public private(set) weak var targetViewController: UIViewController?
+    public let targetViewController: UIViewController
     
     /// контроллер, лежащий в навигационном контроллере, который лежит в поповере
-    public private(set) weak var sourceViewController: UIViewController?
+    public let sourceViewController: UIViewController
     
     /// навигационный контроллер, лежащий в поповере
-    public private(set) weak var sourceNavigationController: UINavigationController?
+    public let sourceNavigationController: UINavigationController
     
-    // поповер, котороый нужно сокрыть
-    public private(set) weak var popoverController: UIPopoverController?
+    // поповер, который нужно сокрыть
+    public let popoverController: UIPopoverController
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
     public let animator: PopoverNavigationTransitionsAnimator

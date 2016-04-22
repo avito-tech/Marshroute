@@ -14,7 +14,7 @@ public struct PopoverNavigationDismissalAnimationContext {
     /// навигационный контроллер, который лежит в поповере
     public let sourceNavigationController: UINavigationController
     
-    // поповер, котороый нужно сокрыть
+    // поповер, который нужно сокрыть
     public let popoverController: UIPopoverController
     
     public init(

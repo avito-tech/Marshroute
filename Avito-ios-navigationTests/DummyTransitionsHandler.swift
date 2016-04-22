@@ -1,12 +1,12 @@
 import XCTest
 
 class DummyTransitionsHandler: AnimatingTransitionsHandler {
-    override func performTransition(context context: ForwardTransitionContext) {}
+    override func performTransition(context context: PresentationTransitionContext) {}
     override func undoTransitionsAfter(transitionId transitionId: TransitionId) {}
     override func undoTransitionWith(transitionId transitionId: TransitionId) {}
     override func undoAllChainedTransitions() {}
     override func undoAllTransitions() {}
-    override func resetWithTransition(context context: ForwardTransitionContext) {}
+    override func resetWithTransition(context context: ResettingTransitionContext) {}
     
     override func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
     override func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}

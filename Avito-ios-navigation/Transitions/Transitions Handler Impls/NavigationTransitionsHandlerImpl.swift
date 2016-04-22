@@ -73,10 +73,10 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
     override public func launchResettingAnimation(launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .SetNavigation(_):
+        case .SettingNavigationRoot(_):
             super.launchResettingAnimation(launchingContextBox: launchingContextBox)
             
-        case .ResetNavigation(var launchingContext):
+        case .ResettingNavigationRoot(var launchingContext):
             guard let navigationController = navigationController
                 else { return }
             
@@ -92,7 +92,10 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
                 launchingContext.animator.animateResettingWithTransition(animationContext: animationContext)
             }
             
-        case .Reset:
+        case .Registering:
+            super.launchResettingAnimation(launchingContextBox: launchingContextBox)
+            
+        case .RegisteringEndpointNavigation:
             super.launchResettingAnimation(launchingContextBox: launchingContextBox)
         }
     }

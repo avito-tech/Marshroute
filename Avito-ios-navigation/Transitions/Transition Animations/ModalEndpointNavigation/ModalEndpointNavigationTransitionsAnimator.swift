@@ -23,6 +23,14 @@ public class ModalEndpointNavigationTransitionsAnimator: TransitionsAnimator
         self.targetModalPresentationStyle = targetModalPresentationStyle ?? .FullScreen
     }
     
+    public init()
+    {
+        self.sourceModalTransitionStyle = .CoverVertical
+        self.sourceModalPresentationStyle = .FullScreen
+        self.targetModalTransitionStyle = .CoverVertical
+        self.targetModalPresentationStyle = .FullScreen
+    }
+    
     // MARK: - TransitionsAnimator
     public func animatePerformingTransition(animationContext context: ModalEndpointNavigationPresentationAnimationContext)
     {

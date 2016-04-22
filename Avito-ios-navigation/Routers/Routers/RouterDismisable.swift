@@ -13,4 +13,8 @@ public extension RouterDismisable where Self: RouterPresentable, Self: RouterIde
         presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
         CATransaction.commit()
     }
+    
+    func dismissCurrentModule() {
+        dismissCurrentModule(completion: nil)
+    }
 }

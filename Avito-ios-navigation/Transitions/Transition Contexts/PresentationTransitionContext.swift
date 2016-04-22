@@ -113,7 +113,7 @@ public extension PresentationTransitionContext {
     /// Контекст описывает переход на модальный контроллер, который положен в UINavigationController
     init(presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
-        targetTransitionsHandler: AnimatingTransitionsHandler,
+        targetTransitionsHandler: NavigationTransitionsHandlerImpl,
         animator: ModalNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
@@ -144,7 +144,7 @@ public extension PresentationTransitionContext {
     /// Контекст описывает переход на конечный модальный UINavigationController
     /// использовать для MFMailComposeViewController, UIImagePickerController
     init(presentingModalEndpointNavigationController navigationController: UINavigationController,
-        targetTransitionsHandler: AnimatingTransitionsHandler,
+        targetTransitionsHandler: NavigationTransitionsHandlerImpl,
         animator: ModalEndpointNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {        
@@ -203,7 +203,7 @@ public extension PresentationTransitionContext {
         inPopoverController popoverController: UIPopoverController,
         fromRect rect: CGRect,
         inView view: UIView,
-        targetTransitionsHandler: AnimatingTransitionsHandler,
+        targetTransitionsHandler: NavigationTransitionsHandlerImpl,
         animator: PopoverNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
@@ -230,7 +230,6 @@ public extension PresentationTransitionContext {
     
     /// Контекст описывает вызов поповера, содержащего простой UIViewController
     init(presentingViewController targetViewController: UIViewController,
-        inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
         targetTransitionsHandler: AnimatingTransitionsHandler,

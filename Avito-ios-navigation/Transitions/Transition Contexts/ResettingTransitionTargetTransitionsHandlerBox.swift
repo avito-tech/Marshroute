@@ -1,10 +1,10 @@
 /// Варианты хранения обработчика переходов показываемого модуля
 public enum ResettingTransitionTargetTransitionsHandlerBox {
-    case Animating(StrongBox<NavigationTransitionsHandlerImpl>)
+    case Animating(StrongBox<AnimatingTransitionsHandler>)
 
-    public init(animatingTransitionsHandler: NavigationTransitionsHandlerImpl)
+    public init(animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
-        self = .Animating(StrongBox<NavigationTransitionsHandlerImpl>(animatingTransitionsHandler))
+        self = .Animating(StrongBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
     }
 
     public func unbox() -> TransitionsHandler
@@ -15,7 +15,7 @@ public enum ResettingTransitionTargetTransitionsHandlerBox {
         }
     }
     
-    public func unboxAnimatingTransitionsHandler() -> NavigationTransitionsHandlerImpl
+    public func unboxAnimatingTransitionsHandler() -> AnimatingTransitionsHandler
     {
         switch self {
         case .Animating(let weakBox):

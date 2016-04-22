@@ -2,34 +2,41 @@ import UIKit
 
 /// Описание параметров запуска reset-анимаций
 public enum ResettingAnimationLaunchingContextBox {
-    case SetNavigation(launchingContext: SettingAnimationLaunchingContext)
-    case ResetNavigation(launchingContext: ResettingAnimationLaunchingContext)
-    case Reset
+    case SettingNavigationRoot(launchingContext: SettingAnimationLaunchingContext)
+    case ResettingNavigationRoot(launchingContext: ResettingAnimationLaunchingContext)
+    case Registering
+    case RegisteringEndpointNavigation
     
     public var resettingTransitionsAnimatorBox: ResettingTransitionsAnimatorBox
     {
         switch self {
-        case .SetNavigation(let launchingContext):
-            return .SetNavigation(animator: launchingContext.animator)
+        case .SettingNavigationRoot(let launchingContext):
+            return .SettingNavigationRoot(animator: launchingContext.animator)
             
-        case .ResetNavigation(let launchingContext):
-            return .ResetNavigation(animator: launchingContext.animator)
+        case .ResettingNavigationRoot(let launchingContext):
+            return .ResettingNavigationRoot(animator: launchingContext.animator)
             
-        case .Reset:
-            return .Reset
+        case .Registering:
+            return .Registering
+            
+        case .RegisteringEndpointNavigation:
+            return .RegisteringEndpointNavigation
         }
     }
     
     public mutating func appendSourceViewController(sourceViewController: UIViewController)
     {
         switch self {
-        case .SetNavigation(_):
+        case .SettingNavigationRoot(_):
             break // has no source view controller property
             
-        case .ResetNavigation(var launchingContext):
+        case .ResettingNavigationRoot(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
             
-        case .Reset:
+        case .Registering:
+            break // no need for animations
+            
+        case .RegisteringEndpointNavigation:
             break // no need for animations
         }
     }

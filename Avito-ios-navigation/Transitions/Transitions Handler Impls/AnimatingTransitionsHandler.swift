@@ -144,7 +144,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
     public func launchResettingAnimation(launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .SetNavigation(let launchingContext):
+        case .SettingNavigationRoot(let launchingContext):
             let settingAnimationContext = SettingNavigationAnimationContext(
                 settingAnimationLaunchingContext: launchingContext
             )
@@ -153,11 +153,14 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animateResettingWithTransition(animationContext: animationContext)
             }
             
-        case .ResetNavigation(_):
+        case .ResettingNavigationRoot(_):
             assert(false, "you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
-        case .Reset:
+        case .Registering:
             break; // no need for animations
+            
+        case .RegisteringEndpointNavigation:
+            break // no need for animations
         }
     }
 }

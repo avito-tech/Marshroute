@@ -1,6 +1,6 @@
 import XCTest
 
-class DummyTransitionsHandler: AnimatingTransitionsHandler {
+final class DummyTransitionsHandler: AnimatingTransitionsHandler {
     override func performTransition(context context: PresentationTransitionContext) {}
     override func undoTransitionsAfter(transitionId transitionId: TransitionId) {}
     override func undoTransitionWith(transitionId transitionId: TransitionId) {}
@@ -8,9 +8,9 @@ class DummyTransitionsHandler: AnimatingTransitionsHandler {
     override func undoAllTransitions() {}
     override func resetWithTransition(context context: ResettingTransitionContext) {}
     
-    override func launchAnimationOfPerformingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
-    override func launchAnimationOfUndoingTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
-    override func launchAnimationOfResettingWithTransition(launchingContext launchingContext: TransitionAnimationLaunchingContext) {}
+    override func launchPresentationAnimation(launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox) {}
+    override func launchDismissalAnimation(launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox) {}
+    override func launchResettingAnimation(launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox) {}
     
     init() {
         let coodinator = TransitionsCoordinatorImpl()

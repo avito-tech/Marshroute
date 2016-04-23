@@ -1,30 +1,8 @@
 import XCTest
 
-private func createCompletedTransitionContext(
-    sourceTransitionsHandler sourceTransitionsHandler: AnimatingTransitionsHandler,
-    targetViewController: UIViewController,
-    targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
-    -> CompletedTransitionContext
-{
-    let animationLaunchingContext = NavigationAnimationLaunchingContext(
-        transitionStyle: .Push,
-        animationTargetParameters: NavigationAnimationTargetParameters(viewController: targetViewController),
-        animator: NavigationTransitionsAnimator()
-    )
-    
-    return CompletedTransitionContext(
-        transitionId: TransitionIdGeneratorImpl().generateNewTransitionId(),
-        sourceTransitionsHandler: sourceTransitionsHandler,
-        targetViewController: targetViewController,
-        targetTransitionsHandlerBox: targetTransitionsHandlerBox,
-        storableParameters: nil,
-        animationLaunchingContext: .Navigation(launchingContext: animationLaunchingContext)
-    )
-}
-
 // MARK: - TransitionContextsStackTests
-class TransitionContextsStackClientTests: XCTestCase {
-    
+final class TransitionContextsStackClientTests: XCTestCase
+{
     var __stackClientImpl: TransitionContextsStackClient?
     
     var autoZombieContext: CompletedTransitionContext?
@@ -46,22 +24,22 @@ class TransitionContextsStackClientTests: XCTestCase {
         
         let autoZombieViewController = UIViewController()
         
-        autoZombieContext = createCompletedTransitionContext(
+        autoZombieContext = TransitionContextsCreator.createCompletedTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: autoZombieViewController,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
-        neverZombieContext1 = createCompletedTransitionContext(
+        neverZombieContext1 = TransitionContextsCreator.createCompletedTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: targetViewController,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
-        neverZombieContext2 = createCompletedTransitionContext(
+        neverZombieContext2 = TransitionContextsCreator.createCompletedTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: targetViewController,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
-        oneDayZombieContext = createCompletedTransitionContext(
+        oneDayZombieContext = TransitionContextsCreator.createCompletedTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
             targetViewController: nillableTargetViewController!,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))

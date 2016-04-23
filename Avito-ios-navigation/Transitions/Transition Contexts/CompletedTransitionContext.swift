@@ -87,12 +87,13 @@ public struct CompletedTransitionContext {
         )
     }
     
-    public init(transitionId: TransitionId,
-                sourceTransitionsHandler: AnimatingTransitionsHandler?,
-                targetViewController: UIViewController?,
-                targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
-                storableParameters: TransitionStorableParameters?,
-                sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox)
+    public init(
+        transitionId: TransitionId,
+        sourceTransitionsHandler: AnimatingTransitionsHandler?,
+        targetViewController: UIViewController?,
+        targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
+        storableParameters: TransitionStorableParameters?,
+        sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox)
     {
         self.transitionId = transitionId
         self.sourceTransitionsHandler = sourceTransitionsHandler

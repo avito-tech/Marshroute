@@ -2,7 +2,7 @@ import XCTest
 
 final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
 {
-    var detailAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
+    var masterAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     var router: PopoverPresentationRouter!
     
     let rect = CGRect(x: 0, y: 1, width: 2, height: 3)
@@ -18,14 +18,14 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
             stackClientProvider: TransitionContextsStackClientProviderImpl()
         )
         
-        detailAnimatingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(
+        masterAnimatingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(
             transitionsCoordinator: transitionsCoordinator
         )
         
         router = BaseMasterDetailRouter(
             routerSeed: MasterDetailRouterSeed(
                 masterTransitionsHandlerBox: .init(
-                    animatingTransitionsHandler: detailAnimatingTransitionsHandlerSpy
+                    animatingTransitionsHandler: masterAnimatingTransitionsHandlerSpy
                 ),
                 detailTransitionsHandlerBox: .init(
                     animatingTransitionsHandler: AnimatingTransitionsHandlerSpy(
@@ -58,9 +58,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         }
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -95,9 +95,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -127,9 +127,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         }
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -162,9 +162,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -195,9 +195,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         }
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -232,9 +232,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -272,9 +272,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -305,9 +305,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         }
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -340,9 +340,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -378,9 +378,9 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }

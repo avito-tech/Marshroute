@@ -15,7 +15,10 @@ public extension RouterFocusable where Self: RouterTransitionable, Self: RouterI
         let transitionsHandler = transitionsHandlerBox.unbox()
         
         if transitionsHandler === transitionsHandlerBox.unboxContainingTransitionsHandler() {
-            assert(presentingTransitionsHandler != nil, "`focusOnCurrentModule:` нельзя вызывать у корневого роутера приложения")
+            if presentingTransitionsHandler == nil {
+                debugPrint("`focusOnCurrentModule:` нельзя вызывать у корневого неанимирующего роутера приложения")
+                return
+            }
         }
     
         CATransaction.begin()
@@ -31,7 +34,10 @@ public extension RouterFocusable where Self: RouterTransitionable, Self: RouterI
         let transitionsHandler = transitionsHandlerBox.unbox()
         
         if transitionsHandler === transitionsHandlerBox.unboxContainingTransitionsHandler() {
-            assert(presentingTransitionsHandler != nil, "`focusOnCurrentModule:` нельзя вызывать у корневого роутера приложения")
+            if presentingTransitionsHandler == nil {
+                debugPrint("`focusOnCurrentModule:` нельзя вызывать у корневого неанимирующего роутера приложения")
+                return
+            }
         }
         
         transitionsHandler.undoTransitionsAfter(transitionId: transitionId)

@@ -498,7 +498,7 @@ private extension TransitionsCoordinator where
         
         guard let presentationAnimationLaunchingContextBox
             = context.sourceAnimationLaunchingContextBox.unboxPresentationAnimationLaunchingContextBox() else {
-            assert(false, "нельзя сделать обратный переход для `rese`-перехода")
+            assert(false, "невозможно сделать обратный переход для `reset`-перехода. только для `presentation`-перехода")
             return
         }
         

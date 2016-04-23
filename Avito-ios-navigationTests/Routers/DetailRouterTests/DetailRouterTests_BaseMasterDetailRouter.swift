@@ -57,7 +57,9 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(resettingContext.targetViewController === targetViewController)
         XCTAssert(resettingContext.targetTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
         XCTAssertNil(resettingContext.storableParameters)
-        if case .ResettingNavigationRoot(_) = resettingContext.resettingAnimationLaunchingContextBox {} else { XCTFail() }
+        if case .ResettingNavigationRoot(let launchingContext) = resettingContext.resettingAnimationLaunchingContextBox {
+            XCTAssert(launchingContext.rootViewController! == targetViewController)
+        } else { XCTFail() }
     }
     
     func testThatMasterDetailRouterCallsItsDetailTransitionsHandlerOn_SetViewControllerDerivedFrom_WithCorrectResettingContext_IfCustomAnimator() {
@@ -81,6 +83,7 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssertNil(resettingContext.storableParameters)
         if case .ResettingNavigationRoot(let launchingContext) = resettingContext.resettingAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === resetNavigationTransitionsAnimator)
+            XCTAssert(launchingContext.rootViewController! === targetViewController)
         } else { XCTFail() }
     }
     
@@ -96,7 +99,9 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .PendingAnimating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssertNil(presentationContext.storableParameters)
-        if case .Push(_) = presentationContext.presentationAnimationLaunchingContextBox {} else { XCTFail() }
+        if case .Push(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+            XCTAssert(launchingContext.targetViewController! == targetViewController)
+        } else { XCTFail() }
     }
     
     func testThatMasterDetailRouterCallsItsDetailTransitionsHandlerOn_PushViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
@@ -117,6 +122,7 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssertNil(presentationContext.storableParameters)
         if case .Push(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === navigationTransitionsAnimator)
+            XCTAssert(launchingContext.targetViewController! === targetViewController)
         } else { XCTFail() }
     }
 }

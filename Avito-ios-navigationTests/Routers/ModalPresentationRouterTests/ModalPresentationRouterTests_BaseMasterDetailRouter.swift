@@ -58,7 +58,9 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .Modal(_) = presentationContext.presentationAnimationLaunchingContextBox {} else { XCTFail() }
+        if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+            XCTAssert(launchingContext.targetViewController! == targetViewController)
+        } else { XCTFail() }
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentModalViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
@@ -84,6 +86,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
         if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalTransitionsAnimator)
+            XCTAssert(launchingContext.targetViewController! === targetViewController)
         } else { XCTFail() }
     }
     
@@ -117,7 +120,9 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
 
         if case .Containing(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .Modal(_) = presentationContext.presentationAnimationLaunchingContextBox {} else { XCTFail() }
+        if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+            XCTAssert(launchingContext.targetViewController! is UISplitViewController)
+        } else { XCTFail() }
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentModalMasterDetailViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
@@ -152,6 +157,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
         if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalTransitionsAnimator)
+            XCTAssert(launchingContext.targetViewController! is UISplitViewController)
         } else { XCTFail() }
     }
     
@@ -159,6 +165,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         // Given
         let targetMasterViewController = UIViewController()
         let targetDetailViewController = UIViewController()
+        let splitViewController = UISplitViewController()
         let modalTransitionsAnimator = ModalTransitionsAnimator()
         var nextMasterDetailModuleRouterSeed: MasterDetailRouterSeed!
         var nextDetailModuleRouterSeed: RouterSeed!
@@ -176,7 +183,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
             animator: modalTransitionsAnimator,
             masterNavigationController: UINavigationController(),
             detailNavigationController: UINavigationController(),
-            splitViewController: UISplitViewController()
+            splitViewController: splitViewController
         )
         
         // Then
@@ -190,6 +197,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
         if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalTransitionsAnimator)
+            XCTAssert(launchingContext.targetViewController! === splitViewController)
         } else { XCTFail() }
     }
     
@@ -214,7 +222,9 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .ModalNavigation(_) = presentationContext.presentationAnimationLaunchingContextBox {} else { XCTFail() }
+        if case .ModalNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+            XCTAssert(launchingContext.targetViewController! === targetViewController)
+        } else { XCTFail() }
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentModalNavigationControllerWithRootViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
@@ -240,12 +250,14 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
         if case .ModalNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalNavigationTransitionsAnimator)
+            XCTAssert(launchingContext.targetViewController! === targetViewController)
         } else { XCTFail() }
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentModalNavigationControllerWithRootViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator_CustomNavigationController() {
         // Given
         let targetViewController = UIViewController()
+        let navigationController = UINavigationController()
         var nextModuleRouterSeed: RouterSeed!
         let modalNavigationTransitionsAnimator = ModalNavigationTransitionsAnimator()
         
@@ -254,7 +266,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
             nextModuleRouterSeed = routerSeed
             return targetViewController
             }, animator: modalNavigationTransitionsAnimator,
-               navigationController: UINavigationController()
+               navigationController: navigationController
         )
         
         // Then
@@ -267,6 +279,8 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
         if case .ModalNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalNavigationTransitionsAnimator)
+            XCTAssert(launchingContext.targetViewController! === targetViewController)
+            XCTAssert(launchingContext.targetNavigationController! === navigationController)
         } else { XCTFail() }
     }
 }

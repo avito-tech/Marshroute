@@ -13,7 +13,7 @@ public class BaseMasterDetailRouter:
     PopoverPresentationRouter,
     EndpointRouter,    
     RouterFocusable,
-    RouterDismisable,
+    RouterDismissable,
     MasterRouterTransitionable,
     MasterRouter,
     DetailRouterTransitionable,

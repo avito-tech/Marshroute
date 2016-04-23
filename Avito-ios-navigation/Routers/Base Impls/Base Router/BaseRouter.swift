@@ -13,7 +13,7 @@ public class BaseRouter:
     PopoverPresentationRouter,
     EndpointRouter,
     RouterFocusable,
-    RouterDismisable,
+    RouterDismissable,
     DetailRouterTransitionable,
     DetailRouter,
     RouterControllersProviderHolder

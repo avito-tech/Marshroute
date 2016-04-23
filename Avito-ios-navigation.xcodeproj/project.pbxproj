@@ -112,8 +112,8 @@
 		CCE910471C75BB7B00AF5E26 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FEF1C75BB7B00AF5E26 /* MasterRouter.swift */; };
 		CCE910481C75BB7B00AF5E26 /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF01C75BB7B00AF5E26 /* MasterRouterTransitionable.swift */; };
 		CCE910491C75BB7B00AF5E26 /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF01C75BB7B00AF5E26 /* MasterRouterTransitionable.swift */; };
-		CCE9104C1C75BB7B00AF5E26 /* RouterDismisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF21C75BB7B00AF5E26 /* RouterDismisable.swift */; };
-		CCE9104D1C75BB7B00AF5E26 /* RouterDismisable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF21C75BB7B00AF5E26 /* RouterDismisable.swift */; };
+		CCE9104C1C75BB7B00AF5E26 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF21C75BB7B00AF5E26 /* RouterDismissable.swift */; };
+		CCE9104D1C75BB7B00AF5E26 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF21C75BB7B00AF5E26 /* RouterDismissable.swift */; };
 		CCE9104E1C75BB7B00AF5E26 /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF31C75BB7B00AF5E26 /* RouterFocusable.swift */; };
 		CCE9104F1C75BB7B00AF5E26 /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF31C75BB7B00AF5E26 /* RouterFocusable.swift */; };
 		CCE910501C75BB7B00AF5E26 /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FF41C75BB7B00AF5E26 /* RouterIdentifiable.swift */; };
@@ -306,7 +306,7 @@
 		CCE90FEE1C75BB7B00AF5E26 /* DetailRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTransitionable.swift; sourceTree = "<group>"; };
 		CCE90FEF1C75BB7B00AF5E26 /* MasterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterRouter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CCE90FF01C75BB7B00AF5E26 /* MasterRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterRouterTransitionable.swift; sourceTree = "<group>"; };
-		CCE90FF21C75BB7B00AF5E26 /* RouterDismisable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismisable.swift; sourceTree = "<group>"; };
+		CCE90FF21C75BB7B00AF5E26 /* RouterDismissable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismissable.swift; sourceTree = "<group>"; };
 		CCE90FF31C75BB7B00AF5E26 /* RouterFocusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusable.swift; sourceTree = "<group>"; };
 		CCE90FF41C75BB7B00AF5E26 /* RouterIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterIdentifiable.swift; sourceTree = "<group>"; };
 		CCE90FF51C75BB7B00AF5E26 /* RouterPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterPresentable.swift; sourceTree = "<group>"; };
@@ -799,7 +799,7 @@
 				CC39880A1C8D753000E3035C /* RouterControllersProvider.swift */,
 				CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */,
 				CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */,
-				CCE90FF21C75BB7B00AF5E26 /* RouterDismisable.swift */,
+				CCE90FF21C75BB7B00AF5E26 /* RouterDismissable.swift */,
 				CCE90FF31C75BB7B00AF5E26 /* RouterFocusable.swift */,
 				CCE90FF41C75BB7B00AF5E26 /* RouterIdentifiable.swift */,
 				CCE90FF51C75BB7B00AF5E26 /* RouterPresentable.swift */,
@@ -1114,7 +1114,7 @@
 				CCCE51641CAAB69F0010259C /* TransitionsCoordinatorDelegate.swift in Sources */,
 				CC4FDACE1CC91D0A00D1DF2D /* PresentationTransitionsAnimatorBox.swift in Sources */,
 				CCCA3AB51CB2AB830066810B /* EndpointRouter.swift in Sources */,
-				CCE9104C1C75BB7B00AF5E26 /* RouterDismisable.swift in Sources */,
+				CCE9104C1C75BB7B00AF5E26 /* RouterDismissable.swift in Sources */,
 				CCB8D4BD1CC903D100D395F8 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
 				CCF72CDF1CCA575700E29A7A /* ResettingTransitionContext.swift in Sources */,
 				CCF72CD61CCA40C100E29A7A /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
@@ -1226,7 +1226,7 @@
 				CCE9109D1C75BB7B00AF5E26 /* TransitionIdGeneratorHolder.swift in Sources */,
 				CCE9107F1C75BB7B00AF5E26 /* RestoredTransitionContext.swift in Sources */,
 				CC94D3641CCB94CE006A1FD8 /* TransitionContextsCreator.swift in Sources */,
-				CCE9104D1C75BB7B00AF5E26 /* RouterDismisable.swift in Sources */,
+				CCE9104D1C75BB7B00AF5E26 /* RouterDismissable.swift in Sources */,
 				CCE9104F1C75BB7B00AF5E26 /* RouterFocusable.swift in Sources */,
 				CCE910871C75BB7B00AF5E26 /* PopoverTransitionStorableParameters.swift in Sources */,
 				CCF72CDD1CCA574E00E29A7A /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,

@@ -1,12 +1,13 @@
 import UIKit
 
 /// Методы, чтобы вернуться на экран модуля, показавшего экран текущего модуля
-public protocol RouterDismisable: class {
+public protocol RouterDismissable: class {
+    func dismissCurrentModule()
     func dismissCurrentModule(completion completion: (() -> Void)?)
 }
 
-// MARK: - RouterDismisable Default Impl
-public extension RouterDismisable where Self: RouterPresentable, Self: RouterIdentifiable {
+// MARK: - RouterDismissable Default Impl
+public extension RouterDismissable where Self: RouterPresentable, Self: RouterIdentifiable {
     func dismissCurrentModule(completion completion: (() -> Void)?) {
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации сокрытия текущего модуля
@@ -15,6 +16,6 @@ public extension RouterDismisable where Self: RouterPresentable, Self: RouterIde
     }
     
     func dismissCurrentModule() {
-        dismissCurrentModule(completion: nil)
+        presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
     }
 }

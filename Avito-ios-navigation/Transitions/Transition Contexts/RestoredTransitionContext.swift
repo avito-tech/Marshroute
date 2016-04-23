@@ -22,8 +22,8 @@ public struct RestoredTransitionContext {
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?
     
-    /// параметры запуска анимации прямого перехода
-    public let presentationAnimationLaunchingContextBox: PresentationAnimationLaunchingContextBox
+    /// параметры запуска анимации перехода
+    public let sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox
 }
 
 // MARK: - Init
@@ -43,11 +43,6 @@ public extension RestoredTransitionContext {
             completedTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox)
             else { return nil }
         
-        let sourceAnimationLaunchingContextBox = context.sourceAnimationLaunchingContextBox
-        
-        guard let presentationAnimationLaunchingContextBox = sourceAnimationLaunchingContextBox.unboxPresentationAnimationLaunchingContextBox()
-            else { debugPrint("YOU CANNOT RESTORE `ResettingTransitionContext`"); return nil }
-        
         self.transitionId = context.transitionId
         
         self.sourceTransitionsHandler = sourceTransitionsHandler
@@ -57,7 +52,7 @@ public extension RestoredTransitionContext {
         
         self.storableParameters = context.storableParameters
         
-        self.presentationAnimationLaunchingContextBox = presentationAnimationLaunchingContextBox
+        self.sourceAnimationLaunchingContextBox = context.sourceAnimationLaunchingContextBox
     }
 }
 

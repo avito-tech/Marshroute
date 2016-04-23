@@ -496,9 +496,15 @@ private extension TransitionsCoordinator where
             return
         }
         
+        guard let presentationAnimationLaunchingContextBox
+            = context.sourceAnimationLaunchingContextBox.unboxPresentationAnimationLaunchingContextBox() else {
+            assert(false, "нельзя сделать обратный переход для `rese`-перехода")
+            return
+        }
+        
         // готовим параметры запуска анимации обратного перехода
         guard let dismissalAnimationLaunchingContextBox = DismissalAnimationLaunchingContextBox(
-            presentationAnimationLaunchingContextBox: context.presentationAnimationLaunchingContextBox,
+            presentationAnimationLaunchingContextBox: presentationAnimationLaunchingContextBox,
             targetViewController: precedingTransition.targetViewController
         ) else {
             debugPrint("FAILED TO CREATE `DismissalAnimationLaunchingContextBox` from `PresentationAnimationLaunchingContextBox`");

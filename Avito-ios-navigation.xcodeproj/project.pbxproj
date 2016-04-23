@@ -61,6 +61,8 @@
 		CC6DC08A1CCBF9EC0029C534 /* AnimatingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0891CCBF9EC0029C534 /* AnimatingTransitionsHandlerSpy.swift */; };
 		CC6DC08C1CCBFA870029C534 /* ContainingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC08B1CCBFA870029C534 /* ContainingTransitionsHandlerSpy.swift */; };
 		CC6DC08E1CCC0EB10029C534 /* RouterDismissableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC08D1CCC0EB10029C534 /* RouterDismissableTests.swift */; };
+		CC6DC0901CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC08F1CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift */; };
+		CC6DC0921CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0911CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift */; };
 		CCB07B041CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
 		CCB07B051CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
 		CCB07B071CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */; };
@@ -281,6 +283,8 @@
 		CC6DC0891CCBF9EC0029C534 /* AnimatingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
 		CC6DC08B1CCBFA870029C534 /* ContainingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
 		CC6DC08D1CCC0EB10029C534 /* RouterDismissableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismissableTests.swift; sourceTree = "<group>"; };
+		CC6DC08F1CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC6DC0911CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
 		CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
 		CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContextSourceAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		CCB07B0A1CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
@@ -562,6 +566,8 @@
 		CC6DC0761CCBF4A80029C534 /* DetailRouterTests */ = {
 			isa = PBXGroup;
 			children = (
+				CC6DC08F1CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift */,
+				CC6DC0911CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift */,
 			);
 			path = DetailRouterTests;
 			sourceTree = "<group>";
@@ -1414,10 +1420,12 @@
 				CC4FDAC31CC91D0A00D1DF2D /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
 				CCE910A31C75BB7B00AF5E26 /* TransitionsCoordinatorHolder.swift in Sources */,
 				CC6DC0861CCBF6F50029C534 /* TransitionContextsCreator.swift in Sources */,
+				CC6DC0921CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */,
 				CC4FDAFF1CC9248100D1DF2D /* PopoverTransitionStyle.swift in Sources */,
 				CCE910A11C75BB7B00AF5E26 /* TransitionsCoordinator.swift in Sources */,
 				CCE910451C75BB7B00AF5E26 /* DetailRouterTransitionable.swift in Sources */,
 				CC4FDA901CC91D0A00D1DF2D /* ModalPresentationAnimationContext.swift in Sources */,
+				CC6DC0901CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift in Sources */,
 				CCE910391C75BB7B00AF5E26 /* WeakBox.swift in Sources */,
 				CCE910B31C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
 				CC4FDAB41CC91D0A00D1DF2D /* PopoverTransitionsAnimator.swift in Sources */,

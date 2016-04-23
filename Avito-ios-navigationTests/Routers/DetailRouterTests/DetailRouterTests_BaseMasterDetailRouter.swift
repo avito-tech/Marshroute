@@ -9,7 +9,7 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
     var targetViewController: UIViewController!
     var nextModuleRouterSeed: RouterSeed!
     
-    var router: BaseMasterDetailRouter!
+    var router: DetailRouter!
     
     override func setUp() {
         super.setUp()
@@ -45,7 +45,7 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         )
     }
     
-    func testThatRouterCallsItsTransitionHandlerOn_SetViewControllerDerivedFrom_WithCorrectResettingContext() {
+    func testThatMasterDetailRouterCallsItsDetailTransitionsHandlerOn_SetViewControllerDerivedFrom_WithCorrectResettingContext() {
         // When
         router.setViewControllerDerivedFrom { (routerSeed) -> UIViewController in
             nextModuleRouterSeed = routerSeed
@@ -57,14 +57,13 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         
         let resettingContext = detailAnimatingTransitionsHandlerSpy.resetWithTransitionContextParameter
         XCTAssertEqual(resettingContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssertEqual(resettingContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(resettingContext.targetViewController === targetViewController)
         XCTAssert(resettingContext.targetTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
         XCTAssertNil(resettingContext.storableParameters)
         if case .ResettingNavigationRoot(_) = resettingContext.resettingAnimationLaunchingContextBox {} else { XCTFail() }
     }
     
-    func testThatRouterCallsItsTransitionHandlerOn_SetViewControllerDerivedFrom_WithCorrectResettingContext_IfCustomAnimator() {
+    func testThatMasterDetailRouterCallsItsDetailTransitionsHandlerOn_SetViewControllerDerivedFrom_WithCorrectResettingContext_IfCustomAnimator() {
         // Given
         let resetNavigationTransitionsAnimator = ResetNavigationTransitionsAnimator()
         
@@ -80,7 +79,6 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         
         let resettingContext = detailAnimatingTransitionsHandlerSpy.resetWithTransitionContextParameter
         XCTAssertEqual(resettingContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssertEqual(resettingContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(resettingContext.targetViewController === targetViewController)
         XCTAssert(resettingContext.targetTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
         XCTAssertNil(resettingContext.storableParameters)
@@ -89,7 +87,7 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         } else { XCTFail() }
     }
     
-    func testThatRouterCallsItsTransitionHandlerOn_PushViewControllerDerivedFrom_WithCorrectPresentationContext() {
+    func testThatMasterDetailRouterCallsItsDetailTransitionsHandlerOn_PushViewControllerDerivedFrom_WithCorrectPresentationContext() {
         // When
         router.pushViewControllerDerivedFrom { (routerSeed) -> UIViewController in
             nextModuleRouterSeed = routerSeed
@@ -98,14 +96,13 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .PendingAnimating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssertNil(presentationContext.storableParameters)
         if case .Push(_) = presentationContext.presentationAnimationLaunchingContextBox {} else { XCTFail() }
     }
     
-    func testThatRouterCallsItsTransitionHandlerOn_PushViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
+    func testThatMasterDetailRouterCallsItsDetailTransitionsHandlerOn_PushViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
         // Given
         let navigationTransitionsAnimator = NavigationTransitionsAnimator()
         
@@ -117,7 +114,6 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext.targetViewController === targetViewController)
         if case .PendingAnimating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }

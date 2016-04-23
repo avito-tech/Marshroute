@@ -64,6 +64,8 @@
 		CC6DC0901CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC08F1CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift */; };
 		CC6DC0921CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0911CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift */; };
 		CC6DC0941CCC1E030029C534 /* MasterlRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0931CCC1E030029C534 /* MasterlRouterTests.swift */; };
+		CC6DC0961CCC25A80029C534 /* ModalPresentationRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0951CCC25A80029C534 /* ModalPresentationRouterTests_BaseRouter.swift */; };
+		CC6DC0981CCC2CBB0029C534 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0971CCC2CBB0029C534 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */; };
 		CCB07B041CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
 		CCB07B051CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
 		CCB07B071CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */; };
@@ -287,6 +289,8 @@
 		CC6DC08F1CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
 		CC6DC0911CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
 		CC6DC0931CCC1E030029C534 /* MasterlRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterlRouterTests.swift; sourceTree = "<group>"; };
+		CC6DC0951CCC25A80029C534 /* ModalPresentationRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC6DC0971CCC2CBB0029C534 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
 		CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
 		CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContextSourceAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		CCB07B0A1CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
@@ -585,6 +589,8 @@
 		CC6DC0781CCBF4A80029C534 /* ModalPresentationRouterTests */ = {
 			isa = PBXGroup;
 			children = (
+				CC6DC0951CCC25A80029C534 /* ModalPresentationRouterTests_BaseRouter.swift */,
+				CC6DC0971CCC2CBB0029C534 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */,
 			);
 			path = ModalPresentationRouterTests;
 			sourceTree = "<group>";
@@ -1327,6 +1333,7 @@
 				CCE9109D1C75BB7B00AF5E26 /* TransitionIdGeneratorHolder.swift in Sources */,
 				CCE9107F1C75BB7B00AF5E26 /* RestoredTransitionContext.swift in Sources */,
 				CCE9104D1C75BB7B00AF5E26 /* RouterDismissable.swift in Sources */,
+				CC6DC0981CCC2CBB0029C534 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
 				CCE9104F1C75BB7B00AF5E26 /* RouterFocusable.swift in Sources */,
 				CCE910871C75BB7B00AF5E26 /* PopoverTransitionStorableParameters.swift in Sources */,
 				CCF72CDD1CCA574E00E29A7A /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
@@ -1409,6 +1416,7 @@
 				CCF72CB91CCA2B0C00E29A7A /* PresentationAnimationLaunchingContextBox.swift in Sources */,
 				CC6DC0941CCC1E030029C534 /* MasterlRouterTests.swift in Sources */,
 				CCF72CF51CCA5EBE00E29A7A /* PushAnimationContext.swift in Sources */,
+				CC6DC0961CCC25A80029C534 /* ModalPresentationRouterTests_BaseRouter.swift in Sources */,
 				CCB8D49A1CC903D100D395F8 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
 				CCE9109F1C75BB7B00AF5E26 /* TransitionIdGeneratorImpl.swift in Sources */,
 				CCB8D4AC1CC903D100D395F8 /* PopAnimationLaunchingContext.swift in Sources */,

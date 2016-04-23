@@ -2,9 +2,6 @@ import XCTest
 
 final class DetailRouterTests_BaseRouter: XCTestCase
 {
-    var transitionIdGenerator: TransitionIdGenerator!
-    var transitionsCoordinator: TransitionsCoordinator!
-    
     var detailAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     var targetViewController: UIViewController!
     var nextModuleRouterSeed: RouterSeed!
@@ -14,9 +11,9 @@ final class DetailRouterTests_BaseRouter: XCTestCase
     override func setUp() {
         super.setUp()
         
-        transitionIdGenerator = TransitionIdGeneratorImpl()
+        let transitionIdGenerator = TransitionIdGeneratorImpl()
         
-        transitionsCoordinator = TransitionsCoordinatorImpl(
+        let transitionsCoordinator = TransitionsCoordinatorImpl(
             stackClientProvider: TransitionContextsStackClientProviderImpl()
         )
         
@@ -61,19 +58,6 @@ final class DetailRouterTests_BaseRouter: XCTestCase
     func testThatRouterCallsItsTransitionsHandlerOn_SetViewControllerDerivedFrom_WithCorrectResettingContext_IfCustomAnimator() {
         // Given
         let resetNavigationTransitionsAnimator = ResetNavigationTransitionsAnimator()
-        
-        router = BaseRouter(
-            routerSeed: RouterSeed(
-                transitionsHandlerBox: .init(
-                    animatingTransitionsHandler: detailAnimatingTransitionsHandlerSpy
-                ),
-                transitionId: transitionIdGenerator.generateNewTransitionId(),
-                presentingTransitionsHandler: nil,
-                transitionsCoordinator: transitionsCoordinator,
-                transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
-            )
-        )
         
         // When
         router.setViewControllerDerivedFrom( { (routerSeed) -> UIViewController in

@@ -2,9 +2,6 @@ import XCTest
 
 final class MasterlRouterTests: XCTestCase
 {
-    var transitionIdGenerator: TransitionIdGenerator!
-    var transitionsCoordinator: TransitionsCoordinator!
-    
     var masterAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     var detailAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     
@@ -15,9 +12,9 @@ final class MasterlRouterTests: XCTestCase
     override func setUp() {
         super.setUp()
         
-        transitionIdGenerator = TransitionIdGeneratorImpl()
+        let transitionIdGenerator = TransitionIdGeneratorImpl()
         
-        transitionsCoordinator = TransitionsCoordinatorImpl(
+        let transitionsCoordinator = TransitionsCoordinatorImpl(
             stackClientProvider: TransitionContextsStackClientProviderImpl()
         )
         

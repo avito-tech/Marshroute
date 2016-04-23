@@ -2,9 +2,6 @@ import XCTest
 
 final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
 {
-    var transitionIdGenerator: TransitionIdGenerator!
-    var transitionsCoordinator: TransitionsCoordinator!
-    
     var detailAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     var targetViewController: UIViewController!
     var nextModuleRouterSeed: RouterSeed!
@@ -14,9 +11,9 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
     override func setUp() {
         super.setUp()
         
-        transitionIdGenerator = TransitionIdGeneratorImpl()
+        let transitionIdGenerator = TransitionIdGeneratorImpl()
         
-        transitionsCoordinator = TransitionsCoordinatorImpl(
+        let transitionsCoordinator = TransitionsCoordinatorImpl(
             stackClientProvider: TransitionContextsStackClientProviderImpl()
         )
         

@@ -37,21 +37,27 @@ public enum PresentationAnimationLaunchingContextBox {
         switch self {
         case .Modal(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
+            self = .Modal(launchingContext: launchingContext)
             
         case .ModalNavigation(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
+            self = .ModalNavigation(launchingContext: launchingContext)
             
         case .ModalEndpointNavigation(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
+            self = .ModalEndpointNavigation(launchingContext: launchingContext)
             
         case .Push(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
+            self = .Push(launchingContext: launchingContext)
             
         case .Popover(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
+            self = .Popover(launchingContext: launchingContext)
             
         case .PopoverNavigation(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
+            self = .PopoverNavigation(launchingContext: launchingContext)
         }
     }
 }

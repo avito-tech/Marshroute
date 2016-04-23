@@ -263,9 +263,10 @@ extension TransitionsCoordinator where
             ofTransitionWith: context.transitionId
         )
         
-        // вызываем анимации
+        // вызываем анимации, передавая параметры запуска анимации по ссылке,
+        // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
         transitionsHandler.launchResettingAnimation(
-            launchingContextBox: context.resettingAnimationLaunchingContextBox
+            launchingContextBox: &context.resettingAnimationLaunchingContextBox
         )
         
         // создаем новую запись о переходе
@@ -389,9 +390,10 @@ private extension TransitionsCoordinator where
             lastTransition.targetViewController
         )
         
-        // вызываем анимации
+        // вызываем анимации, передавая параметры запуска анимации по ссылке,
+        // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
         animatingTransitionsHandler.launchPresentationAnimation(
-            launchingContextBox: context.presentationAnimationLaunchingContextBox
+            launchingContextBox: &context.presentationAnimationLaunchingContextBox
         )
         
         // создаем новую запись о переходе

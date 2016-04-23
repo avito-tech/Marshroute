@@ -8,9 +8,9 @@ final class DummyTransitionsHandler: AnimatingTransitionsHandler {
     override func undoAllTransitions() {}
     override func resetWithTransition(context context: ResettingTransitionContext) {}
     
-    override func launchPresentationAnimation(launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox) {}
+    override func launchPresentationAnimation(inout launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox) {}
     override func launchDismissalAnimation(launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox) {}
-    override func launchResettingAnimation(launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox) {}
+    override func launchResettingAnimation(inout launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox) {}
     
     init() {
         let coodinator = TransitionsCoordinatorImpl()

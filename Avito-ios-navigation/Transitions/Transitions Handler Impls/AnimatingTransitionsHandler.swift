@@ -40,7 +40,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
     }
     
     // MARK: - TransitionAnimationsLauncher
-    public func launchPresentationAnimation(launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox)
+    public func launchPresentationAnimation(inout launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
         case .Modal(let launchingContext):
@@ -141,7 +141,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
         }
     }
     
-    public func launchResettingAnimation(launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
+    public func launchResettingAnimation(inout launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
         case .SettingNavigationRoot(let launchingContext):

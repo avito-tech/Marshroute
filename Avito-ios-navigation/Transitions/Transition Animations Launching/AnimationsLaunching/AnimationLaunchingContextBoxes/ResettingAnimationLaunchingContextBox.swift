@@ -32,6 +32,7 @@ public enum ResettingAnimationLaunchingContextBox {
             
         case .ResettingNavigationRoot(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
+            self = .ResettingNavigationRoot(launchingContext: launchingContext)
             
         case .Registering:
             break // no need for animations

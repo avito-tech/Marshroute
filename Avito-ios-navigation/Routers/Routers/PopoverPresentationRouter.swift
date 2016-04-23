@@ -1,7 +1,7 @@
 import UIKit
 
 public protocol PopoverPresentationRouter: class {
-    // MARK: - UIViewController in UINavigationController in UIPopoverController
+    // MARK: - UIViewController in UIPopoverController
     func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
@@ -11,25 +11,46 @@ public protocol PopoverPresentationRouter: class {
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        animator: PopoverTransitionsAnimator)
+    
+    func presentPopoverFromBarButtonItem(
+        barButtonItem: UIBarButtonItem,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+    
+    func presentPopoverFromBarButtonItem(
+        barButtonItem: UIBarButtonItem,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        animator: PopoverTransitionsAnimator)
+    
+    // MARK: - UIViewController in UINavigationController in UIPopoverController
+    func presentPopoverWithNavigationControllerFromRect(
+        rect: CGRect,
+        inView view: UIView,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+    
+    func presentPopoverWithNavigationControllerFromRect(
+        rect: CGRect,
+        inView view: UIView,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     
-    func presentPopoverFromRect(
+    func presentPopoverWithNavigationControllerFromRect(
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     
-    func presentPopoverFromBarButtonItem(
+    func presentPopoverWithNavigationControllerFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     
-    func presentPopoverFromBarButtonItem(
+    func presentPopoverWithNavigationControllerFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     
-    func presentPopoverFromBarButtonItem(
+    func presentPopoverWithNavigationControllerFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator,
@@ -44,7 +65,7 @@ extension PopoverPresentationRouter where
     Self: TransitionsCoordinatorHolder,
     Self: RouterControllersProviderHolder
 {
-    // MARK: - UIViewController in UINavigationController in UIPopoverController
+    // MARK: - UIViewController in UIPopoverController
     public func presentPopoverFromRect(
         rect: CGRect,
         inView view: UIView,
@@ -54,7 +75,7 @@ extension PopoverPresentationRouter where
             rect,
             inView: view,
             withViewControllerDerivedFrom: deriveViewController,
-            animator: PopoverNavigationTransitionsAnimator()
+            animator: PopoverTransitionsAnimator()
         )
     }
     
@@ -62,9 +83,142 @@ extension PopoverPresentationRouter where
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        animator: PopoverTransitionsAnimator)
+    {
+        guard let transitionsHandlerBox = transitionsHandlerBox
+            else { assert(false); return }
+        
+        let animatingTransitionsHandler = AnimatingTransitionsHandler(
+            transitionsCoordinator: transitionsCoordinator
+        )
+        
+        let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: animatingTransitionsHandler
+        )
+        
+        let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+        
+        let routerSeed = RouterSeed(
+            transitionsHandlerBox: animatingTransitionsHandlerBox,
+            transitionId: generatedTransitionId,
+            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            transitionsCoordinator: transitionsCoordinator,
+            transitionIdGenerator: transitionIdGenerator,
+            controllersProvider: controllersProvider
+        )
+        
+        let viewController = deriveViewController(routerSeed: routerSeed)
+        
+        do {
+            let resetContext = ResettingTransitionContext(
+                registeringViewController: viewController,
+                animatingTransitionsHandler: animatingTransitionsHandler,
+                transitionId: generatedTransitionId
+            )
+            
+            animatingTransitionsHandler.resetWithTransition(context: resetContext)
+        }
+        
+        let popoverController = UIPopoverController(contentViewController: viewController)
+        
+        let popoverContext = PresentationTransitionContext(
+            presentingViewController: viewController,
+            inPopoverController: popoverController,
+            fromRect: rect,
+            inView: view,
+            targetTransitionsHandler: animatingTransitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId
+        )
+        
+        transitionsHandlerBox.unbox().performTransition(context: popoverContext)
+    }
+    
+    public func presentPopoverFromBarButtonItem(
+        barButtonItem: UIBarButtonItem,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+    {
+        presentPopoverFromBarButtonItem(
+            barButtonItem,
+            withViewControllerDerivedFrom: deriveViewController,
+            animator: PopoverTransitionsAnimator()
+        )
+    }
+    
+    public func presentPopoverFromBarButtonItem(
+        barButtonItem: UIBarButtonItem,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        animator: PopoverTransitionsAnimator)
+    {
+        guard let transitionsHandlerBox = transitionsHandlerBox
+            else { assert(false); return }
+        
+        let animatingTransitionsHandler = AnimatingTransitionsHandler(
+            transitionsCoordinator: transitionsCoordinator)
+        
+        let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: animatingTransitionsHandler
+        )
+        
+        let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+        
+        let routerSeed = RouterSeed(
+            transitionsHandlerBox: animatingTransitionsHandlerBox,
+            transitionId: generatedTransitionId,
+            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            transitionsCoordinator: transitionsCoordinator,
+            transitionIdGenerator: transitionIdGenerator,
+            controllersProvider: controllersProvider
+        )
+        
+        let viewController = deriveViewController(routerSeed: routerSeed)
+        
+        do {
+            let resetContext = ResettingTransitionContext(
+                registeringViewController: viewController,
+                animatingTransitionsHandler: animatingTransitionsHandler,
+                transitionId: generatedTransitionId
+            )
+            
+            animatingTransitionsHandler.resetWithTransition(context: resetContext)
+        }
+        
+        let popoverController = UIPopoverController(contentViewController: viewController)
+        
+        let popoverContext = PresentationTransitionContext(
+            presentingViewController: viewController,
+            inPopoverController: popoverController,
+            fromBarButtonItem: barButtonItem,
+            targetTransitionsHandler: animatingTransitionsHandler,
+            animator: animator,
+            transitionId: generatedTransitionId
+        )
+        
+        transitionsHandlerBox.unbox().performTransition(context: popoverContext)
+    }
+    
+    
+    // MARK: - UIViewController in UINavigationController in UIPopoverController
+    public func presentPopoverWithNavigationControllerFromRect(
+        rect: CGRect,
+        inView view: UIView,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+    {
+        presentPopoverWithNavigationControllerFromRect(
+            rect,
+            inView: view,
+            withViewControllerDerivedFrom: deriveViewController,
+            animator: PopoverNavigationTransitionsAnimator()
+        )
+    }
+    
+    public func presentPopoverWithNavigationControllerFromRect(
+        rect: CGRect,
+        inView view: UIView,
+        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     {
-        presentPopoverFromRect(
+        presentPopoverWithNavigationControllerFromRect(
             rect,
             inView: view,
             withViewControllerDerivedFrom: deriveViewController,
@@ -73,7 +227,7 @@ extension PopoverPresentationRouter where
         )
     }
     
-    public func presentPopoverFromRect(
+    public func presentPopoverWithNavigationControllerFromRect(
         rect: CGRect,
         inView view: UIView,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
@@ -88,7 +242,9 @@ extension PopoverPresentationRouter where
             transitionsCoordinator: transitionsCoordinator
         )
         
-        let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: navigationTransitionsHandler)
+        let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: navigationTransitionsHandler
+        )
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
@@ -131,23 +287,23 @@ extension PopoverPresentationRouter where
         transitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
     
-    public func presentPopoverFromBarButtonItem(
+    public func presentPopoverWithNavigationControllerFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     {
-        presentPopoverFromBarButtonItem(
+        presentPopoverWithNavigationControllerFromBarButtonItem(
             barButtonItem,
             withViewControllerDerivedFrom: deriveViewController,
             animator: PopoverNavigationTransitionsAnimator()
         )
     }
     
-    public func presentPopoverFromBarButtonItem(
+    public func presentPopoverWithNavigationControllerFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     {
-        presentPopoverFromBarButtonItem(
+        presentPopoverWithNavigationControllerFromBarButtonItem(
             barButtonItem,
             withViewControllerDerivedFrom: deriveViewController,
             animator: animator,
@@ -155,7 +311,7 @@ extension PopoverPresentationRouter where
         )
     }
     
-    public func presentPopoverFromBarButtonItem(
+    public func presentPopoverWithNavigationControllerFromBarButtonItem(
         barButtonItem: UIBarButtonItem,
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator,
@@ -168,7 +324,9 @@ extension PopoverPresentationRouter where
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)
 
-        let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: navigationTransitionsHandler)
+        let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: navigationTransitionsHandler
+        )
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         

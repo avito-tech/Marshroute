@@ -32,11 +32,9 @@ public struct CompletedTransitionContext {
     public var isZombie: Bool {
         return targetViewController == nil
     }
-}
-
-// MARK: - Init
-public extension CompletedTransitionContext {
-    init?(presentationTransitionContext context: PresentationTransitionContext,
+    
+    // MARK: - Init
+    public init?(presentationTransitionContext context: PresentationTransitionContext,
         sourceTransitionsHandler: AnimatingTransitionsHandler)
     {
         guard !context.needsAnimatingTargetTransitionHandler else {
@@ -65,7 +63,7 @@ public extension CompletedTransitionContext {
         )
     }
     
-    init?(resettingTransitionContext context: ResettingTransitionContext,
+    public init?(resettingTransitionContext context: ResettingTransitionContext,
         sourceTransitionsHandler: AnimatingTransitionsHandler)
     {
         let transitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(
@@ -88,13 +86,13 @@ public extension CompletedTransitionContext {
             launchingContextBox: context.resettingAnimationLaunchingContextBox
         )
     }
-
-    init(transitionId: TransitionId,
-        sourceTransitionsHandler: AnimatingTransitionsHandler?,
-        targetViewController: UIViewController?,
-        targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
-        storableParameters: TransitionStorableParameters?,
-        sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox)
+    
+    public init(transitionId: TransitionId,
+                sourceTransitionsHandler: AnimatingTransitionsHandler?,
+                targetViewController: UIViewController?,
+                targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
+                storableParameters: TransitionStorableParameters?,
+                sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox)
     {
         self.transitionId = transitionId
         self.sourceTransitionsHandler = sourceTransitionsHandler

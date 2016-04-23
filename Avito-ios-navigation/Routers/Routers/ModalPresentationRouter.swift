@@ -70,7 +70,9 @@ extension ModalPresentationRouter where
             transitionsCoordinator: transitionsCoordinator
         )
         
-        let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: animatingTransitionsHandler)
+        let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: animatingTransitionsHandler
+        )
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
@@ -155,8 +157,13 @@ extension ModalPresentationRouter where
             transitionsCoordinator: transitionsCoordinator
         )
         
-        let masterTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: masterTransitionsHandler)
-        let detailTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: detailTransitionsHandler)
+        let masterTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: masterTransitionsHandler
+        )
+        
+        let detailTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: detailTransitionsHandler
+        )
         
         let splitViewTransitionsHandler = SplitViewTransitionsHandlerImpl(
             splitViewController: splitViewController,
@@ -260,7 +267,9 @@ extension ModalPresentationRouter where
             transitionsCoordinator: transitionsCoordinator
         )
         
-        let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(animatingTransitionsHandler: navigationTransitionsHandler)
+        let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(
+            animatingTransitionsHandler: navigationTransitionsHandler
+        )
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         

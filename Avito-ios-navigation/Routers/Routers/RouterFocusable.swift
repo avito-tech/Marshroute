@@ -22,4 +22,8 @@ extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifi
         transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
         CATransaction.commit()
     }
+    
+    public func focusOnCurrentModule() {
+        focusOnCurrentModule(completion: nil)
+    }
 }

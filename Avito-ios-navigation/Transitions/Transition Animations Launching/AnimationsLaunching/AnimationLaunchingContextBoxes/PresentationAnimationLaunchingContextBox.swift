@@ -5,6 +5,7 @@ public enum PresentationAnimationLaunchingContextBox {
     case Modal(launchingContext: ModalPresentationAnimationLaunchingContext)
     case ModalNavigation(launchingContext: ModalNavigationPresentationAnimationLaunchingContext)
     case ModalEndpointNavigation(launchingContext: ModalEndpointNavigationPresentationAnimationLaunchingContext)
+    case ModalMasterDetail(launchingContext: ModalMasterDetailPresentationAnimationLaunchingContext)
     case Push(launchingContext: PushAnimationLaunchingContext)
     case Popover(launchingContext: PopoverPresentationAnimationLaunchingContext)
     case PopoverNavigation(launchingContext: PopoverNavigationPresentationAnimationLaunchingContext)
@@ -20,6 +21,9 @@ public enum PresentationAnimationLaunchingContextBox {
             
         case .ModalEndpointNavigation(let launchingContext):
             return .ModalEndpointNavigation(animator: launchingContext.animator)
+            
+        case .ModalMasterDetail(let launchingContext):
+            return .ModalMasterDetail(animator: launchingContext.animator)
             
         case .Push(let launchingContext):
             return .Navigation(animator: launchingContext.animator)
@@ -46,6 +50,10 @@ public enum PresentationAnimationLaunchingContextBox {
         case .ModalEndpointNavigation(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
             self = .ModalEndpointNavigation(launchingContext: launchingContext)
+            
+        case .ModalMasterDetail(var launchingContext):
+            launchingContext.sourceViewController = sourceViewController
+            self = .ModalMasterDetail(launchingContext: launchingContext)
             
         case .Push(var launchingContext):
             launchingContext.sourceViewController = sourceViewController

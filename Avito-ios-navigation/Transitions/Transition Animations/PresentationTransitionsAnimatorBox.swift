@@ -3,6 +3,7 @@ public enum TransitionsAnimatorBox {
     case Modal(animator: ModalTransitionsAnimator)
     case ModalNavigation(animator: ModalNavigationTransitionsAnimator)
     case ModalEndpointNavigation(animator: ModalEndpointNavigationTransitionsAnimator)
+    case ModalMasterDetail(animator: ModalMasterDetailTransitionsAnimator)
     case Navigation(animator: NavigationTransitionsAnimator)
     case Popover(animator: PopoverTransitionsAnimator)
     case PopoverNavigation(animator: PopoverNavigationTransitionsAnimator)
@@ -16,6 +17,9 @@ public enum TransitionsAnimatorBox {
             animator.shouldAnimate = true
             
         case .ModalEndpointNavigation(let animator):
+            animator.shouldAnimate = true
+          
+        case .ModalMasterDetail(let animator):
             animator.shouldAnimate = true
             
         case .Navigation(let animator):
@@ -38,6 +42,9 @@ public enum TransitionsAnimatorBox {
             animator.shouldAnimate = false
             
         case .ModalEndpointNavigation(let animator):
+            animator.shouldAnimate = false
+            
+        case .ModalMasterDetail(let animator):
             animator.shouldAnimate = false
             
         case .Navigation(let animator):

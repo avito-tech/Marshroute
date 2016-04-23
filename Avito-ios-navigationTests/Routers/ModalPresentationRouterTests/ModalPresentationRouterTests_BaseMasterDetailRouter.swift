@@ -120,16 +120,14 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
 
         if case .Containing(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            XCTAssert(launchingContext.targetViewController! is UISplitViewController)
-        } else { XCTFail() }
+        if case .ModalMasterDetail(_) = presentationContext.presentationAnimationLaunchingContextBox {} else { XCTFail() }
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentModalMasterDetailViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
         // Given
         let targetMasterViewController = UIViewController()
         let targetDetailViewController = UIViewController()
-        let modalTransitionsAnimator = ModalTransitionsAnimator()
+        let modalMasterDetailTransitionsAnimator = ModalMasterDetailTransitionsAnimator()
         var nextMasterDetailModuleRouterSeed: MasterDetailRouterSeed!
         var nextDetailModuleRouterSeed: RouterSeed!
         
@@ -143,7 +141,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
                 nextDetailModuleRouterSeed = routerSeed
                 return targetDetailViewController
             },
-            animator: modalTransitionsAnimator
+            animator: modalMasterDetailTransitionsAnimator
         )
         
         // Then
@@ -155,9 +153,8 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         
         if case .Containing(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            XCTAssert(launchingContext.animator === modalTransitionsAnimator)
-            XCTAssert(launchingContext.targetViewController! is UISplitViewController)
+        if case .ModalMasterDetail(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+            XCTAssert(launchingContext.animator === modalMasterDetailTransitionsAnimator)
         } else { XCTFail() }
     }
     
@@ -166,7 +163,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         let targetMasterViewController = UIViewController()
         let targetDetailViewController = UIViewController()
         let splitViewController = UISplitViewController()
-        let modalTransitionsAnimator = ModalTransitionsAnimator()
+        let modalMasterDetailTransitionsAnimator = ModalMasterDetailTransitionsAnimator()
         var nextMasterDetailModuleRouterSeed: MasterDetailRouterSeed!
         var nextDetailModuleRouterSeed: RouterSeed!
         
@@ -180,7 +177,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
                 nextDetailModuleRouterSeed = routerSeed
                 return targetDetailViewController
             },
-            animator: modalTransitionsAnimator,
+            animator: modalMasterDetailTransitionsAnimator,
             masterNavigationController: UINavigationController(),
             detailNavigationController: UINavigationController(),
             splitViewController: splitViewController
@@ -195,8 +192,8 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         
         if case .Containing(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
         XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            XCTAssert(launchingContext.animator === modalTransitionsAnimator)
+        if case .ModalMasterDetail(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+            XCTAssert(launchingContext.animator === modalMasterDetailTransitionsAnimator)
             XCTAssert(launchingContext.targetViewController! === splitViewController)
         } else { XCTFail() }
     }

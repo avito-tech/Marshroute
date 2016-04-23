@@ -23,6 +23,9 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
         case .ModalEndpointNavigation(_):
             super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
             
+        case .ModalMasterDetail(_):
+            super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
+            
         case .Push(var launchingContext):
             guard let navigationController = navigationController
                 else { return }
@@ -59,6 +62,9 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
         case .ModalEndpointNavigation(_):
+            super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
+            
+        case .ModalMasterDetail(_):
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
         case .Pop(_):

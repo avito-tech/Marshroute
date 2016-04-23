@@ -70,6 +70,15 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
             }
             
+        case .ModalMasterDetail(let launchingContext):
+            let modalMasterDetailPresentationAnimationContext = ModalMasterDetailPresentationAnimationContext(
+                modalMasterDetailPresentationAnimationLaunchingContext: launchingContext
+            )
+            
+            if let animationContext = modalMasterDetailPresentationAnimationContext {
+                launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
+            }
+            
         case .Push(_):
             assert(false, "you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
@@ -117,6 +126,13 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
             
             launchingContext.animator.animateUndoingTransition(animationContext: modalEndpointNavigationDismissalAnimationContext)
             
+            
+        case .ModalMasterDetail(let launchingContext):
+            let modalMasterDetailDismissalAnimationContext = ModalMasterDetailDismissalAnimationContext(
+                modalMasterDetailDismissalAnimationLaunchingContext: launchingContext
+            )
+            
+            launchingContext.animator.animateUndoingTransition(animationContext: modalMasterDetailDismissalAnimationContext)
             
         case .Pop(let launchingContext):
             let popAnimationContext = PopAnimationContext(

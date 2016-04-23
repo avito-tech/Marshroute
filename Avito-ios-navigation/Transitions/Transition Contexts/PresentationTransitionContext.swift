@@ -86,10 +86,10 @@ public extension PresentationTransitionContext {
     }
     
     /// Контекст описывает переход на модальный контроллер, который нельзя! положить в UINavigationController:
-    /// UISplitViewController, UITabBarViewController
-    init(presentingModalMasterDetailViewController targetViewController: UIViewController,
+    /// UISplitViewController
+    init(presentingModalMasterDetailViewController targetViewController: UISplitViewController,
         targetTransitionsHandler: ContainingTransitionsHandler,
-        animator: ModalTransitionsAnimator,
+        animator: ModalMasterDetailTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
@@ -100,12 +100,12 @@ public extension PresentationTransitionContext {
             presentedTransitionsHandler: targetTransitionsHandler
         )
         
-        let animationLaunchingContext = ModalPresentationAnimationLaunchingContext(
+        let animationLaunchingContext = ModalMasterDetailPresentationAnimationLaunchingContext(
             targetViewController: targetViewController,
             animator: animator
         )
         
-        self.presentationAnimationLaunchingContextBox = .Modal(
+        self.presentationAnimationLaunchingContextBox = .ModalMasterDetail(
             launchingContext: animationLaunchingContext
         )
     }

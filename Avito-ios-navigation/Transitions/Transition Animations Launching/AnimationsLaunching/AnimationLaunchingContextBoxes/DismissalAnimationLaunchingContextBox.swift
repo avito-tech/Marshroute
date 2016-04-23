@@ -6,6 +6,7 @@ public enum DismissalAnimationLaunchingContextBox {
     case Modal(launchingContext: ModalDismissalAnimationLaunchingContext)
     case ModalNavigation(launchingContext: ModalNavigationDismissalAnimationLaunchingContext)
     case ModalEndpointNavigation(launchingContext: ModalEndpointNavigationDismissalAnimationLaunchingContext)
+    case ModalMasterDetail(launchingContext: ModalMasterDetailDismissalAnimationLaunchingContext)
     case Pop(launchingContext: PopAnimationLaunchingContext)
     case Popover(launchingContext: PopoverDismissalAnimationLaunchingContext)
     case PopoverNavigation(launchingContext: PopoverNavigationDismissalAnimationLaunchingContext)
@@ -47,6 +48,18 @@ public enum DismissalAnimationLaunchingContextBox {
             
             if let launchingContext = modalEndpointNavigationDismissalAnimationLaunchingContext {
                 self = .ModalEndpointNavigation(launchingContext: launchingContext)
+            } else {
+                return nil
+            }
+            
+        case .ModalMasterDetail(let launchingContext):
+            let modalMasterDetailDismissalAnimationLaunchingContext = ModalMasterDetailDismissalAnimationLaunchingContext(
+                modalPresentationAnimationLaunchingContext: launchingContext,
+                targetViewController: targetViewController
+            )
+            
+            if let launchingContext = modalMasterDetailDismissalAnimationLaunchingContext {
+                self = .ModalMasterDetail(launchingContext: launchingContext)
             } else {
                 return nil
             }
@@ -100,6 +113,9 @@ public enum DismissalAnimationLaunchingContextBox {
             
         case .ModalEndpointNavigation(let launchingContext):
             return .ModalEndpointNavigation(animator: launchingContext.animator)
+            
+        case .ModalMasterDetail(let launchingContext):
+            return .ModalMasterDetail(animator: launchingContext.animator)
             
         case .Pop(let launchingContext):
             return .Navigation(animator: launchingContext.animator)

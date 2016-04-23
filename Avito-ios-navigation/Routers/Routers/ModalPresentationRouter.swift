@@ -17,12 +17,12 @@ public protocol ModalPresentationRouter: class {
     func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
-        animator: ModalTransitionsAnimator)
+        animator: ModalMasterDetailTransitionsAnimator)
     
     func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
-        animator: ModalTransitionsAnimator,
+        animator: ModalMasterDetailTransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
         splitViewController: UISplitViewController)
@@ -115,14 +115,14 @@ extension ModalPresentationRouter where
         presentModalMasterDetailViewControllerDerivedFrom(
             deriveMasterViewController: deriveMasterViewController,
             deriveDetailViewController: deriveDetailViewController,
-            animator: ModalTransitionsAnimator()
+            animator: ModalMasterDetailTransitionsAnimator()
         )
     }
     
     public func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
-        animator: ModalTransitionsAnimator)
+        animator: ModalMasterDetailTransitionsAnimator)
     {
         presentModalMasterDetailViewControllerDerivedFrom(
             deriveMasterViewController: deriveMasterViewController,
@@ -137,7 +137,7 @@ extension ModalPresentationRouter where
     public func presentModalMasterDetailViewControllerDerivedFrom(
         @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
-        animator: ModalTransitionsAnimator,
+        animator: ModalMasterDetailTransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
         splitViewController: UISplitViewController)

@@ -17,8 +17,8 @@ public struct PushAnimationLaunchingContext {
     }
     
     // навигационный контроллер, осуществляющий push-переход
-    public var navigationController: UINavigationController?
+    public weak var navigationController: UINavigationController?
     
     // контроллер, с которого нужно осуществить push-переход
-    public var sourceViewController: UIViewController?
+    public weak var sourceViewController: UIViewController?
 }

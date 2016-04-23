@@ -18,5 +18,5 @@ public struct ModalEndpointNavigationPresentationAnimationLaunchingContext {
     }
     
     // контроллер, с которого нужно осуществить модальный переход
-    public var sourceViewController: UIViewController?
+    public weak var sourceViewController: UIViewController?
 }

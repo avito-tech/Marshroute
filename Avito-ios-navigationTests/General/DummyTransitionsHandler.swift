@@ -1,5 +1,3 @@
-import XCTest
-
 final class DummyTransitionsHandler: AnimatingTransitionsHandler {
     override func performTransition(context context: PresentationTransitionContext) {}
     override func undoTransitionsAfter(transitionId transitionId: TransitionId) {}

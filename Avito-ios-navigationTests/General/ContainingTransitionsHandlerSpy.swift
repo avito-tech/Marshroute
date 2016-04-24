@@ -1,5 +1,3 @@
-import XCTest
-
 final class ContainingTransitionsHandlerSpy: ContainingTransitionsHandler
 {
     // MARK: - TransitionsHandler

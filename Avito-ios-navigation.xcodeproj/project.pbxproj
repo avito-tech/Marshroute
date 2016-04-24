@@ -80,6 +80,13 @@
 		CC6DC0B41CCC3BBB0029C534 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0B01CCC3BBB0029C534 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */; };
 		CC6DC0B51CCC3BBB0029C534 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0B21CCC3BBB0029C534 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; };
 		CC6DC0B61CCC3BBB0029C534 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0B21CCC3BBB0029C534 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; };
+		CC6DC0BA1CCC41DB0029C534 /* NavigationTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0B91CCC41DB0029C534 /* NavigationTransitionsHandlerImplTests.swift */; };
+		CC6DC0BD1CCC427D0029C534 /* TransitionsCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0BB1CCC427D0029C534 /* TransitionsCoordinatorSpy.swift */; };
+		CC6DC0BF1CCC47090029C534 /* TransitionsCoordinatorSpyingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0BE1CCC47090029C534 /* TransitionsCoordinatorSpyingEnums.swift */; };
+		CC6DC0C11CCC49310029C534 /* TransitionContextsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0C01CCC49310029C534 /* TransitionContextsExtensions.swift */; };
+		CC6DC0C31CCC4DF80029C534 /* AnimatingTransitionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0C21CCC4DF80029C534 /* AnimatingTransitionsHandlerTests.swift */; };
+		CC6DC0C61CCC4E2E0029C534 /* SplitViewTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0C41CCC4E2E0029C534 /* SplitViewTransitionsHandlerImplTests.swift */; };
+		CC6DC0C71CCC4E2E0029C534 /* TabBarTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0C51CCC4E2E0029C534 /* TabBarTransitionsHandlerImplTests.swift */; };
 		CCB07B041CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
 		CCB07B051CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
 		CCB07B071CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */; };
@@ -314,6 +321,13 @@
 		CC6DC0A71CCC3B8A0029C534 /* ModalMasterDetailPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationContext.swift; sourceTree = "<group>"; };
 		CC6DC0B01CCC3BBB0029C534 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		CC6DC0B21CCC3BBB0029C534 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CC6DC0B91CCC41DB0029C534 /* NavigationTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CC6DC0BB1CCC427D0029C534 /* TransitionsCoordinatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpy.swift; sourceTree = "<group>"; };
+		CC6DC0BE1CCC47090029C534 /* TransitionsCoordinatorSpyingEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpyingEnums.swift; sourceTree = "<group>"; };
+		CC6DC0C01CCC49310029C534 /* TransitionContextsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsExtensions.swift; sourceTree = "<group>"; };
+		CC6DC0C21CCC4DF80029C534 /* AnimatingTransitionsHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTests.swift; sourceTree = "<group>"; };
+		CC6DC0C41CCC4E2E0029C534 /* SplitViewTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CC6DC0C51CCC4E2E0029C534 /* TabBarTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
 		CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
 		CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContextSourceAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		CCB07B0A1CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
@@ -336,8 +350,6 @@
 		CCCE51621CAAB69F0010259C /* TransitionsCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		CCCE51631CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegateHolder.swift; sourceTree = "<group>"; };
 		CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewControllerFindable.swift; sourceTree = "<group>"; };
-		CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Avito-ios-navigation-framework.h"; sourceTree = "<group>"; };
-		CCE04BB31C784B2C000F4ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE90FBE1C75BAEC00AF5E26 /* Avito-ios-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avito-ios-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE90FC11C75BAEC00AF5E26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE90FCF1C75BAED00AF5E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -652,6 +664,9 @@
 				CC6DC08B1CCBFA870029C534 /* ContainingTransitionsHandlerSpy.swift */,
 				CC6DC07F1CCBF6F50029C534 /* DummyTransitionsHandler.swift */,
 				CC6DC0801CCBF6F50029C534 /* TransitionContextsCreator.swift */,
+				CC6DC0BB1CCC427D0029C534 /* TransitionsCoordinatorSpy.swift */,
+				CC6DC0C01CCC49310029C534 /* TransitionContextsExtensions.swift */,
+				CC6DC0BE1CCC47090029C534 /* TransitionsCoordinatorSpyingEnums.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -730,6 +745,17 @@
 				CC6DC0B21CCC3BBB0029C534 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CC6DC0B81CCC41BD0029C534 /* TransitionsHandlersTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC6DC0C21CCC4DF80029C534 /* AnimatingTransitionsHandlerTests.swift */,
+				CC6DC0B91CCC41DB0029C534 /* NavigationTransitionsHandlerImplTests.swift */,
+				CC6DC0C41CCC4E2E0029C534 /* SplitViewTransitionsHandlerImplTests.swift */,
+				CC6DC0C51CCC4E2E0029C534 /* TabBarTransitionsHandlerImplTests.swift */,
+			);
+			path = TransitionsHandlersTests;
 			sourceTree = "<group>";
 		};
 		CCB07B091CCA7BFC00F96A19 /* Reset */ = {
@@ -901,21 +927,11 @@
 			path = ViewControllerAdditions;
 			sourceTree = "<group>";
 		};
-		CCE04BB01C784B2C000F4ECC /* Avito-ios-navigation-framework */ = {
-			isa = PBXGroup;
-			children = (
-				CCE04BB11C784B2C000F4ECC /* Avito-ios-navigation-framework.h */,
-				CCE04BB31C784B2C000F4ECC /* Info.plist */,
-			);
-			path = "Avito-ios-navigation-framework";
-			sourceTree = "<group>";
-		};
 		CCE90FB51C75BAEC00AF5E26 = {
 			isa = PBXGroup;
 			children = (
 				CCE90FC01C75BAEC00AF5E26 /* Avito-ios-navigation */,
 				CCE90FD71C75BAED00AF5E26 /* Avito-ios-navigationTests */,
-				CCE04BB01C784B2C000F4ECC /* Avito-ios-navigation-framework */,
 				CCE90FBF1C75BAEC00AF5E26 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -949,6 +965,7 @@
 				CC6DC0811CCBF6F50029C534 /* TransitionContextsStackClientTests */,
 				CC6DC0831CCBF6F50029C534 /* TransitionContextsStackTests */,
 				CC6DC0751CCBF4A80029C534 /* Routers */,
+				CC6DC0B81CCC41BD0029C534 /* TransitionsHandlersTests */,
 				CCE90FDA1C75BAED00AF5E26 /* Info.plist */,
 			);
 			path = "Avito-ios-navigationTests";
@@ -1418,6 +1435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC6DC0C11CCC49310029C534 /* TransitionContextsExtensions.swift in Sources */,
 				CCF72CD31CCA40C100E29A7A /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
 				CCF72CE61CCA5CC800E29A7A /* ResettingAnimationLaunchingContext.swift in Sources */,
 				CCBD66121CCA9A0300F351D4 /* ModalPresentationRouter.swift in Sources */,
@@ -1435,6 +1453,7 @@
 				CCE910551C75BB7B00AF5E26 /* RouterTransitionable.swift in Sources */,
 				CCE003471C92BB1A00B52D8A /* TopViewControllerFindable.swift in Sources */,
 				CCE910A51C75BB7B00AF5E26 /* TransitionsCoordinatorImpl.swift in Sources */,
+				CC6DC0C71CCC4E2E0029C534 /* TabBarTransitionsHandlerImplTests.swift in Sources */,
 				CCB8D4B51CC903D100D395F8 /* PushAnimationLaunchingContext.swift in Sources */,
 				CCB07B121CCA7BFC00F96A19 /* ResettingNavigationAnimationContext.swift in Sources */,
 				CC3987FB1C8D642D00E3035C /* BaseMasterDetailRouter.swift in Sources */,
@@ -1450,6 +1469,7 @@
 				CCE9108D1C75BB7B00AF5E26 /* TransitionsHandlerContainer.swift in Sources */,
 				CCCA3AB61CB2AB830066810B /* EndpointRouter.swift in Sources */,
 				CCE910991C75BB7B00AF5E26 /* TransitionId.swift in Sources */,
+				CC6DC0BA1CCC41DB0029C534 /* NavigationTransitionsHandlerImplTests.swift in Sources */,
 				CCB8D4971CC903D100D395F8 /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
 				CCE910771C75BB7B00AF5E26 /* CompletedTransitionContext.swift in Sources */,
 				CC6DC08C1CCBFA870029C534 /* ContainingTransitionsHandlerSpy.swift in Sources */,
@@ -1505,6 +1525,7 @@
 				CCE910971C75BB7B00AF5E26 /* TabBarTransitionsHandlerImpl.swift in Sources */,
 				CCB8D4A31CC903D100D395F8 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
 				CC4FDABD1CC91D0A00D1DF2D /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
+				CC6DC0BD1CCC427D0029C534 /* TransitionsCoordinatorSpy.swift in Sources */,
 				CCE910AF1C75BB7B00AF5E26 /* TransitionContextsStackClientProvider.swift in Sources */,
 				CC3988041C8D642D00E3035C /* RouterSeed.swift in Sources */,
 				CCB8D4F31CC903E900D395F8 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
@@ -1531,6 +1552,7 @@
 				CC3987FE1C8D642D00E3035C /* MasterDetailRouterSeed.swift in Sources */,
 				CC4FDAC31CC91D0A00D1DF2D /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
 				CCE910A31C75BB7B00AF5E26 /* TransitionsCoordinatorHolder.swift in Sources */,
+				CC6DC0BF1CCC47090029C534 /* TransitionsCoordinatorSpyingEnums.swift in Sources */,
 				CC6DC0861CCBF6F50029C534 /* TransitionContextsCreator.swift in Sources */,
 				CC6DC0921CCC1C690029C534 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */,
 				CC4FDAFF1CC9248100D1DF2D /* PopoverTransitionStyle.swift in Sources */,
@@ -1540,8 +1562,10 @@
 				CC6DC09F1CCC38610029C534 /* EndpointRouterTests_BaseRouter.swift in Sources */,
 				CC4FDA901CC91D0A00D1DF2D /* ModalPresentationAnimationContext.swift in Sources */,
 				CC6DC0901CCC145F0029C534 /* DetailRouterTests_BaseRouter.swift in Sources */,
+				CC6DC0C31CCC4DF80029C534 /* AnimatingTransitionsHandlerTests.swift in Sources */,
 				CCE910391C75BB7B00AF5E26 /* WeakBox.swift in Sources */,
 				CCE910B31C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
+				CC6DC0C61CCC4E2E0029C534 /* SplitViewTransitionsHandlerImplTests.swift in Sources */,
 				CC4FDAB41CC91D0A00D1DF2D /* PopoverTransitionsAnimator.swift in Sources */,
 				CC4FDA8D1CC91D0A00D1DF2D /* ModalTransitionsAnimator.swift in Sources */,
 			);

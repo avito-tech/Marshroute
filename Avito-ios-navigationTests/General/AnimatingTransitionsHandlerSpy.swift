@@ -1,5 +1,3 @@
-import XCTest
-
 final class AnimatingTransitionsHandlerSpy: AnimatingTransitionsHandler
 {
     // MARK: - TransitionsHandler

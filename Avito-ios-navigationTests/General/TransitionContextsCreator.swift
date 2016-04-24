@@ -2,7 +2,7 @@ import UIKit
 
 final class TransitionContextsCreator
 {
-    static func createPerformingCompletedTransitionContext(
+    static func createCompletedTransitionContextFromPresentationTransitionContext(
         sourceTransitionsHandler sourceTransitionsHandler: AnimatingTransitionsHandler,
         targetViewController: UIViewController,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
@@ -46,6 +46,26 @@ final class TransitionContextsCreator
             targetTransitionsHandlerBox: targetTransitionsHandlerBox,
             storableParameters: nil,
             sourceAnimationLaunchingContextBox: sourceAnimationLaunchingContextBox
+        )
+    }
+    
+    static func createPresentationTransitionContext() -> PresentationTransitionContext {
+        return PresentationTransitionContext(
+            pushingViewController: UIViewController(),
+            animator: NavigationTransitionsAnimator(),
+            transitionId: TransitionIdGeneratorImpl().generateNewTransitionId()
+        )
+    }
+    
+    static func createResettingTransitionContext() -> ResettingTransitionContext {
+        return ResettingTransitionContext(
+            registeringEndpointNavigationController: UINavigationController(), animatingTransitionsHandler: NavigationTransitionsHandlerImpl(
+                navigationController: UINavigationController(),
+                transitionsCoordinator: TransitionsCoordinatorImpl(
+                    stackClientProvider: TransitionContextsStackClientProviderImpl()
+                )
+            ),
+            transitionId: TransitionIdGeneratorImpl().generateNewTransitionId()
         )
     }
 }

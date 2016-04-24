@@ -248,13 +248,21 @@ extension TransitionsCoordinator where
             )
         }
         
-        if let lastTransition = stackClient.lastTransitionForTransitionsHandler(transitionsHandler) {
-            // дополняем параметры анимации информацией о текущем верхнем контроллере
-            context.resettingAnimationLaunchingContextBox.appendSourceViewController(
-                lastTransition.targetViewController
-            )
+        if case .ResettingNavigationRoot(_) = context.resettingAnimationLaunchingContextBox {
+            if let lastTransition = stackClient.lastTransitionForTransitionsHandler(transitionsHandler) {
+                // дополняем параметры анимации информацией о текущем верхнем контроллере
+                context.resettingAnimationLaunchingContextBox.appendSourceViewController(
+                    lastTransition.targetViewController
+                )
+            } else {
+                debugPrint(
+                    "Cannot reset `rootViewController` of a `UINavigationController`." +
+                    "No `rootViewController` found. You should first set `rootViewController`." +
+                    "see `ResettingAnimationLaunchingContextBox.ResettingNavigationRoot`"
+                )
+                return
+            }
         }
-        
         
         // уведомляем делегата до вызова `reset` анимаций
         transitionsCoordinatorDelegate?.transitionsCoordinator(

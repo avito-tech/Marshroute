@@ -79,7 +79,7 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
 
     func testThatTabBarTransitionsHandlerDoesNotForward_ResetWithTransition_CallsToItsTransitionsCoordinator() {
         // Given
-        let resettingContext = TransitionContextsCreator.createResettingTransitionContext()
+        let resettingContext = TransitionContextsCreator.createRegisteringEndpointNavigationControllerTransitionContext()
         
         // When
         tabBarTransitionsHandler.resetWithTransition(context: resettingContext)

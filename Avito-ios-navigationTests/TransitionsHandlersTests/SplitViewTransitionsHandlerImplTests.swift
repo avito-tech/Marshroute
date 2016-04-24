@@ -79,7 +79,7 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
     
     func testThatSplitViewTransitionsHandlerDoesNotForward_ResetWithTransition_CallsToItsTransitionsCoordinator() {
         // Given
-        let resettingContext = TransitionContextsCreator.createResettingTransitionContext()
+        let resettingContext = TransitionContextsCreator.createRegisteringEndpointNavigationControllerTransitionContext()
         
         // When
         splitViewTransitionsHandler.resetWithTransition(context: resettingContext)

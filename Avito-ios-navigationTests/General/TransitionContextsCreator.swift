@@ -57,7 +57,7 @@ final class TransitionContextsCreator
         )
     }
     
-    static func createResettingTransitionContext() -> ResettingTransitionContext {
+    static func createRegisteringEndpointNavigationControllerTransitionContext() -> ResettingTransitionContext {
         return ResettingTransitionContext(
             registeringEndpointNavigationController: UINavigationController(), animatingTransitionsHandler: NavigationTransitionsHandlerImpl(
                 navigationController: UINavigationController(),

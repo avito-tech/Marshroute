@@ -83,7 +83,7 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
 
     func testThatNavigationTransitionsHandlerForwards_ResetWithTransition_CallsToItsTransitionsCoordinator() {
         // Given
-        let resettingContext = TransitionContextsCreator.createResettingTransitionContext()
+        let resettingContext = TransitionContextsCreator.createRegisteringEndpointNavigationControllerTransitionContext()
         
         // When
         navigationTransitionsHandler.resetWithTransition(context: resettingContext)
@@ -94,8 +94,4 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
             XCTAssert(transitionsHandler === navigationTransitionsHandler)
         } else { XCTFail() }
     }
-    
-    // MARK: - TransitionAnimationsLauncher
-    
-    // TODO: test
 }

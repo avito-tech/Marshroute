@@ -10,7 +10,7 @@ final class TransitionContextsStackTests: XCTestCase {
     private let targetViewController = UIViewController()
     private var nillableTargetViewController: UIViewController?
     private let sourceViewController = UIViewController()
-    private let dummyTransitionsHandler = DummyTransitionsHandler()
+    private let dummyTransitionsHandler = DummyAnimatingTransitionsHandler()
     
     override func setUp() {
         super.setUp()

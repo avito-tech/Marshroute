@@ -1,4 +1,4 @@
-final class DummyTransitionsHandler: AnimatingTransitionsHandler {
+final class DummyAnimatingTransitionsHandler: AnimatingTransitionsHandler {
     override func performTransition(context context: PresentationTransitionContext) {}
     override func undoTransitionsAfter(transitionId transitionId: TransitionId) {}
     override func undoTransitionWith(transitionId transitionId: TransitionId) {}

@@ -1,6 +1,7 @@
 import Foundation
 
-public class PopoverTransitionsAnimator: TransitionsAnimator {
+public class PopoverTransitionsAnimator: TransitionsAnimator
+{
     public var shouldAnimate = true
     
     // MARK: - Init

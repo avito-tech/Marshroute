@@ -80,7 +80,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
             }
             
         case .Push(_):
-            assert(false, "you were supposed to create `NavigationTransitionsHandlerImpl`"); return
+            debugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
         case .Popover(let launchingContext):
             let popoverPresentationAnimationContext = PopoverPresentationAnimationContext(
@@ -170,7 +170,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
             }
             
         case .ResettingNavigationRoot(_):
-            assert(false, "you were supposed to create `NavigationTransitionsHandlerImpl`"); return
+            debugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
         case .Registering:
             break; // no need for animations

@@ -11,7 +11,7 @@ final class RouterFocusableTests: XCTestCase
     var masterContainingTransitionsHandlerSpy: ContainingTransitionsHandlerSpy!
     var detailContainingTransitionsHandlerSpy: ContainingTransitionsHandlerSpy!
     
-    var dummyPresentingTransitionsHandler: DummyTransitionsHandler!
+    var dummyPresentingTransitionsHandler: DummyAnimatingTransitionsHandler!
     
     override func setUp() {
         super.setUp()
@@ -39,7 +39,7 @@ final class RouterFocusableTests: XCTestCase
             transitionsCoordinator: transitionsCoordinator
         )
         
-        dummyPresentingTransitionsHandler = DummyTransitionsHandler()
+        dummyPresentingTransitionsHandler = DummyAnimatingTransitionsHandler()
     }
 
     // MARK: - BaseRouter

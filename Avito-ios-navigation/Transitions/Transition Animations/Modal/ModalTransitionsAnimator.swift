@@ -1,5 +1,7 @@
 import UIKit
 
+/// Аниматор, выполняющий модальный переход на UIViewController, не обернутый в UINavigationController.
+/// Также выполняет обратный переход
 public class ModalTransitionsAnimator: TransitionsAnimator
 {
     public var shouldAnimate = true

@@ -1,4 +1,4 @@
-/// Описание аниматора перехода, выполняющего любые виды reset-анимаций
+/// Описание всех аниматоров, выполняющих reset-переходы
 public enum ResettingTransitionsAnimatorBox {
     case SettingNavigationRoot(animator: SetNavigationTransitionsAnimator)
     case ResettingNavigationRoot(animator: ResetNavigationTransitionsAnimator)

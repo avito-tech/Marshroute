@@ -1,5 +1,7 @@
 import UIKit
 
+/// Аниматор, выполняющий модальный переход на UISplitViewController.
+/// Также выполняет обратный переход
 public class ModalMasterDetailTransitionsAnimator: TransitionsAnimator
 {
     public var shouldAnimate = true

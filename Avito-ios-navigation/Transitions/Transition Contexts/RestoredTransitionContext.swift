@@ -23,7 +23,7 @@ public struct RestoredTransitionContext {
     public let storableParameters: TransitionStorableParameters?
     
     /// параметры запуска анимации перехода
-    public let sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox
+    public let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
 }
 
 // MARK: - Init

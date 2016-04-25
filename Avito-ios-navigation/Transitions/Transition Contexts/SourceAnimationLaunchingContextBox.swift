@@ -1,7 +1,7 @@
 import UIKit
 
 /// Описание параметров запуска анимаций перехода, хранимого в истории переходов
-public enum CompletedTransitionContextSourceAnimationLaunchingContextBox {
+public enum SourceAnimationLaunchingContextBox {
     case Presentation(launchingContextBox: PresentationAnimationLaunchingContextBox)
     case Resetting(launchingContextBox: ResettingAnimationLaunchingContextBox)
     

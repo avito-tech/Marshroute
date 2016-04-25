@@ -1,3 +1,4 @@
+/// Аниматор, выполняющий первоначальное проставление корневого контроллера в UINavigationController'е
 public class SetNavigationTransitionsAnimator: ResetTransitionsAnimator
 {
     public var shouldAnimate = true

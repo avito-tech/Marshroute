@@ -1,5 +1,7 @@
 import Foundation
 
+/// Аниматор, показывающий UIPopoverController, с UIViewController'ом, обернутым в UINavigationController.
+/// Также выполняет обратный переход
 public class PopoverNavigationTransitionsAnimator: TransitionsAnimator
 {
     public var shouldAnimate = true

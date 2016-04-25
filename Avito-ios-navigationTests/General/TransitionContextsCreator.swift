@@ -17,7 +17,7 @@ final class TransitionContextsCreator
             launchingContext: pushAnimationLaunchingContext
         )
         
-        let sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox
+        let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
             = .Presentation(launchingContextBox: presentationAnimationLaunchingContextBox)
         
         return CompletedTransitionContext(
@@ -36,7 +36,7 @@ final class TransitionContextsCreator
                                  targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
         -> CompletedTransitionContext
     {
-        let sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox
+        let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
             = .Resetting(launchingContextBox: .Registering)
         
         return CompletedTransitionContext(

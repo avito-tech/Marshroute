@@ -1,3 +1,4 @@
+/// Аниматор, выполняющий push-pop переходы
 public class NavigationTransitionsAnimator: TransitionsAnimator
 {
     public var shouldAnimate = true

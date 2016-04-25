@@ -24,7 +24,7 @@ public struct CompletedTransitionContext {
     public let storableParameters: TransitionStorableParameters?
     
     /// параметры запуска анимации перехода
-    public let sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox
+    public let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
     
     /// Все важные ссылки хранятся слабо, чтобы не нарушать UIKit'овый цикл управления памятью.
     /// т.е. чтобы спокойно пользоваться кнопкой `< Back`, например, и targetViewController освободится.
@@ -93,7 +93,7 @@ public struct CompletedTransitionContext {
         targetViewController: UIViewController?,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
         storableParameters: TransitionStorableParameters?,
-        sourceAnimationLaunchingContextBox: CompletedTransitionContextSourceAnimationLaunchingContextBox)
+        sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox)
     {
         self.transitionId = transitionId
         self.sourceTransitionsHandler = sourceTransitionsHandler

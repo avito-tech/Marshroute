@@ -1,5 +1,8 @@
 import UIKit
 
+/// Аниматор, выполняющий модальный переход на конечный UINavigationController, 
+/// например MFMailComposeViewController, UIImagePickerController.
+/// Также выполняет обратный переход
 public class ModalEndpointNavigationTransitionsAnimator: TransitionsAnimator
 {
     public var shouldAnimate = true

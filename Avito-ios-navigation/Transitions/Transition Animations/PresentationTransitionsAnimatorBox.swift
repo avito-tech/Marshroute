@@ -1,4 +1,4 @@
-/// Описание аниматора, выполняющего любой вид прямого или обратного перехода
+/// Описание всех аниматоров, выполняющих прямые и обратные переходы
 public enum TransitionsAnimatorBox {
     case Modal(animator: ModalTransitionsAnimator)
     case ModalNavigation(animator: ModalNavigationTransitionsAnimator)

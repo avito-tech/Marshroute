@@ -102,8 +102,8 @@
 		CC6DC0E21CCCC1300029C534 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0E01CCCC1300029C534 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */; };
 		CCB07B041CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
 		CCB07B051CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */; };
-		CCB07B071CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */; };
-		CCB07B081CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */; };
+		CCB07B071CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B061CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift */; };
+		CCB07B081CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B061CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift */; };
 		CCB07B0F1CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B0A1CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift */; };
 		CCB07B101CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B0A1CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift */; };
 		CCB07B111CCA7BFC00F96A19 /* ResettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB07B0B1CCA7BFC00F96A19 /* ResettingNavigationAnimationContext.swift */; };
@@ -355,7 +355,7 @@
 		CC6DC0DF1CCCC1300029C534 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
 		CC6DC0E01CCCC1300029C534 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift; sourceTree = "<group>"; };
 		CCB07B031CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
-		CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContextSourceAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
+		CCB07B061CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		CCB07B0A1CCA7BFC00F96A19 /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCB07B0B1CCA7BFC00F96A19 /* ResettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
 		CCB07B0D1CCA7BFC00F96A19 /* SetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
@@ -1087,7 +1087,7 @@
 			children = (
 				CCE9100F1C75BB7B00AF5E26 /* CompletedTransitionContext.swift */,
 				CCE910101C75BB7B00AF5E26 /* CompletedTransitionTargetTransitionsHandlerBox.swift */,
-				CCB07B061CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift */,
+				CCB07B061CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift */,
 				CCE910111C75BB7B00AF5E26 /* PresentationTransitionContext.swift */,
 				CCF72CD81CCA574E00E29A7A /* PresentationTransitionTargetTransitionsHandlerBox.swift */,
 				CCF72CDE1CCA575700E29A7A /* ResettingTransitionContext.swift */,
@@ -1423,7 +1423,7 @@
 				CCE910AC1C75BB7B00AF5E26 /* TransitionContextsStackClientImpl.swift in Sources */,
 				CCE910521C75BB7B00AF5E26 /* RouterPresentable.swift in Sources */,
 				CCE910781C75BB7B00AF5E26 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				CCB07B071CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift in Sources */,
+				CCB07B071CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift in Sources */,
 				CCB8D4961CC903D100D395F8 /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
 				CC4FDAC21CC91D0A00D1DF2D /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
 				CCB8D4E61CC903E900D395F8 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
@@ -1550,7 +1550,7 @@
 				CC6DC09A1CCC2DE30029C534 /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */,
 				CC4FDACF1CC91D0A00D1DF2D /* PresentationTransitionsAnimatorBox.swift in Sources */,
 				CC4FDACC1CC91D0A00D1DF2D /* TransitionsAnimator.swift in Sources */,
-				CCB07B081CCA72AF00F96A19 /* CompletedTransitionContextSourceAnimationLaunchingContextBox.swift in Sources */,
+				CCB07B081CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift in Sources */,
 				CCE910A91C75BB7B00AF5E26 /* TransitionContextsStack.swift in Sources */,
 				CCB8D4BE1CC903D100D395F8 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
 				CC6DC0DC1CCCAF9F0029C534 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */,

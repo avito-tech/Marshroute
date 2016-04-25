@@ -1,6 +1,6 @@
 import UIKit
 
-/// Описание параметров reset-анимаций
+/// Описание параметров set-анимаций
 /// для первоначального проставления корневого контроллера в UINavigationController
 public struct SettingNavigationAnimationContext {
     /// контроллер, который нужно вставить в `UINavigationController`

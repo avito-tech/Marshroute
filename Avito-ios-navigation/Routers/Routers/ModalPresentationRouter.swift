@@ -1,5 +1,7 @@
 import UIKit
 
+/// Роутер, выполняющий модальные переходы на  UIViewController, как обернутый, так и необернутый в UINavigationController.
+/// Также выполняет модальные переходы на UISplitViewController
 public protocol ModalPresentationRouter: class {
     // MARK: - UIViewController
     func presentModalViewControllerDerivedFrom(

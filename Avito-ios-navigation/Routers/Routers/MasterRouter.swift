@@ -1,5 +1,6 @@
 import UIKit
 
+/// Роутер, работающий с двумя UINavigationController'ами, и выполняющий push- и reset-переходы в каждый из них
 public protocol MasterRouter {
     func setMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController)

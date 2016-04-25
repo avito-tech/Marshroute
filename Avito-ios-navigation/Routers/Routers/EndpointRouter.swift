@@ -1,5 +1,7 @@
 import UIKit
 
+/// Роутер, выполняющий модальные переходы на конечный UINavigationController.
+/// Например, на MFMailComposeViewController, UIImagePickerController
 public protocol EndpointRouter: class {
     func presentModalEndpointNavigationController(
         navigationController: UINavigationController,

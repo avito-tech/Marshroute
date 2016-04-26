@@ -2,21 +2,12 @@ import UIKit
 
 /// Методы, чтобы вернуться на экран текущего модуля
 public protocol RouterFocusable: class {
-    func focusOnCurrentModule()
     func focusOnCurrentModule(completion completion: (() -> Void)?)
 }
 
 // MARK: - RouterFocusable Default Impl
 public extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
     func focusOnCurrentModule(completion completion: (() -> Void)?) {
-        focusOnCurrentModuleImpl(completion: completion)
-    }
-    
-    func focusOnCurrentModule() {
-        focusOnCurrentModuleImpl(completion: nil)
-    }
-    
-    private func focusOnCurrentModuleImpl(completion completion: (() -> Void)?) {
         guard let transitionsHandlerBox = transitionsHandlerBox
             else { return }
         
@@ -33,5 +24,9 @@ public extension RouterFocusable where Self: RouterTransitionable, Self: RouterI
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации возвращения на текущий модуль
         transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
         CATransaction.commit()
+    }
+    
+    func focusOnCurrentModule() {
+        focusOnCurrentModule(completion: nil)
     }
 }

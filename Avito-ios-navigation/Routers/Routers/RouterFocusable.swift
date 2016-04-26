@@ -5,6 +5,12 @@ public protocol RouterFocusable: class {
     func focusOnCurrentModule(completion completion: (() -> Void)?)
 }
 
+public extension RouterFocusable {
+    func focusOnCurrentModule() {
+        focusOnCurrentModule(completion: nil)
+    }
+}
+
 // MARK: - RouterFocusable Default Impl
 public extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
     func focusOnCurrentModule(completion completion: (() -> Void)?) {
@@ -24,9 +30,5 @@ public extension RouterFocusable where Self: RouterTransitionable, Self: RouterI
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации возвращения на текущий модуль
         transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
         CATransaction.commit()
-    }
-    
-    func focusOnCurrentModule() {
-        focusOnCurrentModule(completion: nil)
     }
 }

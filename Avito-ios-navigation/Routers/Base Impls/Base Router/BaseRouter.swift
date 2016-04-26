@@ -9,10 +9,11 @@ public class BaseRouter:
     RouterIdentifiable,
     RouterPresentable,
     RouterTransitionable,
-    Router,
+    ModalPresentationRouter,
+    PopoverPresentationRouter,
     EndpointRouter,
     RouterFocusable,
-    RouterDismisable,
+    RouterDismissable,
     DetailRouterTransitionable,
     DetailRouter,
     RouterControllersProviderHolder

@@ -24,9 +24,17 @@ public struct CompletedTransitionContext {
     public let storableParameters: TransitionStorableParameters?
     
     /// параметры запуска анимации перехода
-    public let animationLaunchingContext: TransitionAnimationLaunchingContext
+    public let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
     
-    init?(forwardTransitionContext context: ForwardTransitionContext,
+    /// Все важные ссылки хранятся слабо, чтобы не нарушать UIKit'овый цикл управления памятью.
+    /// т.е. чтобы спокойно пользоваться кнопкой `< Back`, например, и targetViewController освободится.
+    /// запись об таком переходе очищается лениво
+    public var isZombie: Bool {
+        return targetViewController == nil
+    }
+    
+    // MARK: - Init
+    public init?(presentationTransitionContext context: PresentationTransitionContext,
         sourceTransitionsHandler: AnimatingTransitionsHandler)
     {
         guard !context.needsAnimatingTargetTransitionHandler else {
@@ -34,9 +42,11 @@ public struct CompletedTransitionContext {
             return nil
         }
         
-        guard let targetTransitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(
-            forwardTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox
+        let transitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(
+            presentationTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox
         )
+        
+        guard let targetTransitionsHandlerBox = transitionsHandlerBox
             else { return nil }
         
         self.transitionId = context.transitionId
@@ -48,31 +58,48 @@ public struct CompletedTransitionContext {
         
         self.storableParameters = context.storableParameters
 
-        self.animationLaunchingContext = context.animationLaunchingContext
+        self.sourceAnimationLaunchingContextBox = .Presentation(
+            launchingContextBox: context.presentationAnimationLaunchingContextBox
+        )
     }
     
-    /// Все важные ссылки хранятся слабо, чтобы не нарушать UIKit'овый цикл управления памятью.
-    /// т.е. чтобы спокойно пользоваться кнопкой `< Back`, например, и targetViewController освободится.
-    /// запись об таком переходе очищается лениво
-    var isZombie: Bool {
-        return targetViewController == nil
+    public init?(resettingTransitionContext context: ResettingTransitionContext,
+        sourceTransitionsHandler: AnimatingTransitionsHandler)
+    {
+        let transitionsHandlerBox = CompletedTransitionTargetTransitionsHandlerBox(
+            resettingTransitionTargetTransitionsHandlerBox: context.targetTransitionsHandlerBox
+        )
+        
+        guard let targetTransitionsHandlerBox = transitionsHandlerBox
+            else { return nil }
+        
+        self.transitionId = context.transitionId
+        
+        self.sourceTransitionsHandler = sourceTransitionsHandler
+        
+        self.targetViewController = context.targetViewController
+        self.targetTransitionsHandlerBox = targetTransitionsHandlerBox
+        
+        self.storableParameters = context.storableParameters
+        
+        self.sourceAnimationLaunchingContextBox = .Resetting(
+            launchingContextBox: context.resettingAnimationLaunchingContextBox
+        )
     }
-}
-
-// MARK: - convenience
-extension CompletedTransitionContext {
-    init(transitionId: TransitionId,
+    
+    public init(
+        transitionId: TransitionId,
         sourceTransitionsHandler: AnimatingTransitionsHandler?,
         targetViewController: UIViewController?,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox,
         storableParameters: TransitionStorableParameters?,
-        animationLaunchingContext: TransitionAnimationLaunchingContext)
+        sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox)
     {
         self.transitionId = transitionId
         self.sourceTransitionsHandler = sourceTransitionsHandler
         self.targetViewController = targetViewController
         self.targetTransitionsHandlerBox = targetTransitionsHandlerBox
         self.storableParameters = storableParameters
-        self.animationLaunchingContext = animationLaunchingContext
+        self.sourceAnimationLaunchingContextBox = sourceAnimationLaunchingContextBox
     }
 }

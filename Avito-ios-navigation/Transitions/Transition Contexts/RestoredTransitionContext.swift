@@ -22,9 +22,12 @@ public struct RestoredTransitionContext {
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?
     
-    /// параметры запуска анимации прямого перехода
-    public let forwardAnimationLaunchingContext: TransitionAnimationLaunchingContext
-    
+    /// параметры запуска анимации перехода
+    public let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
+}
+
+// MARK: - Init
+public extension RestoredTransitionContext {
     init?(completedTransition context: CompletedTransitionContext?)
     {
         guard let context = context
@@ -49,14 +52,7 @@ public struct RestoredTransitionContext {
         
         self.storableParameters = context.storableParameters
         
-        self.forwardAnimationLaunchingContext = context.animationLaunchingContext
-    }
-    
-    /// Аниматор, выполнивший прямой переход. В будущем этот же аниматор выполнит обратный переход
-    public var transitionsAnimatorBox: TransitionsAnimatorBox {
-        // берем аниматора из описания параметров анимации прямого перехода, 
-        // так как для прямого и обратного перехода используется один и тот же аниматор
-        return forwardAnimationLaunchingContext.transitionsAnimatorBox
+        self.sourceAnimationLaunchingContextBox = context.sourceAnimationLaunchingContextBox
     }
 }
 

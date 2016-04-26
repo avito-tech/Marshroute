@@ -1,33 +1,40 @@
 import UIKit
 
+/// Роутер, выполняющий модальные переходы на конечный UINavigationController.
+/// Например, на MFMailComposeViewController, UIImagePickerController
 public protocol EndpointRouter: class {
-    func presentModalNavigationController(
+    func presentModalEndpointNavigationController(
         navigationController: UINavigationController,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
     
-    func presentModalNavigationController(
+    func presentModalEndpointNavigationController(
         navigationController: UINavigationController,
-        animator: EndpointNavigationTransitionsAnimator,
+        animator: ModalEndpointNavigationTransitionsAnimator,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
 }
 
 // MARK: - EndpointRouter Default Impl
-extension EndpointRouter where Self: RouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder, Self: RouterControllersProviderHolder {
-    
-    public func presentModalNavigationController(
+extension EndpointRouter where
+    Self: RouterTransitionable,
+    Self: RouterIdentifiable,
+    Self: TransitionIdGeneratorHolder,
+    Self: TransitionsCoordinatorHolder,
+    Self: RouterControllersProviderHolder
+{
+    public func presentModalEndpointNavigationController(
         navigationController: UINavigationController,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
     {
-        presentModalNavigationController(
+        presentModalEndpointNavigationController(
             navigationController,
-            animator: EndpointNavigationTransitionsAnimator(),
+            animator: ModalEndpointNavigationTransitionsAnimator(),
             prepareForTransition: prepareForTransition
         )
     }
     
-    public func presentModalNavigationController(
+    public func presentModalEndpointNavigationController(
         navigationController: UINavigationController,
-        animator: EndpointNavigationTransitionsAnimator,
+        animator: ModalEndpointNavigationTransitionsAnimator,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
     {
         guard let transitionsHandlerBox = transitionsHandlerBox
@@ -52,18 +59,17 @@ extension EndpointRouter where Self: RouterTransitionable, Self: RouterIdentifia
         )
         
         do {
-            let resetContext = ForwardTransitionContext(
-                resettingWithViewController: navigationController,
+            let resetContext = ResettingTransitionContext(
+                registeringEndpointNavigationController: navigationController,
                 animatingTransitionsHandler: navigationTransitionsHandler,
-                animator: animator,
-                transitionId: generatedTransitionId
+                transitionId: transitionId
             )
             
             navigationTransitionsHandler.resetWithTransition(context: resetContext)
         }
         
-        let modalContext = ForwardTransitionContext(
-            presentingModalNavigationController: navigationController,
+        let modalContext = PresentationTransitionContext(
+            presentingModalEndpointNavigationController: navigationController,
             targetTransitionsHandler: navigationTransitionsHandler,
             animator: animator,
             transitionId: generatedTransitionId

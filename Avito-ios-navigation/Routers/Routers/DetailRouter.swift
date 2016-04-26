@@ -1,12 +1,13 @@
 import UIKit
 
+/// Роутер, работающий с одним UINavigationController'ом, и выполняющий push- и reset-переходы
 public protocol DetailRouter: class {
     func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
     
     func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
-        animator: NavigationTransitionsAnimator)
+        animator: ResetNavigationTransitionsAnimator)
     
     func pushViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
@@ -24,16 +25,17 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     {
         setViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimator()
+            animator: ResetNavigationTransitionsAnimator()
         )
     }
     
     public func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
-        animator: NavigationTransitionsAnimator)
+        animator: ResetNavigationTransitionsAnimator)
     {
         guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
             else { assert(false); return }
+        
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
@@ -48,8 +50,8 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         
         let viewController = deriveViewController(routerSeed: routerSeed)
         
-        let resetContext = ForwardTransitionContext(
-            resettingWithViewController: viewController,
+        let resetContext = ResettingTransitionContext(
+            resettingRootViewController: viewController,
             animatingTransitionsHandler: animatingDetailTransitionsHandler,
             animator: animator,
             transitionId: transitionId
@@ -87,7 +89,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         
         let viewController = deriveViewController(routerSeed: routerSeed)
         
-        let pushContext = ForwardTransitionContext(
+        let pushContext = PresentationTransitionContext(
             pushingViewController: viewController,
             animator: animator,
             transitionId: generatedTransitionId

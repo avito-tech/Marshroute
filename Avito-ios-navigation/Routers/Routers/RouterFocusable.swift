@@ -2,21 +2,33 @@ import UIKit
 
 /// Методы, чтобы вернуться на экран текущего модуля
 public protocol RouterFocusable: class {
+    func focusOnCurrentModule()
     func focusOnCurrentModule(completion completion: (() -> Void)?)
 }
 
 // MARK: - RouterFocusable Default Impl
-extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
-    public func focusOnCurrentModule(completion completion: (() -> Void)?) {
+public extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
+    func focusOnCurrentModule(completion completion: (() -> Void)?) {
+        focusOnCurrentModuleImpl(completion: completion)
+    }
+    
+    func focusOnCurrentModule() {
+        focusOnCurrentModuleImpl(completion: nil)
+    }
+    
+    private func focusOnCurrentModuleImpl(completion completion: (() -> Void)?) {
         guard let transitionsHandlerBox = transitionsHandlerBox
             else { return }
         
         let transitionsHandler = transitionsHandlerBox.unbox()
         
         if transitionsHandler === transitionsHandlerBox.unboxContainingTransitionsHandler() {
-            assert(presentingTransitionsHandler != nil, "`focusOnCurrentModule:` нельзя вызывать у корневого роутера приложения")
+            if presentingTransitionsHandler == nil {
+                debugPrint("`focusOnCurrentModule:` нельзя вызывать у корневого неанимирующего роутера приложения")
+                return
+            }
         }
-    
+        
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации возвращения на текущий модуль
         transitionsHandler.undoTransitionsAfter(transitionId: transitionId)

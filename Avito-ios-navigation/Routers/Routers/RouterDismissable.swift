@@ -5,6 +5,12 @@ public protocol RouterDismissable: class {
     func dismissCurrentModule(completion completion: (() -> Void)?)
 }
 
+public extension RouterDismissable {
+    func dismissCurrentModule() {
+        dismissCurrentModule(completion: nil)
+    }
+}
+
 // MARK: - RouterDismissable Default Impl
 public extension RouterDismissable where Self: RouterPresentable, Self: RouterIdentifiable {
     func dismissCurrentModule(completion completion: (() -> Void)?) {
@@ -13,8 +19,5 @@ public extension RouterDismissable where Self: RouterPresentable, Self: RouterId
         presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
         CATransaction.commit()
     }
-    
-    func dismissCurrentModule() {
-        dismissCurrentModule(completion: nil)
-    }
 }
+

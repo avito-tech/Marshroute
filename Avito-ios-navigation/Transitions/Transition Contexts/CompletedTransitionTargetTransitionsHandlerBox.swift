@@ -1,7 +1,7 @@
 /// Варианты хранения обработчика переходов показанного модуля
 public enum CompletedTransitionTargetTransitionsHandlerBox {
-    case Animating(WeakBox<AnimatingTransitionsHandler>)
-    case Containing(WeakBox<ContainingTransitionsHandler>)
+    case Animating(weakBox: WeakBox<AnimatingTransitionsHandler>)
+    case Containing(weakBox: WeakBox<ContainingTransitionsHandler>)
 
     // MARK: - Init
     public init?(presentationTransitionTargetTransitionsHandlerBox: PresentationTransitionTargetTransitionsHandlerBox)
@@ -30,12 +30,12 @@ public enum CompletedTransitionTargetTransitionsHandlerBox {
 
     public init(animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
-        self = .Animating(WeakBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
+        self = .Animating(weakBox: WeakBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
     }
     
     public init(containingTransitionsHandler: ContainingTransitionsHandler)
     {
-        self = .Containing(WeakBox<ContainingTransitionsHandler>(containingTransitionsHandler))
+        self = .Containing(weakBox: WeakBox<ContainingTransitionsHandler>(containingTransitionsHandler))
     }
 
     // MARK: - helpers

@@ -1,17 +1,17 @@
 /// Варианты хранения обработчика переходов показываемого модуля
 public enum PresentationTransitionTargetTransitionsHandlerBox {
-    case Animating(StrongBox<AnimatingTransitionsHandler>)
-    case Containing(StrongBox<ContainingTransitionsHandler>)
+    case Animating(strongBox: StrongBox<AnimatingTransitionsHandler>)
+    case Containing(strongBox: StrongBox<ContainingTransitionsHandler>)
     case PendingAnimating // обработчик переходов будет выставлен позже
 
     public init(animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
-        self = .Animating(StrongBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
+        self = .Animating(strongBox: StrongBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
     }
     
     public init(containingTransitionsHandler: ContainingTransitionsHandler)
     {
-        self = .Containing(StrongBox<ContainingTransitionsHandler>(containingTransitionsHandler))
+        self = .Containing(strongBox: StrongBox<ContainingTransitionsHandler>(containingTransitionsHandler))
     }
 }
 

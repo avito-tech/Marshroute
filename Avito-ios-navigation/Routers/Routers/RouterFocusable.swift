@@ -9,6 +9,14 @@ public protocol RouterFocusable: class {
 // MARK: - RouterFocusable Default Impl
 public extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
     func focusOnCurrentModule(completion completion: (() -> Void)?) {
+        focusOnCurrentModuleImpl(completion: completion)
+    }
+    
+    func focusOnCurrentModule() {
+        focusOnCurrentModuleImpl(completion: nil)
+    }
+    
+    private func focusOnCurrentModuleImpl(completion completion: (() -> Void)?) {
         guard let transitionsHandlerBox = transitionsHandlerBox
             else { return }
         
@@ -20,26 +28,10 @@ public extension RouterFocusable where Self: RouterTransitionable, Self: RouterI
                 return
             }
         }
-    
+        
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации возвращения на текущий модуль
         transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
         CATransaction.commit()
-    }
-    
-    func focusOnCurrentModule() {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { return }
-        
-        let transitionsHandler = transitionsHandlerBox.unbox()
-        
-        if transitionsHandler === transitionsHandlerBox.unboxContainingTransitionsHandler() {
-            if presentingTransitionsHandler == nil {
-                debugPrint("`focusOnCurrentModule:` нельзя вызывать у корневого неанимирующего роутера приложения")
-                return
-            }
-        }
-        
-        transitionsHandler.undoTransitionsAfter(transitionId: transitionId)
     }
 }

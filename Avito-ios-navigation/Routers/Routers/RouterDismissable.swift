@@ -9,13 +9,17 @@ public protocol RouterDismissable: class {
 // MARK: - RouterDismissable Default Impl
 public extension RouterDismissable where Self: RouterPresentable, Self: RouterIdentifiable {
     func dismissCurrentModule(completion completion: (() -> Void)?) {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completion) // дожидаемся анимации сокрытия текущего модуля
-        presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
-        CATransaction.commit()
+        dismissCurrentModuleImpl(completion: completion)
     }
     
     func dismissCurrentModule() {
-        presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
+        dismissCurrentModuleImpl(completion: nil)
+    }
+    
+    private func dismissCurrentModuleImpl(completion completion: (() -> Void)?) {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock(completion) // дожидаемся анимации сокрытия текущего модуля
+            presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)
+            CATransaction.commit()
     }
 }

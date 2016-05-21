@@ -580,9 +580,9 @@ private extension TransitionsCoordinator where
         }
         
         // если нашли несколько дочерних обработчиков на одинаковой глубине вложенности, то берем любой.
-        // у Split'а будет master, если ни master, ни detail не показывали модальных окон или поповеров
+        // у Split'а будет detail, если ни master, ни detail не показывали модальных окон или поповеров
         if chainedTransitionsHandlers.isEmpty {
-            return transitionsHandlers.first
+            return transitionsHandlers.last
         }
         
         // иначе продолжаем искать на следующей глубине вложенности
@@ -655,7 +655,7 @@ private extension TransitionsCoordinator where
     }
 }
 
-// MARK: - for TopViewControllerFindable
+// MARK: - for TopViewControllerFinder
 extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
     Self: TransitionsCoordinatorDelegateHolder

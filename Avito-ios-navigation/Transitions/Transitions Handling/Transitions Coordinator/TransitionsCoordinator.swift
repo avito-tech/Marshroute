@@ -569,20 +569,21 @@ private extension TransitionsCoordinator where
             guard let chainedTransitionsHandlerBox = stackClient.chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler)
                 else { continue }
             
-            if let animatingTransitionsHandler = chainedTransitionsHandlerBox.unboxAnimatingTransitionsHandler() {
-                chainedTransitionsHandlers.append(animatingTransitionsHandler)
-            }
-            else if let chainedContainingTransitionsHandler = chainedTransitionsHandlerBox.unboxContainingTransitionsHandler(),
-                let childAnimatingTransitionsHandlers = unboxContainingTransitionsHandler(chainedContainingTransitionsHandler)
-            {
-                chainedTransitionsHandlers.appendContentsOf(childAnimatingTransitionsHandlers)
-            }
+            let chainedAnimatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+                chainedTransitionsHandlerBox,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+            
+            chainedTransitionsHandlers.appendContentsOf(chainedAnimatingTransitionsHandlers)
         }
         
-        // если нашли несколько дочерних обработчиков на одинаковой глубине вложенности, то берем любой.
-        // у Split'а будет detail, если ни master, ни detail не показывали модальных окон или поповеров
+        // нашли несколько дочерних обработчиков на одинаковой глубине вложенности, 
+        // не показывавших модальные окна и поповеры.
+        // подойдет любой
         if chainedTransitionsHandlers.isEmpty {
-            return transitionsHandlers.last
+            return selectTransitionsHandler(
+                tantamountAnimatingTransitionsHandlers: transitionsHandlers
+            )
         }
         
         // иначе продолжаем искать на следующей глубине вложенности
@@ -660,10 +661,38 @@ extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
     Self: TransitionsCoordinatorDelegateHolder
 {
-    func findTopViewControllerImpl(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler?)
+    func findTopViewControllerImpl(forTransitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
         -> UIViewController?
     {
-        guard let transitionsHandler = transitionsHandler
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+            = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+                // среди видимых анимирующих обработчиков (то есть в выбранном tab'e tabbar'a)
+                return containingTransitionsHandler.visibleTransitionsHandlers
+        }
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        return findTopViewControllerImpl(
+            forTransitionsHandlers: animatingTransitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+    }
+        
+    private func findTopViewControllerImpl(
+        forTransitionsHandlers transitionsHandlers: [AnimatingTransitionsHandler]?,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> UIViewController?
+    {
+        let deepestChainedTransitionsHandler = deepestChainedAnimatingTransitionsHandler(
+            forTransitionsHandlers: transitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        guard let transitionsHandler = deepestChainedTransitionsHandler
             else { return nil }
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
@@ -674,25 +703,170 @@ extension TransitionsCoordinator where
         
         return lastTransition.targetViewController
     }
-    
-    func findTopViewControllerImpl(containingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
-        -> UIViewController?
+}
+
+// MARK: - for TransitionsTracker
+extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
+    func countOfTransitionsAfterTrackedTransitionImpl(
+        trackedTransition: TrackedTransition,
+        untilLastTransitionOfTransitionsHandler targetTransitionsHandler: TransitionsHandler)
+        -> Int?
     {
-        // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
-        // среди видимых анимирующих обработчиков (то есть в выбранном tab'e tabbar'a)
-        let animatingTransitionsHandlers = transitionsHandler.visibleTransitionsHandlers
+        let transitionsHandlerBox = trackedTransition.transitionsHandlerBox
+        let transitionsHandler = transitionsHandlerBox.unbox()
         
-        // выбираем из найденных анимирующих обработчиков один с самым глубоким дочерним анимирующим обработчиком
-        // и получаем этого дочернего обработчика, чтобы прокинуть ему обработку перехода
-        let animatingTransitionsHandler = deepestChainedAnimatingTransitionsHandler(
-            forTransitionsHandlers: animatingTransitionsHandlers,
-            unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
-                // продолжаем искать среди видимых анимирующих обработчиков (чтобы пользователь видел анимацию)
-                return containingTransitionsHandler.visibleTransitionsHandlers
-            }
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+            = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+                // среди всех анимирующих обработчиков (то есть во всех tab'ах tabbar'a)
+                return containingTransitionsHandler.allTransitionsHandlers
+        }
+
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
         )
         
-        return findTopViewControllerImpl(animatingTransitionsHandler: animatingTransitionsHandler)
+        for _ in animatingTransitionsHandlers {
+            let resultIfNotAnOptional = countOfTransitionsAfterTransitionWithId(
+                trackedTransition.transitionId,
+                performedByTransitionsHandler: transitionsHandler,
+                untilLastTransitionOfTransitionsHandler: targetTransitionsHandler,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+            
+            if let result = resultIfNotAnOptional {
+                return result
+            }
+        }
+        
+        return nil
+    }
+    
+    private func countOfTransitionsAfterTransitionWithId(
+        transitionId: TransitionId,
+        performedByTransitionsHandler fromTransitionsHandler: TransitionsHandler,
+        untilLastTransitionOfTransitionsHandler toTransitionsHandler: TransitionsHandler,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> Int?
+    {
+        let transitionsHandlersPath = transitionHandlersPath(
+            fromTransitionsHandler: fromTransitionsHandler,
+            toTransitionsHandler: toTransitionsHandler,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        guard let transitionsHandlers = transitionsHandlersPath
+            else { return nil }
+        
+        var result = 0
+        
+        for transitionsHandler in transitionsHandlers {
+            guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: fromTransitionsHandler)
+                else { return nil }
+            
+            let (chainedTransition, pushTransitions): (RestoredTransitionContext?, [RestoredTransitionContext]?)
+            
+            if transitionsHandler === fromTransitionsHandler {
+                // у начально нужно считать только переходы после переданного идентификатора
+                (chainedTransition, pushTransitions) = stackClient.transitionsAfter(
+                    transitionId: transitionId,
+                    forTransitionsHandler: transitionsHandler,
+                    includingTransitionWithId: false
+                )
+            }
+            else {
+                // у дочерних нужно считать все перерходы
+                (chainedTransition, pushTransitions) = stackClient.allTransitionsForTransitionsHandler(
+                    transitionsHandler
+                )
+            }
+            
+            result += pushTransitions?.count ?? 0
+            result += (chainedTransition != nil) ? 1 : 0
+        }
+        
+        return result
+    }
+
+    private func transitionHandlersPath(
+        fromTransitionsHandler fromTransitionsHandler: TransitionsHandler,
+        toTransitionsHandler: TransitionsHandler,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> [TransitionsHandler]?
+    {
+        if fromTransitionsHandler === toTransitionsHandler {
+            return [fromTransitionsHandler]
+        }
+        
+        guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: fromTransitionsHandler)
+            else { return nil }
+        
+        guard let chainedTransition = stackClient.chainedTransitionForTransitionsHandler(fromTransitionsHandler)
+            else { return nil }
+        
+        let chainedTransitionsHandlerBox = chainedTransition.targetTransitionsHandlerBox
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            chainedTransitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        for animatingTransitionsHandler in animatingTransitionsHandlers {
+            let subPath = transitionHandlersPath(
+                fromTransitionsHandler: animatingTransitionsHandler,
+                toTransitionsHandler: toTransitionsHandler,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+            
+            if let subPath = subPath {
+                var result = [fromTransitionsHandler]
+                result.appendContentsOf(subPath)
+                return result
+            }
+        }
+        
+        return nil
+    }
+}
+
+// MARK: - Utils
+private extension TransitionsCoordinator {
+    func animatingTransitionsHandlersForTransitionsHandlerBox(
+        transitionsHandlerBox: TransitionsHandlerBox,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> [AnimatingTransitionsHandler]
+    {
+        var result = [AnimatingTransitionsHandler]()
+        
+        if let animatingTransitionsHandler = transitionsHandlerBox.unboxAnimatingTransitionsHandler() {
+            result.append(animatingTransitionsHandler)
+        }
+        else if let containingTransitionsHandler = transitionsHandlerBox.unboxContainingTransitionsHandler(),
+            let childAnimatingTransitionsHandlers = unboxContainingTransitionsHandler(containingTransitionsHandler)
+        {
+            result.appendContentsOf(childAnimatingTransitionsHandlers)
+        }
+        
+        return result
+    }
+}
+
+// MARK: - Picking one of tantamount transitions handlers
+private extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
+    func selectTransitionsHandler(
+        tantamountAnimatingTransitionsHandlers transitionsHandlers: [AnimatingTransitionsHandler])
+        -> AnimatingTransitionsHandler?
+    {
+        // если нашли несколько равноправных обработчиков, то берем последний.
+        // например, среди анимирующих обработчиков SplitViewTransitionsHandler будет выбран detail
+        return transitionsHandlers.last
     }
 }
 

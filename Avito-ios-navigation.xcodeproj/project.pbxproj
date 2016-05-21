@@ -53,6 +53,8 @@
 		CC4FDAFB1CC9246400D1DF2D /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FDAF01CC9246400D1DF2D /* TransitionAnimationsLauncher.swift */; };
 		CC4FDAFE1CC9248100D1DF2D /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FDAFD1CC9248100D1DF2D /* PopoverTransitionStyle.swift */; };
 		CC4FDAFF1CC9248100D1DF2D /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FDAFD1CC9248100D1DF2D /* PopoverTransitionStyle.swift */; };
+		CC574AD01CF0E20A008648D0 /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574ACF1CF0E20A008648D0 /* TransitionsTracker.swift */; };
+		CC574AD11CF0E20A008648D0 /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574ACF1CF0E20A008648D0 /* TransitionsTracker.swift */; };
 		CC6DC07D1CCBF4C10029C534 /* RouterFocusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC07C1CCBF4C10029C534 /* RouterFocusableTests.swift */; };
 		CC6DC0851CCBF6F50029C534 /* DummyTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC07F1CCBF6F50029C534 /* DummyTransitionsHandler.swift */; };
 		CC6DC0861CCBF6F50029C534 /* TransitionContextsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6DC0801CCBF6F50029C534 /* TransitionContextsCreator.swift */; };
@@ -312,6 +314,7 @@
 		CC4FDA881CC91D0A00D1DF2D /* PresentationTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
 		CC4FDAF01CC9246400D1DF2D /* TransitionAnimationsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationsLauncher.swift; sourceTree = "<group>"; };
 		CC4FDAFD1CC9248100D1DF2D /* PopoverTransitionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopoverTransitionStyle.swift; path = "Avito-ios-navigation/Transitions/Transition Animations Launching/PopoverTransitionStyle.swift"; sourceTree = SOURCE_ROOT; };
+		CC574ACF1CF0E20A008648D0 /* TransitionsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsTracker.swift; sourceTree = "<group>"; };
 		CC6DC07C1CCBF4C10029C534 /* RouterFocusableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusableTests.swift; sourceTree = "<group>"; };
 		CC6DC07F1CCBF6F50029C534 /* DummyTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyTransitionsHandler.swift; sourceTree = "<group>"; };
 		CC6DC0801CCBF6F50029C534 /* TransitionContextsCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsCreator.swift; sourceTree = "<group>"; };
@@ -616,6 +619,14 @@
 				CC4FDAF01CC9246400D1DF2D /* TransitionAnimationsLauncher.swift */,
 			);
 			path = AnimationsLaunching;
+			sourceTree = "<group>";
+		};
+		CC574ACE1CF0E1FE008648D0 /* Transitions Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				CC574ACF1CF0E20A008648D0 /* TransitionsTracker.swift */,
+			);
+			path = "Transitions Tracking";
 			sourceTree = "<group>";
 		};
 		CC6DC0751CCBF4A80029C534 /* Routers */ = {
@@ -1078,6 +1089,7 @@
 				CCE9101A1C75BB7B00AF5E26 /* Transitions Handler */,
 				CCE9101D1C75BB7B00AF5E26 /* Transitions Handler Impls */,
 				CCE910231C75BB7B00AF5E26 /* Transitions Handling */,
+				CC574ACE1CF0E1FE008648D0 /* Transitions Tracking */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -1419,6 +1431,7 @@
 				CCE910881C75BB7B00AF5E26 /* TransitionStorableParameters.swift in Sources */,
 				CCE9108E1C75BB7B00AF5E26 /* AnimatingTransitionsHandler.swift in Sources */,
 				CCE910B41C75BB7B00AF5E26 /* TransitionContextsStackImpl.swift in Sources */,
+				CC574AD01CF0E20A008648D0 /* TransitionsTracker.swift in Sources */,
 				CCF72CE51CCA5CC800E29A7A /* ResettingAnimationLaunchingContext.swift in Sources */,
 				CCE910AC1C75BB7B00AF5E26 /* TransitionContextsStackClientImpl.swift in Sources */,
 				CCE910521C75BB7B00AF5E26 /* RouterPresentable.swift in Sources */,
@@ -1536,6 +1549,7 @@
 				CCE910831C75BB7B00AF5E26 /* TransitionsHandlerBox.swift in Sources */,
 				CCF72CF11CCA5EBE00E29A7A /* NavigationTransitionsAnimator.swift in Sources */,
 				CCE910AB1C75BB7B00AF5E26 /* TransitionContextsStackClient.swift in Sources */,
+				CC574AD11CF0E20A008648D0 /* TransitionsTracker.swift in Sources */,
 				CCE910931C75BB7B00AF5E26 /* NavigationTransitionsHandlerImpl.swift in Sources */,
 				CC6DC09C1CCC37A50029C534 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
 				CC39880E1C8D753000E3035C /* RouterControllersProvider.swift in Sources */,

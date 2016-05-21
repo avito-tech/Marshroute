@@ -47,12 +47,6 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     {
-        guard let masterTransitionsHandlerBox = masterTransitionsHandlerBox
-            else { assert(false); return }
-        
-        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
-            else { assert(false); return }
-        
         guard let animatingMasterTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
@@ -91,11 +85,6 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
-        guard let masterTransitionsHandlerBox = masterTransitionsHandlerBox
-            else { assert(false); return }
-        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
-            else { assert(false); return }
-        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let masterDetailRouterSeed = MasterDetailRouterSeed(
@@ -132,8 +121,6 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     {
-        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
-            else { assert(false); return }
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
@@ -171,9 +158,6 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
-        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
-            else { assert(false); return }
-        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let detailRouterSeed = RouterSeed(

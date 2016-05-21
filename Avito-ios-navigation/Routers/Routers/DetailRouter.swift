@@ -33,9 +33,6 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     {
-        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
-            else { assert(false); return }
-        
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { assert(false); return }
         
@@ -73,9 +70,6 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
-        guard let detailTransitionsHandlerBox = detailTransitionsHandlerBox
-            else { assert(false); return }
-        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let routerSeed = RouterSeed(

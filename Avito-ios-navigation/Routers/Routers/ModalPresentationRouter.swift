@@ -65,9 +65,6 @@ extension ModalPresentationRouter where
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: ModalTransitionsAnimator)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         let animatingTransitionsHandler = AnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator
         )
@@ -144,9 +141,6 @@ extension ModalPresentationRouter where
         detailNavigationController: UINavigationController,
         splitViewController: UISplitViewController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
         let masterTransitionsHandler = NavigationTransitionsHandlerImpl(
@@ -261,9 +255,6 @@ extension ModalPresentationRouter where
         animator: ModalNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator

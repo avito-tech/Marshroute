@@ -13,10 +13,8 @@ public extension RouterFocusable {
 
 // MARK: - RouterFocusable Default Impl
 public extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
-    func focusOnCurrentModule(completion completion: (() -> Void)?) {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { return }
-        
+    func focusOnCurrentModule(completion completion: (() -> Void)?)
+    {
         let transitionsHandler = transitionsHandlerBox.unbox()
         
         if transitionsHandler === transitionsHandlerBox.unboxContainingTransitionsHandler() {

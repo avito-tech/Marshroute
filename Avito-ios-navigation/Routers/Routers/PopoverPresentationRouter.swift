@@ -86,9 +86,6 @@ extension PopoverPresentationRouter where
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         let animatingTransitionsHandler = AnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator
         )
@@ -151,9 +148,6 @@ extension PopoverPresentationRouter where
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         let animatingTransitionsHandler = AnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator)
         
@@ -235,9 +229,6 @@ extension PopoverPresentationRouter where
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator
@@ -318,9 +309,6 @@ extension PopoverPresentationRouter where
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator)

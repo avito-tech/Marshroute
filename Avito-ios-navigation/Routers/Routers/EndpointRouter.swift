@@ -37,9 +37,6 @@ extension EndpointRouter where
         animator: ModalEndpointNavigationTransitionsAnimator,
         @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
             transitionsCoordinator: transitionsCoordinator

@@ -18,7 +18,7 @@ public class BaseRouter:
     DetailRouter,
     RouterControllersProviderHolder
 {
-    public let transitionsHandlerBox: RouterTransitionsHandlerBox?
+    public let transitionsHandlerBox: RouterTransitionsHandlerBox
     public let transitionId: TransitionId
     public private(set) weak var presentingTransitionsHandler: TransitionsHandler?
     public let transitionsCoordinator: TransitionsCoordinator
@@ -36,7 +36,7 @@ public class BaseRouter:
     }
 
     // MARK: - DetailRouterTransitionable
-    public var detailTransitionsHandlerBox: RouterTransitionsHandlerBox? {
+    public var detailTransitionsHandlerBox: RouterTransitionsHandlerBox {
         return transitionsHandlerBox
     }
 }

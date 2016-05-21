@@ -13,7 +13,8 @@ public extension RouterDismissable {
 
 // MARK: - RouterDismissable Default Impl
 public extension RouterDismissable where Self: RouterPresentable, Self: RouterIdentifiable {
-    func dismissCurrentModule(completion completion: (() -> Void)?) {
+    func dismissCurrentModule(completion completion: (() -> Void)?)
+    {
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion) // дожидаемся анимации сокрытия текущего модуля
         presentingTransitionsHandler?.undoTransitionWith(transitionId: transitionId)

@@ -63,7 +63,7 @@ final class RouterFocusableTests: XCTestCase
         router.focusOnCurrentModule()
         
         // Then 
-        XCTAssert(router.transitionsHandlerBox?.unbox() === masterAnimatingTransitionsHandlerSpy)
+        XCTAssert(router.transitionsHandlerBox.unbox() === masterAnimatingTransitionsHandlerSpy)
         XCTAssert(router.presentingTransitionsHandler === dummyPresentingTransitionsHandler)
         
         XCTAssert(masterAnimatingTransitionsHandlerSpy.undoTransitionsAfterCalled)
@@ -89,7 +89,7 @@ final class RouterFocusableTests: XCTestCase
         router.focusOnCurrentModule()
         
         // Then
-        XCTAssert(router.transitionsHandlerBox?.unbox() === masterContainingTransitionsHandlerSpy)
+        XCTAssert(router.transitionsHandlerBox.unbox() === masterContainingTransitionsHandlerSpy)
         XCTAssert(router.presentingTransitionsHandler === dummyPresentingTransitionsHandler)
         
         XCTAssert(masterContainingTransitionsHandlerSpy.undoTransitionsAfterCalled)
@@ -115,7 +115,7 @@ final class RouterFocusableTests: XCTestCase
         router.focusOnCurrentModule()
         
         // Then
-        XCTAssert(router.transitionsHandlerBox?.unbox() === masterAnimatingTransitionsHandlerSpy)
+        XCTAssert(router.transitionsHandlerBox.unbox() === masterAnimatingTransitionsHandlerSpy)
         XCTAssertNil(router.presentingTransitionsHandler)
         
         XCTAssert(masterAnimatingTransitionsHandlerSpy.undoTransitionsAfterCalled)
@@ -141,7 +141,7 @@ final class RouterFocusableTests: XCTestCase
         router.focusOnCurrentModule()
         
         // Then
-        XCTAssert(router.transitionsHandlerBox?.unbox() === masterContainingTransitionsHandlerSpy)
+        XCTAssert(router.transitionsHandlerBox.unbox() === masterContainingTransitionsHandlerSpy)
         XCTAssertNil(router.presentingTransitionsHandler)
         
         XCTAssertFalse(masterContainingTransitionsHandlerSpy.undoTransitionsAfterCalled)
@@ -171,8 +171,8 @@ final class RouterFocusableTests: XCTestCase
         masterDetailRouter.focusOnCurrentModule()
         
         // Then
-        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox?.unbox() === masterAnimatingTransitionsHandlerSpy)
-        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox?.unbox() === detailAnimatingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox.unbox() === masterAnimatingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
         XCTAssert(masterDetailRouter.presentingTransitionsHandler === dummyPresentingTransitionsHandler)
         
         XCTAssert(masterAnimatingTransitionsHandlerSpy.undoTransitionsAfterCalled)
@@ -202,8 +202,8 @@ final class RouterFocusableTests: XCTestCase
         masterDetailRouter.focusOnCurrentModule()
         
         // Then
-        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox?.unbox() === masterContainingTransitionsHandlerSpy)
-        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox?.unbox() === detailContainingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox.unbox() === masterContainingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox.unbox() === detailContainingTransitionsHandlerSpy)
         XCTAssert(masterDetailRouter.presentingTransitionsHandler === dummyPresentingTransitionsHandler)
         
         XCTAssert(masterContainingTransitionsHandlerSpy.undoTransitionsAfterCalled)
@@ -233,8 +233,8 @@ final class RouterFocusableTests: XCTestCase
         masterDetailRouter.focusOnCurrentModule()
         
         // Then
-        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox?.unbox() === masterAnimatingTransitionsHandlerSpy)
-        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox?.unbox() === detailAnimatingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox.unbox() === masterAnimatingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
         XCTAssertNil(masterDetailRouter.presentingTransitionsHandler)
         
         XCTAssert(masterAnimatingTransitionsHandlerSpy.undoTransitionsAfterCalled)
@@ -264,8 +264,8 @@ final class RouterFocusableTests: XCTestCase
         masterDetailRouter.focusOnCurrentModule()
         
         // Then
-        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox?.unbox() === masterContainingTransitionsHandlerSpy)
-        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox?.unbox() === detailContainingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.masterTransitionsHandlerBox.unbox() === masterContainingTransitionsHandlerSpy)
+        XCTAssert(masterDetailRouter.detailTransitionsHandlerBox.unbox() === detailContainingTransitionsHandlerSpy)
         XCTAssertNil(masterDetailRouter.presentingTransitionsHandler)
         
         XCTAssertFalse(masterContainingTransitionsHandlerSpy.undoTransitionsAfterCalled)

@@ -4,7 +4,7 @@ public final class TransitionsCoordinatorImpl:
     TransitionContextsStackClientProviderHolder,
     TransitionsCoordinatorDelegateHolder,
     TransitionsCoordinator,
-    TopViewControllerFindable
+    TopViewControllerFinder
 {
     // MARK: - TransitionContextsStackClientProviderHolder
     public let stackClientProvider: TransitionContextsStackClientProvider

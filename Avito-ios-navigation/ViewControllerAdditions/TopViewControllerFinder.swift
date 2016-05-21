@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol TopViewControllerFindable: class {
+public protocol TopViewControllerFinder: class {
     func findTopViewController(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
         -> UIViewController?
     func findTopViewController(containingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)

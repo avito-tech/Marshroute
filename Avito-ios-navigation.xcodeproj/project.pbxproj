@@ -142,8 +142,8 @@
 		CCCE51651CAAB69F0010259C /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCE51621CAAB69F0010259C /* TransitionsCoordinatorDelegate.swift */; };
 		CCCE51671CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCE51631CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift */; };
 		CCCE51681CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCE51631CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift */; };
-		CCE003461C92BB1A00B52D8A /* TopViewControllerFindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */; };
-		CCE003471C92BB1A00B52D8A /* TopViewControllerFindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */; };
+		CCE003461C92BB1A00B52D8A /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE003451C92BB1A00B52D8A /* TopViewControllerFinder.swift */; };
+		CCE003471C92BB1A00B52D8A /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE003451C92BB1A00B52D8A /* TopViewControllerFinder.swift */; };
 		CCE90FC21C75BAEC00AF5E26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FC11C75BAEC00AF5E26 /* AppDelegate.swift */; };
 		CCE910361C75BB7B00AF5E26 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
 		CCE910371C75BB7B00AF5E26 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */; };
@@ -375,7 +375,7 @@
 		CCCA3AB31CB2AB830066810B /* EndpointRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EndpointRouter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CCCE51621CAAB69F0010259C /* TransitionsCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		CCCE51631CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegateHolder.swift; sourceTree = "<group>"; };
-		CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewControllerFindable.swift; sourceTree = "<group>"; };
+		CCE003451C92BB1A00B52D8A /* TopViewControllerFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewControllerFinder.swift; sourceTree = "<group>"; };
 		CCE90FBE1C75BAEC00AF5E26 /* Avito-ios-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Avito-ios-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE90FC11C75BAEC00AF5E26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCE90FCF1C75BAED00AF5E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -969,7 +969,7 @@
 		CCE003441C92BA8C00B52D8A /* ViewControllerAdditions */ = {
 			isa = PBXGroup;
 			children = (
-				CCE003451C92BB1A00B52D8A /* TopViewControllerFindable.swift */,
+				CCE003451C92BB1A00B52D8A /* TopViewControllerFinder.swift */,
 			);
 			path = ViewControllerAdditions;
 			sourceTree = "<group>";
@@ -1471,7 +1471,7 @@
 				CCE910441C75BB7B00AF5E26 /* DetailRouterTransitionable.swift in Sources */,
 				CCE910381C75BB7B00AF5E26 /* WeakBox.swift in Sources */,
 				CCE910B21C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
-				CCE003461C92BB1A00B52D8A /* TopViewControllerFindable.swift in Sources */,
+				CCE003461C92BB1A00B52D8A /* TopViewControllerFinder.swift in Sources */,
 				CCB07B151CCA7BFC00F96A19 /* SettingNavigationAnimationContext.swift in Sources */,
 				CC4FDAFE1CC9248100D1DF2D /* PopoverTransitionStyle.swift in Sources */,
 				CC3987FD1C8D642D00E3035C /* MasterDetailRouterSeed.swift in Sources */,
@@ -1503,7 +1503,7 @@
 				CC6DC0D41CCCAF9F0029C534 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */,
 				CCF72CDD1CCA574E00E29A7A /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCE910551C75BB7B00AF5E26 /* RouterTransitionable.swift in Sources */,
-				CCE003471C92BB1A00B52D8A /* TopViewControllerFindable.swift in Sources */,
+				CCE003471C92BB1A00B52D8A /* TopViewControllerFinder.swift in Sources */,
 				CCE910A51C75BB7B00AF5E26 /* TransitionsCoordinatorImpl.swift in Sources */,
 				CC6DC0C71CCC4E2E0029C534 /* TabBarTransitionsHandlerImplTests.swift in Sources */,
 				CCB8D4B51CC903D100D395F8 /* PushAnimationLaunchingContext.swift in Sources */,

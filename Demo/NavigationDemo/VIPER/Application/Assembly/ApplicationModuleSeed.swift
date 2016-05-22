@@ -4,9 +4,12 @@ struct ApplicationModuleSeed {
     let transitionId: TransitionId
     let presentingTransitionsHandler: TransitionsHandler?
     let transitionsCoordinator: TransitionsCoordinator
+    let transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder
     let transitionIdGenerator: TransitionIdGenerator
     let controllersProvider: RouterControllersProvider
     let topViewControllerFinder: TopViewControllerFinder
+    let transitionsMarker: TransitionsMarker
+    let transitionsTracker: TransitionsTracker
 }
 
 extension RouterSeed {
@@ -38,5 +41,3 @@ extension MasterDetailRouterSeed {
         self.controllersProvider = moduleSeed.controllersProvider
     }
 }
-
-

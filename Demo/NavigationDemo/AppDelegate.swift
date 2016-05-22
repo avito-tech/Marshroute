@@ -48,7 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Init service factory
         let serviceFactory = ServiceFactoryImpl(
             topViewControllerFinder: applicationModuleSeed.topViewControllerFinder,
-            rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
+            rootTransitionsHandlerProvider: rootTransitionsHandlerProvider,
+            transitionsMarker: applicationModuleSeed.transitionsMarker,
+            transitionsTracker: applicationModuleSeed.transitionsTracker,
+            transitionsCoordinatorDelegateHolder: applicationModuleSeed.transitionsCoordinatorDelegateHolder
         )
         
         // Init assemly factory

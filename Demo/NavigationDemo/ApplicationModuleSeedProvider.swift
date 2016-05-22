@@ -18,9 +18,12 @@ final class ApplicationModuleSeedProvider {
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
             transitionsCoordinator: transitionsCoordinator,
+            transitionsCoordinatorDelegateHolder: transitionsCoordinator,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider,
-            topViewControllerFinder: transitionsCoordinator
+            topViewControllerFinder: transitionsCoordinator,
+            transitionsMarker: transitionsCoordinator,
+            transitionsTracker: transitionsCoordinator
         )
         
         return result

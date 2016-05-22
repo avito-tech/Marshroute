@@ -58,11 +58,11 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
         let requiresAuthorization = false
         
         let titlesToIds = [
-            "🍌🍌🍌🍌🍌🍌🍌🍌🍌" : "1",
-            "🍇🍇🍇🍇🍇🍇🍇🍇🍇" : "2",
-            "🍏🍏🍏🍏🍏🍏🍏🍏🍏" : "3",
-            "🍒🍒🍒🍒🍒🍒🍒🍒🍒" : "4",
-            "🍍🍍🍍🍍🍍🍍🍍🍍🍍" : "5"
+            "🍌🍌🍌🍌🍌🍌🍌🍌🍌" : "bananas",
+            "🍇🍇🍇🍇🍇🍇🍇🍇🍇" : "grapes",
+            "🍏🍏🍏🍏🍏🍏🍏🍏🍏" : "apples",
+            "🍒🍒🍒🍒🍒🍒🍒🍒🍒" : "cherries",
+            "🍍🍍🍍🍍🍍🍍🍍🍍🍍" : "pineapples"
             ]
         
         let searchResults = titlesToIds.map { (title, id) -> SearchResult in

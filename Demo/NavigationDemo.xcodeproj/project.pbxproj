@@ -143,6 +143,11 @@
 		CCE639791CE05ABE002DF096 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE639781CE05ABE002DF096 /* StringExtensions.swift */; };
 		CCF4A8441CDFA0AF008170C1 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4A8421CDFA0AF008170C1 /* TimerService.swift */; };
 		CCF4A8451CDFA0AF008170C1 /* TimerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4A8431CDFA0AF008170C1 /* TimerServiceImpl.swift */; };
+		CCF74A431CF19A1A00E56714 /* ModuleTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A411CF19A1A00E56714 /* ModuleTrackingService.swift */; };
+		CCF74A441CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A421CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift */; };
+		CCF74A491CF19B4200E56714 /* TrackedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A471CF19B4200E56714 /* TrackedModule.swift */; };
+		CCF74A4A1CF19B4200E56714 /* TrackedModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A481CF19B4200E56714 /* TrackedModulesList.swift */; };
+		CCF74A4C1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A4B1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -288,6 +293,11 @@
 		CCE639781CE05ABE002DF096 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		CCF4A8421CDFA0AF008170C1 /* TimerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		CCF4A8431CDFA0AF008170C1 /* TimerServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerServiceImpl.swift; sourceTree = "<group>"; };
+		CCF74A411CF19A1A00E56714 /* ModuleTrackingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTrackingService.swift; sourceTree = "<group>"; };
+		CCF74A421CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTrackingServiceImpl.swift; sourceTree = "<group>"; };
+		CCF74A471CF19B4200E56714 /* TrackedModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModule.swift; sourceTree = "<group>"; };
+		CCF74A481CF19B4200E56714 /* TrackedModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModulesList.swift; sourceTree = "<group>"; };
+		CCF74A4B1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -528,6 +538,7 @@
 				CC0B1E521CC3C3CD006707B6 /* AdvertisementCacher */,
 				CC0B1E481CC3BF21006707B6 /* AdvertisementProvider */,
 				CC0B1DE61CC2D7EB006707B6 /* CategoriesProvider */,
+				CCF74A401CF199C700E56714 /* ModuleTrackingService */,
 				CC0B1E711CC442B3006707B6 /* RandomStringGenerator */,
 				CC84068D1CD6713800644CA1 /* RootModulesProvider */,
 				CC0B1E4D1CC3C19D006707B6 /* SearchResultsCacher */,
@@ -1044,6 +1055,18 @@
 			path = TimerService;
 			sourceTree = "<group>";
 		};
+		CCF74A401CF199C700E56714 /* ModuleTrackingService */ = {
+			isa = PBXGroup;
+			children = (
+				CCF74A411CF19A1A00E56714 /* ModuleTrackingService.swift */,
+				CCF74A421CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift */,
+				CCF74A471CF19B4200E56714 /* TrackedModule.swift */,
+				CCF74A481CF19B4200E56714 /* TrackedModulesList.swift */,
+				CCF74A4B1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift */,
+			);
+			path = ModuleTrackingService;
+			sourceTree = "<group>";
+		};
 		D430861738B54834AAD284BB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1194,6 +1217,7 @@
 				CC0B1DE21CC2D778006707B6 /* ServiceFactory.swift in Sources */,
 				CCA065131CE0B0C600D08A67 /* TouchEventSharingWindow.swift in Sources */,
 				CC0B1E511CC3C1A3006707B6 /* SearchResultsCacherImpl.swift in Sources */,
+				CCF74A491CF19B4200E56714 /* TrackedModule.swift in Sources */,
 				CC0B1D671CC208DF006707B6 /* AssemblyFactory.swift in Sources */,
 				CC0B1DB51CC230F3006707B6 /* ApplicationViewController.swift in Sources */,
 				CC0B1D931CC20A6B006707B6 /* DisposeBagHolder.swift in Sources */,
@@ -1232,6 +1256,7 @@
 				CC8406641CD65F0300644CA1 /* RecursionViewController.swift in Sources */,
 				CC0B1E171CC2DF84006707B6 /* SearchResultsInteractor.swift in Sources */,
 				CC0B1DB61CC230F3006707B6 /* ApplicationViewInput.swift in Sources */,
+				CCF74A441CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift in Sources */,
 				CC8406891CD6693500644CA1 /* ShelfRouterIphone.swift in Sources */,
 				CC0B1E161CC2DF84006707B6 /* SearchResultsAssemblyImpl.swift in Sources */,
 				CC9C206F1CE0CA0B00E7DC3E /* TopViewControllerFindingServiceImpl.swift in Sources */,
@@ -1260,6 +1285,8 @@
 				CC0B1E181CC2DF84006707B6 /* SearchResultsInteractorImpl.swift in Sources */,
 				CCA7C9071CD9296200B7ADBD /* AuthorizationViewController.swift in Sources */,
 				CC0B1E191CC2DF84006707B6 /* SearchResultsPresenter.swift in Sources */,
+				CCF74A4A1CF19B4200E56714 /* TrackedModulesList.swift in Sources */,
+				CCF74A431CF19A1A00E56714 /* ModuleTrackingService.swift in Sources */,
 				CC0B1D851CC20999006707B6 /* CategoriesPresenter.swift in Sources */,
 				CC8406861CD6693500644CA1 /* ShelfInteractorImpl.swift in Sources */,
 				CC0B1D801CC20999006707B6 /* CategoriesAssembly.swift in Sources */,
@@ -1291,6 +1318,7 @@
 				CCA7C9061CD9296200B7ADBD /* AuthorizationView.swift in Sources */,
 				CC0B1E6D1CC3C91A006707B6 /* AdvertisementRouterIphone.swift in Sources */,
 				CC0B1E681CC3C91A006707B6 /* AdvertisementAssemblyImpl.swift in Sources */,
+				CCF74A4C1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift in Sources */,
 				CC8406651CD65F0300644CA1 /* RecursionViewInput.swift in Sources */,
 				CCA065151CE0B0C600D08A67 /* TouchEventObserver.swift in Sources */,
 				CC0B1E151CC2DF84006707B6 /* SearchResultsAssembly.swift in Sources */,

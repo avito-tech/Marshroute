@@ -11,7 +11,12 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
             routerSeed: routerSeed
         )
         
-        return module(searchResultId: searchResultId, router: router)
+        return module(
+            searchResultId: searchResultId,
+            router: router,
+            transitionsHandlerBox: routerSeed.transitionsHandlerBox,
+            transitionId: routerSeed.transitionId
+        )
     }
     
     func ipadModule(searchResultId searchResultId: SearchResultId, routerSeed: RouterSeed)
@@ -22,13 +27,28 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
             routerSeed: routerSeed
         )
         
-        return module(searchResultId: searchResultId, router: router)
+        return module(
+            searchResultId: searchResultId,
+            router: router,
+            transitionsHandlerBox: routerSeed.transitionsHandlerBox,
+            transitionId: routerSeed.transitionId
+        )
     }
     
     // MARK - Private
-    func module(searchResultId searchResultId: SearchResultId, router: AdvertisementRouter)
+    func module(
+        searchResultId searchResultId: SearchResultId,
+        router: AdvertisementRouter,
+        transitionsHandlerBox: TransitionsHandlerBox,
+        transitionId: TransitionId)
         -> UIViewController
     {
+        registerModuleAsBeingTracked(
+            searchResultId: searchResultId,
+            transitionsHandlerBox: transitionsHandlerBox,
+            transitionId: transitionId
+        )
+        
         let interactor = AdvertisementInteractorImpl(
             advertisementId: (searchResultId as AdvertisementId),
             advertisementProvider: serviceFactory.advertisementProvider()
@@ -45,5 +65,23 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
         presenter.view = viewController
         
         return viewController
+    }
+    
+    private func registerModuleAsBeingTracked(
+        searchResultId searchResultId: SearchResultId,
+        transitionsHandlerBox: TransitionsHandlerBox,
+        transitionId: TransitionId)
+    {
+        let trackedModule = TrackedModule(
+            transitionsHandlerBox: transitionsHandlerBox,
+            transitionId: transitionId,
+            transitionUserId: String(AdvertisementAssemblyImpl) + " " + searchResultId
+        )
+     
+        // debugPrint(trackedModule.transitionUserId)
+        
+        let moduleTrackingService = serviceFactory.moduleTrackingService()
+        
+        moduleTrackingService.registerTrackedModule(trackedModule)
     }
 }

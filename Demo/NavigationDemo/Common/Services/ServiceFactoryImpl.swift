@@ -7,10 +7,14 @@ final class ServiceFactoryImpl: ServiceFactory {
     private let touchEventObserverInstance: TouchEventObserver
     private let touchEventForwarderInstance: TouchEventForwarder
     private let topViewControllerFindingServiceInstance: TopViewControllerFindingService
+    private let moduleTrackingServiceInstance: ModuleTrackingService
     
     // MARK: - Init
     init(topViewControllerFinder: TopViewControllerFinder,
-         rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)))
+         rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)),
+         transitionsMarker: TransitionsMarker,
+         transitionsTracker: TransitionsTracker,
+         transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder)
     {
         searchResultsCacherInstance = SearchResultsCacherImpl()
         
@@ -24,6 +28,16 @@ final class ServiceFactoryImpl: ServiceFactory {
             topViewControllerFinder: topViewControllerFinder,
             rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
         )
+        
+        let moduleTrackingServiceInstance = ModuleTrackingServiceImpl(
+            transitionsTracker: transitionsTracker,
+            transitionsMarker: transitionsMarker,
+            distanceThresholdBetweenSiblingModules: 1
+        )
+        
+        self.moduleTrackingServiceInstance = moduleTrackingServiceInstance
+        
+        transitionsCoordinatorDelegateHolder.transitionsCoordinatorDelegate = moduleTrackingServiceInstance
     }
     
     // MARK: - ServiceFactory
@@ -77,5 +91,9 @@ final class ServiceFactoryImpl: ServiceFactory {
     
     func topViewControllerFindingService() -> TopViewControllerFindingService {
         return topViewControllerFindingServiceInstance
+    }
+    
+    func moduleTrackingService() -> ModuleTrackingService {
+        return moduleTrackingServiceInstance
     }
 }

@@ -13,4 +13,5 @@ protocol ServiceFactory: class {
     func touchEventObserver() -> TouchEventObserver
     func touchEventForwarder() -> TouchEventForwarder
     func topViewControllerFindingService() -> TopViewControllerFindingService
+    func moduleTrackingService() -> ModuleTrackingService
 }

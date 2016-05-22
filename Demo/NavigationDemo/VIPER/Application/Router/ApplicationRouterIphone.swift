@@ -13,13 +13,14 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
             )
             
             return viewController
-        }    }
+        }
+    }
     
     func showCategories() {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
-            let subCategoriesAssembly = assemblyFactory.categoriesAssembly()
+            let subcategoriesAssembly = assemblyFactory.categoriesAssembly()
             
-            let viewController = subCategoriesAssembly.module(
+            let viewController = subcategoriesAssembly.module(
                 routerSeed: routerSeed
             )
             

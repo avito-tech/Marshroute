@@ -21,7 +21,7 @@ final class AssemblyFactoryImpl: AssemblyFactory {
         )
     }
     
-    func subCategoriesAssembly() -> SubCategoriesAssembly {
+    func subcategoriesAssembly() -> SubcategoriesAssembly {
         return CategoriesAssemblyImpl(
             assemblyFactory: self,
             serviceFactory: serviceFactory

@@ -4,7 +4,6 @@ import AvitoNavigation
 final class SearchResultsRouterIphone: BaseDemoRouter, SearchResultsRouter {
     // MARK: - SearchResultsRouter
     func showAdvertisement(searchResultId searchResultId: SearchResultId) {
-        
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let advertisementAssembly = assemblyFactory.advertisementAssembly()
             

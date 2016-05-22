@@ -22,9 +22,9 @@ final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
     
     func showCategories() {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
-            let subCategoriesAssembly = assemblyFactory.categoriesAssembly()
+            let subcategoriesAssembly = assemblyFactory.categoriesAssembly()
             
-            let viewController = subCategoriesAssembly.ipadModule(
+            let viewController = subcategoriesAssembly.ipadModule(
                 routerSeed: routerSeed
             )
             

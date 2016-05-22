@@ -29,12 +29,12 @@ final class CategoriesInteractorImpl: CategoriesInteractor {
         completion(title: category?.title)
     }
     
-    func subCategories(completion: (subCategories: [Category]) -> ()) {
-        completion(subCategories: category?.subCategories ?? [])
+    func subcategories(completion: (subcategories: [Category]) -> ()) {
+        completion(subcategories: category?.subcategories ?? [])
     }
     
-    func subCategoryStatus(subCategory: Category, completion: (categoryId: CategoryId, hasSubCategories: Bool) -> ()) {
-        completion(categoryId: subCategory.id, hasSubCategories: subCategory.subCategories?.isEmpty == false)
+    func subCategoryStatus(subCategory: Category, completion: (categoryId: CategoryId, hasSubcategories: Bool) -> ()) {
+        completion(categoryId: subCategory.id, hasSubcategories: subCategory.subcategories?.isEmpty == false)
     }
     
     func timerStatus(completion: (isEnabled: Bool) -> ()) {

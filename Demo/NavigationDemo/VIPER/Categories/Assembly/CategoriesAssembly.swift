@@ -12,7 +12,7 @@ protocol CategoriesAssembly: class {
         -> UIViewController
 }
 
-protocol SubCategoriesAssembly: class {
+protocol SubcategoriesAssembly: class {
     func module(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     

@@ -3,11 +3,11 @@ import AvitoNavigation
 
 final class CategoriesRouterIphone: BaseDemoRouter, CategoriesRouter {
     // MARK: - CategoriesRouter
-    func showSubCategories(categoryId categoryId: CategoryId) {
+    func showSubcategories(categoryId categoryId: CategoryId) {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
-            let subCategoriesAssembly = assemblyFactory.subCategoriesAssembly()
+            let subcategoriesAssembly = assemblyFactory.subcategoriesAssembly()
             
-            let viewController = subCategoriesAssembly.module(
+            let viewController = subcategoriesAssembly.module(
                 categoryId: categoryId,
                 routerSeed: routerSeed
             )

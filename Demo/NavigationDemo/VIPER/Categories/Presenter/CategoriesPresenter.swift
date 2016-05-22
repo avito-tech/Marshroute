@@ -25,8 +25,8 @@ final class CategoriesPresenter {
                     self?.view?.setTitle(title)
                 }
                 
-                self?.interactor.subCategories { subCategories in
-                    if let viewCategories = self?.viewCategoriesFromInteractorCategories(subCategories) {
+                self?.interactor.subcategories { subcategories in
+                    if let viewCategories = self?.viewCategoriesFromInteractorCategories(subcategories) {
                         self?.view?.setCategories(viewCategories)
                     }
                 }
@@ -72,9 +72,9 @@ final class CategoriesPresenter {
         return CategoriesViewData(
             title: category.title,
             onTap: { [weak self] in
-                self?.interactor.subCategoryStatus(category) { (categoryId, hasSubCategories) in
-                    if hasSubCategories {
-                        self?.router.showSubCategories(categoryId: categoryId)
+                self?.interactor.subCategoryStatus(category) { (categoryId, hasSubcategories) in
+                    if hasSubcategories {
+                        self?.router.showSubcategories(categoryId: categoryId)
                     } else {
                         self?.router.showSearchResults(categoryId: categoryId)
                     }

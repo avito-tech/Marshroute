@@ -5,7 +5,7 @@ typealias CategoryId = String
 struct Category {
     let title: String
     let id: CategoryId
-    let subCategories: [Category]?
+    let subcategories: [Category]?
 }
 
 protocol CategoriesProvider: class {

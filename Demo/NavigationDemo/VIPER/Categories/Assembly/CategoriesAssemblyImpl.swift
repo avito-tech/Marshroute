@@ -1,7 +1,7 @@
 import UIKit
 import AvitoNavigation
 
-final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, SubCategoriesAssembly {
+final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, SubcategoriesAssembly {
     // MARK: - CategoriesAssembly
     func module(routerSeed routerSeed: RouterSeed)
         -> UIViewController
@@ -60,7 +60,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, SubCategor
         return module(interactor: interactor, router: router, isDismissable: isDismissable)
     }
     
-    // MARK: - SubCategoriesAssembly
+    // MARK: - SubcategoriesAssembly
     func module(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     {

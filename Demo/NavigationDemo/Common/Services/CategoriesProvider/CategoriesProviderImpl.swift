@@ -6,7 +6,7 @@ final class CategoriesProviderImpl: CategoriesProvider {
         return Category(
             title: "categories.selectCategory".localized,
             id: "-1",
-            subCategories: self.allCategories()
+            subcategories: self.allCategories()
         )
     }
     
@@ -32,7 +32,7 @@ final class CategoriesProviderImpl: CategoriesProvider {
                 return category(categoryDictionary: categoryDictionary)
             }
             
-            if let subCategoryDictionaries = categoryDictionary["subCategories"] as? [[String: AnyObject]] {
+            if let subCategoryDictionaries = categoryDictionary["subcategories"] as? [[String: AnyObject]] {
                 if let result = categoryForId(categoryId, inCategories: subCategoryDictionaries) {
                     return result
                 }
@@ -45,11 +45,11 @@ final class CategoriesProviderImpl: CategoriesProvider {
         return Category(
             title: categoryDictionary["title"] as! String,
             id: categoryDictionary["id"] as! CategoryId,
-            subCategories: subCategories(categoryDictionaries: categoryDictionary["subCategories"] as? [[String: AnyObject]])
+            subcategories: subcategories(categoryDictionaries: categoryDictionary["subcategories"] as? [[String: AnyObject]])
         )
     }
     
-    private func subCategories(categoryDictionaries categoryDictionaries: [[String: AnyObject]]?) -> [Category]? {
+    private func subcategories(categoryDictionaries categoryDictionaries: [[String: AnyObject]]?) -> [Category]? {
         if let categoryDictionaries = categoryDictionaries {
             return categoryDictionaries.map { category(categoryDictionary: $0) }
         }

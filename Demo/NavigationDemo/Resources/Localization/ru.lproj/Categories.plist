@@ -13,7 +13,7 @@
 		<string>Транспорт</string>
 		<key>id</key>
 		<string>1</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -58,7 +58,7 @@
 		<string>Недвижимость</string>
 		<key>id</key>
 		<string>2</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -115,7 +115,7 @@
 		<string>Работа</string>
 		<key>id</key>
 		<string>3</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -142,7 +142,7 @@
 		<string>Услуги</string>
 		<key>id</key>
 		<string>4</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -169,7 +169,7 @@
 		<string>Личные вещи</string>
 		<key>id</key>
 		<string>5</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -214,7 +214,7 @@
 		<string>Для дома и дачи</string>
 		<key>id</key>
 		<string>6</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -265,7 +265,7 @@
 		<string>Бытовая электроника</string>
 		<key>id</key>
 		<string>7</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -334,7 +334,7 @@
 		<string>Хобби и отбых</string>
 		<key>id</key>
 		<string>8</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -391,7 +391,7 @@
 		<string>Животные</string>
 		<key>id</key>
 		<string>9</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>
@@ -442,7 +442,7 @@
 		<string>Для бизнеса</string>
 		<key>id</key>
 		<string>9</string>
-		<key>subCategories</key>
+		<key>subcategories</key>
 		<array>
 			<dict>
 				<key>title</key>

@@ -21,4 +21,3 @@ public extension RouterDismissable where Self: RouterPresentable, Self: RouterId
         CATransaction.commit()
     }
 }
-

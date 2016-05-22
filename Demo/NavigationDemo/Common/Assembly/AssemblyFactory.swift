@@ -5,7 +5,7 @@ protocol AssemblyFactory: class {
 
     func categoriesAssembly() -> CategoriesAssembly
     
-    func subCategoriesAssembly() -> SubCategoriesAssembly
+    func subcategoriesAssembly() -> SubcategoriesAssembly
     
     func searchResultsAssembly() -> SearchResultsAssembly
     

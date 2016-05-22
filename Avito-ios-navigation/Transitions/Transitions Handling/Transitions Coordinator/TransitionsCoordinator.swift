@@ -219,19 +219,19 @@ extension TransitionsCoordinator where
     
     public func coordinateResettingWithTransition(
         context context: ResettingTransitionContext,
-        forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
+        forAnimatingTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         var context = context
         
         // скрываем модальные окна и поповеры, показанные внутри модальных окон и поповеров текущего обработчика
-        coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: transitionsHandler)
+        coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: animatingTransitionsHandler)
         
         // ищем существующую историю переходов или создаем новую
-        let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
-            ?? stackClientProvider.createStackClient(forTransitionsHandler: transitionsHandler)
+        let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
+            ?? stackClientProvider.createStackClient(forTransitionsHandler: animatingTransitionsHandler)
         
         // ищем идентификатор самого первого перехода
-        let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(transitionsHandler)
+        let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(animatingTransitionsHandler)
         let chainedTransition = transitionsToUndo.chainedTransition
         let pushTransitions = transitionsToUndo.pushTransitions
         
@@ -241,7 +241,7 @@ extension TransitionsCoordinator where
             initiateUndoingTransitions(
                 chainedTransition: chainedTransition,
                 pushTransitions: nil, // только модальные окна и поповеры
-                forTransitionsHandler: transitionsHandler,
+                forTransitionsHandler: animatingTransitionsHandler,
                 andCommitUndoingTransitionsAfter: firstTransitionId,
                 includingTransitionWithId: false,
                 withStackClient: stackClient
@@ -249,7 +249,7 @@ extension TransitionsCoordinator where
         }
         
         if case .ResettingNavigationRoot(_) = context.resettingAnimationLaunchingContextBox {
-            if let lastTransition = stackClient.lastTransitionForTransitionsHandler(transitionsHandler) {
+            if let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) {
                 // дополняем параметры анимации информацией о текущем верхнем контроллере
                 context.resettingAnimationLaunchingContextBox.appendSourceViewController(
                     lastTransition.targetViewController
@@ -264,23 +264,30 @@ extension TransitionsCoordinator where
             }
         }
         
-        // уведомляем делегата до вызова `reset` анимаций
-        transitionsCoordinatorDelegate?.transitionsCoordinator(
-            coordinator: self,
-            willLaunchResettingAnimation: context.resettingAnimationLaunchingContextBox.resettingTransitionsAnimatorBox,
-            ofTransitionWith: context.transitionId
-        )
+        // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода
+        var transitionAllowed = true
+        
+        if let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+            transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
+                coordinator: self,
+                canForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchResettingAnimationOfTransition: context
+            )
+        }
+        
+        guard transitionAllowed
+            else { debugPrint("resetting transition was cancelled"); return }
         
         // вызываем анимации, передавая параметры запуска анимации по ссылке,
         // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
-        transitionsHandler.launchResettingAnimation(
+        animatingTransitionsHandler.launchResettingAnimation(
             launchingContextBox: &context.resettingAnimationLaunchingContextBox
         )
         
         // создаем новую запись о переходе
         commitResettingWithTransition(
             context: context,
-            forTransitionsHandler: transitionsHandler,
+            forTransitionsHandler: animatingTransitionsHandler,
             withStackClient: stackClient
         )
     }
@@ -386,12 +393,19 @@ private extension TransitionsCoordinator where
         
         var context = context
         
-        // уведомляем делегата до вызова `Presentation` анимаций
-        transitionsCoordinatorDelegate?.transitionsCoordinator(
-            coordinator: self,
-            willLaunchPerfromingAnimation: context.presentationAnimationLaunchingContextBox.transitionsAnimatorBox,
-            ofTransitionWithId: context.transitionId
-        )
+        // спрашиваем делегата о разрешении выполнения анимаций `Presentation` перехода
+        var transitionAllowed = true
+        
+        if let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+            transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
+                coordinator: self,
+                canForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchPresentationAnimationOfTransition: context
+            )
+        }
+        
+        guard transitionAllowed
+            else { debugPrint("presentation transition was cancelled"); return }
         
         // дополняем параметры анимации информацией о текущем верхнем контроллере
         context.presentationAnimationLaunchingContextBox.appendSourceViewController(
@@ -525,14 +539,16 @@ private extension TransitionsCoordinator where
         if includingTransitionWithId {
             transitionsCoordinatorDelegate?.transitionsCoordinator(
                 coordinator: self,
-                willLaunchUndoingAnimation: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchDismissalAnimationByAnimator: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
                 ofTransitionWithId: targetTransitionId
             )
         }
         else {
             transitionsCoordinatorDelegate?.transitionsCoordinator(
                 coordinator: self,
-                willLaunchUndoingAnimation: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchDismissalAnimationByAnimator: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
                 ofTransitionsAfterId: targetTransitionId
             )
         }

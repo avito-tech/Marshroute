@@ -3,21 +3,25 @@ import Foundation
 public protocol TransitionsCoordinatorDelegate: class {
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchResettingAnimation animatorBox: ResettingTransitionsAnimatorBox,
-        ofTransitionWith transitionId: TransitionId)
+        canForceTransitionsHandler: TransitionsHandler,
+        toLaunchResettingAnimationOfTransition: ResettingTransitionContext)
+    -> Bool
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchPerfromingAnimation animatorBox: TransitionsAnimatorBox,
-        ofTransitionWithId transitionId: TransitionId)
+        canForceTransitionsHandler: TransitionsHandler,
+        toLaunchPresentationAnimationOfTransition: PresentationTransitionContext)
+    -> Bool
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchUndoingAnimation animatorBox: TransitionsAnimatorBox,
+        willForceTransitionsHandler: TransitionsHandler,
+        toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionsAfterId transitionId: TransitionId)
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willLaunchUndoingAnimation animatorBox: TransitionsAnimatorBox,
+        willForceTransitionsHandler: TransitionsHandler,
+        toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionWithId transitionId: TransitionId)
 }

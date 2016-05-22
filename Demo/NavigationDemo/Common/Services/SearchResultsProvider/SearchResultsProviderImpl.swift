@@ -37,7 +37,7 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
                 title: title,
                 id: id,
                 rgb: (red, green, blue),
-                requiresAuthorization: false//requiresAuthorization
+                requiresAuthorization: requiresAuthorization
             )
             
             searchResults.append(searchResult)

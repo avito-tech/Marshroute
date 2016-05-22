@@ -32,7 +32,7 @@ final class ServiceFactoryImpl: ServiceFactory {
         let moduleTrackingServiceInstance = ModuleTrackingServiceImpl(
             transitionsTracker: transitionsTracker,
             transitionsMarker: transitionsMarker,
-            distanceThresholdBetweenSiblingModules: 1
+            distanceThresholdBetweenSiblingModules: 0 //1
         )
         
         self.moduleTrackingServiceInstance = moduleTrackingServiceInstance

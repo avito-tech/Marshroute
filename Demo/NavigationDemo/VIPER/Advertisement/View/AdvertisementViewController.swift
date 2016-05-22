@@ -10,12 +10,12 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "recursion".localized, // to Recursion module
-            style: .Plain,
-            target: self,
-            action: "onRecursionButtonTap:"
-        )
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            title: "recursion".localized, // to Recursion module
+//            style: .Plain,
+//            target: self,
+//            action: "onRecursionButtonTap:"
+//        )
     }
     
     override func viewWillLayoutSubviews() {

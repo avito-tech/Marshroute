@@ -7,7 +7,6 @@ final class ApplicationPresenter: ApplicationModuleInput, AuthorizationModuleOut
     private let router: ApplicationRouter
     
     private var authorizationCompletion: ((isAuthorized: Bool) -> ())?
-    private var isShowingAuthorizationModule = false
     
     init(interactor: ApplicationInteractor, router: ApplicationRouter) {
         self.interactor = interactor
@@ -40,17 +39,19 @@ final class ApplicationPresenter: ApplicationModuleInput, AuthorizationModuleOut
     func showAuthorizationModule(completion: ((isAuthorized: Bool) -> ())?) {
         authorizationCompletion = completion
         
-        guard !isShowingAuthorizationModule
-            else { return }
-        
-        isShowingAuthorizationModule = true
-        
-        router.showAuthorziation(moduleOutput: self)
+        router.authorizationStatus { [weak self] isPresented in
+            guard !isPresented
+                else { return }
+            
+            guard let strongSelf = self
+                else { return }
+            
+            strongSelf.router.showAuthorziation(moduleOutput: strongSelf)
+        }
     }
     
     // MARK: - AuthorizationModuleOutput
     func autorizationModuleDidFinish(isAuthorized isAuthorized: Bool) {
-        isShowingAuthorizationModule = false
         authorizationCompletion?(isAuthorized: isAuthorized)
     }
     

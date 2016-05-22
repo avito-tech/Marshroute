@@ -7,7 +7,7 @@ final class ServiceFactoryImpl: ServiceFactory {
     private let touchEventObserverInstance: TouchEventObserver
     private let touchEventForwarderInstance: TouchEventForwarder
     private let topViewControllerFindingServiceInstance: TopViewControllerFindingService
-    private let moduleTrackingServiceInstance: ModuleTrackingService
+    private let moduleRegisteringServiceInstance: ModuleRegisteringServiceImpl
     
     // MARK: - Init
     init(topViewControllerFinder: TopViewControllerFinder,
@@ -29,15 +29,16 @@ final class ServiceFactoryImpl: ServiceFactory {
             rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
         )
         
-        let moduleTrackingServiceInstance = ModuleTrackingServiceImpl(
+        let moduleRegisteringServiceInstance = ModuleRegisteringServiceImpl(
             transitionsTracker: transitionsTracker,
             transitionsMarker: transitionsMarker,
-            distanceThresholdBetweenSiblingModules: 1
+            distanceThresholdBetweenSiblingModules: 1,
+            rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
         )
         
-        self.moduleTrackingServiceInstance = moduleTrackingServiceInstance
+        self.moduleRegisteringServiceInstance = moduleRegisteringServiceInstance
         
-        transitionsCoordinatorDelegateHolder.transitionsCoordinatorDelegate = moduleTrackingServiceInstance
+        transitionsCoordinatorDelegateHolder.transitionsCoordinatorDelegate = moduleRegisteringServiceInstance
     }
     
     // MARK: - ServiceFactory
@@ -93,7 +94,19 @@ final class ServiceFactoryImpl: ServiceFactory {
         return topViewControllerFindingServiceInstance
     }
     
+    func moduleRegisteringService() -> ModuleRegisteringService {
+        return moduleRegisteringServiceInstance
+    }
+    
     func moduleTrackingService() -> ModuleTrackingService {
-        return moduleTrackingServiceInstance
+        return moduleRegisteringServiceInstance
+    }
+    
+    func authorizationModuleRegisteringService() -> AuthorizationModuleRegisteringService {
+        return moduleRegisteringServiceInstance
+    }
+    
+    func authorizationModuleTrackingService() -> AuthorizationModuleTrackingService {
+        return moduleRegisteringServiceInstance
     }
 }

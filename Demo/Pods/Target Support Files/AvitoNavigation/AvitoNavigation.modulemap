@@ -1,0 +1,6 @@
+framework module AvitoNavigation {
+  umbrella header "AvitoNavigation-umbrella.h"
+
+  export *
+  module * { export * }
+}

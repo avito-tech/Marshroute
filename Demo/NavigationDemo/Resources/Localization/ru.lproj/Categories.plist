@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Все категории</string>
+		<key>id</key>
+		<string>0</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Транспорт</string>
+		<key>id</key>
+		<string>1</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>1.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Автомобили</string>
+				<key>id</key>
+				<string>1.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Мотоциклы и мототехника</string>
+				<key>id</key>
+				<string>1.2</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Грузовики и спецтехника</string>
+				<key>id</key>
+				<string>1.3</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Водный транспорт</string>
+				<key>id</key>
+				<string>1.4</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Запчасти и аксессуары</string>
+				<key>id</key>
+				<string>1.5</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Недвижимость</string>
+		<key>id</key>
+		<string>2</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>2.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Кватиры</string>
+				<key>id</key>
+				<string>2.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Комнаты</string>
+				<key>id</key>
+				<string>2.2</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Дома, дачи, коттеджи</string>
+				<key>id</key>
+				<string>2.3</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Земельные участки</string>
+				<key>id</key>
+				<string>2.4</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Гаражи и машиноместа</string>
+				<key>id</key>
+				<string>2.5</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Коммерческая недвижимость</string>
+				<key>id</key>
+				<string>2.6</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Недвижимость за рубежом</string>
+				<key>id</key>
+				<string>2.7</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Работа</string>
+		<key>id</key>
+		<string>3</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>3.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Вакансии</string>
+				<key>id</key>
+				<string>3.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Резюме</string>
+				<key>id</key>
+				<string>3.2</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Услуги</string>
+		<key>id</key>
+		<string>4</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>4.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Предложения услуг</string>
+				<key>id</key>
+				<string>4.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Запросы на услуги</string>
+				<key>id</key>
+				<string>4.2</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Личные вещи</string>
+		<key>id</key>
+		<string>5</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>5.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Одежда, обувь, аксессуары</string>
+				<key>id</key>
+				<string>5.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Детская одежда и обувь</string>
+				<key>id</key>
+				<string>5.2</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Товары для детей и игрушки</string>
+				<key>id</key>
+				<string>5.3</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Часы и украшения</string>
+				<key>id</key>
+				<string>5.4</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Красота и здоровье</string>
+				<key>id</key>
+				<string>5.5</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Для дома и дачи</string>
+		<key>id</key>
+		<string>6</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>6.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Бытовая техника</string>
+				<key>id</key>
+				<string>6.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Мебель и интерьер</string>
+				<key>id</key>
+				<string>6.2</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Посуда и товары для кухни</string>
+				<key>id</key>
+				<string>6.3</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Продукты питания</string>
+				<key>id</key>
+				<string>6.4</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Ремонт и строительство</string>
+				<key>id</key>
+				<string>6.5</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Растения</string>
+				<key>id</key>
+				<string>6.6</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Бытовая электроника</string>
+		<key>id</key>
+		<string>7</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>7.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Аудио и видео</string>
+				<key>id</key>
+				<string>7.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Игры, приставки и программы</string>
+				<key>id</key>
+				<string>7.2</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Настольные компьютеры</string>
+				<key>id</key>
+				<string>7.3</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Ноутбуки</string>
+				<key>id</key>
+				<string>7.4</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Оргтехника и расходники</string>
+				<key>id</key>
+				<string>7.5</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Планшеты и электронные книги</string>
+				<key>id</key>
+				<string>7.6</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Телефоны</string>
+				<key>id</key>
+				<string>7.7</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Товары для компьютера</string>
+				<key>id</key>
+				<string>7.8</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Фототехника</string>
+				<key>id</key>
+				<string>7.9</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Хобби и отбых</string>
+		<key>id</key>
+		<string>8</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>8.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Билеты и путешествия</string>
+				<key>id</key>
+				<string>8.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Велосипеды</string>
+				<key>id</key>
+				<string>8.2</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Книги и журналы</string>
+				<key>id</key>
+				<string>8.3</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Коллекционирование</string>
+				<key>id</key>
+				<string>8.4</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Музыкальные инструменты</string>
+				<key>id</key>
+				<string>8.5</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Охота и рыбалка</string>
+				<key>id</key>
+				<string>8.6</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Спорт и отдых</string>
+				<key>id</key>
+				<string>8.7</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Животные</string>
+		<key>id</key>
+		<string>9</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>9.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Собаки</string>
+				<key>id</key>
+				<string>9.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Кошки</string>
+				<key>id</key>
+				<string>9.2</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Птицы</string>
+				<key>id</key>
+				<string>9.3</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Аквариум</string>
+				<key>id</key>
+				<string>9.4</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Другие животные</string>
+				<key>id</key>
+				<string>9.5</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Товары для животных</string>
+				<key>id</key>
+				<string>9.6</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Для бизнеса</string>
+		<key>id</key>
+		<string>9</string>
+		<key>subCategories</key>
+		<array>
+			<dict>
+				<key>title</key>
+				<string>Все подкатегории</string>
+				<key>id</key>
+				<string>10.0</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Готовый бизнес</string>
+				<key>id</key>
+				<string>10.1</string>
+			</dict>
+			<dict>
+				<key>title</key>
+				<string>Оборудование для бизнеса</string>
+				<key>id</key>
+				<string>10.2</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

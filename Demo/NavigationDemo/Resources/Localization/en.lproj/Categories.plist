@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>title</key>
+            <string>All categories</string>
+            <key>id</key>
+            <string>0</string>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Transport</string>
+            <key>id</key>
+            <string>1</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>1.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Cars</string>
+                    <key>id</key>
+                    <string>1.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Motorcycles and motor vehicles</string>
+                    <key>id</key>
+                    <string>1.2</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Trucks and buses</string>
+                    <key>id</key>
+                    <string>1.3</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Water carriage</string>
+                    <key>id</key>
+                    <string>1.4</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Parts and accessories</string>
+                    <key>id</key>
+                    <string>1.5</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Realty</string>
+            <key>id</key>
+            <string>2</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>2.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Flats</string>
+                    <key>id</key>
+                    <string>2.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Rooms</string>
+                    <key>id</key>
+                    <string>2.2</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Houses, villas, cottages</string>
+                    <key>id</key>
+                    <string>2.3</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Lands</string>
+                    <key>id</key>
+                    <string>2.4</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Garages and parking lots</string>
+                    <key>id</key>
+                    <string>2.5</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Commercial realty</string>
+                    <key>id</key>
+                    <string>2.6</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Realty abroad</string>
+                    <key>id</key>
+                    <string>2.7</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Job</string>
+            <key>id</key>
+            <string>3</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>3.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Vacancies</string>
+                    <key>id</key>
+                    <string>3.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>CVs</string>
+                    <key>id</key>
+                    <string>3.2</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Services</string>
+            <key>id</key>
+            <string>4</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>4.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Service offers</string>
+                    <key>id</key>
+                    <string>4.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Service requests</string>
+                    <key>id</key>
+                    <string>4.2</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Paraphernalia</string>
+            <key>id</key>
+            <string>5</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>5.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Clothes, shoes, accessories</string>
+                    <key>id</key>
+                    <string>5.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Children's clothes and shoes</string>
+                    <key>id</key>
+                    <string>5.2</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Baby products and toys</string>
+                    <key>id</key>
+                    <string>5.3</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Watches and Jewellery</string>
+                    <key>id</key>
+                    <string>5.4</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Beauty and health</string>
+                    <key>id</key>
+                    <string>5.5</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>For houses and villas</string>
+            <key>id</key>
+            <string>6</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>6.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Appliances</string>
+                    <key>id</key>
+                    <string>6.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Furniture and Interior</string>
+                    <key>id</key>
+                    <string>6.2</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Dishes and products for the kitchen</string>
+                    <key>id</key>
+                    <string>6.3</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Foodstuffs</string>
+                    <key>id</key>
+                    <string>6.4</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Repairs and constructions</string>
+                    <key>id</key>
+                    <string>6.5</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Plants</string>
+                    <key>id</key>
+                    <string>6.6</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Consumer electronics</string>
+            <key>id</key>
+            <string>7</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>7.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Audio and videos</string>
+                    <key>id</key>
+                    <string>7.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Games, consoles and software</string>
+                    <key>id</key>
+                    <string>7.2</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Desktop computers</string>
+                    <key>id</key>
+                    <string>7.3</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Laptops</string>
+                    <key>id</key>
+                    <string>7.4</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Office equipment and consumables</string>
+                    <key>id</key>
+                    <string>7.5</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Tablets and e-books</string>
+                    <key>id</key>
+                    <string>7.6</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Phones</string>
+                    <key>id</key>
+                    <string>7.7</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Computer equipment</string>
+                    <key>id</key>
+                    <string>7.8</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Photo equipment</string>
+                    <key>id</key>
+                    <string>7.9</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Hobbies and leisure</string>
+            <key>id</key>
+            <string>8</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>8.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Tickets and travel</string>
+                    <key>id</key>
+                    <string>8.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Bicycles</string>
+                    <key>id</key>
+                    <string>8.2</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Books and magazines</string>
+                    <key>id</key>
+                    <string>8.3</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Collecting</string>
+                    <key>id</key>
+                    <string>8.4</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Musical instruments</string>
+                    <key>id</key>
+                    <string>8.5</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Hunting and fishing</string>
+                    <key>id</key>
+                    <string>8.6</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Sports</string>
+                    <key>id</key>
+                    <string>8.7</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>Pets</string>
+            <key>id</key>
+            <string>9</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>9.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Dogs</string>
+                    <key>id</key>
+                    <string>9.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Cats</string>
+                    <key>id</key>
+                    <string>9.2</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Birds</string>
+                    <key>id</key>
+                    <string>9.3</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Aquarium</string>
+                    <key>id</key>
+                    <string>9.4</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Other pets</string>
+                    <key>id</key>
+                    <string>9.5</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Goods for pets</string>
+                    <key>id</key>
+                    <string>9.6</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>title</key>
+            <string>For business</string>
+            <key>id</key>
+            <string>9</string>
+            <key>subCategories</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>All subcategories</string>
+                    <key>id</key>
+                    <string>10.0</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Business for sale</string>
+                    <key>id</key>
+                    <string>10.1</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Business equipment</string>
+                    <key>id</key>
+                    <string>10.2</string>
+                </dict>
+            </array>
+        </dict>
+    </array>
+</plist>

@@ -19,7 +19,7 @@ public final class TransitionsCoordinatorImpl:
         self.stackClientProvider = stackClientProvider
     }
     
-    // MARK: - TopViewControllerFindable
+    // MARK: - TopViewControllerFinder
     public func findTopViewController(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
         -> UIViewController?
     {

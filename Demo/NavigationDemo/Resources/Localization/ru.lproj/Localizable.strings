@@ -1,0 +1,9 @@
+"comebackTimer.startTimerTitle" = "Запустить таймер возвращения";
+"comebackTimer.secondsLeftTillComeback" = "%@ секунд до возвращения";
+"recursion" = "Рекурсия";
+"advertisements" = "Объявления";
+"shelves" = "Полочки";
+"categories" = "Категории";
+"categories.selectCategory" = "Выберите категорию";
+"notification.toRecursion" = "Перейти на Рекурсию";
+"notification.toCategories" = "Перейти на Категории";

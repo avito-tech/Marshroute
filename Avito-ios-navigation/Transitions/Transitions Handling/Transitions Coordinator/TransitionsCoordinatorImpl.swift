@@ -57,6 +57,28 @@ public final class TransitionsCoordinatorImpl:
         )
     }
     
+    public func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        searchingFromTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
+        -> RestoredTransitionContext?
+    {
+        return restoredTransitionFromTrackedTransition(
+            trackedTransition,
+            searchingFromTransitionsHandlerBox: .init(animatingTransitionsHandler: transitionsHandler)
+        )
+    }
+    
+    public func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        searchingFromTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
+        -> RestoredTransitionContext?
+    {
+        return restoredTransitionFromTrackedTransition(
+            trackedTransition,
+            searchingFromTransitionsHandlerBox: .init(containingTransitionsHandler: transitionsHandler)
+        )
+    }
+    
     // MARK: - TransitionsMarker
     public func markTransitionId(transitionId: TransitionId, withUserId userId: TransitionUserId) {
         markTransitionIdImpl(transitionId: transitionId, withUserId: userId)

@@ -875,6 +875,76 @@ extension TransitionsCoordinator where
         
         return nil
     }
+    
+    func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        searchingFromTransitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+        -> RestoredTransitionContext?
+    {
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+            = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+                // среди всех анимирующих обработчиков (то есть во всех tab'ах tabbar'a)
+                return containingTransitionsHandler.allTransitionsHandlers
+        }
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        return restoredTransitionFromTrackedTransition(
+            trackedTransition,
+            amongTransitionsHandlers: animatingTransitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+    }
+    
+    private func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        amongTransitionsHandlers animatingTransitionsHandlers: [AnimatingTransitionsHandler],
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> RestoredTransitionContext?
+    {
+        let transitionId = trackedTransition.transitionId
+        let transitionsHandler = trackedTransition.transitionsHandlerBox.unbox()
+        
+        var chainedAnimatingTransitionsHandlers = [AnimatingTransitionsHandler]()
+        
+        for animatingTransitionsHandler in animatingTransitionsHandlers {
+            guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
+                else { continue }
+            
+            let resultIfNotOptional = stackClient.transitionWith(
+                transitionId: transitionId,
+                forTransitionsHandler: transitionsHandler
+            )
+            
+            if let result = resultIfNotOptional {
+                return result
+            }
+            
+            guard let chainedTransition = stackClient.chainedTransitionForTransitionsHandler(animatingTransitionsHandler)
+                else { continue }
+            
+            let chainedAnimatingTransitionsHandlersPart = animatingTransitionsHandlersForTransitionsHandlerBox(
+                chainedTransition.targetTransitionsHandlerBox,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+            
+            chainedAnimatingTransitionsHandlers.appendContentsOf(chainedAnimatingTransitionsHandlersPart)
+        }
+        
+        if !chainedAnimatingTransitionsHandlers.isEmpty {
+            return restoredTransitionFromTrackedTransition(
+                trackedTransition,
+                amongTransitionsHandlers: chainedAnimatingTransitionsHandlers,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+        }
+        
+        return nil
+    }
 }
 
 // MARK: - for TransitionsMarker

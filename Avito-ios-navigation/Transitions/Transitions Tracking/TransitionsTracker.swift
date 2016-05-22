@@ -18,4 +18,14 @@ public protocol TransitionsTracker: class {
         trackedTransition: TrackedTransition,
         untilLastTransitionOfTransitionsHandler targetTransitionsHandler: TransitionsHandler)
         -> Int?
+    
+    func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        searchingFromTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
+        -> RestoredTransitionContext?
+    
+    func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        searchingFromTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
+        -> RestoredTransitionContext?
 }

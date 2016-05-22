@@ -17,16 +17,16 @@ final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, Catego
     }
     
     func showSearchResults(categoryId categoryId: CategoryId) {
-        setDetailViewControllerDerivedFrom { routerSeed -> UIViewController in
-            let searchResultsAssembly = assemblyFactory.searchResultsAssembly()
-            
-            let viewController = searchResultsAssembly.ipadModule(
-                categoryId: categoryId,
-                routerSeed: routerSeed
-            )
-            
-            return viewController
-        }
+//        setDetailViewControllerDerivedFrom { routerSeed -> UIViewController in
+//            let searchResultsAssembly = assemblyFactory.searchResultsAssembly()
+//            
+//            let viewController = searchResultsAssembly.ipadModule(
+//                categoryId: categoryId,
+//                routerSeed: routerSeed
+//            )
+//            
+//            return viewController
+//        }
     }
     
     func returnToCategories() {

@@ -1462,8 +1462,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NavigationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation-demo.NavigationDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation-demo.categories";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1474,8 +1475,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NavigationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation-demo.NavigationDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.avito.navigation-demo.categories";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -84,13 +84,13 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
         categories[indexPath.row].onTap()
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return timerButton
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return timerButton == nil ? 0 : 30
-    }
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return timerButton
+//    }
+//    
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return timerButton == nil ? 0 : 30
+//    }
     
     // MARK: - Private
     @objc private func onTimerButtonTap(sender: UIButton) {

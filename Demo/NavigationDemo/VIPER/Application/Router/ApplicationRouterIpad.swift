@@ -4,7 +4,11 @@ import AvitoNavigation
 final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
     // MARK: - ApplicationRouter
     func showAuthorziation(moduleOutput moduleOutput: AuthorizationModuleOutput) {
-        pushViewControllerDerivedFrom { (routerSeed) -> UIViewController in
+        let animator = ModalNavigationTransitionsAnimator()
+        animator.targetModalPresentationStyle = .FormSheet
+        
+        presentModalNavigationControllerWithRootViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+
             let authorizationAssembly = assemblyFactory.authorizationAssembly()
             
             let viewController = authorizationAssembly.module(
@@ -13,7 +17,7 @@ final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
             )
             
             return viewController
-        }
+        }, animator: animator)
     }
     
     func showCategories() {

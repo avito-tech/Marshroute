@@ -10,12 +10,12 @@ final class SearchResultsViewController: BaseViewController, SearchResultsViewIn
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            title: "recursion".localized, // to Recursion module
-//            style: .Plain,
-//            target: self,
-//            action: "onRecursionButtonTap:"
-//        )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "recursion".localized, // to Recursion module
+            style: .Plain,
+            target: self,
+            action: "onRecursionButtonTap:"
+        )
     }
     
     // MARK: - Private

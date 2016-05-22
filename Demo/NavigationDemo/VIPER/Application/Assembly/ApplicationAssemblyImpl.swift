@@ -64,7 +64,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         
         let tabs = self.tabs(moduleSeed: moduleSeed)
         
-        tabBarController.viewControllers = [tabs.viewControllers.first!]
+        tabBarController.viewControllers = tabs.viewControllers
         tabBarTransitionsHandler.animatingTransitionsHandlers = tabs.animatingTransitionsHandlers
         tabBarTransitionsHandler.containingTransitionsHandlers = tabs.containingTransitionsHandlers
         

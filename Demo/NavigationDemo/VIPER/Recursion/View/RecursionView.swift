@@ -13,10 +13,10 @@ final class RecursionView: UIView {
         backgroundImageView.contentMode = .ScaleAspectFill
         backgroundImageView.layer.masksToBounds = true
         
-        addSubview(timerButton)
-        timerButton.setTitleColor(.whiteColor(), forState: .Normal)
-        timerButton.backgroundColor = .blueColor()
-        timerButton.addTarget(self, action: "onTimerButtonTap:", forControlEvents: .TouchUpInside)
+//        addSubview(timerButton)
+//        timerButton.setTitleColor(.whiteColor(), forState: .Normal)
+//        timerButton.backgroundColor = .blueColor()
+//        timerButton.addTarget(self, action: "onTimerButtonTap:", forControlEvents: .TouchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {

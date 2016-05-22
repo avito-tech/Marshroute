@@ -37,22 +37,22 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
         var rightBarButtonItems = [UIBarButtonItem]()
         
         if isDismissable {
-            let dismissButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .Stop,
-                target: self,
-                action: "onDismissButtonTap:"
-            )
-            rightBarButtonItems.append(dismissButtonItem)
+//            let dismissButtonItem = UIBarButtonItem(
+//                barButtonSystemItem: .Stop,
+//                target: self,
+//                action: "onDismissButtonTap:"
+//            )
+//            rightBarButtonItems.append(dismissButtonItem)
         }
         
-        let toCategoriesButtonItem = UIBarButtonItem(
-            title: "categories".localized, // to Categories module
-            style: .Plain,
-            target: self,
-            action: "onCategoriesButtonTap:"
-        )
-        
-        rightBarButtonItems.append(toCategoriesButtonItem)
+//        let toCategoriesButtonItem = UIBarButtonItem(
+//            title: "categories".localized, // to Categories module
+//            style: .Plain,
+//            target: self,
+//            action: "onCategoriesButtonTap:"
+//        )
+//        
+//        rightBarButtonItems.append(toCategoriesButtonItem)
         
         navigationItem.rightBarButtonItems = rightBarButtonItems
     }

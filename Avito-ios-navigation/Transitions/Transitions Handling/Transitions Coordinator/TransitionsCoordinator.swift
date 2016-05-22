@@ -824,6 +824,9 @@ extension TransitionsCoordinator where
                 (chainedTransition, pushTransitions) = stackClient.allTransitionsForTransitionsHandler(
                     transitionsHandler
                 )
+                
+                // кроме первого (`Resetting`) перехода
+                pushTransitions?.removeFirst()
             }
             
             result += pushTransitions?.count ?? 0

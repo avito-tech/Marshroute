@@ -40,7 +40,8 @@ public protocol TransitionsCoordinator: class {
 // MARK: - TransitionsCoordinator Default Impl
 extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     public func coordinatePerformingTransition(
         context context: PresentationTransitionContext,
@@ -264,19 +265,29 @@ extension TransitionsCoordinator where
             }
         }
         
-        // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода
-        var transitionAllowed = true
+        // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
+        // если переход помечен пользовательским идентификатором
+        let transitionUserId = markers[context.transitionId]
         
-        if let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+        var transitionAllowed = true
+        if let transitionUserId = transitionUserId, transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
             transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
                 coordinator: self,
                 canForceTransitionsHandler: animatingTransitionsHandler,
-                toLaunchResettingAnimationOfTransition: context
+                toLaunchResettingAnimationOfTransition: context,
+                markedWithUserId: transitionUserId
             )
         }
         
         guard transitionAllowed
             else { debugPrint("resetting transition was cancelled"); return }
+        
+        // уведомляем делегата до вызова анимации `Resetting` перехода. 
+        transitionsCoordinatorDelegate?.transitionsCoordinator(
+            coordinator: self,
+            willForceTransitionsHandler: animatingTransitionsHandler,
+            toLaunchResettingAnimationOfTransition: context
+        )
         
         // вызываем анимации, передавая параметры запуска анимации по ссылке,
         // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
@@ -296,7 +307,8 @@ extension TransitionsCoordinator where
 // MARK: - preparing for undo
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     func coordinateUndoingTransitionsImpl(
         afterTransitionId transitionId: TransitionId,
@@ -376,7 +388,8 @@ private extension TransitionsCoordinator where
 // MARK: - initiating transitions (methods work only with AnimatingTransitionsHandler)
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     func initiatePerformingTransition(
         context context: PresentationTransitionContext,
@@ -393,19 +406,29 @@ private extension TransitionsCoordinator where
         
         var context = context
         
-        // спрашиваем делегата о разрешении выполнения анимаций `Presentation` перехода
+        // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
+        // если переход помечен пользовательским идентификатором
+        let transitionUserId = markers[context.transitionId]
         var transitionAllowed = true
         
-        if let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+        if let transitionUserId = transitionUserId, transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
             transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
                 coordinator: self,
                 canForceTransitionsHandler: animatingTransitionsHandler,
-                toLaunchPresentationAnimationOfTransition: context
+                toLaunchPresentationAnimationOfTransition: context,
+                markedWithUserId: transitionUserId
             )
         }
         
         guard transitionAllowed
             else { debugPrint("presentation transition was cancelled"); return }
+        
+        // уведомляем делегата до вызова анимации `Presentation` перехода.
+        transitionsCoordinatorDelegate?.transitionsCoordinator(
+            coordinator: self,
+            willForceTransitionsHandler: animatingTransitionsHandler,
+            toLaunchPresentationAnimationOfTransition: context
+        )
         
         // дополняем параметры анимации информацией о текущем верхнем контроллере
         context.presentationAnimationLaunchingContextBox.appendSourceViewController(
@@ -563,7 +586,8 @@ private extension TransitionsCoordinator where
 // MARK: - fetching data from the history (methods work only with AnimatingTransitionsHandler)
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     /// Выбор из обработчиков переходов одного с самым глубоким дочерним обработчиком.
     /// Возвращается найденный самый глубокий обработчик, чтобы прокинуть ему обработку перехода
@@ -675,7 +699,8 @@ private extension TransitionsCoordinator where
 // MARK: - for TopViewControllerFinder
 extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     func findTopViewControllerImpl(forTransitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
         -> UIViewController?
@@ -781,7 +806,7 @@ extension TransitionsCoordinator where
         var result = 0
         
         for transitionsHandler in transitionsHandlers {
-            guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: fromTransitionsHandler)
+            guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
                 else { return nil }
             
             let (chainedTransition, pushTransitions): (RestoredTransitionContext?, [RestoredTransitionContext]?)
@@ -846,6 +871,15 @@ extension TransitionsCoordinator where
         }
         
         return nil
+    }
+}
+
+// MARK: - for TransitionsMarker
+extension TransitionsCoordinator where
+    Self: TransitionsMarkersHolder
+{
+    func markTransitionIdImpl(transitionId transitionId: TransitionId, withUserId userId: TransitionUserId) {
+        markers[transitionId] = userId
     }
 }
 

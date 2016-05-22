@@ -1,27 +1,41 @@
 import Foundation
 
 public protocol TransitionsCoordinatorDelegate: class {
+    // Permissions
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        canForceTransitionsHandler: TransitionsHandler,
-        toLaunchResettingAnimationOfTransition: ResettingTransitionContext)
+        canForceTransitionsHandler transitionsHandler: TransitionsHandler,
+        toLaunchResettingAnimationOfTransition context: ResettingTransitionContext,
+        markedWithUserId userId: TransitionUserId)
     -> Bool
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        canForceTransitionsHandler: TransitionsHandler,
-        toLaunchPresentationAnimationOfTransition: PresentationTransitionContext)
+        canForceTransitionsHandler transitionsHandler: TransitionsHandler,
+        toLaunchPresentationAnimationOfTransition context: PresentationTransitionContext,
+        markedWithUserId userId: TransitionUserId)
     -> Bool
+    
+    // Notifications
+    func transitionsCoordinator(
+        coordinator coordinator: TransitionsCoordinator,
+        willForceTransitionsHandler transitionsHandler: TransitionsHandler,
+        toLaunchResettingAnimationOfTransition context: ResettingTransitionContext)
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willForceTransitionsHandler: TransitionsHandler,
+        willForceTransitionsHandler transitionsHandler: TransitionsHandler,
+        toLaunchPresentationAnimationOfTransition context: PresentationTransitionContext)
+    
+    func transitionsCoordinator(
+        coordinator coordinator: TransitionsCoordinator,
+        willForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionsAfterId transitionId: TransitionId)
     
     func transitionsCoordinator(
         coordinator coordinator: TransitionsCoordinator,
-        willForceTransitionsHandler: TransitionsHandler,
+        willForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionWithId transitionId: TransitionId)
 }

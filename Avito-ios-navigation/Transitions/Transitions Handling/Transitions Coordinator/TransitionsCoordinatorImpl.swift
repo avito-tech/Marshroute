@@ -5,13 +5,18 @@ public final class TransitionsCoordinatorImpl:
     TransitionsCoordinatorDelegateHolder,
     TransitionsCoordinator,
     TopViewControllerFinder,
-    TransitionsTracker
+    TransitionsTracker,
+    TransitionsMarker,
+    TransitionsMarkersHolder
 {
     // MARK: - TransitionContextsStackClientProviderHolder
     public let stackClientProvider: TransitionContextsStackClientProvider
     
     // MARK: - TransitionsCoordinatorDelegateHolder
     public weak var transitionsCoordinatorDelegate: TransitionsCoordinatorDelegate?
+    
+    // MARK: - TransitionsMarkersHolder
+    public var markers = [TransitionId : TransitionUserId]()
     
     // MARK: - Init
     public init(stackClientProvider: TransitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl())
@@ -50,5 +55,10 @@ public final class TransitionsCoordinatorImpl:
             trackedTransition,
             untilLastTransitionOfTransitionsHandler: targetTransitionsHandler
         )
+    }
+    
+    // MARK: - TransitionsMarker
+    public func markTransitionId(transitionId: TransitionId, withUserId userId: TransitionUserId) {
+        markTransitionIdImpl(transitionId: transitionId, withUserId: userId)
     }
 }

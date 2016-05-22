@@ -47,7 +47,7 @@ final class TimerServiceImpl: TimerService {
         timer = NSTimer.scheduledTimerWithTimeInterval(
             1,
             target: self,
-            selector: #selector(TimerServiceImpl.onTimer(_:)),
+            selector: "onTimer:",
             userInfo: nil,
             repeats: false
         )

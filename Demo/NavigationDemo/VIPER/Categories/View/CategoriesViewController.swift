@@ -22,7 +22,7 @@ final class CategoriesViewController: BaseViewController, CategoriesViewInput {
             navigationItem.rightBarButtonItem = UIBarButtonItem(
                 barButtonSystemItem: .Stop,
                 target: self,
-                action: #selector(CategoriesViewController.onDismissButtonTap(_:))
+                action: "onDismissButtonTap:"
             )
         }
     }

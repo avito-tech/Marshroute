@@ -15,14 +15,14 @@ final class AuthorizationViewController: BaseViewController, AuthorizationViewIn
             title: "Отмена",
             style: .Plain,
             target: self,
-            action: #selector(AuthorizationViewController.onCancelButtonTap(_:))
+            action: "onCancelButtonTap:"
         )
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Войти",
             style: .Done,
             target: self,
-            action: #selector(AuthorizationViewController.onSubmitButtonTap(_:))
+            action: "onSubmitButtonTap:"
         )
         
         authorizationView.contentInset = { [weak self] in

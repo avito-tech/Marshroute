@@ -1,24 +1,35 @@
 import AvitoNavigation
 
-final class ModuleTrackingServiceImpl: ModuleTrackingService, TransitionsCoordinatorDelegate {
+private let authorizationModuleUserId = "AuthorizationModuleUserId"
+
+final class ModuleRegisteringServiceImpl:
+    ModuleRegisteringService,
+    ModuleTrackingService,
+    AuthorizationModuleRegisteringService,
+    AuthorizationModuleTrackingService,
+    TransitionsCoordinatorDelegate
+{
     // MARK: - Private properties
     private let moduleList = TrackedModulesList()
 
     private let transitionsTracker: TransitionsTracker
     private let transitionsMarker: TransitionsMarker
     private let distanceThresholdBetweenSiblingModules: Int
+    private let rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?))
     
     // MARK: - Init
     init(transitionsTracker: TransitionsTracker,
          transitionsMarker: TransitionsMarker,
-         distanceThresholdBetweenSiblingModules: Int)
+         distanceThresholdBetweenSiblingModules: Int,
+         rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)))
     {
         self.transitionsTracker = transitionsTracker
         self.transitionsMarker = transitionsMarker
         self.distanceThresholdBetweenSiblingModules = distanceThresholdBetweenSiblingModules
+        self.rootTransitionsHandlerProvider = rootTransitionsHandlerProvider
     }
     
-    // MARK: - ModuleTrackingService
+    // MARK: - ModuleRegisteringService
     func registerTrackedModule(trackedModule: TrackedModule) {
         moduleList.append(trackedModule)
         
@@ -26,6 +37,46 @@ final class ModuleTrackingServiceImpl: ModuleTrackingService, TransitionsCoordin
             trackedModule.transitionId,
             withUserId: trackedModule.transitionUserId
         )
+    }
+    
+    // MARK: - ModuleTrackingService
+    func doesTrackedModuleExistInHistory(trackedModule: TrackedModule) -> Bool? {
+        guard let rootTransitionsHandler = rootTransitionsHandlerProvider()
+            else { return nil }
+        
+        guard let trackedTransition = trackedModule.trackedTransition()
+            else { return false }
+        
+        let restoredTransition = transitionsTracker.restoredTransitionFromTrackedTransition(
+            trackedTransition,
+            searchingFromTransitionsHandler: rootTransitionsHandler
+        )
+        
+        return restoredTransition != nil
+    }
+    
+    // MARK: - AuthorizationModuleRegisteringService
+    func registerAuthorizationModuleAsBeingTracked(
+        transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox,
+        transitionId: TransitionId)
+    {
+        let trackedModule = TrackedModule(
+            transitionsHandlerBox: transitionsHandlerBox,
+            transitionId: transitionId,
+            transitionUserId: authorizationModuleUserId
+        )
+        
+        reRegisterTrackedModule(trackedModule)
+    }
+    
+    // MARK: - AuthorizationModuleTrackingService
+    func doesAuthorizationModuleExistInHistory() -> Bool {
+        let authorizationModules = moduleList.trackedModulesWithTransitionUserId(authorizationModuleUserId)
+        
+        guard let authorizationTrackedModule = authorizationModules.first
+            else { return false }  // must be one o zero items in array
+        
+        return doesTrackedModuleExistInHistory(authorizationTrackedModule) ?? false
     }
     
     // MARK: - TransitionsCoordinatorDelegate
@@ -51,7 +102,7 @@ final class ModuleTrackingServiceImpl: ModuleTrackingService, TransitionsCoordin
         }
         
         // Search for modules with a passed `userId`
-        let modulesMatchingUserId = moduleList.trackedModuleWithTransitionUserId(
+        let modulesMatchingUserId = moduleList.trackedModulesWithTransitionUserId(
             userId,
             mismatchingTransitionId: context.transitionId // except for the one we are transitioning to
         )
@@ -118,4 +169,14 @@ final class ModuleTrackingServiceImpl: ModuleTrackingService, TransitionsCoordin
         toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionWithId transitionId: TransitionId)
     {}
+    
+    // MARK: - Private
+    private func reRegisterTrackedModule(trackedModule: TrackedModule) {
+        moduleList.removeTrackedModuleWithTransitionUserId(
+            trackedModule.transitionUserId,
+            transitionId: trackedModule.transitionId
+        )
+        
+        registerTrackedModule(trackedModule)
+    }
 }

@@ -38,15 +38,19 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         
         let interactor = ApplicationInteractorImpl()
         
+        let authorizationModuleTrackingService = serviceFactory.authorizationModuleTrackingService()
+        
         let router: ApplicationRouter
             
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             router = ApplicationRouterIpad(
+                authorizationModuleTrackingService: authorizationModuleTrackingService,
                 assemblyFactory: assemblyFactory,
                 routerSeed: routerSeed
             )
         } else {
             router = ApplicationRouterIphone(
+                authorizationModuleTrackingService: authorizationModuleTrackingService,
                 assemblyFactory: assemblyFactory,
                 routerSeed: routerSeed
             )

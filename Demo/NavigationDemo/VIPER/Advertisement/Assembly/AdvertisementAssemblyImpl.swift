@@ -67,6 +67,7 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
         return viewController
     }
     
+    // MARK: - Private
     private func registerModuleAsBeingTracked(
         searchResultId searchResultId: SearchResultId,
         transitionsHandlerBox: TransitionsHandlerBox,
@@ -80,8 +81,8 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
      
         // debugPrint(trackedModule.transitionUserId)
         
-        let moduleTrackingService = serviceFactory.moduleTrackingService()
+        let moduleRegisteringService = serviceFactory.moduleRegisteringService()
         
-        moduleTrackingService.registerTrackedModule(trackedModule)
+        moduleRegisteringService.registerTrackedModule(trackedModule)
     }
 }

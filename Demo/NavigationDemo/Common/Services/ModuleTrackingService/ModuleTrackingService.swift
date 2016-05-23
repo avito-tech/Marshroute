@@ -1,5 +1,5 @@
-import AvitoNavigation
+import Foundation
 
 protocol ModuleTrackingService: class {
-    func registerTrackedModule(trackedModule: TrackedModule)
+    func doesTrackedModuleExistInHistory(trackedModule: TrackedModule) -> Bool?
 }

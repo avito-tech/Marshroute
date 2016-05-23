@@ -33,7 +33,8 @@ final class TrackedModulesList {
         }
     }
 
-    func trackedModuleWithTransitionUserId(transitionUserId: TransitionUserId,
+    func trackedModulesWithTransitionUserId(
+        transitionUserId: TransitionUserId,
         mismatchingTransitionId transitionId: TransitionId)
         -> [TrackedModule]
     {
@@ -43,6 +44,16 @@ final class TrackedModulesList {
             ($0.transitionUserId == transitionUserId) &&
                 ($0.transitionId != transitionId)
         }
+        
+        return result
+    }
+    
+    func trackedModulesWithTransitionUserId(transitionUserId: TransitionUserId)
+        -> [TrackedModule]
+    {
+        releaseZombieModules()
+        
+        let result = modules.filter { $0.transitionUserId == transitionUserId }
         
         return result
     }

@@ -138,16 +138,19 @@
 		CCA7C90D1CD9321300B7ADBD /* ApplicationModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7C90C1CD9321300B7ADBD /* ApplicationModuleInput.swift */; };
 		CCA7C9101CD9323E00B7ADBD /* AuthorizationModuleInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7C90F1CD9323E00B7ADBD /* AuthorizationModuleInputOutput.swift */; };
 		CCA7C9141CD9414A00B7ADBD /* TouchId.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA7C9131CD9414A00B7ADBD /* TouchId.png */; };
+		CCE593DF1CF25FFA0019F81D /* ModuleRegisteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593D91CF25FFA0019F81D /* ModuleRegisteringService.swift */; };
+		CCE593E01CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */; };
+		CCE593E11CF25FFA0019F81D /* TrackedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */; };
+		CCE593E21CF25FFA0019F81D /* TrackedModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DC1CF25FFA0019F81D /* TrackedModulesList.swift */; };
+		CCE593E31CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DD1CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift */; };
+		CCE593E61CF2600B0019F81D /* ModuleTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593E41CF2600B0019F81D /* ModuleTrackingService.swift */; };
+		CCE593EB1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593EA1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift */; };
+		CCE593ED1CF266720019F81D /* AuthorizationModuleTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593EC1CF266720019F81D /* AuthorizationModuleTrackingService.swift */; };
 		CCE639691CDFD3B8002DF096 /* RecursionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE639681CDFD3B8002DF096 /* RecursionAnimator.swift */; };
 		CCE639761CE05A48002DF096 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCE639731CE05A48002DF096 /* Localizable.strings */; };
 		CCE639791CE05ABE002DF096 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE639781CE05ABE002DF096 /* StringExtensions.swift */; };
 		CCF4A8441CDFA0AF008170C1 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4A8421CDFA0AF008170C1 /* TimerService.swift */; };
 		CCF4A8451CDFA0AF008170C1 /* TimerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4A8431CDFA0AF008170C1 /* TimerServiceImpl.swift */; };
-		CCF74A431CF19A1A00E56714 /* ModuleTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A411CF19A1A00E56714 /* ModuleTrackingService.swift */; };
-		CCF74A441CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A421CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift */; };
-		CCF74A491CF19B4200E56714 /* TrackedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A471CF19B4200E56714 /* TrackedModule.swift */; };
-		CCF74A4A1CF19B4200E56714 /* TrackedModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A481CF19B4200E56714 /* TrackedModulesList.swift */; };
-		CCF74A4C1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A4B1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -286,6 +289,14 @@
 		CCA7C90C1CD9321300B7ADBD /* ApplicationModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleInput.swift; sourceTree = "<group>"; };
 		CCA7C90F1CD9323E00B7ADBD /* AuthorizationModuleInputOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationModuleInputOutput.swift; path = NavigationDemo/VIPER/Authorization/Module/AuthorizationModuleInputOutput.swift; sourceTree = SOURCE_ROOT; };
 		CCA7C9131CD9414A00B7ADBD /* TouchId.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TouchId.png; sourceTree = "<group>"; };
+		CCE593D91CF25FFA0019F81D /* ModuleRegisteringService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleRegisteringService.swift; sourceTree = "<group>"; };
+		CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleRegisteringServiceImpl.swift; sourceTree = "<group>"; };
+		CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModule.swift; sourceTree = "<group>"; };
+		CCE593DC1CF25FFA0019F81D /* TrackedModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModulesList.swift; sourceTree = "<group>"; };
+		CCE593DD1CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCE593E41CF2600B0019F81D /* ModuleTrackingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTrackingService.swift; sourceTree = "<group>"; };
+		CCE593EA1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleRegisteringService.swift; sourceTree = "<group>"; };
+		CCE593EC1CF266720019F81D /* AuthorizationModuleTrackingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleTrackingService.swift; sourceTree = "<group>"; };
 		CCE639681CDFD3B8002DF096 /* RecursionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecursionAnimator.swift; sourceTree = "<group>"; };
 		CCE6396A1CE05992002DF096 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		CCE639741CE05A48002DF096 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -293,11 +304,6 @@
 		CCE639781CE05ABE002DF096 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		CCF4A8421CDFA0AF008170C1 /* TimerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		CCF4A8431CDFA0AF008170C1 /* TimerServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerServiceImpl.swift; sourceTree = "<group>"; };
-		CCF74A411CF19A1A00E56714 /* ModuleTrackingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTrackingService.swift; sourceTree = "<group>"; };
-		CCF74A421CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTrackingServiceImpl.swift; sourceTree = "<group>"; };
-		CCF74A471CF19B4200E56714 /* TrackedModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModule.swift; sourceTree = "<group>"; };
-		CCF74A481CF19B4200E56714 /* TrackedModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModulesList.swift; sourceTree = "<group>"; };
-		CCF74A4B1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -537,8 +543,11 @@
 				CC0B1DE11CC2D778006707B6 /* ServiceFactoryImpl.swift */,
 				CC0B1E521CC3C3CD006707B6 /* AdvertisementCacher */,
 				CC0B1E481CC3BF21006707B6 /* AdvertisementProvider */,
+				CCE593E81CF265470019F81D /* AuthorizationModuleRegisteringService */,
+				CCE593E91CF265470019F81D /* AuthorizationModuleTrackingService */,
 				CC0B1DE61CC2D7EB006707B6 /* CategoriesProvider */,
-				CCF74A401CF199C700E56714 /* ModuleTrackingService */,
+				CCE593D81CF25FFA0019F81D /* ModuleRegisteringService */,
+				CCE593DE1CF25FFA0019F81D /* ModuleTrackingService */,
 				CC0B1E711CC442B3006707B6 /* RandomStringGenerator */,
 				CC84068D1CD6713800644CA1 /* RootModulesProvider */,
 				CC0B1E4D1CC3C19D006707B6 /* SearchResultsCacher */,
@@ -1029,6 +1038,42 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		CCE593D81CF25FFA0019F81D /* ModuleRegisteringService */ = {
+			isa = PBXGroup;
+			children = (
+				CCE593D91CF25FFA0019F81D /* ModuleRegisteringService.swift */,
+				CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */,
+				CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */,
+				CCE593DC1CF25FFA0019F81D /* TrackedModulesList.swift */,
+				CCE593DD1CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift */,
+			);
+			path = ModuleRegisteringService;
+			sourceTree = "<group>";
+		};
+		CCE593DE1CF25FFA0019F81D /* ModuleTrackingService */ = {
+			isa = PBXGroup;
+			children = (
+				CCE593E41CF2600B0019F81D /* ModuleTrackingService.swift */,
+			);
+			path = ModuleTrackingService;
+			sourceTree = "<group>";
+		};
+		CCE593E81CF265470019F81D /* AuthorizationModuleRegisteringService */ = {
+			isa = PBXGroup;
+			children = (
+				CCE593EA1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift */,
+			);
+			path = AuthorizationModuleRegisteringService;
+			sourceTree = "<group>";
+		};
+		CCE593E91CF265470019F81D /* AuthorizationModuleTrackingService */ = {
+			isa = PBXGroup;
+			children = (
+				CCE593EC1CF266720019F81D /* AuthorizationModuleTrackingService.swift */,
+			);
+			path = AuthorizationModuleTrackingService;
+			sourceTree = "<group>";
+		};
 		CCE639721CE05A48002DF096 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1053,18 +1098,6 @@
 				CCF4A8431CDFA0AF008170C1 /* TimerServiceImpl.swift */,
 			);
 			path = TimerService;
-			sourceTree = "<group>";
-		};
-		CCF74A401CF199C700E56714 /* ModuleTrackingService */ = {
-			isa = PBXGroup;
-			children = (
-				CCF74A411CF19A1A00E56714 /* ModuleTrackingService.swift */,
-				CCF74A421CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift */,
-				CCF74A471CF19B4200E56714 /* TrackedModule.swift */,
-				CCF74A481CF19B4200E56714 /* TrackedModulesList.swift */,
-				CCF74A4B1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift */,
-			);
-			path = ModuleTrackingService;
 			sourceTree = "<group>";
 		};
 		D430861738B54834AAD284BB /* Pods */ = {
@@ -1212,12 +1245,13 @@
 				CC84065D1CD65F0300644CA1 /* RecursionAssemblyImpl.swift in Sources */,
 				CC9C206E1CE0CA0B00E7DC3E /* TopViewControllerFindingService.swift in Sources */,
 				CC0B1E501CC3C1A3006707B6 /* SearchResultsCacher.swift in Sources */,
+				CCE593E01CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift in Sources */,
 				CC0B1D821CC20999006707B6 /* CategoriesInteractor.swift in Sources */,
 				CC0B1E6C1CC3C91A006707B6 /* AdvertisementRouter.swift in Sources */,
 				CC0B1DE21CC2D778006707B6 /* ServiceFactory.swift in Sources */,
 				CCA065131CE0B0C600D08A67 /* TouchEventSharingWindow.swift in Sources */,
+				CCE593E11CF25FFA0019F81D /* TrackedModule.swift in Sources */,
 				CC0B1E511CC3C1A3006707B6 /* SearchResultsCacherImpl.swift in Sources */,
-				CCF74A491CF19B4200E56714 /* TrackedModule.swift in Sources */,
 				CC0B1D671CC208DF006707B6 /* AssemblyFactory.swift in Sources */,
 				CC0B1DB51CC230F3006707B6 /* ApplicationViewController.swift in Sources */,
 				CC0B1D931CC20A6B006707B6 /* DisposeBagHolder.swift in Sources */,
@@ -1252,11 +1286,12 @@
 				CC8406621CD65F0300644CA1 /* RecursionRouterIphone.swift in Sources */,
 				CCA7C9021CD9296200B7ADBD /* AuthorizationInteractorImpl.swift in Sources */,
 				CCA7C9011CD9296200B7ADBD /* AuthorizationInteractor.swift in Sources */,
+				CCE593E61CF2600B0019F81D /* ModuleTrackingService.swift in Sources */,
+				CCE593DF1CF25FFA0019F81D /* ModuleRegisteringService.swift in Sources */,
 				CC0B1D921CC20A6B006707B6 /* DisposeBag.swift in Sources */,
 				CC8406641CD65F0300644CA1 /* RecursionViewController.swift in Sources */,
 				CC0B1E171CC2DF84006707B6 /* SearchResultsInteractor.swift in Sources */,
 				CC0B1DB61CC230F3006707B6 /* ApplicationViewInput.swift in Sources */,
-				CCF74A441CF19A1A00E56714 /* ModuleTrackingServiceImpl.swift in Sources */,
 				CC8406891CD6693500644CA1 /* ShelfRouterIphone.swift in Sources */,
 				CC0B1E161CC2DF84006707B6 /* SearchResultsAssemblyImpl.swift in Sources */,
 				CC9C206F1CE0CA0B00E7DC3E /* TopViewControllerFindingServiceImpl.swift in Sources */,
@@ -1284,9 +1319,8 @@
 				CC0B1DE91CC2D7EB006707B6 /* CategoriesProvider.swift in Sources */,
 				CC0B1E181CC2DF84006707B6 /* SearchResultsInteractorImpl.swift in Sources */,
 				CCA7C9071CD9296200B7ADBD /* AuthorizationViewController.swift in Sources */,
+				CCE593E21CF25FFA0019F81D /* TrackedModulesList.swift in Sources */,
 				CC0B1E191CC2DF84006707B6 /* SearchResultsPresenter.swift in Sources */,
-				CCF74A4A1CF19B4200E56714 /* TrackedModulesList.swift in Sources */,
-				CCF74A431CF19A1A00E56714 /* ModuleTrackingService.swift in Sources */,
 				CC0B1D851CC20999006707B6 /* CategoriesPresenter.swift in Sources */,
 				CC8406861CD6693500644CA1 /* ShelfInteractorImpl.swift in Sources */,
 				CC0B1D801CC20999006707B6 /* CategoriesAssembly.swift in Sources */,
@@ -1308,6 +1342,7 @@
 				CC574AC01CEF73C1008648D0 /* BannerInteractor.swift in Sources */,
 				CC0B1D891CC20999006707B6 /* CategoriesViewController.swift in Sources */,
 				CC84065C1CD65F0300644CA1 /* RecursionAssembly.swift in Sources */,
+				CCE593EB1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift in Sources */,
 				CC8406871CD6693500644CA1 /* ShelfPresenter.swift in Sources */,
 				CCA0650C1CE0B00900D08A67 /* FadeOutView.swift in Sources */,
 				CCF4A8451CDFA0AF008170C1 /* TimerServiceImpl.swift in Sources */,
@@ -1318,7 +1353,8 @@
 				CCA7C9061CD9296200B7ADBD /* AuthorizationView.swift in Sources */,
 				CC0B1E6D1CC3C91A006707B6 /* AdvertisementRouterIphone.swift in Sources */,
 				CC0B1E681CC3C91A006707B6 /* AdvertisementAssemblyImpl.swift in Sources */,
-				CCF74A4C1CF1A41200E56714 /* WeakTransitionsHandlerBox.swift in Sources */,
+				CCE593E31CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift in Sources */,
+				CCE593ED1CF266720019F81D /* AuthorizationModuleTrackingService.swift in Sources */,
 				CC8406651CD65F0300644CA1 /* RecursionViewInput.swift in Sources */,
 				CCA065151CE0B0C600D08A67 /* TouchEventObserver.swift in Sources */,
 				CC0B1E151CC2DF84006707B6 /* SearchResultsAssembly.swift in Sources */,

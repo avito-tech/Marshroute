@@ -32,7 +32,7 @@ final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, Catego
     func returnToCategories() {
         focusOnCurrentModule()
         
-        setDetailViewControllerDerivedFrom { (routerSeed) -> UIViewController in
+        setDetailViewControllerDerivedFrom { routerSeed -> UIViewController in
             let shelfAssembly = assemblyFactory.shelfAssembly()
             
             let viewController = shelfAssembly.module(routerSeed: routerSeed)

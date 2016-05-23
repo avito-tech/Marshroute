@@ -21,21 +21,18 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
         completion(isPresented: authorizationModuleExistsInHistory)
     }
     
-    func showAuthorziation(moduleOutput moduleOutput: AuthorizationModuleOutput) {
-        let animator = ModalNavigationTransitionsAnimator()
-        animator.targetModalPresentationStyle = .FormSheet
-        
-        presentModalNavigationControllerWithRootViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+    func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
+        presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in
             let authorizationAssembly = assemblyFactory.authorizationAssembly()
             
-            let viewController = authorizationAssembly.module(
-                routerSeed: routerSeed,
-                moduleOutput: moduleOutput
+            let (viewController, moduleInput) = authorizationAssembly.module(
+                routerSeed: routerSeed
             )
             
+            prepareForTransition(moduleInput: moduleInput)
+            
             return viewController
-            }, animator: animator
-        )
+        }
     }
     
     func showCategories() {

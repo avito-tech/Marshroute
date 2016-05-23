@@ -17,7 +17,7 @@ final class AdvertisementRouterIphone: BaseDemoRouter, AdvertisementRouter {
     }
     
     func showRecursion(sender: AnyObject) {
-        presentModalNavigationControllerWithRootViewControllerDerivedFrom { (routerSeed) -> UIViewController in
+        presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in
             let recursionAssembly = assemblyFactory.recursionAssembly()
             
             let viewController = recursionAssembly.module(routerSeed: routerSeed)

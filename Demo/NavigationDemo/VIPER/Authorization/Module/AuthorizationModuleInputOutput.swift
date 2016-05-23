@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AuthorizationModuleOutput: class {
-    func autorizationModuleDidFinish(isAuthorized isAuthorized: Bool)
+protocol AuthorizationModuleInput: class {
+    var onComplete: ((isAuthorized: Bool) -> ())? { get set }
 }

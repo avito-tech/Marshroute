@@ -7,7 +7,7 @@ final class RecursionRouterIpad: BaseDemoRouter, RecursionRouter {
         guard let barButtonItem = sender as? UIBarButtonItem
             else { return }
         
-        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { (routerSeed) -> UIViewController in
+        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { routerSeed -> UIViewController in
             let recursionAssembly = assemblyFactory.recursionAssembly()
             
             let viewController = recursionAssembly.ipadModule(routerSeed: routerSeed)
@@ -20,7 +20,7 @@ final class RecursionRouterIpad: BaseDemoRouter, RecursionRouter {
         guard let barButtonItem = sender as? UIBarButtonItem
             else { return }
         
-        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { (routerSeed) -> UIViewController in
+        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { routerSeed -> UIViewController in
             let categoriesAssembly = assemblyFactory.categoriesAssembly()
             
             let viewController = categoriesAssembly.ipadModule(routerSeed: routerSeed)

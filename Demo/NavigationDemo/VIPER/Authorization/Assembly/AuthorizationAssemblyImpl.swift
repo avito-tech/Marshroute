@@ -3,8 +3,8 @@ import AvitoNavigation
 
 final class AuthorizationAssemblyImpl: BaseAssembly, AuthorizationAssembly {
     // MARK: - AuthorizationAssembly
-    func module(routerSeed routerSeed: RouterSeed, moduleOutput: AuthorizationModuleOutput)
-        -> UIViewController
+    func module(routerSeed routerSeed: RouterSeed)
+        -> (viewController: UIViewController, moduleInput: AuthorizationModuleInput)
     {
         registerModuleAsBeingTracked(
             transitionsHandlerBox: routerSeed.transitionsHandlerBox,
@@ -23,14 +23,12 @@ final class AuthorizationAssemblyImpl: BaseAssembly, AuthorizationAssembly {
             router: router
         )
         
-        presenter.moduleOutput = moduleOutput
-        
         let viewController = AuthorizationViewController()
         viewController.addDisposable(presenter)
         
         presenter.view = viewController
         
-        return viewController
+        return (viewController, presenter)
     }
     
     // MARK: - Private

@@ -134,14 +134,14 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         
         let categoriesAndShelvesModule = rootModulesProvider.masterDetailModule(
             moduleSeed: moduleSeed,
-            deriveMasterViewController: { (routerSeed) -> UIViewController in
+            deriveMasterViewController: { routerSeed -> UIViewController in
                 let categoriesAssembly = assemblyFactory.categoriesAssembly()
                 
                 let viewController = categoriesAssembly.ipadMasterDetailModule(routerSeed: routerSeed)
                 
                 return viewController
             },
-            deriveDetailViewController: { (routerSeed) -> UIViewController in
+            deriveDetailViewController: { routerSeed -> UIViewController in
                 let shelfAssembly = assemblyFactory.shelfAssembly()
                 
                 let viewController = shelfAssembly.module(routerSeed: routerSeed)

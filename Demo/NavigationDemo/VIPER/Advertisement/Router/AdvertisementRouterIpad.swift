@@ -20,7 +20,7 @@ final class AdvertisementRouterIpad: BaseDemoRouter, AdvertisementRouter {
         guard let barButtonItem = sender as? UIBarButtonItem
             else { return }
         
-        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { (routerSeed) -> UIViewController in
+        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { routerSeed -> UIViewController in
             let recursionAssembly = assemblyFactory.recursionAssembly()
             
             let viewController = recursionAssembly.ipadModule(routerSeed: routerSeed)

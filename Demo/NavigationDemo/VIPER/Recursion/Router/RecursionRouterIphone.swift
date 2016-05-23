@@ -13,7 +13,6 @@ final class RecursionRouterIphone: BaseDemoRouter, RecursionRouter {
             return viewController
         }
     }
-}
 
     func showCategories(sender: AnyObject) {
         presentModalNavigationControllerWithRootViewControllerDerivedFrom( { routerSeed -> UIViewController in

@@ -2,7 +2,7 @@ import AvitoNavigation
 
 protocol ApplicationRouter: class {
     func authorizationStatus(completion: ((isPresented: Bool) -> ()))
-    func showAuthorziation(moduleOutput moduleOutput: AuthorizationModuleOutput)
+    func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ()))
     func showCategories()
     func showRecursion()
 }

@@ -1,16 +1,20 @@
 import Foundation
 
-final class AuthorizationPresenter {
-    // MARK: - Init
+final class AuthorizationPresenter: AuthorizationModuleInput {
+    // MARK: - Private properties
     private let interactor: AuthorizationInteractor
-    
     private let router: AuthorizationRouter
-    
     private var isAuthorized = false
     
+    // MARK: - Init
     init(interactor: AuthorizationInteractor, router: AuthorizationRouter) {
         self.interactor = interactor
         self.router = router
+    }
+    
+    // MARK: - Deinit
+    deinit {
+        onComplete?(isAuthorized: isAuthorized)
     }
     
     // MARK: - Weak properties
@@ -19,8 +23,6 @@ final class AuthorizationPresenter {
             setupView()
         }
     }
-    
-    weak var moduleOutput: AuthorizationModuleOutput?
     
     // MARK: - Private
     private func setupView() {
@@ -35,7 +37,6 @@ final class AuthorizationPresenter {
         }
     }
     
-    deinit {
-        moduleOutput?.autorizationModuleDidFinish(isAuthorized: isAuthorized)
-    }
+    // MARK: - AuthorizationModuleInput
+    var onComplete: ((isAuthorized: Bool) -> ())?
 }

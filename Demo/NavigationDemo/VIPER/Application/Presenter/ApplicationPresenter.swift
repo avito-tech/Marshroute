@@ -1,12 +1,10 @@
 import Foundation
 
-final class ApplicationPresenter: ApplicationModuleInput, AuthorizationModuleOutput {
+final class ApplicationPresenter: ApplicationModuleInput {
     // MARK: - Init
     private let interactor: ApplicationInteractor
     
     private let router: ApplicationRouter
-    
-    private var authorizationCompletion: ((isAuthorized: Bool) -> ())?
     
     init(interactor: ApplicationInteractor, router: ApplicationRouter) {
         self.interactor = interactor
@@ -19,6 +17,8 @@ final class ApplicationPresenter: ApplicationModuleInput, AuthorizationModuleOut
             setupView()
         }
     }
+    
+    weak var authorizationModuleInput: AuthorizationModuleInput?
     
     weak var bannerModuleInput: BannerModuleInput?
     
@@ -37,22 +37,16 @@ final class ApplicationPresenter: ApplicationModuleInput, AuthorizationModuleOut
     
     // MARK: - ApplicationModuleInput
     func showAuthorizationModule(completion: ((isAuthorized: Bool) -> ())?) {
-        authorizationCompletion = completion
-        
         router.authorizationStatus { [weak self] isPresented in
-            guard !isPresented
-                else { return }
-            
-            guard let strongSelf = self
-                else { return }
-            
-            strongSelf.router.showAuthorziation(moduleOutput: strongSelf)
+            if isPresented {
+                self?.authorizationModuleInput?.onComplete = completion
+            } else {
+                self?.router.showAuthorziation() { [weak self] moduleInput in
+                    self?.authorizationModuleInput = moduleInput
+                    moduleInput.onComplete = completion
+                }
+            }
         }
-    }
-    
-    // MARK: - AuthorizationModuleOutput
-    func autorizationModuleDidFinish(isAuthorized isAuthorized: Bool) {
-        authorizationCompletion?(isAuthorized: isAuthorized)
     }
     
     // MARK: - Private

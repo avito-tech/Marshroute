@@ -3,10 +3,10 @@ import AvitoNavigation
 
 final class RecursionRouterIpad: BaseDemoRouter, RecursionRouter {
     func showRecursion(sender: AnyObject) {
-        guard let buttonItem = sender as? UIBarButtonItem
+        guard let barButtonItem = sender as? UIBarButtonItem
             else { return }
         
-        presentPopoverWithNavigationControllerFromBarButtonItem(buttonItem) { (routerSeed) -> UIViewController in
+        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { routerSeed -> UIViewController in
             let recursionAssembly = assemblyFactory.recursionAssembly()
             
             let viewController = recursionAssembly.ipadModule(
@@ -16,13 +16,12 @@ final class RecursionRouterIpad: BaseDemoRouter, RecursionRouter {
             return viewController
         }
     }
-}
 
     func showCategories(sender: AnyObject) {
         guard let barButtonItem = sender as? UIBarButtonItem
             else { return }
         
-        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { (routerSeed) -> UIViewController in
+        presentPopoverWithNavigationControllerFromBarButtonItem(barButtonItem) { routerSeed -> UIViewController in
             let categoriesAssembly = assemblyFactory.categoriesAssembly()
             
             let viewController = categoriesAssembly.ipadModule(routerSeed: routerSeed)

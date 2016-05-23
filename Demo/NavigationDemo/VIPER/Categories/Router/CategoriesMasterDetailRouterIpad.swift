@@ -14,7 +14,7 @@ final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, Catego
             return viewController
         }
     }
-}
+
     func showSearchResults(categoryId categoryId: CategoryId) {
         setDetailViewControllerDerivedFrom { routerSeed -> UIViewController in
             let searchResultsAssembly = assemblyFactory.searchResultsAssembly()
@@ -31,7 +31,7 @@ final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, Catego
     func returnToCategories() {
         focusOnCurrentModule()
         
-        setDetailViewControllerDerivedFrom { (routerSeed) -> UIViewController in
+        setDetailViewControllerDerivedFrom { routerSeed -> UIViewController in
             let shelfAssembly = assemblyFactory.shelfAssembly()
             
             let viewController = shelfAssembly.module(routerSeed: routerSeed)

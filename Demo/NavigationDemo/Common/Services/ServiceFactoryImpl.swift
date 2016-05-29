@@ -32,7 +32,7 @@ final class ServiceFactoryImpl: ServiceFactory {
         let moduleRegisteringServiceInstance = ModuleRegisteringServiceImpl(
             transitionsTracker: transitionsTracker,
             transitionsMarker: transitionsMarker,
-            distanceThresholdBetweenSiblingModules: 1,
+            distanceThresholdBetweenSiblingModules: 0,
             rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
         )
         

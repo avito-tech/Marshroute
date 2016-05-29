@@ -22,7 +22,7 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
     }
     
     func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
-        presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in
+        pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let authorizationAssembly = assemblyFactory.authorizationAssembly()
             
             let (viewController, moduleInput) = authorizationAssembly.module(

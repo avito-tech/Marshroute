@@ -42,7 +42,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
                 ),
                 transitionId: transitionIdGenerator.generateNewTransitionId(),
                 presentingTransitionsHandler: nil,
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )

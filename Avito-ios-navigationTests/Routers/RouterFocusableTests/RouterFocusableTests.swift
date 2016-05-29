@@ -4,7 +4,7 @@ final class RouterFocusableTests: XCTestCase
 {
     var transitionId: TransitionId!
     var transitionIdGenerator: TransitionIdGenerator!
-    var transitionsCoordinator: TransitionsCoordinator!
+    var transitionsCoordinator: TransitionsCoordinatorImpl!
     
     var masterAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     var detailAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
@@ -53,7 +53,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -79,7 +79,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -105,7 +105,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: nil, // Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -131,7 +131,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: nil, // Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -161,7 +161,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -192,7 +192,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -223,7 +223,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: nil, // Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -254,7 +254,7 @@ final class RouterFocusableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: nil, // Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )

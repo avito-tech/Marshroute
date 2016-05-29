@@ -21,6 +21,10 @@
 		CC3988111C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */; };
 		CC3988131C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */; };
 		CC3988141C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */; };
+		CC47F04B1CFB36D2006770ED /* TransitionsHandlersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47F04A1CFB36D2006770ED /* TransitionsHandlersProvider.swift */; };
+		CC47F04C1CFB36D2006770ED /* TransitionsHandlersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47F04A1CFB36D2006770ED /* TransitionsHandlersProvider.swift */; };
+		CC47F04E1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47F04D1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift */; };
+		CC47F04F1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC47F04D1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift */; };
 		CC4FDA891CC91D0A00D1DF2D /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FDA611CC91D0A00D1DF2D /* ModalDismissalAnimationContext.swift */; };
 		CC4FDA8A1CC91D0A00D1DF2D /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FDA611CC91D0A00D1DF2D /* ModalDismissalAnimationContext.swift */; };
 		CC4FDA8C1CC91D0A00D1DF2D /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FDA621CC91D0A00D1DF2D /* ModalTransitionsAnimator.swift */; };
@@ -304,6 +308,8 @@
 		CC39880A1C8D753000E3035C /* RouterControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProvider.swift; sourceTree = "<group>"; };
 		CC39880B1C8D753000E3035C /* RouterControllersProviderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderHolder.swift; sourceTree = "<group>"; };
 		CC39880C1C8D753000E3035C /* RouterControllersProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderImpl.swift; sourceTree = "<group>"; };
+		CC47F04A1CFB36D2006770ED /* TransitionsHandlersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersProvider.swift; sourceTree = "<group>"; };
+		CC47F04D1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersProviderHolder.swift; sourceTree = "<group>"; };
 		CC4FDA611CC91D0A00D1DF2D /* ModalDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationContext.swift; sourceTree = "<group>"; };
 		CC4FDA621CC91D0A00D1DF2D /* ModalTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CC4FDA641CC91D0A00D1DF2D /* ModalPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationAnimationContext.swift; sourceTree = "<group>"; };
@@ -381,7 +387,7 @@
 		CCB8D4E21CC903E900D395F8 /* PopoverNavigationPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		CCBD660F1CCA9A0300F351D4 /* ModalPresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouter.swift; sourceTree = "<group>"; };
 		CCBD66101CCA9A0300F351D4 /* PopoverPresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouter.swift; sourceTree = "<group>"; };
-		CCCA3AB31CB2AB830066810B /* EndpointRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EndpointRouter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CCCA3AB31CB2AB830066810B /* EndpointRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EndpointRouter.swift; sourceTree = "<group>"; };
 		CCCE51621CAAB69F0010259C /* TransitionsCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		CCCE51631CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegateHolder.swift; sourceTree = "<group>"; };
 		CCE003451C92BB1A00B52D8A /* TopViewControllerFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewControllerFinder.swift; sourceTree = "<group>"; };
@@ -392,9 +398,9 @@
 		CCE90FDA1C75BAED00AF5E26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE90FE41C75BB7B00AF5E26 /* StrongBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongBox.swift; sourceTree = "<group>"; };
 		CCE90FE51C75BB7B00AF5E26 /* WeakBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
-		CCE90FED1C75BB7B00AF5E26 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DetailRouter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CCE90FED1C75BB7B00AF5E26 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DetailRouter.swift; sourceTree = "<group>"; };
 		CCE90FEE1C75BB7B00AF5E26 /* DetailRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTransitionable.swift; sourceTree = "<group>"; };
-		CCE90FEF1C75BB7B00AF5E26 /* MasterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterRouter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		CCE90FEF1C75BB7B00AF5E26 /* MasterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MasterRouter.swift; sourceTree = "<group>"; };
 		CCE90FF01C75BB7B00AF5E26 /* MasterRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterRouterTransitionable.swift; sourceTree = "<group>"; };
 		CCE90FF21C75BB7B00AF5E26 /* RouterDismissable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismissable.swift; sourceTree = "<group>"; };
 		CCE90FF31C75BB7B00AF5E26 /* RouterFocusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusable.swift; sourceTree = "<group>"; };
@@ -1181,6 +1187,8 @@
 				CCCE51631CAAB69F0010259C /* TransitionsCoordinatorDelegateHolder.swift */,
 				CCE9102B1C75BB7B00AF5E26 /* TransitionsCoordinatorHolder.swift */,
 				CCE9102C1C75BB7B00AF5E26 /* TransitionsCoordinatorImpl.swift */,
+				CC47F04A1CFB36D2006770ED /* TransitionsHandlersProvider.swift */,
+				CC47F04D1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift */,
 				CCE9102D1C75BB7B00AF5E26 /* TransitionsHistoryItem.swift */,
 			);
 			path = "Transitions Coordinator";
@@ -1399,6 +1407,7 @@
 			files = (
 				CCE9109C1C75BB7B00AF5E26 /* TransitionIdGeneratorHolder.swift in Sources */,
 				CCE9107E1C75BB7B00AF5E26 /* RestoredTransitionContext.swift in Sources */,
+				CC47F04B1CFB36D2006770ED /* TransitionsHandlersProvider.swift in Sources */,
 				CCF72CB81CCA2B0C00E29A7A /* PresentationAnimationLaunchingContextBox.swift in Sources */,
 				CC4FDA891CC91D0A00D1DF2D /* ModalDismissalAnimationContext.swift in Sources */,
 				CC3988131C8D753000E3035C /* RouterControllersProviderImpl.swift in Sources */,
@@ -1458,6 +1467,7 @@
 				CCF72CE51CCA5CC800E29A7A /* ResettingAnimationLaunchingContext.swift in Sources */,
 				CCE910AC1C75BB7B00AF5E26 /* TransitionContextsStackClientImpl.swift in Sources */,
 				CCE910521C75BB7B00AF5E26 /* RouterPresentable.swift in Sources */,
+				CC47F04E1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift in Sources */,
 				CCE910781C75BB7B00AF5E26 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCB07B071CCA72AF00F96A19 /* SourceAnimationLaunchingContextBox.swift in Sources */,
 				CCB8D4961CC903D100D395F8 /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
@@ -1584,6 +1594,7 @@
 				CCE910431C75BB7B00AF5E26 /* DetailRouter.swift in Sources */,
 				CCB8D4E71CC903E900D395F8 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
 				CCF72CC91CCA3F8E00E29A7A /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CC47F04F1CFB3943006770ED /* TransitionsHandlersProviderHolder.swift in Sources */,
 				CCF72CF31CCA5EBE00E29A7A /* PopAnimationContext.swift in Sources */,
 				CC6DC09A1CCC2DE30029C534 /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */,
 				CC4FDACF1CC91D0A00D1DF2D /* PresentationTransitionsAnimatorBox.swift in Sources */,
@@ -1627,6 +1638,7 @@
 				CC3988041C8D642D00E3035C /* RouterSeed.swift in Sources */,
 				CCB8D4F31CC903E900D395F8 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
 				CCF72CCB1CCA3F8E00E29A7A /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */,
+				CC47F04C1CFB36D2006770ED /* TransitionsHandlersProvider.swift in Sources */,
 				CCE910951C75BB7B00AF5E26 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
 				CC4FDAB11CC91D0A00D1DF2D /* PopoverDismissalAnimationContext.swift in Sources */,
 				CCE910A71C75BB7B00AF5E26 /* TransitionsHistoryItem.swift in Sources */,

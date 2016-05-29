@@ -6,6 +6,25 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     func module(moduleSeed moduleSeed: ApplicationModuleSeed)
         -> ApplicationModule
     {
+        return module(moduleSeed: moduleSeed, ipad: false)
+    }
+    
+    func ipadModule(moduleSeed moduleSeed: ApplicationModuleSeed)
+        -> ApplicationModule
+    {
+        return module(moduleSeed: moduleSeed, ipad: true)
+    }
+    
+    func sharedModuleInput()
+        -> ApplicationModuleInput?
+    {
+        return ApplicationModuleHolder.instance.applicationModule?.moduleInput
+    }
+    
+    // MARK: - Private
+    private func module(moduleSeed moduleSeed: ApplicationModuleSeed, ipad: Bool)
+        -> ApplicationModule
+    {
         if let savedModule = ApplicationModuleHolder.instance.applicationModule {
             return savedModule
         }
@@ -42,7 +61,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         
         let router: ApplicationRouter
             
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+        if ipad {
             router = ApplicationRouterIpad(
                 authorizationModuleTrackingService: authorizationModuleTrackingService,
                 assemblyFactory: assemblyFactory,
@@ -82,14 +101,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         
         return applicationModule
     }
-    
-    func sharedModuleInput()
-        -> ApplicationModuleInput?
-    {
-        return ApplicationModuleHolder.instance.applicationModule?.moduleInput
-    }
-    
-    // MARK: - Private
+
     private func tabs(moduleSeed moduleSeed: ApplicationModuleSeed)
         -> (viewControllers: [UIViewController],
         animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],

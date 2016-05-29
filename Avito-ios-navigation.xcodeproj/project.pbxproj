@@ -275,6 +275,12 @@
 		CCF74A531CF1AB4400E56714 /* TransitionUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A511CF1AB4400E56714 /* TransitionUserId.swift */; };
 		CCF74A551CF1AC4500E56714 /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A541CF1AC4500E56714 /* TransitionsMarkersHolder.swift */; };
 		CCF74A561CF1AC4500E56714 /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF74A541CF1AC4500E56714 /* TransitionsMarkersHolder.swift */; };
+		CCF973FC1CFB4D220044666F /* AvitoNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF973FA1CFB4D220044666F /* AvitoNavigationSetupService.swift */; };
+		CCF973FD1CFB4D220044666F /* AvitoNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF973FA1CFB4D220044666F /* AvitoNavigationSetupService.swift */; };
+		CCF973FE1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF973FB1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift */; };
+		CCF973FF1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF973FB1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift */; };
+		CCF974011CFB4D410044666F /* AvitoNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF974001CFB4D410044666F /* AvitoNavigationStack.swift */; };
+		CCF974021CFB4D410044666F /* AvitoNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF974001CFB4D410044666F /* AvitoNavigationStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -458,6 +464,9 @@
 		CCF74A4E1CF1AB2F00E56714 /* TransitionsMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsMarker.swift; sourceTree = "<group>"; };
 		CCF74A511CF1AB4400E56714 /* TransitionUserId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionUserId.swift; sourceTree = "<group>"; };
 		CCF74A541CF1AC4500E56714 /* TransitionsMarkersHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsMarkersHolder.swift; sourceTree = "<group>"; };
+		CCF973FA1CFB4D220044666F /* AvitoNavigationSetupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationSetupService.swift; sourceTree = "<group>"; };
+		CCF973FB1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationSetupServiceImpl.swift; sourceTree = "<group>"; };
+		CCF974001CFB4D410044666F /* AvitoNavigationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1027,6 +1036,7 @@
 				CCE90FE61C75BB7B00AF5E26 /* Routers */,
 				CCE90FF81C75BB7B00AF5E26 /* Transitions */,
 				CCE003441C92BA8C00B52D8A /* ViewControllerAdditions */,
+				CCF973F61CFB4CEE0044666F /* SettingUpStack */,
 			);
 			path = "Avito-ios-navigation";
 			sourceTree = "<group>";
@@ -1305,6 +1315,16 @@
 			path = "Transitions Marking";
 			sourceTree = "<group>";
 		};
+		CCF973F61CFB4CEE0044666F /* SettingUpStack */ = {
+			isa = PBXGroup;
+			children = (
+				CCF974001CFB4D410044666F /* AvitoNavigationStack.swift */,
+				CCF973FA1CFB4D220044666F /* AvitoNavigationSetupService.swift */,
+				CCF973FB1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift */,
+			);
+			path = SettingUpStack;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1423,6 +1443,7 @@
 				CCBD66131CCA9A0300F351D4 /* PopoverPresentationRouter.swift in Sources */,
 				CCF74A551CF1AC4500E56714 /* TransitionsMarkersHolder.swift in Sources */,
 				CCE910861C75BB7B00AF5E26 /* PopoverTransitionStorableParameters.swift in Sources */,
+				CCF973FC1CFB4D220044666F /* AvitoNavigationSetupService.swift in Sources */,
 				CCE910541C75BB7B00AF5E26 /* RouterTransitionable.swift in Sources */,
 				CCE910A41C75BB7B00AF5E26 /* TransitionsCoordinatorImpl.swift in Sources */,
 				CCB07B041CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */,
@@ -1511,6 +1532,7 @@
 				CC3988101C8D753000E3035C /* RouterControllersProviderHolder.swift in Sources */,
 				CCF72CF21CCA5EBE00E29A7A /* PopAnimationContext.swift in Sources */,
 				CC6DC0B31CCC3BBB0029C534 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF973FE1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift in Sources */,
 				CCF72CF01CCA5EBE00E29A7A /* NavigationTransitionsAnimator.swift in Sources */,
 				CC4FDABC1CC91D0A00D1DF2D /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
 				CCF72CD21CCA40C100E29A7A /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
@@ -1519,6 +1541,7 @@
 				CCE910B21C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
 				CCE003461C92BB1A00B52D8A /* TopViewControllerFinder.swift in Sources */,
 				CCB07B151CCA7BFC00F96A19 /* SettingNavigationAnimationContext.swift in Sources */,
+				CCF974011CFB4D410044666F /* AvitoNavigationStack.swift in Sources */,
 				CC4FDAFE1CC9248100D1DF2D /* PopoverTransitionStyle.swift in Sources */,
 				CC3987FD1C8D642D00E3035C /* MasterDetailRouterSeed.swift in Sources */,
 			);
@@ -1589,6 +1612,7 @@
 				CC39880E1C8D753000E3035C /* RouterControllersProvider.swift in Sources */,
 				CCE910B11C75BB7B00AF5E26 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
 				CCE910491C75BB7B00AF5E26 /* MasterRouterTransitionable.swift in Sources */,
+				CCF973FF1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift in Sources */,
 				CC6DC0881CCBF6F50029C534 /* TransitionContextsStack_Tests.swift in Sources */,
 				CCE9108B1C75BB7B00AF5E26 /* TransitionsHandler.swift in Sources */,
 				CCE910431C75BB7B00AF5E26 /* DetailRouter.swift in Sources */,
@@ -1619,6 +1643,7 @@
 				CC6DC0851CCBF6F50029C534 /* DummyTransitionsHandler.swift in Sources */,
 				CCE910531C75BB7B00AF5E26 /* RouterPresentable.swift in Sources */,
 				CC6DC0871CCBF6F50029C534 /* TransitionContextsStackClient_Tests.swift in Sources */,
+				CCF974021CFB4D410044666F /* AvitoNavigationStack.swift in Sources */,
 				CCB07B051CCA6A6000F96A19 /* ResettingTransitionsAnimatorBox.swift in Sources */,
 				CC6DC0DB1CCCAF9F0029C534 /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */,
 				CCF74A501CF1AB2F00E56714 /* TransitionsMarker.swift in Sources */,
@@ -1654,6 +1679,7 @@
 				CC4FDA961CC91D0A00D1DF2D /* ModalNavigationTransitionsAnimator.swift in Sources */,
 				CC6DC0D61CCCAF9F0029C534 /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */,
 				CC4FDA8A1CC91D0A00D1DF2D /* ModalDismissalAnimationContext.swift in Sources */,
+				CCF973FD1CFB4D220044666F /* AvitoNavigationSetupService.swift in Sources */,
 				CCF72CD51CCA40C100E29A7A /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
 				CCB8D4941CC903D100D395F8 /* ModalDismissalAnimationLaunchingContext.swift in Sources */,
 				CCE910571C75BB7B00AF5E26 /* RouterTransitionsHandlerBox.swift in Sources */,

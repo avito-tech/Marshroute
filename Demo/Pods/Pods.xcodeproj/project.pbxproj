@@ -7,125 +7,127 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06DB85809FBC2312695EF7EEBBD0CEF8 /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0ACC488FF9E170E2F99158D38D5240 /* RouterTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		091A344C85DF2C274829F6D76091CDED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		0F678D40F6403C64E44185EC4036007C /* TransitionIdGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EBCA4255D0AB046E17D6152E2912F /* TransitionIdGeneratorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		10DFDC067702F72DBE63257C981E0D34 /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E46B9FB8A0DF20ECC6F4267F79244E /* SplitViewTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1136C7C0639D54B7B2CB0D451468DE98 /* ResettingTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB86686A1419636A5022480ADE1A81 /* ResettingTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		11890FFE3034AD3BFAB81C84A80649F8 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21BD698CBCEE838177F65165BD287 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		11BCD72D312A80C60B5673718D2E83D5 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2A7214BBFA16FDA4A41F57D518E7B3 /* NavigationTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		12D53924B51FE8E6E9DFA07670AC36C8 /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632259A1EE81D35D0BE8231D35B23F0 /* TransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		13E36EDB562CF50C375C3AFD20A16EF6 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70B6D022440F336E03BE43581DCD1FF /* PopoverNavigationPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1968B9405B9F161AD50099B84B3D4F8A /* ModalNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F53521976129AC118ED208EB0C3A94 /* ModalNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1A08F210755EF03FA306C114D5DB0C1C /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F56CFDD5774B9321D6CAB8A095C25 /* PresentationTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1A3558FCEC59B01F5CFB1FB231C36B43 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC2180CCE84960A5BE45821C865ABE /* ModalMasterDetailPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1CCF52840DAAB1A7D6D68D27E8302402 /* PopAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A1D70C6972E35D4994E1A07B84FFC /* PopAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1F0D058FA4F97347A94C1165E91BA9F7 /* PopAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5079EA30AFAD3B91AF2CC261DD5180 /* PopAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1F4835B0B75F1284C6CEDFD945AA5DE7 /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B785FA60D97B51E6A0F1831F55E028 /* TransitionsMarkersHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		213D1D110F95ACF4FBFC7D0BD0E62834 /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54111E6F9C8B5201E94E8DAA166179 /* MasterRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		227416C78C0E8F1EDB0BA93CB5EABF1B /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303FA78AE94BB5707F86DFF100DA8176 /* TransitionsHandlerContainer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		24A5E68D1CF257798FB3916BF9C47FF7 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15164107C09D1B18AA3EDC3B41A25A4B /* PopoverPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		24CC0EB836BC17D8158A6E34ABAB4F43 /* PresentationAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD086225CA673620A612EAB08DAA6A /* PresentationAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2537F90458F65C0FBB80FE50F587E995 /* PushAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051E969DE7F740F69EF569E0536D902 /* PushAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		263513993CB5320ACAE63EE320BB890A /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA8278B135DD1F90ADB870C7ED8ADAB /* PopoverTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		27D27B1C27CCF091EF439139169CDE69 /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106962C8764F641C88103A821D15749 /* TransitionContextsStack.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		28819BF268F1A3C0F99EB1B4E5BA246D /* RouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0989F29629203645835BF974D49E3C /* RouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2DA08EB8E91B5952434CB943BBB89320 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696E89D4E5E5DA69B01BCADE91FE4E68 /* ModalEndpointNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2DF1EEFCDFE9853FDE09FBE086127442 /* ResettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DA44CAA66F193F82E62D6D9D25D7E /* ResettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2E4DB7FDFFFC24A809B68A0BE9ED76B4 /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41EC19E1EAF6CFA2D6273C5722CBAC /* ContainingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2FCC39F5E801A19D8D5E5D7409569369 /* ModalPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12297D9C9AC950639627DAC7036A9F26 /* ModalPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		309161B4400D954DC43D404B13A541E4 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14145F45876FD3C648EC535A138748D1 /* PushAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		32E48FC343ECFB2FB7B4BDE70F8A4028 /* TransitionUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450EC5CED15C071F5B44C492D3E5D45 /* TransitionUserId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		33FCF9F15E0F384F36E5B9C418896837 /* AvitoNavigation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDA510BD2822D44EA4A8F1732C57EB6 /* AvitoNavigation-dummy.m */; };
-		34466FE7FADF9E264A20C170AB28433D /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9FEB7A39143973A5962126B0768D5 /* SourceAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		35829DC9A5A9236197DEBCCA1A71FEDB /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B1A920615AFB75A4894272A0C2410 /* ModalEndpointNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3B9C3622F29A0FA1745246C7924D711E /* PopoverDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E7F9266485501337DB1F40EFC7CAED /* PopoverDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3F0859433F9A361CE725741F222451C5 /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E982295FCD5A165F33DC2B12AF451 /* NavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3F209E371CD04C4FEB0E1F6F463E6784 /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9637473BC951865832DF7BD164A9CC15 /* TopViewControllerFinder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		418676991B4343941209B3D2B51D3846 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3F1FED7DF913AD8EEAE508F7E33C88 /* PopoverDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		48223EBC472126F70503BAA01359ADF1 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C06D85A0F0052580CFB8734FD7EA73 /* ModalDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		48C178CC79A035930EC97223AD575C4D /* TransitionContextsStackClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721750584AAA51661BD4635ADA798207 /* TransitionContextsStackClientImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5102F73C06A1763F8F2B4D30340FCFAA /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F7CFA3B680FF9F4E8F9DA89D73404 /* BaseRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		550D72E4D28372E5DC3C5F04F3ECECD4 /* ResettingAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B195E8548FBC16573115011DEAAF17 /* ResettingAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		55E39B413B119E2C463A6D979373D12A /* PresentationTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8158BF95B3E4F385B11472A31E10AAA2 /* PresentationTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		58C737104674547D469A88E01B8CE341 /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321A99DC3BDEC65999F061FF09CAF0C /* RouterFocusable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5A6DA7AC000D85536A90CCED683DB6E2 /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1845CC417320E244BFA04DB862A0C51 /* TransitionContextsStackClientProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0614DD816789B0384F6A28E5A11A51F4 /* TransitionUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = F450EC5CED15C071F5B44C492D3E5D45 /* TransitionUserId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0659E34B1F870B500B22E3930E2170AE /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25734538F09D4597A6F8E188928F122D /* TransitionsTracker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0748AC3CECA5885923ED9FFC59B80B24 /* RestoredTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DC12B76B865045B674A3EBF870634D /* RestoredTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		076C415C5068CE0F5E6CFA7D13253BBA /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA8278B135DD1F90ADB870C7ED8ADAB /* PopoverTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		07D575057D40B2F498417ACABB0F01F3 /* ResettingAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B195E8548FBC16573115011DEAAF17 /* ResettingAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0820E0F3433ADE754EBE66CC58A14FC8 /* ModalNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB8C4A9C0B079A812D96B7FB488D38 /* ModalNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		088B89243F4FE99EAA7CFCB5B09FB9E2 /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829CE349E5C45A244FC4E355750EC7D /* DismissalAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		098BD0E726E4748635D14FE0A10BC4D6 /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CE687B7F4DB0841EB8DDAFD580743E /* TransitionIdGeneratorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		103FCC73B07961147E6B4BD2C0DA3DC3 /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD41EC19E1EAF6CFA2D6273C5722CBAC /* ContainingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		10EA6CD02194B8B0E9CAC83B6449D2C2 /* PopoverNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737AA9D7CCF21335097498388F7D93C /* PopoverNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		150669E12DA75DCEA0EE65419E0C0A7B /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3F1FED7DF913AD8EEAE508F7E33C88 /* PopoverDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		15068919B44409491B7C6BF5C66EEF94 /* ModalNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977A0F55F53BBC7F2DBADA3A4AF66AB3 /* ModalNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1560E5E848935FB8F19760BDA3F923D5 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF6272D00A75C164F82ACBB11EDF29 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1FF4199D82D689CE87BDFB3CF5631889 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE00BBFB33B0EAB38158B02139F0D /* DetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		220583DC88983D7E5CF4EC7CB794D97A /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2F7CFA3B680FF9F4E8F9DA89D73404 /* BaseRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		22A2D7E7459EDAD047BCE53E8FDBCE30 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15164107C09D1B18AA3EDC3B41A25A4B /* PopoverPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		253A7D45901CA5E94380BD218891F267 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C06D85A0F0052580CFB8734FD7EA73 /* ModalDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		26A4F9A7637EE0F339C4AF381C6E90DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		288C1962F821205319BA3ADAB86ED11D /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D7566171D3652CC19DB9B5223102E /* ModalTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2A3882EC36B2BDBD2FA8DEC843B5B0DF /* ResettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DA44CAA66F193F82E62D6D9D25D7E /* ResettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2B746F466DACC45CC5B287B57272A133 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF21BD698CBCEE838177F65165BD287 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		30CB1B2FD649154F5E751D68F404D526 /* RouterPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080C038602E3CFB5D845C54CF5CDEEDC /* RouterPresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3140662F1BA168621DA03638D47BBF02 /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B4A4BAD79A961AF6191111ACB1313 /* TransitionAnimationsLauncher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3330260245970BE6606236E5F861A4E6 /* ModalPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12297D9C9AC950639627DAC7036A9F26 /* ModalPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		35DA23BE3AB94B63FC6936C6B0E3B6A9 /* ModalNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7E48A4854BD62580DB27D5DC4954 /* ModalNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		390A41A634A78567959A0AB2D9B86DA5 /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC265EC1CB5C6A964C0BA954320A99E /* RouterControllersProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		39C15368550447353701E0F3278BDA6D /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1217ADCB4141479C156124753449A4 /* TransitionContextsStackClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3B163A8507C8CFF62BB65EECF8CA1FD4 /* ModalPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BCD4E3F35E0714B21C973C0E7992A3 /* ModalPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		47F67DC42E84C65CEC96D2E2B30F512D /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6632259A1EE81D35D0BE8231D35B23F0 /* TransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		487F909AE4CE50CF311D74209D62ECC3 /* ModalPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E2D0269277D944AA154669CB91FF8 /* ModalPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4899F5D12C79D9DEB9CD43920BF09A6B /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888B719A5CBCBED4C683D009467BFDAC /* RestoredTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4BA55B9C2CF3A58113A9F7EE67500A45 /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A54111E6F9C8B5201E94E8DAA166179 /* MasterRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4C3B20D6D7C77A46A5196C9270EAB799 /* AvitoNavigation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEDA510BD2822D44EA4A8F1732C57EB6 /* AvitoNavigation-dummy.m */; };
+		4F62A17700BC314416693C9828F35762 /* RouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0989F29629203645835BF974D49E3C /* RouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5009EAAA455E94375A2E0D8262A681D6 /* TransitionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640A455BDE66FA2E0D0BA6C0D776A112 /* TransitionId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		50F7373BCF9989BCE4456B5E66F8E05E /* PresentationAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AD086225CA673620A612EAB08DAA6A /* PresentationAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		52662D73752AD5CEE141DDFE1FE18145 /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703ABD027805ECFBEF149ED86C39EFA6 /* TransitionsCoordinatorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5368407F1648253E78F6FA1CC3EA0AB9 /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA98ABBD7A09006C4390E9B5F70B24 /* RouterControllersProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		55C453B8F727A9ED130074B4F9C0EC63 /* MasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572841681D4340D00879B2E460BAE45 /* MasterDetailRouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		57BE5A1D2CD832F7D719FAD1174D41FE /* ModalDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C79224C55BE83D9970D14A16021EB91 /* ModalDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5A515E1CE345F58C45D314AB94234994 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7835FA7A966D8E0B54BA1D03043ED5B /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5A59471BF7E68C27711A1E928A866A8A /* PopoverDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E7F9266485501337DB1F40EFC7CAED /* PopoverDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		5AB9CFE15A1F19B561AA0BD807F10E0F /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		66CF11ADC897FA2C1C7B21D54E7BBDDF /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745FC224E5DE5A8395B3CD54BA60D2D8 /* TransitionsCoordinatorDelegateHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6AD15A0FE3245C24597438D3553677DD /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4375FCBC2D624673D51F5238AB0D3FB /* TransitionIdGenerator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6C91F7373DCC1E553495A4CCE9DEF25C /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7835FA7A966D8E0B54BA1D03043ED5B /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6CA33F4944F6849B02D155BA4EBDAF20 /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C62D4C8690A45F02D0F3F8E01C3209 /* ResetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6CA3C49722AFBA351179DB1C4068B78D /* PopoverNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360C08C74B8A3D09718A98AC4D0E0AA8 /* PopoverNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6DA1271ED01708CAD3149A614CED6B77 /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55B6A8C30EF157D6BF931EE5A66C82F /* CompletedTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6DACF20B8F6E4A21C09C91E5C5F69E12 /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472B4A4BAD79A961AF6191111ACB1313 /* TransitionAnimationsLauncher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		704D89713ECF8B9E48F635505ACCACDB /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A772BD39A9230ADC174513BAECAB29 /* ResettingTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		706D177E6B83091F02A2C0A23FE1A607 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3D7D48259EDFC23E9278C1AA006E8 /* CompletedTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		707145F7C15A312EB346CEF2A2003C68 /* MasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7572841681D4340D00879B2E460BAE45 /* MasterDetailRouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7099F518F5588181079EF77BF48BE972 /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C619AC0FE00C28CC677715D089501 /* BaseMasterDetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		71F34A54CAA4C8D2F5808AF5C49B2D79 /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1627E889DB472680947309C199BD1F96 /* RouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		73E9DA9113231FD6EEEB0B8FB05A11D6 /* ModalDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C79224C55BE83D9970D14A16021EB91 /* ModalDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		76A34A9CDBE6E20A6B475E99CB3DD824 /* RestoredTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DC12B76B865045B674A3EBF870634D /* RestoredTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		76C20E5B1806B8DF7523848D007E1B77 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7462AA79113BA974947ACF894222BEC /* RouterDismissable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		76EA191749CC4C8BD58741D51C0917BF /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A7D287A932168B222A9B7C6D65C7CD /* TransitionsCoordinatorDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7BF5DF7F805366B2FC687B4E6568BB95 /* SetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F3401572A4F5A68AD8DF6F132446CB /* SetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7CA183D90E9127D8F846F3E2139E1557 /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2BA74906B0E3C194FB8C4D44E84C0E /* TransitionContextsStackClientProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7E80EE73C740A431CE8DB89DFB424D0A /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9101861DDEFA23D8D9BF51495DA5E09C /* TransitionsCoordinator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		817CA726970457E9A3C86A611BCA5F38 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619FDF23AAD977B0666BFF971430B64 /* ModalEndpointNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8234F290CB6E3EFADEE4BB036D318372 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993EE7096E183F912F307E85CEDBFA0 /* ResettingTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8447E94D94A21EC1B88ADA30CD480D5C /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC265EC1CB5C6A964C0BA954320A99E /* RouterControllersProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		845C3C7DB62DE6465D72D931A7E09AE4 /* PopoverNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737AA9D7CCF21335097498388F7D93C /* PopoverNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8590B408813D658A341D0D451EE58728 /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0222A7B1CC11D2B94893DEC006AB37 /* NavigationTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		88F74E20C171785D51BBC480D3DD93B1 /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D40A2301D57B5C9A277267D1E87C2F /* TransitionContextsStackImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8F3973B18C2F397209C95AE2446E8A52 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888B719A5CBCBED4C683D009467BFDAC /* RestoredTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		909EC0C8E5A371CA54BF1F83CED70EE3 /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25734538F09D4597A6F8E188928F122D /* TransitionsTracker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		91E155F4891B78671502D7358AF4841B /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AF6272D00A75C164F82ACBB11EDF29 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9282B81ECA874028660109CA39C42CF6 /* RouterPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080C038602E3CFB5D845C54CF5CDEEDC /* RouterPresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		93B7911E966794C724A39F970A339B9A /* ModalMasterDetailDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD566ED4961E83C875B1932E6C5972C1 /* ModalMasterDetailDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		989BAFF955E63F0657BB992BDB8F1F93 /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260D09B2A66ECF704BC516553AF959 /* TabBarTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		98C75952915396AF775E7E4113DA06D9 /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B776139A742FFEADBC02B28FD2B176C /* EndpointRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		992117AD3BADE80A336966CC7AF17913 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31577282CA775E45058A7F81811CA4EF /* TransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		99A7816A4F945CF2B827D232BDA5392B /* ModalNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7E48A4854BD62580DB27D5DC4954 /* ModalNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		60BE71FCEF3538F48B0164BC4B302484 /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303FA78AE94BB5707F86DFF100DA8176 /* TransitionsHandlerContainer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		61C990F0BBC21B76879AE693A6B78DAD /* SettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5C57851B143EEBFF3FB0B8833C8678 /* SettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		65CE0BECCE224BA8265C9701D29645B9 /* TransitionsHandlersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C802E4BCB54B4F1C35554469EEA924E9 /* TransitionsHandlersProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6FE2070B7E3605D17DF5D171124AA98D /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D48261DC03347CB25BBB849FC19974D /* TransitionsCoordinator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		705A9DD1A5757DBB43AAF03BE141C918 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071F56CFDD5774B9321D6CAB8A095C25 /* PresentationTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		757F0C89D9C1D8600E09D56401FD0B1F /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0222A7B1CC11D2B94893DEC006AB37 /* NavigationTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		75AC619C9A9C97052C078F12BA4718C5 /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BF00A411F653AA191F1456681372A /* AnimatingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7724B8355676806CD5BB876C10465D62 /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D620EB7B71E1A4BEC0164D238B7760 /* TransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		77810B4BF86AD6903D60F70CB26F168B /* ModalMasterDetailPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC2180CCE84960A5BE45821C865ABE /* ModalMasterDetailPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		77FF78EBA8F49D3562C7E0AFFA9E609B /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241B3B3DBA83011CC0881CBD0A11B700 /* TransitionsCoordinatorDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7A50447F56AF7CFC49281F123157DB19 /* PopAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164A1D70C6972E35D4994E1A07B84FFC /* PopAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7B0B0A1C1D6A998B6992DCB367F5DC84 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3240450E2827AC1469BE0281CFC5761 /* MasterRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		83873761869D0DDF5B7C9F68C1D19139 /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B776139A742FFEADBC02B28FD2B176C /* EndpointRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8565A84D80ACB7DEF7F94047F93AF088 /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA62C3C03B6497E0B703F3FA582A44A /* TransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		86990688535D3B269BDB4B34A6C527B6 /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987C56BC68713FF19AC23490DF7B293 /* DetailRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		86A990B72175FA39C708698C51025991 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3E7A160EB5AA2A1E5ABA59E223D81A /* ModalNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		88E8CF7E1818D8A64724EE58651F1E65 /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A12C9198C131CE1031FBB957AA695C9 /* TransitionContextsStack.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8D04124D57D768B886EF64E20835BAB1 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696E89D4E5E5DA69B01BCADE91FE4E68 /* ModalEndpointNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8D58955BE606D9A3273F80F0090FB13D /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0ACC488FF9E170E2F99158D38D5240 /* RouterTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8F655491BE0534F5E84863EC3F4D2924 /* PresentationTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3009D6C22450866A95569AA604A3BB /* PresentationTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		920B88DAB403849A2CB1B47C78A0A36F /* TransitionIdGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3E2E301443F37ACA1C5CEB55232FCC /* TransitionIdGeneratorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		929DBD9379D825B84233B5C0A927D9FD /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B1A920615AFB75A4894272A0C2410 /* ModalEndpointNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		93002CF6124E410EDF0AF118EBF57A18 /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1627E889DB472680947309C199BD1F96 /* RouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		95987F0A46007677D94508896F34B90A /* ResettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCA1950AAAE361915D339BAEFFCB74 /* ResettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		95D5EC098CC0B5E5D554A1EA898E851B /* PopoverPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F39B1569538B4A363AA3F539AB32A /* PopoverPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		969BE050408303309F3CA27E76EDE8BA /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD768C2B1A8900DE3A1ECBDA810E5F /* PopoverTransitionStyle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		978682D3E5884B924AF228AAFC99937B /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88680074531CC952832D1E80642FB5CE /* TransitionContextsStackClientProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		9B18FAA5235A34B3B57DA145A0EBB1B3 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */; };
-		9BDACD5DC5AF75BCDE3B9312C1904E59 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3240450E2827AC1469BE0281CFC5761 /* MasterRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A191CF8850A4BBD660CAA648852DDFC8 /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A997ECE6488BFCBCC9673F76B666FF6 /* TransitionsHistoryItem.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A19855A6E665EB5F59209A8731A9DC5A /* PopoverNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728A78BA148F8F35C10074A06779E64 /* PopoverNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A1AEB4B9B3DE3468E38BED2E84174357 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE00BBFB33B0EAB38158B02139F0D /* DetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A1D81AB30A3919AA69AABFF41F9A21E2 /* SettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69394CCDC1F9ABC618518670E2C02C /* SettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A5B9AB7EF081828D9E7FE7B6F1C20A33 /* PresentationTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3009D6C22450866A95569AA604A3BB /* PresentationTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A6AD027BC34E6DE0E8B5CB627A334867 /* SettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5C57851B143EEBFF3FB0B8833C8678 /* SettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A895A909D8444802790A9B64A6459DD4 /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970D7566171D3652CC19DB9B5223102E /* ModalTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		AB020162AF003B9D6E05236C0843B3BF /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D243084500F87CB854503B793FE163E /* RouterControllersProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B6C59D9AB8A215361125E7E7B7DDFE4E /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8E75FAD6C6E442B88FA477B2C452D7 /* TransitionsCoordinatorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B8D6A8F429A90F42C7BDD3E42AEE40E6 /* ModalNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977A0F55F53BBC7F2DBADA3A4AF66AB3 /* ModalNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BA16F7B5211481817CDEFE8277F8264B /* TransitionsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD335D1AB9932B360C2910C27DDE804C /* TransitionsMarker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BA1A3CD49B58801F2486F42704FCCFB7 /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8829CE349E5C45A244FC4E355750EC7D /* DismissalAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BA2AFAA4F406F717EDB3F89FE1609204 /* ModalPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194E2D0269277D944AA154669CB91FF8 /* ModalPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C178F71EBE600A24BFF9C817DFCB4B00 /* PopoverPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A781B3CC3EE320557592E35F26EA343D /* PopoverPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C189B66CADC93A981D7662FC2EE80C1A /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EA98ABBD7A09006C4390E9B5F70B24 /* RouterControllersProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C3E87BEEA2FF9A857F4F8964B66F3B94 /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1BF00A411F653AA191F1456681372A /* AnimatingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C55B5E321DA23D6971F25BC06BC45FDC /* ResettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCCA1950AAAE361915D339BAEFFCB74 /* ResettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C57B106726C27F1A4EE592780752FE5C /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D620EB7B71E1A4BEC0164D238B7760 /* TransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C79F8A01E115CEFCE488355B67BFED90 /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C0CBD1A66E1E47DC9FEEC0B73F6A65 /* TransitionContextsStackClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C864B27ECD1F957C0C586CF5E5E129DA /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD768C2B1A8900DE3A1ECBDA810E5F /* PopoverTransitionStyle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CEBED9EBDFD715DC1B99F436FBE253D1 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1658DE9B5178BF1EE8B7CF26B78DC392 /* PopoverTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CEF354EAB5CBB59E76C86E97AFEFD1C9 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031988E39D22C6D2CFCB379A5E8F2B9D /* ModalEndpointNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D07A973334BB98BA23D727A21902C1CA /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3E7A160EB5AA2A1E5ABA59E223D81A /* ModalNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D0FD67513A8CFECEE07BDB90BC2C5F60 /* TransitionContextsStackClientProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5C1C25978D5C91FDBE3CB7C6F51E64F /* TransitionContextsStackClientProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D17E6762F3B75EBF01EFB2E02FAA889A /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C987C56BC68713FF19AC23490DF7B293 /* DetailRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D8D288BDBB248A188708036F3F79CC17 /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA62C3C03B6497E0B703F3FA582A44A /* TransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D9A96BA42B8E887FB40F96681610CC8C /* AvitoNavigation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 533DD93BD4DECEFD6E15A6ABAC0D4CBF /* AvitoNavigation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDE39B563AA6C623A1BE7CD0D6BFC67B /* TransitionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038935E2E92486B66DE129E64903642E /* TransitionId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DEE61B8EE3A4BCE9C5608E6C1227483E /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70545A84D77371FE59C93ABB81F480B1 /* TransitionIdGeneratorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E0D49554FA50FD232F7672BC152B2A79 /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7870934EF6744D7B5773A1AED45D1A4 /* TransitionsCoordinatorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E0DCBF0CDC56C66948B5942028C3DA47 /* ModalMasterDetailTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA70FB7111853724840F21BF92A306 /* ModalMasterDetailTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E27C65F37A487E5EB0BF157956128FF1 /* PopoverPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293F39B1569538B4A363AA3F539AB32A /* PopoverPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E3BFF4AA6025A4056AEE3F6A8B575484 /* ModalNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDB8C4A9C0B079A812D96B7FB488D38 /* ModalNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EC9A68B916C12995CB29F3D6CD6281CC /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FE124FD17B0B523CBDE5AD5A14B05 /* RouterIdentifiable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F09C22FC44685946E520EE5671F03665 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B71FF9A4F8D296899530CAA03CC535E /* StrongBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F237173769F009DB6C9D9C6817704710 /* ModalPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BCD4E3F35E0714B21C973C0E7992A3 /* ModalPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F55FA6FD8E8CCD7D0C0F0A5B9E6C8ABB /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36966CAF04E458E16FCD707D0E8F8A2 /* WeakBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FA7A90FA5C7804FC18819B1FCE387CDC /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093C72466240F091489DC033D4FA5D8 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A08771AF32098BF2E292F07091232588 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1658DE9B5178BF1EE8B7CF26B78DC392 /* PopoverTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A2833F23F5B53E10270C61E58BF5C620 /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E46B9FB8A0DF20ECC6F4267F79244E /* SplitViewTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A36C3807C523806E6CB77535E04383D9 /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9637473BC951865832DF7BD164A9CC15 /* TopViewControllerFinder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A38BB3BC878D6BA2E17DC045ADD4CB29 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2A7214BBFA16FDA4A41F57D518E7B3 /* NavigationTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A3AE0EB3640C1C7C38D34CDCD9503CD0 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1619FDF23AAD977B0666BFF971430B64 /* ModalEndpointNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A485312A01111566749459FF5BCF8E40 /* ModalMasterDetailTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA70FB7111853724840F21BF92A306 /* ModalMasterDetailTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A74BFB3028A0900B2828CB6839C44EA4 /* AvitoNavigation-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 533DD93BD4DECEFD6E15A6ABAC0D4CBF /* AvitoNavigation-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A91BDB960BECE756FDB147CA0675E1CA /* SetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F3401572A4F5A68AD8DF6F132446CB /* SetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A949BB14939143F33B34108755356073 /* ResettingTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CB86686A1419636A5022480ADE1A81 /* ResettingTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A9F07C215CD392F02C6A5ACFCF632DB4 /* TransitionsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD335D1AB9932B360C2910C27DDE804C /* TransitionsMarker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AAB771AA5864103236E272979C7A60A0 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31577282CA775E45058A7F81811CA4EF /* TransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ABC26C189FD14E059D0D66D4B7F5724C /* ModalNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F53521976129AC118ED208EB0C3A94 /* ModalNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B38A39619A16F0551CBD1F7FAB19C187 /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55B6A8C30EF157D6BF931EE5A66C82F /* CompletedTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B3EEF3C6CD3E9624CAB264BB9B1C11B4 /* SettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF69394CCDC1F9ABC618518670E2C02C /* SettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B4EBBAB692BEF9CE2F09234A7A5F4A82 /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25260D09B2A66ECF704BC516553AF959 /* TabBarTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B6890F0E71BBEBB98FD28013B64C1F6E /* PopoverNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360C08C74B8A3D09718A98AC4D0E0AA8 /* PopoverNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BC0358601B2E814F1078FDEDBFB83D77 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD3D7D48259EDFC23E9278C1AA006E8 /* CompletedTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BEE92BE272A3AB04E8C644A2D4CBCCBA /* TransitionContextsStackClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404CAE506AAD62DE2387012238AF8427 /* TransitionContextsStackClientImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C050DD31267989F93A1DD0ADB2D26515 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093C72466240F091489DC033D4FA5D8 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C1F3D3AB49C3365FD54FC5DFB96FD68F /* PopoverNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1728A78BA148F8F35C10074A06779E64 /* PopoverNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CB3163B23B82CDCDE9E4DDB4D3B41747 /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CEC215664ED07D972F16D4D4020C14 /* TransitionContextsStackClientProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CBD13250BC4092FB4A7864E5B53FB5D5 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14145F45876FD3C648EC535A138748D1 /* PushAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CC27D1D3B210E98B9CE5EEAF84AA0B33 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD566ED4961E83C875B1932E6C5972C1 /* ModalMasterDetailDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CC91ADAC1D5B2AD025753A1C8080FA78 /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213E982295FCD5A165F33DC2B12AF451 /* NavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CE214F0069C58BD20B1CD3B0238F8B8B /* PushAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A051E969DE7F740F69EF569E0536D902 /* PushAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CFB312AC81C49BC02D0748D0462F7280 /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A15387EBAB03566EFD0358053E4BA /* TransitionsCoordinatorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D1611F884E805FECA1DD89C300867466 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B71FF9A4F8D296899530CAA03CC535E /* StrongBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D18D03683E7D8A722FA94693FFDC2DBC /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1321A99DC3BDEC65999F061FF09CAF0C /* RouterFocusable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D6FD97346B3F3E5DB5D69EBBBD6C71C4 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5993EE7096E183F912F307E85CEDBFA0 /* ResettingTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DBCD1AC49752CF6BA8E9DF25357A4F17 /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C62D4C8690A45F02D0F3F8E01C3209 /* ResetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DCEDED77D9F13CBD18F4FFF1D7B7EDFD /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79FE124FD17B0B523CBDE5AD5A14B05 /* RouterIdentifiable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DE9E769016F0A3EB41B669A30A50F535 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36966CAF04E458E16FCD707D0E8F8A2 /* WeakBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E57B819D43F25BEB385B8F61C14CF17D /* PopAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5079EA30AFAD3B91AF2CC261DD5180 /* PopAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E85291B96E2181E89DDB2AA6ABF705AA /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C619AC0FE00C28CC677715D089501 /* BaseMasterDetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EB9B19B97C5057518D1684A72E81C263 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70B6D022440F336E03BE43581DCD1FF /* PopoverNavigationPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EC75DAA0B074C032AE10D08ECFAE3849 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7462AA79113BA974947ACF894222BEC /* RouterDismissable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EE294615B1C6C3D9726A423FF2E1A96C /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B785FA60D97B51E6A0F1831F55E028 /* TransitionsMarkersHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F0C8F6AA7CD29CCAC606BCB61355945C /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC64A9E3041750402578D70E97E4A7 /* TransitionIdGenerator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F1830D1BCDBC128B0E768B924A39AEAC /* TransitionsHandlersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DF48E798D6DC67CBF1C629B28ABEA8 /* TransitionsHandlersProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F1837202341B145507901E64A7F5A963 /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D243084500F87CB854503B793FE163E /* RouterControllersProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F18967CF3A1301C23FBDF7A59FC1841D /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C84EDF16135034C3DC55D2D6B372F9 /* TransitionContextsStackImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F287EF524F703F87D91BE5AD5D78E703 /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E674672B0A69FA5697A3960EEF6F99D1 /* TransitionsCoordinatorDelegateHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F3AADE227E451E4C569822FEF77EF75B /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031988E39D22C6D2CFCB379A5E8F2B9D /* ModalEndpointNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F3DE5DE606B203CDCE6C3141D2724C60 /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9FEB7A39143973A5962126B0768D5 /* SourceAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F647A399F77C968CE1E7FD8930595FB5 /* PresentationTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8158BF95B3E4F385B11472A31E10AAA2 /* PresentationTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F7C6F83FA605A200386754D10F8E8CAE /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D648584DD8534042613064853AB9A5 /* TransitionsHistoryItem.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		FB915FC7130F9F0A06BDB271317A8488 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
+		FC153BEE15BBD2F9DA9BDEB9A700F1BF /* TransitionContextsStackClientProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89BE0328DE7C18450EE5845604729B5 /* TransitionContextsStackClientProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FC9343ACB5F89FE757AC014E14F1B315 /* PopoverPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A781B3CC3EE320557592E35F26EA343D /* PopoverPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FEC583D3390E593A555C7617E0EC30DC /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A772BD39A9230ADC174513BAECAB29 /* ResettingTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,14 +135,13 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 50558F92A932803CFB8B1EA70C316436;
+			remoteGlobalIDString = D53832A8A1578BB42B049F35808A4387;
 			remoteInfo = AvitoNavigation;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		031988E39D22C6D2CFCB379A5E8F2B9D /* ModalEndpointNavigationDismissalAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationDismissalAnimationContext.swift; sourceTree = "<group>"; };
-		038935E2E92486B66DE129E64903642E /* TransitionId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionId.swift; sourceTree = "<group>"; };
 		071F56CFDD5774B9321D6CAB8A095C25 /* PresentationTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		080C038602E3CFB5D845C54CF5CDEEDC /* RouterPresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterPresentable.swift; sourceTree = "<group>"; };
 		10A50D52E865A305D8D932F625590200 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -156,14 +157,16 @@
 		17BCD4E3F35E0714B21C973C0E7992A3 /* ModalPresentationRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouter.swift; sourceTree = "<group>"; };
 		18D620EB7B71E1A4BEC0164D238B7760 /* TransitionsHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsHandler.swift; sourceTree = "<group>"; };
 		194E2D0269277D944AA154669CB91FF8 /* ModalPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
-		19D40A2301D57B5C9A277267D1E87C2F /* TransitionContextsStackImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackImpl.swift; sourceTree = "<group>"; };
 		1C79224C55BE83D9970D14A16021EB91 /* ModalDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		1E2A7214BBFA16FDA4A41F57D518E7B3 /* NavigationTransitionStorableParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationTransitionStorableParameters.swift; sourceTree = "<group>"; };
 		1E3F1FED7DF913AD8EEAE508F7E33C88 /* PopoverDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		213E982295FCD5A165F33DC2B12AF451 /* NavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		23EA98ABBD7A09006C4390E9B5F70B24 /* RouterControllersProviderHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderHolder.swift; sourceTree = "<group>"; };
+		241B3B3DBA83011CC0881CBD0A11B700 /* TransitionsCoordinatorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		24DC64A9E3041750402578D70E97E4A7 /* TransitionIdGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionIdGenerator.swift; sourceTree = "<group>"; };
 		25260D09B2A66ECF704BC516553AF959 /* TabBarTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
 		25734538F09D4597A6F8E188928F122D /* TransitionsTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsTracker.swift; sourceTree = "<group>"; };
+		28C84EDF16135034C3DC55D2D6B372F9 /* TransitionContextsStackImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackImpl.swift; sourceTree = "<group>"; };
 		293F39B1569538B4A363AA3F539AB32A /* PopoverPresentationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverPresentationAnimationContext.swift; sourceTree = "<group>"; };
 		2BCC458FDD5F692BBB2BFC64BB5701FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
 		2E3009D6C22450866A95569AA604A3BB /* PresentationTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationTransitionContext.swift; sourceTree = "<group>"; };
@@ -172,19 +175,25 @@
 		360C08C74B8A3D09718A98AC4D0E0AA8 /* PopoverNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		3650A282D70D578D95AB29BE51F9FB5B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AF6272D00A75C164F82ACBB11EDF29 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		37DF48E798D6DC67CBF1C629B28ABEA8 /* TransitionsHandlersProviderHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersProviderHolder.swift; sourceTree = "<group>"; };
 		3D1AF8A80834573E5BE69AC31BB0C517 /* AvitoNavigation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AvitoNavigation.xcconfig; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3EFD768C2B1A8900DE3A1ECBDA810E5F /* PopoverTransitionStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverTransitionStyle.swift; sourceTree = "<group>"; };
+		3F1217ADCB4141479C156124753449A4 /* TransitionContextsStackClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient.swift; sourceTree = "<group>"; };
+		404CAE506AAD62DE2387012238AF8427 /* TransitionContextsStackClientImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientImpl.swift; sourceTree = "<group>"; };
 		472B4A4BAD79A961AF6191111ACB1313 /* TransitionAnimationsLauncher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionAnimationsLauncher.swift; sourceTree = "<group>"; };
 		47AD086225CA673620A612EAB08DAA6A /* PresentationAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
+		4A12C9198C131CE1031FBB957AA695C9 /* TransitionContextsStack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack.swift; sourceTree = "<group>"; };
+		4A3E2E301443F37ACA1C5CEB55232FCC /* TransitionIdGeneratorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorHolder.swift; sourceTree = "<group>"; };
 		4A54111E6F9C8B5201E94E8DAA166179 /* MasterRouterTransitionable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterRouterTransitionable.swift; sourceTree = "<group>"; };
 		4B776139A742FFEADBC02B28FD2B176C /* EndpointRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
 		4CB2D1D3ED52066AD7F32203D6644364 /* AvitoNavigation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AvitoNavigation-prefix.pch"; sourceTree = "<group>"; };
 		4CDB8C4A9C0B079A812D96B7FB488D38 /* ModalNavigationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalNavigationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		4D0222A7B1CC11D2B94893DEC006AB37 /* NavigationTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
+		51CE687B7F4DB0841EB8DDAFD580743E /* TransitionIdGeneratorImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorImpl.swift; sourceTree = "<group>"; };
 		51F53521976129AC118ED208EB0C3A94 /* ModalNavigationDismissalAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalNavigationDismissalAnimationContext.swift; sourceTree = "<group>"; };
-		520EBCA4255D0AB046E17D6152E2912F /* TransitionIdGeneratorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorHolder.swift; sourceTree = "<group>"; };
 		533DD93BD4DECEFD6E15A6ABAC0D4CBF /* AvitoNavigation-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AvitoNavigation-umbrella.h"; sourceTree = "<group>"; };
+		57CEC215664ED07D972F16D4D4020C14 /* TransitionContextsStackClientProviderImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderImpl.swift; sourceTree = "<group>"; };
 		58B785FA60D97B51E6A0F1831F55E028 /* TransitionsMarkersHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsMarkersHolder.swift; sourceTree = "<group>"; };
 		5993EE7096E183F912F307E85CEDBFA0 /* ResettingTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		5BF21BD698CBCEE838177F65165BD287 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
@@ -192,75 +201,71 @@
 		5D2DA81A7D88F9E11C4F421AC5855320 /* AvitoNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AvitoNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		612C619AC0FE00C28CC677715D089501 /* BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
 		61EC2180CCE84960A5BE45821C865ABE /* ModalMasterDetailPresentationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationContext.swift; sourceTree = "<group>"; };
+		640A455BDE66FA2E0D0BA6C0D776A112 /* TransitionId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionId.swift; sourceTree = "<group>"; };
 		6632259A1EE81D35D0BE8231D35B23F0 /* TransitionStorableParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionStorableParameters.swift; sourceTree = "<group>"; };
 		696E89D4E5E5DA69B01BCADE91FE4E68 /* ModalEndpointNavigationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		6D243084500F87CB854503B793FE163E /* RouterControllersProviderImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderImpl.swift; sourceTree = "<group>"; };
-		6D2BA74906B0E3C194FB8C4D44E84C0E /* TransitionContextsStackClientProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProvider.swift; sourceTree = "<group>"; };
 		6F2F7CFA3B680FF9F4E8F9DA89D73404 /* BaseRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
-		70545A84D77371FE59C93ABB81F480B1 /* TransitionIdGeneratorImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorImpl.swift; sourceTree = "<group>"; };
-		721750584AAA51661BD4635ADA798207 /* TransitionContextsStackClientImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientImpl.swift; sourceTree = "<group>"; };
-		745FC224E5DE5A8395B3CD54BA60D2D8 /* TransitionsCoordinatorDelegateHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegateHolder.swift; sourceTree = "<group>"; };
+		703ABD027805ECFBEF149ED86C39EFA6 /* TransitionsCoordinatorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorHolder.swift; sourceTree = "<group>"; };
+		71D648584DD8534042613064853AB9A5 /* TransitionsHistoryItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsHistoryItem.swift; sourceTree = "<group>"; };
 		7572841681D4340D00879B2E460BAE45 /* MasterDetailRouterSeed.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterDetailRouterSeed.swift; sourceTree = "<group>"; };
 		75ABE00BBFB33B0EAB38158B02139F0D /* DetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		75E46B9FB8A0DF20ECC6F4267F79244E /* SplitViewTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		7A8E75FAD6C6E442B88FA477B2C452D7 /* TransitionsCoordinatorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorHolder.swift; sourceTree = "<group>"; };
 		7B71FF9A4F8D296899530CAA03CC535E /* StrongBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StrongBox.swift; sourceTree = "<group>"; };
+		7D48261DC03347CB25BBB849FC19974D /* TransitionsCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		7D5079EA30AFAD3B91AF2CC261DD5180 /* PopAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopAnimationContext.swift; sourceTree = "<group>"; };
 		8158BF95B3E4F385B11472A31E10AAA2 /* PresentationTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
 		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		8829CE349E5C45A244FC4E355750EC7D /* DismissalAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DismissalAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
+		88680074531CC952832D1E80642FB5CE /* TransitionContextsStackClientProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProvider.swift; sourceTree = "<group>"; };
 		888B719A5CBCBED4C683D009467BFDAC /* RestoredTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestoredTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		894E5DA93A9F359521A89826BE6DA777 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
 		8B1BF00A411F653AA191F1456681372A /* AnimatingTransitionsHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandler.swift; sourceTree = "<group>"; };
+		8D2A15387EBAB03566EFD0358053E4BA /* TransitionsCoordinatorImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorImpl.swift; sourceTree = "<group>"; };
 		8EC265EC1CB5C6A964C0BA954320A99E /* RouterControllersProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterControllersProvider.swift; sourceTree = "<group>"; };
 		90DC12B76B865045B674A3EBF870634D /* RestoredTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestoredTransitionContext.swift; sourceTree = "<group>"; };
-		9101861DDEFA23D8D9BF51495DA5E09C /* TransitionsCoordinator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		941DA44CAA66F193F82E62D6D9D25D7E /* ResettingAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		9637473BC951865832DF7BD164A9CC15 /* TopViewControllerFinder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TopViewControllerFinder.swift; sourceTree = "<group>"; };
 		96D9FEB7A39143973A5962126B0768D5 /* SourceAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SourceAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		970D7566171D3652CC19DB9B5223102E /* ModalTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimator.swift; sourceTree = "<group>"; };
 		977577C045EDA9D9D1F46E2598D19FC7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
 		977A0F55F53BBC7F2DBADA3A4AF66AB3 /* ModalNavigationPresentationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalNavigationPresentationAnimationContext.swift; sourceTree = "<group>"; };
-		9A997ECE6488BFCBCC9673F76B666FF6 /* TransitionsHistoryItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsHistoryItem.swift; sourceTree = "<group>"; };
 		A051E969DE7F740F69EF569E0536D902 /* PushAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PushAnimationContext.swift; sourceTree = "<group>"; };
 		A36966CAF04E458E16FCD707D0E8F8A2 /* WeakBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
 		A3B195E8548FBC16573115011DEAAF17 /* ResettingAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		A70B6D022440F336E03BE43581DCD1FF /* PopoverNavigationPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverNavigationPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		A781B3CC3EE320557592E35F26EA343D /* PopoverPresentationRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouter.swift; sourceTree = "<group>"; };
-		A7870934EF6744D7B5773A1AED45D1A4 /* TransitionsCoordinatorImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorImpl.swift; sourceTree = "<group>"; };
 		AA5B1A920615AFB75A4894272A0C2410 /* ModalEndpointNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		AD41EC19E1EAF6CFA2D6273C5722CBAC /* ContainingTransitionsHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandler.swift; sourceTree = "<group>"; };
 		AE0ACC488FF9E170E2F99158D38D5240 /* RouterTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		AEDC7E48A4854BD62580DB27D5DC4954 /* ModalNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		B093C72466240F091489DC033D4FA5D8 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
-		B2C0CBD1A66E1E47DC9FEEC0B73F6A65 /* TransitionContextsStackClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient.swift; sourceTree = "<group>"; };
 		B3240450E2827AC1469BE0281CFC5761 /* MasterRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterRouter.swift; sourceTree = "<group>"; };
 		B737AA9D7CCF21335097498388F7D93C /* PopoverNavigationPresentationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverNavigationPresentationAnimationContext.swift; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BDA8278B135DD1F90ADB870C7ED8ADAB /* PopoverTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverTransitionsAnimator.swift; sourceTree = "<group>"; };
 		BFCCA1950AAAE361915D339BAEFFCB74 /* ResettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
 		C55B6A8C30EF157D6BF931EE5A66C82F /* CompletedTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContext.swift; sourceTree = "<group>"; };
+		C802E4BCB54B4F1C35554469EEA924E9 /* TransitionsHandlersProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersProvider.swift; sourceTree = "<group>"; };
 		C987C56BC68713FF19AC23490DF7B293 /* DetailRouterTransitionable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailRouterTransitionable.swift; sourceTree = "<group>"; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		CEA62C3C03B6497E0B703F3FA582A44A /* TransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D106962C8764F641C88103A821D15749 /* TransitionContextsStack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack.swift; sourceTree = "<group>"; };
-		D4375FCBC2D624673D51F5238AB0D3FB /* TransitionIdGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionIdGenerator.swift; sourceTree = "<group>"; };
 		D590975C13507C342B7A3A3D1BCE4980 /* AvitoNavigation.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AvitoNavigation.modulemap; sourceTree = "<group>"; };
-		D5C1C25978D5C91FDBE3CB7C6F51E64F /* TransitionContextsStackClientProviderHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderHolder.swift; sourceTree = "<group>"; };
 		D9C06D85A0F0052580CFB8734FD7EA73 /* ModalDismissalAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationContext.swift; sourceTree = "<group>"; };
 		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		DD335D1AB9932B360C2910C27DDE804C /* TransitionsMarker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsMarker.swift; sourceTree = "<group>"; };
 		DD566ED4961E83C875B1932E6C5972C1 /* ModalMasterDetailDismissalAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailDismissalAnimationContext.swift; sourceTree = "<group>"; };
 		DEDA510BD2822D44EA4A8F1732C57EB6 /* AvitoNavigation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AvitoNavigation-dummy.m"; sourceTree = "<group>"; };
 		DF69394CCDC1F9ABC618518670E2C02C /* SettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
-		E1845CC417320E244BFA04DB862A0C51 /* TransitionContextsStackClientProviderImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderImpl.swift; sourceTree = "<group>"; };
 		E1C62D4C8690A45F02D0F3F8E01C3209 /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		E674672B0A69FA5697A3960EEF6F99D1 /* TransitionsCoordinatorDelegateHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegateHolder.swift; sourceTree = "<group>"; };
 		E7462AA79113BA974947ACF894222BEC /* RouterDismissable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterDismissable.swift; sourceTree = "<group>"; };
 		E7835FA7A966D8E0B54BA1D03043ED5B /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E89BE0328DE7C18450EE5845604729B5 /* TransitionContextsStackClientProviderHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderHolder.swift; sourceTree = "<group>"; };
 		E9CB86686A1419636A5022480ADE1A81 /* ResettingTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingTransitionContext.swift; sourceTree = "<group>"; };
 		EADA70FB7111853724840F21BF92A306 /* ModalMasterDetailTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailTransitionsAnimator.swift; sourceTree = "<group>"; };
 		EC5C57851B143EEBFF3FB0B8833C8678 /* SettingAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingAnimationLaunchingContext.swift; sourceTree = "<group>"; };
@@ -268,18 +273,17 @@
 		F2F3401572A4F5A68AD8DF6F132446CB /* SetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		F3A772BD39A9230ADC174513BAECAB29 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
 		F450EC5CED15C071F5B44C492D3E5D45 /* TransitionUserId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionUserId.swift; sourceTree = "<group>"; };
-		F5A7D287A932168B222A9B7C6D65C7CD /* TransitionsCoordinatorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		F5E7F9266485501337DB1F40EFC7CAED /* PopoverDismissalAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverDismissalAnimationContext.swift; sourceTree = "<group>"; };
 		F79FE124FD17B0B523CBDE5AD5A14B05 /* RouterIdentifiable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterIdentifiable.swift; sourceTree = "<group>"; };
 		FFD3D7D48259EDFC23E9278C1AA006E8 /* CompletedTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompletedTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7475F8710E47C109E37CAB255D181B71 /* Frameworks */ = {
+		7A0A67677203BF5E6E8644E76DD16129 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				091A344C85DF2C274829F6D76091CDED /* Foundation.framework in Frameworks */,
+				26A4F9A7637EE0F339C4AF381C6E90DB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +306,21 @@
 				A3B195E8548FBC16573115011DEAAF17 /* ResettingAnimationLaunchingContextBox.swift */,
 			);
 			path = AnimationLaunchingContextBoxes;
+			sourceTree = "<group>";
+		};
+		01799CA0989818144461369C7FE89A19 /* Transitions Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7D48261DC03347CB25BBB849FC19974D /* TransitionsCoordinator.swift */,
+				241B3B3DBA83011CC0881CBD0A11B700 /* TransitionsCoordinatorDelegate.swift */,
+				E674672B0A69FA5697A3960EEF6F99D1 /* TransitionsCoordinatorDelegateHolder.swift */,
+				703ABD027805ECFBEF149ED86C39EFA6 /* TransitionsCoordinatorHolder.swift */,
+				8D2A15387EBAB03566EFD0358053E4BA /* TransitionsCoordinatorImpl.swift */,
+				C802E4BCB54B4F1C35554469EEA924E9 /* TransitionsHandlersProvider.swift */,
+				37DF48E798D6DC67CBF1C629B28ABEA8 /* TransitionsHandlersProviderHolder.swift */,
+				71D648584DD8534042613064853AB9A5 /* TransitionsHistoryItem.swift */,
+			);
+			path = "Transitions Coordinator";
 			sourceTree = "<group>";
 		};
 		0204AE091C8EF04E7B24B41343F649D6 /* Transitions Handler */ = {
@@ -398,6 +417,16 @@
 			path = "Base Master-Detail Router";
 			sourceTree = "<group>";
 		};
+		27533DFF475ECD27B7D78B9640A1A626 /* Transitions Handling */ = {
+			isa = PBXGroup;
+			children = (
+				523652AB12694A438FD2A915E11D17C6 /* Transition Id */,
+				01799CA0989818144461369C7FE89A19 /* Transitions Coordinator */,
+				EB6C41385E179C9DC0FBA17436A6FC1B /* Transitions Stack */,
+			);
+			path = "Transitions Handling";
+			sourceTree = "<group>";
+		};
 		27D534645DF1C3D86138D12838CE9E32 /* Transition Storable Parameters */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,7 +454,7 @@
 				27D534645DF1C3D86138D12838CE9E32 /* Transition Storable Parameters */,
 				0204AE091C8EF04E7B24B41343F649D6 /* Transitions Handler */,
 				67A6A1D6BA7A574A58314B3C69959568 /* Transitions Handler Impls */,
-				55FD4CCE79F2DCFDF302EF60D9AE61BD /* Transitions Handling */,
+				27533DFF475ECD27B7D78B9640A1A626 /* Transitions Handling */,
 				A3681C545D20E57B488224C5FA1237A1 /* Transitions Marking */,
 				ED7CD3504AEFDAFEADC25824DC17A1B9 /* Transitions Tracking */,
 			);
@@ -502,14 +531,15 @@
 			path = Set;
 			sourceTree = "<group>";
 		};
-		55FD4CCE79F2DCFDF302EF60D9AE61BD /* Transitions Handling */ = {
+		523652AB12694A438FD2A915E11D17C6 /* Transition Id */ = {
 			isa = PBXGroup;
 			children = (
-				5ABA517B3EBDADB5A215E7EE4654667B /* Transition Id */,
-				CABBFDFE66554015DCAA27C03D691068 /* Transitions Coordinator */,
-				8FE112CA2BD522A1D3A6F9A8EB52C49D /* Transitions Stack */,
+				640A455BDE66FA2E0D0BA6C0D776A112 /* TransitionId.swift */,
+				24DC64A9E3041750402578D70E97E4A7 /* TransitionIdGenerator.swift */,
+				4A3E2E301443F37ACA1C5CEB55232FCC /* TransitionIdGeneratorHolder.swift */,
+				51CE687B7F4DB0841EB8DDAFD580743E /* TransitionIdGeneratorImpl.swift */,
 			);
-			path = "Transitions Handling";
+			path = "Transition Id";
 			sourceTree = "<group>";
 		};
 		59756B03458100F39BC1D08FD84E1F84 /* ModalEndpointNavigation */ = {
@@ -519,17 +549,6 @@
 				AE91817CDF6FED2FC35501C421372BDF /* Presentation */,
 			);
 			path = ModalEndpointNavigation;
-			sourceTree = "<group>";
-		};
-		5ABA517B3EBDADB5A215E7EE4654667B /* Transition Id */ = {
-			isa = PBXGroup;
-			children = (
-				038935E2E92486B66DE129E64903642E /* TransitionId.swift */,
-				D4375FCBC2D624673D51F5238AB0D3FB /* TransitionIdGenerator.swift */,
-				520EBCA4255D0AB046E17D6152E2912F /* TransitionIdGeneratorHolder.swift */,
-				70545A84D77371FE59C93ABB81F480B1 /* TransitionIdGeneratorImpl.swift */,
-			);
-			path = "Transition Id";
 			sourceTree = "<group>";
 		};
 		5D2AD801F773B646946398CD606A6A94 /* ModalMasterDetail */ = {
@@ -679,20 +698,6 @@
 				1C79224C55BE83D9970D14A16021EB91 /* ModalDismissalAnimationLaunchingContext.swift */,
 			);
 			path = Dismissal;
-			sourceTree = "<group>";
-		};
-		8FE112CA2BD522A1D3A6F9A8EB52C49D /* Transitions Stack */ = {
-			isa = PBXGroup;
-			children = (
-				D106962C8764F641C88103A821D15749 /* TransitionContextsStack.swift */,
-				B2C0CBD1A66E1E47DC9FEEC0B73F6A65 /* TransitionContextsStackClient.swift */,
-				721750584AAA51661BD4635ADA798207 /* TransitionContextsStackClientImpl.swift */,
-				6D2BA74906B0E3C194FB8C4D44E84C0E /* TransitionContextsStackClientProvider.swift */,
-				D5C1C25978D5C91FDBE3CB7C6F51E64F /* TransitionContextsStackClientProviderHolder.swift */,
-				E1845CC417320E244BFA04DB862A0C51 /* TransitionContextsStackClientProviderImpl.swift */,
-				19D40A2301D57B5C9A277267D1E87C2F /* TransitionContextsStackImpl.swift */,
-			);
-			path = "Transitions Stack";
 			sourceTree = "<group>";
 		};
 		9277B215671CC106621551922852304F /* Presentation */ = {
@@ -899,19 +904,6 @@
 			path = Popover;
 			sourceTree = "<group>";
 		};
-		CABBFDFE66554015DCAA27C03D691068 /* Transitions Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				9101861DDEFA23D8D9BF51495DA5E09C /* TransitionsCoordinator.swift */,
-				F5A7D287A932168B222A9B7C6D65C7CD /* TransitionsCoordinatorDelegate.swift */,
-				745FC224E5DE5A8395B3CD54BA60D2D8 /* TransitionsCoordinatorDelegateHolder.swift */,
-				7A8E75FAD6C6E442B88FA477B2C452D7 /* TransitionsCoordinatorHolder.swift */,
-				A7870934EF6744D7B5773A1AED45D1A4 /* TransitionsCoordinatorImpl.swift */,
-				9A997ECE6488BFCBCC9673F76B666FF6 /* TransitionsHistoryItem.swift */,
-			);
-			path = "Transitions Coordinator";
-			sourceTree = "<group>";
-		};
 		D0BBA2E24BD79C7A2C2DAC6AD74FC397 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,6 +993,20 @@
 			path = "Base Router";
 			sourceTree = "<group>";
 		};
+		EB6C41385E179C9DC0FBA17436A6FC1B /* Transitions Stack */ = {
+			isa = PBXGroup;
+			children = (
+				4A12C9198C131CE1031FBB957AA695C9 /* TransitionContextsStack.swift */,
+				3F1217ADCB4141479C156124753449A4 /* TransitionContextsStackClient.swift */,
+				404CAE506AAD62DE2387012238AF8427 /* TransitionContextsStackClientImpl.swift */,
+				88680074531CC952832D1E80642FB5CE /* TransitionContextsStackClientProvider.swift */,
+				E89BE0328DE7C18450EE5845604729B5 /* TransitionContextsStackClientProviderHolder.swift */,
+				57CEC215664ED07D972F16D4D4020C14 /* TransitionContextsStackClientProviderImpl.swift */,
+				28C84EDF16135034C3DC55D2D6B372F9 /* TransitionContextsStackImpl.swift */,
+			);
+			path = "Transitions Stack";
+			sourceTree = "<group>";
+		};
 		ED7CD3504AEFDAFEADC25824DC17A1B9 /* Transitions Tracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1055,34 +1061,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B7680D4DF54E695BC2D44F8918C6D03C /* Headers */ = {
+		98773C5BFF6653993E27D15098394710 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9A96BA42B8E887FB40F96681610CC8C /* AvitoNavigation-umbrella.h in Headers */,
+				A74BFB3028A0900B2828CB6839C44EA4 /* AvitoNavigation-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		50558F92A932803CFB8B1EA70C316436 /* AvitoNavigation */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7E9331184578F8C981E9049F9A0A5317 /* Build configuration list for PBXNativeTarget "AvitoNavigation" */;
-			buildPhases = (
-				69CC7D788AD4CDD00F5344F029E6E978 /* Sources */,
-				7475F8710E47C109E37CAB255D181B71 /* Frameworks */,
-				B7680D4DF54E695BC2D44F8918C6D03C /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AvitoNavigation;
-			productName = AvitoNavigation;
-			productReference = 5D2DA81A7D88F9E11C4F421AC5855320 /* AvitoNavigation.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		5747CC2811C12197E1B25EE93C6F4D81 /* Pods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0881939E9232E7F29ADF6AC296565A4 /* Build configuration list for PBXNativeTarget "Pods" */;
@@ -1099,6 +1088,23 @@
 			name = Pods;
 			productName = Pods;
 			productReference = 3650A282D70D578D95AB29BE51F9FB5B /* Pods.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D53832A8A1578BB42B049F35808A4387 /* AvitoNavigation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 218BDEF2069714D68104783EEB664F43 /* Build configuration list for PBXNativeTarget "AvitoNavigation" */;
+			buildPhases = (
+				B7ED53A56ABC734F0B96D88FD8FE76B9 /* Sources */,
+				7A0A67677203BF5E6E8644E76DD16129 /* Frameworks */,
+				98773C5BFF6653993E27D15098394710 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AvitoNavigation;
+			productName = AvitoNavigation;
+			productReference = 5D2DA81A7D88F9E11C4F421AC5855320 /* AvitoNavigation.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -1122,7 +1128,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				50558F92A932803CFB8B1EA70C316436 /* AvitoNavigation */,
+				D53832A8A1578BB42B049F35808A4387 /* AvitoNavigation */,
 				5747CC2811C12197E1B25EE93C6F4D81 /* Pods */,
 			);
 		};
@@ -1137,124 +1143,126 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		69CC7D788AD4CDD00F5344F029E6E978 /* Sources */ = {
+		B7ED53A56ABC734F0B96D88FD8FE76B9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3E87BEEA2FF9A857F4F8964B66F3B94 /* AnimatingTransitionsHandler.swift in Sources */,
-				33FCF9F15E0F384F36E5B9C418896837 /* AvitoNavigation-dummy.m in Sources */,
-				7099F518F5588181079EF77BF48BE972 /* BaseMasterDetailRouter.swift in Sources */,
-				5102F73C06A1763F8F2B4D30340FCFAA /* BaseRouter.swift in Sources */,
-				6DA1271ED01708CAD3149A614CED6B77 /* CompletedTransitionContext.swift in Sources */,
-				706D177E6B83091F02A2C0A23FE1A607 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				2E4DB7FDFFFC24A809B68A0BE9ED76B4 /* ContainingTransitionsHandler.swift in Sources */,
-				A1AEB4B9B3DE3468E38BED2E84174357 /* DetailRouter.swift in Sources */,
-				D17E6762F3B75EBF01EFB2E02FAA889A /* DetailRouterTransitionable.swift in Sources */,
-				BA1A3CD49B58801F2486F42704FCCFB7 /* DismissalAnimationLaunchingContextBox.swift in Sources */,
-				98C75952915396AF775E7E4113DA06D9 /* EndpointRouter.swift in Sources */,
-				707145F7C15A312EB346CEF2A2003C68 /* MasterDetailRouterSeed.swift in Sources */,
-				9BDACD5DC5AF75BCDE3B9312C1904E59 /* MasterRouter.swift in Sources */,
-				213D1D110F95ACF4FBFC7D0BD0E62834 /* MasterRouterTransitionable.swift in Sources */,
-				48223EBC472126F70503BAA01359ADF1 /* ModalDismissalAnimationContext.swift in Sources */,
-				73E9DA9113231FD6EEEB0B8FB05A11D6 /* ModalDismissalAnimationLaunchingContext.swift in Sources */,
-				2DA08EB8E91B5952434CB943BBB89320 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */,
-				CEF354EAB5CBB59E76C86E97AFEFD1C9 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
-				11890FFE3034AD3BFAB81C84A80649F8 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
-				817CA726970457E9A3C86A611BCA5F38 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
-				35829DC9A5A9236197DEBCCA1A71FEDB /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
-				93B7911E966794C724A39F970A339B9A /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
-				91E155F4891B78671502D7358AF4841B /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
-				1A3558FCEC59B01F5CFB1FB231C36B43 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
-				6C91F7373DCC1E553495A4CCE9DEF25C /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
-				E0DCBF0CDC56C66948B5942028C3DA47 /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
-				E3BFF4AA6025A4056AEE3F6A8B575484 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
-				1968B9405B9F161AD50099B84B3D4F8A /* ModalNavigationDismissalAnimationContext.swift in Sources */,
-				D07A973334BB98BA23D727A21902C1CA /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
-				B8D6A8F429A90F42C7BDD3E42AEE40E6 /* ModalNavigationPresentationAnimationContext.swift in Sources */,
-				99A7816A4F945CF2B827D232BDA5392B /* ModalNavigationTransitionsAnimator.swift in Sources */,
-				2FCC39F5E801A19D8D5E5D7409569369 /* ModalPresentationAnimationContext.swift in Sources */,
-				BA2AFAA4F406F717EDB3F89FE1609204 /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
-				F237173769F009DB6C9D9C6817704710 /* ModalPresentationRouter.swift in Sources */,
-				A895A909D8444802790A9B64A6459DD4 /* ModalTransitionsAnimator.swift in Sources */,
-				3F0859433F9A361CE725741F222451C5 /* NavigationTransitionsAnimator.swift in Sources */,
-				8590B408813D658A341D0D451EE58728 /* NavigationTransitionsHandlerImpl.swift in Sources */,
-				11BCD72D312A80C60B5673718D2E83D5 /* NavigationTransitionStorableParameters.swift in Sources */,
-				1F0D058FA4F97347A94C1165E91BA9F7 /* PopAnimationContext.swift in Sources */,
-				1CCF52840DAAB1A7D6D68D27E8302402 /* PopAnimationLaunchingContext.swift in Sources */,
-				3B9C3622F29A0FA1745246C7924D711E /* PopoverDismissalAnimationContext.swift in Sources */,
-				418676991B4343941209B3D2B51D3846 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
-				A19855A6E665EB5F59209A8731A9DC5A /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
-				FA7A90FA5C7804FC18819B1FCE387CDC /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
-				845C3C7DB62DE6465D72D931A7E09AE4 /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
-				13E36EDB562CF50C375C3AFD20A16EF6 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
-				6CA3C49722AFBA351179DB1C4068B78D /* PopoverNavigationTransitionsAnimator.swift in Sources */,
-				E27C65F37A487E5EB0BF157956128FF1 /* PopoverPresentationAnimationContext.swift in Sources */,
-				24A5E68D1CF257798FB3916BF9C47FF7 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
-				C178F71EBE600A24BFF9C817DFCB4B00 /* PopoverPresentationRouter.swift in Sources */,
-				263513993CB5320ACAE63EE320BB890A /* PopoverTransitionsAnimator.swift in Sources */,
-				CEBED9EBDFD715DC1B99F436FBE253D1 /* PopoverTransitionStorableParameters.swift in Sources */,
-				C864B27ECD1F957C0C586CF5E5E129DA /* PopoverTransitionStyle.swift in Sources */,
-				24CC0EB836BC17D8158A6E34ABAB4F43 /* PresentationAnimationLaunchingContextBox.swift in Sources */,
-				A5B9AB7EF081828D9E7FE7B6F1C20A33 /* PresentationTransitionContext.swift in Sources */,
-				55E39B413B119E2C463A6D979373D12A /* PresentationTransitionsAnimatorBox.swift in Sources */,
-				1A08F210755EF03FA306C114D5DB0C1C /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				2537F90458F65C0FBB80FE50F587E995 /* PushAnimationContext.swift in Sources */,
-				309161B4400D954DC43D404B13A541E4 /* PushAnimationLaunchingContext.swift in Sources */,
-				6CA33F4944F6849B02D155BA4EBDAF20 /* ResetNavigationTransitionsAnimator.swift in Sources */,
-				2DF1EEFCDFE9853FDE09FBE086127442 /* ResettingAnimationLaunchingContext.swift in Sources */,
-				550D72E4D28372E5DC3C5F04F3ECECD4 /* ResettingAnimationLaunchingContextBox.swift in Sources */,
-				C55B5E321DA23D6971F25BC06BC45FDC /* ResettingNavigationAnimationContext.swift in Sources */,
-				1136C7C0639D54B7B2CB0D451468DE98 /* ResettingTransitionContext.swift in Sources */,
-				704D89713ECF8B9E48F635505ACCACDB /* ResettingTransitionsAnimatorBox.swift in Sources */,
-				8234F290CB6E3EFADEE4BB036D318372 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				76A34A9CDBE6E20A6B475E99CB3DD824 /* RestoredTransitionContext.swift in Sources */,
-				8F3973B18C2F397209C95AE2446E8A52 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				8447E94D94A21EC1B88ADA30CD480D5C /* RouterControllersProvider.swift in Sources */,
-				C189B66CADC93A981D7662FC2EE80C1A /* RouterControllersProviderHolder.swift in Sources */,
-				AB020162AF003B9D6E05236C0843B3BF /* RouterControllersProviderImpl.swift in Sources */,
-				76C20E5B1806B8DF7523848D007E1B77 /* RouterDismissable.swift in Sources */,
-				58C737104674547D469A88E01B8CE341 /* RouterFocusable.swift in Sources */,
-				EC9A68B916C12995CB29F3D6CD6281CC /* RouterIdentifiable.swift in Sources */,
-				9282B81ECA874028660109CA39C42CF6 /* RouterPresentable.swift in Sources */,
-				28819BF268F1A3C0F99EB1B4E5BA246D /* RouterSeed.swift in Sources */,
-				71F34A54CAA4C8D2F5808AF5C49B2D79 /* RouterTransitionable.swift in Sources */,
-				06DB85809FBC2312695EF7EEBBD0CEF8 /* RouterTransitionsHandlerBox.swift in Sources */,
-				7BF5DF7F805366B2FC687B4E6568BB95 /* SetNavigationTransitionsAnimator.swift in Sources */,
-				A6AD027BC34E6DE0E8B5CB627A334867 /* SettingAnimationLaunchingContext.swift in Sources */,
-				A1D81AB30A3919AA69AABFF41F9A21E2 /* SettingNavigationAnimationContext.swift in Sources */,
-				34466FE7FADF9E264A20C170AB28433D /* SourceAnimationLaunchingContextBox.swift in Sources */,
-				10DFDC067702F72DBE63257C981E0D34 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
-				F09C22FC44685946E520EE5671F03665 /* StrongBox.swift in Sources */,
-				989BAFF955E63F0657BB992BDB8F1F93 /* TabBarTransitionsHandlerImpl.swift in Sources */,
-				3F209E371CD04C4FEB0E1F6F463E6784 /* TopViewControllerFinder.swift in Sources */,
-				6DACF20B8F6E4A21C09C91E5C5F69E12 /* TransitionAnimationsLauncher.swift in Sources */,
-				27D27B1C27CCF091EF439139169CDE69 /* TransitionContextsStack.swift in Sources */,
-				C79F8A01E115CEFCE488355B67BFED90 /* TransitionContextsStackClient.swift in Sources */,
-				48C178CC79A035930EC97223AD575C4D /* TransitionContextsStackClientImpl.swift in Sources */,
-				7CA183D90E9127D8F846F3E2139E1557 /* TransitionContextsStackClientProvider.swift in Sources */,
-				D0FD67513A8CFECEE07BDB90BC2C5F60 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
-				5A6DA7AC000D85536A90CCED683DB6E2 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
-				88F74E20C171785D51BBC480D3DD93B1 /* TransitionContextsStackImpl.swift in Sources */,
-				DDE39B563AA6C623A1BE7CD0D6BFC67B /* TransitionId.swift in Sources */,
-				6AD15A0FE3245C24597438D3553677DD /* TransitionIdGenerator.swift in Sources */,
-				0F678D40F6403C64E44185EC4036007C /* TransitionIdGeneratorHolder.swift in Sources */,
-				DEE61B8EE3A4BCE9C5608E6C1227483E /* TransitionIdGeneratorImpl.swift in Sources */,
-				992117AD3BADE80A336966CC7AF17913 /* TransitionsAnimator.swift in Sources */,
-				7E80EE73C740A431CE8DB89DFB424D0A /* TransitionsCoordinator.swift in Sources */,
-				76EA191749CC4C8BD58741D51C0917BF /* TransitionsCoordinatorDelegate.swift in Sources */,
-				66CF11ADC897FA2C1C7B21D54E7BBDDF /* TransitionsCoordinatorDelegateHolder.swift in Sources */,
-				B6C59D9AB8A215361125E7E7B7DDFE4E /* TransitionsCoordinatorHolder.swift in Sources */,
-				E0D49554FA50FD232F7672BC152B2A79 /* TransitionsCoordinatorImpl.swift in Sources */,
-				C57B106726C27F1A4EE592780752FE5C /* TransitionsHandler.swift in Sources */,
-				D8D288BDBB248A188708036F3F79CC17 /* TransitionsHandlerBox.swift in Sources */,
-				227416C78C0E8F1EDB0BA93CB5EABF1B /* TransitionsHandlerContainer.swift in Sources */,
-				A191CF8850A4BBD660CAA648852DDFC8 /* TransitionsHistoryItem.swift in Sources */,
-				BA16F7B5211481817CDEFE8277F8264B /* TransitionsMarker.swift in Sources */,
-				1F4835B0B75F1284C6CEDFD945AA5DE7 /* TransitionsMarkersHolder.swift in Sources */,
-				12D53924B51FE8E6E9DFA07670AC36C8 /* TransitionStorableParameters.swift in Sources */,
-				909EC0C8E5A371CA54BF1F83CED70EE3 /* TransitionsTracker.swift in Sources */,
-				32E48FC343ECFB2FB7B4BDE70F8A4028 /* TransitionUserId.swift in Sources */,
-				F55FA6FD8E8CCD7D0C0F0A5B9E6C8ABB /* WeakBox.swift in Sources */,
+				75AC619C9A9C97052C078F12BA4718C5 /* AnimatingTransitionsHandler.swift in Sources */,
+				4C3B20D6D7C77A46A5196C9270EAB799 /* AvitoNavigation-dummy.m in Sources */,
+				E85291B96E2181E89DDB2AA6ABF705AA /* BaseMasterDetailRouter.swift in Sources */,
+				220583DC88983D7E5CF4EC7CB794D97A /* BaseRouter.swift in Sources */,
+				B38A39619A16F0551CBD1F7FAB19C187 /* CompletedTransitionContext.swift in Sources */,
+				BC0358601B2E814F1078FDEDBFB83D77 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				103FCC73B07961147E6B4BD2C0DA3DC3 /* ContainingTransitionsHandler.swift in Sources */,
+				1FF4199D82D689CE87BDFB3CF5631889 /* DetailRouter.swift in Sources */,
+				86990688535D3B269BDB4B34A6C527B6 /* DetailRouterTransitionable.swift in Sources */,
+				088B89243F4FE99EAA7CFCB5B09FB9E2 /* DismissalAnimationLaunchingContextBox.swift in Sources */,
+				83873761869D0DDF5B7C9F68C1D19139 /* EndpointRouter.swift in Sources */,
+				55C453B8F727A9ED130074B4F9C0EC63 /* MasterDetailRouterSeed.swift in Sources */,
+				7B0B0A1C1D6A998B6992DCB367F5DC84 /* MasterRouter.swift in Sources */,
+				4BA55B9C2CF3A58113A9F7EE67500A45 /* MasterRouterTransitionable.swift in Sources */,
+				253A7D45901CA5E94380BD218891F267 /* ModalDismissalAnimationContext.swift in Sources */,
+				57BE5A1D2CD832F7D719FAD1174D41FE /* ModalDismissalAnimationLaunchingContext.swift in Sources */,
+				8D04124D57D768B886EF64E20835BAB1 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */,
+				F3AADE227E451E4C569822FEF77EF75B /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
+				2B746F466DACC45CC5B287B57272A133 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				A3AE0EB3640C1C7C38D34CDCD9503CD0 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
+				929DBD9379D825B84233B5C0A927D9FD /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
+				CC27D1D3B210E98B9CE5EEAF84AA0B33 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
+				1560E5E848935FB8F19760BDA3F923D5 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
+				77810B4BF86AD6903D60F70CB26F168B /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
+				5A515E1CE345F58C45D314AB94234994 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
+				A485312A01111566749459FF5BCF8E40 /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
+				0820E0F3433ADE754EBE66CC58A14FC8 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
+				ABC26C189FD14E059D0D66D4B7F5724C /* ModalNavigationDismissalAnimationContext.swift in Sources */,
+				86A990B72175FA39C708698C51025991 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				15068919B44409491B7C6BF5C66EEF94 /* ModalNavigationPresentationAnimationContext.swift in Sources */,
+				35DA23BE3AB94B63FC6936C6B0E3B6A9 /* ModalNavigationTransitionsAnimator.swift in Sources */,
+				3330260245970BE6606236E5F861A4E6 /* ModalPresentationAnimationContext.swift in Sources */,
+				487F909AE4CE50CF311D74209D62ECC3 /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
+				3B163A8507C8CFF62BB65EECF8CA1FD4 /* ModalPresentationRouter.swift in Sources */,
+				288C1962F821205319BA3ADAB86ED11D /* ModalTransitionsAnimator.swift in Sources */,
+				CC91ADAC1D5B2AD025753A1C8080FA78 /* NavigationTransitionsAnimator.swift in Sources */,
+				757F0C89D9C1D8600E09D56401FD0B1F /* NavigationTransitionsHandlerImpl.swift in Sources */,
+				A38BB3BC878D6BA2E17DC045ADD4CB29 /* NavigationTransitionStorableParameters.swift in Sources */,
+				E57B819D43F25BEB385B8F61C14CF17D /* PopAnimationContext.swift in Sources */,
+				7A50447F56AF7CFC49281F123157DB19 /* PopAnimationLaunchingContext.swift in Sources */,
+				5A59471BF7E68C27711A1E928A866A8A /* PopoverDismissalAnimationContext.swift in Sources */,
+				150669E12DA75DCEA0EE65419E0C0A7B /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
+				C1F3D3AB49C3365FD54FC5DFB96FD68F /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
+				C050DD31267989F93A1DD0ADB2D26515 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				10EA6CD02194B8B0E9CAC83B6449D2C2 /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
+				EB9B19B97C5057518D1684A72E81C263 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
+				B6890F0E71BBEBB98FD28013B64C1F6E /* PopoverNavigationTransitionsAnimator.swift in Sources */,
+				95D5EC098CC0B5E5D554A1EA898E851B /* PopoverPresentationAnimationContext.swift in Sources */,
+				22A2D7E7459EDAD047BCE53E8FDBCE30 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
+				FC9343ACB5F89FE757AC014E14F1B315 /* PopoverPresentationRouter.swift in Sources */,
+				076C415C5068CE0F5E6CFA7D13253BBA /* PopoverTransitionsAnimator.swift in Sources */,
+				A08771AF32098BF2E292F07091232588 /* PopoverTransitionStorableParameters.swift in Sources */,
+				969BE050408303309F3CA27E76EDE8BA /* PopoverTransitionStyle.swift in Sources */,
+				50F7373BCF9989BCE4456B5E66F8E05E /* PresentationAnimationLaunchingContextBox.swift in Sources */,
+				8F655491BE0534F5E84863EC3F4D2924 /* PresentationTransitionContext.swift in Sources */,
+				F647A399F77C968CE1E7FD8930595FB5 /* PresentationTransitionsAnimatorBox.swift in Sources */,
+				705A9DD1A5757DBB43AAF03BE141C918 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CE214F0069C58BD20B1CD3B0238F8B8B /* PushAnimationContext.swift in Sources */,
+				CBD13250BC4092FB4A7864E5B53FB5D5 /* PushAnimationLaunchingContext.swift in Sources */,
+				DBCD1AC49752CF6BA8E9DF25357A4F17 /* ResetNavigationTransitionsAnimator.swift in Sources */,
+				2A3882EC36B2BDBD2FA8DEC843B5B0DF /* ResettingAnimationLaunchingContext.swift in Sources */,
+				07D575057D40B2F498417ACABB0F01F3 /* ResettingAnimationLaunchingContextBox.swift in Sources */,
+				95987F0A46007677D94508896F34B90A /* ResettingNavigationAnimationContext.swift in Sources */,
+				A949BB14939143F33B34108755356073 /* ResettingTransitionContext.swift in Sources */,
+				FEC583D3390E593A555C7617E0EC30DC /* ResettingTransitionsAnimatorBox.swift in Sources */,
+				D6FD97346B3F3E5DB5D69EBBBD6C71C4 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				0748AC3CECA5885923ED9FFC59B80B24 /* RestoredTransitionContext.swift in Sources */,
+				4899F5D12C79D9DEB9CD43920BF09A6B /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				390A41A634A78567959A0AB2D9B86DA5 /* RouterControllersProvider.swift in Sources */,
+				5368407F1648253E78F6FA1CC3EA0AB9 /* RouterControllersProviderHolder.swift in Sources */,
+				F1837202341B145507901E64A7F5A963 /* RouterControllersProviderImpl.swift in Sources */,
+				EC75DAA0B074C032AE10D08ECFAE3849 /* RouterDismissable.swift in Sources */,
+				D18D03683E7D8A722FA94693FFDC2DBC /* RouterFocusable.swift in Sources */,
+				DCEDED77D9F13CBD18F4FFF1D7B7EDFD /* RouterIdentifiable.swift in Sources */,
+				30CB1B2FD649154F5E751D68F404D526 /* RouterPresentable.swift in Sources */,
+				4F62A17700BC314416693C9828F35762 /* RouterSeed.swift in Sources */,
+				93002CF6124E410EDF0AF118EBF57A18 /* RouterTransitionable.swift in Sources */,
+				8D58955BE606D9A3273F80F0090FB13D /* RouterTransitionsHandlerBox.swift in Sources */,
+				A91BDB960BECE756FDB147CA0675E1CA /* SetNavigationTransitionsAnimator.swift in Sources */,
+				61C990F0BBC21B76879AE693A6B78DAD /* SettingAnimationLaunchingContext.swift in Sources */,
+				B3EEF3C6CD3E9624CAB264BB9B1C11B4 /* SettingNavigationAnimationContext.swift in Sources */,
+				F3DE5DE606B203CDCE6C3141D2724C60 /* SourceAnimationLaunchingContextBox.swift in Sources */,
+				A2833F23F5B53E10270C61E58BF5C620 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
+				D1611F884E805FECA1DD89C300867466 /* StrongBox.swift in Sources */,
+				B4EBBAB692BEF9CE2F09234A7A5F4A82 /* TabBarTransitionsHandlerImpl.swift in Sources */,
+				A36C3807C523806E6CB77535E04383D9 /* TopViewControllerFinder.swift in Sources */,
+				3140662F1BA168621DA03638D47BBF02 /* TransitionAnimationsLauncher.swift in Sources */,
+				88E8CF7E1818D8A64724EE58651F1E65 /* TransitionContextsStack.swift in Sources */,
+				39C15368550447353701E0F3278BDA6D /* TransitionContextsStackClient.swift in Sources */,
+				BEE92BE272A3AB04E8C644A2D4CBCCBA /* TransitionContextsStackClientImpl.swift in Sources */,
+				978682D3E5884B924AF228AAFC99937B /* TransitionContextsStackClientProvider.swift in Sources */,
+				FC153BEE15BBD2F9DA9BDEB9A700F1BF /* TransitionContextsStackClientProviderHolder.swift in Sources */,
+				CB3163B23B82CDCDE9E4DDB4D3B41747 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
+				F18967CF3A1301C23FBDF7A59FC1841D /* TransitionContextsStackImpl.swift in Sources */,
+				5009EAAA455E94375A2E0D8262A681D6 /* TransitionId.swift in Sources */,
+				F0C8F6AA7CD29CCAC606BCB61355945C /* TransitionIdGenerator.swift in Sources */,
+				920B88DAB403849A2CB1B47C78A0A36F /* TransitionIdGeneratorHolder.swift in Sources */,
+				098BD0E726E4748635D14FE0A10BC4D6 /* TransitionIdGeneratorImpl.swift in Sources */,
+				AAB771AA5864103236E272979C7A60A0 /* TransitionsAnimator.swift in Sources */,
+				6FE2070B7E3605D17DF5D171124AA98D /* TransitionsCoordinator.swift in Sources */,
+				77FF78EBA8F49D3562C7E0AFFA9E609B /* TransitionsCoordinatorDelegate.swift in Sources */,
+				F287EF524F703F87D91BE5AD5D78E703 /* TransitionsCoordinatorDelegateHolder.swift in Sources */,
+				52662D73752AD5CEE141DDFE1FE18145 /* TransitionsCoordinatorHolder.swift in Sources */,
+				CFB312AC81C49BC02D0748D0462F7280 /* TransitionsCoordinatorImpl.swift in Sources */,
+				7724B8355676806CD5BB876C10465D62 /* TransitionsHandler.swift in Sources */,
+				8565A84D80ACB7DEF7F94047F93AF088 /* TransitionsHandlerBox.swift in Sources */,
+				60BE71FCEF3538F48B0164BC4B302484 /* TransitionsHandlerContainer.swift in Sources */,
+				65CE0BECCE224BA8265C9701D29645B9 /* TransitionsHandlersProvider.swift in Sources */,
+				F1830D1BCDBC128B0E768B924A39AEAC /* TransitionsHandlersProviderHolder.swift in Sources */,
+				F7C6F83FA605A200386754D10F8E8CAE /* TransitionsHistoryItem.swift in Sources */,
+				A9F07C215CD392F02C6A5ACFCF632DB4 /* TransitionsMarker.swift in Sources */,
+				EE294615B1C6C3D9726A423FF2E1A96C /* TransitionsMarkersHolder.swift in Sources */,
+				47F67DC42E84C65CEC96D2E2B30F512D /* TransitionStorableParameters.swift in Sources */,
+				0659E34B1F870B500B22E3930E2170AE /* TransitionsTracker.swift in Sources */,
+				0614DD816789B0384F6A28E5A11A51F4 /* TransitionUserId.swift in Sources */,
+				DE9E769016F0A3EB41B669A30A50F535 /* WeakBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1264,40 +1272,12 @@
 		A94508C4A02CEA4971A7ACA712F0ECD9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AvitoNavigation;
-			target = 50558F92A932803CFB8B1EA70C316436 /* AvitoNavigation */;
+			target = D53832A8A1578BB42B049F35808A4387 /* AvitoNavigation */;
 			targetProxy = E57DEDCD226658A74B09DEE5D0D8784E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		24E010E14DAA9B3DE3716725A2E7698A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D1AF8A80834573E5BE69AC31BB0C517 /* AvitoNavigation.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AvitoNavigation/AvitoNavigation-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AvitoNavigation/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AvitoNavigation/AvitoNavigation.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = AvitoNavigation;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		4E77F4370076537FDAD8181015D8CB08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
@@ -1320,6 +1300,33 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_NAME = Pods;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		92C17A3CB6F1A482A121474B5E686CCE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D1AF8A80834573E5BE69AC31BB0C517 /* AvitoNavigation.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AvitoNavigation/AvitoNavigation-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AvitoNavigation/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AvitoNavigation/AvitoNavigation.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AvitoNavigation;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1367,7 +1374,7 @@
 			};
 			name = Debug;
 		};
-		B7EBD8CFA1A5CF204094FBB22B24E77B /* Release */ = {
+		AC75BBC3F34211C6D37C57E95E9B16B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D1AF8A80834573E5BE69AC31BB0C517 /* AvitoNavigation.xcconfig */;
 			buildSettings = {
@@ -1384,15 +1391,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/AvitoNavigation/AvitoNavigation.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = AvitoNavigation;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		EF1020048DA2F49F279250EDB3D99252 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1462,20 +1470,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		218BDEF2069714D68104783EEB664F43 /* Build configuration list for PBXNativeTarget "AvitoNavigation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC75BBC3F34211C6D37C57E95E9B16B6 /* Debug */,
+				92C17A3CB6F1A482A121474B5E686CCE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
 				FB45FFD90572718D82AB9092B750F0CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7E9331184578F8C981E9049F9A0A5317 /* Build configuration list for PBXNativeTarget "AvitoNavigation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				24E010E14DAA9B3DE3716725A2E7698A /* Debug */,
-				B7EBD8CFA1A5CF204094FBB22B24E77B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

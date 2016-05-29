@@ -23,7 +23,8 @@ final class ApplicationModuleSeedProvider {
             controllersProvider: controllersProvider,
             topViewControllerFinder: transitionsCoordinator,
             transitionsMarker: transitionsCoordinator,
-            transitionsTracker: transitionsCoordinator
+            transitionsTracker: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsCoordinator
         )
         
         return result

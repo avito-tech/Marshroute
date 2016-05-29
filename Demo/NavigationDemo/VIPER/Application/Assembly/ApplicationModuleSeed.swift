@@ -10,6 +10,7 @@ struct ApplicationModuleSeed {
     let topViewControllerFinder: TopViewControllerFinder
     let transitionsMarker: TransitionsMarker
     let transitionsTracker: TransitionsTracker
+    let transitionsHandlersProvider: TransitionsHandlersProvider
 }
 
 extension RouterSeed {
@@ -20,7 +21,7 @@ extension RouterSeed {
         self.transitionsHandlerBox = transitionsHandlerBox
         self.transitionId = moduleSeed.transitionId
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsCoordinator = moduleSeed.transitionsCoordinator
+        self.transitionsHandlersProvider = moduleSeed.transitionsHandlersProvider
         self.transitionIdGenerator = moduleSeed.transitionIdGenerator
         self.controllersProvider = moduleSeed.controllersProvider
     }
@@ -36,7 +37,7 @@ extension MasterDetailRouterSeed {
         self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
         self.transitionId = moduleSeed.transitionId
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsCoordinator = moduleSeed.transitionsCoordinator
+        self.transitionsHandlersProvider = moduleSeed.transitionsHandlersProvider
         self.transitionIdGenerator = moduleSeed.transitionIdGenerator
         self.controllersProvider = moduleSeed.controllersProvider
     }

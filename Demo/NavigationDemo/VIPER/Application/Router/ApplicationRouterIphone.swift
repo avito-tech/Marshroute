@@ -17,8 +17,8 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
     
     // MARK: - ApplicationRouter
     func authorizationStatus(completion: ((isPresented: Bool) -> ())) {
-        let isPresented = authorizationModuleTrackingService.isAuthorizationModulePresented()
-        completion(isPresented: isPresented)
+        let isAuthorizationModulePresented = authorizationModuleTrackingService.isAuthorizationModulePresented()
+        completion(isPresented: isAuthorizationModulePresented)
     }
     
     func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {

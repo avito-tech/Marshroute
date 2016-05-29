@@ -74,7 +74,7 @@ final class ModuleRegisteringServiceImpl:
         let authorizationModules = moduleList.trackedModulesWithTransitionUserId(authorizationModuleUserId)
         
         guard let authorizationTrackedModule = authorizationModules.first
-            else { return false }  // must be one o zero items in array
+            else { return false }  // must be one or zero items in array
         
         return doesTrackedModuleExistInHistory(authorizationTrackedModule) ?? false
     }

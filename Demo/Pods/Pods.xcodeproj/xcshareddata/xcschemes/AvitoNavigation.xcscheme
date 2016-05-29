@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1F15762E0715EB09DBEEBAB4'
+               BlueprintIdentifier = 'D186A67184FC472A82549810'
                BlueprintName = 'AvitoNavigation'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'AvitoNavigation.framework'>

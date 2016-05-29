@@ -59,7 +59,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             serviceFactory: serviceFactory
         )
         
-        let applicationModule = assemblyFactory.applicationAssembly().module(moduleSeed: applicationModuleSeed)
+        let applicationModule: ApplicationModule
+            
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            applicationModule = assemblyFactory.applicationAssembly().ipadModule(moduleSeed: applicationModuleSeed)
+        } else {
+            applicationModule = assemblyFactory.applicationAssembly().module(moduleSeed: applicationModuleSeed)
+        }
+        
         rootTransitionsHandler = applicationModule.transitionsHandler
         
         // Main application window, which shares delivered touch events with its `touchEventForwarder`

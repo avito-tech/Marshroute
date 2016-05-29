@@ -11,6 +11,9 @@ protocol ApplicationAssembly: class {
     func module(moduleSeed moduleSeed: ApplicationModuleSeed)
         -> ApplicationModule
     
+    func ipadModule(moduleSeed moduleSeed: ApplicationModuleSeed)
+        -> ApplicationModule
+    
     func sharedModuleInput()
         -> ApplicationModuleInput?
 }

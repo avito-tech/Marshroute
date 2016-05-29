@@ -17,8 +17,23 @@ final class TrackedModulesList {
         modules.append(trackedModule)
     }
     
-    func removeTrackedModulesWithTransitionUserId(transitionUserId: TransitionUserId)
+    func removeTrackedModuleWithTransitionUserId(
+        transitionUserId: TransitionUserId,
+        transitionId: TransitionId)
     {
+        releaseZombieModules()
+        
+        let index = modules.indexOf {
+            ($0.transitionUserId == transitionUserId) &&
+                ($0.transitionId == transitionId)
+        }
+        
+        if let trackedModuleIndex = index {
+            modules.removeAtIndex(trackedModuleIndex)
+        }
+    }
+    
+    func removeTrackedModulesWithTransitionUserId(transitionUserId: TransitionUserId) {
         releaseZombieModules()
         
         let index = modules.indexOf { $0.transitionUserId == transitionUserId }
@@ -26,6 +41,7 @@ final class TrackedModulesList {
         if let trackedModuleIndex = index {
             modules.removeAtIndex(trackedModuleIndex)
         }
+
     }
 
     func trackedModulesWithTransitionUserId(

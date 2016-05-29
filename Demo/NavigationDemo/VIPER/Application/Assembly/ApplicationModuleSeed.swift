@@ -3,14 +3,7 @@ import AvitoNavigation
 struct ApplicationModuleSeed {
     let transitionId: TransitionId
     let presentingTransitionsHandler: TransitionsHandler?
-    let transitionsCoordinator: TransitionsCoordinator
-    let transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder
-    let transitionIdGenerator: TransitionIdGenerator
-    let controllersProvider: RouterControllersProvider
-    let topViewControllerFinder: TopViewControllerFinder
-    let transitionsMarker: TransitionsMarker
-    let transitionsTracker: TransitionsTracker
-    let transitionsHandlersProvider: TransitionsHandlersProvider
+    let avitoNavigationStack: AvitoNavigationStack
 }
 
 extension RouterSeed {
@@ -21,9 +14,9 @@ extension RouterSeed {
         self.transitionsHandlerBox = transitionsHandlerBox
         self.transitionId = moduleSeed.transitionId
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsHandlersProvider = moduleSeed.transitionsHandlersProvider
-        self.transitionIdGenerator = moduleSeed.transitionIdGenerator
-        self.controllersProvider = moduleSeed.controllersProvider
+        self.transitionsHandlersProvider = moduleSeed.avitoNavigationStack.transitionsHandlersProvider
+        self.transitionIdGenerator = moduleSeed.avitoNavigationStack.transitionIdGenerator
+        self.controllersProvider = moduleSeed.avitoNavigationStack.controllersProvider
     }
 }
 
@@ -37,8 +30,8 @@ extension MasterDetailRouterSeed {
         self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
         self.transitionId = moduleSeed.transitionId
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsHandlersProvider = moduleSeed.transitionsHandlersProvider
-        self.transitionIdGenerator = moduleSeed.transitionIdGenerator
-        self.controllersProvider = moduleSeed.controllersProvider
+        self.transitionsHandlersProvider = moduleSeed.avitoNavigationStack.transitionsHandlersProvider
+        self.transitionIdGenerator = moduleSeed.avitoNavigationStack.transitionIdGenerator
+        self.controllersProvider = moduleSeed.avitoNavigationStack.controllersProvider
     }
 }

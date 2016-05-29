@@ -66,7 +66,11 @@ final class ModuleRegisteringServiceImpl:
             transitionUserId: authorizationModuleUserId
         )
         
-        reRegisterTrackedModule(trackedModule)
+        moduleList.removeTrackedModulesWithTransitionUserId(
+            trackedModule.transitionUserId
+        )
+        
+        registerTrackedModule(trackedModule)
     }
     
     // MARK: - AuthorizationModuleTrackingService
@@ -127,7 +131,10 @@ final class ModuleRegisteringServiceImpl:
                 let result = false
                 
                 // Delete the tracked module, because we will not allow transitioning to it
-                moduleList.removeTrackedModulesWithTransitionUserId(userId)
+                moduleList.removeTrackedModuleWithTransitionUserId(
+                    userId,
+                    transitionId: context.transitionId
+                )
                 
                 // Return to a previous sibling module
                 trackedModule.weakTransitionsHandlerBox?.unbox()?.undoTransitionsAfter(
@@ -166,13 +173,4 @@ final class ModuleRegisteringServiceImpl:
         toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionWithId transitionId: TransitionId)
     {}
-    
-    // MARK: - Private
-    private func reRegisterTrackedModule(trackedModule: TrackedModule) {
-        moduleList.removeTrackedModulesWithTransitionUserId(
-            trackedModule.transitionUserId
-        )
-        
-        registerTrackedModule(trackedModule)
-    }
 }

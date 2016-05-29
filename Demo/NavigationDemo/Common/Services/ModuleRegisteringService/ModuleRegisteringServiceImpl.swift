@@ -127,10 +127,7 @@ final class ModuleRegisteringServiceImpl:
                 let result = false
                 
                 // Delete the tracked module, because we will not allow transitioning to it
-                moduleList.removeTrackedModuleWithTransitionUserId(
-                    userId,
-                    transitionId: context.transitionId
-                )
+                moduleList.removeTrackedModulesWithTransitionUserId(userId)
                 
                 // Return to a previous sibling module
                 trackedModule.weakTransitionsHandlerBox?.unbox()?.undoTransitionsAfter(
@@ -172,9 +169,8 @@ final class ModuleRegisteringServiceImpl:
     
     // MARK: - Private
     private func reRegisterTrackedModule(trackedModule: TrackedModule) {
-        moduleList.removeTrackedModuleWithTransitionUserId(
-            trackedModule.transitionUserId,
-            transitionId: trackedModule.transitionId
+        moduleList.removeTrackedModulesWithTransitionUserId(
+            trackedModule.transitionUserId
         )
         
         registerTrackedModule(trackedModule)

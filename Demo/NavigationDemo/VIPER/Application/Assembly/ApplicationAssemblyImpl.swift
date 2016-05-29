@@ -41,9 +41,8 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
             bannerView: bannerView
         )
         
-        let tabBarTransitionsHandler = TabBarTransitionsHandlerImpl(
-            tabBarController: tabBarController,
-            transitionsCoordinator: moduleSeed.transitionsCoordinator
+        let tabBarTransitionsHandler = moduleSeed.avitoNavigationStack.transitionsHandlersProvider.tabBarTransitionsHandler(
+            tabBarController: tabBarController
         )
         
         let tabBarTransitionsHandlerBox = RouterTransitionsHandlerBox(

@@ -1064,3 +1064,72 @@ private extension TransitionsCoordinator where
         )
     }
 }
+
+// MARK: - for TransitionsHandlerProvider
+extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
+{
+    func animatingTransitionsHandlerImpl()
+        -> AnimatingTransitionsHandler
+    {
+        return AnimatingTransitionsHandler(
+            transitionsCoordinator: self
+        )
+    }
+    
+    func navigationTransitionsHandlerImpl(navigationController navigationController: UINavigationController)
+        -> NavigationTransitionsHandlerImpl
+    {
+        return NavigationTransitionsHandlerImpl(
+            navigationController: navigationController,
+            transitionsCoordinator: self
+        )
+    }
+    
+    func topTransitionsHandlerBoxImpl(transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+        -> TransitionsHandlerBox
+    {
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+        = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+            // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+            // среди видимых анимирующих обработчиков (то есть в выбранном tab'e tabbar'a)
+            return containingTransitionsHandler.visibleTransitionsHandlers
+        }
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        let deepestChainedAnimatingTransitionsHandler = self.deepestChainedAnimatingTransitionsHandler(
+            forTransitionsHandlers: animatingTransitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        if let animatingTransitionsHandler = deepestChainedAnimatingTransitionsHandler {
+            return .init(animatingTransitionsHandler: animatingTransitionsHandler)
+        }
+        
+        return transitionsHandlerBox
+    }
+    
+    func splitViewTransitionsHandlerImpl(splitViewController splitViewController: UISplitViewController)
+        -> SplitViewTransitionsHandlerImpl
+    {
+        return SplitViewTransitionsHandlerImpl(
+            splitViewController: splitViewController,
+            transitionsCoordinator: self
+        )
+    }
+    
+    func tabBarTransitionsHandlerImpl(tabBarController tabBarController: UITabBarController)
+        -> TabBarTransitionsHandlerImpl
+    {
+        return TabBarTransitionsHandlerImpl(
+            tabBarController: tabBarController,
+            transitionsCoordinator: self
+        )
+    }
+}

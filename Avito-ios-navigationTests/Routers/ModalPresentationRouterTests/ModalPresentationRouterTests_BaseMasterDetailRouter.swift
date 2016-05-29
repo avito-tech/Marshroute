@@ -30,7 +30,7 @@ final class ModalPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
                 ),
                 transitionId: transitionIdGenerator.generateNewTransitionId(),
                 presentingTransitionsHandler: nil,
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )

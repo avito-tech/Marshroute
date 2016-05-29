@@ -4,7 +4,7 @@ import UIKit
 /// Работает с двумя обработчиками переходов (master и detail).
 /// Например, роутер master-контроллера внутри SplitViewController'а
 public class BaseMasterDetailRouter:
-    TransitionsCoordinatorHolder,
+    TransitionsHandlersProviderHolder,
     TransitionIdGeneratorHolder,
     RouterIdentifiable,
     RouterPresentable,
@@ -24,7 +24,7 @@ public class BaseMasterDetailRouter:
     public let detailTransitionsHandlerBox: RouterTransitionsHandlerBox
     public let transitionId: TransitionId
     public private(set) weak var presentingTransitionsHandler: TransitionsHandler?
-    public let transitionsCoordinator: TransitionsCoordinator
+    public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider
     
@@ -34,7 +34,7 @@ public class BaseMasterDetailRouter:
         self.masterTransitionsHandlerBox = seed.masterTransitionsHandlerBox
         self.detailTransitionsHandlerBox = seed.detailTransitionsHandlerBox
         self.presentingTransitionsHandler = seed.presentingTransitionsHandler
-        self.transitionsCoordinator = seed.transitionsCoordinator
+        self.transitionsHandlersProvider = seed.transitionsHandlersProvider
         self.transitionIdGenerator = seed.transitionIdGenerator
         self.controllersProvider = seed.controllersProvider
     }

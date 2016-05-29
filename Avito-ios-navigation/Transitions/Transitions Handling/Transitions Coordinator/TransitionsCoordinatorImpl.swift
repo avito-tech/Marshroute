@@ -7,7 +7,8 @@ public final class TransitionsCoordinatorImpl:
     TopViewControllerFinder,
     TransitionsTracker,
     TransitionsMarker,
-    TransitionsMarkersHolder
+    TransitionsMarkersHolder,
+    TransitionsHandlersProvider
 {
     // MARK: - TransitionContextsStackClientProviderHolder
     public let stackClientProvider: TransitionContextsStackClientProvider
@@ -82,5 +83,36 @@ public final class TransitionsCoordinatorImpl:
     // MARK: - TransitionsMarker
     public func markTransitionId(transitionId: TransitionId, withUserId userId: TransitionUserId) {
         markTransitionIdImpl(transitionId: transitionId, withUserId: userId)
+    }
+    
+    // MARK: - TransitionsHandlersProvider
+    public func animatingTransitionsHandler()
+        -> AnimatingTransitionsHandler
+    {
+        return animatingTransitionsHandlerImpl()
+    }
+    
+    public func navigationTransitionsHandler(navigationController navigationController: UINavigationController)
+        -> NavigationTransitionsHandlerImpl
+    {
+        return navigationTransitionsHandlerImpl(navigationController: navigationController)
+    }
+    
+    public func topTransitionsHandlerBox(transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+        -> TransitionsHandlerBox
+    {
+        return topTransitionsHandlerBoxImpl(transitionsHandlerBox: transitionsHandlerBox)
+    }
+    
+    public func splitViewTransitionsHandler(splitViewController splitViewController: UISplitViewController)
+        -> SplitViewTransitionsHandlerImpl
+    {
+        return splitViewTransitionsHandlerImpl(splitViewController: splitViewController)
+    }
+    
+    public func tabBarTransitionsHandler(tabBarController tabBarController: UITabBarController)
+        ->TabBarTransitionsHandlerImpl
+    {
+        return tabBarTransitionsHandlerImpl(tabBarController: tabBarController)
     }
 }

@@ -32,7 +32,7 @@ public protocol MasterRouter {
 }
 
 // MARK: - MasterRouter Default Impl
-extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder, Self: RouterControllersProviderHolder {
+extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsHandlersProviderHolder, Self: RouterControllersProviderHolder {
     
     public func setMasterViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController)
@@ -55,7 +55,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
             detailTransitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -87,12 +87,16 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     {
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        let masterTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: self.masterTransitionsHandlerBox
+        )
+        
         let masterDetailRouterSeed = MasterDetailRouterSeed(
             masterTransitionsHandlerBox: masterTransitionsHandlerBox,
             detailTransitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: masterTransitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -128,7 +132,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -160,11 +164,15 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
     {
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        let detailTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: self.detailTransitionsHandlerBox
+        )
+        
         let detailRouterSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )

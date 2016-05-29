@@ -18,7 +18,7 @@ public protocol DetailRouter: class {
 }
 
 // MARK: - DetailRouter Default Impl
-extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsCoordinatorHolder, Self: RouterControllersProviderHolder {
+extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsHandlersProviderHolder, Self: RouterControllersProviderHolder {
     
     public func setViewControllerDerivedFrom(
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
@@ -40,7 +40,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -72,11 +72,15 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     {
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        let detailTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: self.detailTransitionsHandlerBox
+        )
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )

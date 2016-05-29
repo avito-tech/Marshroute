@@ -17,8 +17,8 @@ final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
     
     // MARK: - ApplicationRouter
     func authorizationStatus(completion: ((isPresented: Bool) -> ())) {
-        let authorizationModuleExistsInHistory = authorizationModuleTrackingService.doesAuthorizationModuleExistInHistory()
-        completion(isPresented: authorizationModuleExistsInHistory)
+        let isAuthorizationModulePresented = authorizationModuleTrackingService.isAuthorizationModulePresented()
+        completion(isPresented: isAuthorizationModulePresented)
     }
     
     func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {

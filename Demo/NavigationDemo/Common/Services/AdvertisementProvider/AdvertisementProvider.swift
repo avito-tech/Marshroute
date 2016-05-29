@@ -6,7 +6,8 @@ struct Advertisement {
     let title: String
     let id: AdvertisementId
     let rgb: (red: Double, green: Double, blue: Double)
-    let description: String
+    let patternAssetName: String?
+    let placeholderAssetName: String?
     let recommendedSearchResults: [SearchResult]
 }
 

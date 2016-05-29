@@ -25,8 +25,12 @@ final class AdvertisementInteractorImpl: AdvertisementInteractor {
         completion(title: advertisement?.title)
     }
     
-    func advertisementDescription(completion: (description: String?) -> ()) {
-        completion(description: advertisement?.description)
+    func advertisementPatternAssetName(completion: (assetName: String?) -> ()) {
+        completion(assetName: advertisement?.patternAssetName)
+    }
+    
+    func advertisementPlaceholderAssetName(completion: (assetName: String?) -> ()) {
+        completion(assetName: advertisement?.placeholderAssetName)
     }
     
     func advertisementRGB(completion:(rgb: (red: Double, green: Double, blue: Double)?) -> ()) {

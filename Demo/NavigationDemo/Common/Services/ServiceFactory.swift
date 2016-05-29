@@ -5,7 +5,6 @@ protocol ServiceFactory: class {
     func categoriesProvider() -> CategoriesProvider
     func searchResultsProvider() -> SearchResultsProvider
     func advertisementProvider() -> AdvertisementProvider
-    func randomStringGenerator() -> RandomStringGenerator
     func rootModulesProvider() -> RootModulesProvider
     func timerService() -> TimerService
     func searchResultsCacher() -> SearchResultsCacher

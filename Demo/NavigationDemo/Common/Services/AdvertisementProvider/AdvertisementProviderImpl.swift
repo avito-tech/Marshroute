@@ -4,15 +4,12 @@ final class AdvertisementProviderImpl: AdvertisementProvider {
     // MARK: - Init
     let searchResultsProvider: SearchResultsProvider
     let advertisementCacher: AdvertisementCacher
-    let randomStringGenerator: RandomStringGenerator
     
     init(searchResultsProvider: SearchResultsProvider,
-         advertisementCacher: AdvertisementCacher,
-         randomStringGenerator: RandomStringGenerator)
+         advertisementCacher: AdvertisementCacher)
     {
         self.searchResultsProvider = searchResultsProvider
         self.advertisementCacher = advertisementCacher
-        self.randomStringGenerator = randomStringGenerator
     }
     
     // MARK: - AdvertisementProvider
@@ -27,8 +24,6 @@ final class AdvertisementProviderImpl: AdvertisementProvider {
             searchResultId: searchResultId
         )
         
-        let description = randomStringGenerator.randomTextStartingWith(searchResult.title)
-        
         let recommendedSearchResults = searchResultsProvider.recommendedSearchResults(
             searchResultId: searchResultId
         )
@@ -37,7 +32,8 @@ final class AdvertisementProviderImpl: AdvertisementProvider {
             title: searchResult.title,
             id: searchResult.id,
             rgb: searchResult.rgb,
-            description: description,
+            patternAssetName: searchResult.patternAssetName,
+            placeholderAssetName: searchResult.placeholderAssetName,
             recommendedSearchResults: recommendedSearchResults
         )
         

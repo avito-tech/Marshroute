@@ -1,17 +1,16 @@
 import Foundation
 
+private let patternAssetNames = ["aztec", "plaits", "sea", "vikings"]
+
 final class SearchResultsProviderImpl: SearchResultsProvider {
     // MARK: - Init
     let searchResultsCacher: SearchResultsCacher
-    let randomStringGenerator: RandomStringGenerator
     let categoriesProvider: CategoriesProvider
     
     init(searchResultsCacher: SearchResultsCacher,
-         randomStringGenerator: RandomStringGenerator,
          categoriesProvider: CategoriesProvider)
     {
         self.searchResultsCacher = searchResultsCacher
-        self.randomStringGenerator = randomStringGenerator
         self.categoriesProvider = categoriesProvider
     }
     
@@ -31,13 +30,18 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
             
             let id = NSUUID().UUIDString
             
-            let requiresAuthorization = arc4random() % 5 == 0
+            let requiresAuthorization = arc4random() % 4 == 0
+            
+            let patternAssetIndex = Int(arc4random() % UInt32(patternAssetNames.count))
+            let patternAssetName = patternAssetNames[patternAssetIndex]
             
             let searchResult = SearchResult(
                 title: title,
                 id: id,
                 rgb: (red, green, blue),
-                requiresAuthorization: requiresAuthorization
+                requiresAuthorization: requiresAuthorization,
+                patternAssetName: patternAssetName,
+                placeholderAssetName: nil
             )
             
             searchResults.append(searchResult)
@@ -57,20 +61,22 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
         let white: Double = 255
         let requiresAuthorization = false
         
-        let titlesToIds = [
-            "🍌🍌🍌🍌🍌🍌🍌🍌🍌" : "bananas",
-            "🍇🍇🍇🍇🍇🍇🍇🍇🍇" : "grapes",
-            "🍏🍏🍏🍏🍏🍏🍏🍏🍏" : "apples",
-            "🍒🍒🍒🍒🍒🍒🍒🍒🍒" : "cherries",
-            "🍍🍍🍍🍍🍍🍍🍍🍍🍍" : "pineapples"
-            ]
+        let titles_Ids_Placeholders = [
+            ("🍌🍌🍌🍌🍌🍌🍌🍌🍌", "1", "bananas.jpg"),
+            ("🍇🍇🍇🍇🍇🍇🍇🍇🍇", "2", "grapes.jpg"),
+            ("🍏🍏🍏🍏🍏🍏🍏🍏🍏", "3", "apples.jpg"),
+            ("🍒🍒🍒🍒🍒🍒🍒🍒🍒", "4", "cherries.jpg"),
+            ("🍍🍍🍍🍍🍍🍍🍍🍍🍍", "5", "pineapples.jpg")
+        ]
         
-        let searchResults = titlesToIds.map { (title, id) -> SearchResult in
+        let searchResults = titles_Ids_Placeholders.map { (title, id, placeholderAssetName) -> SearchResult in
             let searchResult = SearchResult(
                 title: title,
                 id: id,
                 rgb: (white, white, white),
-                requiresAuthorization: requiresAuthorization
+                requiresAuthorization: requiresAuthorization,
+                patternAssetName: nil,
+                placeholderAssetName: placeholderAssetName
             )
             
             searchResultsCacher.cache(searchResult: searchResult)

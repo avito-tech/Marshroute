@@ -49,7 +49,6 @@ final class ServiceFactoryImpl: ServiceFactory {
     func searchResultsProvider() -> SearchResultsProvider {
         return SearchResultsProviderImpl(
             searchResultsCacher: searchResultsCacher(),
-            randomStringGenerator: randomStringGenerator(),
             categoriesProvider: categoriesProvider()
         )
     }
@@ -57,13 +56,8 @@ final class ServiceFactoryImpl: ServiceFactory {
     func advertisementProvider() -> AdvertisementProvider {
         return AdvertisementProviderImpl(
             searchResultsProvider: searchResultsProvider(),
-            advertisementCacher: advertisementCacher(),
-            randomStringGenerator: randomStringGenerator()
+            advertisementCacher: advertisementCacher()
         )
-    }
-    
-    func randomStringGenerator() -> RandomStringGenerator {
-        return RandomStringGeneratorImpl()
     }
     
     func rootModulesProvider() -> RootModulesProvider {

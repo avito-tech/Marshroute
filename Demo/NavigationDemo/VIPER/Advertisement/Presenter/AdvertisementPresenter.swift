@@ -24,9 +24,13 @@ final class AdvertisementPresenter {
                 self?.interactor.advertisementTitle { title in
                     self?.view?.setTitle(title)
                 }
-
-                self?.interactor.advertisementDescription { description in
-                    self?.view?.setDescription(description)
+                
+                self?.interactor.advertisementPatternAssetName { assetName in
+                    self?.view?.setPatternAssetName(assetName)
+                }
+                
+                self?.interactor.advertisementPlaceholderAssetName { assetName in
+                    self?.view?.setPlaceholderAssetName(assetName)
                 }
                 
                 self?.interactor.advertisementRGB { rgb in

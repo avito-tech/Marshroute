@@ -70,7 +70,7 @@ final class ModuleRegisteringServiceImpl:
     }
     
     // MARK: - AuthorizationModuleTrackingService
-    func doesAuthorizationModuleExistInHistory() -> Bool {
+    func isAuthorizationModulePresented() -> Bool {
         let authorizationModules = moduleList.trackedModulesWithTransitionUserId(authorizationModuleUserId)
         
         guard let authorizationTrackedModule = authorizationModules.first

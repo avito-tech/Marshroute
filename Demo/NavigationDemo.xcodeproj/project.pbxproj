@@ -71,8 +71,6 @@
 		CC0B1E6E1CC3C91A006707B6 /* AdvertisementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */; };
 		CC0B1E6F1CC3C91A006707B6 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */; };
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
-		CC0B1E741CC442BA006707B6 /* RandomStringGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E721CC442BA006707B6 /* RandomStringGenerator.swift */; };
-		CC0B1E751CC442BA006707B6 /* RandomStringGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E731CC442BA006707B6 /* RandomStringGeneratorImpl.swift */; };
 		CC574ABE1CEF73C1008648D0 /* BannerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */; };
 		CC574ABF1CEF73C1008648D0 /* BannerAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */; };
 		CC574AC01CEF73C1008648D0 /* BannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */; };
@@ -151,6 +149,15 @@
 		CCE639791CE05ABE002DF096 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE639781CE05ABE002DF096 /* StringExtensions.swift */; };
 		CCF4A8441CDFA0AF008170C1 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4A8421CDFA0AF008170C1 /* TimerService.swift */; };
 		CCF4A8451CDFA0AF008170C1 /* TimerServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4A8431CDFA0AF008170C1 /* TimerServiceImpl.swift */; };
+		CCFD1A811CFB293D0065EE42 /* aztec.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A771CFB293D0065EE42 /* aztec.png */; };
+		CCFD1A821CFB293D0065EE42 /* plaits.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A781CFB293D0065EE42 /* plaits.png */; };
+		CCFD1A831CFB293D0065EE42 /* sea.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A791CFB293D0065EE42 /* sea.png */; };
+		CCFD1A841CFB293D0065EE42 /* vikings.png in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A7A1CFB293D0065EE42 /* vikings.png */; };
+		CCFD1A851CFB293D0065EE42 /* apples.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A7C1CFB293D0065EE42 /* apples.jpg */; };
+		CCFD1A861CFB293D0065EE42 /* bananas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A7D1CFB293D0065EE42 /* bananas.jpg */; };
+		CCFD1A871CFB293D0065EE42 /* cherries.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A7E1CFB293D0065EE42 /* cherries.jpg */; };
+		CCFD1A881CFB293D0065EE42 /* grapes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A7F1CFB293D0065EE42 /* grapes.jpg */; };
+		CCFD1A891CFB293D0065EE42 /* pineapples.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A801CFB293D0065EE42 /* pineapples.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,8 +228,6 @@
 		CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementView.swift; sourceTree = "<group>"; };
 		CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
-		CC0B1E721CC442BA006707B6 /* RandomStringGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomStringGenerator.swift; sourceTree = "<group>"; };
-		CC0B1E731CC442BA006707B6 /* RandomStringGeneratorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomStringGeneratorImpl.swift; sourceTree = "<group>"; };
 		CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssembly.swift; sourceTree = "<group>"; };
 		CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssemblyImpl.swift; sourceTree = "<group>"; };
 		CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerInteractor.swift; sourceTree = "<group>"; };
@@ -304,6 +309,15 @@
 		CCE639781CE05ABE002DF096 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		CCF4A8421CDFA0AF008170C1 /* TimerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
 		CCF4A8431CDFA0AF008170C1 /* TimerServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerServiceImpl.swift; sourceTree = "<group>"; };
+		CCFD1A771CFB293D0065EE42 /* aztec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aztec.png; sourceTree = "<group>"; };
+		CCFD1A781CFB293D0065EE42 /* plaits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plaits.png; sourceTree = "<group>"; };
+		CCFD1A791CFB293D0065EE42 /* sea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sea.png; sourceTree = "<group>"; };
+		CCFD1A7A1CFB293D0065EE42 /* vikings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vikings.png; sourceTree = "<group>"; };
+		CCFD1A7C1CFB293D0065EE42 /* apples.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apples.jpg; sourceTree = "<group>"; };
+		CCFD1A7D1CFB293D0065EE42 /* bananas.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bananas.jpg; sourceTree = "<group>"; };
+		CCFD1A7E1CFB293D0065EE42 /* cherries.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cherries.jpg; sourceTree = "<group>"; };
+		CCFD1A7F1CFB293D0065EE42 /* grapes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grapes.jpg; sourceTree = "<group>"; };
+		CCFD1A801CFB293D0065EE42 /* pineapples.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pineapples.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,7 +562,6 @@
 				CC0B1DE61CC2D7EB006707B6 /* CategoriesProvider */,
 				CCE593D81CF25FFA0019F81D /* ModuleRegisteringService */,
 				CCE593DE1CF25FFA0019F81D /* ModuleTrackingService */,
-				CC0B1E711CC442B3006707B6 /* RandomStringGenerator */,
 				CC84068D1CD6713800644CA1 /* RootModulesProvider */,
 				CC0B1E4D1CC3C19D006707B6 /* SearchResultsCacher */,
 				CC0B1E1F1CC2E303006707B6 /* SearchResultsProvider */,
@@ -725,15 +738,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		CC0B1E711CC442B3006707B6 /* RandomStringGenerator */ = {
-			isa = PBXGroup;
-			children = (
-				CC0B1E721CC442BA006707B6 /* RandomStringGenerator.swift */,
-				CC0B1E731CC442BA006707B6 /* RandomStringGeneratorImpl.swift */,
-			);
-			path = RandomStringGenerator;
-			sourceTree = "<group>";
-		};
 		CC574AAE1CEF73C1008648D0 /* Banner */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,6 +855,8 @@
 		CC8406661CD6623800644CA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CCFD1A761CFB293D0065EE42 /* Patterns */,
+				CCFD1A7B1CFB293D0065EE42 /* Placeholders */,
 				CCE639721CE05A48002DF096 /* Localization */,
 				CCA7C9131CD9414A00B7ADBD /* TouchId.png */,
 				CC8406681CD6623800644CA1 /* Default-568h@2x.png */,
@@ -1100,6 +1106,29 @@
 			path = TimerService;
 			sourceTree = "<group>";
 		};
+		CCFD1A761CFB293D0065EE42 /* Patterns */ = {
+			isa = PBXGroup;
+			children = (
+				CCFD1A771CFB293D0065EE42 /* aztec.png */,
+				CCFD1A781CFB293D0065EE42 /* plaits.png */,
+				CCFD1A791CFB293D0065EE42 /* sea.png */,
+				CCFD1A7A1CFB293D0065EE42 /* vikings.png */,
+			);
+			path = Patterns;
+			sourceTree = "<group>";
+		};
+		CCFD1A7B1CFB293D0065EE42 /* Placeholders */ = {
+			isa = PBXGroup;
+			children = (
+				CCFD1A7C1CFB293D0065EE42 /* apples.jpg */,
+				CCFD1A7D1CFB293D0065EE42 /* bananas.jpg */,
+				CCFD1A7E1CFB293D0065EE42 /* cherries.jpg */,
+				CCFD1A7F1CFB293D0065EE42 /* grapes.jpg */,
+				CCFD1A801CFB293D0065EE42 /* pineapples.jpg */,
+			);
+			path = Placeholders;
+			sourceTree = "<group>";
+		};
 		D430861738B54834AAD284BB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1171,12 +1200,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFD1A881CFB293D0065EE42 /* grapes.jpg in Resources */,
+				CCFD1A841CFB293D0065EE42 /* vikings.png in Resources */,
 				CCA7C9141CD9414A00B7ADBD /* TouchId.png in Resources */,
 				CC84066C1CD6623800644CA1 /* Recursion.jpg in Resources */,
 				CCA064EC1CE061FF00D08A67 /* Categories.plist in Resources */,
+				CCFD1A871CFB293D0065EE42 /* cherries.jpg in Resources */,
+				CCFD1A811CFB293D0065EE42 /* aztec.png in Resources */,
+				CCFD1A821CFB293D0065EE42 /* plaits.png in Resources */,
+				CCFD1A851CFB293D0065EE42 /* apples.jpg in Resources */,
 				CC84066B1CD6623800644CA1 /* Default-568h@2x.png in Resources */,
+				CCFD1A861CFB293D0065EE42 /* bananas.jpg in Resources */,
 				CC8406991CD67BA100644CA1 /* Shelf.png in Resources */,
+				CCFD1A831CFB293D0065EE42 /* sea.png in Resources */,
 				CCE639761CE05A48002DF096 /* Localizable.strings in Resources */,
+				CCFD1A891CFB293D0065EE42 /* pineapples.jpg in Resources */,
 				CC0B1D4D1CC20687006707B6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1360,9 +1398,7 @@
 				CC0B1E151CC2DF84006707B6 /* SearchResultsAssembly.swift in Sources */,
 				CC8406961CD6767500644CA1 /* BaseDemoMasterDetailRouter.swift in Sources */,
 				CC0B1E561CC3C3D3006707B6 /* AdvertisementCacherImpl.swift in Sources */,
-				CC0B1E741CC442BA006707B6 /* RandomStringGenerator.swift in Sources */,
 				CC8406831CD6693500644CA1 /* ShelfAssembly.swift in Sources */,
-				CC0B1E751CC442BA006707B6 /* RandomStringGeneratorImpl.swift in Sources */,
 				CC8406851CD6693500644CA1 /* ShelfInteractor.swift in Sources */,
 				CCA7C8EC1CD9049C00B7ADBD /* CategoriesRouterIpad.swift in Sources */,
 				CC8406911CD6713800644CA1 /* RootModulesProviderImpl.swift in Sources */,

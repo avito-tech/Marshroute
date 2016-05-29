@@ -7,6 +7,8 @@ struct SearchResult {
     let id: SearchResultId
     let rgb: (red: Double, green: Double, blue: Double)
     let requiresAuthorization: Bool
+    let patternAssetName: String?
+    let placeholderAssetName: String?
 }
 
 protocol SearchResultsProvider: class {

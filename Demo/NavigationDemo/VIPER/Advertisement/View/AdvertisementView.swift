@@ -4,10 +4,12 @@ private let ReuseId = "AdvertisementViewCell"
 private let tableHeaderHeight: CGFloat = 44
 
 final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSource {
-    private let background = GradientView()
+    private let gradientView = GradientView()
+    private let patternView = UIView()
     private let tableView = UITableView()
-    private let descriptionTextView = UITextView()
     private var recommendedSearchResults = [SearchResultsViewData]()
+    private let placeholderImageView = UIImageView()
+    private var uiInsets = UIEdgeInsetsZero
     
     // MARK: - Init
     init() {
@@ -15,12 +17,14 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         
         backgroundColor = .whiteColor()
         
-        addSubview(background)
+        addSubview(gradientView)
         
-        addSubview(descriptionTextView)
-        descriptionTextView.font = UIFont.systemFontOfSize(15)
-        descriptionTextView.backgroundColor = .clearColor()
-        descriptionTextView.editable = false
+        addSubview(patternView)
+        patternView.hidden = true
+        
+        addSubview(placeholderImageView)
+        placeholderImageView.contentMode = .ScaleAspectFill
+        placeholderImageView.layer.masksToBounds = true
         
         addSubview(tableView)
         tableView.rowHeight = 44
@@ -33,15 +37,27 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: - Internal
-    func setDescription(description: String?) {
-        descriptionTextView.text = description
+    func setPatternAssetName(assetName: String?) {
+        if let assetName = assetName, patternImage = UIImage(named: assetName) {
+            patternView.backgroundColor = UIColor(patternImage: patternImage)
+            patternView.hidden = false
+        } else {
+            patternView.hidden = true
+        }
+    }
+    
+    func setPlaceholderAssetName(assetName: String?) {
+        if let assetName = assetName, placeholderImage = UIImage(named: assetName) {
+            placeholderImageView.image = placeholderImage
+            setNeedsLayout()
+        }
     }
     
     func setBackgroundRGB(rgb: (red: Double, green: Double, blue: Double)?) {
         guard let color = colorFromRGB(rgb)
             else { return }
         
-        background.bottomColor = color
+        gradientView.bottomColor = color
     }
     
     func setSimilarSearchResults(searchResults: [SearchResultsViewData]) {
@@ -51,9 +67,7 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     }
     
     func setUIInsets(insets: UIEdgeInsets) {
-        descriptionTextView.contentInset.top = insets.top
-        descriptionTextView.scrollIndicatorInsets.top = insets.top
-        descriptionTextView.contentOffset = CGPoint(x: 0, y: -descriptionTextView.contentInset.top)
+        uiInsets = insets
         
         tableView.contentInset.bottom = insets.bottom
         tableView.scrollIndicatorInsets.bottom = insets.bottom
@@ -63,19 +77,19 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        background.frame = bounds
+        gradientView.frame = bounds
+        patternView.frame = bounds
         
         let tableHeight =
             CGFloat(recommendedSearchResults.count) * tableView.rowHeight
             + CGFloat(tableView.numberOfSections) * tableHeaderHeight
         
-        let descriptionHeight = bounds.height - tableHeight
+        let tableTop = bounds.height - tableHeight
         
-        let descriptionLabelFrame = CGRect(x: 0, y: 0, width: bounds.width, height: descriptionHeight)
-        descriptionTextView.frame = descriptionLabelFrame
-        
-        let tableFrame = CGRect(x: 0, y: descriptionHeight, width: bounds.width, height: tableHeight)
+        let tableFrame = CGRect(x: 0, y: tableTop, width: bounds.width, height: tableHeight)
         tableView.frame = tableFrame
+        
+        placeholderImageView.frame = CGRect(x: 0, y: uiInsets.top, width: bounds.width, height: tableTop)
     }
     
     // MARK: - UITableViewDataSource

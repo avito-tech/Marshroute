@@ -10,12 +10,12 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            title: "recursion".localized, // to Recursion module
-//            style: .Plain,
-//            target: self,
-//            action: "onRecursionButtonTap:"
-//        )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "recursion".localized, // to Recursion module
+            style: .Plain,
+            target: self,
+            action: "onRecursionButtonTap:"
+        )
     }
     
     override func viewWillLayoutSubviews() {
@@ -41,10 +41,14 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
         self.title = title
     }
     
-    func setDescription(description: String?) {
-        advertisementView.setDescription(description)
+    func setPatternAssetName(assetName: String?) {
+        advertisementView.setPatternAssetName(assetName)
     }
 
+    func setPlaceholderAssetName(assetName: String?) {
+        advertisementView.setPlaceholderAssetName(assetName)
+    }
+    
     func setBackgroundRGB(rgb: (red: Double, green: Double, blue: Double)?) {
         advertisementView.setBackgroundRGB(rgb)
     }

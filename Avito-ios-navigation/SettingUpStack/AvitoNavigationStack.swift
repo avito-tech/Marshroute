@@ -1,14 +1,14 @@
 import Foundation
 
 public struct AvitoNavigationStack {
-    let transitionIdGenerator: TransitionIdGenerator
-    let controllersProvider: RouterControllersProvider
-    let transitionsCoordinator: TransitionsCoordinator
-    let transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder
-    let topViewControllerFinder: TopViewControllerFinder
-    let transitionsMarker: TransitionsMarker
-    let transitionsTracker: TransitionsTracker
-    let transitionsHandlersProvider: TransitionsHandlersProvider
+    public let transitionIdGenerator: TransitionIdGenerator
+    public let controllersProvider: RouterControllersProvider
+    public let transitionsCoordinator: TransitionsCoordinator
+    public let transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder
+    public let topViewControllerFinder: TopViewControllerFinder
+    public let transitionsMarker: TransitionsMarker
+    public let transitionsTracker: TransitionsTracker
+    public let transitionsHandlersProvider: TransitionsHandlersProvider
     
     public init(
         transitionIdGenerator: TransitionIdGenerator,

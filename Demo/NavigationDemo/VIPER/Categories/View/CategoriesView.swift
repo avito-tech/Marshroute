@@ -35,7 +35,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
                 timerButton.setTitleColor(.whiteColor(), forState: .Normal)
                 timerButton.backgroundColor = .blueColor()
                 
-                timerButton.addTarget(self, action: "onTimerButtonTap:", forControlEvents: .TouchUpInside)
+                timerButton.addTarget(self, action: #selector(CategoriesView.onTimerButtonTap(_:)), forControlEvents: .TouchUpInside)
                 
                 self.timerButton = timerButton
             }

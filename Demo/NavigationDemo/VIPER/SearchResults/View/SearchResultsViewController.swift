@@ -14,7 +14,7 @@ final class SearchResultsViewController: BaseViewController, SearchResultsViewIn
             title: "recursion".localized, // to Recursion module
             style: .Plain,
             target: self,
-            action: "onRecursionButtonTap:"
+            action: #selector(SearchResultsViewController.onRecursionButtonTap(_:))
         )
     }
     

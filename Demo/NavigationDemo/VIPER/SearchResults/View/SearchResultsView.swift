@@ -64,6 +64,7 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         searchResults[indexPath.row].onTap()
     }
 }

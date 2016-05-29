@@ -125,6 +125,7 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         recommendedSearchResults[indexPath.row].onTap()
     }
     

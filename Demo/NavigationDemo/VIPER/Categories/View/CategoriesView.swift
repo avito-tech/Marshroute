@@ -81,6 +81,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         categories[indexPath.row].onTap()
     }
     

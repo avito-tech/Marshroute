@@ -1,0 +1,1898 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CCF1351A1CFC9D44007229D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135191CFC9D44007229D1 /* AppDelegate.swift */; };
+		CCF135F61CFC9E1B007229D1 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1353B1CFC9E1A007229D1 /* StrongBox.swift */; };
+		CCF135F71CFC9E1B007229D1 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1353B1CFC9E1A007229D1 /* StrongBox.swift */; };
+		CCF135F81CFC9E1B007229D1 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1353C1CFC9E1A007229D1 /* WeakBox.swift */; };
+		CCF135F91CFC9E1B007229D1 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1353C1CFC9E1A007229D1 /* WeakBox.swift */; };
+		CCF135FA1CFC9E1B007229D1 /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135401CFC9E1A007229D1 /* BaseMasterDetailRouter.swift */; };
+		CCF135FB1CFC9E1B007229D1 /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135401CFC9E1A007229D1 /* BaseMasterDetailRouter.swift */; };
+		CCF135FC1CFC9E1B007229D1 /* MasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135411CFC9E1A007229D1 /* MasterDetailRouterSeed.swift */; };
+		CCF135FD1CFC9E1B007229D1 /* MasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135411CFC9E1A007229D1 /* MasterDetailRouterSeed.swift */; };
+		CCF135FE1CFC9E1B007229D1 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135431CFC9E1A007229D1 /* BaseRouter.swift */; };
+		CCF135FF1CFC9E1B007229D1 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135431CFC9E1A007229D1 /* BaseRouter.swift */; };
+		CCF136001CFC9E1B007229D1 /* RouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135441CFC9E1A007229D1 /* RouterSeed.swift */; };
+		CCF136011CFC9E1B007229D1 /* RouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135441CFC9E1A007229D1 /* RouterSeed.swift */; };
+		CCF136021CFC9E1B007229D1 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135461CFC9E1A007229D1 /* DetailRouter.swift */; };
+		CCF136031CFC9E1B007229D1 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135461CFC9E1A007229D1 /* DetailRouter.swift */; };
+		CCF136041CFC9E1B007229D1 /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135471CFC9E1A007229D1 /* DetailRouterTransitionable.swift */; };
+		CCF136051CFC9E1B007229D1 /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135471CFC9E1A007229D1 /* DetailRouterTransitionable.swift */; };
+		CCF136061CFC9E1B007229D1 /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135481CFC9E1A007229D1 /* EndpointRouter.swift */; };
+		CCF136071CFC9E1B007229D1 /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135481CFC9E1A007229D1 /* EndpointRouter.swift */; };
+		CCF136081CFC9E1B007229D1 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135491CFC9E1A007229D1 /* MasterRouter.swift */; };
+		CCF136091CFC9E1B007229D1 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135491CFC9E1A007229D1 /* MasterRouter.swift */; };
+		CCF1360A1CFC9E1B007229D1 /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354A1CFC9E1A007229D1 /* MasterRouterTransitionable.swift */; };
+		CCF1360B1CFC9E1B007229D1 /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354A1CFC9E1A007229D1 /* MasterRouterTransitionable.swift */; };
+		CCF1360C1CFC9E1B007229D1 /* ModalPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354B1CFC9E1A007229D1 /* ModalPresentationRouter.swift */; };
+		CCF1360D1CFC9E1B007229D1 /* ModalPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354B1CFC9E1A007229D1 /* ModalPresentationRouter.swift */; };
+		CCF1360E1CFC9E1B007229D1 /* PopoverPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354C1CFC9E1A007229D1 /* PopoverPresentationRouter.swift */; };
+		CCF1360F1CFC9E1B007229D1 /* PopoverPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354C1CFC9E1A007229D1 /* PopoverPresentationRouter.swift */; };
+		CCF136101CFC9E1B007229D1 /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354D1CFC9E1A007229D1 /* RouterControllersProvider.swift */; };
+		CCF136111CFC9E1B007229D1 /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354D1CFC9E1A007229D1 /* RouterControllersProvider.swift */; };
+		CCF136121CFC9E1B007229D1 /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354E1CFC9E1A007229D1 /* RouterControllersProviderHolder.swift */; };
+		CCF136131CFC9E1B007229D1 /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354E1CFC9E1A007229D1 /* RouterControllersProviderHolder.swift */; };
+		CCF136141CFC9E1B007229D1 /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354F1CFC9E1A007229D1 /* RouterControllersProviderImpl.swift */; };
+		CCF136151CFC9E1B007229D1 /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1354F1CFC9E1A007229D1 /* RouterControllersProviderImpl.swift */; };
+		CCF136161CFC9E1B007229D1 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135501CFC9E1A007229D1 /* RouterDismissable.swift */; };
+		CCF136171CFC9E1B007229D1 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135501CFC9E1A007229D1 /* RouterDismissable.swift */; };
+		CCF136181CFC9E1B007229D1 /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135511CFC9E1A007229D1 /* RouterFocusable.swift */; };
+		CCF136191CFC9E1B007229D1 /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135511CFC9E1A007229D1 /* RouterFocusable.swift */; };
+		CCF1361A1CFC9E1B007229D1 /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135521CFC9E1A007229D1 /* RouterIdentifiable.swift */; };
+		CCF1361B1CFC9E1B007229D1 /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135521CFC9E1A007229D1 /* RouterIdentifiable.swift */; };
+		CCF1361C1CFC9E1B007229D1 /* RouterPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135531CFC9E1A007229D1 /* RouterPresentable.swift */; };
+		CCF1361D1CFC9E1B007229D1 /* RouterPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135531CFC9E1A007229D1 /* RouterPresentable.swift */; };
+		CCF1361E1CFC9E1B007229D1 /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135541CFC9E1A007229D1 /* RouterTransitionable.swift */; };
+		CCF1361F1CFC9E1B007229D1 /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135541CFC9E1A007229D1 /* RouterTransitionable.swift */; };
+		CCF136201CFC9E1B007229D1 /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135551CFC9E1A007229D1 /* RouterTransitionsHandlerBox.swift */; };
+		CCF136211CFC9E1B007229D1 /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135551CFC9E1A007229D1 /* RouterTransitionsHandlerBox.swift */; };
+		CCF136221CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */; };
+		CCF136231CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */; };
+		CCF136241CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */; };
+		CCF136251CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */; };
+		CCF136261CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */; };
+		CCF136271CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */; };
+		CCF136281CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */; };
+		CCF136291CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */; };
+		CCF1362A1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */; };
+		CCF1362B1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */; };
+		CCF1362C1CFC9E1B007229D1 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355E1CFC9E1A007229D1 /* NavigationTransitionStorableParameters.swift */; };
+		CCF1362D1CFC9E1B007229D1 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355E1CFC9E1A007229D1 /* NavigationTransitionStorableParameters.swift */; };
+		CCF1362E1CFC9E1B007229D1 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355F1CFC9E1A007229D1 /* PopoverTransitionStorableParameters.swift */; };
+		CCF1362F1CFC9E1B007229D1 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355F1CFC9E1A007229D1 /* PopoverTransitionStorableParameters.swift */; };
+		CCF136301CFC9E1B007229D1 /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135601CFC9E1A007229D1 /* TransitionStorableParameters.swift */; };
+		CCF136311CFC9E1B007229D1 /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135601CFC9E1A007229D1 /* TransitionStorableParameters.swift */; };
+		CCF136321CFC9E1B007229D1 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135641CFC9E1A007229D1 /* ModalDismissalAnimationContext.swift */; };
+		CCF136331CFC9E1B007229D1 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135641CFC9E1A007229D1 /* ModalDismissalAnimationContext.swift */; };
+		CCF136341CFC9E1B007229D1 /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135651CFC9E1A007229D1 /* ModalTransitionsAnimator.swift */; };
+		CCF136351CFC9E1B007229D1 /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135651CFC9E1A007229D1 /* ModalTransitionsAnimator.swift */; };
+		CCF136361CFC9E1B007229D1 /* ModalPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135671CFC9E1A007229D1 /* ModalPresentationAnimationContext.swift */; };
+		CCF136371CFC9E1B007229D1 /* ModalPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135671CFC9E1A007229D1 /* ModalPresentationAnimationContext.swift */; };
+		CCF136381CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1356A1CFC9E1A007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift */; };
+		CCF136391CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1356A1CFC9E1A007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift */; };
+		CCF1363A1CFC9E1B007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1356B1CFC9E1A007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift */; };
+		CCF1363B1CFC9E1B007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1356B1CFC9E1A007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift */; };
+		CCF1363C1CFC9E1B007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1356D1CFC9E1A007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift */; };
+		CCF1363D1CFC9E1B007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1356D1CFC9E1A007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift */; };
+		CCF1363E1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135701CFC9E1A007229D1 /* ModalMasterDetailDismissalAnimationContext.swift */; };
+		CCF1363F1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135701CFC9E1A007229D1 /* ModalMasterDetailDismissalAnimationContext.swift */; };
+		CCF136401CFC9E1B007229D1 /* ModalMasterDetailTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135711CFC9E1A007229D1 /* ModalMasterDetailTransitionsAnimator.swift */; };
+		CCF136411CFC9E1B007229D1 /* ModalMasterDetailTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135711CFC9E1A007229D1 /* ModalMasterDetailTransitionsAnimator.swift */; };
+		CCF136421CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135731CFC9E1A007229D1 /* ModalMasterDetailPresentationAnimationContext.swift */; };
+		CCF136431CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135731CFC9E1A007229D1 /* ModalMasterDetailPresentationAnimationContext.swift */; };
+		CCF136441CFC9E1B007229D1 /* ModalNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135761CFC9E1A007229D1 /* ModalNavigationDismissalAnimationContext.swift */; };
+		CCF136451CFC9E1B007229D1 /* ModalNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135761CFC9E1A007229D1 /* ModalNavigationDismissalAnimationContext.swift */; };
+		CCF136461CFC9E1B007229D1 /* ModalNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135771CFC9E1A007229D1 /* ModalNavigationTransitionsAnimator.swift */; };
+		CCF136471CFC9E1B007229D1 /* ModalNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135771CFC9E1A007229D1 /* ModalNavigationTransitionsAnimator.swift */; };
+		CCF136481CFC9E1B007229D1 /* ModalNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135791CFC9E1A007229D1 /* ModalNavigationPresentationAnimationContext.swift */; };
+		CCF136491CFC9E1B007229D1 /* ModalNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135791CFC9E1A007229D1 /* ModalNavigationPresentationAnimationContext.swift */; };
+		CCF1364A1CFC9E1B007229D1 /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1357C1CFC9E1A007229D1 /* NavigationTransitionsAnimator.swift */; };
+		CCF1364B1CFC9E1B007229D1 /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1357C1CFC9E1A007229D1 /* NavigationTransitionsAnimator.swift */; };
+		CCF1364C1CFC9E1B007229D1 /* PopAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1357D1CFC9E1A007229D1 /* PopAnimationContext.swift */; };
+		CCF1364D1CFC9E1B007229D1 /* PopAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1357D1CFC9E1A007229D1 /* PopAnimationContext.swift */; };
+		CCF1364E1CFC9E1B007229D1 /* PushAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1357E1CFC9E1A007229D1 /* PushAnimationContext.swift */; };
+		CCF1364F1CFC9E1B007229D1 /* PushAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1357E1CFC9E1A007229D1 /* PushAnimationContext.swift */; };
+		CCF136501CFC9E1B007229D1 /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135801CFC9E1A007229D1 /* ResetNavigationTransitionsAnimator.swift */; };
+		CCF136511CFC9E1B007229D1 /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135801CFC9E1A007229D1 /* ResetNavigationTransitionsAnimator.swift */; };
+		CCF136521CFC9E1B007229D1 /* ResettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135811CFC9E1A007229D1 /* ResettingNavigationAnimationContext.swift */; };
+		CCF136531CFC9E1B007229D1 /* ResettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135811CFC9E1A007229D1 /* ResettingNavigationAnimationContext.swift */; };
+		CCF136541CFC9E1B007229D1 /* SetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135831CFC9E1A007229D1 /* SetNavigationTransitionsAnimator.swift */; };
+		CCF136551CFC9E1B007229D1 /* SetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135831CFC9E1A007229D1 /* SetNavigationTransitionsAnimator.swift */; };
+		CCF136561CFC9E1B007229D1 /* SettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135841CFC9E1A007229D1 /* SettingNavigationAnimationContext.swift */; };
+		CCF136571CFC9E1B007229D1 /* SettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135841CFC9E1A007229D1 /* SettingNavigationAnimationContext.swift */; };
+		CCF136581CFC9E1B007229D1 /* PopoverDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135871CFC9E1A007229D1 /* PopoverDismissalAnimationContext.swift */; };
+		CCF136591CFC9E1B007229D1 /* PopoverDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135871CFC9E1A007229D1 /* PopoverDismissalAnimationContext.swift */; };
+		CCF1365A1CFC9E1B007229D1 /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135881CFC9E1A007229D1 /* PopoverTransitionsAnimator.swift */; };
+		CCF1365B1CFC9E1B007229D1 /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135881CFC9E1A007229D1 /* PopoverTransitionsAnimator.swift */; };
+		CCF1365C1CFC9E1B007229D1 /* PopoverPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1358A1CFC9E1A007229D1 /* PopoverPresentationAnimationContext.swift */; };
+		CCF1365D1CFC9E1B007229D1 /* PopoverPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1358A1CFC9E1A007229D1 /* PopoverPresentationAnimationContext.swift */; };
+		CCF1365E1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1358D1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift */; };
+		CCF1365F1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1358D1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift */; };
+		CCF136601CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1358E1CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift */; };
+		CCF136611CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1358E1CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift */; };
+		CCF136621CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135901CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift */; };
+		CCF136631CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135901CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift */; };
+		CCF136641CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135911CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift */; };
+		CCF136651CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135911CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift */; };
+		CCF136661CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135921CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift */; };
+		CCF136671CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135921CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift */; };
+		CCF136681CFC9E1B007229D1 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135931CFC9E1B007229D1 /* TransitionsAnimator.swift */; };
+		CCF136691CFC9E1B007229D1 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135931CFC9E1B007229D1 /* TransitionsAnimator.swift */; };
+		CCF1366A1CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135971CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift */; };
+		CCF1366B1CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135971CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift */; };
+		CCF1366C1CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135981CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift */; };
+		CCF1366D1CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135981CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift */; };
+		CCF1366E1CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135991CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift */; };
+		CCF1366F1CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135991CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift */; };
+		CCF136701CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1359A1CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift */; };
+		CCF136711CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1359A1CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift */; };
+		CCF136721CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1359D1CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift */; };
+		CCF136731CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1359D1CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift */; };
+		CCF136741CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1359F1CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift */; };
+		CCF136751CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1359F1CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift */; };
+		CCF136761CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A21CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */; };
+		CCF136771CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A21CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */; };
+		CCF136781CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A41CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift */; };
+		CCF136791CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A41CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift */; };
+		CCF1367A1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A71CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */; };
+		CCF1367B1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A71CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */; };
+		CCF1367C1CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A91CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; };
+		CCF1367D1CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135A91CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; };
+		CCF1367E1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135AC1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift */; };
+		CCF1367F1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135AC1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift */; };
+		CCF136801CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135AE1CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift */; };
+		CCF136811CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135AE1CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift */; };
+		CCF136821CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B11CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift */; };
+		CCF136831CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B11CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift */; };
+		CCF136841CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B31CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift */; };
+		CCF136851CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B31CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift */; };
+		CCF136861CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B51CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift */; };
+		CCF136871CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B51CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift */; };
+		CCF136881CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B71CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift */; };
+		CCF136891CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135B71CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift */; };
+		CCF1368A1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135BA1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift */; };
+		CCF1368B1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135BA1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift */; };
+		CCF1368C1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135BC1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift */; };
+		CCF1368D1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135BC1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift */; };
+		CCF1368E1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135BF1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */; };
+		CCF1368F1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135BF1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */; };
+		CCF136901CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C11CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift */; };
+		CCF136911CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C11CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift */; };
+		CCF136921CFC9E1B007229D1 /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C21CFC9E1B007229D1 /* PopoverTransitionStyle.swift */; };
+		CCF136931CFC9E1B007229D1 /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C21CFC9E1B007229D1 /* PopoverTransitionStyle.swift */; };
+		CCF136941CFC9E1B007229D1 /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C41CFC9E1B007229D1 /* CompletedTransitionContext.swift */; };
+		CCF136951CFC9E1B007229D1 /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C41CFC9E1B007229D1 /* CompletedTransitionContext.swift */; };
+		CCF136961CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C51CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF136971CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C51CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF136981CFC9E1B007229D1 /* PresentationTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C61CFC9E1B007229D1 /* PresentationTransitionContext.swift */; };
+		CCF136991CFC9E1B007229D1 /* PresentationTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C61CFC9E1B007229D1 /* PresentationTransitionContext.swift */; };
+		CCF1369A1CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C71CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF1369B1CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C71CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF1369C1CFC9E1B007229D1 /* ResettingTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C81CFC9E1B007229D1 /* ResettingTransitionContext.swift */; };
+		CCF1369D1CFC9E1B007229D1 /* ResettingTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C81CFC9E1B007229D1 /* ResettingTransitionContext.swift */; };
+		CCF1369E1CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C91CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF1369F1CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135C91CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF136A01CFC9E1B007229D1 /* RestoredTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CA1CFC9E1B007229D1 /* RestoredTransitionContext.swift */; };
+		CCF136A11CFC9E1B007229D1 /* RestoredTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CA1CFC9E1B007229D1 /* RestoredTransitionContext.swift */; };
+		CCF136A21CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CB1CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF136A31CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CB1CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift */; };
+		CCF136A41CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CC1CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift */; };
+		CCF136A51CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CC1CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift */; };
+		CCF136A61CFC9E1B007229D1 /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CD1CFC9E1B007229D1 /* TransitionsHandlerBox.swift */; };
+		CCF136A71CFC9E1B007229D1 /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CD1CFC9E1B007229D1 /* TransitionsHandlerBox.swift */; };
+		CCF136A81CFC9E1B007229D1 /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CF1CFC9E1B007229D1 /* TransitionsHandler.swift */; };
+		CCF136A91CFC9E1B007229D1 /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135CF1CFC9E1B007229D1 /* TransitionsHandler.swift */; };
+		CCF136AA1CFC9E1B007229D1 /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D01CFC9E1B007229D1 /* TransitionsHandlerContainer.swift */; };
+		CCF136AB1CFC9E1B007229D1 /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D01CFC9E1B007229D1 /* TransitionsHandlerContainer.swift */; };
+		CCF136AC1CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D21CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift */; };
+		CCF136AD1CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D21CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift */; };
+		CCF136AE1CFC9E1B007229D1 /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D31CFC9E1B007229D1 /* ContainingTransitionsHandler.swift */; };
+		CCF136AF1CFC9E1B007229D1 /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D31CFC9E1B007229D1 /* ContainingTransitionsHandler.swift */; };
+		CCF136B01CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D41CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift */; };
+		CCF136B11CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D41CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift */; };
+		CCF136B21CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D51CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift */; };
+		CCF136B31CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D51CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift */; };
+		CCF136B41CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D61CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift */; };
+		CCF136B51CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D61CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift */; };
+		CCF136B61CFC9E1B007229D1 /* TransitionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D91CFC9E1B007229D1 /* TransitionId.swift */; };
+		CCF136B71CFC9E1B007229D1 /* TransitionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135D91CFC9E1B007229D1 /* TransitionId.swift */; };
+		CCF136B81CFC9E1B007229D1 /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DA1CFC9E1B007229D1 /* TransitionIdGenerator.swift */; };
+		CCF136B91CFC9E1B007229D1 /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DA1CFC9E1B007229D1 /* TransitionIdGenerator.swift */; };
+		CCF136BA1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DB1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift */; };
+		CCF136BB1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DB1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift */; };
+		CCF136BC1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DC1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift */; };
+		CCF136BD1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DC1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift */; };
+		CCF136BE1CFC9E1B007229D1 /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DE1CFC9E1B007229D1 /* TransitionsCoordinator.swift */; };
+		CCF136BF1CFC9E1B007229D1 /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DE1CFC9E1B007229D1 /* TransitionsCoordinator.swift */; };
+		CCF136C01CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DF1CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift */; };
+		CCF136C11CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135DF1CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift */; };
+		CCF136C21CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E01CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift */; };
+		CCF136C31CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E01CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift */; };
+		CCF136C41CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E11CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift */; };
+		CCF136C51CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E11CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift */; };
+		CCF136C61CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E21CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift */; };
+		CCF136C71CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E21CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift */; };
+		CCF136C81CFC9E1B007229D1 /* TransitionsHandlersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E31CFC9E1B007229D1 /* TransitionsHandlersProvider.swift */; };
+		CCF136C91CFC9E1B007229D1 /* TransitionsHandlersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E31CFC9E1B007229D1 /* TransitionsHandlersProvider.swift */; };
+		CCF136CA1CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E41CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift */; };
+		CCF136CB1CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E41CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift */; };
+		CCF136CC1CFC9E1B007229D1 /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E51CFC9E1B007229D1 /* TransitionsHistoryItem.swift */; };
+		CCF136CD1CFC9E1B007229D1 /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E51CFC9E1B007229D1 /* TransitionsHistoryItem.swift */; };
+		CCF136CE1CFC9E1B007229D1 /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E71CFC9E1B007229D1 /* TransitionContextsStack.swift */; };
+		CCF136CF1CFC9E1B007229D1 /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E71CFC9E1B007229D1 /* TransitionContextsStack.swift */; };
+		CCF136D01CFC9E1B007229D1 /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E81CFC9E1B007229D1 /* TransitionContextsStackClient.swift */; };
+		CCF136D11CFC9E1B007229D1 /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E81CFC9E1B007229D1 /* TransitionContextsStackClient.swift */; };
+		CCF136D21CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E91CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift */; };
+		CCF136D31CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135E91CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift */; };
+		CCF136D41CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EA1CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift */; };
+		CCF136D51CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EA1CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift */; };
+		CCF136D61CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EB1CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift */; };
+		CCF136D71CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EB1CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift */; };
+		CCF136D81CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EC1CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift */; };
+		CCF136D91CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EC1CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift */; };
+		CCF136DA1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135ED1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift */; };
+		CCF136DB1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135ED1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift */; };
+		CCF136DC1CFC9E1B007229D1 /* TransitionsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EF1CFC9E1B007229D1 /* TransitionsMarker.swift */; };
+		CCF136DD1CFC9E1B007229D1 /* TransitionsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135EF1CFC9E1B007229D1 /* TransitionsMarker.swift */; };
+		CCF136DE1CFC9E1B007229D1 /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F01CFC9E1B007229D1 /* TransitionsMarkersHolder.swift */; };
+		CCF136DF1CFC9E1B007229D1 /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F01CFC9E1B007229D1 /* TransitionsMarkersHolder.swift */; };
+		CCF136E01CFC9E1B007229D1 /* TransitionUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F11CFC9E1B007229D1 /* TransitionUserId.swift */; };
+		CCF136E11CFC9E1B007229D1 /* TransitionUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F11CFC9E1B007229D1 /* TransitionUserId.swift */; };
+		CCF136E21CFC9E1B007229D1 /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F31CFC9E1B007229D1 /* TransitionsTracker.swift */; };
+		CCF136E31CFC9E1B007229D1 /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F31CFC9E1B007229D1 /* TransitionsTracker.swift */; };
+		CCF136E41CFC9E1B007229D1 /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F51CFC9E1B007229D1 /* TopViewControllerFinder.swift */; };
+		CCF136E51CFC9E1B007229D1 /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135F51CFC9E1B007229D1 /* TopViewControllerFinder.swift */; };
+		CCF137191CFC9E42007229D1 /* AnimatingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136E81CFC9E41007229D1 /* AnimatingTransitionsHandlerSpy.swift */; };
+		CCF1371A1CFC9E42007229D1 /* ContainingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136E91CFC9E41007229D1 /* ContainingTransitionsHandlerSpy.swift */; };
+		CCF1371B1CFC9E42007229D1 /* DummyTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136EA1CFC9E41007229D1 /* DummyTransitionsHandler.swift */; };
+		CCF1371C1CFC9E42007229D1 /* TransitionContextsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136EB1CFC9E41007229D1 /* TransitionContextsCreator.swift */; };
+		CCF1371D1CFC9E42007229D1 /* TransitionContextsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136EC1CFC9E42007229D1 /* TransitionContextsExtensions.swift */; };
+		CCF1371E1CFC9E42007229D1 /* TransitionsCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136ED1CFC9E42007229D1 /* TransitionsCoordinatorSpy.swift */; };
+		CCF1371F1CFC9E42007229D1 /* TransitionsCoordinatorSpyingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136EE1CFC9E42007229D1 /* TransitionsCoordinatorSpyingEnums.swift */; };
+		CCF137201CFC9E42007229D1 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136F11CFC9E42007229D1 /* DetailRouterTests_BaseMasterDetailRouter.swift */; };
+		CCF137211CFC9E42007229D1 /* DetailRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136F21CFC9E42007229D1 /* DetailRouterTests_BaseRouter.swift */; };
+		CCF137221CFC9E42007229D1 /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136F41CFC9E42007229D1 /* EndpointRouterTests_BaseMasterDetailRouter.swift */; };
+		CCF137231CFC9E42007229D1 /* EndpointRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136F51CFC9E42007229D1 /* EndpointRouterTests_BaseRouter.swift */; };
+		CCF137241CFC9E42007229D1 /* MasterlRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136F71CFC9E42007229D1 /* MasterlRouterTests.swift */; };
+		CCF137251CFC9E42007229D1 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136F91CFC9E42007229D1 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */; };
+		CCF137261CFC9E42007229D1 /* ModalPresentationRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136FA1CFC9E42007229D1 /* ModalPresentationRouterTests_BaseRouter.swift */; };
+		CCF137271CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136FC1CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */; };
+		CCF137281CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136FD1CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseRouter.swift */; };
+		CCF137291CFC9E42007229D1 /* RouterDismissableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF136FF1CFC9E42007229D1 /* RouterDismissableTests.swift */; };
+		CCF1372A1CFC9E42007229D1 /* RouterFocusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137011CFC9E42007229D1 /* RouterFocusableTests.swift */; };
+		CCF1372B1CFC9E42007229D1 /* TransitionContextsStackClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137031CFC9E42007229D1 /* TransitionContextsStackClient_Tests.swift */; };
+		CCF1372C1CFC9E42007229D1 /* TransitionContextsStack_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137051CFC9E42007229D1 /* TransitionContextsStack_Tests.swift */; };
+		CCF1372D1CFC9E42007229D1 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137071CFC9E42007229D1 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */; };
+		CCF1372E1CFC9E42007229D1 /* AnimatingTransitionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137081CFC9E42007229D1 /* AnimatingTransitionsHandlerTests.swift */; };
+		CCF1372F1CFC9E42007229D1 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137091CFC9E42007229D1 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */; };
+		CCF137301CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1370A1CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */; };
+		CCF137311CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1370B1CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */; };
+		CCF137321CFC9E42007229D1 /* NavigationTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1370C1CFC9E42007229D1 /* NavigationTransitionsHandlerImplTests.swift */; };
+		CCF137331CFC9E42007229D1 /* SplitViewTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1370D1CFC9E42007229D1 /* SplitViewTransitionsHandlerImplTests.swift */; };
+		CCF137341CFC9E42007229D1 /* TabBarTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1370E1CFC9E42007229D1 /* TabBarTransitionsHandlerImplTests.swift */; };
+		CCF137351CFC9E42007229D1 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137101CFC9E42007229D1 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */; };
+		CCF137361CFC9E42007229D1 /* ModalMasterDetailTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137111CFC9E42007229D1 /* ModalMasterDetailTransitionsAnimatorSpy.swift */; };
+		CCF137371CFC9E42007229D1 /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137121CFC9E42007229D1 /* ModalNavigationTransitionsAnimatorSpy.swift */; };
+		CCF137381CFC9E42007229D1 /* ModalTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137131CFC9E42007229D1 /* ModalTransitionsAnimatorSpy.swift */; };
+		CCF137391CFC9E42007229D1 /* NavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137141CFC9E42007229D1 /* NavigationTransitionsAnimatorSpy.swift */; };
+		CCF1373A1CFC9E42007229D1 /* PopoverNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137151CFC9E42007229D1 /* PopoverNavigationTransitionsAnimatorSpy.swift */; };
+		CCF1373B1CFC9E42007229D1 /* PopoverTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137161CFC9E42007229D1 /* PopoverTransitionsAnimatorSpy.swift */; };
+		CCF1373C1CFC9E42007229D1 /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137171CFC9E42007229D1 /* ResetNavigationTransitionsAnimatorSpy.swift */; };
+		CCF1373D1CFC9E42007229D1 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF137181CFC9E42007229D1 /* SetNavigationTransitionsAnimatorSpy.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCF1352B1CFC9D44007229D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCF1350E1CFC9D44007229D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCF135151CFC9D44007229D1;
+			remoteInfo = Marshroute;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CCF135161CFC9D44007229D1 /* Marshroute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marshroute.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCF135191CFC9D44007229D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CCF135251CFC9D44007229D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCF1352A1CFC9D44007229D1 /* MarshrouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarshrouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCF135301CFC9D44007229D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCF1353B1CFC9E1A007229D1 /* StrongBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongBox.swift; sourceTree = "<group>"; };
+		CCF1353C1CFC9E1A007229D1 /* WeakBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
+		CCF135401CFC9E1A007229D1 /* BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCF135411CFC9E1A007229D1 /* MasterDetailRouterSeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDetailRouterSeed.swift; sourceTree = "<group>"; };
+		CCF135431CFC9E1A007229D1 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		CCF135441CFC9E1A007229D1 /* RouterSeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterSeed.swift; sourceTree = "<group>"; };
+		CCF135461CFC9E1A007229D1 /* DetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		CCF135471CFC9E1A007229D1 /* DetailRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTransitionable.swift; sourceTree = "<group>"; };
+		CCF135481CFC9E1A007229D1 /* EndpointRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
+		CCF135491CFC9E1A007229D1 /* MasterRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterRouter.swift; sourceTree = "<group>"; };
+		CCF1354A1CFC9E1A007229D1 /* MasterRouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterRouterTransitionable.swift; sourceTree = "<group>"; };
+		CCF1354B1CFC9E1A007229D1 /* ModalPresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouter.swift; sourceTree = "<group>"; };
+		CCF1354C1CFC9E1A007229D1 /* PopoverPresentationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouter.swift; sourceTree = "<group>"; };
+		CCF1354D1CFC9E1A007229D1 /* RouterControllersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProvider.swift; sourceTree = "<group>"; };
+		CCF1354E1CFC9E1A007229D1 /* RouterControllersProviderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderHolder.swift; sourceTree = "<group>"; };
+		CCF1354F1CFC9E1A007229D1 /* RouterControllersProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderImpl.swift; sourceTree = "<group>"; };
+		CCF135501CFC9E1A007229D1 /* RouterDismissable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismissable.swift; sourceTree = "<group>"; };
+		CCF135511CFC9E1A007229D1 /* RouterFocusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusable.swift; sourceTree = "<group>"; };
+		CCF135521CFC9E1A007229D1 /* RouterIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterIdentifiable.swift; sourceTree = "<group>"; };
+		CCF135531CFC9E1A007229D1 /* RouterPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterPresentable.swift; sourceTree = "<group>"; };
+		CCF135541CFC9E1A007229D1 /* RouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTransitionable.swift; sourceTree = "<group>"; };
+		CCF135551CFC9E1A007229D1 /* RouterTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationFactory.swift; sourceTree = "<group>"; };
+		CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationFactoryImpl.swift; sourceTree = "<group>"; };
+		CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationSetupService.swift; sourceTree = "<group>"; };
+		CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationSetupServiceImpl.swift; sourceTree = "<group>"; };
+		CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationStack.swift; sourceTree = "<group>"; };
+		CCF1355E1CFC9E1A007229D1 /* NavigationTransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionStorableParameters.swift; sourceTree = "<group>"; };
+		CCF1355F1CFC9E1A007229D1 /* PopoverTransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionStorableParameters.swift; sourceTree = "<group>"; };
+		CCF135601CFC9E1A007229D1 /* TransitionStorableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionStorableParameters.swift; sourceTree = "<group>"; };
+		CCF135641CFC9E1A007229D1 /* ModalDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135651CFC9E1A007229D1 /* ModalTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF135671CFC9E1A007229D1 /* ModalPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF1356A1CFC9E1A007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationDismissalAnimationContext.swift; sourceTree = "<group>"; };
+		CCF1356B1CFC9E1A007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF1356D1CFC9E1A007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationPresentationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135701CFC9E1A007229D1 /* ModalMasterDetailDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailDismissalAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135711CFC9E1A007229D1 /* ModalMasterDetailTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF135731CFC9E1A007229D1 /* ModalMasterDetailPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135761CFC9E1A007229D1 /* ModalNavigationDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationDismissalAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135771CFC9E1A007229D1 /* ModalNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF135791CFC9E1A007229D1 /* ModalNavigationPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationPresentationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF1357C1CFC9E1A007229D1 /* NavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF1357D1CFC9E1A007229D1 /* PopAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimationContext.swift; sourceTree = "<group>"; };
+		CCF1357E1CFC9E1A007229D1 /* PushAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135801CFC9E1A007229D1 /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF135811CFC9E1A007229D1 /* ResettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135831CFC9E1A007229D1 /* SetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF135841CFC9E1A007229D1 /* SettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135871CFC9E1A007229D1 /* PopoverDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverDismissalAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135881CFC9E1A007229D1 /* PopoverTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF1358A1CFC9E1A007229D1 /* PopoverPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF1358D1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationDismissalAnimationContext.swift; sourceTree = "<group>"; };
+		CCF1358E1CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF135901CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationPresentationAnimationContext.swift; sourceTree = "<group>"; };
+		CCF135911CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
+		CCF135921CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
+		CCF135931CFC9E1B007229D1 /* TransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsAnimator.swift; sourceTree = "<group>"; };
+		CCF135971CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
+		CCF135981CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
+		CCF135991CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
+		CCF1359A1CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionAnimationsLauncher.swift; sourceTree = "<group>"; };
+		CCF1359D1CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF1359F1CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135A21CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135A41CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135A71CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135A91CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135AC1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135AE1CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135B11CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135B31CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135B51CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135B71CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135BA1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135BC1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135BF1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135C11CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
+		CCF135C21CFC9E1B007229D1 /* PopoverTransitionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionStyle.swift; sourceTree = "<group>"; };
+		CCF135C41CFC9E1B007229D1 /* CompletedTransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContext.swift; sourceTree = "<group>"; };
+		CCF135C51CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCF135C61CFC9E1B007229D1 /* PresentationTransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTransitionContext.swift; sourceTree = "<group>"; };
+		CCF135C71CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCF135C81CFC9E1B007229D1 /* ResettingTransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingTransitionContext.swift; sourceTree = "<group>"; };
+		CCF135C91CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCF135CA1CFC9E1B007229D1 /* RestoredTransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoredTransitionContext.swift; sourceTree = "<group>"; };
+		CCF135CB1CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestoredTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCF135CC1CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
+		CCF135CD1CFC9E1B007229D1 /* TransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerBox.swift; sourceTree = "<group>"; };
+		CCF135CF1CFC9E1B007229D1 /* TransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandler.swift; sourceTree = "<group>"; };
+		CCF135D01CFC9E1B007229D1 /* TransitionsHandlerContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlerContainer.swift; sourceTree = "<group>"; };
+		CCF135D21CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCF135D31CFC9E1B007229D1 /* ContainingTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCF135D41CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
+		CCF135D51CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
+		CCF135D61CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
+		CCF135D91CFC9E1B007229D1 /* TransitionId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionId.swift; sourceTree = "<group>"; };
+		CCF135DA1CFC9E1B007229D1 /* TransitionIdGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionIdGenerator.swift; sourceTree = "<group>"; };
+		CCF135DB1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorHolder.swift; sourceTree = "<group>"; };
+		CCF135DC1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionIdGeneratorImpl.swift; sourceTree = "<group>"; };
+		CCF135DE1CFC9E1B007229D1 /* TransitionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinator.swift; sourceTree = "<group>"; };
+		CCF135DF1CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegate.swift; sourceTree = "<group>"; };
+		CCF135E01CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorDelegateHolder.swift; sourceTree = "<group>"; };
+		CCF135E11CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorHolder.swift; sourceTree = "<group>"; };
+		CCF135E21CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorImpl.swift; sourceTree = "<group>"; };
+		CCF135E31CFC9E1B007229D1 /* TransitionsHandlersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersProvider.swift; sourceTree = "<group>"; };
+		CCF135E41CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersProviderHolder.swift; sourceTree = "<group>"; };
+		CCF135E51CFC9E1B007229D1 /* TransitionsHistoryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsHistoryItem.swift; sourceTree = "<group>"; };
+		CCF135E71CFC9E1B007229D1 /* TransitionContextsStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack.swift; sourceTree = "<group>"; };
+		CCF135E81CFC9E1B007229D1 /* TransitionContextsStackClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient.swift; sourceTree = "<group>"; };
+		CCF135E91CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientImpl.swift; sourceTree = "<group>"; };
+		CCF135EA1CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProvider.swift; sourceTree = "<group>"; };
+		CCF135EB1CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderHolder.swift; sourceTree = "<group>"; };
+		CCF135EC1CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderImpl.swift; sourceTree = "<group>"; };
+		CCF135ED1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackImpl.swift; sourceTree = "<group>"; };
+		CCF135EF1CFC9E1B007229D1 /* TransitionsMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsMarker.swift; sourceTree = "<group>"; };
+		CCF135F01CFC9E1B007229D1 /* TransitionsMarkersHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsMarkersHolder.swift; sourceTree = "<group>"; };
+		CCF135F11CFC9E1B007229D1 /* TransitionUserId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionUserId.swift; sourceTree = "<group>"; };
+		CCF135F31CFC9E1B007229D1 /* TransitionsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsTracker.swift; sourceTree = "<group>"; };
+		CCF135F51CFC9E1B007229D1 /* TopViewControllerFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopViewControllerFinder.swift; sourceTree = "<group>"; };
+		CCF136E81CFC9E41007229D1 /* AnimatingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
+		CCF136E91CFC9E41007229D1 /* ContainingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
+		CCF136EA1CFC9E41007229D1 /* DummyTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCF136EB1CFC9E41007229D1 /* TransitionContextsCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsCreator.swift; sourceTree = "<group>"; };
+		CCF136EC1CFC9E42007229D1 /* TransitionContextsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsExtensions.swift; sourceTree = "<group>"; };
+		CCF136ED1CFC9E42007229D1 /* TransitionsCoordinatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpy.swift; sourceTree = "<group>"; };
+		CCF136EE1CFC9E42007229D1 /* TransitionsCoordinatorSpyingEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpyingEnums.swift; sourceTree = "<group>"; };
+		CCF136F11CFC9E42007229D1 /* DetailRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCF136F21CFC9E42007229D1 /* DetailRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCF136F41CFC9E42007229D1 /* EndpointRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCF136F51CFC9E42007229D1 /* EndpointRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCF136F71CFC9E42007229D1 /* MasterlRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterlRouterTests.swift; sourceTree = "<group>"; };
+		CCF136F91CFC9E42007229D1 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCF136FA1CFC9E42007229D1 /* ModalPresentationRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCF136FC1CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCF136FD1CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCF136FF1CFC9E42007229D1 /* RouterDismissableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismissableTests.swift; sourceTree = "<group>"; };
+		CCF137011CFC9E42007229D1 /* RouterFocusableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusableTests.swift; sourceTree = "<group>"; };
+		CCF137031CFC9E42007229D1 /* TransitionContextsStackClient_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient_Tests.swift; sourceTree = "<group>"; };
+		CCF137051CFC9E42007229D1 /* TransitionContextsStack_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack_Tests.swift; sourceTree = "<group>"; };
+		CCF137071CFC9E42007229D1 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCF137081CFC9E42007229D1 /* AnimatingTransitionsHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTests.swift; sourceTree = "<group>"; };
+		CCF137091CFC9E42007229D1 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCF1370A1CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCF1370B1CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCF1370C1CFC9E42007229D1 /* NavigationTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CCF1370D1CFC9E42007229D1 /* SplitViewTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CCF1370E1CFC9E42007229D1 /* TabBarTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CCF137101CFC9E42007229D1 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137111CFC9E42007229D1 /* ModalMasterDetailTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137121CFC9E42007229D1 /* ModalNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137131CFC9E42007229D1 /* ModalTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137141CFC9E42007229D1 /* NavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137151CFC9E42007229D1 /* PopoverNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137161CFC9E42007229D1 /* PopoverTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137171CFC9E42007229D1 /* ResetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCF137181CFC9E42007229D1 /* SetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCF135131CFC9D44007229D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCF135271CFC9D44007229D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCF1350D1CFC9D44007229D1 = {
+			isa = PBXGroup;
+			children = (
+				CCF135181CFC9D44007229D1 /* Marshroute */,
+				CCF1352D1CFC9D44007229D1 /* MarshrouteTests */,
+				CCF135171CFC9D44007229D1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CCF135171CFC9D44007229D1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135161CFC9D44007229D1 /* Marshroute.app */,
+				CCF1352A1CFC9D44007229D1 /* MarshrouteTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCF135181CFC9D44007229D1 /* Marshroute */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135191CFC9D44007229D1 /* AppDelegate.swift */,
+				CCF135251CFC9D44007229D1 /* Info.plist */,
+				CCF135391CFC9E1A007229D1 /* Sources */,
+			);
+			path = Marshroute;
+			sourceTree = "<group>";
+		};
+		CCF1352D1CFC9D44007229D1 /* MarshrouteTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136E61CFC9E41007229D1 /* Sources */,
+				CCF135301CFC9D44007229D1 /* Info.plist */,
+			);
+			path = MarshrouteTests;
+			sourceTree = "<group>";
+		};
+		CCF135391CFC9E1A007229D1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1353A1CFC9E1A007229D1 /* Boxes */,
+				CCF1353D1CFC9E1A007229D1 /* Routers */,
+				CCF135561CFC9E1A007229D1 /* SettingUpStack */,
+				CCF1355C1CFC9E1A007229D1 /* Transitions */,
+				CCF135F41CFC9E1B007229D1 /* ViewControllerAdditions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CCF1353A1CFC9E1A007229D1 /* Boxes */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1353B1CFC9E1A007229D1 /* StrongBox.swift */,
+				CCF1353C1CFC9E1A007229D1 /* WeakBox.swift */,
+			);
+			path = Boxes;
+			sourceTree = "<group>";
+		};
+		CCF1353D1CFC9E1A007229D1 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1353E1CFC9E1A007229D1 /* BaseImpls */,
+				CCF135451CFC9E1A007229D1 /* Routers */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		CCF1353E1CFC9E1A007229D1 /* BaseImpls */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1353F1CFC9E1A007229D1 /* BaseMasterDetailRouter */,
+				CCF135421CFC9E1A007229D1 /* BaseRouter */,
+			);
+			path = BaseImpls;
+			sourceTree = "<group>";
+		};
+		CCF1353F1CFC9E1A007229D1 /* BaseMasterDetailRouter */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135401CFC9E1A007229D1 /* BaseMasterDetailRouter.swift */,
+				CCF135411CFC9E1A007229D1 /* MasterDetailRouterSeed.swift */,
+			);
+			path = BaseMasterDetailRouter;
+			sourceTree = "<group>";
+		};
+		CCF135421CFC9E1A007229D1 /* BaseRouter */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135431CFC9E1A007229D1 /* BaseRouter.swift */,
+				CCF135441CFC9E1A007229D1 /* RouterSeed.swift */,
+			);
+			path = BaseRouter;
+			sourceTree = "<group>";
+		};
+		CCF135451CFC9E1A007229D1 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135461CFC9E1A007229D1 /* DetailRouter.swift */,
+				CCF135471CFC9E1A007229D1 /* DetailRouterTransitionable.swift */,
+				CCF135481CFC9E1A007229D1 /* EndpointRouter.swift */,
+				CCF135491CFC9E1A007229D1 /* MasterRouter.swift */,
+				CCF1354A1CFC9E1A007229D1 /* MasterRouterTransitionable.swift */,
+				CCF1354B1CFC9E1A007229D1 /* ModalPresentationRouter.swift */,
+				CCF1354C1CFC9E1A007229D1 /* PopoverPresentationRouter.swift */,
+				CCF1354D1CFC9E1A007229D1 /* RouterControllersProvider.swift */,
+				CCF1354E1CFC9E1A007229D1 /* RouterControllersProviderHolder.swift */,
+				CCF1354F1CFC9E1A007229D1 /* RouterControllersProviderImpl.swift */,
+				CCF135501CFC9E1A007229D1 /* RouterDismissable.swift */,
+				CCF135511CFC9E1A007229D1 /* RouterFocusable.swift */,
+				CCF135521CFC9E1A007229D1 /* RouterIdentifiable.swift */,
+				CCF135531CFC9E1A007229D1 /* RouterPresentable.swift */,
+				CCF135541CFC9E1A007229D1 /* RouterTransitionable.swift */,
+				CCF135551CFC9E1A007229D1 /* RouterTransitionsHandlerBox.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		CCF135561CFC9E1A007229D1 /* SettingUpStack */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */,
+				CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */,
+				CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */,
+				CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */,
+				CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */,
+			);
+			path = SettingUpStack;
+			sourceTree = "<group>";
+		};
+		CCF1355C1CFC9E1A007229D1 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1355D1CFC9E1A007229D1 /* Transition Storable Parameters */,
+				CCF135611CFC9E1A007229D1 /* TransitionAnimations */,
+				CCF135941CFC9E1B007229D1 /* TransitionAnimationsLaunching */,
+				CCF135C31CFC9E1B007229D1 /* TransitionContexts */,
+				CCF135CE1CFC9E1B007229D1 /* TransitionsHandler */,
+				CCF135D11CFC9E1B007229D1 /* TransitionsHandlerImpls */,
+				CCF135D71CFC9E1B007229D1 /* TransitionsHandling */,
+				CCF135EE1CFC9E1B007229D1 /* TransitionsMarking */,
+				CCF135F21CFC9E1B007229D1 /* TransitionsTracking */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		CCF1355D1CFC9E1A007229D1 /* Transition Storable Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1355E1CFC9E1A007229D1 /* NavigationTransitionStorableParameters.swift */,
+				CCF1355F1CFC9E1A007229D1 /* PopoverTransitionStorableParameters.swift */,
+				CCF135601CFC9E1A007229D1 /* TransitionStorableParameters.swift */,
+			);
+			path = "Transition Storable Parameters";
+			sourceTree = "<group>";
+		};
+		CCF135611CFC9E1A007229D1 /* TransitionAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135621CFC9E1A007229D1 /* Modal */,
+				CCF135681CFC9E1A007229D1 /* ModalEndpointNavigation */,
+				CCF1356E1CFC9E1A007229D1 /* ModalMasterDetail */,
+				CCF135741CFC9E1A007229D1 /* ModalNavigation */,
+				CCF1357A1CFC9E1A007229D1 /* Navigation */,
+				CCF135851CFC9E1A007229D1 /* Popover */,
+				CCF1358B1CFC9E1A007229D1 /* PopoverNavigation */,
+				CCF135911CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift */,
+				CCF135921CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift */,
+				CCF135931CFC9E1B007229D1 /* TransitionsAnimator.swift */,
+			);
+			path = TransitionAnimations;
+			sourceTree = "<group>";
+		};
+		CCF135621CFC9E1A007229D1 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135631CFC9E1A007229D1 /* Dismissal */,
+				CCF135651CFC9E1A007229D1 /* ModalTransitionsAnimator.swift */,
+				CCF135661CFC9E1A007229D1 /* Presentation */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		CCF135631CFC9E1A007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135641CFC9E1A007229D1 /* ModalDismissalAnimationContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135661CFC9E1A007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135671CFC9E1A007229D1 /* ModalPresentationAnimationContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135681CFC9E1A007229D1 /* ModalEndpointNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135691CFC9E1A007229D1 /* Dismissal */,
+				CCF1356B1CFC9E1A007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift */,
+				CCF1356C1CFC9E1A007229D1 /* Presentation */,
+			);
+			path = ModalEndpointNavigation;
+			sourceTree = "<group>";
+		};
+		CCF135691CFC9E1A007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1356A1CFC9E1A007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF1356C1CFC9E1A007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1356D1CFC9E1A007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF1356E1CFC9E1A007229D1 /* ModalMasterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1356F1CFC9E1A007229D1 /* Dismissal */,
+				CCF135711CFC9E1A007229D1 /* ModalMasterDetailTransitionsAnimator.swift */,
+				CCF135721CFC9E1A007229D1 /* Presentation */,
+			);
+			path = ModalMasterDetail;
+			sourceTree = "<group>";
+		};
+		CCF1356F1CFC9E1A007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135701CFC9E1A007229D1 /* ModalMasterDetailDismissalAnimationContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135721CFC9E1A007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135731CFC9E1A007229D1 /* ModalMasterDetailPresentationAnimationContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135741CFC9E1A007229D1 /* ModalNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135751CFC9E1A007229D1 /* Dismissal */,
+				CCF135771CFC9E1A007229D1 /* ModalNavigationTransitionsAnimator.swift */,
+				CCF135781CFC9E1A007229D1 /* Presentation */,
+			);
+			path = ModalNavigation;
+			sourceTree = "<group>";
+		};
+		CCF135751CFC9E1A007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135761CFC9E1A007229D1 /* ModalNavigationDismissalAnimationContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135781CFC9E1A007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135791CFC9E1A007229D1 /* ModalNavigationPresentationAnimationContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF1357A1CFC9E1A007229D1 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1357B1CFC9E1A007229D1 /* Push:Pop */,
+				CCF1357F1CFC9E1A007229D1 /* Reset */,
+				CCF135821CFC9E1A007229D1 /* Set */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CCF1357B1CFC9E1A007229D1 /* Push:Pop */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1357C1CFC9E1A007229D1 /* NavigationTransitionsAnimator.swift */,
+				CCF1357D1CFC9E1A007229D1 /* PopAnimationContext.swift */,
+				CCF1357E1CFC9E1A007229D1 /* PushAnimationContext.swift */,
+			);
+			path = "Push:Pop";
+			sourceTree = "<group>";
+		};
+		CCF1357F1CFC9E1A007229D1 /* Reset */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135801CFC9E1A007229D1 /* ResetNavigationTransitionsAnimator.swift */,
+				CCF135811CFC9E1A007229D1 /* ResettingNavigationAnimationContext.swift */,
+			);
+			path = Reset;
+			sourceTree = "<group>";
+		};
+		CCF135821CFC9E1A007229D1 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135831CFC9E1A007229D1 /* SetNavigationTransitionsAnimator.swift */,
+				CCF135841CFC9E1A007229D1 /* SettingNavigationAnimationContext.swift */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		CCF135851CFC9E1A007229D1 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135861CFC9E1A007229D1 /* Dismissal */,
+				CCF135881CFC9E1A007229D1 /* PopoverTransitionsAnimator.swift */,
+				CCF135891CFC9E1A007229D1 /* Presentation */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		CCF135861CFC9E1A007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135871CFC9E1A007229D1 /* PopoverDismissalAnimationContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135891CFC9E1A007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1358A1CFC9E1A007229D1 /* PopoverPresentationAnimationContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF1358B1CFC9E1A007229D1 /* PopoverNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1358C1CFC9E1B007229D1 /* Dismissal */,
+				CCF1358E1CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift */,
+				CCF1358F1CFC9E1B007229D1 /* Presentation */,
+			);
+			path = PopoverNavigation;
+			sourceTree = "<group>";
+		};
+		CCF1358C1CFC9E1B007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1358D1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF1358F1CFC9E1B007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135901CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135941CFC9E1B007229D1 /* TransitionAnimationsLaunching */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135951CFC9E1B007229D1 /* AnimationsLaunching */,
+				CCF1359B1CFC9E1B007229D1 /* Modal */,
+				CCF135A01CFC9E1B007229D1 /* ModalEndpointNavigation */,
+				CCF135A51CFC9E1B007229D1 /* ModalMasterDetail */,
+				CCF135AA1CFC9E1B007229D1 /* ModalNavigation */,
+				CCF135AF1CFC9E1B007229D1 /* Navigation */,
+				CCF135B81CFC9E1B007229D1 /* Popover */,
+				CCF135BD1CFC9E1B007229D1 /* PopoverNavigation */,
+				CCF135C21CFC9E1B007229D1 /* PopoverTransitionStyle.swift */,
+			);
+			path = TransitionAnimationsLaunching;
+			sourceTree = "<group>";
+		};
+		CCF135951CFC9E1B007229D1 /* AnimationsLaunching */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135961CFC9E1B007229D1 /* AnimationLaunchingContextBoxes */,
+				CCF1359A1CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift */,
+			);
+			path = AnimationsLaunching;
+			sourceTree = "<group>";
+		};
+		CCF135961CFC9E1B007229D1 /* AnimationLaunchingContextBoxes */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135971CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift */,
+				CCF135981CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift */,
+				CCF135991CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift */,
+			);
+			path = AnimationLaunchingContextBoxes;
+			sourceTree = "<group>";
+		};
+		CCF1359B1CFC9E1B007229D1 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1359C1CFC9E1B007229D1 /* Dismissal */,
+				CCF1359E1CFC9E1B007229D1 /* Presentation */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		CCF1359C1CFC9E1B007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1359D1CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF1359E1CFC9E1B007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF1359F1CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135A01CFC9E1B007229D1 /* ModalEndpointNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135A11CFC9E1B007229D1 /* Dismissal */,
+				CCF135A31CFC9E1B007229D1 /* Presentation */,
+			);
+			path = ModalEndpointNavigation;
+			sourceTree = "<group>";
+		};
+		CCF135A11CFC9E1B007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135A21CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135A31CFC9E1B007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135A41CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135A51CFC9E1B007229D1 /* ModalMasterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135A61CFC9E1B007229D1 /* Dismissal */,
+				CCF135A81CFC9E1B007229D1 /* Presentation */,
+			);
+			path = ModalMasterDetail;
+			sourceTree = "<group>";
+		};
+		CCF135A61CFC9E1B007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135A71CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135A81CFC9E1B007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135A91CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135AA1CFC9E1B007229D1 /* ModalNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135AB1CFC9E1B007229D1 /* Dismissal */,
+				CCF135AD1CFC9E1B007229D1 /* Presentation */,
+			);
+			path = ModalNavigation;
+			sourceTree = "<group>";
+		};
+		CCF135AB1CFC9E1B007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135AC1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135AD1CFC9E1B007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135AE1CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135AF1CFC9E1B007229D1 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135B01CFC9E1B007229D1 /* Pop */,
+				CCF135B21CFC9E1B007229D1 /* Push */,
+				CCF135B41CFC9E1B007229D1 /* Reset */,
+				CCF135B61CFC9E1B007229D1 /* Set */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CCF135B01CFC9E1B007229D1 /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135B11CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift */,
+			);
+			path = Pop;
+			sourceTree = "<group>";
+		};
+		CCF135B21CFC9E1B007229D1 /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135B31CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		CCF135B41CFC9E1B007229D1 /* Reset */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135B51CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift */,
+			);
+			path = Reset;
+			sourceTree = "<group>";
+		};
+		CCF135B61CFC9E1B007229D1 /* Set */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135B71CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift */,
+			);
+			path = Set;
+			sourceTree = "<group>";
+		};
+		CCF135B81CFC9E1B007229D1 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135B91CFC9E1B007229D1 /* Dismissal */,
+				CCF135BB1CFC9E1B007229D1 /* Presentation */,
+			);
+			path = Popover;
+			sourceTree = "<group>";
+		};
+		CCF135B91CFC9E1B007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135BA1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135BB1CFC9E1B007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135BC1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135BD1CFC9E1B007229D1 /* PopoverNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135BE1CFC9E1B007229D1 /* Dismissal */,
+				CCF135C01CFC9E1B007229D1 /* Presentation */,
+			);
+			path = PopoverNavigation;
+			sourceTree = "<group>";
+		};
+		CCF135BE1CFC9E1B007229D1 /* Dismissal */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135BF1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */,
+			);
+			path = Dismissal;
+			sourceTree = "<group>";
+		};
+		CCF135C01CFC9E1B007229D1 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135C11CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CCF135C31CFC9E1B007229D1 /* TransitionContexts */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135C41CFC9E1B007229D1 /* CompletedTransitionContext.swift */,
+				CCF135C51CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift */,
+				CCF135C61CFC9E1B007229D1 /* PresentationTransitionContext.swift */,
+				CCF135C71CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift */,
+				CCF135C81CFC9E1B007229D1 /* ResettingTransitionContext.swift */,
+				CCF135C91CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift */,
+				CCF135CA1CFC9E1B007229D1 /* RestoredTransitionContext.swift */,
+				CCF135CB1CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift */,
+				CCF135CC1CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift */,
+				CCF135CD1CFC9E1B007229D1 /* TransitionsHandlerBox.swift */,
+			);
+			path = TransitionContexts;
+			sourceTree = "<group>";
+		};
+		CCF135CE1CFC9E1B007229D1 /* TransitionsHandler */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135CF1CFC9E1B007229D1 /* TransitionsHandler.swift */,
+				CCF135D01CFC9E1B007229D1 /* TransitionsHandlerContainer.swift */,
+			);
+			path = TransitionsHandler;
+			sourceTree = "<group>";
+		};
+		CCF135D11CFC9E1B007229D1 /* TransitionsHandlerImpls */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135D21CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift */,
+				CCF135D31CFC9E1B007229D1 /* ContainingTransitionsHandler.swift */,
+				CCF135D41CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift */,
+				CCF135D51CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift */,
+				CCF135D61CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift */,
+			);
+			path = TransitionsHandlerImpls;
+			sourceTree = "<group>";
+		};
+		CCF135D71CFC9E1B007229D1 /* TransitionsHandling */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135D81CFC9E1B007229D1 /* TransitionId */,
+				CCF135DD1CFC9E1B007229D1 /* TransitionsCoordinator */,
+				CCF135E61CFC9E1B007229D1 /* TransitionsStack */,
+			);
+			path = TransitionsHandling;
+			sourceTree = "<group>";
+		};
+		CCF135D81CFC9E1B007229D1 /* TransitionId */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135D91CFC9E1B007229D1 /* TransitionId.swift */,
+				CCF135DA1CFC9E1B007229D1 /* TransitionIdGenerator.swift */,
+				CCF135DB1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift */,
+				CCF135DC1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift */,
+			);
+			path = TransitionId;
+			sourceTree = "<group>";
+		};
+		CCF135DD1CFC9E1B007229D1 /* TransitionsCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135DE1CFC9E1B007229D1 /* TransitionsCoordinator.swift */,
+				CCF135DF1CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift */,
+				CCF135E01CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift */,
+				CCF135E11CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift */,
+				CCF135E21CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift */,
+				CCF135E31CFC9E1B007229D1 /* TransitionsHandlersProvider.swift */,
+				CCF135E41CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift */,
+				CCF135E51CFC9E1B007229D1 /* TransitionsHistoryItem.swift */,
+			);
+			path = TransitionsCoordinator;
+			sourceTree = "<group>";
+		};
+		CCF135E61CFC9E1B007229D1 /* TransitionsStack */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135E71CFC9E1B007229D1 /* TransitionContextsStack.swift */,
+				CCF135E81CFC9E1B007229D1 /* TransitionContextsStackClient.swift */,
+				CCF135E91CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift */,
+				CCF135EA1CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift */,
+				CCF135EB1CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift */,
+				CCF135EC1CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift */,
+				CCF135ED1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift */,
+			);
+			path = TransitionsStack;
+			sourceTree = "<group>";
+		};
+		CCF135EE1CFC9E1B007229D1 /* TransitionsMarking */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135EF1CFC9E1B007229D1 /* TransitionsMarker.swift */,
+				CCF135F01CFC9E1B007229D1 /* TransitionsMarkersHolder.swift */,
+				CCF135F11CFC9E1B007229D1 /* TransitionUserId.swift */,
+			);
+			path = TransitionsMarking;
+			sourceTree = "<group>";
+		};
+		CCF135F21CFC9E1B007229D1 /* TransitionsTracking */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135F31CFC9E1B007229D1 /* TransitionsTracker.swift */,
+			);
+			path = TransitionsTracking;
+			sourceTree = "<group>";
+		};
+		CCF135F41CFC9E1B007229D1 /* ViewControllerAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				CCF135F51CFC9E1B007229D1 /* TopViewControllerFinder.swift */,
+			);
+			path = ViewControllerAdditions;
+			sourceTree = "<group>";
+		};
+		CCF136E61CFC9E41007229D1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136E71CFC9E41007229D1 /* General */,
+				CCF136EF1CFC9E42007229D1 /* Routers */,
+				CCF137021CFC9E42007229D1 /* TransitionContextsStackClientTests */,
+				CCF137041CFC9E42007229D1 /* TransitionContextsStackTests */,
+				CCF137061CFC9E42007229D1 /* TransitionsHandlersTests */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		CCF136E71CFC9E41007229D1 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136E81CFC9E41007229D1 /* AnimatingTransitionsHandlerSpy.swift */,
+				CCF136E91CFC9E41007229D1 /* ContainingTransitionsHandlerSpy.swift */,
+				CCF136EA1CFC9E41007229D1 /* DummyTransitionsHandler.swift */,
+				CCF136EB1CFC9E41007229D1 /* TransitionContextsCreator.swift */,
+				CCF136EC1CFC9E42007229D1 /* TransitionContextsExtensions.swift */,
+				CCF136ED1CFC9E42007229D1 /* TransitionsCoordinatorSpy.swift */,
+				CCF136EE1CFC9E42007229D1 /* TransitionsCoordinatorSpyingEnums.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CCF136EF1CFC9E42007229D1 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136F01CFC9E42007229D1 /* DetailRouterTests */,
+				CCF136F31CFC9E42007229D1 /* EndpointRouterTests */,
+				CCF136F61CFC9E42007229D1 /* MasterRouterTests */,
+				CCF136F81CFC9E42007229D1 /* ModalPresentationRouterTests */,
+				CCF136FB1CFC9E42007229D1 /* PopoverPresentationRouterTests */,
+				CCF136FE1CFC9E42007229D1 /* RouterDismissableTests */,
+				CCF137001CFC9E42007229D1 /* RouterFocusableTests */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		CCF136F01CFC9E42007229D1 /* DetailRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136F11CFC9E42007229D1 /* DetailRouterTests_BaseMasterDetailRouter.swift */,
+				CCF136F21CFC9E42007229D1 /* DetailRouterTests_BaseRouter.swift */,
+			);
+			path = DetailRouterTests;
+			sourceTree = "<group>";
+		};
+		CCF136F31CFC9E42007229D1 /* EndpointRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136F41CFC9E42007229D1 /* EndpointRouterTests_BaseMasterDetailRouter.swift */,
+				CCF136F51CFC9E42007229D1 /* EndpointRouterTests_BaseRouter.swift */,
+			);
+			path = EndpointRouterTests;
+			sourceTree = "<group>";
+		};
+		CCF136F61CFC9E42007229D1 /* MasterRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136F71CFC9E42007229D1 /* MasterlRouterTests.swift */,
+			);
+			path = MasterRouterTests;
+			sourceTree = "<group>";
+		};
+		CCF136F81CFC9E42007229D1 /* ModalPresentationRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136F91CFC9E42007229D1 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */,
+				CCF136FA1CFC9E42007229D1 /* ModalPresentationRouterTests_BaseRouter.swift */,
+			);
+			path = ModalPresentationRouterTests;
+			sourceTree = "<group>";
+		};
+		CCF136FB1CFC9E42007229D1 /* PopoverPresentationRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136FC1CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */,
+				CCF136FD1CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseRouter.swift */,
+			);
+			path = PopoverPresentationRouterTests;
+			sourceTree = "<group>";
+		};
+		CCF136FE1CFC9E42007229D1 /* RouterDismissableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF136FF1CFC9E42007229D1 /* RouterDismissableTests.swift */,
+			);
+			path = RouterDismissableTests;
+			sourceTree = "<group>";
+		};
+		CCF137001CFC9E42007229D1 /* RouterFocusableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF137011CFC9E42007229D1 /* RouterFocusableTests.swift */,
+			);
+			path = RouterFocusableTests;
+			sourceTree = "<group>";
+		};
+		CCF137021CFC9E42007229D1 /* TransitionContextsStackClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF137031CFC9E42007229D1 /* TransitionContextsStackClient_Tests.swift */,
+			);
+			path = TransitionContextsStackClientTests;
+			sourceTree = "<group>";
+		};
+		CCF137041CFC9E42007229D1 /* TransitionContextsStackTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF137051CFC9E42007229D1 /* TransitionContextsStack_Tests.swift */,
+			);
+			path = TransitionContextsStackTests;
+			sourceTree = "<group>";
+		};
+		CCF137061CFC9E42007229D1 /* TransitionsHandlersTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCF137071CFC9E42007229D1 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */,
+				CCF137081CFC9E42007229D1 /* AnimatingTransitionsHandlerTests.swift */,
+				CCF137091CFC9E42007229D1 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */,
+				CCF1370A1CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */,
+				CCF1370B1CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */,
+				CCF1370C1CFC9E42007229D1 /* NavigationTransitionsHandlerImplTests.swift */,
+				CCF1370D1CFC9E42007229D1 /* SplitViewTransitionsHandlerImplTests.swift */,
+				CCF1370E1CFC9E42007229D1 /* TabBarTransitionsHandlerImplTests.swift */,
+				CCF1370F1CFC9E42007229D1 /* TransitionsAnimatorSpies */,
+			);
+			path = TransitionsHandlersTests;
+			sourceTree = "<group>";
+		};
+		CCF1370F1CFC9E42007229D1 /* TransitionsAnimatorSpies */ = {
+			isa = PBXGroup;
+			children = (
+				CCF137101CFC9E42007229D1 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */,
+				CCF137111CFC9E42007229D1 /* ModalMasterDetailTransitionsAnimatorSpy.swift */,
+				CCF137121CFC9E42007229D1 /* ModalNavigationTransitionsAnimatorSpy.swift */,
+				CCF137131CFC9E42007229D1 /* ModalTransitionsAnimatorSpy.swift */,
+				CCF137141CFC9E42007229D1 /* NavigationTransitionsAnimatorSpy.swift */,
+				CCF137151CFC9E42007229D1 /* PopoverNavigationTransitionsAnimatorSpy.swift */,
+				CCF137161CFC9E42007229D1 /* PopoverTransitionsAnimatorSpy.swift */,
+				CCF137171CFC9E42007229D1 /* ResetNavigationTransitionsAnimatorSpy.swift */,
+				CCF137181CFC9E42007229D1 /* SetNavigationTransitionsAnimatorSpy.swift */,
+			);
+			path = TransitionsAnimatorSpies;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCF135151CFC9D44007229D1 /* Marshroute */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCF135331CFC9D44007229D1 /* Build configuration list for PBXNativeTarget "Marshroute" */;
+			buildPhases = (
+				CCF135121CFC9D44007229D1 /* Sources */,
+				CCF135131CFC9D44007229D1 /* Frameworks */,
+				CCF135141CFC9D44007229D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Marshroute;
+			productName = Marshroute;
+			productReference = CCF135161CFC9D44007229D1 /* Marshroute.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CCF135291CFC9D44007229D1 /* MarshrouteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCF135361CFC9D44007229D1 /* Build configuration list for PBXNativeTarget "MarshrouteTests" */;
+			buildPhases = (
+				CCF135261CFC9D44007229D1 /* Sources */,
+				CCF135271CFC9D44007229D1 /* Frameworks */,
+				CCF135281CFC9D44007229D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCF1352C1CFC9D44007229D1 /* PBXTargetDependency */,
+			);
+			name = MarshrouteTests;
+			productName = MarshrouteTests;
+			productReference = CCF1352A1CFC9D44007229D1 /* MarshrouteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCF1350E1CFC9D44007229D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Avito;
+				TargetAttributes = {
+					CCF135151CFC9D44007229D1 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					CCF135291CFC9D44007229D1 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = CCF135151CFC9D44007229D1;
+					};
+				};
+			};
+			buildConfigurationList = CCF135111CFC9D44007229D1 /* Build configuration list for PBXProject "Marshroute" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CCF1350D1CFC9D44007229D1;
+			productRefGroup = CCF135171CFC9D44007229D1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCF135151CFC9D44007229D1 /* Marshroute */,
+				CCF135291CFC9D44007229D1 /* MarshrouteTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCF135141CFC9D44007229D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCF135281CFC9D44007229D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCF135121CFC9D44007229D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCF136D01CFC9E1B007229D1 /* TransitionContextsStackClient.swift in Sources */,
+				CCF1368A1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF1361A1CFC9E1B007229D1 /* RouterIdentifiable.swift in Sources */,
+				CCF136241CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */,
+				CCF136961CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF1363A1CFC9E1B007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
+				CCF136E01CFC9E1B007229D1 /* TransitionUserId.swift in Sources */,
+				CCF1360E1CFC9E1B007229D1 /* PopoverPresentationRouter.swift in Sources */,
+				CCF136221CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */,
+				CCF136121CFC9E1B007229D1 /* RouterControllersProviderHolder.swift in Sources */,
+				CCF136261CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */,
+				CCF1365C1CFC9E1B007229D1 /* PopoverPresentationAnimationContext.swift in Sources */,
+				CCF135F61CFC9E1B007229D1 /* StrongBox.swift in Sources */,
+				CCF136761CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136021CFC9E1B007229D1 /* DetailRouter.swift in Sources */,
+				CCF136AE1CFC9E1B007229D1 /* ContainingTransitionsHandler.swift in Sources */,
+				CCF136381CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
+				CCF136B61CFC9E1B007229D1 /* TransitionId.swift in Sources */,
+				CCF136C01CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift in Sources */,
+				CCF136DC1CFC9E1B007229D1 /* TransitionsMarker.swift in Sources */,
+				CCF136A41CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift in Sources */,
+				CCF136CC1CFC9E1B007229D1 /* TransitionsHistoryItem.swift in Sources */,
+				CCF136861CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift in Sources */,
+				CCF136661CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift in Sources */,
+				CCF136981CFC9E1B007229D1 /* PresentationTransitionContext.swift in Sources */,
+				CCF1361E1CFC9E1B007229D1 /* RouterTransitionable.swift in Sources */,
+				CCF1365E1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
+				CCF1361C1CFC9E1B007229D1 /* RouterPresentable.swift in Sources */,
+				CCF135FE1CFC9E1B007229D1 /* BaseRouter.swift in Sources */,
+				CCF135FC1CFC9E1B007229D1 /* MasterDetailRouterSeed.swift in Sources */,
+				CCF1367C1CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF136521CFC9E1B007229D1 /* ResettingNavigationAnimationContext.swift in Sources */,
+				CCF136801CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
+				CCF1364C1CFC9E1B007229D1 /* PopAnimationContext.swift in Sources */,
+				CCF136741CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF1351A1CFC9D44007229D1 /* AppDelegate.swift in Sources */,
+				CCF136161CFC9E1B007229D1 /* RouterDismissable.swift in Sources */,
+				CCF1363C1CFC9E1B007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
+				CCF136881CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift in Sources */,
+				CCF136281CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */,
+				CCF1366C1CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift in Sources */,
+				CCF136D61CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
+				CCF136201CFC9E1B007229D1 /* RouterTransitionsHandlerBox.swift in Sources */,
+				CCF1367A1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136601CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift in Sources */,
+				CCF136E21CFC9E1B007229D1 /* TransitionsTracker.swift in Sources */,
+				CCF136C21CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift in Sources */,
+				CCF136421CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
+				CCF136A01CFC9E1B007229D1 /* RestoredTransitionContext.swift in Sources */,
+				CCF1368C1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF136141CFC9E1B007229D1 /* RouterControllersProviderImpl.swift in Sources */,
+				CCF136621CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
+				CCF136821CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift in Sources */,
+				CCF1364E1CFC9E1B007229D1 /* PushAnimationContext.swift in Sources */,
+				CCF1369C1CFC9E1B007229D1 /* ResettingTransitionContext.swift in Sources */,
+				CCF136681CFC9E1B007229D1 /* TransitionsAnimator.swift in Sources */,
+				CCF136901CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF136D41CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift in Sources */,
+				CCF136341CFC9E1B007229D1 /* ModalTransitionsAnimator.swift in Sources */,
+				CCF136A81CFC9E1B007229D1 /* TransitionsHandler.swift in Sources */,
+				CCF136361CFC9E1B007229D1 /* ModalPresentationAnimationContext.swift in Sources */,
+				CCF136CE1CFC9E1B007229D1 /* TransitionContextsStack.swift in Sources */,
+				CCF136CA1CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift in Sources */,
+				CCF136C61CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift in Sources */,
+				CCF1364A1CFC9E1B007229D1 /* NavigationTransitionsAnimator.swift in Sources */,
+				CCF1360C1CFC9E1B007229D1 /* ModalPresentationRouter.swift in Sources */,
+				CCF136B21CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
+				CCF136BC1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift in Sources */,
+				CCF1363E1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
+				CCF136941CFC9E1B007229D1 /* CompletedTransitionContext.swift in Sources */,
+				CCF1362A1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */,
+				CCF136641CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift in Sources */,
+				CCF136081CFC9E1B007229D1 /* MasterRouter.swift in Sources */,
+				CCF136AA1CFC9E1B007229D1 /* TransitionsHandlerContainer.swift in Sources */,
+				CCF136581CFC9E1B007229D1 /* PopoverDismissalAnimationContext.swift in Sources */,
+				CCF1368E1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136DA1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift in Sources */,
+				CCF1360A1CFC9E1B007229D1 /* MasterRouterTransitionable.swift in Sources */,
+				CCF136841CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift in Sources */,
+				CCF136401CFC9E1B007229D1 /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
+				CCF136BE1CFC9E1B007229D1 /* TransitionsCoordinator.swift in Sources */,
+				CCF136C41CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift in Sources */,
+				CCF136A61CFC9E1B007229D1 /* TransitionsHandlerBox.swift in Sources */,
+				CCF136D81CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
+				CCF136701CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift in Sources */,
+				CCF136A21CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF136B81CFC9E1B007229D1 /* TransitionIdGenerator.swift in Sources */,
+				CCF1366E1CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift in Sources */,
+				CCF136E41CFC9E1B007229D1 /* TopViewControllerFinder.swift in Sources */,
+				CCF136B41CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift in Sources */,
+				CCF1367E1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136461CFC9E1B007229D1 /* ModalNavigationTransitionsAnimator.swift in Sources */,
+				CCF135FA1CFC9E1B007229D1 /* BaseMasterDetailRouter.swift in Sources */,
+				CCF136BA1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift in Sources */,
+				CCF1362E1CFC9E1B007229D1 /* PopoverTransitionStorableParameters.swift in Sources */,
+				CCF136DE1CFC9E1B007229D1 /* TransitionsMarkersHolder.swift in Sources */,
+				CCF136C81CFC9E1B007229D1 /* TransitionsHandlersProvider.swift in Sources */,
+				CCF136001CFC9E1B007229D1 /* RouterSeed.swift in Sources */,
+				CCF136921CFC9E1B007229D1 /* PopoverTransitionStyle.swift in Sources */,
+				CCF136061CFC9E1B007229D1 /* EndpointRouter.swift in Sources */,
+				CCF136301CFC9E1B007229D1 /* TransitionStorableParameters.swift in Sources */,
+				CCF136D21CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift in Sources */,
+				CCF136321CFC9E1B007229D1 /* ModalDismissalAnimationContext.swift in Sources */,
+				CCF136B01CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift in Sources */,
+				CCF136041CFC9E1B007229D1 /* DetailRouterTransitionable.swift in Sources */,
+				CCF135F81CFC9E1B007229D1 /* WeakBox.swift in Sources */,
+				CCF1362C1CFC9E1B007229D1 /* NavigationTransitionStorableParameters.swift in Sources */,
+				CCF1369E1CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF136561CFC9E1B007229D1 /* SettingNavigationAnimationContext.swift in Sources */,
+				CCF1369A1CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF136781CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */,
+				CCF136181CFC9E1B007229D1 /* RouterFocusable.swift in Sources */,
+				CCF136101CFC9E1B007229D1 /* RouterControllersProvider.swift in Sources */,
+				CCF1366A1CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift in Sources */,
+				CCF136AC1CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift in Sources */,
+				CCF136481CFC9E1B007229D1 /* ModalNavigationPresentationAnimationContext.swift in Sources */,
+				CCF136501CFC9E1B007229D1 /* ResetNavigationTransitionsAnimator.swift in Sources */,
+				CCF136721CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136541CFC9E1B007229D1 /* SetNavigationTransitionsAnimator.swift in Sources */,
+				CCF1365A1CFC9E1B007229D1 /* PopoverTransitionsAnimator.swift in Sources */,
+				CCF136441CFC9E1B007229D1 /* ModalNavigationDismissalAnimationContext.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCF135261CFC9D44007229D1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCF136D11CFC9E1B007229D1 /* TransitionContextsStackClient.swift in Sources */,
+				CCF1368B1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF1361B1CFC9E1B007229D1 /* RouterIdentifiable.swift in Sources */,
+				CCF136251CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */,
+				CCF136971CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF1363B1CFC9E1B007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
+				CCF136E11CFC9E1B007229D1 /* TransitionUserId.swift in Sources */,
+				CCF1360F1CFC9E1B007229D1 /* PopoverPresentationRouter.swift in Sources */,
+				CCF136231CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */,
+				CCF136131CFC9E1B007229D1 /* RouterControllersProviderHolder.swift in Sources */,
+				CCF136271CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */,
+				CCF1365D1CFC9E1B007229D1 /* PopoverPresentationAnimationContext.swift in Sources */,
+				CCF135F71CFC9E1B007229D1 /* StrongBox.swift in Sources */,
+				CCF136771CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136031CFC9E1B007229D1 /* DetailRouter.swift in Sources */,
+				CCF136AF1CFC9E1B007229D1 /* ContainingTransitionsHandler.swift in Sources */,
+				CCF136391CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
+				CCF136B71CFC9E1B007229D1 /* TransitionId.swift in Sources */,
+				CCF1373B1CFC9E42007229D1 /* PopoverTransitionsAnimatorSpy.swift in Sources */,
+				CCF1372B1CFC9E42007229D1 /* TransitionContextsStackClient_Tests.swift in Sources */,
+				CCF1371D1CFC9E42007229D1 /* TransitionContextsExtensions.swift in Sources */,
+				CCF136C11CFC9E1B007229D1 /* TransitionsCoordinatorDelegate.swift in Sources */,
+				CCF137311CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
+				CCF136DD1CFC9E1B007229D1 /* TransitionsMarker.swift in Sources */,
+				CCF136A51CFC9E1B007229D1 /* SourceAnimationLaunchingContextBox.swift in Sources */,
+				CCF136CD1CFC9E1B007229D1 /* TransitionsHistoryItem.swift in Sources */,
+				CCF136871CFC9E1B007229D1 /* ResettingAnimationLaunchingContext.swift in Sources */,
+				CCF1372A1CFC9E42007229D1 /* RouterFocusableTests.swift in Sources */,
+				CCF136671CFC9E1B007229D1 /* ResettingTransitionsAnimatorBox.swift in Sources */,
+				CCF136991CFC9E1B007229D1 /* PresentationTransitionContext.swift in Sources */,
+				CCF1361F1CFC9E1B007229D1 /* RouterTransitionable.swift in Sources */,
+				CCF1365F1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
+				CCF1361D1CFC9E1B007229D1 /* RouterPresentable.swift in Sources */,
+				CCF135FF1CFC9E1B007229D1 /* BaseRouter.swift in Sources */,
+				CCF135FD1CFC9E1B007229D1 /* MasterDetailRouterSeed.swift in Sources */,
+				CCF1367D1CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF136531CFC9E1B007229D1 /* ResettingNavigationAnimationContext.swift in Sources */,
+				CCF136811CFC9E1B007229D1 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
+				CCF1364D1CFC9E1B007229D1 /* PopAnimationContext.swift in Sources */,
+				CCF1373A1CFC9E42007229D1 /* PopoverNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCF136751CFC9E1B007229D1 /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF136171CFC9E1B007229D1 /* RouterDismissable.swift in Sources */,
+				CCF1371F1CFC9E42007229D1 /* TransitionsCoordinatorSpyingEnums.swift in Sources */,
+				CCF137291CFC9E42007229D1 /* RouterDismissableTests.swift in Sources */,
+				CCF1363D1CFC9E1B007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
+				CCF136891CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift in Sources */,
+				CCF136291CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */,
+				CCF1366D1CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift in Sources */,
+				CCF136D71CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
+				CCF137371CFC9E42007229D1 /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCF136211CFC9E1B007229D1 /* RouterTransitionsHandlerBox.swift in Sources */,
+				CCF1367B1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136611CFC9E1B007229D1 /* PopoverNavigationTransitionsAnimator.swift in Sources */,
+				CCF136E31CFC9E1B007229D1 /* TransitionsTracker.swift in Sources */,
+				CCF136C31CFC9E1B007229D1 /* TransitionsCoordinatorDelegateHolder.swift in Sources */,
+				CCF136431CFC9E1B007229D1 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
+				CCF136A11CFC9E1B007229D1 /* RestoredTransitionContext.swift in Sources */,
+				CCF1368D1CFC9E1B007229D1 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF136151CFC9E1B007229D1 /* RouterControllersProviderImpl.swift in Sources */,
+				CCF137381CFC9E42007229D1 /* ModalTransitionsAnimatorSpy.swift in Sources */,
+				CCF137191CFC9E42007229D1 /* AnimatingTransitionsHandlerSpy.swift in Sources */,
+				CCF137321CFC9E42007229D1 /* NavigationTransitionsHandlerImplTests.swift in Sources */,
+				CCF136631CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
+				CCF137231CFC9E42007229D1 /* EndpointRouterTests_BaseRouter.swift in Sources */,
+				CCF136831CFC9E1B007229D1 /* PopAnimationLaunchingContext.swift in Sources */,
+				CCF1364F1CFC9E1B007229D1 /* PushAnimationContext.swift in Sources */,
+				CCF1369D1CFC9E1B007229D1 /* ResettingTransitionContext.swift in Sources */,
+				CCF137301CFC9E42007229D1 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */,
+				CCF136691CFC9E1B007229D1 /* TransitionsAnimator.swift in Sources */,
+				CCF137261CFC9E42007229D1 /* ModalPresentationRouterTests_BaseRouter.swift in Sources */,
+				CCF136911CFC9E1B007229D1 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
+				CCF136D51CFC9E1B007229D1 /* TransitionContextsStackClientProvider.swift in Sources */,
+				CCF136351CFC9E1B007229D1 /* ModalTransitionsAnimator.swift in Sources */,
+				CCF136A91CFC9E1B007229D1 /* TransitionsHandler.swift in Sources */,
+				CCF136371CFC9E1B007229D1 /* ModalPresentationAnimationContext.swift in Sources */,
+				CCF136CF1CFC9E1B007229D1 /* TransitionContextsStack.swift in Sources */,
+				CCF136CB1CFC9E1B007229D1 /* TransitionsHandlersProviderHolder.swift in Sources */,
+				CCF136C71CFC9E1B007229D1 /* TransitionsCoordinatorImpl.swift in Sources */,
+				CCF1364B1CFC9E1B007229D1 /* NavigationTransitionsAnimator.swift in Sources */,
+				CCF1360D1CFC9E1B007229D1 /* ModalPresentationRouter.swift in Sources */,
+				CCF1373C1CFC9E42007229D1 /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCF136B31CFC9E1B007229D1 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
+				CCF136BD1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift in Sources */,
+				CCF1363F1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
+				CCF136951CFC9E1B007229D1 /* CompletedTransitionContext.swift in Sources */,
+				CCF137271CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCF1362B1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */,
+				CCF136651CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift in Sources */,
+				CCF136091CFC9E1B007229D1 /* MasterRouter.swift in Sources */,
+				CCF136AB1CFC9E1B007229D1 /* TransitionsHandlerContainer.swift in Sources */,
+				CCF136591CFC9E1B007229D1 /* PopoverDismissalAnimationContext.swift in Sources */,
+				CCF1368F1CFC9E1B007229D1 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136DB1CFC9E1B007229D1 /* TransitionContextsStackImpl.swift in Sources */,
+				CCF1360B1CFC9E1B007229D1 /* MasterRouterTransitionable.swift in Sources */,
+				CCF136851CFC9E1B007229D1 /* PushAnimationLaunchingContext.swift in Sources */,
+				CCF136411CFC9E1B007229D1 /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
+				CCF136BF1CFC9E1B007229D1 /* TransitionsCoordinator.swift in Sources */,
+				CCF136C51CFC9E1B007229D1 /* TransitionsCoordinatorHolder.swift in Sources */,
+				CCF137221CFC9E42007229D1 /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCF136A71CFC9E1B007229D1 /* TransitionsHandlerBox.swift in Sources */,
+				CCF136D91CFC9E1B007229D1 /* TransitionContextsStackClientProviderImpl.swift in Sources */,
+				CCF137361CFC9E42007229D1 /* ModalMasterDetailTransitionsAnimatorSpy.swift in Sources */,
+				CCF136711CFC9E1B007229D1 /* TransitionAnimationsLauncher.swift in Sources */,
+				CCF136A31CFC9E1B007229D1 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF137251CFC9E42007229D1 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCF136B91CFC9E1B007229D1 /* TransitionIdGenerator.swift in Sources */,
+				CCF1366F1CFC9E1B007229D1 /* ResettingAnimationLaunchingContextBox.swift in Sources */,
+				CCF136E51CFC9E1B007229D1 /* TopViewControllerFinder.swift in Sources */,
+				CCF137341CFC9E42007229D1 /* TabBarTransitionsHandlerImplTests.swift in Sources */,
+				CCF136B51CFC9E1B007229D1 /* TabBarTransitionsHandlerImpl.swift in Sources */,
+				CCF137351CFC9E42007229D1 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCF1367F1CFC9E1B007229D1 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136471CFC9E1B007229D1 /* ModalNavigationTransitionsAnimator.swift in Sources */,
+				CCF137211CFC9E42007229D1 /* DetailRouterTests_BaseRouter.swift in Sources */,
+				CCF135FB1CFC9E1B007229D1 /* BaseMasterDetailRouter.swift in Sources */,
+				CCF136BB1CFC9E1B007229D1 /* TransitionIdGeneratorHolder.swift in Sources */,
+				CCF1372F1CFC9E42007229D1 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
+				CCF1362F1CFC9E1B007229D1 /* PopoverTransitionStorableParameters.swift in Sources */,
+				CCF1371B1CFC9E42007229D1 /* DummyTransitionsHandler.swift in Sources */,
+				CCF136DF1CFC9E1B007229D1 /* TransitionsMarkersHolder.swift in Sources */,
+				CCF136C91CFC9E1B007229D1 /* TransitionsHandlersProvider.swift in Sources */,
+				CCF136011CFC9E1B007229D1 /* RouterSeed.swift in Sources */,
+				CCF1372C1CFC9E42007229D1 /* TransitionContextsStack_Tests.swift in Sources */,
+				CCF137241CFC9E42007229D1 /* MasterlRouterTests.swift in Sources */,
+				CCF136931CFC9E1B007229D1 /* PopoverTransitionStyle.swift in Sources */,
+				CCF136071CFC9E1B007229D1 /* EndpointRouter.swift in Sources */,
+				CCF136311CFC9E1B007229D1 /* TransitionStorableParameters.swift in Sources */,
+				CCF136D31CFC9E1B007229D1 /* TransitionContextsStackClientImpl.swift in Sources */,
+				CCF136331CFC9E1B007229D1 /* ModalDismissalAnimationContext.swift in Sources */,
+				CCF136B11CFC9E1B007229D1 /* NavigationTransitionsHandlerImpl.swift in Sources */,
+				CCF136051CFC9E1B007229D1 /* DetailRouterTransitionable.swift in Sources */,
+				CCF1371A1CFC9E42007229D1 /* ContainingTransitionsHandlerSpy.swift in Sources */,
+				CCF135F91CFC9E1B007229D1 /* WeakBox.swift in Sources */,
+				CCF1362D1CFC9E1B007229D1 /* NavigationTransitionStorableParameters.swift in Sources */,
+				CCF1369F1CFC9E1B007229D1 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF136571CFC9E1B007229D1 /* SettingNavigationAnimationContext.swift in Sources */,
+				CCF1369B1CFC9E1B007229D1 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				CCF136791CFC9E1B007229D1 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */,
+				CCF136191CFC9E1B007229D1 /* RouterFocusable.swift in Sources */,
+				CCF136111CFC9E1B007229D1 /* RouterControllersProvider.swift in Sources */,
+				CCF137331CFC9E42007229D1 /* SplitViewTransitionsHandlerImplTests.swift in Sources */,
+				CCF1372D1CFC9E42007229D1 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */,
+				CCF1366B1CFC9E1B007229D1 /* DismissalAnimationLaunchingContextBox.swift in Sources */,
+				CCF137201CFC9E42007229D1 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCF137281CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */,
+				CCF1371C1CFC9E42007229D1 /* TransitionContextsCreator.swift in Sources */,
+				CCF137391CFC9E42007229D1 /* NavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCF136AD1CFC9E1B007229D1 /* AnimatingTransitionsHandler.swift in Sources */,
+				CCF136491CFC9E1B007229D1 /* ModalNavigationPresentationAnimationContext.swift in Sources */,
+				CCF136511CFC9E1B007229D1 /* ResetNavigationTransitionsAnimator.swift in Sources */,
+				CCF136731CFC9E1B007229D1 /* ModalDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF136551CFC9E1B007229D1 /* SetNavigationTransitionsAnimator.swift in Sources */,
+				CCF1373D1CFC9E42007229D1 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCF1372E1CFC9E42007229D1 /* AnimatingTransitionsHandlerTests.swift in Sources */,
+				CCF1365B1CFC9E1B007229D1 /* PopoverTransitionsAnimator.swift in Sources */,
+				CCF1371E1CFC9E42007229D1 /* TransitionsCoordinatorSpy.swift in Sources */,
+				CCF136451CFC9E1B007229D1 /* ModalNavigationDismissalAnimationContext.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCF1352C1CFC9D44007229D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCF135151CFC9D44007229D1 /* Marshroute */;
+			targetProxy = CCF1352B1CFC9D44007229D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CCF135311CFC9D44007229D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCF135321CFC9D44007229D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCF135341CFC9D44007229D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Marshroute/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avitio.Marshroute;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CCF135351CFC9D44007229D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Marshroute/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avitio.Marshroute;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CCF135371CFC9D44007229D1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarshrouteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avitio.Marshroute.MarshrouteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marshroute.app/Marshroute";
+			};
+			name = Debug;
+		};
+		CCF135381CFC9D44007229D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MarshrouteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avitio.Marshroute.MarshrouteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marshroute.app/Marshroute";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCF135111CFC9D44007229D1 /* Build configuration list for PBXProject "Marshroute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF135311CFC9D44007229D1 /* Debug */,
+				CCF135321CFC9D44007229D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCF135331CFC9D44007229D1 /* Build configuration list for PBXNativeTarget "Marshroute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF135341CFC9D44007229D1 /* Debug */,
+				CCF135351CFC9D44007229D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CCF135361CFC9D44007229D1 /* Build configuration list for PBXNativeTarget "MarshrouteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF135371CFC9D44007229D1 /* Debug */,
+				CCF135381CFC9D44007229D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCF1350E1CFC9D44007229D1 /* Project object */;
+}

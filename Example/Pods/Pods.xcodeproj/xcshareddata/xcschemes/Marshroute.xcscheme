@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '69E8A14522A19FFC2898F3D6'
+               BlueprintIdentifier = 'B69DBEF0E892E66960AA543F'
                BlueprintName = 'Marshroute'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Marshroute.framework'>

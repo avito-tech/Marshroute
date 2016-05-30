@@ -1,13 +1,13 @@
 public protocol TransitionsAnimator: class {
-    typealias PresentationAnimationContext
-    typealias DismissalAnimationContext
+    associatedtype PresentationAnimationContext
+    associatedtype DismissalAnimationContext
     
     func animatePerformingTransition(animationContext context: PresentationAnimationContext)
     func animateUndoingTransition(animationContext context: DismissalAnimationContext)
 }
 
 public protocol ResetTransitionsAnimator: class {
-    typealias ResettingAnimationContext
+    associatedtype ResettingAnimationContext
     
     func animateResettingWithTransition(animationContext context: ResettingAnimationContext)
 }

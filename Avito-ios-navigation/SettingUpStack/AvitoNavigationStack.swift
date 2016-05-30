@@ -2,7 +2,7 @@ import Foundation
 
 public struct AvitoNavigationStack {
     public let transitionIdGenerator: TransitionIdGenerator
-    public let controllersProvider: RouterControllersProvider
+    public let routerControllersProvider: RouterControllersProvider
     public let transitionsCoordinator: TransitionsCoordinator
     public let transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder
     public let topViewControllerFinder: TopViewControllerFinder
@@ -12,7 +12,7 @@ public struct AvitoNavigationStack {
     
     public init(
         transitionIdGenerator: TransitionIdGenerator,
-        controllersProvider: RouterControllersProvider,
+        routerControllersProvider: RouterControllersProvider,
         transitionsCoordinator: TransitionsCoordinator,
         transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder,
         topViewControllerFinder: TopViewControllerFinder,
@@ -21,7 +21,7 @@ public struct AvitoNavigationStack {
         transitionsHandlersProvider: TransitionsHandlersProvider)
     {
         self.transitionIdGenerator = transitionIdGenerator
-        self.controllersProvider = controllersProvider
+        self.routerControllersProvider = routerControllersProvider
         self.transitionsCoordinator = transitionsCoordinator
         self.transitionsCoordinatorDelegateHolder = transitionsCoordinatorDelegateHolder
         self.topViewControllerFinder = topViewControllerFinder

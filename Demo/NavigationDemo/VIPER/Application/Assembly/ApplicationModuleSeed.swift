@@ -16,7 +16,7 @@ extension RouterSeed {
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
         self.transitionsHandlersProvider = moduleSeed.avitoNavigationStack.transitionsHandlersProvider
         self.transitionIdGenerator = moduleSeed.avitoNavigationStack.transitionIdGenerator
-        self.controllersProvider = moduleSeed.avitoNavigationStack.controllersProvider
+        self.controllersProvider = moduleSeed.avitoNavigationStack.routerControllersProvider
     }
 }
 
@@ -32,6 +32,6 @@ extension MasterDetailRouterSeed {
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
         self.transitionsHandlersProvider = moduleSeed.avitoNavigationStack.transitionsHandlersProvider
         self.transitionIdGenerator = moduleSeed.avitoNavigationStack.transitionIdGenerator
-        self.controllersProvider = moduleSeed.avitoNavigationStack.controllersProvider
+        self.controllersProvider = moduleSeed.avitoNavigationStack.routerControllersProvider
     }
 }

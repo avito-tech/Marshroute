@@ -279,28 +279,30 @@ extension TransitionsCoordinator where
             )
         }
         
-        guard transitionAllowed
-            else { debugPrint("resetting transition was cancelled"); return }
+        if transitionAllowed {
+            // уведомляем делегата до вызова анимации `Resetting` перехода.
+            transitionsCoordinatorDelegate?.transitionsCoordinator(
+                coordinator: self,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchResettingAnimationOfTransition: context
+            )
+            
+            // вызываем анимации, передавая параметры запуска анимации по ссылке,
+            // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
+            animatingTransitionsHandler.launchResettingAnimation(
+                launchingContextBox: &context.resettingAnimationLaunchingContextBox
+            )
+            
+            // создаем новую запись о переходе
+            commitResettingWithTransition(
+                context: context,
+                forTransitionsHandler: animatingTransitionsHandler,
+                withStackClient: stackClient
+            )
+        } else {
+            debugPrint("resetting transition was cancelled")
+        }
         
-        // уведомляем делегата до вызова анимации `Resetting` перехода. 
-        transitionsCoordinatorDelegate?.transitionsCoordinator(
-            coordinator: self,
-            willForceTransitionsHandler: animatingTransitionsHandler,
-            toLaunchResettingAnimationOfTransition: context
-        )
-        
-        // вызываем анимации, передавая параметры запуска анимации по ссылке,
-        // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
-        animatingTransitionsHandler.launchResettingAnimation(
-            launchingContextBox: &context.resettingAnimationLaunchingContextBox
-        )
-        
-        // создаем новую запись о переходе
-        commitResettingWithTransition(
-            context: context,
-            forTransitionsHandler: animatingTransitionsHandler,
-            withStackClient: stackClient
-        )
     }
 }
 
@@ -420,33 +422,34 @@ private extension TransitionsCoordinator where
             )
         }
         
-        guard transitionAllowed
-            else { debugPrint("presentation transition was cancelled"); return }
-        
-        // уведомляем делегата до вызова анимации `Presentation` перехода.
-        transitionsCoordinatorDelegate?.transitionsCoordinator(
-            coordinator: self,
-            willForceTransitionsHandler: animatingTransitionsHandler,
-            toLaunchPresentationAnimationOfTransition: context
-        )
-        
-        // дополняем параметры анимации информацией о текущем верхнем контроллере
-        context.presentationAnimationLaunchingContextBox.appendSourceViewController(
-            lastTransition.targetViewController
-        )
-        
-        // вызываем анимации, передавая параметры запуска анимации по ссылке,
-        // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
-        animatingTransitionsHandler.launchPresentationAnimation(
-            launchingContextBox: &context.presentationAnimationLaunchingContextBox
-        )
-        
-        // создаем новую запись о переходе
-        commitPerformingTransition(
-            context: context,
-            byTransitionsHandler: animatingTransitionsHandler,
-            withStackClient: stackClient
-        )
+        if transitionAllowed {
+            // уведомляем делегата до вызова анимации `Presentation` перехода.
+            transitionsCoordinatorDelegate?.transitionsCoordinator(
+                coordinator: self,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchPresentationAnimationOfTransition: context
+            )
+            
+            // дополняем параметры анимации информацией о текущем верхнем контроллере
+            context.presentationAnimationLaunchingContextBox.appendSourceViewController(
+                lastTransition.targetViewController
+            )
+            
+            // вызываем анимации, передавая параметры запуска анимации по ссылке,
+            // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
+            animatingTransitionsHandler.launchPresentationAnimation(
+                launchingContextBox: &context.presentationAnimationLaunchingContextBox
+            )
+            
+            // создаем новую запись о переходе
+            commitPerformingTransition(
+                context: context,
+                byTransitionsHandler: animatingTransitionsHandler,
+                withStackClient: stackClient
+            )
+        } else {
+            debugPrint("presentation transition was cancelled")
+        }
     }
     
     func initiateUndoingTransitions(
@@ -772,14 +775,12 @@ extension TransitionsCoordinator where
         )
         
         for _ in animatingTransitionsHandlers {
-            let resultIfNotAnOptional = countOfTransitionsAfterTransitionWithId(
+            if let result = countOfTransitionsAfterTransitionWithId(
                 trackedTransition.transitionId,
                 performedByTransitionsHandler: transitionsHandler,
                 untilLastTransitionOfTransitionsHandler: targetTransitionsHandler,
-                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
-            )
-            
-            if let result = resultIfNotAnOptional {
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler)
+            {
                 return result
             }
         }

@@ -1,39 +1,31 @@
 import Foundation
 
 final public class AvitoNavigationSetupServiceImpl: AvitoNavigationSetupService {
+    // MARK: - Private properties
+    private let factory: AvitoNavigationFactory
+    
     // MARK: - Init
-    public init() {}
+    public init(factory: AvitoNavigationFactory = AvitoNavigationFactoryImpl()) {
+        self.factory = factory
+    }
     
     // MARK: - AvitoNavigationSetupService
     public func avitoNavigationStack()
         -> AvitoNavigationStack
     {
-        let transitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl()
+        let transitionIdGenerator = factory.transitionIdGenerator()
         
-        return avitoNavigationStackImpl(transitionContextsStackClientProvider)
-    }
-    
-    public func avitoNavigationStack(transitionContextsStackClientProvider: TransitionContextsStackClientProvider)
-        -> AvitoNavigationStack
-    {
-        return avitoNavigationStackImpl(transitionContextsStackClientProvider)
-    }
-    
-    // MARK: - Private
-    private func avitoNavigationStackImpl(transitionContextsStackClientProvider: TransitionContextsStackClientProvider)
-         -> AvitoNavigationStack
-    {
-        let transitionIdGenerator = TransitionIdGeneratorImpl()
+        let routerControllersProvider = factory.routerControllersProvider()
         
-        let controllersProvider = RouterControllersProviderImpl()
-    
+        let stackClientProvider = factory.transitionContextsStackClientProvider()
+        
         let transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: transitionContextsStackClientProvider
+            stackClientProvider: stackClientProvider
         )
-     
+        
         return AvitoNavigationStack(
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider,
+            routerControllersProvider: routerControllersProvider,
             transitionsCoordinator: transitionsCoordinator,
             transitionsCoordinatorDelegateHolder: transitionsCoordinator,
             topViewControllerFinder: transitionsCoordinator,

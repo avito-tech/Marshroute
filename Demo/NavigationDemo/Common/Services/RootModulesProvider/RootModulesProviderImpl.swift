@@ -8,7 +8,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
     {
         let avitoNavigationStack = moduleSeed.avitoNavigationStack
         
-        let navigationController = avitoNavigationStack.controllersProvider.navigationController()
+        let navigationController = avitoNavigationStack.routerControllersProvider.navigationController()
         
         let animatingTransitionsHandler = avitoNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: navigationController
@@ -50,8 +50,8 @@ final class RootModulesProviderImpl: RootModulesProvider {
     {
         let avitoNavigationStack = moduleSeed.avitoNavigationStack
         
-        let masterNavigationController = avitoNavigationStack.controllersProvider.navigationController()
-        let detailNavigationController = avitoNavigationStack.controllersProvider.navigationController()
+        let masterNavigationController = avitoNavigationStack.routerControllersProvider.navigationController()
+        let detailNavigationController = avitoNavigationStack.routerControllersProvider.navigationController()
         
         
         let masterAnimatingTransitionsHandler = avitoNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
@@ -117,7 +117,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
             )
         }
         
-        let splitViewController = avitoNavigationStack.controllersProvider.splitViewController()
+        let splitViewController = avitoNavigationStack.routerControllersProvider.splitViewController()
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
         let splitViewTransitionsHandler = avitoNavigationStack.transitionsHandlersProvider.splitViewTransitionsHandler(

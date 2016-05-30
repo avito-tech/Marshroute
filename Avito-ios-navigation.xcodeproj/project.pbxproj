@@ -237,6 +237,10 @@
 		CCE910B31C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910341C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift */; };
 		CCE910B41C75BB7B00AF5E26 /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910351C75BB7B00AF5E26 /* TransitionContextsStackImpl.swift */; };
 		CCE910B51C75BB7B00AF5E26 /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE910351C75BB7B00AF5E26 /* TransitionContextsStackImpl.swift */; };
+		CCF135091CFC6A0C007229D1 /* AvitoNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135071CFC6A0C007229D1 /* AvitoNavigationFactory.swift */; };
+		CCF1350A1CFC6A0C007229D1 /* AvitoNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135071CFC6A0C007229D1 /* AvitoNavigationFactory.swift */; };
+		CCF1350B1CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135081CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift */; };
+		CCF1350C1CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135081CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift */; };
 		CCF72CB61CCA2B0C00E29A7A /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF72CB31CCA2B0C00E29A7A /* DismissalAnimationLaunchingContextBox.swift */; };
 		CCF72CB71CCA2B0C00E29A7A /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF72CB31CCA2B0C00E29A7A /* DismissalAnimationLaunchingContextBox.swift */; };
 		CCF72CB81CCA2B0C00E29A7A /* PresentationAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF72CB41CCA2B0C00E29A7A /* PresentationAnimationLaunchingContextBox.swift */; };
@@ -445,6 +449,8 @@
 		CCE910331C75BB7B00AF5E26 /* TransitionContextsStackClientProviderHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderHolder.swift; sourceTree = "<group>"; };
 		CCE910341C75BB7B00AF5E26 /* TransitionContextsStackClientProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderImpl.swift; sourceTree = "<group>"; };
 		CCE910351C75BB7B00AF5E26 /* TransitionContextsStackImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackImpl.swift; sourceTree = "<group>"; };
+		CCF135071CFC6A0C007229D1 /* AvitoNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationFactory.swift; sourceTree = "<group>"; };
+		CCF135081CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationFactoryImpl.swift; sourceTree = "<group>"; };
 		CCF72CB31CCA2B0C00E29A7A /* DismissalAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissalAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		CCF72CB41CCA2B0C00E29A7A /* PresentationAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		CCF72CB51CCA2B0C00E29A7A /* ResettingAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
@@ -1320,6 +1326,8 @@
 			children = (
 				CCF974001CFB4D410044666F /* AvitoNavigationStack.swift */,
 				CCF973FA1CFB4D220044666F /* AvitoNavigationSetupService.swift */,
+				CCF135071CFC6A0C007229D1 /* AvitoNavigationFactory.swift */,
+				CCF135081CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift */,
 				CCF973FB1CFB4D220044666F /* AvitoNavigationSetupServiceImpl.swift */,
 			);
 			path = SettingUpStack;
@@ -1451,7 +1459,9 @@
 				CCE910801C75BB7B00AF5E26 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCF72CDA1CCA574E00E29A7A /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCB07B131CCA7BFC00F96A19 /* SetNavigationTransitionsAnimator.swift in Sources */,
+				CCF135091CFC6A0C007229D1 /* AvitoNavigationFactory.swift in Sources */,
 				CC6DC0AA1CCC3B8A0029C534 /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
+				CCF1350B1CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */,
 				CCE910361C75BB7B00AF5E26 /* StrongBox.swift in Sources */,
 				CCE9108C1C75BB7B00AF5E26 /* TransitionsHandlerContainer.swift in Sources */,
 				CCF72CBA1CCA2B0C00E29A7A /* ResettingAnimationLaunchingContextBox.swift in Sources */,
@@ -1638,6 +1648,7 @@
 				CCB8D4CA1CC903D100D395F8 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
 				CCF72CE01CCA575700E29A7A /* ResettingTransitionContext.swift in Sources */,
 				CCF74A531CF1AB4400E56714 /* TransitionUserId.swift in Sources */,
+				CCF1350C1CFC6A0C007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */,
 				CC3988011C8D642D00E3035C /* BaseRouter.swift in Sources */,
 				CCE910AD1C75BB7B00AF5E26 /* TransitionContextsStackClientImpl.swift in Sources */,
 				CC6DC0851CCBF6F50029C534 /* DummyTransitionsHandler.swift in Sources */,
@@ -1673,6 +1684,7 @@
 				CCF72CF51CCA5EBE00E29A7A /* PushAnimationContext.swift in Sources */,
 				CC6DC0961CCC25A80029C534 /* ModalPresentationRouterTests_BaseRouter.swift in Sources */,
 				CCB8D49A1CC903D100D395F8 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				CCF1350A1CFC6A0C007229D1 /* AvitoNavigationFactory.swift in Sources */,
 				CCE9109F1C75BB7B00AF5E26 /* TransitionIdGeneratorImpl.swift in Sources */,
 				CCB8D4AC1CC903D100D395F8 /* PopAnimationLaunchingContext.swift in Sources */,
 				CCE9107B1C75BB7B00AF5E26 /* PresentationTransitionContext.swift in Sources */,

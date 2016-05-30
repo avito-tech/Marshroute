@@ -25,19 +25,25 @@ This code pushes an `Authorization` view controller to the top `UINavigationCont
 The `routerSeed` parameter is only used to create a `Router` for the `Authorization` module.
 
 The magic here is in this line of code:
-`pushViewControllerDerivedFrom { routerSeed -> UIViewController in`
+```
+pushViewControllerDerivedFrom { routerSeed -> UIViewController in
+```
 
 You can easily change the presentation style in favor of a modal transition by simply changing it to: 
-`presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in`.
+```
+presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in
+```
 
 If for some reason you do not need a `UINavigationController` for your `Authorization` module, you may accomplish this by:
-`presentModalViewControllerDerivedFrom { routerSeed -> UIViewController in`.
+```
+presentModalViewControllerDerivedFrom { routerSeed -> UIViewController in
+```
 
 Once again, the transition will be forwarded to the top, keeping the `Router` very plain and straightforward.
 So that, the `Router` keeps being responsible for only one thing: selecting the style of a transition. 
 
 
-Check out the demo project at https://github.com/avito-tech/Marshroute/tree/master/Example. 
+Check out the [demo](https://github.com/avito-tech/Marshroute/tree/master/Example) project at. 
 This demo is written in `Swift` using `VIPER` architecture and shows all the capabilities which `Router`s are now full of.
 Run this demo on a simulator and check out what happens if you simulate a memory warning or a device shake. You will see several types of transitions driven by the root module's `Router` (i.e. a `UITabBarController`'s `Router`).
 Check this demo on your `iPhone` and `iPad` simulators, because their navigation behavior slightly differs to make the demo more rich and descriptive.

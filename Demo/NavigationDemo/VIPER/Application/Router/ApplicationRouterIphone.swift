@@ -22,7 +22,7 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
     }
     
     func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
-        presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in
+        pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let authorizationAssembly = assemblyFactory.authorizationAssembly()
             
             let (viewController, moduleInput) = authorizationAssembly.module(
@@ -36,7 +36,7 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
     }
     
     func showCategories() {
-        pushViewControllerDerivedFrom { routerSeed -> UIViewController in
+        presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in
             let subcategoriesAssembly = assemblyFactory.categoriesAssembly()
             
             let viewController = subcategoriesAssembly.module(
@@ -48,7 +48,7 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
     }
     
     func showRecursion() {
-        pushViewControllerDerivedFrom { routerSeed -> UIViewController in
+        presentModalNavigationControllerWithRootViewControllerDerivedFrom { routerSeed -> UIViewController in
             let recursionAssembly = assemblyFactory.recursionAssembly()
             
             let viewController = recursionAssembly.module(routerSeed: routerSeed)

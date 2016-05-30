@@ -32,7 +32,13 @@ final class ServiceFactoryImpl: ServiceFactory {
         let moduleRegisteringServiceInstance = ModuleRegisteringServiceImpl(
             transitionsTracker: transitionsTracker,
             transitionsMarker: transitionsMarker,
+            
+            // `1` means, that if previous module is `bananas` (distance to it from current module is 1),
+            //     then attempt to open a new `bananas` module will open previous module instead of a new one.
+            // In contrast, if `bananas` module is preceding a previous module (distance to it from current module is 2),
+            //     then attempt to open a new `bananas` module will succeed.
             distanceThresholdBetweenSiblingModules: 1,
+            
             rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
         )
         

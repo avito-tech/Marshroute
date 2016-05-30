@@ -5,4 +5,4 @@ platform :ios, :deployment_target => '8.0'
 inhibit_all_warnings!
 use_frameworks!
 
-pod 'AvitoNavigation', :path => '../'
+pod 'Marshroute', :path => '../'

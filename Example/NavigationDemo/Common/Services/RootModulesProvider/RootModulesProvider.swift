@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 protocol RootModulesProvider: class {
     func detailModule(

@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 struct ApplicationModule {
     var viewController: UIViewController

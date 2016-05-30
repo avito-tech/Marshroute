@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 protocol AdvertisementAssembly: class {
     func module(searchResultId searchResultId: SearchResultId, routerSeed: RouterSeed)

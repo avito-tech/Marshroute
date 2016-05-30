@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 final class SearchResultsRouterIpad: BaseDemoRouter, SearchResultsRouter {
     // MARK: - SearchResultsRouter

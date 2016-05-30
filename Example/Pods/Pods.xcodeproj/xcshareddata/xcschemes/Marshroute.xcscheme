@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8C65416548FC5B7454610BBD'
-               BlueprintName = 'AvitoNavigation'
+               BlueprintIdentifier = '69E8A14522A19FFC2898F3D6'
+               BlueprintName = 'Marshroute'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AvitoNavigation.framework'>
+               BuildableName = 'Marshroute.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

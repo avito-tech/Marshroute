@@ -1,0 +1,6 @@
+framework module Marshroute {
+  umbrella header "Marshroute-umbrella.h"
+
+  export *
+  module * { export * }
+}

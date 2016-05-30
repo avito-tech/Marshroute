@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 final class AdvertisementRouterIpad: BaseDemoRouter, AdvertisementRouter {
     // MARK: - AdvertisementRouter

@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 final class CategoriesRouterIpad: BaseDemoRouter, CategoriesRouter {
     // MARK: - CategoriesRouter

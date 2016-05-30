@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 final class RecursionAssemblyImpl: BaseAssembly, RecursionAssembly {
     // MARK: - RecursionAssembly

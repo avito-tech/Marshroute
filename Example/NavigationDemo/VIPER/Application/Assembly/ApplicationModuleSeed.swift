@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 struct ApplicationModuleSeed {
     let transitionId: TransitionId

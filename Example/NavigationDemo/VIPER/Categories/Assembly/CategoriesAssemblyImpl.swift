@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, SubcategoriesAssembly {
     // MARK: - CategoriesAssembly

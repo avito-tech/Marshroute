@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 enum WeakTransitionsHandlerBox {
     case Animating(WeakBox<AnimatingTransitionsHandler>)

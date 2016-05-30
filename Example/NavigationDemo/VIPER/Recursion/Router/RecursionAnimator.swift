@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 final class RecursionAnimator: ModalNavigationTransitionsAnimator {
     private let animatedTransitioning = AnimatedTransitioningImpl()

@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, CategoriesRouter {
     func showSubcategories(categoryId categoryId: CategoryId) {

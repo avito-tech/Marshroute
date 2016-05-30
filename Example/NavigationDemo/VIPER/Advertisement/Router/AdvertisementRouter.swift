@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 protocol AdvertisementRouter: class {
     func showSimilarSearchResult(searchResultId searchResultId: SearchResultId)

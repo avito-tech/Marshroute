@@ -1,14 +1,14 @@
 PODS:
-  - AvitoNavigation (0.0.0)
+  - Marshroute (0.0.0)
 
 DEPENDENCIES:
-  - AvitoNavigation (from `../`)
+  - Marshroute (from `../`)
 
 EXTERNAL SOURCES:
-  AvitoNavigation:
+  Marshroute:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AvitoNavigation: 24c8302c43824d2ec452099341c1f4a9bc527cd6
+  Marshroute: ed17eb142a7d8c7dc9275e733199f5800bafb603
 
 COCOAPODS: 0.39.0

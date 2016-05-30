@@ -1,5 +1,5 @@
 import Foundation
-import AvitoNavigation
+import Marshroute
 
 class BaseDemoMasterDetailRouter: BaseMasterDetailRouter {
     let assemblyFactory: AssemblyFactory

@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 final class TrackedModulesList {
     // MARK: - Private properties

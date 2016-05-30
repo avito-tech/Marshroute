@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 protocol BannerAssembly: class {
     func module() -> (view: UIView, moduleInput: BannerModuleInput)

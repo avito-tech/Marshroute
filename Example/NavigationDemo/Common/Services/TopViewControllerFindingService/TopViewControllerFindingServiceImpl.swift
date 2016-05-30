@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 final class TopViewControllerFindingServiceImpl: TopViewControllerFindingService {
     // MARK: - Init

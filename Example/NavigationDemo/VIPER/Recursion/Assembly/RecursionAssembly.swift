@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 protocol RecursionAssembly: class {
     func module(routerSeed routerSeed: RouterSeed)

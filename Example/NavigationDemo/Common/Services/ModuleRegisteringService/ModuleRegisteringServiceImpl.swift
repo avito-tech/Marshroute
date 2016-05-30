@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 private let authorizationModuleUserId = "AuthorizationModuleUserId"
 

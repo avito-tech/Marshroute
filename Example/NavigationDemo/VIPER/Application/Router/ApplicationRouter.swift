@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 protocol ApplicationRouter: class {
     func authorizationStatus(completion: ((isPresented: Bool) -> ()))

@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 final class ApplicationModuleSeedProvider {
     func applicationModuleSeed(avitoNavigationSetupService avitoNavigationSetupService: AvitoNavigationSetupService)

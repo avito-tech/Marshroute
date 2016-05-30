@@ -1,4 +1,4 @@
-import AvitoNavigation
+import Marshroute
 
 struct TrackedModule {
     let weakTransitionsHandlerBox: WeakTransitionsHandlerBox?

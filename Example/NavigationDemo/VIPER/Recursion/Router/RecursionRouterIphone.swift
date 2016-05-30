@@ -1,5 +1,5 @@
 import UIKit
-import AvitoNavigation
+import Marshroute
 
 final class RecursionRouterIphone: BaseDemoRouter, RecursionRouter {
     func showRecursion(sender: AnyObject) {

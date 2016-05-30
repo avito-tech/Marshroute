@@ -40,7 +40,8 @@ public protocol TransitionsCoordinator: class {
 // MARK: - TransitionsCoordinator Default Impl
 extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     public func coordinatePerformingTransition(
         context context: PresentationTransitionContext,
@@ -219,19 +220,19 @@ extension TransitionsCoordinator where
     
     public func coordinateResettingWithTransition(
         context context: ResettingTransitionContext,
-        forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
+        forAnimatingTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         var context = context
         
         // скрываем модальные окна и поповеры, показанные внутри модальных окон и поповеров текущего обработчика
-        coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: transitionsHandler)
+        coordinateUndoingChainedTransitionsIfNeeded(forTransitionsHandler: animatingTransitionsHandler)
         
         // ищем существующую историю переходов или создаем новую
-        let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
-            ?? stackClientProvider.createStackClient(forTransitionsHandler: transitionsHandler)
+        let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
+            ?? stackClientProvider.createStackClient(forTransitionsHandler: animatingTransitionsHandler)
         
         // ищем идентификатор самого первого перехода
-        let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(transitionsHandler)
+        let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(animatingTransitionsHandler)
         let chainedTransition = transitionsToUndo.chainedTransition
         let pushTransitions = transitionsToUndo.pushTransitions
         
@@ -241,7 +242,7 @@ extension TransitionsCoordinator where
             initiateUndoingTransitions(
                 chainedTransition: chainedTransition,
                 pushTransitions: nil, // только модальные окна и поповеры
-                forTransitionsHandler: transitionsHandler,
+                forTransitionsHandler: animatingTransitionsHandler,
                 andCommitUndoingTransitionsAfter: firstTransitionId,
                 includingTransitionWithId: false,
                 withStackClient: stackClient
@@ -249,7 +250,7 @@ extension TransitionsCoordinator where
         }
         
         if case .ResettingNavigationRoot(_) = context.resettingAnimationLaunchingContextBox {
-            if let lastTransition = stackClient.lastTransitionForTransitionsHandler(transitionsHandler) {
+            if let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) {
                 // дополняем параметры анимации информацией о текущем верхнем контроллере
                 context.resettingAnimationLaunchingContextBox.appendSourceViewController(
                     lastTransition.targetViewController
@@ -264,32 +265,52 @@ extension TransitionsCoordinator where
             }
         }
         
-        // уведомляем делегата до вызова `reset` анимаций
-        transitionsCoordinatorDelegate?.transitionsCoordinator(
-            coordinator: self,
-            willLaunchResettingAnimation: context.resettingAnimationLaunchingContextBox.resettingTransitionsAnimatorBox,
-            ofTransitionWith: context.transitionId
-        )
+        // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
+        // если переход помечен пользовательским идентификатором
+        let transitionUserId = markers[context.transitionId]
         
-        // вызываем анимации, передавая параметры запуска анимации по ссылке,
-        // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
-        transitionsHandler.launchResettingAnimation(
-            launchingContextBox: &context.resettingAnimationLaunchingContextBox
-        )
+        var transitionAllowed = true
+        if let transitionUserId = transitionUserId, transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+            transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
+                coordinator: self,
+                canForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchResettingAnimationOfTransition: context,
+                markedWithUserId: transitionUserId
+            )
+        }
         
-        // создаем новую запись о переходе
-        commitResettingWithTransition(
-            context: context,
-            forTransitionsHandler: transitionsHandler,
-            withStackClient: stackClient
-        )
+        if transitionAllowed {
+            // уведомляем делегата до вызова анимации `Resetting` перехода.
+            transitionsCoordinatorDelegate?.transitionsCoordinator(
+                coordinator: self,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchResettingAnimationOfTransition: context
+            )
+            
+            // вызываем анимации, передавая параметры запуска анимации по ссылке,
+            // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
+            animatingTransitionsHandler.launchResettingAnimation(
+                launchingContextBox: &context.resettingAnimationLaunchingContextBox
+            )
+            
+            // создаем новую запись о переходе
+            commitResettingWithTransition(
+                context: context,
+                forTransitionsHandler: animatingTransitionsHandler,
+                withStackClient: stackClient
+            )
+        } else {
+            debugPrint("resetting transition was cancelled")
+        }
+        
     }
 }
 
 // MARK: - preparing for undo
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     func coordinateUndoingTransitionsImpl(
         afterTransitionId transitionId: TransitionId,
@@ -369,7 +390,8 @@ private extension TransitionsCoordinator where
 // MARK: - initiating transitions (methods work only with AnimatingTransitionsHandler)
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     func initiatePerformingTransition(
         context context: PresentationTransitionContext,
@@ -386,30 +408,48 @@ private extension TransitionsCoordinator where
         
         var context = context
         
-        // уведомляем делегата до вызова `Presentation` анимаций
-        transitionsCoordinatorDelegate?.transitionsCoordinator(
-            coordinator: self,
-            willLaunchPerfromingAnimation: context.presentationAnimationLaunchingContextBox.transitionsAnimatorBox,
-            ofTransitionWithId: context.transitionId
-        )
+        // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
+        // если переход помечен пользовательским идентификатором
+        let transitionUserId = markers[context.transitionId]
+        var transitionAllowed = true
         
-        // дополняем параметры анимации информацией о текущем верхнем контроллере
-        context.presentationAnimationLaunchingContextBox.appendSourceViewController(
-            lastTransition.targetViewController
-        )
+        if let transitionUserId = transitionUserId, transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+            transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
+                coordinator: self,
+                canForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchPresentationAnimationOfTransition: context,
+                markedWithUserId: transitionUserId
+            )
+        }
         
-        // вызываем анимации, передавая параметры запуска анимации по ссылке,
-        // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
-        animatingTransitionsHandler.launchPresentationAnimation(
-            launchingContextBox: &context.presentationAnimationLaunchingContextBox
-        )
-        
-        // создаем новую запись о переходе
-        commitPerformingTransition(
-            context: context,
-            byTransitionsHandler: animatingTransitionsHandler,
-            withStackClient: stackClient
-        )
+        if transitionAllowed {
+            // уведомляем делегата до вызова анимации `Presentation` перехода.
+            transitionsCoordinatorDelegate?.transitionsCoordinator(
+                coordinator: self,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchPresentationAnimationOfTransition: context
+            )
+            
+            // дополняем параметры анимации информацией о текущем верхнем контроллере
+            context.presentationAnimationLaunchingContextBox.appendSourceViewController(
+                lastTransition.targetViewController
+            )
+            
+            // вызываем анимации, передавая параметры запуска анимации по ссылке,
+            // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
+            animatingTransitionsHandler.launchPresentationAnimation(
+                launchingContextBox: &context.presentationAnimationLaunchingContextBox
+            )
+            
+            // создаем новую запись о переходе
+            commitPerformingTransition(
+                context: context,
+                byTransitionsHandler: animatingTransitionsHandler,
+                withStackClient: stackClient
+            )
+        } else {
+            debugPrint("presentation transition was cancelled")
+        }
     }
     
     func initiateUndoingTransitions(
@@ -525,14 +565,16 @@ private extension TransitionsCoordinator where
         if includingTransitionWithId {
             transitionsCoordinatorDelegate?.transitionsCoordinator(
                 coordinator: self,
-                willLaunchUndoingAnimation: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchDismissalAnimationByAnimator: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
                 ofTransitionWithId: targetTransitionId
             )
         }
         else {
             transitionsCoordinatorDelegate?.transitionsCoordinator(
                 coordinator: self,
-                willLaunchUndoingAnimation: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
+                willForceTransitionsHandler: animatingTransitionsHandler,
+                toLaunchDismissalAnimationByAnimator: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
                 ofTransitionsAfterId: targetTransitionId
             )
         }
@@ -547,7 +589,8 @@ private extension TransitionsCoordinator where
 // MARK: - fetching data from the history (methods work only with AnimatingTransitionsHandler)
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
     /// Выбор из обработчиков переходов одного с самым глубоким дочерним обработчиком.
     /// Возвращается найденный самый глубокий обработчик, чтобы прокинуть ему обработку перехода
@@ -569,20 +612,21 @@ private extension TransitionsCoordinator where
             guard let chainedTransitionsHandlerBox = stackClient.chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler)
                 else { continue }
             
-            if let animatingTransitionsHandler = chainedTransitionsHandlerBox.unboxAnimatingTransitionsHandler() {
-                chainedTransitionsHandlers.append(animatingTransitionsHandler)
-            }
-            else if let chainedContainingTransitionsHandler = chainedTransitionsHandlerBox.unboxContainingTransitionsHandler(),
-                let childAnimatingTransitionsHandlers = unboxContainingTransitionsHandler(chainedContainingTransitionsHandler)
-            {
-                chainedTransitionsHandlers.appendContentsOf(childAnimatingTransitionsHandlers)
-            }
+            let chainedAnimatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+                chainedTransitionsHandlerBox,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+            
+            chainedTransitionsHandlers.appendContentsOf(chainedAnimatingTransitionsHandlers)
         }
         
-        // если нашли несколько дочерних обработчиков на одинаковой глубине вложенности, то берем любой.
-        // у Split'а будет master, если ни master, ни detail не показывали модальных окон или поповеров
+        // нашли несколько дочерних обработчиков на одинаковой глубине вложенности, 
+        // не показывавших модальные окна и поповеры.
+        // подойдет любой
         if chainedTransitionsHandlers.isEmpty {
-            return transitionsHandlers.first
+            return selectTransitionsHandler(
+                tantamountAnimatingTransitionsHandlers: transitionsHandlers
+            )
         }
         
         // иначе продолжаем искать на следующей глубине вложенности
@@ -655,15 +699,44 @@ private extension TransitionsCoordinator where
     }
 }
 
-// MARK: - for TopViewControllerFindable
+// MARK: - for TopViewControllerFinder
 extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
-    Self: TransitionsCoordinatorDelegateHolder
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
 {
-    func findTopViewControllerImpl(animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler?)
+    func findTopViewControllerImpl(forTransitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
         -> UIViewController?
     {
-        guard let transitionsHandler = transitionsHandler
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+            = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+                // среди видимых анимирующих обработчиков (то есть в выбранном tab'e tabbar'a)
+                return containingTransitionsHandler.visibleTransitionsHandlers
+        }
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        return findTopViewControllerImpl(
+            forTransitionsHandlers: animatingTransitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+    }
+        
+    private func findTopViewControllerImpl(
+        forTransitionsHandlers transitionsHandlers: [AnimatingTransitionsHandler]?,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> UIViewController?
+    {
+        let deepestChainedTransitionsHandler = deepestChainedAnimatingTransitionsHandler(
+            forTransitionsHandlers: transitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        guard let transitionsHandler = deepestChainedTransitionsHandler
             else { return nil }
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
@@ -674,25 +747,250 @@ extension TransitionsCoordinator where
         
         return lastTransition.targetViewController
     }
-    
-    func findTopViewControllerImpl(containingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
-        -> UIViewController?
+}
+
+// MARK: - for TransitionsTracker
+extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
+    func countOfTransitionsAfterTrackedTransitionImpl(
+        trackedTransition: TrackedTransition,
+        untilLastTransitionOfTransitionsHandler targetTransitionsHandler: TransitionsHandler)
+        -> Int?
     {
-        // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
-        // среди видимых анимирующих обработчиков (то есть в выбранном tab'e tabbar'a)
-        let animatingTransitionsHandlers = transitionsHandler.visibleTransitionsHandlers
+        let transitionsHandlerBox = trackedTransition.transitionsHandlerBox
+        let transitionsHandler = transitionsHandlerBox.unbox()
         
-        // выбираем из найденных анимирующих обработчиков один с самым глубоким дочерним анимирующим обработчиком
-        // и получаем этого дочернего обработчика, чтобы прокинуть ему обработку перехода
-        let animatingTransitionsHandler = deepestChainedAnimatingTransitionsHandler(
-            forTransitionsHandlers: animatingTransitionsHandlers,
-            unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
-                // продолжаем искать среди видимых анимирующих обработчиков (чтобы пользователь видел анимацию)
-                return containingTransitionsHandler.visibleTransitionsHandlers
-            }
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+            = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+                // среди всех анимирующих обработчиков (то есть во всех tab'ах tabbar'a)
+                return containingTransitionsHandler.allTransitionsHandlers
+        }
+
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
         )
         
-        return findTopViewControllerImpl(animatingTransitionsHandler: animatingTransitionsHandler)
+        for _ in animatingTransitionsHandlers {
+            if let result = countOfTransitionsAfterTransitionWithId(
+                trackedTransition.transitionId,
+                performedByTransitionsHandler: transitionsHandler,
+                untilLastTransitionOfTransitionsHandler: targetTransitionsHandler,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler)
+            {
+                return result
+            }
+        }
+        
+        return nil
+    }
+    
+    private func countOfTransitionsAfterTransitionWithId(
+        transitionId: TransitionId,
+        performedByTransitionsHandler fromTransitionsHandler: TransitionsHandler,
+        untilLastTransitionOfTransitionsHandler toTransitionsHandler: TransitionsHandler,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> Int?
+    {
+        let transitionsHandlersPath = transitionHandlersPath(
+            fromTransitionsHandler: fromTransitionsHandler,
+            toTransitionsHandler: toTransitionsHandler,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        guard let transitionsHandlers = transitionsHandlersPath
+            else { return nil }
+        
+        var result = 0
+        
+        for transitionsHandler in transitionsHandlers {
+            guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
+                else { return nil }
+            
+            let (chainedTransition, pushTransitions): (RestoredTransitionContext?, [RestoredTransitionContext]?)
+            
+            if transitionsHandler === fromTransitionsHandler {
+                // у начально нужно считать только переходы после переданного идентификатора
+                (chainedTransition, pushTransitions) = stackClient.transitionsAfter(
+                    transitionId: transitionId,
+                    forTransitionsHandler: transitionsHandler,
+                    includingTransitionWithId: false
+                )
+            }
+            else {
+                // у дочерних нужно считать все перерходы
+                (chainedTransition, pushTransitions) = stackClient.allTransitionsForTransitionsHandler(
+                    transitionsHandler
+                )
+                
+                // кроме первого (`Resetting`) перехода
+                pushTransitions?.removeFirst()
+            }
+            
+            result += pushTransitions?.count ?? 0
+            result += (chainedTransition != nil) ? 1 : 0
+        }
+        
+        return result
+    }
+
+    private func transitionHandlersPath(
+        fromTransitionsHandler fromTransitionsHandler: TransitionsHandler,
+        toTransitionsHandler: TransitionsHandler,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> [TransitionsHandler]?
+    {
+        if fromTransitionsHandler === toTransitionsHandler {
+            return [fromTransitionsHandler]
+        }
+        
+        guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: fromTransitionsHandler)
+            else { return nil }
+        
+        guard let chainedTransition = stackClient.chainedTransitionForTransitionsHandler(fromTransitionsHandler)
+            else { return nil }
+        
+        let chainedTransitionsHandlerBox = chainedTransition.targetTransitionsHandlerBox
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            chainedTransitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        for animatingTransitionsHandler in animatingTransitionsHandlers {
+            let subPath = transitionHandlersPath(
+                fromTransitionsHandler: animatingTransitionsHandler,
+                toTransitionsHandler: toTransitionsHandler,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+            
+            if let subPath = subPath {
+                var result = [fromTransitionsHandler]
+                result.appendContentsOf(subPath)
+                return result
+            }
+        }
+        
+        return nil
+    }
+    
+    func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        searchingFromTransitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+        -> RestoredTransitionContext?
+    {
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+            = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+                // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+                // среди всех анимирующих обработчиков (то есть во всех tab'ах tabbar'a)
+                return containingTransitionsHandler.allTransitionsHandlers
+        }
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        return restoredTransitionFromTrackedTransition(
+            trackedTransition,
+            amongTransitionsHandlers: animatingTransitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+    }
+    
+    private func restoredTransitionFromTrackedTransition(
+        trackedTransition: TrackedTransition,
+        amongTransitionsHandlers animatingTransitionsHandlers: [AnimatingTransitionsHandler],
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> RestoredTransitionContext?
+    {
+        let transitionId = trackedTransition.transitionId
+        let transitionsHandler = trackedTransition.transitionsHandlerBox.unbox()
+        
+        var chainedAnimatingTransitionsHandlers = [AnimatingTransitionsHandler]()
+        
+        for animatingTransitionsHandler in animatingTransitionsHandlers {
+            guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
+                else { continue }
+            
+            let resultIfNotOptional = stackClient.transitionWith(
+                transitionId: transitionId,
+                forTransitionsHandler: transitionsHandler
+            )
+            
+            if let result = resultIfNotOptional {
+                return result
+            }
+            
+            guard let chainedTransition = stackClient.chainedTransitionForTransitionsHandler(animatingTransitionsHandler)
+                else { continue }
+            
+            let chainedAnimatingTransitionsHandlersPart = animatingTransitionsHandlersForTransitionsHandlerBox(
+                chainedTransition.targetTransitionsHandlerBox,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+            
+            chainedAnimatingTransitionsHandlers.appendContentsOf(chainedAnimatingTransitionsHandlersPart)
+        }
+        
+        if !chainedAnimatingTransitionsHandlers.isEmpty {
+            return restoredTransitionFromTrackedTransition(
+                trackedTransition,
+                amongTransitionsHandlers: chainedAnimatingTransitionsHandlers,
+                unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+            )
+        }
+        
+        return nil
+    }
+}
+
+// MARK: - for TransitionsMarker
+extension TransitionsCoordinator where
+    Self: TransitionsMarkersHolder
+{
+    func markTransitionIdImpl(transitionId transitionId: TransitionId, withUserId userId: TransitionUserId) {
+        markers[transitionId] = userId
+    }
+}
+
+// MARK: - Utils
+private extension TransitionsCoordinator {
+    func animatingTransitionsHandlersForTransitionsHandlerBox(
+        transitionsHandlerBox: TransitionsHandlerBox,
+        unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
+        -> [AnimatingTransitionsHandler]
+    {
+        var result = [AnimatingTransitionsHandler]()
+        
+        if let animatingTransitionsHandler = transitionsHandlerBox.unboxAnimatingTransitionsHandler() {
+            result.append(animatingTransitionsHandler)
+        }
+        else if let containingTransitionsHandler = transitionsHandlerBox.unboxContainingTransitionsHandler(),
+            let childAnimatingTransitionsHandlers = unboxContainingTransitionsHandler(containingTransitionsHandler)
+        {
+            result.appendContentsOf(childAnimatingTransitionsHandlers)
+        }
+        
+        return result
+    }
+}
+
+// MARK: - Picking one of tantamount transitions handlers
+private extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder
+{
+    func selectTransitionsHandler(
+        tantamountAnimatingTransitionsHandlers transitionsHandlers: [AnimatingTransitionsHandler])
+        -> AnimatingTransitionsHandler?
+    {
+        // если нашли несколько равноправных обработчиков, то берем последний.
+        // например, среди анимирующих обработчиков SplitViewTransitionsHandler будет выбран detail
+        return transitionsHandlers.last
     }
 }
 
@@ -764,6 +1062,75 @@ private extension TransitionsCoordinator where
         stackClient.appendTransition(
             context: completedTransitionContext!,
             forTransitionsHandler: animatingTransitionsHandler
+        )
+    }
+}
+
+// MARK: - for TransitionsHandlerProvider
+extension TransitionsCoordinator where
+    Self: TransitionContextsStackClientProviderHolder,
+    Self: TransitionsCoordinatorDelegateHolder,
+    Self: TransitionsMarkersHolder
+{
+    func animatingTransitionsHandlerImpl()
+        -> AnimatingTransitionsHandler
+    {
+        return AnimatingTransitionsHandler(
+            transitionsCoordinator: self
+        )
+    }
+    
+    func navigationTransitionsHandlerImpl(navigationController navigationController: UINavigationController)
+        -> NavigationTransitionsHandlerImpl
+    {
+        return NavigationTransitionsHandlerImpl(
+            navigationController: navigationController,
+            transitionsCoordinator: self
+        )
+    }
+    
+    func topTransitionsHandlerBoxImpl(transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+        -> TransitionsHandlerBox
+    {
+        let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
+        = { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
+            // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
+            // среди видимых анимирующих обработчиков (то есть в выбранном tab'e tabbar'a)
+            return containingTransitionsHandler.visibleTransitionsHandlers
+        }
+        
+        let animatingTransitionsHandlers = animatingTransitionsHandlersForTransitionsHandlerBox(
+            transitionsHandlerBox,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        let deepestChainedAnimatingTransitionsHandler = self.deepestChainedAnimatingTransitionsHandler(
+            forTransitionsHandlers: animatingTransitionsHandlers,
+            unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
+        )
+        
+        if let animatingTransitionsHandler = deepestChainedAnimatingTransitionsHandler {
+            return .init(animatingTransitionsHandler: animatingTransitionsHandler)
+        }
+        
+        return transitionsHandlerBox
+    }
+    
+    func splitViewTransitionsHandlerImpl(splitViewController splitViewController: UISplitViewController)
+        -> SplitViewTransitionsHandlerImpl
+    {
+        return SplitViewTransitionsHandlerImpl(
+            splitViewController: splitViewController,
+            transitionsCoordinator: self
+        )
+    }
+    
+    func tabBarTransitionsHandlerImpl(tabBarController tabBarController: UITabBarController)
+        -> TabBarTransitionsHandlerImpl
+    {
+        return TabBarTransitionsHandlerImpl(
+            tabBarController: tabBarController,
+            transitionsCoordinator: self
         )
     }
 }

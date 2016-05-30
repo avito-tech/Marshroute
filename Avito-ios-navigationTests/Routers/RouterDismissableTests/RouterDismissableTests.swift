@@ -4,7 +4,7 @@ final class RouterDismissableTests: XCTestCase
 {
     var transitionId: TransitionId!
     var transitionIdGenerator: TransitionIdGenerator!
-    var transitionsCoordinator: TransitionsCoordinator!
+    var transitionsCoordinator: TransitionsCoordinatorImpl!
     
     var presentingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     
@@ -36,7 +36,7 @@ final class RouterDismissableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: presentingTransitionsHandlerSpy, // Not Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -63,7 +63,7 @@ final class RouterDismissableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: nil, // Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -96,7 +96,7 @@ final class RouterDismissableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: presentingTransitionsHandlerSpy, // Not Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )
@@ -128,7 +128,7 @@ final class RouterDismissableTests: XCTestCase
                 ),
                 transitionId: transitionId,
                 presentingTransitionsHandler: nil, // Root Router
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: RouterControllersProviderImpl()
             )

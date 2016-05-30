@@ -1,0 +1,9 @@
+"comebackTimer.startTimerTitle" = "Start comeback timer";
+"comebackTimer.secondsLeftTillComeback" = "%@ seconds till comeback";
+"recursion" = "Recursion";
+"advertisements" = "Advertisements";
+"shelves" = "Shelves";
+"categories" = "Categories";
+"categories.selectCategory" = "Select category";
+"notification.toRecursion" = "Tap to open `Recursion";
+"notification.toCategories" = "Tap to open `Categories";

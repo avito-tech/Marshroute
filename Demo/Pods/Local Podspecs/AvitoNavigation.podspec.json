@@ -1,0 +1,24 @@
+{
+  "name": "AvitoNavigation",
+  "module_name": "AvitoNavigation",
+  "version": "0.0.0",
+  "summary": "Avito iOS Navigation by Timur Yusipov",
+  "homepage": "",
+  "license": "Avito",
+  "authors": {
+    "Timur Yusipov": "tyusipov@avito.ru"
+  },
+  "source": {
+    "git": "ssh://git@stash.msk.avito.ru:7999/ma/avito-ios-navigation.git",
+    "tag": "#{s.version}"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source_files": "Avito-ios-navigation/**/*.{swift}",
+  "exclude_files": [
+    "Avito-ios-navigation/AppDelegate.swift",
+    "Demo/**/*.*"
+  ]
+}

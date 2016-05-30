@@ -63,7 +63,7 @@ extension PopoverPresentationRouter where
     Self: RouterTransitionable,
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
-    Self: TransitionsCoordinatorHolder,
+    Self: TransitionsHandlersProviderHolder,
     Self: RouterControllersProviderHolder
 {
     // MARK: - UIViewController in UIPopoverController
@@ -86,12 +86,7 @@ extension PopoverPresentationRouter where
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
-        let animatingTransitionsHandler = AnimatingTransitionsHandler(
-            transitionsCoordinator: transitionsCoordinator
-        )
+        let animatingTransitionsHandler = transitionsHandlersProvider.animatingTransitionsHandler()
         
         let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
             animatingTransitionsHandler: animatingTransitionsHandler
@@ -103,7 +98,7 @@ extension PopoverPresentationRouter where
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -151,11 +146,7 @@ extension PopoverPresentationRouter where
         @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
-        let animatingTransitionsHandler = AnimatingTransitionsHandler(
-            transitionsCoordinator: transitionsCoordinator)
+        let animatingTransitionsHandler = transitionsHandlersProvider.animatingTransitionsHandler()
         
         let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
             animatingTransitionsHandler: animatingTransitionsHandler
@@ -167,7 +158,7 @@ extension PopoverPresentationRouter where
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -235,12 +226,8 @@ extension PopoverPresentationRouter where
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
-        let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
-            navigationController: navigationController,
-            transitionsCoordinator: transitionsCoordinator
+        let navigationTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
+            navigationController: navigationController
         )
         
         let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(
@@ -253,7 +240,7 @@ extension PopoverPresentationRouter where
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -318,12 +305,9 @@ extension PopoverPresentationRouter where
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
-        let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
-            navigationController: navigationController,
-            transitionsCoordinator: transitionsCoordinator)
+        let navigationTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
+            navigationController: navigationController
+        )
 
         let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(
             animatingTransitionsHandler: navigationTransitionsHandler
@@ -335,7 +319,7 @@ extension PopoverPresentationRouter where
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )

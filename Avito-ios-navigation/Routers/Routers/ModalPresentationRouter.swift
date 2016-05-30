@@ -48,7 +48,7 @@ extension ModalPresentationRouter where
     Self: RouterTransitionable,
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
-    Self: TransitionsCoordinatorHolder,
+    Self: TransitionsHandlersProviderHolder,
     Self: RouterControllersProviderHolder
 {
     // MARK: - UIViewController
@@ -65,12 +65,7 @@ extension ModalPresentationRouter where
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
         animator: ModalTransitionsAnimator)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
-        let animatingTransitionsHandler = AnimatingTransitionsHandler(
-            transitionsCoordinator: transitionsCoordinator
-        )
+        let animatingTransitionsHandler = transitionsHandlersProvider.animatingTransitionsHandler()
         
         let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
             animatingTransitionsHandler: animatingTransitionsHandler
@@ -82,7 +77,7 @@ extension ModalPresentationRouter where
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )
@@ -144,19 +139,14 @@ extension ModalPresentationRouter where
         detailNavigationController: UINavigationController,
         splitViewController: UISplitViewController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
-        let masterTransitionsHandler = NavigationTransitionsHandlerImpl(
-            navigationController: masterNavigationController,
-            transitionsCoordinator: transitionsCoordinator
+        let masterTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
+            navigationController: masterNavigationController
         )
         
-        let detailTransitionsHandler = NavigationTransitionsHandlerImpl(
-            navigationController: detailNavigationController,
-            transitionsCoordinator: transitionsCoordinator
+        let detailTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
+            navigationController: detailNavigationController
         )
         
         let masterTransitionsHandlerBox = RouterTransitionsHandlerBox(
@@ -167,9 +157,8 @@ extension ModalPresentationRouter where
             animatingTransitionsHandler: detailTransitionsHandler
         )
         
-        let splitViewTransitionsHandler = SplitViewTransitionsHandlerImpl(
-            splitViewController: splitViewController,
-            transitionsCoordinator: transitionsCoordinator
+        let splitViewTransitionsHandler = transitionsHandlersProvider.splitViewTransitionsHandler(
+            splitViewController: splitViewController
         )
         
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
@@ -184,7 +173,7 @@ extension ModalPresentationRouter where
                 detailTransitionsHandlerBox: detailTransitionsHandlerBox,
                 transitionId: generatedTransitionId,
                 presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsHandlersProvider,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: controllersProvider
             )
@@ -207,7 +196,7 @@ extension ModalPresentationRouter where
                 transitionsHandlerBox: detailTransitionsHandlerBox,
                 transitionId: generatedTransitionId,
                 presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-                transitionsCoordinator: transitionsCoordinator,
+                transitionsHandlersProvider: transitionsHandlersProvider,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: controllersProvider
             )
@@ -261,12 +250,8 @@ extension ModalPresentationRouter where
         animator: ModalNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
-        guard let transitionsHandlerBox = transitionsHandlerBox
-            else { assert(false); return }
-        
-        let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
-            navigationController: navigationController,
-            transitionsCoordinator: transitionsCoordinator
+        let navigationTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
+            navigationController: navigationController
         )
         
         let navigationTransitionsHandlerBox = RouterTransitionsHandlerBox(
@@ -279,7 +264,7 @@ extension ModalPresentationRouter where
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
-            transitionsCoordinator: transitionsCoordinator,
+            transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
         )

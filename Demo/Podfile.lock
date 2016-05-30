@@ -1,0 +1,14 @@
+PODS:
+  - AvitoNavigation (0.0.0)
+
+DEPENDENCIES:
+  - AvitoNavigation (from `../`)
+
+EXTERNAL SOURCES:
+  AvitoNavigation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AvitoNavigation: 24c8302c43824d2ec452099341c1f4a9bc527cd6
+
+COCOAPODS: 0.39.0

@@ -4,7 +4,7 @@ import UIKit
 /// Работает с одим обработчиком переходов (detail).
 /// Например, роутер обычного экрана iPhone-приложения или роутер экрана внутри UIPopoverController'а
 public class BaseRouter:
-    TransitionsCoordinatorHolder,
+    TransitionsHandlersProviderHolder,
     TransitionIdGeneratorHolder,
     RouterIdentifiable,
     RouterPresentable,
@@ -18,10 +18,10 @@ public class BaseRouter:
     DetailRouter,
     RouterControllersProviderHolder
 {
-    public let transitionsHandlerBox: RouterTransitionsHandlerBox?
+    public let transitionsHandlerBox: RouterTransitionsHandlerBox
     public let transitionId: TransitionId
     public private(set) weak var presentingTransitionsHandler: TransitionsHandler?
-    public let transitionsCoordinator: TransitionsCoordinator
+    public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider
     
@@ -30,13 +30,13 @@ public class BaseRouter:
         self.transitionId = seed.transitionId
         self.transitionsHandlerBox = seed.transitionsHandlerBox
         self.presentingTransitionsHandler = seed.presentingTransitionsHandler
-        self.transitionsCoordinator = seed.transitionsCoordinator
+        self.transitionsHandlersProvider = seed.transitionsHandlersProvider
         self.transitionIdGenerator = seed.transitionIdGenerator
         self.controllersProvider = seed.controllersProvider
     }
 
     // MARK: - DetailRouterTransitionable
-    public var detailTransitionsHandlerBox: RouterTransitionsHandlerBox? {
+    public var detailTransitionsHandlerBox: RouterTransitionsHandlerBox {
         return transitionsHandlerBox
     }
 }

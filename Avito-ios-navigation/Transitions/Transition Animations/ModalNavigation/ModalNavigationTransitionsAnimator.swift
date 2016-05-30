@@ -6,29 +6,20 @@ public class ModalNavigationTransitionsAnimator: TransitionsAnimator
 {
     public var shouldAnimate = true
     
-    public var sourceModalTransitionStyle: UIModalTransitionStyle
-    public var sourceModalPresentationStyle: UIModalPresentationStyle
     public var targetModalTransitionStyle: UIModalTransitionStyle
     public var targetModalPresentationStyle: UIModalPresentationStyle
     
     // MARK: - Init
-    
     public init(
-        sourceModalTransitionStyle: UIModalTransitionStyle?,
-        sourceModalPresentationStyle: UIModalPresentationStyle?,
         targetModalTransitionStyle: UIModalTransitionStyle?,
         targetModalPresentationStyle: UIModalPresentationStyle?)
     {
-        self.sourceModalTransitionStyle = sourceModalTransitionStyle ?? .CoverVertical
-        self.sourceModalPresentationStyle = sourceModalPresentationStyle ?? .FullScreen
         self.targetModalTransitionStyle = targetModalTransitionStyle ?? .CoverVertical
         self.targetModalPresentationStyle = targetModalPresentationStyle ?? .FullScreen
     }
     
     public init()
     {
-        self.sourceModalTransitionStyle = .CoverVertical
-        self.sourceModalPresentationStyle = .FullScreen
         self.targetModalTransitionStyle = .CoverVertical
         self.targetModalPresentationStyle = .FullScreen
     }
@@ -36,9 +27,6 @@ public class ModalNavigationTransitionsAnimator: TransitionsAnimator
     // MARK: - TransitionsAnimator
     public func animatePerformingTransition(animationContext context: ModalNavigationPresentationAnimationContext)
     {
-        context.sourceViewController.modalTransitionStyle = sourceModalTransitionStyle
-        context.sourceViewController.modalPresentationStyle = sourceModalPresentationStyle
-        
         context.targetNavigationController.modalTransitionStyle = targetModalTransitionStyle
         context.targetNavigationController.modalPresentationStyle = targetModalPresentationStyle
         

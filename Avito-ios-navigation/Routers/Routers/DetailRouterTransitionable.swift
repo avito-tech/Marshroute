@@ -1,4 +1,4 @@
 public protocol DetailRouterTransitionable: class {
     /// ссылка на обработчика переходов
-    var detailTransitionsHandlerBox: RouterTransitionsHandlerBox? { get }
+    var detailTransitionsHandlerBox: RouterTransitionsHandlerBox { get }
 }

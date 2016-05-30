@@ -1,7 +1,7 @@
 import Foundation
 
 final class ApplicationInteractorImpl: ApplicationInteractor {
-    private var bannerType: BannerType = .Recursion
+    private var bannerType: BannerType = .Categories
     
     // MARK: - ApplicationInteractor
     func bannerType(completion: ((bannerType: BannerType) -> ())?) {

@@ -1,6 +1,6 @@
 This repo contains the source code for making your `Router`s  simple but extremely powerful!
 
-Every `Router`-driven transition is always forwarded to the topmost `UIViewcontroller`
+Every `Router`-driven transition is always forwarded to the topmost `UIViewController`
 to make it super easy to support `DeepLink`s and for example present `Authorization` module from any point of your application. 
 I prefer doing this right from my root application's `Router`.
 
@@ -8,7 +8,7 @@ This repo allows you to drive your transitions in a super clean, descriptive and
 For example pretend the following code is taken from your root application's `Router`: 
 
 ```
-func showAuthorziation() {
+func showAuthorization() {
     pushViewControllerDerivedFrom { routerSeed -> UIViewController in
         let authorizationAssembly = assemblyFactory.authorizationAssembly()
 
@@ -42,6 +42,28 @@ presentModalViewControllerDerivedFrom { routerSeed -> UIViewController in
 Once again, the transition will be forwarded to the top, keeping the `Router` very plain and straightforward.
 So that, the `Router` keeps being responsible for only one thing: selecting the style of a transition. 
 
+You may add an animator to customize the way your transition looks like. For example
+
+```
+func showCategories() {
+    presentModalNavigationControllerWithRootViewControllerDerivedFrom( { routerSeed -> UIViewController in
+        let categoriesAssembly = assemblyFactory.categoriesAssembly()
+
+        let viewController = categoriesAssembly.module(
+            routerSeed: routerSeed
+        )
+
+        return viewController
+    }, animator: RecursionAnimator())
+}
+```
+
+The key line here is 
+```
+}, animator: RecursionAnimator())
+```
+
+So the syntax remains clean and it is super easy to switch back to the original animation style.
 
 Check out the [demo](https://github.com/avito-tech/Marshroute/tree/master/Example) project. 
 This demo is written in `Swift` using `VIPER` architecture and shows all the capabilities which `Router`s are now full of.

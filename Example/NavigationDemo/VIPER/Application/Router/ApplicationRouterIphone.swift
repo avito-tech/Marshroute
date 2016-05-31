@@ -21,7 +21,7 @@ final class ApplicationRouterIphone: BaseDemoRouter, ApplicationRouter {
         completion(isPresented: isPresented)
     }
     
-    func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
+    func showAuthorization(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let authorizationAssembly = assemblyFactory.authorizationAssembly()
             

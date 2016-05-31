@@ -41,7 +41,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
             if isPresented {
                 self?.authorizationModuleInput?.onComplete = completion
             } else {
-                self?.router.showAuthorziation() { [weak self] moduleInput in
+                self?.router.showAuthorization() { [weak self] moduleInput in
                     self?.authorizationModuleInput = moduleInput
                     moduleInput.onComplete = completion
                 }

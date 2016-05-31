@@ -21,7 +21,7 @@ final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
         completion(isPresented: isAuthorizationModulePresented)
     }
     
-    func showAuthorziation(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
+    func showAuthorization(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
         let animator = ModalNavigationTransitionsAnimator()
         animator.targetModalPresentationStyle = .FormSheet
         

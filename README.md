@@ -108,6 +108,11 @@ We will add our `Podspec` to the main Cocoapods repo a bit later.
 
 We will add Carthage support a bit later.
 
+## Contacts
+Feel free to send your questions at `tyusipov@avito.ru`
+
+MIT
+
 ## License
 
 MIT

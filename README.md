@@ -1,6 +1,8 @@
-This repo contains the source code for making your `Router`s  simple but extremely powerful!
+# Marshroute [![GitHub license](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/avito-tech/Marshroute/blob/master/LICENSE) [![GitHub release](https://img.shields.io/badge/Version-0.3.1-brighgreen.svg)](https://github.com/avito-tech/Marshroute/releases) [![cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-blue.svg)](https://cocoapods.org) [![carthage compatib](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage) 
 
 ## Overview
+
+This repo contains the source code for making your `Router`s  simple but extremely powerful!
 
 Every `Router`-driven transition is always forwarded to the topmost `UIViewController`
 to make it super easy to support `DeepLink`s and for example present `Authorization` module from any point of your application. 
@@ -90,7 +92,7 @@ To see this effect taking place, you should make several transitions deeper into
 ## Installation
 ### CocoaPods
 
-To install Marshroute using CocoaPods, add the following lines to your `Podfile`.
+To install Marshroute using CocoaPods, add the following lines to your `Podfile`:
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
@@ -104,7 +106,12 @@ Then run `pod install` command. For details of the installation and usage of Coc
 
 ### Carthage
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+To install Marshroute using Carthage, add the following lines to your `Cartfile`:
+```ruby
+github "avito-tech/Marshroute" ~> 0.3.1
+```
+
+Then run `carthage update --platform iOS` command. For details of the installation and usage of Carthage, visit [its  repo website](https://github.com/Carthage/Carthage).
 
 ## Contacts
 Feel free to send your questions at `tyusipov@avito.ru`

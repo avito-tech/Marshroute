@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol AvitoNavigationFactory: class {
+public protocol MarshrouteNavigationFactory: class {
     func transitionContextsStackClientProvider()
         -> TransitionContextsStackClientProvider
     

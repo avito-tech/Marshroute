@@ -1,17 +1,17 @@
 import Marshroute
 
 final class ApplicationModuleSeedProvider {
-    func applicationModuleSeed(avitoNavigationSetupService avitoNavigationSetupService: AvitoNavigationSetupService)
+    func applicationModuleSeed(marshrouteNavigationSetupService marshrouteNavigationSetupService: MarshrouteNavigationSetupService)
         -> ApplicationModuleSeed
     {
-        let avitoStack = avitoNavigationSetupService.avitoNavigationStack()
+        let marshrouteStack = marshrouteNavigationSetupService.marshrouteNavigationStack()
         
-        let transitionId = avitoStack.transitionIdGenerator.generateNewTransitionId()
+        let transitionId = marshrouteStack.transitionIdGenerator.generateNewTransitionId()
         
         let result = ApplicationModuleSeed(
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
-            avitoNavigationStack: avitoStack
+            marshrouteNavigationStack: marshrouteStack
         )
         
         return result

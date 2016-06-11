@@ -6,11 +6,11 @@ final class RootModulesProviderImpl: RootModulesProvider {
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
         -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
-        let avitoNavigationStack = moduleSeed.avitoNavigationStack
+        let marshrouteNavigationStack = moduleSeed.marshrouteNavigationStack
         
-        let navigationController = avitoNavigationStack.routerControllersProvider.navigationController()
+        let navigationController = marshrouteNavigationStack.routerControllersProvider.navigationController()
         
-        let animatingTransitionsHandler = avitoNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let animatingTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: navigationController
         )
         
@@ -48,17 +48,17 @@ final class RootModulesProviderImpl: RootModulesProvider {
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController)
         -> (splitViewController: UISplitViewController, containingTransitionsHandler: ContainingTransitionsHandler)
     {
-        let avitoNavigationStack = moduleSeed.avitoNavigationStack
+        let marshrouteNavigationStack = moduleSeed.marshrouteNavigationStack
         
-        let masterNavigationController = avitoNavigationStack.routerControllersProvider.navigationController()
-        let detailNavigationController = avitoNavigationStack.routerControllersProvider.navigationController()
+        let masterNavigationController = marshrouteNavigationStack.routerControllersProvider.navigationController()
+        let detailNavigationController = marshrouteNavigationStack.routerControllersProvider.navigationController()
         
         
-        let masterAnimatingTransitionsHandler = avitoNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let masterAnimatingTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: masterNavigationController
         )
         
-        let detailAnimatingTransitionsHandler = avitoNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let detailAnimatingTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: detailNavigationController
         )
         
@@ -117,10 +117,10 @@ final class RootModulesProviderImpl: RootModulesProvider {
             )
         }
         
-        let splitViewController = avitoNavigationStack.routerControllersProvider.splitViewController()
+        let splitViewController = marshrouteNavigationStack.routerControllersProvider.splitViewController()
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
-        let splitViewTransitionsHandler = avitoNavigationStack.transitionsHandlersProvider.splitViewTransitionsHandler(
+        let splitViewTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.splitViewTransitionsHandler(
             splitViewController: splitViewController
         )
         

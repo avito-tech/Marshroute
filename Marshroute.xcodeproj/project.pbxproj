@@ -52,16 +52,16 @@
 		CCF1361F1CFC9E1B007229D1 /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135541CFC9E1A007229D1 /* RouterTransitionable.swift */; };
 		CCF136201CFC9E1B007229D1 /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135551CFC9E1A007229D1 /* RouterTransitionsHandlerBox.swift */; };
 		CCF136211CFC9E1B007229D1 /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135551CFC9E1A007229D1 /* RouterTransitionsHandlerBox.swift */; };
-		CCF136221CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */; };
-		CCF136231CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */; };
-		CCF136241CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */; };
-		CCF136251CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */; };
-		CCF136261CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */; };
-		CCF136271CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */; };
-		CCF136281CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */; };
-		CCF136291CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */; };
-		CCF1362A1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */; };
-		CCF1362B1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */; };
+		CCF136221CFC9E1B007229D1 /* MarshrouteNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135571CFC9E1A007229D1 /* MarshrouteNavigationFactory.swift */; };
+		CCF136231CFC9E1B007229D1 /* MarshrouteNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135571CFC9E1A007229D1 /* MarshrouteNavigationFactory.swift */; };
+		CCF136241CFC9E1B007229D1 /* MarshrouteNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135581CFC9E1A007229D1 /* MarshrouteNavigationFactoryImpl.swift */; };
+		CCF136251CFC9E1B007229D1 /* MarshrouteNavigationFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135581CFC9E1A007229D1 /* MarshrouteNavigationFactoryImpl.swift */; };
+		CCF136261CFC9E1B007229D1 /* MarshrouteNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135591CFC9E1A007229D1 /* MarshrouteNavigationSetupService.swift */; };
+		CCF136271CFC9E1B007229D1 /* MarshrouteNavigationSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135591CFC9E1A007229D1 /* MarshrouteNavigationSetupService.swift */; };
+		CCF136281CFC9E1B007229D1 /* MarshrouteNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355A1CFC9E1A007229D1 /* MarshrouteNavigationSetupServiceImpl.swift */; };
+		CCF136291CFC9E1B007229D1 /* MarshrouteNavigationSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355A1CFC9E1A007229D1 /* MarshrouteNavigationSetupServiceImpl.swift */; };
+		CCF1362A1CFC9E1B007229D1 /* MarshrouteNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355B1CFC9E1A007229D1 /* MarshrouteNavigationStack.swift */; };
+		CCF1362B1CFC9E1B007229D1 /* MarshrouteNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF1355B1CFC9E1A007229D1 /* MarshrouteNavigationStack.swift */; };
 		CCF136321CFC9E1B007229D1 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135641CFC9E1A007229D1 /* ModalDismissalAnimationContext.swift */; };
 		CCF136331CFC9E1B007229D1 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135641CFC9E1A007229D1 /* ModalDismissalAnimationContext.swift */; };
 		CCF136341CFC9E1B007229D1 /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF135651CFC9E1A007229D1 /* ModalTransitionsAnimator.swift */; };
@@ -325,11 +325,11 @@
 		CCF135531CFC9E1A007229D1 /* RouterPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterPresentable.swift; sourceTree = "<group>"; };
 		CCF135541CFC9E1A007229D1 /* RouterTransitionable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTransitionable.swift; sourceTree = "<group>"; };
 		CCF135551CFC9E1A007229D1 /* RouterTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTransitionsHandlerBox.swift; sourceTree = "<group>"; };
-		CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationFactory.swift; sourceTree = "<group>"; };
-		CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationFactoryImpl.swift; sourceTree = "<group>"; };
-		CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationSetupService.swift; sourceTree = "<group>"; };
-		CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationSetupServiceImpl.swift; sourceTree = "<group>"; };
-		CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvitoNavigationStack.swift; sourceTree = "<group>"; };
+		CCF135571CFC9E1A007229D1 /* MarshrouteNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteNavigationFactory.swift; sourceTree = "<group>"; };
+		CCF135581CFC9E1A007229D1 /* MarshrouteNavigationFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteNavigationFactoryImpl.swift; sourceTree = "<group>"; };
+		CCF135591CFC9E1A007229D1 /* MarshrouteNavigationSetupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteNavigationSetupService.swift; sourceTree = "<group>"; };
+		CCF1355A1CFC9E1A007229D1 /* MarshrouteNavigationSetupServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteNavigationSetupServiceImpl.swift; sourceTree = "<group>"; };
+		CCF1355B1CFC9E1A007229D1 /* MarshrouteNavigationStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteNavigationStack.swift; sourceTree = "<group>"; };
 		CCF135641CFC9E1A007229D1 /* ModalDismissalAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationContext.swift; sourceTree = "<group>"; };
 		CCF135651CFC9E1A007229D1 /* ModalTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CCF135671CFC9E1A007229D1 /* ModalPresentationAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationAnimationContext.swift; sourceTree = "<group>"; };
@@ -600,11 +600,11 @@
 		CCF135561CFC9E1A007229D1 /* SettingUpStack */ = {
 			isa = PBXGroup;
 			children = (
-				CCF135571CFC9E1A007229D1 /* AvitoNavigationFactory.swift */,
-				CCF135581CFC9E1A007229D1 /* AvitoNavigationFactoryImpl.swift */,
-				CCF135591CFC9E1A007229D1 /* AvitoNavigationSetupService.swift */,
-				CCF1355A1CFC9E1A007229D1 /* AvitoNavigationSetupServiceImpl.swift */,
-				CCF1355B1CFC9E1A007229D1 /* AvitoNavigationStack.swift */,
+				CCF135571CFC9E1A007229D1 /* MarshrouteNavigationFactory.swift */,
+				CCF135581CFC9E1A007229D1 /* MarshrouteNavigationFactoryImpl.swift */,
+				CCF135591CFC9E1A007229D1 /* MarshrouteNavigationSetupService.swift */,
+				CCF1355A1CFC9E1A007229D1 /* MarshrouteNavigationSetupServiceImpl.swift */,
+				CCF1355B1CFC9E1A007229D1 /* MarshrouteNavigationStack.swift */,
 			);
 			path = SettingUpStack;
 			sourceTree = "<group>";
@@ -1437,14 +1437,14 @@
 				CCF136D01CFC9E1B007229D1 /* TransitionContextsStackClient.swift in Sources */,
 				CCF1368A1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
 				CCF1361A1CFC9E1B007229D1 /* RouterIdentifiable.swift in Sources */,
-				CCF136241CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */,
+				CCF136241CFC9E1B007229D1 /* MarshrouteNavigationFactoryImpl.swift in Sources */,
 				CCF136961CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCF1363A1CFC9E1B007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
 				CCF136E01CFC9E1B007229D1 /* TransitionUserId.swift in Sources */,
 				CCF1360E1CFC9E1B007229D1 /* PopoverPresentationRouter.swift in Sources */,
-				CCF136221CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */,
+				CCF136221CFC9E1B007229D1 /* MarshrouteNavigationFactory.swift in Sources */,
 				CCF136121CFC9E1B007229D1 /* RouterControllersProviderHolder.swift in Sources */,
-				CCF136261CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */,
+				CCF136261CFC9E1B007229D1 /* MarshrouteNavigationSetupService.swift in Sources */,
 				CCF1365C1CFC9E1B007229D1 /* PopoverPresentationAnimationContext.swift in Sources */,
 				CCF135F61CFC9E1B007229D1 /* StrongBox.swift in Sources */,
 				CCF136761CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
@@ -1474,7 +1474,7 @@
 				CCF136161CFC9E1B007229D1 /* RouterDismissable.swift in Sources */,
 				CCF1363C1CFC9E1B007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
 				CCF136881CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift in Sources */,
-				CCF136281CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */,
+				CCF136281CFC9E1B007229D1 /* MarshrouteNavigationSetupServiceImpl.swift in Sources */,
 				CCF1366C1CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift in Sources */,
 				CCF136D61CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
 				CCF136201CFC9E1B007229D1 /* RouterTransitionsHandlerBox.swift in Sources */,
@@ -1505,7 +1505,7 @@
 				CCF136BC1CFC9E1B007229D1 /* TransitionIdGeneratorImpl.swift in Sources */,
 				CCF1363E1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
 				CCF136941CFC9E1B007229D1 /* CompletedTransitionContext.swift in Sources */,
-				CCF1362A1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */,
+				CCF1362A1CFC9E1B007229D1 /* MarshrouteNavigationStack.swift in Sources */,
 				CCF136641CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift in Sources */,
 				CCF136081CFC9E1B007229D1 /* MasterRouter.swift in Sources */,
 				CCF136AA1CFC9E1B007229D1 /* TransitionsHandlerContainer.swift in Sources */,
@@ -1565,14 +1565,14 @@
 				CCF136D11CFC9E1B007229D1 /* TransitionContextsStackClient.swift in Sources */,
 				CCF1368B1CFC9E1B007229D1 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
 				CCF1361B1CFC9E1B007229D1 /* RouterIdentifiable.swift in Sources */,
-				CCF136251CFC9E1B007229D1 /* AvitoNavigationFactoryImpl.swift in Sources */,
+				CCF136251CFC9E1B007229D1 /* MarshrouteNavigationFactoryImpl.swift in Sources */,
 				CCF136971CFC9E1B007229D1 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				CCF1363B1CFC9E1B007229D1 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
 				CCF136E11CFC9E1B007229D1 /* TransitionUserId.swift in Sources */,
 				CCF1360F1CFC9E1B007229D1 /* PopoverPresentationRouter.swift in Sources */,
-				CCF136231CFC9E1B007229D1 /* AvitoNavigationFactory.swift in Sources */,
+				CCF136231CFC9E1B007229D1 /* MarshrouteNavigationFactory.swift in Sources */,
 				CCF136131CFC9E1B007229D1 /* RouterControllersProviderHolder.swift in Sources */,
-				CCF136271CFC9E1B007229D1 /* AvitoNavigationSetupService.swift in Sources */,
+				CCF136271CFC9E1B007229D1 /* MarshrouteNavigationSetupService.swift in Sources */,
 				CCF1365D1CFC9E1B007229D1 /* PopoverPresentationAnimationContext.swift in Sources */,
 				CCF135F71CFC9E1B007229D1 /* StrongBox.swift in Sources */,
 				CCF136771CFC9E1B007229D1 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
@@ -1608,7 +1608,7 @@
 				CCF137291CFC9E42007229D1 /* RouterDismissableTests.swift in Sources */,
 				CCF1363D1CFC9E1B007229D1 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
 				CCF136891CFC9E1B007229D1 /* SettingAnimationLaunchingContext.swift in Sources */,
-				CCF136291CFC9E1B007229D1 /* AvitoNavigationSetupServiceImpl.swift in Sources */,
+				CCF136291CFC9E1B007229D1 /* MarshrouteNavigationSetupServiceImpl.swift in Sources */,
 				CCF1366D1CFC9E1B007229D1 /* PresentationAnimationLaunchingContextBox.swift in Sources */,
 				CCF136D71CFC9E1B007229D1 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
 				CCF137371CFC9E42007229D1 /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */,
@@ -1648,7 +1648,7 @@
 				CCF1363F1CFC9E1B007229D1 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
 				CCF136951CFC9E1B007229D1 /* CompletedTransitionContext.swift in Sources */,
 				CCF137271CFC9E42007229D1 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
-				CCF1362B1CFC9E1B007229D1 /* AvitoNavigationStack.swift in Sources */,
+				CCF1362B1CFC9E1B007229D1 /* MarshrouteNavigationStack.swift in Sources */,
 				CCF136651CFC9E1B007229D1 /* PresentationTransitionsAnimatorBox.swift in Sources */,
 				CCF136091CFC9E1B007229D1 /* MasterRouter.swift in Sources */,
 				CCF136AB1CFC9E1B007229D1 /* TransitionsHandlerContainer.swift in Sources */,

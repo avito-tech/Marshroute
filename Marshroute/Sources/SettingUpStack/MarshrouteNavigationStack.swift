@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AvitoNavigationStack {
+public struct MarshrouteNavigationStack {
     public let transitionIdGenerator: TransitionIdGenerator
     public let routerControllersProvider: RouterControllersProvider
     public let transitionsCoordinator: TransitionsCoordinator

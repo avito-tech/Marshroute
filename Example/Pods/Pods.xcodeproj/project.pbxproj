@@ -51,18 +51,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>029ECA80A21EA58D0806E8E79125BA3C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2CBAD798B3D39507414BCC5C44A5523F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>046656C6AE08D9A621ED674B0AD82F57</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -91,6 +79,30 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>055D324D1EE4042D7FAD4752851991E7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>90D7633F1CD61249C2AA01EE3E51E6E4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>05DAEF4476708BA117040AF2DDC0C607</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4B0ABAC2FA061E840941F452711D43DE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>05F47BBFE6F42CCE038F8F19D1BA1026</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -104,10 +116,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>068300C69EFBA08988BC53040D290017</key>
+		<key>07BC383FBC2CF1DA6F9F28AF6403BF98</key>
 		<dict>
 			<key>fileRef</key>
-			<string>C81C75842FE8DEAA1DEF6B39B185C1F3</string>
+			<string>DD65730539A3C7A19C779E93DD55108D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -116,23 +128,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>08CC157D6B492F933CB7D0DCAEC187DE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AvitoNavigationSetupService.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>08CD8AEA22FED8A06468883DC5DA44D6</key>
+		<key>08103F5E4EF2FD0BC8A6B8B8A8AEFC50</key>
 		<dict>
 			<key>fileRef</key>
-			<string>A1185F49F1E6622329D28CA25F17297C</string>
+			<string>F750DB57816B975520F1A38181E335F9</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -154,18 +153,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>098E6DFC797D277E9E89FF6DC4C315F7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5008C9BFE42F8A8A31079A3DBBCB3CBB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>09F917893D6574DDF69D53E499B477D8</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -179,10 +166,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0ABF6F0465BB5C6A09EBED32A0BD196F</key>
+		<key>0B160900EB2EDD089C1215971734C1B6</key>
 		<dict>
 			<key>fileRef</key>
-			<string>438523783B8D1C6E99519B32B7A586B1</string>
+			<string>DCF236261E1E99AE5E39BF8D33128E86</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -234,25 +221,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0DC87098A5360EC3BE71D8C6BFFBDD0D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FC794E98BBF04FC62BE87560CEF06DFC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>0E1AA1F4EF9D71D3C0660EED04038461</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>D47D3E0DF66376A24C795DECA547FFA9</string>
 				<string>5D77777CC76AC1C9C480875BE02C9F74</string>
-				<string>FEFFFB7510501D535E69D5A4982C033C</string>
+				<string>FD750BE0E49BA00DDFA867A967470EA0</string>
 				<string>9C6C19F9F8D87DA410759348227FA613</string>
 				<string>B9440C2533943B35E09E9544DCED0681</string>
 			</array>
@@ -278,17 +253,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>10EA52E356F1F298933F3AAF79F32981</key>
+		<key>10266F0E83566CA4B24DCBB49E2748D1</key>
 		<dict>
-			<key>fileRef</key>
-			<string>08CC157D6B492F933CB7D0DCAEC187DE</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MarshrouteNavigationFactoryImpl.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>11A4492972F32ABFF0701FDE84852917</key>
 		<dict>
@@ -310,6 +286,139 @@
 			<string>894E5DA93A9F359521A89826BE6DA777</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>13576E84F9EE3B3DF5A2789C317341A7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>2784841519E5B05E585AD108A89186D8</string>
+				<string>C8B2EB94D5D4991E90480D836DF6803A</string>
+				<string>C462804C74E151963082131D4B878DEC</string>
+				<string>9E22D1D1DF71E2849E3E79A2262C34AD</string>
+				<string>AE3DD5A29CB661B70CE02D115ABD8819</string>
+				<string>6DF10C98286CE740E201613B57905B19</string>
+				<string>F654BB169564C8062B950B0681B67D9E</string>
+				<string>D2DCC744F6E806F5AAE0B63C99B6FA1B</string>
+				<string>F0D0F3128F270A3023A0971979C949DD</string>
+				<string>B5792AE4C8CDD726719772724DC4B2E5</string>
+				<string>1AB5629AFDCFA6C017B651845CF0EC3D</string>
+				<string>CBD98C36B82D4220C8B12E2224935C68</string>
+				<string>4A93FA8E63FB8CE4952384862B9C0084</string>
+				<string>C9D5FF31CCD266CDA32F5DBB92FC13F0</string>
+				<string>A953FE7EA324DA64518BC9FADC6D00E6</string>
+				<string>8082C79D074F742491815F4DE1471480</string>
+				<string>F1FABC2B4BE9E4C1246C0566CBF87257</string>
+				<string>A43FF4E27C51ED530693F2867D4B6137</string>
+				<string>7E0E7872CD4E977DDDC0EE237CF826C9</string>
+				<string>DC70F3363A9DE94EA0F9D798F9C037EE</string>
+				<string>AAB2102A333FA5C00953AC877A3A7CC2</string>
+				<string>6286B5BE0295B25A5BEE2B238A39BA4E</string>
+				<string>C40577DB88E0042DBC4F67C11446E495</string>
+				<string>F0B69AB1C4AE751A3DAA1A721B6D7600</string>
+				<string>F3576C348D2D9DFDC88909F2E8C6ABDF</string>
+				<string>6570F50A6F0DB69442CDC512C5DB22A6</string>
+				<string>8D1E0A7F96070386B57F7B12211DADE9</string>
+				<string>20E46CE57F88504BBF216DE01FE5F9A9</string>
+				<string>F5257F2384627A45B07446984EF76E94</string>
+				<string>366FA5358C0A20A0FF3629BCAF76BC9F</string>
+				<string>9CAF10F558AB4E88EE81000D4A702CF4</string>
+				<string>E1702FB9334442877CEEE76DBFD3B542</string>
+				<string>40AA87BDACF40A4E0D217D4BB6E42E65</string>
+				<string>8DEB614432667D341BC2C47B5D4BE69E</string>
+				<string>1B514BCB07C2CC9D9BD90FAA6835D05A</string>
+				<string>EF0724F8513D41FB3C2BEEF5E2694AEB</string>
+				<string>AE40429DF30790CAF69723763F368B06</string>
+				<string>2241790808D1F90D906CD8BC31585586</string>
+				<string>49E261385CED31067E32666F7D50054D</string>
+				<string>4FD76BFCF1199C09C1D1AB8189EB8F77</string>
+				<string>36429D548D392228CDD9B89650A75259</string>
+				<string>27A40BD7585050061CC6AC6CDC467BDB</string>
+				<string>F5222AD42A71CCAEE6B3EE1FBA47DEE8</string>
+				<string>664631CC74E30B0E70A92EE86EFE0C97</string>
+				<string>AFB871562766F9454AC736772785DA0B</string>
+				<string>56356DDCF0553F228F555581B0606F68</string>
+				<string>BBF50BFE7BE0B4F5D8AC642C49D79432</string>
+				<string>0B160900EB2EDD089C1215971734C1B6</string>
+				<string>297642334EA462E9709C3D6F8A2169A6</string>
+				<string>9F8322D9C64086BD4A0CA7BB6BCCBD0D</string>
+				<string>19FE816DB364D86CF7555D3F7E9C72DA</string>
+				<string>373A42D3C4872DFEF6AE11DBE22459C4</string>
+				<string>82DE3920BDF7A02673151CBB25ECAB3E</string>
+				<string>FD7993C6F7E3AF1FF9F0CBADAD89B0A1</string>
+				<string>2052A186F022C8D70C4CFDA40B67A8B5</string>
+				<string>39525F4FFCAD3E49D4F15820E880D6AC</string>
+				<string>6C00425ACF3975C4A5BD930FA01F43BA</string>
+				<string>5E5A5F22E6ADD9F20917C628E667E7D9</string>
+				<string>AFC48915184EAC00D889C75A8CA25901</string>
+				<string>CD030C7987A65D86DC058BAD0E549AD2</string>
+				<string>B4507E5E89DAF440DBC14F78867E7734</string>
+				<string>07BC383FBC2CF1DA6F9F28AF6403BF98</string>
+				<string>F594A87AC32E278E69AB177AC3EBD20E</string>
+				<string>44C1341727D67BF7204972BC64A8C5D3</string>
+				<string>641038D23009899D370BE5FF9FE725F5</string>
+				<string>B74EA1DD7AF7DDB4B4031C01ADEC4C0E</string>
+				<string>E3F120CFE3BA40D5ECCA7365CE05DE67</string>
+				<string>637419AAAE313BB0800B6F0D0C822A45</string>
+				<string>A7169F693284430A2A1D94AE58615FD8</string>
+				<string>BED4392D4C7E5E74E5CA7CE7BA1DE241</string>
+				<string>ABAE8CE16DACB0C0E1B66C2B10118777</string>
+				<string>A27EA4FEC8E36B52E84CC8D7644EB439</string>
+				<string>055D324D1EE4042D7FAD4752851991E7</string>
+				<string>A6247ADBCB5562BEEFAD6185A1EBFAA4</string>
+				<string>E10667AEC3D6270B7D823A0C0E0DA0F2</string>
+				<string>A488E4899E2EA1BFD4954BEB35E6BC94</string>
+				<string>A7AC4C1355573AC96AC5B136CD1561C0</string>
+				<string>1A844E33E870A3788468AAB8DF3614D2</string>
+				<string>5B7447D2038622680EDDEA3257B149A0</string>
+				<string>05DAEF4476708BA117040AF2DDC0C607</string>
+				<string>21A05BE6617513FE90B6DB6CBEE791CA</string>
+				<string>6E2282F311F4591BE0CF77F2CD9691B1</string>
+				<string>3B64DF53DCCBD0B04F112AA49E3E4B10</string>
+				<string>D2E982AE601ABFB5EE6A8898241DC072</string>
+				<string>6D2609BCA92A7ED9509C2FBB629BC7BE</string>
+				<string>DB74F539846E11452363F73EB712BA7F</string>
+				<string>3DCDCD246AF4BC016C9A8A1D8AC5CDF9</string>
+				<string>F5BCF5E8112E1B0574A74EAD20A99ABF</string>
+				<string>2B02402ADF8C025317E6E181D4526DBF</string>
+				<string>D409BE6746A99E2A042CD13B793FD6C2</string>
+				<string>A57E39B5EBBD8FB6589216945DD1FB2C</string>
+				<string>3278954184E7A6836E1549EF3826E89C</string>
+				<string>AD954C404E37583237451D316DF3797E</string>
+				<string>E7CC1874AF35A5F7EE9E5DBF7D3FBA1F</string>
+				<string>249500C988C26EC02318361F18EBB3B8</string>
+				<string>E6B4497F64807EA2A3360E2E65F843D9</string>
+				<string>CCCFFFDE2EE42AE66DC2FA25AAEEE7C5</string>
+				<string>7698B6329A72B9B6ED432097A010EE7C</string>
+				<string>1FEDF1F55DF06AAE3FD806A2A615DC3E</string>
+				<string>8F47B6E454B2C38755AB0F39115B9566</string>
+				<string>ABF7B3DBE62D7AA8373DE22B0729A772</string>
+				<string>64EA3BD19C658D16459386429260FCE3</string>
+				<string>896A86AF2BC45867FFF4ACF431BCB9ED</string>
+				<string>DC3F98DE9F6B3F6A75CB08C48EDC4409</string>
+				<string>4AD9F893A798EFAA12C149D4E05BAEF7</string>
+				<string>9680500C02B264E5796B604F0D277716</string>
+				<string>F8BDCCE56A529F59C66A0FA2C6C7C6B3</string>
+				<string>47F99203AD69DA0E433C0D4C87313E20</string>
+				<string>E1F9636EEB7BA5D645238A6CA206D6D4</string>
+				<string>2007F1FD6F1E5F9A6B34568E77B493F4</string>
+				<string>08103F5E4EF2FD0BC8A6B8B8A8AEFC50</string>
+				<string>202BE9316ADC7C0DBBA1D45396F9899B</string>
+				<string>EE50BB7E1A6C72DC02C7F7F5CFE55F42</string>
+				<string>4CFC131D84F234C260DD61DCB2BC939B</string>
+				<string>87F319821FF23B3CBB160CD6346DE574</string>
+				<string>9D92FC8397E906B928F25E57A58B00E1</string>
+				<string>76155055EA20C6F5AA79D271F3A5DE04</string>
+				<string>5270102D44E1FAB0FEA382CD816587CA</string>
+				<string>F23EE00E02FDBE81849D3E6F54C9EE65</string>
+				<string>8D1A0DE481B19D63F153BFED4EB19624</string>
+				<string>5E432A394B26C9E2EE3502842A02D0F8</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>14112519C9F2B1B61014163C424DA841</key>
 		<dict>
@@ -383,42 +492,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1591F44387351C361806DEA8AB8C8F25</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D14D3EB6B6B343BDD84E81ED66073BF0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>15FE2AD81BB04D3D63B819BACBF4F436</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DF7FBF0FC4F1BC246ABC3E8049D68086</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>162A58B6DB6044FE1522CB8822E5C9EE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A6405508FEBBFA94C6F99E10A80E33E1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>16E776D94DC1CEFB6FB41AD161457AC2</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -431,18 +504,6 @@
 			<string>TransitionsAnimator.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1746F958C2B787DDCBEA8E4A7A79F6E8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BCA0F8E8304641D4CEB31C5D460763F4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>1764857133F41257A1E35D58C797365E</key>
 		<dict>
@@ -470,6 +531,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>19FE816DB364D86CF7555D3F7E9C72DA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2C861C429918EF89AFF0425DFEF5837E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>1A2FACA32B2BC3FAE10E45E9098D3FF6</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -483,6 +556,25 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>1A844E33E870A3788468AAB8DF3614D2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F935851E3D4FD27B791B41D855C78B45</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>1AB5629AFDCFA6C017B651845CF0EC3D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1A2FACA32B2BC3FAE10E45E9098D3FF6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>1B1684558885F98573E2E425D3A17D2F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -495,6 +587,18 @@
 			<string>Marshroute.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1B514BCB07C2CC9D9BD90FAA6835D05A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5008C9BFE42F8A8A31079A3DBBCB3CBB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>1C19B5CECDF42BB0A8281C8A98D2A99D</key>
 		<dict>
@@ -550,10 +654,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1D24A42875F8A0AB2321925C4AB626C5</key>
+		<key>1FEDF1F55DF06AAE3FD806A2A615DC3E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>D5E11923B9788B526B563A0BD84A0801</string>
+			<string>505FD9A85331E0D8025FD7A532D745A0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -562,10 +666,46 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>1F3A58F5A6DF1EB87A64D60552B5E516</key>
+		<key>2007F1FD6F1E5F9A6B34568E77B493F4</key>
 		<dict>
 			<key>fileRef</key>
-			<string>90D7633F1CD61249C2AA01EE3E51E6E4</string>
+			<string>A6405508FEBBFA94C6F99E10A80E33E1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>202BE9316ADC7C0DBBA1D45396F9899B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A1185F49F1E6622329D28CA25F17297C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>2052A186F022C8D70C4CFDA40B67A8B5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DC82428379B668479970ED38E0EE8DAD</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>20E46CE57F88504BBF216DE01FE5F9A9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4E6FD84984625198EDB33AA6DA8A6A88</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -587,10 +727,10 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>21B8954B03ADD923AE88FAEFCE9255BB</key>
+		<key>21A05BE6617513FE90B6DB6CBEE791CA</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F3BD8AA57E579DD6357C754B3FCAEF94</string>
+			<string>B25DBBC8C80728E153B334BC45E77B18</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -618,6 +758,30 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>2241790808D1F90D906CD8BC31585586</key>
+		<dict>
+			<key>fileRef</key>
+			<string>695BEEA1334A587ED2F0F589583B4D82</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>249500C988C26EC02318361F18EBB3B8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7F4AD029474425411E3CE7E72374F589</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>25A7C1A2AD2DD38590795BB4F0D9E157</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -631,10 +795,23 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>25F9B0CD34FC3C52124F64807C87E9BE</key>
+		<key>27663C166550BE4EB24D2EB846C2067D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MarshrouteNavigationStack.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2784841519E5B05E585AD108A89186D8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>EB131482FC93F03D17B8D17C044F4E87</string>
+			<string>96803DE4DEB200FCAF383BF7AEA2AAE8</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -643,10 +820,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>266441EA5F8561F77DE5E597738C49A9</key>
+		<key>27A40BD7585050061CC6AC6CDC467BDB</key>
 		<dict>
 			<key>fileRef</key>
-			<string>640514548FA595B588D0050DEB707006</string>
+			<string>2CBAD798B3D39507414BCC5C44A5523F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -670,6 +847,18 @@
 			<string>Set</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>297642334EA462E9709C3D6F8A2169A6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8FBDFEB06D70D71279EF41A500E12C9A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>29CEF07CA1D92085E0888191A92B9E72</key>
 		<dict>
@@ -699,6 +888,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>2B02402ADF8C025317E6E181D4526DBF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ADF796E47540410FE60989E58CB2BDC7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>2B72D79278FE4B7E2B9F0D4B89C657B3</key>
 		<dict>
 			<key>children</key>
@@ -726,18 +927,6 @@
 			<string>Pods-umbrella.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2BEEA7ECECA99DB6C425C1A68C5F5A1B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B25DBBC8C80728E153B334BC45E77B18</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>2C861C429918EF89AFF0425DFEF5837E</key>
 		<dict>
@@ -778,18 +967,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2CFB8E1C665BC1DD4AB190B5D0B178B2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>79E50035E860D55AE73FB42DE9606A7F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -803,73 +980,6 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
-		</dict>
-		<key>2DB4C2CA2FDC8A0CCA6F4B3A09FF0B88</key>
-		<dict>
-			<key>fileRef</key>
-			<string>31F135F23C114B595E581B758CAB2BDA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>2E25A191FB63B5440884D3B4B8E93928</key>
-		<dict>
-			<key>fileRef</key>
-			<string>BA288B9758FE259EDEA7340CED3C3B7F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>2E82AB67554B513627F400EADB276B00</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43388F733E24EE9DB6931111A142D92F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>2EA3CCC23EBDBC0DD8C9D71327FB69A0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4E6FD84984625198EDB33AA6DA8A6A88</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>3033ADBD7367613F47E5944DF9F8B433</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1A2FACA32B2BC3FAE10E45E9098D3FF6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>30E0073E650FB95C0B3546A420F55DC0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F1AFA53A9A1A09985D27277D7B8B3BBC</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>31F135F23C114B595E581B758CAB2BDA</key>
 		<dict>
@@ -957,6 +1067,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>3278954184E7A6836E1549EF3826E89C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D1A7860D23B464141D8A75DD8C4FEF8B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>33D29B473ADE311C1AE1A61C903581B3</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -985,18 +1107,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>358A1F630230D05DA2E3E060A34863B5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5B6284197009E4194C2E6E1BC438DA73</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>3634913619CDA3E2C47A80B07B7785CD</key>
 		<dict>
 			<key>buildConfigurationList</key>
@@ -1023,6 +1133,42 @@
 			<string>38F17751680C64891EF30CD6AC407102</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>36429D548D392228CDD9B89650A75259</key>
+		<dict>
+			<key>fileRef</key>
+			<string>33D29B473ADE311C1AE1A61C903581B3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>366FA5358C0A20A0FF3629BCAF76BC9F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>765FD642F05A9E79C18C3AE45D1406B5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>373A42D3C4872DFEF6AE11DBE22459C4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B3ADF1D1F5F2F34D0AD012C6EEB47B02</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>3794486F2B26501077E2100B25B79AA6</key>
 		<dict>
@@ -1054,10 +1200,10 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>3A45530BEE9D293D042BA695A905CBD1</key>
+		<key>39525F4FFCAD3E49D4F15820E880D6AC</key>
 		<dict>
 			<key>fileRef</key>
-			<string>7D544F250F8F52832B264646A187FCE8</string>
+			<string>3F4BED83E34523E30C67664AD456289F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1081,34 +1227,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3B06D0495352B324D77022878745E9B9</key>
+		<key>3B64DF53DCCBD0B04F112AA49E3E4B10</key>
 		<dict>
 			<key>fileRef</key>
-			<string>ADF796E47540410FE60989E58CB2BDC7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>3B87BB7BEA05C52637FE956ADEFAD0B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D9E3C3B5639B3A5245125ED3D056E02F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>3B965A94BDFEDA609F1DE738CFF9DD30</key>
-		<dict>
-			<key>fileRef</key>
-			<string>63C232691C487F1831D6B08C8F683604</string>
+			<string>01E2B3243EEE8D109E2786E1054A1A17</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1130,22 +1252,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3D5CD2402C39E32E32FCCE8889753029</key>
+		<key>3DCDCD246AF4BC016C9A8A1D8AC5CDF9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8B3B4CBDE31A1423FE8C1942B3FC1641</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>3D6DD10751A441E980291D6207514C82</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9732E303099F3AE342479D12AEA675D1</string>
+			<string>77EDE5DD7C79F1AC67008CC4FA34795D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1167,18 +1277,6 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>3E50305C6C02282182BEEF6EC19A552F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0B2B299415642618369FAF0BEF681A59</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>3F4BED83E34523E30C67664AD456289F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1192,22 +1290,23 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3FFD2614154F2DD7B2BDA953E844ED23</key>
+		<key>403D289C2AC073946AAB316831A5BE86</key>
 		<dict>
-			<key>fileRef</key>
-			<string>82B3C5DBCB745071CC8C0ED3950412E3</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MarshrouteNavigationFactory.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>41564EC8AEFCAEE80D0E8EE580995B19</key>
+		<key>40AA87BDACF40A4E0D217D4BB6E42E65</key>
 		<dict>
 			<key>fileRef</key>
-			<string>FD904136B2F04875DE721372A6CB619E</string>
+			<string>438523783B8D1C6E99519B32B7A586B1</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1268,18 +1367,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>43EE093DA5080C5CB66D14778D31C02A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>09F917893D6574DDF69D53E499B477D8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>44BADABA8B00396C301ACC9D6CC3D5ED</key>
 		<dict>
 			<key>containerPortal</key>
@@ -1292,6 +1379,18 @@
 			<string>84C98F46EB6FF576103851B66E1068D4</string>
 			<key>remoteInfo</key>
 			<string>Marshroute</string>
+		</dict>
+		<key>44C1341727D67BF7204972BC64A8C5D3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>450E03E8E644630FE01567CCC4284F53</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>450E03E8E644630FE01567CCC4284F53</key>
 		<dict>
@@ -1321,22 +1420,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>46DF1B6DA18A72FFD95D009FBE7AE140</key>
+		<key>47F99203AD69DA0E433C0D4C87313E20</key>
 		<dict>
 			<key>fileRef</key>
-			<string>DC82428379B668479970ED38E0EE8DAD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>470B40A45251DA6C2C0F801C9373C348</key>
-		<dict>
-			<key>fileRef</key>
-			<string>437F0E239FF75B39B436F21BE5CFB16B</string>
+			<string>C7F435A7B4AF6D3663B4A55436C3E94D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1409,6 +1496,30 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>49E261385CED31067E32666F7D50054D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D9E3C3B5639B3A5245125ED3D056E02F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>4A93FA8E63FB8CE4952384862B9C0084</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10266F0E83566CA4B24DCBB49E2748D1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>4AC527651D9183256E92859A5B996A4F</key>
 		<dict>
 			<key>children</key>
@@ -1425,6 +1536,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>4AD9F893A798EFAA12C149D4E05BAEF7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4D8AA07F0E65FF76E33B74ED307B5D9D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>4B0ABAC2FA061E840941F452711D43DE</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1437,18 +1560,6 @@
 			<string>RouterPresentable.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4B58692801F0A64DBCAF291987F16CBB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7D4D6852B2CAD9A590CBA5C237B0B011</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>4C34476842C41E1C0E50ED59373DD33F</key>
 		<dict>
@@ -1463,22 +1574,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4C4463E53E23F0E39D1A2EA90A829E63</key>
+		<key>4CFC131D84F234C260DD61DCB2BC939B</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8FBE09C6A2E36D446C731CA91CC6AA96</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>4C87997DBA390CB2E904EAE9089B8AF6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>83129447543705E63F7CB15D99648324</string>
+			<string>DF7FBF0FC4F1BC246ABC3E8049D68086</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1543,6 +1642,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>4FD76BFCF1199C09C1D1AB8189EB8F77</key>
+		<dict>
+			<key>fileRef</key>
+			<string>19AC67420F065415A0BA4B673E8C3B5F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>5008C9BFE42F8A8A31079A3DBBCB3CBB</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1569,18 +1680,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>50F470600C9DB220D8FDFC4AF5E6B7F3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7EA859DC0ACF6A53884E66B0C052B09E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>5149B28E6DED484B2F72273FBE3DB53F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1594,29 +1693,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>51831696DC4A31E6DEBBDDBA48D486DF</key>
+		<key>516C14FA0773C91BD37DD4172C2906D4</key>
 		<dict>
-			<key>fileRef</key>
-			<string>EFE2AF8C561006803689FE7228D61416</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>51DC73173531073026B9B85449F1F309</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AF2A07565F43261BE8C2A127EE2AFBB6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>MarshrouteNavigationSetupService.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>52571B6311DCF5DB1C3BE686198E490D</key>
 		<dict>
@@ -1632,6 +1720,18 @@
 			<string>Dismissal</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5270102D44E1FAB0FEA382CD816587CA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>730AED5366914C82CF85427FF098492F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>52A37D9F24F458B0AACD153DCEC8AE84</key>
 		<dict>
@@ -1664,18 +1764,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>55354BEF8F5B26533B567C6253606978</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B870691CD2B7EC19DA72A4ADBFF03B5B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>554ED4B7609AD29A1ACA7840E4065F12</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1689,23 +1777,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>565D05709CF736FD555E9BFC1DA11232</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AvitoNavigationFactoryImpl.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>571F8DF32A8821F5873B09B622DF6EFD</key>
+		<key>56356DDCF0553F228F555581B0606F68</key>
 		<dict>
 			<key>fileRef</key>
-			<string>141384F85B6675399C197B84B8EDFB78</string>
+			<string>FC794E98BBF04FC62BE87560CEF06DFC</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1727,30 +1802,6 @@
 			<string>Release</string>
 			<key>isa</key>
 			<string>XCConfigurationList</string>
-		</dict>
-		<key>5A1765B85D54EDF815D108A3B4B2B03E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9D83AC4BD01E29F5C4818D08CE6C2BD1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>5AB07D5885147E702DAD0EDDAD7A9858</key>
-		<dict>
-			<key>fileRef</key>
-			<string>649D4BCCA293BB8B95C7610824B88068</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>5AC32215E388521166CF5A71FE49A317</key>
 		<dict>
@@ -1814,30 +1865,6 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>5AE86F36CF308CB9C693186FA322586B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4D8AA07F0E65FF76E33B74ED307B5D9D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>5B5B473DB8ED1E2B14CBF66B9635CD9F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>565D05709CF736FD555E9BFC1DA11232</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>5B6284197009E4194C2E6E1BC438DA73</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1850,6 +1877,18 @@
 			<string>TransitionsHistoryItem.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5B7447D2038622680EDDEA3257B149A0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2CFA75D7C755B188633A5BB8586C011C</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>5C79FBC26BF66EF9ED9B5C78D2751736</key>
 		<dict>
@@ -1909,10 +1948,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>5DDE2F597ACA305B8C4D3AF5F72C2FA1</key>
+		<key>5E432A394B26C9E2EE3502842A02D0F8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>E0F353D2E70D5F3ACD26BC6FFE264A37</string>
+			<string>D5E11923B9788B526B563A0BD84A0801</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1921,10 +1960,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>5F12EC71B02A4E218E62B86395A6EB81</key>
+		<key>5E5A5F22E6ADD9F20917C628E667E7D9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8D9FAD866C4E1D75FCF6C06307A7EDDD</string>
+			<string>79E50035E860D55AE73FB42DE9606A7F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1959,10 +1998,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>610B17CA56FB2E9E3AA8265EB6798265</key>
+		<key>6286B5BE0295B25A5BEE2B238A39BA4E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F440CEC4076A44248360EED21516CC2F</string>
+			<string>E0F353D2E70D5F3ACD26BC6FFE264A37</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1971,10 +2010,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>61103CFC292684AC9E6E86B478E72F5E</key>
+		<key>637419AAAE313BB0800B6F0D0C822A45</key>
 		<dict>
 			<key>fileRef</key>
-			<string>6BD3B8D443A7B22D45645EDB87E33497</string>
+			<string>43EA61E652BAC9ABFD0C8ECC9CCF6262</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1982,163 +2021,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
-		</dict>
-		<key>62A9D124B6020793B02BBD738944A149</key>
-		<dict>
-			<key>fileRef</key>
-			<string>765FD642F05A9E79C18C3AE45D1406B5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>62B0586D47529E8DC05D6BFD8FD90F4F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>695BEEA1334A587ED2F0F589583B4D82</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>62E7EED0874458859A225781D8A11953</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>8751DB5D5F6110BDA9275345C48094FC</string>
-				<string>3D6DD10751A441E980291D6207514C82</string>
-				<string>5B5B473DB8ED1E2B14CBF66B9635CD9F</string>
-				<string>10EA52E356F1F298933F3AAF79F32981</string>
-				<string>CEA4FE96101A834031758E0B0F2D8660</string>
-				<string>4C87997DBA390CB2E904EAE9089B8AF6</string>
-				<string>A6D06C56D597BD60AD6263E23E7D8A45</string>
-				<string>705F0479088EADF53541F3A399434BCF</string>
-				<string>51DC73173531073026B9B85449F1F309</string>
-				<string>5AB07D5885147E702DAD0EDDAD7A9858</string>
-				<string>81956E11E094F4601C02FCA8E30FA284</string>
-				<string>2E82AB67554B513627F400EADB276B00</string>
-				<string>610B17CA56FB2E9E3AA8265EB6798265</string>
-				<string>DC02997FAD70E104D961D706B0B33B3E</string>
-				<string>D5D1CCF706D58C2D2397400ECC7FEBB9</string>
-				<string>3033ADBD7367613F47E5944DF9F8B433</string>
-				<string>BA1453616BBBB02FDF2E226D088DE942</string>
-				<string>5A1765B85D54EDF815D108A3B4B2B03E</string>
-				<string>21B8954B03ADD923AE88FAEFCE9255BB</string>
-				<string>FEC6FF1CE1676ECBB454EDCA1123062F</string>
-				<string>E6833782B077474F6626A5C4FE6F2822</string>
-				<string>5DDE2F597ACA305B8C4D3AF5F72C2FA1</string>
-				<string>6AD8157F3C95B00326F4AEAF9B2242E0</string>
-				<string>55354BEF8F5B26533B567C6253606978</string>
-				<string>43EE093DA5080C5CB66D14778D31C02A</string>
-				<string>A45227702D4AAFFD2C75463E03C97BDD</string>
-				<string>C5E4C30EF1A231AFCA46CAD364873F58</string>
-				<string>2EA3CCC23EBDBC0DD8C9D71327FB69A0</string>
-				<string>470B40A45251DA6C2C0F801C9373C348</string>
-				<string>62A9D124B6020793B02BBD738944A149</string>
-				<string>F834466A230DFF6421B8ED6EDD6FDB1A</string>
-				<string>25F9B0CD34FC3C52124F64807C87E9BE</string>
-				<string>0ABF6F0465BB5C6A09EBED32A0BD196F</string>
-				<string>A87BEDF7C1AC6724686E53E9D1189913</string>
-				<string>098E6DFC797D277E9E89FF6DC4C315F7</string>
-				<string>7F6346B20DF07367C748F5E6F8A1229F</string>
-				<string>716458D536935A546BE3C70E950563CE</string>
-				<string>62B0586D47529E8DC05D6BFD8FD90F4F</string>
-				<string>3B87BB7BEA05C52637FE956ADEFAD0B0</string>
-				<string>E83DC3A3C44889014AE28C5A738D837A</string>
-				<string>A3E89F18A46B8C922C7F9B19B6000FA8</string>
-				<string>029ECA80A21EA58D0806E8E79125BA3C</string>
-				<string>8DE53E1C0BF6A10E306E7316E02E8A60</string>
-				<string>B3FE8E8CBBAADBBA6C2A6A7D6DF9B22B</string>
-				<string>41564EC8AEFCAEE80D0E8EE580995B19</string>
-				<string>0DC87098A5360EC3BE71D8C6BFFBDD0D</string>
-				<string>4B58692801F0A64DBCAF291987F16CBB</string>
-				<string>955707F0679DD7920D52645BD5390E51</string>
-				<string>C5D961C7E4DDD40CE87C2084BFC5B6D4</string>
-				<string>1746F958C2B787DDCBEA8E4A7A79F6E8</string>
-				<string>A040114038AF88715AC0160A98079DB2</string>
-				<string>EDBC600B52D1A8E96D34EBEA424360FD</string>
-				<string>CC39E12B6C80F8E3C4C40A3C92CAF567</string>
-				<string>3FFD2614154F2DD7B2BDA953E844ED23</string>
-				<string>46DF1B6DA18A72FFD95D009FBE7AE140</string>
-				<string>CEA3234DBAEB75726FF9DA307AA2F958</string>
-				<string>5F12EC71B02A4E218E62B86395A6EB81</string>
-				<string>2CFB8E1C665BC1DD4AB190B5D0B178B2</string>
-				<string>CC38904CBA38C133D83E289AEF821043</string>
-				<string>D5A433FE14F47581137E348C00162772</string>
-				<string>51831696DC4A31E6DEBBDDBA48D486DF</string>
-				<string>A63398EA9FFEDA9823D3AC926A7E53BF</string>
-				<string>7F24F8DCC6397DE03141742E9F96AB98</string>
-				<string>ECC5BF7D2EEEE37C590444F883F467C1</string>
-				<string>A7D0A4587CD8ED6B7289942E9B176445</string>
-				<string>CFA5F27EF03042ECD91136D3CD207994</string>
-				<string>3B965A94BDFEDA609F1DE738CFF9DD30</string>
-				<string>DAB6D4486F2DFC3B397779E31979CFCF</string>
-				<string>2DB4C2CA2FDC8A0CCA6F4B3A09FF0B88</string>
-				<string>3A45530BEE9D293D042BA695A905CBD1</string>
-				<string>F5E4983C5FBB50BFC9F94FB7D4B5B6E3</string>
-				<string>FFDAE673F36408081683F685855EC9CA</string>
-				<string>1F3A58F5A6DF1EB87A64D60552B5E516</string>
-				<string>F970A86F108B47EE6C46EC69294F6D4C</string>
-				<string>D18F01162CD14ED3BFB0FF27B72E315B</string>
-				<string>30E0073E650FB95C0B3546A420F55DC0</string>
-				<string>9BB0B7C782CFC50F880F1B1518E8B3C3</string>
-				<string>CA07AC9AA72848FDD5CE9853DD6E615E</string>
-				<string>8625EAAD3C47E7F2C879012B6613DB53</string>
-				<string>A9F1FD63B9052B729ECC2331E9C62216</string>
-				<string>2BEEA7ECECA99DB6C425C1A68C5F5A1B</string>
-				<string>D8AA6A1DC471FF8416DC319B2DDAE6C6</string>
-				<string>68DBB98CD08498C53E075DA443A1159E</string>
-				<string>C890F142997CB0189E48E5395C50C4DB</string>
-				<string>F4D0B3EF786412E20FBB4534EFDFEC4A</string>
-				<string>D2432BC4068F3E1C3E292C7A4886266B</string>
-				<string>DAA95F06361257D199B9AACBD88C8A40</string>
-				<string>1591F44387351C361806DEA8AB8C8F25</string>
-				<string>3B06D0495352B324D77022878745E9B9</string>
-				<string>E1CE2DDFD4BFD83BC6E2D11C1F7A7F0B</string>
-				<string>C1720CB91F7F543E4BDA44327A5EB6DB</string>
-				<string>A338AB231ACB0EEB0DF2FB473E293AB0</string>
-				<string>2E25A191FB63B5440884D3B4B8E93928</string>
-				<string>4C4463E53E23F0E39D1A2EA90A829E63</string>
-				<string>98ABC17E89121D6E74FAB2223A5771F5</string>
-				<string>7EC2868ABD807133B06365D8F3EBD88A</string>
-				<string>068300C69EFBA08988BC53040D290017</string>
-				<string>61103CFC292684AC9E6E86B478E72F5E</string>
-				<string>67049DC3F5C9F77D1C120F0FAA53B6F4</string>
-				<string>E6E8E4437CBB2B66BD699F35F077E96F</string>
-				<string>3D5CD2402C39E32E32FCCE8889753029</string>
-				<string>266441EA5F8561F77DE5E597738C49A9</string>
-				<string>99E9A1FF04319AC5D756B488BCAFCE7B</string>
-				<string>75B11794ECB6EC620489D65EE177C7EB</string>
-				<string>5AE86F36CF308CB9C693186FA322586B</string>
-				<string>87D2A8352DD76FBDEF5A265C86075568</string>
-				<string>9679A939C8753E976625B5017712F78B</string>
-				<string>69E1FB884BFF217F69B91776CA04E1BA</string>
-				<string>50F470600C9DB220D8FDFC4AF5E6B7F3</string>
-				<string>162A58B6DB6044FE1522CB8822E5C9EE</string>
-				<string>6C9FBE6A22F0D55F3C953E47683534DF</string>
-				<string>08CD8AEA22FED8A06468883DC5DA44D6</string>
-				<string>C33BAD33D40FFAECB4B84FC167661B5E</string>
-				<string>15FE2AD81BB04D3D63B819BACBF4F436</string>
-				<string>358A1F630230D05DA2E3E060A34863B5</string>
-				<string>C6DF21E7E45AC6FF7DE2EFC2C38DFC70</string>
-				<string>E61414D8D74FA7D9BAF013BCA0501AFE</string>
-				<string>7CAE7593FB290AF8EA2F4944ED264234</string>
-				<string>3E50305C6C02282182BEEF6EC19A552F</string>
-				<string>571F8DF32A8821F5873B09B622DF6EFD</string>
-				<string>1D24A42875F8A0AB2321925C4AB626C5</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>63C232691C487F1831D6B08C8F683604</key>
 		<dict>
@@ -2166,6 +2048,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>641038D23009899D370BE5FF9FE725F5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>08ED5AEB1AEF2D2D646EFF08C1363942</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>64762D743A0F29879038A25C8A6F41C0</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2192,6 +2086,42 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>64EA3BD19C658D16459386429260FCE3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>640514548FA595B588D0050DEB707006</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>6570F50A6F0DB69442CDC512C5DB22A6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>78295EEB3D475D13A4210E0AE29AA057</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>664631CC74E30B0E70A92EE86EFE0C97</key>
+		<dict>
+			<key>fileRef</key>
+			<string>97D88448FBD27EBADF7D710AF35009A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>66D5D522C298212AAB8C53076B821D70</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2205,18 +2135,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>67049DC3F5C9F77D1C120F0FAA53B6F4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>505FD9A85331E0D8025FD7A532D745A0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>68CDC1BADBEE132C70B076201799279D</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2229,18 +2147,6 @@
 			<string>Marshroute-umbrella.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>68DBB98CD08498C53E075DA443A1159E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>01E2B3243EEE8D109E2786E1054A1A17</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>695BEEA1334A587ED2F0F589583B4D82</key>
 		<dict>
@@ -2268,30 +2174,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>69E1FB884BFF217F69B91776CA04E1BA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C7F435A7B4AF6D3663B4A55436C3E94D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>6AD8157F3C95B00326F4AEAF9B2242E0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>92CE614CA21E5D4D4A0DE8A4AAB5A02B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>6BD3B8D443A7B22D45645EDB87E33497</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2305,10 +2187,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>6C9FBE6A22F0D55F3C953E47683534DF</key>
+		<key>6C00425ACF3975C4A5BD930FA01F43BA</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F750DB57816B975520F1A38181E335F9</string>
+			<string>8D9FAD866C4E1D75FCF6C06307A7EDDD</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2330,6 +2212,42 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>6D2609BCA92A7ED9509C2FBB629BC7BE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8F65A4063997DE305B82C7563D352820</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>6DF10C98286CE740E201613B57905B19</key>
+		<dict>
+			<key>fileRef</key>
+			<string>602708FE9DAC249C3CB724F4165298AA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>6E2282F311F4591BE0CF77F2CD9691B1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5F34B61BA4CA2B963494AA69475AAA32</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>6F59977923A1FE799C736CF8C431CE5A</key>
 		<dict>
 			<key>children</key>
@@ -2345,18 +2263,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>705F0479088EADF53541F3A399434BCF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7E6B820F377B6856FBE165D9F4F1F98B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>71127ABC3B3F1C982D139D655AE3C6DA</key>
 		<dict>
 			<key>children</key>
@@ -2371,18 +2277,6 @@
 			<string>Dismissal</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>716458D536935A546BE3C70E950563CE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5149B28E6DED484B2F72273FBE3DB53F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>730AED5366914C82CF85427FF098492F</key>
 		<dict>
@@ -2409,18 +2303,6 @@
 			<string>RestoredTransitionContext.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>75B11794ECB6EC620489D65EE177C7EB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16E776D94DC1CEFB6FB41AD161457AC2</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>75D98FF52E597A11900E131B6C4E1ADA</key>
 		<dict>
@@ -2462,6 +2344,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>76155055EA20C6F5AA79D271F3A5DE04</key>
+		<dict>
+			<key>fileRef</key>
+			<string>81BE3539B8104D09965D870870382F41</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>765FD642F05A9E79C18C3AE45D1406B5</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2474,6 +2368,18 @@
 			<string>ModalMasterDetailPresentationAnimationLaunchingContext.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7698B6329A72B9B6ED432097A010EE7C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6BD3B8D443A7B22D45645EDB87E33497</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>76E9BD21F09B48CD4E4EFFAD043D7424</key>
 		<dict>
@@ -2601,18 +2507,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7CAE7593FB290AF8EA2F4944ED264234</key>
-		<dict>
-			<key>fileRef</key>
-			<string>730AED5366914C82CF85427FF098492F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>7D4D6852B2CAD9A590CBA5C237B0B011</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2669,6 +2563,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>7E0E7872CD4E977DDDC0EE237CF826C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F3BD8AA57E579DD6357C754B3FCAEF94</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>7E6B820F377B6856FBE165D9F4F1F98B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2695,30 +2601,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7EC2868ABD807133B06365D8F3EBD88A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5DD4187391043904B281109B693FAF47</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>7F24F8DCC6397DE03141742E9F96AB98</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F3C5A3DBE406D06C37DCDCFC7EDF6B0E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>7F4AD029474425411E3CE7E72374F589</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2732,22 +2614,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>7F6346B20DF07367C748F5E6F8A1229F</key>
+		<key>8082C79D074F742491815F4DE1471480</key>
 		<dict>
 			<key>fileRef</key>
-			<string>DD1D3241285307866E9894AFDEAA8E3A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>81956E11E094F4601C02FCA8E30FA284</key>
-		<dict>
-			<key>fileRef</key>
-			<string>602708FE9DAC249C3CB724F4165298AA</string>
+			<string>27663C166550BE4EB24D2EB846C2067D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2782,18 +2652,17 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>83129447543705E63F7CB15D99648324</key>
+		<key>82DE3920BDF7A02673151CBB25ECAB3E</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>046656C6AE08D9A621ED674B0AD82F57</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AvitoNavigationStack.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>8337023B4725753C23DEB8D1EAE453E7</key>
 		<dict>
@@ -2876,7 +2745,7 @@
 			<string>11A4492972F32ABFF0701FDE84852917</string>
 			<key>buildPhases</key>
 			<array>
-				<string>62E7EED0874458859A225781D8A11953</string>
+				<string>13576E84F9EE3B3DF5A2789C317341A7</string>
 				<string>D4B856A047426A9AE40FC7FAB753DF7C</string>
 				<string>76E9BD21F09B48CD4E4EFFAD043D7424</string>
 			</array>
@@ -2894,30 +2763,6 @@
 			<string>B83F0BD801E93CDF14F5FE7C9560741C</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
-		</dict>
-		<key>8625EAAD3C47E7F2C879012B6613DB53</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2CFA75D7C755B188633A5BB8586C011C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>8751DB5D5F6110BDA9275345C48094FC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>96803DE4DEB200FCAF383BF7AEA2AAE8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>87A629E4BB6C29C717E0E632744124E7</key>
 		<dict>
@@ -2948,10 +2793,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>87D2A8352DD76FBDEF5A265C86075568</key>
+		<key>87F319821FF23B3CBB160CD6346DE574</key>
 		<dict>
 			<key>fileRef</key>
-			<string>A5FC5A4EE82E5270B1921F9B828FEFD9</string>
+			<string>5B6284197009E4194C2E6E1BC438DA73</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2980,6 +2825,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>896A86AF2BC45867FFF4ACF431BCB9ED</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7C083A2E6BED009284AE447255021D27</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>8B2E9393EF1BC5D8848157ACD9BE33BD</key>
 		<dict>
 			<key>fileRef</key>
@@ -3000,6 +2857,30 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>8D1A0DE481B19D63F153BFED4EB19624</key>
+		<dict>
+			<key>fileRef</key>
+			<string>141384F85B6675399C197B84B8EDFB78</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>8D1E0A7F96070386B57F7B12211DADE9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>14112519C9F2B1B61014163C424DA841</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>8D9FAD866C4E1D75FCF6C06307A7EDDD</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3013,10 +2894,22 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8DE53E1C0BF6A10E306E7316E02E8A60</key>
+		<key>8DEB614432667D341BC2C47B5D4BE69E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>554ED4B7609AD29A1ACA7840E4065F12</string>
+			<string>0080E342EA1FDB4E014193AEFF2AF71D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>8F47B6E454B2C38755AB0F39115B9566</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4C34476842C41E1C0E50ED59373DD33F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3150,30 +3043,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>955707F0679DD7920D52645BD5390E51</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DCF236261E1E99AE5E39BF8D33128E86</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>9679A939C8753E976625B5017712F78B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D663D499C1544540F6C1BA309B006CC6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>96803DE4DEB200FCAF383BF7AEA2AAE8</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3187,7 +3056,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9732E303099F3AE342479D12AEA675D1</key>
+		<key>9680500C02B264E5796B604F0D277716</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A5FC5A4EE82E5270B1921F9B828FEFD9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>97047BA0E69476B8B19B488BA2039AB7</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -3196,7 +3077,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.swift</string>
 			<key>path</key>
-			<string>AvitoNavigationFactory.swift</string>
+			<string>MarshrouteNavigationSetupServiceImpl.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3225,18 +3106,6 @@
 			<string>PopAnimationContext.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>98ABC17E89121D6E74FAB2223A5771F5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7F4AD029474425411E3CE7E72374F589</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>98AF6038317AD68424F8855140BCF10A</key>
 		<dict>
@@ -3269,18 +3138,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>99E9A1FF04319AC5D756B488BCAFCE7B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7C083A2E6BED009284AE447255021D27</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>9A2C4622EFF18AED0770ECAF6A1472DC</key>
 		<dict>
 			<key>children</key>
@@ -3297,18 +3154,6 @@
 			<string>TransitionStorableParameters</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>9BB0B7C782CFC50F880F1B1518E8B3C3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>25A7C1A2AD2DD38590795BB4F0D9E157</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>9C6C19F9F8D87DA410759348227FA613</key>
 		<dict>
@@ -3333,18 +3178,17 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9D1B1045E5F926CEDFC6DD2E47D3E2BD</key>
+		<key>9CAF10F558AB4E88EE81000D4A702CF4</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>64762D743A0F29879038A25C8A6F41C0</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AvitoNavigationSetupServiceImpl.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>9D83AC4BD01E29F5C4818D08CE6C2BD1</key>
 		<dict>
@@ -3358,6 +3202,30 @@
 			<string>MasterRouter.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9D92FC8397E906B928F25E57A58B00E1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A1546E9F1D77D309A493078DCB4276F6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>9E22D1D1DF71E2849E3E79A2262C34AD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AF2A07565F43261BE8C2A127EE2AFBB6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>9EA590717AB10BB1E3A6529B9EFABC03</key>
 		<dict>
@@ -3389,6 +3257,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>9F8322D9C64086BD4A0CA7BB6BCCBD0D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BCA0F8E8304641D4CEB31C5D460763F4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>A00711CEF8BD64ABA8E0F82050E2AD4D</key>
 		<dict>
 			<key>children</key>
@@ -3405,18 +3285,6 @@
 			<string>PopoverNavigation</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A040114038AF88715AC0160A98079DB2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2C861C429918EF89AFF0425DFEF5837E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>A06D29D2A06C60CE8872A08E25897977</key>
 		<dict>
@@ -3475,6 +3343,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>A27EA4FEC8E36B52E84CC8D7644EB439</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7400541DF53C48A457C78D10C20E1324</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>A2D2F63626BB81FD998CBB580B393B88</key>
 		<dict>
 			<key>children</key>
@@ -3491,18 +3371,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A338AB231ACB0EEB0DF2FB473E293AB0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D1A7860D23B464141D8A75DD8C4FEF8B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>A376F3271970D838BDBF3716294296EB</key>
 		<dict>
 			<key>children</key>
@@ -3518,18 +3386,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A3E89F18A46B8C922C7F9B19B6000FA8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>33D29B473ADE311C1AE1A61C903581B3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>A40DDC568AEE608174AD76803B89CC38</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3543,10 +3399,34 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A45227702D4AAFFD2C75463E03C97BDD</key>
+		<key>A43FF4E27C51ED530693F2867D4B6137</key>
 		<dict>
 			<key>fileRef</key>
-			<string>78295EEB3D475D13A4210E0AE29AA057</string>
+			<string>9D83AC4BD01E29F5C4818D08CE6C2BD1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>A488E4899E2EA1BFD4954BEB35E6BC94</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F1AFA53A9A1A09985D27277D7B8B3BBC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>A57E39B5EBBD8FB6589216945DD1FB2C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E08C31A3B15630FC3B6C9447628396A8</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3568,10 +3448,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A63398EA9FFEDA9823D3AC926A7E53BF</key>
+		<key>A6247ADBCB5562BEEFAD6185A1EBFAA4</key>
 		<dict>
 			<key>fileRef</key>
-			<string>DD65730539A3C7A19C779E93DD55108D</string>
+			<string>CA3EF55785CD20A77A293CEE08B5CF64</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3592,18 +3472,6 @@
 			<string>TransitionsHandler.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>A6D06C56D597BD60AD6263E23E7D8A45</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5C79FBC26BF66EF9ED9B5C78D2751736</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>A70CDAD61F90AC503C7D04CC22DA2923</key>
 		<dict>
@@ -3678,10 +3546,10 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>A7D0A4587CD8ED6B7289942E9B176445</key>
+		<key>A7169F693284430A2A1D94AE58615FD8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>08ED5AEB1AEF2D2D646EFF08C1363942</string>
+			<string>31F135F23C114B595E581B758CAB2BDA</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3690,10 +3558,22 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>A87BEDF7C1AC6724686E53E9D1189913</key>
+		<key>A7AC4C1355573AC96AC5B136CD1561C0</key>
 		<dict>
 			<key>fileRef</key>
-			<string>0080E342EA1FDB4E014193AEFF2AF71D</string>
+			<string>25A7C1A2AD2DD38590795BB4F0D9E157</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>A953FE7EA324DA64518BC9FADC6D00E6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>97047BA0E69476B8B19B488BA2039AB7</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3717,18 +3597,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A9F1FD63B9052B729ECC2331E9C62216</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4B0ABAC2FA061E840941F452711D43DE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>AAA33DAC221216EC7C410F4729F959B7</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3739,6 +3607,42 @@
 			<string>Marshroute.modulemap</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AAB2102A333FA5C00953AC877A3A7CC2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C2A245AEBC010C33A9A02AA96D653DAF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>ABAE8CE16DACB0C0E1B66C2B10118777</key>
+		<dict>
+			<key>fileRef</key>
+			<string>05F47BBFE6F42CCE038F8F19D1BA1026</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>ABF7B3DBE62D7AA8373DE22B0729A772</key>
+		<dict>
+			<key>fileRef</key>
+			<string>8B3B4CBDE31A1423FE8C1942B3FC1641</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>AC259EE8A1D79509312F202BA29B9910</key>
 		<dict>
@@ -3768,6 +3672,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>AD954C404E37583237451D316DF3797E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BA288B9758FE259EDEA7340CED3C3B7F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>ADF796E47540410FE60989E58CB2BDC7</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3780,6 +3696,30 @@
 			<string>StrongBox.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE3DD5A29CB661B70CE02D115ABD8819</key>
+		<dict>
+			<key>fileRef</key>
+			<string>649D4BCCA293BB8B95C7610824B88068</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>AE40429DF30790CAF69723763F368B06</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5149B28E6DED484B2F72273FBE3DB53F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>AED1D67E9B1869BBE40308153AF7FFDE</key>
 		<dict>
@@ -3806,6 +3746,30 @@
 			<string>CompletedTransitionContext.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AFB871562766F9454AC736772785DA0B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FD904136B2F04875DE721372A6CB619E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>AFC48915184EAC00D889C75A8CA25901</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2A4DF4BCCA7846733C0F9DC2FEBF4376</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>B154202A5755C6EA4C5318E915235AC4</key>
 		<dict>
@@ -3848,10 +3812,22 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B3FE8E8CBBAADBBA6C2A6A7D6DF9B22B</key>
+		<key>B4507E5E89DAF440DBC14F78867E7734</key>
 		<dict>
 			<key>fileRef</key>
-			<string>97D88448FBD27EBADF7D710AF35009A9</string>
+			<string>EFE2AF8C561006803689FE7228D61416</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>B5792AE4C8CDD726719772724DC4B2E5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AC259EE8A1D79509312F202BA29B9910</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -3889,6 +3865,18 @@
 			<string>TransitionsHandling</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B74EA1DD7AF7DDB4B4031C01ADEC4C0E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AED1D67E9B1869BBE40308153AF7FFDE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>B7B80995527643776607AFFA75B91E24</key>
 		<dict>
@@ -3946,18 +3934,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BA1453616BBBB02FDF2E226D088DE942</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0F631AA10592D0F53F8BC77047530CDB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>BA288B9758FE259EDEA7340CED3C3B7F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4001,6 +3977,18 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>BBF50BFE7BE0B4F5D8AC642C49D79432</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7D4D6852B2CAD9A590CBA5C237B0B011</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>BC3CA7F9E30CC8F7E2DD044DD34432FC</key>
 		<dict>
 			<key>children</key>
@@ -4042,6 +4030,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>BED4392D4C7E5E74E5CA7CE7BA1DE241</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7D544F250F8F52832B264646A187FCE8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>BF6342C8B29F4CEEA088EFF7AB4DE362</key>
 		<dict>
 			<key>children</key>
@@ -4069,18 +4069,6 @@
 			<string>Presentation</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>C1720CB91F7F543E4BDA44327A5EB6DB</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E08C31A3B15630FC3B6C9447628396A8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>C2585638657C08A71C44541F46F3A260</key>
 		<dict>
@@ -4112,18 +4100,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C33BAD33D40FFAECB4B84FC167661B5E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9201E0BB6A9024538C068BC33AE4AC8F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>C35CD0B628767BB6560A46C1B77E4A6E</key>
 		<dict>
 			<key>children</key>
@@ -4148,10 +4124,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C5D961C7E4DDD40CE87C2084BFC5B6D4</key>
+		<key>C40577DB88E0042DBC4F67C11446E495</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8FBDFEB06D70D71279EF41A500E12C9A</string>
+			<string>92CE614CA21E5D4D4A0DE8A4AAB5A02B</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4160,22 +4136,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>C5E4C30EF1A231AFCA46CAD364873F58</key>
+		<key>C462804C74E151963082131D4B878DEC</key>
 		<dict>
 			<key>fileRef</key>
-			<string>14112519C9F2B1B61014163C424DA841</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>C6DF21E7E45AC6FF7DE2EFC2C38DFC70</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A1546E9F1D77D309A493078DCB4276F6</string>
+			<string>7E6B820F377B6856FBE165D9F4F1F98B</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4210,10 +4174,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>C890F142997CB0189E48E5395C50C4DB</key>
+		<key>C8B2EB94D5D4991E90480D836DF6803A</key>
 		<dict>
 			<key>fileRef</key>
-			<string>66D5D522C298212AAB8C53076B821D70</string>
+			<string>5C79FBC26BF66EF9ED9B5C78D2751736</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4222,10 +4186,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>CA07AC9AA72848FDD5CE9853DD6E615E</key>
+		<key>C9D5FF31CCD266CDA32F5DBB92FC13F0</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F935851E3D4FD27B791B41D855C78B45</string>
+			<string>516C14FA0773C91BD37DD4172C2906D4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4260,10 +4224,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CC38904CBA38C133D83E289AEF821043</key>
+		<key>CBD98C36B82D4220C8B12E2224935C68</key>
 		<dict>
 			<key>fileRef</key>
-			<string>2A4DF4BCCA7846733C0F9DC2FEBF4376</string>
+			<string>403D289C2AC073946AAB316831A5BE86</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4272,10 +4236,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>CC39E12B6C80F8E3C4C40A3C92CAF567</key>
+		<key>CCCFFFDE2EE42AE66DC2FA25AAEEE7C5</key>
 		<dict>
 			<key>fileRef</key>
-			<string>046656C6AE08D9A621ED674B0AD82F57</string>
+			<string>C81C75842FE8DEAA1DEF6B39B185C1F3</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4284,22 +4248,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>CEA3234DBAEB75726FF9DA307AA2F958</key>
+		<key>CD030C7987A65D86DC058BAD0E549AD2</key>
 		<dict>
 			<key>fileRef</key>
-			<string>3F4BED83E34523E30C67664AD456289F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>CEA4FE96101A834031758E0B0F2D8660</key>
-		<dict>
-			<key>fileRef</key>
-			<string>9D1B1045E5F926CEDFC6DD2E47D3E2BD</string>
+			<string>6CB08855635778E156297F49B6756002</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4324,18 +4276,6 @@
 			<string>Popover</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CFA5F27EF03042ECD91136D3CD207994</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AED1D67E9B1869BBE40308153AF7FFDE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>D02C95DAB819145997271C6961F52488</key>
 		<dict>
@@ -4378,18 +4318,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D18F01162CD14ED3BFB0FF27B72E315B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3C462581326535A1023FE95C37D99C56</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>D1A7860D23B464141D8A75DD8C4FEF8B</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4403,10 +4331,34 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D2432BC4068F3E1C3E292C7A4886266B</key>
+		<key>D2DCC744F6E806F5AAE0B63C99B6FA1B</key>
 		<dict>
 			<key>fileRef</key>
-			<string>DB0EEE7FA32C57A2C11A34487BF0C1D8</string>
+			<string>F440CEC4076A44248360EED21516CC2F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>D2E982AE601ABFB5EE6A8898241DC072</key>
+		<dict>
+			<key>fileRef</key>
+			<string>66D5D522C298212AAB8C53076B821D70</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>D409BE6746A99E2A042CD13B793FD6C2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F36F422590D60097FDB2A4553DC1DD7B</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4483,30 +4435,6 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>D5A433FE14F47581137E348C00162772</key>
-		<dict>
-			<key>fileRef</key>
-			<string>6CB08855635778E156297F49B6756002</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>D5D1CCF706D58C2D2397400ECC7FEBB9</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AC259EE8A1D79509312F202BA29B9910</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>D5E11923B9788B526B563A0BD84A0801</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4564,18 +4492,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D8AA6A1DC471FF8416DC319B2DDAE6C6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5F34B61BA4CA2B963494AA69475AAA32</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>D9E3C3B5639B3A5245125ED3D056E02F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4602,30 +4518,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>DAA95F06361257D199B9AACBD88C8A40</key>
-		<dict>
-			<key>fileRef</key>
-			<string>77EDE5DD7C79F1AC67008CC4FA34795D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>DAB6D4486F2DFC3B397779E31979CFCF</key>
-		<dict>
-			<key>fileRef</key>
-			<string>43EA61E652BAC9ABFD0C8ECC9CCF6262</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
 		<key>DB0EEE7FA32C57A2C11A34487BF0C1D8</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4639,10 +4531,34 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>DC02997FAD70E104D961D706B0B33B3E</key>
+		<key>DB74F539846E11452363F73EB712BA7F</key>
 		<dict>
 			<key>fileRef</key>
-			<string>9EA590717AB10BB1E3A6529B9EFABC03</string>
+			<string>DB0EEE7FA32C57A2C11A34487BF0C1D8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>DC3F98DE9F6B3F6A75CB08C48EDC4409</key>
+		<dict>
+			<key>fileRef</key>
+			<string>16E776D94DC1CEFB6FB41AD161457AC2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>DC70F3363A9DE94EA0F9D798F9C037EE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1764857133F41257A1E35D58C797365E</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4777,6 +4693,30 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>E10667AEC3D6270B7D823A0C0E0DA0F2</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3C462581326535A1023FE95C37D99C56</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>E1702FB9334442877CEEE76DBFD3B542</key>
+		<dict>
+			<key>fileRef</key>
+			<string>EB131482FC93F03D17B8D17C044F4E87</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>E177000FD77B1AE523AFEAF2D0466F64</key>
 		<dict>
 			<key>children</key>
@@ -4798,10 +4738,22 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E1CE2DDFD4BFD83BC6E2D11C1F7A7F0B</key>
+		<key>E1F9636EEB7BA5D645238A6CA206D6D4</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F36F422590D60097FDB2A4553DC1DD7B</string>
+			<string>7EA859DC0ACF6A53884E66B0C052B09E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>E3F120CFE3BA40D5ECCA7365CE05DE67</key>
+		<dict>
+			<key>fileRef</key>
+			<string>63C232691C487F1831D6B08C8F683604</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4845,10 +4797,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E61414D8D74FA7D9BAF013BCA0501AFE</key>
+		<key>E6B4497F64807EA2A3360E2E65F843D9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>81BE3539B8104D09965D870870382F41</string>
+			<string>5DD4187391043904B281109B693FAF47</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4857,22 +4809,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>E6833782B077474F6626A5C4FE6F2822</key>
+		<key>E7CC1874AF35A5F7EE9E5DBF7D3FBA1F</key>
 		<dict>
 			<key>fileRef</key>
-			<string>C2A245AEBC010C33A9A02AA96D653DAF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>E6E8E4437CBB2B66BD699F35F077E96F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>4C34476842C41E1C0E50ED59373DD33F</string>
+			<string>8FBE09C6A2E36D446C731CA91CC6AA96</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4893,18 +4833,6 @@
 			<string>Pods-frameworks.sh</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>E83DC3A3C44889014AE28C5A738D837A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>19AC67420F065415A0BA4B673E8C3B5F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>E8446514FBAD26C0E18F24A5715AEF67</key>
 		<dict>
@@ -4964,10 +4892,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>ECC5BF7D2EEEE37C590444F883F467C1</key>
+		<key>EE50BB7E1A6C72DC02C7F7F5CFE55F42</key>
 		<dict>
 			<key>fileRef</key>
-			<string>450E03E8E644630FE01567CCC4284F53</string>
+			<string>9201E0BB6A9024538C068BC33AE4AC8F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -4976,10 +4904,10 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>EDBC600B52D1A8E96D34EBEA424360FD</key>
+		<key>EF0724F8513D41FB3C2BEEF5E2694AEB</key>
 		<dict>
 			<key>fileRef</key>
-			<string>B3ADF1D1F5F2F34D0AD012C6EEB47B02</string>
+			<string>DD1D3241285307866E9894AFDEAA8E3A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -5000,6 +4928,30 @@
 			<string>PresentationTransitionsAnimatorBox.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F0B69AB1C4AE751A3DAA1A721B6D7600</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B870691CD2B7EC19DA72A4ADBFF03B5B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>F0D0F3128F270A3023A0971979C949DD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9EA590717AB10BB1E3A6529B9EFABC03</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>F19CCA3E9B167B0433B40167049781C3</key>
 		<dict>
@@ -5029,6 +4981,30 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>F1FABC2B4BE9E4C1246C0566CBF87257</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F631AA10592D0F53F8BC77047530CDB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>F23EE00E02FDBE81849D3E6F54C9EE65</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0B2B299415642618369FAF0BEF681A59</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>F28898046AED02015A75612961BF4B34</key>
 		<dict>
 			<key>children</key>
@@ -5051,6 +5027,18 @@
 			<string>TransitionAnimationsLaunching</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F3576C348D2D9DFDC88909F2E8C6ABDF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>09F917893D6574DDF69D53E499B477D8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
 		</dict>
 		<key>F36F422590D60097FDB2A4553DC1DD7B</key>
 		<dict>
@@ -5104,10 +5092,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F4D0B3EF786412E20FBB4534EFDFEC4A</key>
+		<key>F5222AD42A71CCAEE6B3EE1FBA47DEE8</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8F65A4063997DE305B82C7563D352820</string>
+			<string>554ED4B7609AD29A1ACA7840E4065F12</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -5116,10 +5104,34 @@
 				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>F5E4983C5FBB50BFC9F94FB7D4B5B6E3</key>
+		<key>F5257F2384627A45B07446984EF76E94</key>
 		<dict>
 			<key>fileRef</key>
-			<string>05F47BBFE6F42CCE038F8F19D1BA1026</string>
+			<string>437F0E239FF75B39B436F21BE5CFB16B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>F594A87AC32E278E69AB177AC3EBD20E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F3C5A3DBE406D06C37DCDCFC7EDF6B0E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
+		<key>F5BCF5E8112E1B0574A74EAD20A99ABF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D14D3EB6B6B343BDD84E81ED66073BF0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -5161,6 +5173,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>F654BB169564C8062B950B0681B67D9E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>43388F733E24EE9DB6931111A142D92F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>F750DB57816B975520F1A38181E335F9</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5174,10 +5198,10 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F834466A230DFF6421B8ED6EDD6FDB1A</key>
+		<key>F8BDCCE56A529F59C66A0FA2C6C7C6B3</key>
 		<dict>
 			<key>fileRef</key>
-			<string>64762D743A0F29879038A25C8A6F41C0</string>
+			<string>D663D499C1544540F6C1BA309B006CC6</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -5198,18 +5222,6 @@
 			<string>RouterFocusable.swift</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F970A86F108B47EE6C46EC69294F6D4C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CA3EF55785CD20A77A293CEE08B5CF64</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>FB45FFD90572718D82AB9092B750F0CA</key>
 		<dict>
@@ -5309,6 +5321,37 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>FD750BE0E49BA00DDFA867A967470EA0</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>403D289C2AC073946AAB316831A5BE86</string>
+				<string>10266F0E83566CA4B24DCBB49E2748D1</string>
+				<string>516C14FA0773C91BD37DD4172C2906D4</string>
+				<string>97047BA0E69476B8B19B488BA2039AB7</string>
+				<string>27663C166550BE4EB24D2EB846C2067D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SettingUpStack</string>
+			<key>path</key>
+			<string>SettingUpStack</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FD7993C6F7E3AF1FF9F0CBADAD89B0A1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>82B3C5DBCB745071CC8C0ED3950412E3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>FD904136B2F04875DE721372A6CB619E</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5322,37 +5365,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FEC6FF1CE1676ECBB454EDCA1123062F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1764857133F41257A1E35D58C797365E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
-		</dict>
-		<key>FEFFFB7510501D535E69D5A4982C033C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>9732E303099F3AE342479D12AEA675D1</string>
-				<string>565D05709CF736FD555E9BFC1DA11232</string>
-				<string>08CC157D6B492F933CB7D0DCAEC187DE</string>
-				<string>9D1B1045E5F926CEDFC6DD2E47D3E2BD</string>
-				<string>83129447543705E63F7CB15D99648324</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>SettingUpStack</string>
-			<key>path</key>
-			<string>SettingUpStack</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>FF62A681A913818552A9ADD568D0CB3E</key>
 		<dict>
 			<key>isa</key>
@@ -5363,18 +5375,6 @@
 			<string>84C98F46EB6FF576103851B66E1068D4</string>
 			<key>targetProxy</key>
 			<string>44BADABA8B00396C301ACC9D6CC3D5ED</string>
-		</dict>
-		<key>FFDAE673F36408081683F685855EC9CA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7400541DF53C48A457C78D10C20E1324</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 	</dict>
 	<key>rootObject</key>

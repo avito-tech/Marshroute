@@ -1,10 +1,10 @@
 import Foundation
 
-final public class AvitoNavigationFactoryImpl: AvitoNavigationFactory {
+final public class MarshrouteNavigationFactoryImpl: MarshrouteNavigationFactory {
     // MARK: - Init
     public init() {}
     
-    // MARK: - AvitoNavigationFactory
+    // MARK: - MarshrouteNavigationFactory
     public func transitionContextsStackClientProvider()
         -> TransitionContextsStackClientProvider
     {

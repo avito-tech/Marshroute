@@ -1,17 +1,17 @@
 import Foundation
 
-final public class AvitoNavigationSetupServiceImpl: AvitoNavigationSetupService {
+final public class MarshrouteNavigationSetupServiceImpl: MarshrouteNavigationSetupService {
     // MARK: - Private properties
-    private let factory: AvitoNavigationFactory
+    private let factory: MarshrouteNavigationFactory
     
     // MARK: - Init
-    public init(factory: AvitoNavigationFactory = AvitoNavigationFactoryImpl()) {
+    public init(factory: MarshrouteNavigationFactory = MarshrouteNavigationFactoryImpl()) {
         self.factory = factory
     }
     
-    // MARK: - AvitoNavigationSetupService
-    public func avitoNavigationStack()
-        -> AvitoNavigationStack
+    // MARK: - MarshrouteNavigationSetupService
+    public func marshrouteNavigationStack()
+        -> MarshrouteNavigationStack
     {
         let transitionIdGenerator = factory.transitionIdGenerator()
         
@@ -23,7 +23,7 @@ final public class AvitoNavigationSetupServiceImpl: AvitoNavigationSetupService 
             stackClientProvider: stackClientProvider
         )
         
-        return AvitoNavigationStack(
+        return MarshrouteNavigationStack(
             transitionIdGenerator: transitionIdGenerator,
             routerControllersProvider: routerControllersProvider,
             transitionsCoordinator: transitionsCoordinator,

@@ -97,12 +97,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Marshroute', :git => 'https://github.com/avito-tech/Marshroute.git', :tag => '0.3.0'
+pod 'Marshroute'
 ```
 
 Then run `pod install` command. For details of the installation and usage of CocoaPods, visit [its official website](https://cocoapods.org).
-
-We will add our `Podspec` to the main Cocoapods repo a bit later.
 
 ### Carthage
 

@@ -104,7 +104,7 @@ Then run `pod install` command. For details of the installation and usage of Coc
 
 ### Carthage
 
-We will add Carthage support a bit later.
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Contacts
 Feel free to send your questions at `tyusipov@avito.ru`

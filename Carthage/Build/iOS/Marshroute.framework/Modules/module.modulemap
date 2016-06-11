@@ -1,0 +1,10 @@
+framework module Marshroute {
+  umbrella header "Marshroute-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Marshroute.Swift {
+    header "Marshroute-Swift.h"
+}

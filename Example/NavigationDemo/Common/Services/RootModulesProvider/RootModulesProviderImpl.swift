@@ -6,11 +6,11 @@ final class RootModulesProviderImpl: RootModulesProvider {
         @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
         -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
-        let marshrouteNavigationStack = moduleSeed.marshrouteNavigationStack
+        let marshrouteStack = moduleSeed.marshrouteStack
         
-        let navigationController = marshrouteNavigationStack.routerControllersProvider.navigationController()
+        let navigationController = marshrouteStack.routerControllersProvider.navigationController()
         
-        let animatingTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let animatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: navigationController
         )
         
@@ -48,17 +48,17 @@ final class RootModulesProviderImpl: RootModulesProvider {
         @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController)
         -> (splitViewController: UISplitViewController, containingTransitionsHandler: ContainingTransitionsHandler)
     {
-        let marshrouteNavigationStack = moduleSeed.marshrouteNavigationStack
+        let marshrouteStack = moduleSeed.marshrouteStack
         
-        let masterNavigationController = marshrouteNavigationStack.routerControllersProvider.navigationController()
-        let detailNavigationController = marshrouteNavigationStack.routerControllersProvider.navigationController()
+        let masterNavigationController = marshrouteStack.routerControllersProvider.navigationController()
+        let detailNavigationController = marshrouteStack.routerControllersProvider.navigationController()
         
         
-        let masterAnimatingTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let masterAnimatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: masterNavigationController
         )
         
-        let detailAnimatingTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let detailAnimatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: detailNavigationController
         )
         
@@ -117,10 +117,10 @@ final class RootModulesProviderImpl: RootModulesProvider {
             )
         }
         
-        let splitViewController = marshrouteNavigationStack.routerControllersProvider.splitViewController()
+        let splitViewController = marshrouteStack.routerControllersProvider.splitViewController()
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
-        let splitViewTransitionsHandler = marshrouteNavigationStack.transitionsHandlersProvider.splitViewTransitionsHandler(
+        let splitViewTransitionsHandler = marshrouteStack.transitionsHandlersProvider.splitViewTransitionsHandler(
             splitViewController: splitViewController
         )
         

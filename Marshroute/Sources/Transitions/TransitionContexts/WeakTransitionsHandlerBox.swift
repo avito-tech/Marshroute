@@ -1,11 +1,9 @@
-import Marshroute
-
-enum WeakTransitionsHandlerBox {
+public enum WeakTransitionsHandlerBox {
     case Animating(WeakBox<AnimatingTransitionsHandler>)
     case Containing(WeakBox<ContainingTransitionsHandler>)
     
     // MARK: - Init
-    init(transitionsHandlerBox: TransitionsHandlerBox)
+    public init(transitionsHandlerBox: TransitionsHandlerBox)
     {
         switch transitionsHandlerBox {
         case .Animating(let strongBox):
@@ -18,16 +16,16 @@ enum WeakTransitionsHandlerBox {
         }
     }
     
-    init(animatingTransitionsHandler: AnimatingTransitionsHandler) {
+    public init(animatingTransitionsHandler: AnimatingTransitionsHandler) {
         self = .Animating(WeakBox(animatingTransitionsHandler))
     }
     
-    init(containingTransitionsHandler: ContainingTransitionsHandler) {
+    public init(containingTransitionsHandler: ContainingTransitionsHandler) {
         self = .Containing(WeakBox(containingTransitionsHandler))
     }
     
-    // MARK: - Internal
-    func unbox() -> TransitionsHandler? {
+    // MARK: - Public
+    public func unbox() -> TransitionsHandler? {
         switch self {
         case .Animating(let animatingTransitionsHandlerBox):
             return animatingTransitionsHandlerBox.unbox()
@@ -38,7 +36,7 @@ enum WeakTransitionsHandlerBox {
     }
 }
 
-extension WeakTransitionsHandlerBox {
+public extension WeakTransitionsHandlerBox {
     func transitionsHandlerBox() -> TransitionsHandlerBox? {
         switch self {
         case .Animating(let animatingTransitionsHandlerBox):
@@ -53,5 +51,17 @@ extension WeakTransitionsHandlerBox {
         }
         
         return nil
+    }
+}
+
+public extension TransitionsHandlerBox {
+    func weakTransitionsHandlerBox() -> WeakTransitionsHandlerBox {
+        switch self {
+        case .Animating(let animatingTransitionsHandlerBox):
+            return WeakTransitionsHandlerBox(animatingTransitionsHandler: animatingTransitionsHandlerBox.unbox())
+            
+        case .Containing(let containingTransitionsHandlerBox):
+            return WeakTransitionsHandlerBox(containingTransitionsHandler: containingTransitionsHandlerBox.unbox())
+        }
     }
 }

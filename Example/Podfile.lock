@@ -1,5 +1,5 @@
 PODS:
-  - Marshroute (0.3.0)
+  - Marshroute (0.3.2)
 
 DEPENDENCIES:
   - Marshroute (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Marshroute: bccf8f7dcfb98917fb7d10490cc607a5fce2165f
+  Marshroute: 2e73227c71842bb2b0b83a36e796a1c757efd1fe
 
 COCOAPODS: 0.39.0

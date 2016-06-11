@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol MarshrouteNavigationFactory: class {
+public protocol MarshrouteFactory: class {
     func transitionContextsStackClientProvider()
         -> TransitionContextsStackClientProvider
     

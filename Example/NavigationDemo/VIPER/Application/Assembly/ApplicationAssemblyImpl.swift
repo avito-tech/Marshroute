@@ -41,7 +41,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
             bannerView: bannerView
         )
         
-        let tabBarTransitionsHandler = moduleSeed.marshrouteNavigationStack.transitionsHandlersProvider.tabBarTransitionsHandler(
+        let tabBarTransitionsHandler = moduleSeed.marshrouteStack.transitionsHandlersProvider.tabBarTransitionsHandler(
             tabBarController: tabBarController
         )
         

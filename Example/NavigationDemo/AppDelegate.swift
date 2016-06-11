@@ -42,20 +42,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // MARK: - UIApplicationDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-        // Init `MarshrouteNavigation` stack
-        let marshorouteNavigationSetupService = MarshrouteNavigationSetupServiceImpl()
+        // Init `Marshroute` stack
+        let marshrouteSetupService = MarshrouteSetupServiceImpl()
         
         let applicationModuleSeed = ApplicationModuleSeedProvider().applicationModuleSeed(
-            marshrouteNavigationSetupService: marshorouteNavigationSetupService
+            marshrouteSetupService: marshrouteSetupService
         )
         
         // Init service factory
         let serviceFactory = ServiceFactoryImpl(
-            topViewControllerFinder: applicationModuleSeed.marshrouteNavigationStack.topViewControllerFinder,
+            topViewControllerFinder: applicationModuleSeed.marshrouteStack.topViewControllerFinder,
             rootTransitionsHandlerProvider: rootTransitionsHandlerProvider,
-            transitionsMarker: applicationModuleSeed.marshrouteNavigationStack.transitionsMarker,
-            transitionsTracker: applicationModuleSeed.marshrouteNavigationStack.transitionsTracker,
-            transitionsCoordinatorDelegateHolder: applicationModuleSeed.marshrouteNavigationStack.transitionsCoordinatorDelegateHolder
+            transitionsMarker: applicationModuleSeed.marshrouteStack.transitionsMarker,
+            transitionsTracker: applicationModuleSeed.marshrouteStack.transitionsTracker,
+            transitionsCoordinatorDelegateHolder: applicationModuleSeed.marshrouteStack.transitionsCoordinatorDelegateHolder
         )
         
         // Init assemly factory

@@ -1,17 +1,17 @@
 import Foundation
 
-final public class MarshrouteNavigationSetupServiceImpl: MarshrouteNavigationSetupService {
+final public class MarshrouteSetupServiceImpl: MarshrouteSetupService {
     // MARK: - Private properties
-    private let factory: MarshrouteNavigationFactory
+    private let factory: MarshrouteFactory
     
     // MARK: - Init
-    public init(factory: MarshrouteNavigationFactory = MarshrouteNavigationFactoryImpl()) {
+    public init(factory: MarshrouteFactory = MarshrouteFactoryImpl()) {
         self.factory = factory
     }
     
-    // MARK: - MarshrouteNavigationSetupService
-    public func marshrouteNavigationStack()
-        -> MarshrouteNavigationStack
+    // MARK: - MarshrouteSetupService
+    public func marshrouteStack()
+        -> MarshrouteStack
     {
         let transitionIdGenerator = factory.transitionIdGenerator()
         
@@ -23,7 +23,7 @@ final public class MarshrouteNavigationSetupServiceImpl: MarshrouteNavigationSet
             stackClientProvider: stackClientProvider
         )
         
-        return MarshrouteNavigationStack(
+        return MarshrouteStack(
             transitionIdGenerator: transitionIdGenerator,
             routerControllersProvider: routerControllersProvider,
             transitionsCoordinator: transitionsCoordinator,

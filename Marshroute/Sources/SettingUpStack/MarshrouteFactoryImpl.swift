@@ -1,10 +1,10 @@
 import Foundation
 
-final public class MarshrouteNavigationFactoryImpl: MarshrouteNavigationFactory {
+final public class MarshrouteFactoryImpl: MarshrouteFactory {
     // MARK: - Init
     public init() {}
     
-    // MARK: - MarshrouteNavigationFactory
+    // MARK: - MarshrouteFactory
     public func transitionContextsStackClientProvider()
         -> TransitionContextsStackClientProvider
     {

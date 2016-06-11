@@ -3,7 +3,7 @@ import Marshroute
 struct ApplicationModuleSeed {
     let transitionId: TransitionId
     let presentingTransitionsHandler: TransitionsHandler?
-    let marshrouteNavigationStack: MarshrouteNavigationStack
+    let marshrouteStack: MarshrouteStack
 }
 
 extension RouterSeed {
@@ -14,9 +14,9 @@ extension RouterSeed {
         self.transitionsHandlerBox = transitionsHandlerBox
         self.transitionId = moduleSeed.transitionId
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsHandlersProvider = moduleSeed.marshrouteNavigationStack.transitionsHandlersProvider
-        self.transitionIdGenerator = moduleSeed.marshrouteNavigationStack.transitionIdGenerator
-        self.controllersProvider = moduleSeed.marshrouteNavigationStack.routerControllersProvider
+        self.transitionsHandlersProvider = moduleSeed.marshrouteStack.transitionsHandlersProvider
+        self.transitionIdGenerator = moduleSeed.marshrouteStack.transitionIdGenerator
+        self.controllersProvider = moduleSeed.marshrouteStack.routerControllersProvider
     }
 }
 
@@ -30,8 +30,8 @@ extension MasterDetailRouterSeed {
         self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
         self.transitionId = moduleSeed.transitionId
         self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsHandlersProvider = moduleSeed.marshrouteNavigationStack.transitionsHandlersProvider
-        self.transitionIdGenerator = moduleSeed.marshrouteNavigationStack.transitionIdGenerator
-        self.controllersProvider = moduleSeed.marshrouteNavigationStack.routerControllersProvider
+        self.transitionsHandlersProvider = moduleSeed.marshrouteStack.transitionsHandlersProvider
+        self.transitionIdGenerator = moduleSeed.marshrouteStack.transitionIdGenerator
+        self.controllersProvider = moduleSeed.marshrouteStack.routerControllersProvider
     }
 }

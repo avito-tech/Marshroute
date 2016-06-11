@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MarshrouteNavigationStack {
+public struct MarshrouteStack {
     public let transitionIdGenerator: TransitionIdGenerator
     public let routerControllersProvider: RouterControllersProvider
     public let transitionsCoordinator: TransitionsCoordinator

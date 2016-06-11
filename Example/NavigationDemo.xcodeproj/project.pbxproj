@@ -140,7 +140,6 @@
 		CCE593E01CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */; };
 		CCE593E11CF25FFA0019F81D /* TrackedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */; };
 		CCE593E21CF25FFA0019F81D /* TrackedModulesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DC1CF25FFA0019F81D /* TrackedModulesList.swift */; };
-		CCE593E31CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DD1CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift */; };
 		CCE593E61CF2600B0019F81D /* ModuleTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593E41CF2600B0019F81D /* ModuleTrackingService.swift */; };
 		CCE593EB1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593EA1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift */; };
 		CCE593ED1CF266720019F81D /* AuthorizationModuleTrackingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593EC1CF266720019F81D /* AuthorizationModuleTrackingService.swift */; };
@@ -298,7 +297,6 @@
 		CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleRegisteringServiceImpl.swift; sourceTree = "<group>"; };
 		CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModule.swift; sourceTree = "<group>"; };
 		CCE593DC1CF25FFA0019F81D /* TrackedModulesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModulesList.swift; sourceTree = "<group>"; };
-		CCE593DD1CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		CCE593E41CF2600B0019F81D /* ModuleTrackingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleTrackingService.swift; sourceTree = "<group>"; };
 		CCE593EA1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleRegisteringService.swift; sourceTree = "<group>"; };
 		CCE593EC1CF266720019F81D /* AuthorizationModuleTrackingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleTrackingService.swift; sourceTree = "<group>"; };
@@ -1051,7 +1049,6 @@
 				CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */,
 				CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */,
 				CCE593DC1CF25FFA0019F81D /* TrackedModulesList.swift */,
-				CCE593DD1CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift */,
 			);
 			path = ModuleRegisteringService;
 			sourceTree = "<group>";
@@ -1391,7 +1388,6 @@
 				CCA7C9061CD9296200B7ADBD /* AuthorizationView.swift in Sources */,
 				CC0B1E6D1CC3C91A006707B6 /* AdvertisementRouterIphone.swift in Sources */,
 				CC0B1E681CC3C91A006707B6 /* AdvertisementAssemblyImpl.swift in Sources */,
-				CCE593E31CF25FFA0019F81D /* WeakTransitionsHandlerBox.swift in Sources */,
 				CCE593ED1CF266720019F81D /* AuthorizationModuleTrackingService.swift in Sources */,
 				CC8406651CD65F0300644CA1 /* RecursionViewInput.swift in Sources */,
 				CCA065151CE0B0C600D08A67 /* TouchEventObserver.swift in Sources */,

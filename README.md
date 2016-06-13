@@ -1,4 +1,4 @@
-# Marshroute [![GitHub license](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/avito-tech/Marshroute/blob/master/LICENSE) [![GitHub release](https://img.shields.io/badge/Version-0.3.2-brighgreen.svg)](https://github.com/avito-tech/Marshroute/releases) [![cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-blue.svg)](https://cocoapods.org) [![carthage compatib](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage) 
+# Marshroute [![GitHub license](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/avito-tech/Marshroute/blob/master/LICENSE) [![GitHub release](https://img.shields.io/badge/Version-0.3.3-brighgreen.svg)](https://github.com/avito-tech/Marshroute/releases) [![cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-blue.svg)](https://cocoapods.org) [![carthage compatib](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage) 
 
 ## Overview
 
@@ -108,7 +108,7 @@ Then run `pod install` command. For details of the installation and usage of Coc
 
 To install Marshroute using Carthage, add the following lines to your `Cartfile`:
 ```ruby
-github "avito-tech/Marshroute" ~> 0.3.2
+github "avito-tech/Marshroute" ~> 0.3.3
 ```
 
 Then run `carthage update --platform iOS` command. For details of the installation and usage of Carthage, visit [its  repo website](https://github.com/Carthage/Carthage).
@@ -117,5 +117,7 @@ Then run `carthage update --platform iOS` command. For details of the installati
 Feel free to send your questions at `tyusipov@avito.ru`
 
 ## License
-
 MIT
+
+## Objective-c support
+The framework is written in pure `swift` using its latest features, so if you want to use `Marshroute` in your `objective-c` application you will have to write your `Router`s in `swift`.

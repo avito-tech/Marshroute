@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage               = 'https://github.com/avito-tech/Marshroute'
   s.license                = 'MIT'
   s.author                 = { 'Timur Yusipov' => 'tyusipov@avito.ru' }
-  s.source                 = { :git => 'https://github.com/avito-tech/Marshroute.git', :tag => '0.3.2' }
+  s.source                 = { :git => 'https://github.com/avito-tech/Marshroute.git', :tag => '0.3.3' }
   s.platform               = :ios, '8.0'
   s.ios.deployment_target = "8.0"
   s.requires_arc = true

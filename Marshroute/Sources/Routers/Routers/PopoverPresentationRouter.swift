@@ -92,12 +92,16 @@ extension PopoverPresentationRouter where
             animatingTransitionsHandler: animatingTransitionsHandler
         )
         
+        let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: transitionsHandlerBox
+        )
+        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
-            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
@@ -127,7 +131,7 @@ extension PopoverPresentationRouter where
             transitionId: generatedTransitionId
         )
         
-        transitionsHandlerBox.unbox().performTransition(context: popoverContext)
+        presentingTransitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
     
     public func presentPopoverFromBarButtonItem(
@@ -152,12 +156,16 @@ extension PopoverPresentationRouter where
             animatingTransitionsHandler: animatingTransitionsHandler
         )
         
+        let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: transitionsHandlerBox
+        )
+        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
-            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
@@ -186,7 +194,7 @@ extension PopoverPresentationRouter where
             transitionId: generatedTransitionId
         )
         
-        transitionsHandlerBox.unbox().performTransition(context: popoverContext)
+        presentingTransitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
     
     
@@ -234,12 +242,16 @@ extension PopoverPresentationRouter where
             animatingTransitionsHandler: navigationTransitionsHandler
         )
         
+        let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: transitionsHandlerBox
+        )
+        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
-            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
@@ -272,7 +284,7 @@ extension PopoverPresentationRouter where
             transitionId: generatedTransitionId
         )
 
-        transitionsHandlerBox.unbox().performTransition(context: popoverContext)
+        presentingTransitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
     
     public func presentPopoverWithNavigationControllerFromBarButtonItem(
@@ -313,12 +325,16 @@ extension PopoverPresentationRouter where
             animatingTransitionsHandler: navigationTransitionsHandler
         )
         
+        let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: transitionsHandlerBox
+        )
+        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
-            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
@@ -350,6 +366,6 @@ extension PopoverPresentationRouter where
             transitionId: generatedTransitionId
         )
 
-        transitionsHandlerBox.unbox().performTransition(context: popoverContext)
+        presentingTransitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
 }

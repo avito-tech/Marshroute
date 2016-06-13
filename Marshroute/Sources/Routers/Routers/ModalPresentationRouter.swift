@@ -71,12 +71,16 @@ extension ModalPresentationRouter where
             animatingTransitionsHandler: animatingTransitionsHandler
         )
         
+        let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: transitionsHandlerBox
+        )
+        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
-            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
@@ -101,7 +105,7 @@ extension ModalPresentationRouter where
             transitionId: generatedTransitionId
         )
         
-        transitionsHandlerBox.unbox().performTransition(context: modalContext)
+        presentingTransitionsHandlerBox.unbox().performTransition(context: modalContext)
     }
     
     // MARK: - UISplitViewController
@@ -164,7 +168,11 @@ extension ModalPresentationRouter where
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
         splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
         
-        // один на master и detail модули. см описание TransitionId
+        let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: transitionsHandlerBox
+        )
+        
+        // один на master и detail модули. см описание `TransitionId`
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
 
         do {
@@ -172,7 +180,7 @@ extension ModalPresentationRouter where
                 masterTransitionsHandlerBox: masterTransitionsHandlerBox,
                 detailTransitionsHandlerBox: detailTransitionsHandlerBox,
                 transitionId: generatedTransitionId,
-                presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+                presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
                 transitionsHandlersProvider: transitionsHandlersProvider,
                 transitionIdGenerator: transitionIdGenerator,
                 controllersProvider: controllersProvider
@@ -221,7 +229,7 @@ extension ModalPresentationRouter where
             transitionId: generatedTransitionId
         )
         
-        transitionsHandlerBox.unbox().performTransition(context: modalContext)
+        presentingTransitionsHandlerBox.unbox().performTransition(context: modalContext)
     }
     
     // MARK: - UIViewController in UINavigationController
@@ -258,12 +266,16 @@ extension ModalPresentationRouter where
             animatingTransitionsHandler: navigationTransitionsHandler
         )
         
+        let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
+            transitionsHandlerBox: transitionsHandlerBox
+        )
+        
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
-            presentingTransitionsHandler: transitionsHandlerBox.unbox(),
+            presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
             controllersProvider: controllersProvider
@@ -291,6 +303,6 @@ extension ModalPresentationRouter where
             transitionId: generatedTransitionId
         )
 
-        transitionsHandlerBox.unbox().performTransition(context: modalContext)
+        presentingTransitionsHandlerBox.unbox().performTransition(context: modalContext)
     }
 }

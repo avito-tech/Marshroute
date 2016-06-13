@@ -137,7 +137,7 @@ final class ModuleRegisteringServiceImpl:
                 )
                 
                 // Return to a previous sibling module
-                trackedModule.weakTransitionsHandlerBox?.unbox()?.undoTransitionsAfter(
+                trackedModule.weakTransitionsHandlerBox.unbox()?.undoTransitionsAfter(
                     transitionId: trackedModule.transitionId
                 )
                 

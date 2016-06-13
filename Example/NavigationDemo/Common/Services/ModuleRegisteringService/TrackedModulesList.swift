@@ -6,7 +6,7 @@ final class TrackedModulesList {
     
     // MARK: - Internal
     func append(trackedModule: TrackedModule) {
-        guard trackedModule.weakTransitionsHandlerBox?.unbox() !== nil
+        guard trackedModule.weakTransitionsHandlerBox.unbox() !== nil
             else { return }
         
         releaseZombieModules()
@@ -71,6 +71,6 @@ final class TrackedModulesList {
     
     // MARK: - Private
     private func releaseZombieModules() {
-        modules = modules.filter { $0.weakTransitionsHandlerBox?.unbox() !== nil }
+        modules = modules.filter { $0.weakTransitionsHandlerBox.unbox() !== nil }
     }
 }

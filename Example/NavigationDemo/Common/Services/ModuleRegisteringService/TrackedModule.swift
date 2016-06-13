@@ -1,7 +1,7 @@
 import Marshroute
 
 struct TrackedModule {
-    let weakTransitionsHandlerBox: WeakTransitionsHandlerBox?
+    let weakTransitionsHandlerBox: WeakTransitionsHandlerBox
     let transitionId: TransitionId
     let transitionUserId: TransitionUserId
     
@@ -21,7 +21,7 @@ struct TrackedModule {
 
 extension TrackedModule {
     func trackedTransition() -> TrackedTransition? {
-        guard let transitionsHandlerBox = weakTransitionsHandlerBox?.transitionsHandlerBox()
+        guard let transitionsHandlerBox = weakTransitionsHandlerBox.transitionsHandlerBox()
             else { return nil }
         
         return TrackedTransition(

@@ -57,14 +57,16 @@ private class AnimatedTransitioningImpl:
     // MARK: - Private
     fileprivate func animatePresentation(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        guard let sourceViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+        guard let sourceViewController = transitionContext.viewController(forKey: .from)
             else { return }
         
-        guard let targetViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+        guard let targetViewController = transitionContext.viewController(forKey: .to)
             else { return }
         
-        guard let sourceViewSnapshot = sourceViewController.view.snapshotView(afterScreenUpdates: false)
+        guard let sourceViewSnapshotImage = sourceViewController.view.screenshot()
             else { return }
+        
+        let sourceViewSnapshot = UIImageView(image: sourceViewSnapshotImage)
         
         let containerView = transitionContext.containerView
         
@@ -138,14 +140,16 @@ private class AnimatedTransitioningImpl:
     
     fileprivate func animateDismissal(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        guard let sourceViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+        guard let sourceViewController = transitionContext.viewController(forKey: .from)
             else { return }
         
-        guard let targetViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+        guard let targetViewController = transitionContext.viewController(forKey: .to)
             else { return }
         
-        guard let targetViewSnapshot = targetViewController.view.snapshotView(afterScreenUpdates: false)
+        guard let targetViewSnapshotImage = targetViewController.view.screenshot()
             else { return }
+        
+        let targetViewSnapshot = UIImageView(image: targetViewSnapshotImage)
         
         let containerView = transitionContext.containerView
         
@@ -215,5 +219,16 @@ private class AnimatedTransitioningImpl:
         -> CGRect
     {
         return CGRect(x: 0, y: relativeView.frame.height, width: relativeView.frame.width, height: relativeView.frame.height)
+    }
+}
+
+extension UIView {
+    func screenshot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0);
+        drawHierarchy(in: bounds, afterScreenUpdates: false)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return screenshot
     }
 }

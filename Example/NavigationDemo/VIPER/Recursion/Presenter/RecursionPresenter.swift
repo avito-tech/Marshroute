@@ -2,9 +2,9 @@ import Foundation
 
 final class RecursionPresenter {
     // MARK: - Init
-    private let interactor: RecursionInteractor
+    fileprivate let interactor: RecursionInteractor
     
-    private let router: RecursionRouter
+    fileprivate let router: RecursionRouter
     
     init(interactor: RecursionInteractor, router: RecursionRouter) {
         self.interactor = interactor
@@ -19,7 +19,7 @@ final class RecursionPresenter {
     }
     
     // MARK: - Private
-    private func setupView() {
+    fileprivate func setupView() {
         view?.setTitle("recursion".localized)
         
         view?.onViewDidLoad = { [weak self] in
@@ -51,7 +51,7 @@ final class RecursionPresenter {
         }
         
         view?.onRecursionButtonTap = { [weak self] sender in
-            self?.router.showRecursion(sender)
+            self?.router.showRecursion(sender: sender)
         }
         
         view?.onDismissButtonTap = { [weak self ] in
@@ -59,7 +59,7 @@ final class RecursionPresenter {
         }
         
         view?.onCategoriesButtonTap = { [weak self ] sender in
-            self?.router.showCategories(sender)
+            self?.router.showCategories(sender: sender)
         }
     }
 }

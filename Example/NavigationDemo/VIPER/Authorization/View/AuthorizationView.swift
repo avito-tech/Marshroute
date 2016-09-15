@@ -1,10 +1,10 @@
 import UIKit
 
 final class AuthorizationView: UIView {
-    private let backgroundImage = UIImage(named: "TouchId.png")
-    private let backgroundView: UIImageView?
-    private let emailTextField = UITextField()
-    private let passwordTextField = UITextField()
+    fileprivate let backgroundImage = UIImage(named: "TouchId.png")
+    fileprivate let backgroundView: UIImageView?
+    fileprivate let emailTextField = UITextField()
+    fileprivate let passwordTextField = UITextField()
     var contentInset: (() -> (UIEdgeInsets))?
     
     // MARK: - Init
@@ -13,24 +13,24 @@ final class AuthorizationView: UIView {
         
         super.init(frame: .zero)
         
-        backgroundColor = .whiteColor()
-        backgroundView?.contentMode = .ScaleAspectFit
+        backgroundColor = .white
+        backgroundView?.contentMode = .scaleAspectFit
         
         if let backgroundView = backgroundView {
             addSubview(backgroundView)
-            backgroundView.contentMode = .Center
+            backgroundView.contentMode = .center
         }
         
         addSubview(emailTextField)
-        emailTextField.userInteractionEnabled = false
+        emailTextField.isUserInteractionEnabled = false
         emailTextField.text = "  john@appleseed.com  "
-        emailTextField.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.1)
+        emailTextField.backgroundColor = UIColor.red.withAlphaComponent(0.1)
         
         addSubview(passwordTextField)
-        passwordTextField.userInteractionEnabled = false
+        passwordTextField.isUserInteractionEnabled = false
         passwordTextField.text = "......................."
-        passwordTextField.secureTextEntry = true
-        passwordTextField.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.1)
+        passwordTextField.isSecureTextEntry = true
+        passwordTextField.backgroundColor = UIColor.red.withAlphaComponent(0.1)
     }
     
     required init?(coder aDecoder: NSCoder) {

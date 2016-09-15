@@ -3,7 +3,7 @@ import Marshroute
 
 final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, SubcategoriesAssembly {
     // MARK: - CategoriesAssembly
-    func module(routerSeed routerSeed: RouterSeed)
+    func module(routerSeed: RouterSeed)
         -> UIViewController
     {
         let interactor = CategoriesInteractorImpl(
@@ -22,7 +22,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
         return module(interactor: interactor, router: router, isDismissable: isDismissable)
     }
     
-    func ipadModule(routerSeed routerSeed: RouterSeed)
+    func ipadModule(routerSeed: RouterSeed)
         -> UIViewController
     {
         let interactor = CategoriesInteractorImpl(
@@ -41,7 +41,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
         return module(interactor: interactor, router: router, isDismissable: isDismissable)
     }
     
-    func ipadMasterDetailModule(routerSeed routerSeed: MasterDetailRouterSeed)
+    func ipadMasterDetailModule(routerSeed: MasterDetailRouterSeed)
         -> UIViewController
     {
         let interactor = CategoriesInteractorImpl(
@@ -61,7 +61,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
     }
     
     // MARK: - SubcategoriesAssembly
-    func module(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
+    func module(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     {
         let interactor = CategoriesInteractorImpl(
@@ -78,7 +78,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
         return module(interactor: interactor, router: router, isDismissable: false)
     }
     
-    func ipadModule(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
+    func ipadModule(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     {
         let interactor = CategoriesInteractorImpl(
@@ -95,7 +95,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
         return module(interactor: interactor, router: router, isDismissable: false)
     }
 
-    func ipadMasterDetailModule(categoryId categoryId: CategoryId, routerSeed: MasterDetailRouterSeed)
+    func ipadMasterDetailModule(categoryId: CategoryId, routerSeed: MasterDetailRouterSeed)
         -> UIViewController
     {
         let interactor = CategoriesInteractorImpl(
@@ -113,7 +113,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
     }
     
     // MARK: - Private
-    private func module(interactor interactor: CategoriesInteractor, router: CategoriesRouter, isDismissable: Bool)
+    fileprivate func module(interactor: CategoriesInteractor, router: CategoriesRouter, isDismissable: Bool)
         -> UIViewController
     {
         let presenter = CategoriesPresenter(

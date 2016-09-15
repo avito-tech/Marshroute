@@ -13,7 +13,7 @@ final class AdvertisementProviderImpl: AdvertisementProvider {
     }
     
     // MARK: - AdvertisementProvider
-    func advertisement(advertisementId advertisementId: AdvertisementId) -> Advertisement {
+    func advertisement(advertisementId: AdvertisementId) -> Advertisement {
         if let advertisement = advertisementCacher.cached(advertisementId: advertisementId) {
             return advertisement
         }

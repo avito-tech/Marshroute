@@ -2,8 +2,8 @@ import Foundation
 
 protocol TimerService: class {
     func startTimer(
-        seconds seconds: NSTimeInterval,
-        onTick: ((secondsLeft: NSTimeInterval) -> ())?,
+        seconds: TimeInterval,
+        onTick: ((_ secondsLeft: TimeInterval) -> ())?,
         onFire: (() -> ())?)
     
     func invalidateTimer()

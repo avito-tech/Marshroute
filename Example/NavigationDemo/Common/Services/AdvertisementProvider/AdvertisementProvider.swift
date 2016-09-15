@@ -12,5 +12,5 @@ struct Advertisement {
 }
 
 protocol AdvertisementProvider: class {
-    func advertisement(advertisementId advertisementId: AdvertisementId) -> Advertisement
+    func advertisement(advertisementId: AdvertisementId) -> Advertisement
 }

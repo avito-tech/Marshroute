@@ -2,6 +2,6 @@ import Marshroute
 
 protocol AuthorizationModuleRegisteringService: class {
     func registerAuthorizationModuleAsBeingTracked(
-        transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox,
+        transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)
 }

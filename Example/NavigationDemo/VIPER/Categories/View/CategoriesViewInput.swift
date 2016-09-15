@@ -6,12 +6,12 @@ struct CategoriesViewData {
 }
 
 protocol CategoriesViewInput: class, ViewLifecycleObservable {
-    func setCategories(categories: [CategoriesViewData])
-    func setTitle(title: String?)
+    func setCategories(_ categories: [CategoriesViewData])
+    func setTitle(_ title: String?)
     
-    func setTimerButtonVisible(visible: Bool)
-    func setTimerButtonEnabled(enabled: Bool)
-    func setTimerButtonTitle(title: String)
+    func setTimerButtonVisible(_ visible: Bool)
+    func setTimerButtonEnabled(_ enabled: Bool)
+    func setTimerButtonTitle(_ title: String)
     
     var onDismissButtonTap: (() -> ())? { get set }
     var onTimerButtonTap: (() -> ())? { get set }

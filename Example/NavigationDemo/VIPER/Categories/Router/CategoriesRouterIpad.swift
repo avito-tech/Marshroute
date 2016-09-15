@@ -3,7 +3,7 @@ import Marshroute
 
 final class CategoriesRouterIpad: BaseDemoRouter, CategoriesRouter {
     // MARK: - CategoriesRouter
-    func showSubcategories(categoryId categoryId: CategoryId) {
+    func showSubcategories(categoryId: CategoryId) {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let subcategoriesAssembly = assemblyFactory.subcategoriesAssembly()
             
@@ -16,7 +16,7 @@ final class CategoriesRouterIpad: BaseDemoRouter, CategoriesRouter {
         }
     }
     
-    func showSearchResults(categoryId categoryId: CategoryId) {
+    func showSearchResults(categoryId: CategoryId) {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let searchResultsAssembly = assemblyFactory.searchResultsAssembly()
             

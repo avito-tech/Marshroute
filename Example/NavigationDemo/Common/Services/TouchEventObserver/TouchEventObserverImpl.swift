@@ -7,15 +7,15 @@ private struct TouchEventListenerWeakBox {
 
 final class TouchEventObserverImpl: TouchEventObserver, TouchEventForwarder {
     // MARK: - Init
-    private var touchListenerBoxes = [TouchEventListenerWeakBox]()
+    fileprivate var touchListenerBoxes = [TouchEventListenerWeakBox]()
     
     // MARK: - TouchEventObserver
-    func addListener(listener: TouchEventListener) {
+    func addListener(_ listener: TouchEventListener) {
         // Release some memory
         touchListenerBoxes = touchListenerBoxes.filter { $0.listener != nil }
         
         // Check if listener is already registered
-        guard touchListenerBoxes.indexOf({ $0.listener === listener }) == nil
+        guard touchListenerBoxes.index(where: { $0.listener === listener }) == nil
             else { return } // `Set` could be useful, but it has some nasty constraints
         
         // Register listener
@@ -27,32 +27,32 @@ final class TouchEventObserverImpl: TouchEventObserver, TouchEventForwarder {
     }
     
     // MARK: - TouchEventForwarder
-    func forwardEvent(event: UIEvent, touches: Set<UITouch>) {
+    func forwardEvent(_ event: UIEvent, touches: Set<UITouch>) {
         guard let touch = touches.first
             else { return }
         
         switch touch.phase {
-        case .Began:
+        case .began:
             for touchListenerBox in touchListenerBoxes {
                 touchListenerBox.listener?.touchesBegan(touches, withEvent: event)
             }
             
-        case .Moved:
+        case .moved:
             for touchListenerBox in touchListenerBoxes {
                 touchListenerBox.listener?.touchesMoved(touches, withEvent: event)
             }
             
-        case .Cancelled:
+        case .cancelled:
             for touchListenerBox in touchListenerBoxes {
                 touchListenerBox.listener?.touchesCancelled(touches, withEvent: event)
             }
             
-        case .Ended:
+        case .ended:
             for touchListenerBox in touchListenerBoxes {
                 touchListenerBox.listener?.touchesEnded(touches, withEvent: event)
             }
             
-        case .Stationary:
+        case .stationary:
             break
         }
     }

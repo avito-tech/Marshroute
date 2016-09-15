@@ -1,6 +1,6 @@
 import Marshroute
 
 protocol AdvertisementRouter: class {
-    func showSimilarSearchResult(searchResultId searchResultId: SearchResultId)
+    func showSimilarSearchResult(searchResultId: SearchResultId)
     func showRecursion(sender: AnyObject)
 }

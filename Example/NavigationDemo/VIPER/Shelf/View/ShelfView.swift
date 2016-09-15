@@ -1,13 +1,13 @@
 import UIKit
 
 final class ShelfView: UIView {
-    private let shelfImage = UIImage(named: "Shelf.png")
-    private var shelfImageViews = [UIImageView]()
+    fileprivate let shelfImage = UIImage(named: "Shelf.png")
+    fileprivate var shelfImageViews = [UIImageView]()
     
     // MARK: - Init
     init() {
         super.init(frame: .zero)
-        backgroundColor = .yellowColor()
+        backgroundColor = .yellow
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,7 +28,7 @@ final class ShelfView: UIView {
             for _ in 0 ..< 15 {
                 let shelfImageView = UIImageView(image: shelfImage)
                 
-                shelfImageView.contentMode = .ScaleAspectFill
+                shelfImageView.contentMode = .scaleAspectFill
                 
                 shelfImageViews.append(shelfImageView)
                 

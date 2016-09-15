@@ -2,12 +2,12 @@ import Foundation
 
 final class SearchResultsInteractorImpl: SearchResultsInteractor {
     // MARK: - Init
-    private let categoryId: CategoryId
-    private let categoriesProvider: CategoriesProvider
-    private let searchResultsProvider: SearchResultsProvider
+    fileprivate let categoryId: CategoryId
+    fileprivate let categoriesProvider: CategoriesProvider
+    fileprivate let searchResultsProvider: SearchResultsProvider
     
     // MARK: - Private propeties
-    private var category: Category?
+    fileprivate var category: Category?
     
     init(categoryId: CategoryId,
          categoriesProvider: CategoriesProvider,
@@ -19,24 +19,24 @@ final class SearchResultsInteractorImpl: SearchResultsInteractor {
     }
     
     // MARK: - SearchResultsInteractor
-    func category(completion: () -> ()) {
+    func category(_ completion: () -> ()) {
         category = categoriesProvider.categoryForId(categoryId)
         completion()
     }
     
-    func categoryTitle(completion: (title: String?) -> ()) {
-        completion(title: category?.title)
+    func categoryTitle(_ completion: (_ title: String?) -> ()) {
+        completion(category?.title)
     }
     
-    func searchResults(completion: (searchResults: [SearchResult]) -> ()) {
+    func searchResults(_ completion: (_ searchResults: [SearchResult]) -> ()) {
         if let categoryId = category?.id {
             let searchResults = searchResultsProvider.searchResults(
                 categoryId: categoryId,
                 count: 30
             )
-            completion(searchResults: searchResults)
+            completion(searchResults)
         } else {
-            completion(searchResults: [])
+            completion([])
         }   
     }
 }

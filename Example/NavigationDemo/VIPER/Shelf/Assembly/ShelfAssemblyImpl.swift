@@ -3,7 +3,7 @@ import Marshroute
 
 final class ShelfAssemblyImpl: BaseAssembly, ShelfAssembly {
     // MARK: - ShelfAssembly
-    func module(routerSeed routerSeed: RouterSeed)
+    func module(routerSeed: RouterSeed)
         -> UIViewController
     {
         let interactor = ShelfInteractorImpl()

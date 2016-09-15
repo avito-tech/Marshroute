@@ -9,38 +9,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Auxiliary window to show touch marker (even over `UIPopoverController`).
     // It should be created lazily, because `UIKit` works incorrenctly
     // if you create two `UIWindow`s at `application(_:didFinishLaunchingWithOptions:)`
-    private lazy var touchCursorDrawingWindow: UIWindow? = {
-        let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    fileprivate lazy var touchCursorDrawingWindow: UIWindow? = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
         
-        window.userInteractionEnabled = false
+        window.isUserInteractionEnabled = false
         window.windowLevel = UIWindowLevelStatusBar
-        window.backgroundColor = .clearColor()
-        window.hidden = false
+        window.backgroundColor = .clear
+        window.isHidden = false
         window.rootViewController = self.window?.rootViewController
         
         return window
     }()
     
-    private var touchCursorDrawer: TouchCursorDrawerImpl?
+    fileprivate var touchCursorDrawer: TouchCursorDrawerImpl?
     
-    private var touchCursorDrawingWindowProvider: (() -> (UIWindow?)) {
+    fileprivate var touchCursorDrawingWindowProvider: (() -> (UIWindow?)) {
         return { [weak self] in
             return self?.touchCursorDrawingWindow
         }
     }
     
-    private var touchEventObserver: TouchEventObserver?
+    fileprivate var touchEventObserver: TouchEventObserver?
 
-    private var rootTransitionsHandler: ContainingTransitionsHandler?
+    fileprivate var rootTransitionsHandler: ContainingTransitionsHandler?
     
-    private var rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)) {
+    fileprivate var rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)) {
         return { [weak self] in
             return self?.rootTransitionsHandler
         }
     }
     
     // MARK: - UIApplicationDelegate
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         // Init `Marshroute` stack
         let marshrouteSetupService = MarshrouteSetupServiceImpl()
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         let applicationModule: ApplicationModule
             
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+        if UIDevice.current.userInterfaceIdiom == .pad {
             applicationModule = assemblyFactory.applicationAssembly().ipadModule(moduleSeed: applicationModuleSeed)
         } else {
             applicationModule = assemblyFactory.applicationAssembly().module(moduleSeed: applicationModuleSeed)
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         rootTransitionsHandler = applicationModule.transitionsHandler
         
         // Main application window, which shares delivered touch events with its `touchEventForwarder`
-        let touchEventSharingWindow = TouchEventSharingWindow(frame: UIScreen.mainScreen().bounds)
+        let touchEventSharingWindow = TouchEventSharingWindow(frame: UIScreen.main.bounds)
         touchEventSharingWindow.rootViewController = applicationModule.viewController
         touchEventSharingWindow.touchEventForwarder = serviceFactory.touchEventForwarder()
         

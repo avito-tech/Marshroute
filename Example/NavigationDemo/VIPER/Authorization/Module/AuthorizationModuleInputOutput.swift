@@ -1,5 +1,5 @@
 import Foundation
 
 protocol AuthorizationModuleInput: class {
-    var onComplete: ((isAuthorized: Bool) -> ())? { get set }
+    var onComplete: ((_ isAuthorized: Bool) -> ())? { get set }
 }

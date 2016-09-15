@@ -2,8 +2,8 @@ import Marshroute
 
 final class RootModulesProviderImpl: RootModulesProvider {
     func detailModule(
-        moduleSeed moduleSeed: ApplicationModuleSeed,
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        moduleSeed: ApplicationModuleSeed,
+        deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
         -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         let marshrouteStack = moduleSeed.marshrouteStack
@@ -24,7 +24,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
         )
         
         let viewController = deriveViewController(
-            routerSeed: routerSeed
+            routerSeed
         )
         
         let resetContext = ResettingTransitionContext(
@@ -43,9 +43,9 @@ final class RootModulesProviderImpl: RootModulesProvider {
     }
     
     func masterDetailModule(
-        moduleSeed moduleSeed: ApplicationModuleSeed,
-        @noescape deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
-        @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController)
+        moduleSeed: ApplicationModuleSeed,
+        deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
+        deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController)
         -> (splitViewController: UISplitViewController, containingTransitionsHandler: ContainingTransitionsHandler)
     {
         let marshrouteStack = moduleSeed.marshrouteStack
@@ -78,7 +78,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
             )
             
             let masterViewController = deriveMasterViewController(
-                routerSeed: masterDetailRouterSeed
+                masterDetailRouterSeed
             )
             
             let resetContext = ResettingTransitionContext(
@@ -101,7 +101,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
             )
             
             let viewController = deriveDetailViewController(
-                routerSeed: detailRouterSeed
+                detailRouterSeed
             )
             
             let resetContext = ResettingTransitionContext(

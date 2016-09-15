@@ -10,25 +10,25 @@ final class CategoriesProviderImpl: CategoriesProvider {
         )
     }
     
-    func categoryForId(categoryId: CategoryId) -> Category {
+    func categoryForId(_ categoryId: CategoryId) -> Category {
         let allCategories = self.allCategoryDictionaries()
         return categoryForId(categoryId, inCategories: allCategories)!
     }
     
     // MARK: - Private
-    private func allCategories() -> [Category] {
+    fileprivate func allCategories() -> [Category] {
         let allCategories = self.allCategoryDictionaries()
         return allCategories.map { category(categoryDictionary: $0) }
     }
     
-    private func allCategoryDictionaries() -> [[String: AnyObject]] {
-        let path = NSBundle.mainBundle().pathForResource("Categories", ofType: "plist")
+    fileprivate func allCategoryDictionaries() -> [[String: AnyObject]] {
+        let path = Bundle.main.path(forResource: "Categories", ofType: "plist")
         return NSArray(contentsOfFile: path!) as! [[String: AnyObject]]
     }
     
-    private func categoryForId(categoryId: String, inCategories categoryDictionaries:[[String: AnyObject]]) -> Category? {
+    fileprivate func categoryForId(_ categoryId: String, inCategories categoryDictionaries:[[String: AnyObject]]) -> Category? {
         for categoryDictionary in categoryDictionaries {
-            if let id = categoryDictionary["id"] as? CategoryId where id == categoryId {
+            if let id = categoryDictionary["id"] as? CategoryId , id == categoryId {
                 return category(categoryDictionary: categoryDictionary)
             }
             
@@ -41,7 +41,7 @@ final class CategoriesProviderImpl: CategoriesProvider {
         return nil
     }
     
-    private func category(categoryDictionary categoryDictionary: [String: AnyObject]) -> Category {
+    fileprivate func category(categoryDictionary: [String: AnyObject]) -> Category {
         return Category(
             title: categoryDictionary["title"] as! String,
             id: categoryDictionary["id"] as! CategoryId,
@@ -49,7 +49,7 @@ final class CategoriesProviderImpl: CategoriesProvider {
         )
     }
     
-    private func subcategories(categoryDictionaries categoryDictionaries: [[String: AnyObject]]?) -> [Category]? {
+    fileprivate func subcategories(categoryDictionaries: [[String: AnyObject]]?) -> [Category]? {
         if let categoryDictionaries = categoryDictionaries {
             return categoryDictionaries.map { category(categoryDictionary: $0) }
         }

@@ -1,11 +1,11 @@
 import Foundation
 
 enum BannerType {
-    case Recursion
-    case Categories
+    case recursion
+    case categories
 }
 
 protocol ApplicationInteractor: class {
-    func bannerType(completion: ((bannerType: BannerType) -> ())?)
+    func bannerType(_ completion: ((_ bannerType: BannerType) -> ())?)
     func switchBannerType()
 }

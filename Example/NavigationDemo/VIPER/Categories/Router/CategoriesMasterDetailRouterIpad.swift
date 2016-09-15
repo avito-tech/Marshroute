@@ -2,7 +2,7 @@ import UIKit
 import Marshroute
 
 final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, CategoriesRouter {
-    func showSubcategories(categoryId categoryId: CategoryId) {
+    func showSubcategories(categoryId: CategoryId) {
         pushMasterViewControllerDerivedFrom { routerSeed -> UIViewController in
             let subcategoriesAssembly = assemblyFactory.subcategoriesAssembly()
             
@@ -15,7 +15,7 @@ final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, Catego
         }
     }
 
-    func showSearchResults(categoryId categoryId: CategoryId) {
+    func showSearchResults(categoryId: CategoryId) {
         setDetailViewControllerDerivedFrom { routerSeed -> UIViewController in
             let searchResultsAssembly = assemblyFactory.searchResultsAssembly()
             

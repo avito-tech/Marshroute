@@ -1,7 +1,7 @@
 import Foundation
 
 protocol ApplicationViewInput: class, ViewLifecycleObservable {
-    func showBanner(completion: (() -> ())?)
+    func showBanner(_ completion: (() -> ())?)
     func hideBanner()
     
     var onMemoryWarning: (() -> ())? { get set }

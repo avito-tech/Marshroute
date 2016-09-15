@@ -1,7 +1,7 @@
 import UIKit
 
 final class SearchResultsViewController: BaseViewController, SearchResultsViewInput {
-    private let searchResultsView = SearchResultsView()
+    fileprivate let searchResultsView = SearchResultsView()
     
     override func loadView() {
         view = searchResultsView
@@ -12,25 +12,25 @@ final class SearchResultsViewController: BaseViewController, SearchResultsViewIn
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "recursion".localized, // to Recursion module
-            style: .Plain,
+            style: .plain,
             target: self,
             action: #selector(SearchResultsViewController.onRecursionButtonTap(_:))
         )
     }
     
     // MARK: - Private
-    @objc private func onRecursionButtonTap(sender: UIBarButtonItem) {
-        onRecursionButtonTap?(sender: sender)
+    @objc fileprivate func onRecursionButtonTap(_ sender: UIBarButtonItem) {
+        onRecursionButtonTap?(sender)
     }
     
     // MARK: - SearchResultsViewInput
-    func setSearchResults(searchResults: [SearchResultsViewData]) {
+    func setSearchResults(_ searchResults: [SearchResultsViewData]) {
         searchResultsView.reloadWithSearchResults(searchResults)
     }
     
-    @nonobjc func setTitle(title: String?) {
+    @nonobjc func setTitle(_ title: String?) {
         self.title = title
     }
     
-    var onRecursionButtonTap: ((sender: AnyObject) -> ())?
+    var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
 }

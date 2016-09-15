@@ -6,7 +6,7 @@ final class TopViewControllerFindingServiceImpl: TopViewControllerFindingService
     let topViewControllerFinder: TopViewControllerFinder
     
     init(topViewControllerFinder: TopViewControllerFinder,
-         rootTransitionsHandlerProvider: () -> ContainingTransitionsHandler?)
+         rootTransitionsHandlerProvider: @escaping () -> ContainingTransitionsHandler?)
     {
         self.topViewControllerFinder = topViewControllerFinder
         self.rootTransitionsHandlerProvider = rootTransitionsHandlerProvider
@@ -27,7 +27,7 @@ final class TopViewControllerFindingServiceImpl: TopViewControllerFindingService
     }
     
     // MARK: - Private 
-    private func topViewController()
+    fileprivate func topViewController()
         -> UIViewController?
     {
         guard let rootTransitionsHandler = rootTransitionsHandlerProvider()
@@ -40,7 +40,7 @@ final class TopViewControllerFindingServiceImpl: TopViewControllerFindingService
         return topViewController
     }
     
-    private func containerViewControllerForViewController(viewController: UIViewController)
+    fileprivate func containerViewControllerForViewController(_ viewController: UIViewController)
         -> UIViewController
     {
         var containerViewController = viewController

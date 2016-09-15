@@ -1,20 +1,20 @@
 import Foundation
 
 final class ApplicationInteractorImpl: ApplicationInteractor {
-    private var bannerType: BannerType = .Categories
+    fileprivate var bannerType: BannerType = .categories
     
     // MARK: - ApplicationInteractor
-    func bannerType(completion: ((bannerType: BannerType) -> ())?) {
-        completion?(bannerType: bannerType)
+    func bannerType(_ completion: ((_ bannerType: BannerType) -> ())?) {
+        completion?(bannerType)
     }
     
     func switchBannerType() {
         switch bannerType {
-        case .Categories:
-            bannerType = .Recursion
+        case .categories:
+            bannerType = .recursion
         
-        case .Recursion:
-            bannerType = .Categories
+        case .recursion:
+            bannerType = .categories
         }
     }
 }

@@ -5,9 +5,9 @@ extension String {
         return NSLocalizedString(self, comment: "")
     }
     
-    func localizedWithArgument(arg: CVarArgType) -> String {
+    func localizedWithArgument(_ arg: CVarArg) -> String {
         let format = self.localized
-        return NSString(format: format, arg) as String
+        return NSString(format: format as NSString, arg) as String
     }
     
 }

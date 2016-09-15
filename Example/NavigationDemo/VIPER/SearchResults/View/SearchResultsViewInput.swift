@@ -7,7 +7,7 @@ struct SearchResultsViewData {
 }
 
 protocol SearchResultsViewInput: class, ViewLifecycleObservable {
-    func setSearchResults(searchResults: [SearchResultsViewData])
-    func setTitle(title: String?)
-    var onRecursionButtonTap: ((sender: AnyObject) -> ())? { get set }
+    func setSearchResults(_ searchResults: [SearchResultsViewData])
+    func setTitle(_ title: String?)
+    var onRecursionButtonTap: ((_ sender: AnyObject) -> ())? { get set }
 }

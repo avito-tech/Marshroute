@@ -1,9 +1,9 @@
 import Foundation
 
 final class CategoriesInteractorImpl: CategoriesInteractor {
-    private let categoriesProvider: CategoriesProvider
-    private let categoryId: CategoryId?
-    private var timerService: TimerService?
+    fileprivate let categoriesProvider: CategoriesProvider
+    fileprivate let categoryId: CategoryId?
+    fileprivate var timerService: TimerService?
     
     // MARK: - Init
     init(categoryId: CategoryId?, categoriesProvider: CategoriesProvider, timerService: TimerService?) {
@@ -13,10 +13,10 @@ final class CategoriesInteractorImpl: CategoriesInteractor {
     }
     
     // MARK: - Private propeties
-    private var category: Category?
+    fileprivate var category: Category?
     
     // MARK: - CategoriesInteractor
-    func category(completion: () -> ()) {
+    func category(_ completion: () -> ()) {
         if let categoryId = categoryId {
             category = categoriesProvider.categoryForId(categoryId)
         } else {
@@ -25,23 +25,23 @@ final class CategoriesInteractorImpl: CategoriesInteractor {
         completion()
     }
     
-    func categoryTitle(completion: (title: String?) -> ()) {
-        completion(title: category?.title)
+    func categoryTitle(_ completion: (_ title: String?) -> ()) {
+        completion(category?.title)
     }
     
-    func subcategories(completion: (subcategories: [Category]) -> ()) {
-        completion(subcategories: category?.subcategories ?? [])
+    func subcategories(_ completion: (_ subcategories: [Category]) -> ()) {
+        completion(category?.subcategories ?? [])
     }
     
-    func subCategoryStatus(subCategory: Category, completion: (categoryId: CategoryId, hasSubcategories: Bool) -> ()) {
-        completion(categoryId: subCategory.id, hasSubcategories: subCategory.subcategories?.isEmpty == false)
+    func subCategoryStatus(_ subCategory: Category, completion: (_ categoryId: CategoryId, _ hasSubcategories: Bool) -> ()) {
+        completion(subCategory.id, subCategory.subcategories?.isEmpty == false)
     }
     
-    func timerStatus(completion: (isEnabled: Bool) -> ()) {
-        completion(isEnabled: timerService != nil)
+    func timerStatus(_ completion: (_ isEnabled: Bool) -> ()) {
+        completion(timerService != nil)
     }
     
-    func startTimer(onTick onTick: ((secondsLeft: NSTimeInterval) -> ())?, onFire: (() -> ())?) {
+    func startTimer(onTick: ((_ secondsLeft: TimeInterval) -> ())?, onFire: (() -> ())?) {
         timerService?.startTimer(seconds: 6, onTick: onTick, onFire: onFire)
     }
 }

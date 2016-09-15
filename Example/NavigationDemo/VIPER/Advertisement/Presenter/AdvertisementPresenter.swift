@@ -2,8 +2,8 @@ import Foundation
 
 final class AdvertisementPresenter {
     // MARK: - Init
-    private let interactor: AdvertisementInteractor
-    private let router: AdvertisementRouter
+    fileprivate let interactor: AdvertisementInteractor
+    fileprivate let router: AdvertisementRouter
     
     init(interactor: AdvertisementInteractor, router: AdvertisementRouter) {
         self.interactor = interactor
@@ -18,7 +18,7 @@ final class AdvertisementPresenter {
     }
     
     // MARK: - Private
-    private func setupView() {
+    fileprivate func setupView() {
         view?.onViewDidLoad = { [weak self] in
             self?.interactor.advertisement {
                 self?.interactor.advertisementTitle { title in
@@ -48,15 +48,15 @@ final class AdvertisementPresenter {
         }
         
         view?.onRecursionButtonTap = { [weak self] sender in
-            self?.router.showRecursion(sender)
+            self?.router.showRecursion(sender: sender)
         }
     }
     
-    private func viewSearchResultsFromInteractorSearchResults(searchResults: [SearchResult]) -> [SearchResultsViewData] {
+    fileprivate func viewSearchResultsFromInteractorSearchResults(_ searchResults: [SearchResult]) -> [SearchResultsViewData] {
         return searchResults.map { viewSearchResultFromInteractorSearchResult($0) }
     }
     
-    private func viewSearchResultFromInteractorSearchResult(searchResult: SearchResult) -> SearchResultsViewData {
+    fileprivate func viewSearchResultFromInteractorSearchResult(_ searchResult: SearchResult) -> SearchResultsViewData {
         return SearchResultsViewData(
             title: searchResult.title,
             rgb: searchResult.rgb,

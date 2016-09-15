@@ -1,8 +1,8 @@
 import UIKit
 
 protocol TouchEventListener: class {
-    func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
-    func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
-    func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
-    func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
+    func touchesBegan(_ touches: Set<UITouch>, withEvent event: UIEvent?)
+    func touchesMoved(_ touches: Set<UITouch>, withEvent event: UIEvent?)
+    func touchesEnded(_ touches: Set<UITouch>, withEvent event: UIEvent?)
+    func touchesCancelled(_ touches: Set<UITouch>?, withEvent event: UIEvent?)
 }

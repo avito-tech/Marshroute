@@ -3,7 +3,7 @@ import Marshroute
 
 final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
     // MARK: - AdvertisementAssembly
-    func module(searchResultId searchResultId: SearchResultId, routerSeed: RouterSeed)
+    func module(searchResultId: SearchResultId, routerSeed: RouterSeed)
         -> UIViewController
     {
         let router = AdvertisementRouterIphone(
@@ -19,7 +19,7 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
         )
     }
     
-    func ipadModule(searchResultId searchResultId: SearchResultId, routerSeed: RouterSeed)
+    func ipadModule(searchResultId: SearchResultId, routerSeed: RouterSeed)
         -> UIViewController
     {
         let router = AdvertisementRouterIpad(
@@ -37,7 +37,7 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
     
     // MARK - Private
     func module(
-        searchResultId searchResultId: SearchResultId,
+        searchResultId: SearchResultId,
         router: AdvertisementRouter,
         transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)
@@ -68,15 +68,15 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
     }
     
     // MARK: - Private
-    private func registerModuleAsBeingTracked(
-        searchResultId searchResultId: SearchResultId,
+    fileprivate func registerModuleAsBeingTracked(
+        searchResultId: SearchResultId,
         transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)
     {
         let trackedModule = TrackedModule(
             transitionsHandlerBox: transitionsHandlerBox,
             transitionId: transitionId,
-            transitionUserId: String(AdvertisementAssemblyImpl) + " " + searchResultId
+            transitionUserId: String(describing: AdvertisementAssemblyImpl.self) + " " + searchResultId
         )
      
         // debugPrint(trackedModule.transitionUserId)

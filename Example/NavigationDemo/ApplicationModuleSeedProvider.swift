@@ -1,7 +1,7 @@
 import Marshroute
 
 final class ApplicationModuleSeedProvider {
-    func applicationModuleSeed(marshrouteSetupService marshrouteSetupService: MarshrouteSetupService)
+    func applicationModuleSeed(marshrouteSetupService: MarshrouteSetupService)
         -> ApplicationModuleSeed
     {
         let marshrouteStack = marshrouteSetupService.marshrouteStack()

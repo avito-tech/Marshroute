@@ -8,10 +8,10 @@ struct ApplicationModule {
 }
 
 protocol ApplicationAssembly: class {
-    func module(moduleSeed moduleSeed: ApplicationModuleSeed)
+    func module(moduleSeed: ApplicationModuleSeed)
         -> ApplicationModule
     
-    func ipadModule(moduleSeed moduleSeed: ApplicationModuleSeed)
+    func ipadModule(moduleSeed: ApplicationModuleSeed)
         -> ApplicationModule
     
     func sharedModuleInput()

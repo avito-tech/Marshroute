@@ -15,7 +15,7 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
     }
     
     // MARK: - SearchResultsProvider
-    func searchResults(categoryId categoryId: CategoryId, count: Int) -> [SearchResult]
+    func searchResults(categoryId: CategoryId, count: Int) -> [SearchResult]
     {
         let category = categoriesProvider.categoryForId(categoryId)
         
@@ -28,7 +28,7 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
             
             let title = category.title + " \(i)"
             
-            let id = NSUUID().UUIDString
+            let id = UUID().uuidString
             
             let requiresAuthorization = arc4random() % 4 == 0
             
@@ -52,11 +52,11 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
         return searchResults
     }
     
-    func searchResult(searchResultId searchResultId: SearchResultId) -> SearchResult {
+    func searchResult(searchResultId: SearchResultId) -> SearchResult {
         return searchResultsCacher.cached(searchResultId: searchResultId)!
     }
     
-    func recommendedSearchResults(searchResultId searchResultId: SearchResultId) -> [SearchResult] {
+    func recommendedSearchResults(searchResultId: SearchResultId) -> [SearchResult] {
         
         let white: Double = 255
         let requiresAuthorization = false

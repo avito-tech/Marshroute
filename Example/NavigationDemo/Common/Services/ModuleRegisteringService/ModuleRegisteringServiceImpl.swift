@@ -10,18 +10,18 @@ final class ModuleRegisteringServiceImpl:
     TransitionsCoordinatorDelegate
 {
     // MARK: - Private properties
-    private let moduleList = TrackedModulesList()
+    fileprivate let moduleList = TrackedModulesList()
 
-    private let transitionsTracker: TransitionsTracker
-    private let transitionsMarker: TransitionsMarker
-    private let distanceThresholdBetweenSiblingModules: Int
-    private let rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?))
+    fileprivate let transitionsTracker: TransitionsTracker
+    fileprivate let transitionsMarker: TransitionsMarker
+    fileprivate let distanceThresholdBetweenSiblingModules: Int
+    fileprivate let rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?))
     
     // MARK: - Init
     init(transitionsTracker: TransitionsTracker,
          transitionsMarker: TransitionsMarker,
          distanceThresholdBetweenSiblingModules: Int,
-         rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)))
+         rootTransitionsHandlerProvider: @escaping (() -> (ContainingTransitionsHandler?)))
     {
         self.transitionsTracker = transitionsTracker
         self.transitionsMarker = transitionsMarker
@@ -30,7 +30,7 @@ final class ModuleRegisteringServiceImpl:
     }
     
     // MARK: - ModuleRegisteringService
-    func registerTrackedModule(trackedModule: TrackedModule) {
+    func registerTrackedModule(_ trackedModule: TrackedModule) {
         moduleList.append(trackedModule)
         
         transitionsMarker.markTransitionId(
@@ -40,7 +40,7 @@ final class ModuleRegisteringServiceImpl:
     }
     
     // MARK: - ModuleTrackingService
-    func doesTrackedModuleExistInHistory(trackedModule: TrackedModule) -> Bool? {
+    func doesTrackedModuleExistInHistory(_ trackedModule: TrackedModule) -> Bool? {
         guard let rootTransitionsHandler = rootTransitionsHandlerProvider()
             else { return nil }
         
@@ -57,7 +57,7 @@ final class ModuleRegisteringServiceImpl:
     
     // MARK: - AuthorizationModuleRegisteringService
     func registerAuthorizationModuleAsBeingTracked(
-        transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox,
+        transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)
     {
         let trackedModule = TrackedModule(
@@ -85,7 +85,7 @@ final class ModuleRegisteringServiceImpl:
     
     // MARK: - TransitionsCoordinatorDelegate
     func transitionsCoordinator(
-        coordinator coordinator: TransitionsCoordinator,
+        coordinator: TransitionsCoordinator,
         canForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchResettingAnimationOfTransition context: ResettingTransitionContext,
         markedWithUserId userId: TransitionUserId)
@@ -95,7 +95,7 @@ final class ModuleRegisteringServiceImpl:
     }
     
     func transitionsCoordinator(
-        coordinator coordinator: TransitionsCoordinator,
+        coordinator: TransitionsCoordinator,
         canForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchPresentationAnimationOfTransition context: PresentationTransitionContext,
         markedWithUserId userId: TransitionUserId)
@@ -111,7 +111,7 @@ final class ModuleRegisteringServiceImpl:
             mismatchingTransitionId: context.transitionId // except for the one we are transitioning to
         )
         
-        for trackedModule in modulesMatchingUserId.reverse() {
+        for trackedModule in modulesMatchingUserId.reversed() {
             guard let trackedTransition = trackedModule.trackedTransition()
                 else { continue }
             
@@ -149,26 +149,26 @@ final class ModuleRegisteringServiceImpl:
     }
     
     func transitionsCoordinator(
-        coordinator coordinator: TransitionsCoordinator,
+        coordinator: TransitionsCoordinator,
         willForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchResettingAnimationOfTransition context: ResettingTransitionContext)
     {}
     
     func transitionsCoordinator(
-        coordinator coordinator: TransitionsCoordinator,
+        coordinator: TransitionsCoordinator,
         willForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchPresentationAnimationOfTransition context: PresentationTransitionContext)
     {}
     
     func transitionsCoordinator(
-        coordinator coordinator: TransitionsCoordinator,
+        coordinator: TransitionsCoordinator,
         willForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionsAfterId transitionId: TransitionId)
     {}
     
     func transitionsCoordinator(
-        coordinator coordinator: TransitionsCoordinator,
+        coordinator: TransitionsCoordinator,
         willForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchDismissalAnimationByAnimator animatorBox: TransitionsAnimatorBox,
         ofTransitionWithId transitionId: TransitionId)

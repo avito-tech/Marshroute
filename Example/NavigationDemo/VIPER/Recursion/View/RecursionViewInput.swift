@@ -1,14 +1,14 @@
 import Foundation
 
 protocol RecursionViewInput: class, ViewLifecycleObservable {
-    func setTitle(title: String?)
+    func setTitle(_ title: String?)
     
-    func setTimerButtonVisible(visible: Bool)
-    func setTimerButtonEnabled(enabled: Bool)
-    func setTimerButtonTitle(title: String)
+    func setTimerButtonVisible(_ visible: Bool)
+    func setTimerButtonEnabled(_ enabled: Bool)
+    func setTimerButtonTitle(_ title: String)
     
-    var onRecursionButtonTap: ((sender: AnyObject) -> ())? { get set }
+    var onRecursionButtonTap: ((_ sender: AnyObject) -> ())? { get set }
     var onDismissButtonTap: (() -> ())? { get set }
-    var onCategoriesButtonTap: ((sender: AnyObject) -> ())? { get set }
+    var onCategoriesButtonTap: ((_ sender: AnyObject) -> ())? { get set }
     var onTimerButtonTap: (() -> ())? { get set }
 }

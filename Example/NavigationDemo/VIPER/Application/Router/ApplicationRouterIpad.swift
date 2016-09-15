@@ -3,7 +3,7 @@ import Marshroute
 
 final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
     // MARK: - Private properties
-    private let authorizationModuleTrackingService: AuthorizationModuleTrackingService
+    fileprivate let authorizationModuleTrackingService: AuthorizationModuleTrackingService
     
     // MARK: - Init
     init(authorizationModuleTrackingService: AuthorizationModuleTrackingService,
@@ -16,14 +16,14 @@ final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
     }
     
     // MARK: - ApplicationRouter
-    func authorizationStatus(completion: ((isPresented: Bool) -> ())) {
+    func authorizationStatus(_ completion: ((_ isPresented: Bool) -> ())) {
         let isAuthorizationModulePresented = authorizationModuleTrackingService.isAuthorizationModulePresented()
-        completion(isPresented: isAuthorizationModulePresented)
+        completion(isAuthorizationModulePresented)
     }
     
-    func showAuthorization(prepareForTransition: ((moduleInput: AuthorizationModuleInput) -> ())) {
+    func showAuthorization(_ prepareForTransition: ((_ moduleInput: AuthorizationModuleInput) -> ())) {
         let animator = ModalNavigationTransitionsAnimator()
-        animator.targetModalPresentationStyle = .FormSheet
+        animator.targetModalPresentationStyle = .formSheet
         
         presentModalNavigationControllerWithRootViewControllerDerivedFrom( { routerSeed -> UIViewController in
             let authorizationAssembly = assemblyFactory.authorizationAssembly()
@@ -32,7 +32,7 @@ final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
                 routerSeed: routerSeed
             )
             
-            prepareForTransition(moduleInput: moduleInput)
+            prepareForTransition(moduleInput)
             
             return viewController
         }, animator: animator)

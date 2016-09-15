@@ -2,32 +2,32 @@ import UIKit
 
 final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
     // MARK: - Init
-    private let button = UIButton()
-    private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+    fileprivate let button = UIButton()
+    fileprivate let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .clearColor()
-        userInteractionEnabled = false
-        autoresizingMask = .FlexibleWidth
-        userInteractionEnabled = true
+        backgroundColor = .clear
+        isUserInteractionEnabled = false
+        autoresizingMask = .flexibleWidth
+        isUserInteractionEnabled = true
         
         addSubview(blurView)
-        blurView.backgroundColor = blurView.backgroundColor?.colorWithAlphaComponent(0.5)
-        blurView.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
+        blurView.backgroundColor = blurView.backgroundColor?.withAlphaComponent(0.5)
+        blurView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         addSubview(button)
-        button.backgroundColor = .clearColor()
-        button.setTitleColor(.whiteColor(), forState: .Normal)
-        button.setTitleColor(.yellowColor(), forState: .Highlighted)
-        button.setTitleColor(.yellowColor(), forState: .Selected)
-        button.titleLabel?.textAlignment = .Center
-        button.titleLabel?.font = UIFont.systemFontOfSize(20)
+        button.backgroundColor = .clear
+        button.setTitleColor(.white, for: UIControlState())
+        button.setTitleColor(.yellow, for: .highlighted)
+        button.setTitleColor(.yellow, for: .selected)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.titleLabel?.numberOfLines = 1
-        button.addTarget(self, action: #selector(BannerView.onButtonTouchDown(_:)), forControlEvents: .TouchDown)
-        button.addTarget(self, action: #selector(BannerView.onButtonTouchUpOutside(_:)), forControlEvents: .TouchUpOutside)
-        button.addTarget(self, action: #selector(BannerView.onButtonTap(_:)), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(BannerView.onButtonTouchDown(_:)), for: .touchDown)
+        button.addTarget(self, action: #selector(BannerView.onButtonTouchUpOutside(_:)), for: .touchUpOutside)
+        button.addTarget(self, action: #selector(BannerView.onButtonTap(_:)), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,8 +46,8 @@ final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
     let disposeBag: DisposeBag = DisposeBagImpl()
     
     // MARK: - BannerViewInput
-    func setTitle(title: String) {
-        button.setTitle(title, forState: .Normal)
+    func setTitle(_ title: String) {
+        button.setTitle(title, for: UIControlState())
     }
     
     var onTouchDown: (() -> ())?
@@ -55,15 +55,15 @@ final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
     var onTouchUpOutside: (() -> ())?
     
     // MARK: - Private
-    @objc private func onButtonTouchDown(sender: UIButton) {
+    @objc fileprivate func onButtonTouchDown(_ sender: UIButton) {
         onTouchDown?()
     }
     
-    @objc private func onButtonTouchUpOutside(sender: UIButton) {
+    @objc fileprivate func onButtonTouchUpOutside(_ sender: UIButton) {
         onTouchUpOutside?()
     }
     
-    @objc private func onButtonTap(sender: UIButton) {
+    @objc fileprivate func onButtonTap(_ sender: UIButton) {
         onTap?()
     }
 }

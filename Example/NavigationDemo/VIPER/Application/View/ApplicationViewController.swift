@@ -2,8 +2,8 @@ import UIKit
 
 final class ApplicationViewController: BaseTabBarController, ApplicationViewInput {
     // MARK: - Init
-    private let topViewControllerFindingService: TopViewControllerFindingService
-    private let bannerView: UIView
+    fileprivate let topViewControllerFindingService: TopViewControllerFindingService
+    fileprivate let bannerView: UIView
     
     init(topViewControllerFindingService: TopViewControllerFindingService,
          bannerView: UIView)
@@ -21,14 +21,14 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
         onMemoryWarning?()
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if case .MotionShake = motion {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if case .motionShake = motion {
             onDeviceShake?()
         }
     }
     
     // MARK: - ApplicationViewInput
-    func showBanner(completion: (() -> ())?) {
+    func showBanner(_ completion: (() -> ())?) {
         guard bannerView.superview == nil // self is required due to a compiler bug
             else { return }
         
@@ -61,15 +61,15 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
     var onDeviceShake: (() -> ())?
     
     // MARK: - Private
-    private func animateBannerIn(bannerView: UIView, completion: (() -> ())?) {
-        bannerView.transform = CGAffineTransformMakeTranslation(0, -bannerView.frame.height)
+    fileprivate func animateBannerIn(_ bannerView: UIView, completion: (() -> ())?) {
+        bannerView.transform = CGAffineTransform(translationX: 0, y: -bannerView.frame.height)
         
-        UIView.animateWithDuration(
-            0.4,
+        UIView.animate(
+            withDuration: 0.4,
             delay: 0,
-            options: [.CurveEaseInOut],
+            options: UIViewAnimationOptions(),
             animations: {
-                bannerView.transform = CGAffineTransformIdentity
+                bannerView.transform = CGAffineTransform.identity
             },
             completion: { _ in
                 completion?()
@@ -77,15 +77,15 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
         )
     }
     
-    private func animateBannerOut(bannerView: UIView) {
-        UIView.animateWithDuration(
-            0.4,
+    fileprivate func animateBannerOut(_ bannerView: UIView) {
+        UIView.animate(
+            withDuration: 0.4,
             delay: 0,
-            options: [.CurveEaseInOut],
+            options: UIViewAnimationOptions(),
             animations: {
-                bannerView.transform = CGAffineTransformMakeTranslation(0, -bannerView.frame.height)
+                bannerView.transform = CGAffineTransform(translationX: 0, y: -bannerView.frame.height)
             }, completion:  { _ in
-                bannerView.transform = CGAffineTransformIdentity
+                bannerView.transform = CGAffineTransform.identity
                 bannerView.removeFromSuperview()
             }
         )

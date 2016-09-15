@@ -2,45 +2,45 @@ import UIKit
 
 final class TouchCursorDrawerImpl: TouchEventListener {
     // MARK: - Init
-    private let windowProvider: (() -> (UIWindow?))
-    private var fadeOutViews = [FadeOutView]()
+    fileprivate let windowProvider: (() -> (UIWindow?))
+    fileprivate var fadeOutViews = [FadeOutView]()
     
-    init(windowProvider: (() -> (UIWindow?))) {
+    init(windowProvider: @escaping (() -> (UIWindow?))) {
         self.windowProvider = windowProvider
     }
     
     // MARK - TouchEventListener
-    func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func touchesBegan(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
         addFadeOutViewsForTouches(touches)
     }
     
-    func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func touchesMoved(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
         removeFadeOutViews()
         addFadeOutViewsForTouches(touches)
     }
     
-    func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    func touchesEnded(_ touches: Set<UITouch>, withEvent event: UIEvent?) {
         removeFadeOutViews()
     }
     
-    func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    func touchesCancelled(_ touches: Set<UITouch>?, withEvent event: UIEvent?) {
         removeFadeOutViews()
     }
     
     // MARK: - Private
-    private func addFadeOutViewsForTouches(touches: Set<UITouch>) {
+    fileprivate func addFadeOutViewsForTouches(_ touches: Set<UITouch>) {
         guard let window = windowProvider()
             else { return }
         
         for touch in touches {
             let fadeOutView = FadeOutView()
-            fadeOutView.center = touch.locationInView(window)
+            fadeOutView.center = touch.location(in: window)
             window.addSubview(fadeOutView)
             fadeOutViews.append(fadeOutView)
         }
     }
     
-    private func removeFadeOutViews() {
+    fileprivate func removeFadeOutViews() {
         for fadeOutView in fadeOutViews {
             fadeOutView.fadeOut()
         }

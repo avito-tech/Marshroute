@@ -2,9 +2,9 @@ import Foundation
 
 final class ApplicationPresenter: ApplicationModuleInput {
     // MARK: - Init
-    private let interactor: ApplicationInteractor
+    fileprivate let interactor: ApplicationInteractor
     
-    private let router: ApplicationRouter
+    fileprivate let router: ApplicationRouter
     
     init(interactor: ApplicationInteractor, router: ApplicationRouter) {
         self.interactor = interactor
@@ -23,7 +23,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
     weak var bannerModuleInput: BannerModuleInput?
     
     // MARK: - Private
-    private func setupView() {
+    fileprivate func setupView() {
         view?.onMemoryWarning = { [weak self] in
             self?.showAuthorizationModule(nil)
         }
@@ -36,7 +36,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
     }
     
     // MARK: - ApplicationModuleInput
-    func showAuthorizationModule(completion: ((isAuthorized: Bool) -> ())?) {
+    func showAuthorizationModule(_ completion: ((_ isAuthorized: Bool) -> ())?) {
         router.authorizationStatus { [weak self] isPresented in
             if isPresented {
                 self?.authorizationModuleInput?.onComplete = completion
@@ -50,18 +50,18 @@ final class ApplicationPresenter: ApplicationModuleInput {
     }
     
     // MARK: - Private
-    func showBanner(bannerType bannerType: BannerType) {
+    func showBanner(bannerType: BannerType) {
         let onBannerTap: (() -> ())
         
         switch bannerType {
-        case .Categories:
+        case .categories:
             bannerModuleInput?.setTitle("notification.toCategories".localized)
             
             onBannerTap = { [weak self] in
                 self?.router.showCategories()
             }
             
-        case .Recursion:
+        case .recursion:
             bannerModuleInput?.setTitle("notification.toRecursion".localized)
             
             onBannerTap = { [weak self] in
@@ -72,7 +72,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
         showBanner(onBannerTap: onBannerTap)
     }
     
-    private func showBanner(onBannerTap onBannerTap: (() -> ())) {
+    fileprivate func showBanner(onBannerTap: @escaping (() -> ())) {
         view?.showBanner { [weak self] in
             self?.bannerModuleInput?.setPresented()
             

@@ -10,5 +10,5 @@ struct Category {
 
 protocol CategoriesProvider: class {
     func topCategory() -> Category
-    func categoryForId(categoryId: CategoryId) -> Category
+    func categoryForId(_ categoryId: CategoryId) -> Category
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 protocol SearchResultsInteractor: class {
-    func category(completion: () -> ())
-    func categoryTitle(completion: (title: String?) -> ())
-    func searchResults(completion: (searchResults: [SearchResult]) -> ())
+    func category(_ completion: () -> ())
+    func categoryTitle(_ completion: (_ title: String?) -> ())
+    func searchResults(_ completion: (_ searchResults: [SearchResult]) -> ())
 }

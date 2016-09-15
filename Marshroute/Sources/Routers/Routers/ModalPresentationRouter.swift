@@ -5,25 +5,25 @@ import UIKit
 public protocol ModalPresentationRouter: class {
     // MARK: - UIViewController
     func presentModalViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func presentModalViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
          animator: ModalTransitionsAnimator)
     
     // MARK: - UISplitViewController
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
-        @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController)
+        deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
+        deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
-        @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
+        deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
+        deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalMasterDetailTransitionsAnimator)
     
     func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
-        @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
+        deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
+        deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalMasterDetailTransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
@@ -31,14 +31,14 @@ public protocol ModalPresentationRouter: class {
 
     // MARK: - UIViewController in UINavigationController
     func presentModalNavigationControllerWithRootViewControllerDerivedFrom(
-        @noescape deriveRootViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveRootViewController: (_ routerSeed: RouterSeed) -> UIViewController)
 
     func presentModalNavigationControllerWithRootViewControllerDerivedFrom(
-        @noescape deriveRootViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveRootViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalNavigationTransitionsAnimator)
 
     func presentModalNavigationControllerWithRootViewControllerDerivedFrom(
-        @noescape deriveRootViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveRootViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalNavigationTransitionsAnimator,
         navigationController: UINavigationController)
 }
@@ -53,7 +53,7 @@ extension ModalPresentationRouter where
 {
     // MARK: - UIViewController
     public func presentModalViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         presentModalViewControllerDerivedFrom(
             deriveViewController,
@@ -62,7 +62,7 @@ extension ModalPresentationRouter where
     }
     
     public func presentModalViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalTransitionsAnimator)
     {
         let animatingTransitionsHandler = transitionsHandlersProvider.animatingTransitionsHandler()
@@ -86,7 +86,7 @@ extension ModalPresentationRouter where
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
         
         do {
             let resetContext = ResettingTransitionContext(
@@ -110,8 +110,8 @@ extension ModalPresentationRouter where
     
     // MARK: - UISplitViewController
     public func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
-        @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController)
+        deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
+        deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         presentModalMasterDetailViewControllerDerivedFrom(
             deriveMasterViewController: deriveMasterViewController,
@@ -121,8 +121,8 @@ extension ModalPresentationRouter where
     }
     
     public func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
-        @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
+        deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
+        deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalMasterDetailTransitionsAnimator)
     {
         presentModalMasterDetailViewControllerDerivedFrom(
@@ -136,8 +136,8 @@ extension ModalPresentationRouter where
     }
     
     public func presentModalMasterDetailViewControllerDerivedFrom(
-        @noescape deriveMasterViewController deriveMasterViewController: (routerSeed: MasterDetailRouterSeed) -> UIViewController,
-        @noescape deriveDetailViewController: (routerSeed: RouterSeed) -> UIViewController,
+        deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
+        deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalMasterDetailTransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
@@ -186,7 +186,7 @@ extension ModalPresentationRouter where
                 controllersProvider: controllersProvider
             )
             
-            let masterViewController = deriveMasterViewController(routerSeed: masterRouterSeed)
+            let masterViewController = deriveMasterViewController(masterRouterSeed)
             
             let resetMasterContext = ResettingTransitionContext(
                 settingRootViewController: masterViewController,
@@ -209,7 +209,7 @@ extension ModalPresentationRouter where
                 controllersProvider: controllersProvider
             )
             
-            let detailViewController = deriveDetailViewController(routerSeed: detailRouterSeed)
+            let detailViewController = deriveDetailViewController(detailRouterSeed)
             
             let resetDetailContext = ResettingTransitionContext(
                 settingRootViewController: detailViewController,
@@ -234,7 +234,7 @@ extension ModalPresentationRouter where
     
     // MARK: - UIViewController in UINavigationController
     public func presentModalNavigationControllerWithRootViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         presentModalNavigationControllerWithRootViewControllerDerivedFrom(
             deriveViewController,
@@ -243,7 +243,7 @@ extension ModalPresentationRouter where
     }
 
     public func presentModalNavigationControllerWithRootViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalNavigationTransitionsAnimator)
     {
         presentModalNavigationControllerWithRootViewControllerDerivedFrom(
@@ -254,7 +254,7 @@ extension ModalPresentationRouter where
     }
     
     public func presentModalNavigationControllerWithRootViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ModalNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
@@ -281,7 +281,7 @@ extension ModalPresentationRouter where
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
         
         do {
             let resetContext = ResettingTransitionContext(

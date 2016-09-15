@@ -1,10 +1,10 @@
 public final class TransitionContextsStackImpl: TransitionContextsStack {
-    private var storage = [CompletedTransitionContext]()
+    fileprivate var storage = [CompletedTransitionContext]()
     
     public init() {}
     
     // MARK: - TransitionContextsStack
-    public func append(context: CompletedTransitionContext)
+    public func append(_ context: CompletedTransitionContext)
     {
         updateStack()
         storage.append(context)
@@ -39,7 +39,7 @@ public final class TransitionContextsStackImpl: TransitionContextsStack {
         return restored
     }
     
-    public func popTo(transitionId transitionId: TransitionId)
+    public func popTo(transitionId: TransitionId)
         -> [RestoredTransitionContext]?
     {
         updateStack()
@@ -48,7 +48,7 @@ public final class TransitionContextsStackImpl: TransitionContextsStack {
         return result
     }
     
-    public func preceding(transitionId transitionId: TransitionId)
+    public func preceding(transitionId: TransitionId)
         -> RestoredTransitionContext?
     {
         updateStack()
@@ -68,29 +68,29 @@ private extension TransitionContextsStackImpl {
         storage = stack
     }
     
-    func indexOfCompletedTransition(transitionId transitionId: TransitionId)
+    func indexOfCompletedTransition(transitionId: TransitionId)
         -> Int?
     {
         let transitionIds = storage.map() { $0.transitionId }
-        if let index = transitionIds.indexOf({ $0 == transitionId })
-            where index < storage.count {
+        if let index = transitionIds.index(where: { $0 == transitionId })
+            , index < storage.count {
                 return index
         }
         return nil
     }
     
-    func indexOfCompletedTransitionPreceding(transitionId transitionId: TransitionId)
+    func indexOfCompletedTransitionPreceding(transitionId: TransitionId)
         -> Int?
     {
         if let index = indexOfCompletedTransition(transitionId: transitionId)
-            where index > 0 {
+            , index > 0 {
                 return index - 1
         }
         return nil
     }
     
     subscript(index: Int?) -> CompletedTransitionContext? {
-        if let index = index where index >= 0 && index < storage.count {
+        if let index = index , index >= 0 && index < storage.count {
             return storage[index]
         }
         return nil
@@ -103,14 +103,14 @@ private extension TransitionContextsStackImpl {
     }
     
     /// Выходит до индекса невключительно. То есть максимально выходит до первой записи
-    func popTo(index index: Int?)
+    func popTo(index: Int?)
         -> [RestoredTransitionContext]?
     {
-        guard let nonNegative = index where index >= 0
+        guard let nonNegative = index , index! >= 0
             else { return nil }
         
         // заранее проверяем, если не попадем в цикл for, чтобы не создавать пустой массив result
-        guard let fromIndex = (nonNegative + 1) as Int? where fromIndex < storage.count
+        guard let fromIndex = (nonNegative + 1) as Int? , fromIndex < storage.count
             else { return nil }
         
         var result = [RestoredTransitionContext]()
@@ -132,7 +132,7 @@ extension TransitionContextsStackImpl: CustomDebugStringConvertible {
     public var debugDescription: String {
         updateStack()
         
-        var description = "TransitionContextsStack: " + String(unsafeAddressOf(self))
+        var description = "TransitionContextsStack: " + String(describing: Unmanaged.passUnretained(self).toOpaque())
         description += "\n   --- all ids: \(storage.map( { $0.transitionId } ))"
         return description
     }

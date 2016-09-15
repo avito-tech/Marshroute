@@ -1,10 +1,10 @@
 public protocol TransitionAnimationsLauncher: class {
     func launchPresentationAnimation(
-        inout launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox)
+        launchingContextBox: inout PresentationAnimationLaunchingContextBox)
  
     func launchDismissalAnimation(
-        launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox)
+        launchingContextBox: DismissalAnimationLaunchingContextBox)
     
     func launchResettingAnimation(
-        inout launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
+        launchingContextBox: inout ResettingAnimationLaunchingContextBox)
 }

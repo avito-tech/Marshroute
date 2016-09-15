@@ -1,13 +1,13 @@
 /// Аниматор, выполняющий замену корневого контроллера в UINavigationController'е
-public class ResetNavigationTransitionsAnimator: ResetTransitionsAnimator
+open class ResetNavigationTransitionsAnimator: ResetTransitionsAnimator
 {
-    public var shouldAnimate = true
+    open var shouldAnimate = true
 
     // MARK: - Init
     public init() {}
 
     // MARK: - ResetTransitionsAnimator
-    public func animateResettingWithTransition(animationContext context: ResettingNavigationAnimationContext)
+    open func animateResettingWithTransition(animationContext context: ResettingNavigationAnimationContext)
     {
         context.navigationController.setViewControllers(
             [context.rootViewController],

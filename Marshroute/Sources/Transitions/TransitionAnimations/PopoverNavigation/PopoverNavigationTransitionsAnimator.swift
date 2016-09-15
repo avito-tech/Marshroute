@@ -2,45 +2,45 @@ import Foundation
 
 /// Аниматор, показывающий UIPopoverController, с UIViewController'ом, обернутым в UINavigationController.
 /// Также выполняет обратный переход
-public class PopoverNavigationTransitionsAnimator: TransitionsAnimator
+open class PopoverNavigationTransitionsAnimator: TransitionsAnimator
 {
-    public var shouldAnimate = true
+    open var shouldAnimate = true
     
     // MARK: - Init
     public init() {}
     
     // MARK: - TransitionsAnimator
-    public func animatePerformingTransition(animationContext context: PopoverNavigationPresentationAnimationContext)
+    open func animatePerformingTransition(animationContext context: PopoverNavigationPresentationAnimationContext)
     {
         switch context.transitionStyle {
-        case .PopoverFromBarButtonItem(let buttonItem):
-            context.popoverController.presentPopoverFromBarButtonItem(
-                buttonItem,
-                permittedArrowDirections: .Any,
+        case .popoverFromBarButtonItem(let buttonItem):
+            context.popoverController.present(
+                from: buttonItem,
+                permittedArrowDirections: .any,
                 animated: shouldAnimate
             )
             
-        case .PopoverFromView(let sourceView, let sourceRect):
-            context.popoverController.presentPopoverFromRect(
-                sourceRect,
-                inView: sourceView,
-                permittedArrowDirections: .Any,
+        case .popoverFromView(let sourceView, let sourceRect):
+            context.popoverController.present(
+                from: sourceRect,
+                in: sourceView,
+                permittedArrowDirections: .any,
                 animated: shouldAnimate
             )
         }
         
         // только так можно отключить кнопки на navigation bar'е из которого, вызвали поповер
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
             context.popoverController.passthroughViews = nil
         })
         
         shouldAnimate = true
     }
     
-    public func animateUndoingTransition(animationContext context: PopoverNavigationDismissalAnimationContext)
+    open func animateUndoingTransition(animationContext context: PopoverNavigationDismissalAnimationContext)
     {
-        context.popoverController.dismissPopoverAnimated(
-            shouldAnimate
+        context.popoverController.dismiss(
+            animated: shouldAnimate
         )
         
         shouldAnimate = true

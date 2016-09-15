@@ -3,21 +3,21 @@ final class AnimatingTransitionsHandlerSpy: AnimatingTransitionsHandler
     // MARK: - TransitionsHandler
     var performTransitionCalled = false
     var perFormTransitionContextParameter: PresentationTransitionContext!
-    override func performTransition(context context: PresentationTransitionContext) {
+    override func performTransition(context: PresentationTransitionContext) {
         performTransitionCalled = true
         perFormTransitionContextParameter = context
     }
     
     var undoTransitionsAfterCalled = false
     var undoTransitionsAfterTransitionIdParameter: TransitionId!
-    override func undoTransitionsAfter(transitionId transitionId: TransitionId) {
+    override func undoTransitionsAfter(transitionId: TransitionId) {
         undoTransitionsAfterCalled = true
         undoTransitionsAfterTransitionIdParameter = transitionId
     }
     
     var undoTransitionWithCalled = false
     var undoTransitionWithTransitionIdParameter: TransitionId!
-    override func undoTransitionWith(transitionId transitionId: TransitionId) {
+    override func undoTransitionWith(transitionId: TransitionId) {
         undoTransitionWithCalled = true
         undoTransitionWithTransitionIdParameter = transitionId
     }
@@ -34,7 +34,7 @@ final class AnimatingTransitionsHandlerSpy: AnimatingTransitionsHandler
     
     var resetWithTransitionCalled = false
     var resetWithTransitionContextParameter: ResettingTransitionContext!
-    override func resetWithTransition(context context: ResettingTransitionContext) {
+    override func resetWithTransition(context: ResettingTransitionContext) {
         resetWithTransitionCalled = true
         resetWithTransitionContextParameter = context
     }
@@ -43,7 +43,7 @@ final class AnimatingTransitionsHandlerSpy: AnimatingTransitionsHandler
     var launchPresentationAnimationCalled = false
     var launchPresentationAnimationLaunchingContextBoxParameter: PresentationAnimationLaunchingContextBox!
     override func launchPresentationAnimation(
-        inout launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox) {
+        launchingContextBox: inout PresentationAnimationLaunchingContextBox) {
         launchPresentationAnimationCalled = true
         launchPresentationAnimationLaunchingContextBoxParameter = launchingContextBox
     }
@@ -51,7 +51,7 @@ final class AnimatingTransitionsHandlerSpy: AnimatingTransitionsHandler
     var launchDismissalAnimationCalled = false
     var launchDismissalAnimationLaunchingContextBoxParameter: DismissalAnimationLaunchingContextBox!
     override func launchDismissalAnimation(
-        launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox) {
+        launchingContextBox: DismissalAnimationLaunchingContextBox) {
         launchDismissalAnimationCalled = true
         launchDismissalAnimationLaunchingContextBoxParameter = launchingContextBox
     }
@@ -59,7 +59,7 @@ final class AnimatingTransitionsHandlerSpy: AnimatingTransitionsHandler
     var launchResettingAnimationCalled = false
     var launchResettingAnimationLaunchingContextBoxParameter: ResettingAnimationLaunchingContextBox!
     override func launchResettingAnimation(
-        inout launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox) {
+        launchingContextBox: inout ResettingAnimationLaunchingContextBox) {
         launchResettingAnimationCalled = true
         launchResettingAnimationLaunchingContextBoxParameter = launchingContextBox
     }

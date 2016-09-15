@@ -2,7 +2,7 @@ import Foundation
 
 final public class MarshrouteSetupServiceImpl: MarshrouteSetupService {
     // MARK: - Private properties
-    private let factory: MarshrouteFactory
+    fileprivate let factory: MarshrouteFactory
     
     // MARK: - Init
     public init(factory: MarshrouteFactory = MarshrouteFactoryImpl()) {

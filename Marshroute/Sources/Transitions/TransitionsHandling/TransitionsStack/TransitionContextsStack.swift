@@ -3,7 +3,7 @@
 /// Стэк может завершаться переходом на дочернего обработчика переходов (на модальное окно или поповер)
 public protocol TransitionContextsStack: class {
     /// добавляет запись
-    func append(context: CompletedTransitionContext)
+    func append(_ context: CompletedTransitionContext)
 
     /// возвращает, но не удаляет первую запись
     var first: RestoredTransitionContext? { get }
@@ -19,10 +19,10 @@ public protocol TransitionContextsStack: class {
     subscript(transitionId: TransitionId) -> RestoredTransitionContext? { get }
     
     /// удаляет записи по одной с конца до записи с переданным Id невключительно, если запись с переданным Id вообще есть
-    func popTo(transitionId transitionId: TransitionId)
+    func popTo(transitionId: TransitionId)
         -> [RestoredTransitionContext]?
 
     /// возвращает, но не удаляет запись, предшествующую записи с переданным Id
-    func preceding(transitionId transitionId: TransitionId)
+    func preceding(transitionId: TransitionId)
         -> RestoredTransitionContext?
 }

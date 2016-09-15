@@ -1,13 +1,13 @@
 /// Аниматор, выполняющий push-pop переходы
-public class NavigationTransitionsAnimator: TransitionsAnimator
+open class NavigationTransitionsAnimator: TransitionsAnimator
 {
-    public var shouldAnimate = true
+    open var shouldAnimate = true
 
     // MARK: - Init
     public init() {}
 
     // MARK: - TransitionsAnimator
-    public func animatePerformingTransition(animationContext context: PushAnimationContext)
+    open func animatePerformingTransition(animationContext context: PushAnimationContext)
     {
         context.navigationController.pushViewController(
             context.targetViewController,
@@ -16,7 +16,7 @@ public class NavigationTransitionsAnimator: TransitionsAnimator
         shouldAnimate = true
     }
 
-    public func animateUndoingTransition(animationContext context: PopAnimationContext)
+    open func animateUndoingTransition(animationContext context: PopAnimationContext)
     {
         context.navigationController.popToViewController(
             context.targetViewController,

@@ -1,9 +1,9 @@
 enum PopoverNavigationTransitionsAnimatorSpyPerformCalls {
-    case Called(animationContext: PopoverNavigationPresentationAnimationContext)
+    case called(animationContext: PopoverNavigationPresentationAnimationContext)
 }
 
 enum PopoverNavigationTransitionsAnimatorSpyUndoCalls {
-    case Called(animationContext: PopoverNavigationDismissalAnimationContext)
+    case called(animationContext: PopoverNavigationDismissalAnimationContext)
 }
 
 final class PopoverNavigationTransitionsAnimatorSpy: PopoverNavigationTransitionsAnimator
@@ -13,13 +13,13 @@ final class PopoverNavigationTransitionsAnimatorSpy: PopoverNavigationTransition
     
     override func animatePerformingTransition(animationContext context: PopoverNavigationPresentationAnimationContext)
     {
-        animatePerforming = .Called(animationContext: context)
+        animatePerforming = .called(animationContext: context)
     }
     
     var animateUndoing: PopoverNavigationTransitionsAnimatorSpyUndoCalls!
     
     override func animateUndoingTransition(animationContext context: PopoverNavigationDismissalAnimationContext)
     {
-        animateUndoing = .Called(animationContext: context)
+        animateUndoing = .called(animationContext: context)
     }
 }

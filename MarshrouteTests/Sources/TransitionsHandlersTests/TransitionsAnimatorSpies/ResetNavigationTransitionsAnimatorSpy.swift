@@ -1,5 +1,5 @@
 enum ResetNavigationTransitionsAnimatorSpyCalls {
-    case Called(animationContext: ResettingNavigationAnimationContext)
+    case called(animationContext: ResettingNavigationAnimationContext)
 }
 
 final class ResetNavigationTransitionsAnimatorSpy: ResetNavigationTransitionsAnimator
@@ -10,6 +10,6 @@ final class ResetNavigationTransitionsAnimatorSpy: ResetNavigationTransitionsAni
     
     override func animateResettingWithTransition(animationContext context: ResettingNavigationAnimationContext)
     {
-        animateResetting = .Called(animationContext: context)
+        animateResetting = .called(animationContext: context)
     }
 }

@@ -8,7 +8,7 @@ extension TransitionIdGeneratorImpl: TransitionIdGenerator {
     public func generateNewTransitionId()
         -> TransitionId
     {
-        let result = NSUUID().UUIDString
+        let result = UUID().uuidString
         return result
     }
 }

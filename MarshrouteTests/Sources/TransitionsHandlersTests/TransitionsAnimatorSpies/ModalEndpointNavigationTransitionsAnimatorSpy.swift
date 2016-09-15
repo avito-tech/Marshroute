@@ -1,9 +1,9 @@
 enum ModalEndpointNavigationTransitionsAnimatorSpyPerformCalls {
-    case Called(animationContext: ModalEndpointNavigationPresentationAnimationContext)
+    case called(animationContext: ModalEndpointNavigationPresentationAnimationContext)
 }
 
 enum ModalEndpointNavigationTransitionsAnimatorSpyUndoCalls {
-    case Called(animationContext: ModalEndpointNavigationDismissalAnimationContext)
+    case called(animationContext: ModalEndpointNavigationDismissalAnimationContext)
 }
 
 final class ModalEndpointNavigationTransitionsAnimatorSpy: ModalEndpointNavigationTransitionsAnimator
@@ -14,13 +14,13 @@ final class ModalEndpointNavigationTransitionsAnimatorSpy: ModalEndpointNavigati
     
     override func animatePerformingTransition(animationContext context: ModalEndpointNavigationPresentationAnimationContext)
     {
-        animatePerforming = .Called(animationContext: context)
+        animatePerforming = .called(animationContext: context)
     }
     
     var animateUndoing: ModalEndpointNavigationTransitionsAnimatorSpyUndoCalls!
     
     override func animateUndoingTransition(animationContext context: ModalEndpointNavigationDismissalAnimationContext)
     {
-         animateUndoing = .Called(animationContext: context)
+         animateUndoing = .called(animationContext: context)
     }
 }

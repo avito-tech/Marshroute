@@ -2,16 +2,16 @@ import UIKit
 
 /// Описание параметров запуска анимаций перехода, хранимого в истории переходов
 public enum SourceAnimationLaunchingContextBox {
-    case Presentation(launchingContextBox: PresentationAnimationLaunchingContextBox)
-    case Resetting(launchingContextBox: ResettingAnimationLaunchingContextBox)
+    case presentation(launchingContextBox: PresentationAnimationLaunchingContextBox)
+    case resetting(launchingContextBox: ResettingAnimationLaunchingContextBox)
     
     public func unboxPresentationAnimationLaunchingContextBox() -> PresentationAnimationLaunchingContextBox?
     {
         switch self {
-        case .Presentation(let launchingContextBox):
+        case .presentation(let launchingContextBox):
             return launchingContextBox
             
-        case .Resetting(_):
+        case .resetting:
             return nil
         }
     }

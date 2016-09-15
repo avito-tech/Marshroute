@@ -12,10 +12,10 @@ public struct CompletedTransitionContext {
     public let transitionId: TransitionId
     
     /// обработчик переходов для роутера модуля, вызвавшего переход
-    public private(set) weak var sourceTransitionsHandler: AnimatingTransitionsHandler?
+    public fileprivate(set) weak var sourceTransitionsHandler: AnimatingTransitionsHandler?
     
     /// контроллер, на который перешли
-    public private(set) weak var targetViewController: UIViewController?
+    public fileprivate(set) weak var targetViewController: UIViewController?
     
     /// обработчик переходов для роутера модуля, на контроллер которого перешли
     public let targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox
@@ -58,7 +58,7 @@ public struct CompletedTransitionContext {
         
         self.storableParameters = context.storableParameters
 
-        self.sourceAnimationLaunchingContextBox = .Presentation(
+        self.sourceAnimationLaunchingContextBox = .presentation(
             launchingContextBox: context.presentationAnimationLaunchingContextBox
         )
     }
@@ -82,7 +82,7 @@ public struct CompletedTransitionContext {
         
         self.storableParameters = context.storableParameters
         
-        self.sourceAnimationLaunchingContextBox = .Resetting(
+        self.sourceAnimationLaunchingContextBox = .resetting(
             launchingContextBox: context.resettingAnimationLaunchingContextBox
         )
     }

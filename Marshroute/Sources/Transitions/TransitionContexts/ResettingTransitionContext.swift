@@ -13,7 +13,7 @@ public struct ResettingTransitionContext {
     
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    public private(set) var targetTransitionsHandlerBox: ResettingTransitionTargetTransitionsHandlerBox
+    public fileprivate(set) var targetTransitionsHandlerBox: ResettingTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?
@@ -44,7 +44,7 @@ public extension ResettingTransitionContext {
             animator: animator
         )
         
-        self.resettingAnimationLaunchingContextBox = .SettingNavigationRoot(
+        self.resettingAnimationLaunchingContextBox = .settingNavigationRoot(
             launchingContext: animationLaunchingContext
         )
     }
@@ -67,7 +67,7 @@ public extension ResettingTransitionContext {
             animator: animator
         )
         
-        self.resettingAnimationLaunchingContextBox = .ResettingNavigationRoot(
+        self.resettingAnimationLaunchingContextBox = .resettingNavigationRoot(
             launchingContext: animationLaunchingContext
         )
     }
@@ -84,7 +84,7 @@ public extension ResettingTransitionContext {
         
         self.storableParameters = nil
         
-        self.resettingAnimationLaunchingContextBox = .RegisteringEndpointNavigation
+        self.resettingAnimationLaunchingContextBox = .registeringEndpointNavigation
     }
     
     /// Контекст описывает регистрацию конечного UINavigationController'а,
@@ -99,7 +99,7 @@ public extension ResettingTransitionContext {
         
         self.storableParameters = nil
         
-        self.resettingAnimationLaunchingContextBox = .Registering
+        self.resettingAnimationLaunchingContextBox = .registering
     }
     
 }

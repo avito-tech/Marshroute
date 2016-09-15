@@ -1,7 +1,7 @@
 import UIKit
 
 final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
-    private weak var navigationController: UINavigationController?
+    fileprivate weak var navigationController: UINavigationController?
     
     public init(navigationController: UINavigationController,
                 transitionsCoordinator: TransitionsCoordinator)
@@ -11,22 +11,22 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
     }
     
     // MARK: - TransitionAnimationsLauncher
-    override public func launchPresentationAnimation(inout launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox)
+    override public func launchPresentationAnimation(launchingContextBox: inout PresentationAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .Modal(_):
+        case .modal:
             super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
             
-        case .ModalNavigation(_):
+        case .modalNavigation:
             super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
             
-        case .ModalEndpointNavigation(_):
+        case .modalEndpointNavigation:
             super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
             
-        case .ModalMasterDetail(_):
+        case .modalMasterDetail:
             super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
             
-        case .Push(var launchingContext):
+        case .push(var launchingContext):
             guard let navigationController = navigationController
                 else { debugPrint("no `UINavigationController` to `pushViewController:animated`"); return }
             
@@ -42,49 +42,49 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
                 launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
             }
             
-            launchingContextBox = .Push(launchingContext: launchingContext)
+            launchingContextBox = .push(launchingContext: launchingContext)
             
-        case .Popover(_):
+        case .popover:
             super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
             
-        case .PopoverNavigation(_):
+        case .popoverNavigation:
             super.launchPresentationAnimation(launchingContextBox: &launchingContextBox)
         }
     }
     
-    override public func launchDismissalAnimation(launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox)
+    override public func launchDismissalAnimation(launchingContextBox: DismissalAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .Modal(_):
+        case .modal:
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
-        case .ModalNavigation(_):
+        case .modalNavigation:
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
-        case .ModalEndpointNavigation(_):
+        case .modalEndpointNavigation:
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
-        case .ModalMasterDetail(_):
+        case .modalMasterDetail:
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
-        case .Pop(_):
+        case .pop:
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
-        case .Popover(_):
+        case .popover:
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
             
-        case .PopoverNavigation(_):
+        case .popoverNavigation:
             super.launchDismissalAnimation(launchingContextBox: launchingContextBox)
         }
     }
     
-    override public func launchResettingAnimation(inout launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
+    override public func launchResettingAnimation(launchingContextBox: inout ResettingAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .SettingNavigationRoot(_):
+        case .settingNavigationRoot:
             super.launchResettingAnimation(launchingContextBox: &launchingContextBox)
             
-        case .ResettingNavigationRoot(var launchingContext):
+        case .resettingNavigationRoot(var launchingContext):
             guard let navigationController = navigationController
                 else { debugPrint("no `UINavigationController` to `setViewControllers:animated`"); return }
             
@@ -100,12 +100,12 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
                 launchingContext.animator.animateResettingWithTransition(animationContext: animationContext)
             }
             
-            launchingContextBox = .ResettingNavigationRoot(launchingContext: launchingContext)
+            launchingContextBox = .resettingNavigationRoot(launchingContext: launchingContext)
             
-        case .Registering:
+        case .registering:
             super.launchResettingAnimation(launchingContextBox: &launchingContextBox)
             
-        case .RegisteringEndpointNavigation:
+        case .registeringEndpointNavigation:
             super.launchResettingAnimation(launchingContextBox: &launchingContextBox)
         }
     }

@@ -5,4 +5,6 @@ platform :ios, :deployment_target => '8.0'
 inhibit_all_warnings!
 use_frameworks!
 
-pod 'Marshroute', :path => '../'
+target 'NavigationDemo' do
+   pod 'Marshroute', :path => '../'
+end

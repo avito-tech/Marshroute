@@ -1,14 +1,14 @@
 /// Действия, вызываемые роутером для влияния на состояние навигации приложения
 public protocol TransitionsHandler: class {
     /// Вызывается роутером, чтобы осуществить переход на другой модуль
-    func performTransition(context context: PresentationTransitionContext)
+    func performTransition(context: PresentationTransitionContext)
     
     /// Вызывается роутером, чтобы отменить все переходы из своего модуля и вернуться на свой модуль.
-    func undoTransitionsAfter(transitionId transitionId: TransitionId)
+    func undoTransitionsAfter(transitionId: TransitionId)
     
     /// Вызывается роутером, чтобы отменить все переходы из своего модуля и
     /// убрать свой модуль с экрана (вернуться на предшествующий модуль)
-    func undoTransitionWith(transitionId transitionId: TransitionId)
+    func undoTransitionWith(transitionId: TransitionId)
     
     /// Вызывается роутером, чтобы скрыть всю последовательность дочерних модулей,
     /// но текущий модуль оставить нетронутым
@@ -26,5 +26,5 @@ public protocol TransitionsHandler: class {
     /// После чего подменяется корневой контроллер (аналог setViewControllers:).
     /// Как правило вызывается роутером master - модуля SplitViewController'а,
     /// чтобы обновить detail
-    func resetWithTransition(context context: ResettingTransitionContext)
+    func resetWithTransition(context: ResettingTransitionContext)
 }

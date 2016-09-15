@@ -48,7 +48,7 @@ public final class TransitionsCoordinatorImpl:
     
     // MARK: - TransitionsTracker
     public func countOfTransitionsAfterTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         untilLastTransitionOfTransitionsHandler targetTransitionsHandler: TransitionsHandler)
         -> Int?
     {
@@ -59,7 +59,7 @@ public final class TransitionsCoordinatorImpl:
     }
     
     public func restoredTransitionFromTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         searchingFromTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
         -> RestoredTransitionContext?
     {
@@ -70,7 +70,7 @@ public final class TransitionsCoordinatorImpl:
     }
     
     public func restoredTransitionFromTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         searchingFromTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
         -> RestoredTransitionContext?
     {
@@ -81,7 +81,7 @@ public final class TransitionsCoordinatorImpl:
     }
     
     // MARK: - TransitionsMarker
-    public func markTransitionId(transitionId: TransitionId, withUserId userId: TransitionUserId) {
+    public func markTransitionId(_ transitionId: TransitionId, withUserId userId: TransitionUserId) {
         markTransitionIdImpl(transitionId: transitionId, withUserId: userId)
     }
     
@@ -92,25 +92,25 @@ public final class TransitionsCoordinatorImpl:
         return animatingTransitionsHandlerImpl()
     }
     
-    public func navigationTransitionsHandler(navigationController navigationController: UINavigationController)
+    public func navigationTransitionsHandler(navigationController: UINavigationController)
         -> NavigationTransitionsHandlerImpl
     {
         return navigationTransitionsHandlerImpl(navigationController: navigationController)
     }
     
-    public func topTransitionsHandlerBox(transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+    public func topTransitionsHandlerBox(transitionsHandlerBox: TransitionsHandlerBox)
         -> TransitionsHandlerBox
     {
         return topTransitionsHandlerBoxImpl(transitionsHandlerBox: transitionsHandlerBox)
     }
     
-    public func splitViewTransitionsHandler(splitViewController splitViewController: UISplitViewController)
+    public func splitViewTransitionsHandler(splitViewController: UISplitViewController)
         -> SplitViewTransitionsHandlerImpl
     {
         return splitViewTransitionsHandlerImpl(splitViewController: splitViewController)
     }
     
-    public func tabBarTransitionsHandler(tabBarController tabBarController: UITabBarController)
+    public func tabBarTransitionsHandler(tabBarController: UITabBarController)
         ->TabBarTransitionsHandlerImpl
     {
         return tabBarTransitionsHandlerImpl(tabBarController: tabBarController)

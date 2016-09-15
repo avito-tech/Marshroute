@@ -1,7 +1,7 @@
 /// Базовый класс для содержащих обработчиков переходов
-public class ContainingTransitionsHandler: TransitionsHandlerContainer, TransitionsCoordinatorHolder, TransitionsHandler {
+open class ContainingTransitionsHandler: TransitionsHandlerContainer, TransitionsCoordinatorHolder, TransitionsHandler {
     // MARK: - TransitionsCoordinatorHolder    
-    public let transitionsCoordinator: TransitionsCoordinator
+    open let transitionsCoordinator: TransitionsCoordinator
     
     public init(transitionsCoordinator: TransitionsCoordinator)
     {
@@ -9,41 +9,41 @@ public class ContainingTransitionsHandler: TransitionsHandlerContainer, Transiti
     }
 
     // MARK: - TransitionsHandlerContainer
-    public var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    open var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return nil
     }
     
-    public var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
+    open var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
         return nil
     }
 
     // MARK: - TransitionsHandler
-    public func performTransition(context context: PresentationTransitionContext)
+    open func performTransition(context: PresentationTransitionContext)
     {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forContainingTransitionsHandler: self)
     }
     
-    public func undoTransitionsAfter(transitionId transitionId: TransitionId)
+    open func undoTransitionsAfter(transitionId: TransitionId)
     {
         transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forContainingTransitionsHandler: self)
     }
     
-    public func undoTransitionWith(transitionId transitionId: TransitionId)
+    open func undoTransitionWith(transitionId: TransitionId)
     {
         transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forContainingTransitionsHandler: self)
     }
     
-    public func undoAllChainedTransitions()
+    open func undoAllChainedTransitions()
     {
         debugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
-    public func undoAllTransitions()
+    open func undoAllTransitions()
     {
         debugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
-    public func resetWithTransition(context context: ResettingTransitionContext)
+    open func resetWithTransition(context: ResettingTransitionContext)
     {
         debugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }

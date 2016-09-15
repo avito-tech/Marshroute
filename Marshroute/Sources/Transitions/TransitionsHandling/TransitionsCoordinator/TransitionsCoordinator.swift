@@ -3,27 +3,27 @@ import UIKit
 /// Протокол описывает передачу обработки и отмены переходов в центр управления переходами
 public protocol TransitionsCoordinator: class {
     func coordinatePerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     
     func coordinatePerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     
     func coordinateUndoingTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     
     func coordinateUndoingTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     
     func coordinateUndoingTransitionWith(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     
     func coordinateUndoingTransitionWith(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     
     func coordinateUndoingAllChainedTransitions(
@@ -33,7 +33,7 @@ public protocol TransitionsCoordinator: class {
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     
     func coordinateResettingWithTransition(
-        context context: ResettingTransitionContext,
+        context: ResettingTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
 }
 
@@ -44,7 +44,7 @@ extension TransitionsCoordinator where
     Self: TransitionsMarkersHolder
 {
     public func coordinatePerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
         // ищем самого глубокого дочернего видимого анимирующего обработчика, чтобы прокинуть ему обработку перехода
@@ -63,7 +63,7 @@ extension TransitionsCoordinator where
     }
     
     public func coordinatePerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
@@ -87,7 +87,7 @@ extension TransitionsCoordinator where
     }
     
     public func coordinateUndoingTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
@@ -105,7 +105,7 @@ extension TransitionsCoordinator where
     }
     
     public func coordinateUndoingTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
@@ -126,7 +126,7 @@ extension TransitionsCoordinator where
     }
     
     public func coordinateUndoingTransitionWith(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
@@ -144,7 +144,7 @@ extension TransitionsCoordinator where
     }
     
     public func coordinateUndoingTransitionWith(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
         // будем искать вложенные анимирующие обработчики переходов (например, для split'а, найдем его master и detail)
@@ -219,7 +219,7 @@ extension TransitionsCoordinator where
     }
     
     public func coordinateResettingWithTransition(
-        context context: ResettingTransitionContext,
+        context: ResettingTransitionContext,
         forAnimatingTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         var context = context
@@ -249,7 +249,7 @@ extension TransitionsCoordinator where
             )
         }
         
-        if case .ResettingNavigationRoot(_) = context.resettingAnimationLaunchingContextBox {
+        if case .resettingNavigationRoot = context.resettingAnimationLaunchingContextBox {
             if let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) {
                 // дополняем параметры анимации информацией о текущем верхнем контроллере
                 context.resettingAnimationLaunchingContextBox.appendSourceViewController(
@@ -259,7 +259,7 @@ extension TransitionsCoordinator where
                 debugPrint(
                     "Cannot reset `rootViewController` of a `UINavigationController`." +
                     "No `rootViewController` found. You should first set `rootViewController`." +
-                    "see `ResettingAnimationLaunchingContextBox.ResettingNavigationRoot`"
+                    "see `ResettingAnimationLaunchingContextBox.resettingNavigationRoot`"
                 )
                 return
             }
@@ -269,14 +269,19 @@ extension TransitionsCoordinator where
         // если переход помечен пользовательским идентификатором
         let transitionUserId = markers[context.transitionId]
         
-        var transitionAllowed = true
-        if let transitionUserId = transitionUserId, transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+        let transitionAllowed: Bool
+        
+        if let transitionUserId = transitionUserId,
+            let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate
+        {
             transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
                 coordinator: self,
                 canForceTransitionsHandler: animatingTransitionsHandler,
                 toLaunchResettingAnimationOfTransition: context,
                 markedWithUserId: transitionUserId
             )
+        } else {
+            transitionAllowed = true
         }
         
         if transitionAllowed {
@@ -394,7 +399,7 @@ private extension TransitionsCoordinator where
     Self: TransitionsMarkersHolder
 {
     func initiatePerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler?)
     {
         guard let animatingTransitionsHandler = animatingTransitionsHandler
@@ -411,15 +416,19 @@ private extension TransitionsCoordinator where
         // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
         // если переход помечен пользовательским идентификатором
         let transitionUserId = markers[context.transitionId]
-        var transitionAllowed = true
+        let transitionAllowed: Bool
         
-        if let transitionUserId = transitionUserId, transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+        if let transitionUserId = transitionUserId,
+            let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate
+        {
             transitionAllowed = transitionsCoordinatorDelegate.transitionsCoordinator(
                 coordinator: self,
                 canForceTransitionsHandler: animatingTransitionsHandler,
                 toLaunchPresentationAnimationOfTransition: context,
                 markedWithUserId: transitionUserId
             )
+        } else {
+            transitionAllowed = true
         }
         
         if transitionAllowed {
@@ -489,7 +498,7 @@ private extension TransitionsCoordinator where
     }
     
     func initiateUndoingTransitions(
-        chainedTransition chainedTransition: RestoredTransitionContext?,
+        chainedTransition: RestoredTransitionContext?,
         pushTransitions: [RestoredTransitionContext]?,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         andCommitUndoingTransitionsAfter transitionId: TransitionId,
@@ -531,7 +540,7 @@ private extension TransitionsCoordinator where
     }
     
     func initiateUndoingTransition(
-        context context: RestoredTransitionContext,
+        context: RestoredTransitionContext,
         whileUndoingTransitionWithId targetTransitionId: TransitionId,
         includingTransitionWithId: Bool,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
@@ -617,7 +626,7 @@ private extension TransitionsCoordinator where
                 unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
             )
             
-            chainedTransitionsHandlers.appendContentsOf(chainedAnimatingTransitionsHandlers)
+            chainedTransitionsHandlers.append(contentsOf: chainedAnimatingTransitionsHandlers)
         }
         
         // нашли несколько дочерних обработчиков на одинаковой глубине вложенности, 
@@ -755,7 +764,7 @@ extension TransitionsCoordinator where
     Self: TransitionsCoordinatorDelegateHolder
 {
     func countOfTransitionsAfterTrackedTransitionImpl(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         untilLastTransitionOfTransitionsHandler targetTransitionsHandler: TransitionsHandler)
         -> Int?
     {
@@ -789,7 +798,7 @@ extension TransitionsCoordinator where
     }
     
     private func countOfTransitionsAfterTransitionWithId(
-        transitionId: TransitionId,
+        _ transitionId: TransitionId,
         performedByTransitionsHandler fromTransitionsHandler: TransitionsHandler,
         untilLastTransitionOfTransitionsHandler toTransitionsHandler: TransitionsHandler,
         unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
@@ -838,7 +847,7 @@ extension TransitionsCoordinator where
     }
 
     private func transitionHandlersPath(
-        fromTransitionsHandler fromTransitionsHandler: TransitionsHandler,
+        fromTransitionsHandler: TransitionsHandler,
         toTransitionsHandler: TransitionsHandler,
         unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
         -> [TransitionsHandler]?
@@ -869,7 +878,7 @@ extension TransitionsCoordinator where
             
             if let subPath = subPath {
                 var result = [fromTransitionsHandler]
-                result.appendContentsOf(subPath)
+                result.append(contentsOf: subPath)
                 return result
             }
         }
@@ -878,7 +887,7 @@ extension TransitionsCoordinator where
     }
     
     func restoredTransitionFromTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         searchingFromTransitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
         -> RestoredTransitionContext?
     {
@@ -902,7 +911,7 @@ extension TransitionsCoordinator where
     }
     
     private func restoredTransitionFromTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         amongTransitionsHandlers animatingTransitionsHandlers: [AnimatingTransitionsHandler],
         unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
         -> RestoredTransitionContext?
@@ -933,7 +942,7 @@ extension TransitionsCoordinator where
                 unboxContainingTransitionsHandler: unboxContainingTransitionsHandler
             )
             
-            chainedAnimatingTransitionsHandlers.appendContentsOf(chainedAnimatingTransitionsHandlersPart)
+            chainedAnimatingTransitionsHandlers.append(contentsOf: chainedAnimatingTransitionsHandlersPart)
         }
         
         if !chainedAnimatingTransitionsHandlers.isEmpty {
@@ -952,7 +961,7 @@ extension TransitionsCoordinator where
 extension TransitionsCoordinator where
     Self: TransitionsMarkersHolder
 {
-    func markTransitionIdImpl(transitionId transitionId: TransitionId, withUserId userId: TransitionUserId) {
+    func markTransitionIdImpl(transitionId: TransitionId, withUserId userId: TransitionUserId) {
         markers[transitionId] = userId
     }
 }
@@ -960,7 +969,7 @@ extension TransitionsCoordinator where
 // MARK: - Utils
 private extension TransitionsCoordinator {
     func animatingTransitionsHandlersForTransitionsHandlerBox(
-        transitionsHandlerBox: TransitionsHandlerBox,
+        _ transitionsHandlerBox: TransitionsHandlerBox,
         unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
         -> [AnimatingTransitionsHandler]
     {
@@ -972,7 +981,7 @@ private extension TransitionsCoordinator {
         else if let containingTransitionsHandler = transitionsHandlerBox.unboxContainingTransitionsHandler(),
             let childAnimatingTransitionsHandlers = unboxContainingTransitionsHandler(containingTransitionsHandler)
         {
-            result.appendContentsOf(childAnimatingTransitionsHandlers)
+            result.append(contentsOf: childAnimatingTransitionsHandlers)
         }
         
         return result
@@ -1000,7 +1009,7 @@ private extension TransitionsCoordinator where
     Self: TransitionsCoordinatorDelegateHolder
 {
     func commitPerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
         byTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
@@ -1026,19 +1035,19 @@ private extension TransitionsCoordinator where
             else { assert(false); return }
         
         // создаем новую запись о переходе
-        stackClient.appendTransition(
+        _ = stackClient.appendTransition(
             context: completedTransitionContext!,
             forTransitionsHandler: animatingTransitionsHandler
         )
     }
     
     func commitUndoingTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         includingTransitionWithId: Bool,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        stackClient.deleteTransitionsAfter(
+        _ = stackClient.deleteTransitionsAfter(
             transitionId: transitionId,
             forTransitionsHandler: transitionsHandler,
             includingTransitionWithId: includingTransitionWithId
@@ -1046,7 +1055,7 @@ private extension TransitionsCoordinator where
     }
     
     func commitResettingWithTransition(
-        context context: ResettingTransitionContext,
+        context: ResettingTransitionContext,
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
@@ -1059,7 +1068,7 @@ private extension TransitionsCoordinator where
             else { assert(false); return }
         
         // создаем новую запись о переходе
-        stackClient.appendTransition(
+        _ = stackClient.appendTransition(
             context: completedTransitionContext!,
             forTransitionsHandler: animatingTransitionsHandler
         )
@@ -1080,7 +1089,7 @@ extension TransitionsCoordinator where
         )
     }
     
-    func navigationTransitionsHandlerImpl(navigationController navigationController: UINavigationController)
+    func navigationTransitionsHandlerImpl(navigationController: UINavigationController)
         -> NavigationTransitionsHandlerImpl
     {
         return NavigationTransitionsHandlerImpl(
@@ -1089,7 +1098,7 @@ extension TransitionsCoordinator where
         )
     }
     
-    func topTransitionsHandlerBoxImpl(transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+    func topTransitionsHandlerBoxImpl(transitionsHandlerBox: TransitionsHandlerBox)
         -> TransitionsHandlerBox
     {
         let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
@@ -1116,7 +1125,7 @@ extension TransitionsCoordinator where
         return transitionsHandlerBox
     }
     
-    func splitViewTransitionsHandlerImpl(splitViewController splitViewController: UISplitViewController)
+    func splitViewTransitionsHandlerImpl(splitViewController: UISplitViewController)
         -> SplitViewTransitionsHandlerImpl
     {
         return SplitViewTransitionsHandlerImpl(
@@ -1125,7 +1134,7 @@ extension TransitionsCoordinator where
         )
     }
     
-    func tabBarTransitionsHandlerImpl(tabBarController tabBarController: UITabBarController)
+    func tabBarTransitionsHandlerImpl(tabBarController: UITabBarController)
         -> TabBarTransitionsHandlerImpl
     {
         return TabBarTransitionsHandlerImpl(

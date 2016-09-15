@@ -65,7 +65,7 @@ final class TransitionContextsStackTests: XCTestCase {
         )
     }
     
-    func subtest_Stack(__stackImpl: TransitionContextsStack,
+    func subtest_Stack(_ __stackImpl: TransitionContextsStack,
         toBeEmptyAfterAddingZombie zombieContext: CompletedTransitionContext)
     {
         XCTAssertNil(__stackImpl.first, "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
@@ -88,7 +88,7 @@ final class TransitionContextsStackTests: XCTestCase {
         )
     }
     
-    func subtest_Stack(__stackImpl: TransitionContextsStack,
+    func subtest_Stack(_ __stackImpl: TransitionContextsStack,
         toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext)
     {
         XCTAssertNotNil(__stackImpl.first, "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
@@ -170,7 +170,7 @@ final class TransitionContextsStackTests: XCTestCase {
         )
     }
     
-    func subtest_Stack(__stackImpl: TransitionContextsStack,
+    func subtest_Stack(_ __stackImpl: TransitionContextsStack,
         toBeEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
         andPoppingNeverZombie1 neverZombie1_popped: RestoredTransitionContext?)
     {
@@ -213,7 +213,7 @@ final class TransitionContextsStackTests: XCTestCase {
         )
     }
     
-    func subtest_Stack(__stackImpl: TransitionContextsStack,
+    func subtest_Stack(_ __stackImpl: TransitionContextsStack,
         toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
         andAddingNeverZombie2 neverZombieContext2: CompletedTransitionContext)
     {
@@ -270,7 +270,7 @@ final class TransitionContextsStackTests: XCTestCase {
         )
     }
     
-    func subtest_Stack(__stackImpl: TransitionContextsStack,
+    func subtest_Stack(_ __stackImpl: TransitionContextsStack,
         toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
         addingNeverZombie2 neverZombieContext2: CompletedTransitionContext,
         andPoppingNeverZombie2ViaTechnique1 neverZombie2_popped: RestoredTransitionContext?)
@@ -325,7 +325,7 @@ final class TransitionContextsStackTests: XCTestCase {
         )
     }
     
-    func subtest_Stack(__stackImpl: TransitionContextsStack,
+    func subtest_Stack(_ __stackImpl: TransitionContextsStack,
         toBeNotEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
         addingNeverZombie2 neverZombieContext2: CompletedTransitionContext,
         andPoppingNeverZombie2ViaTechnique2 neverZombie2_poppedAsArray: [RestoredTransitionContext]?)
@@ -436,7 +436,7 @@ final class TransitionContextsStackTests: XCTestCase {
         )
     }
     
-    func subtest_Stack(__stackImpl: TransitionContextsStack,
+    func subtest_Stack(_ __stackImpl: TransitionContextsStack,
         toBeEmptyAfterAddingNeverZombie1 neverZombieContext1: CompletedTransitionContext,
         addingNeverZombie2 neverZombieContext2: CompletedTransitionContext,
         poppingNeverZombie2AndPoppingNeverZombie1 neverZombie1_popped: RestoredTransitionContext?)

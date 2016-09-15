@@ -3,7 +3,7 @@ import UIKit
 /// Роутер, управляющий одним экраном (одним UINavigationController'ом)
 /// Работает с одим обработчиком переходов (detail).
 /// Например, роутер обычного экрана iPhone-приложения или роутер экрана внутри UIPopoverController'а
-public class BaseRouter:
+open class BaseRouter:
     TransitionsHandlersProviderHolder,
     TransitionIdGeneratorHolder,
     RouterIdentifiable,
@@ -18,12 +18,12 @@ public class BaseRouter:
     DetailRouter,
     RouterControllersProviderHolder
 {
-    public let transitionsHandlerBox: RouterTransitionsHandlerBox
-    public let transitionId: TransitionId
-    public private(set) weak var presentingTransitionsHandler: TransitionsHandler?
-    public let transitionsHandlersProvider: TransitionsHandlersProvider
-    public let transitionIdGenerator: TransitionIdGenerator
-    public let controllersProvider: RouterControllersProvider
+    open let transitionsHandlerBox: RouterTransitionsHandlerBox
+    open let transitionId: TransitionId
+    open fileprivate(set) weak var presentingTransitionsHandler: TransitionsHandler?
+    open let transitionsHandlersProvider: TransitionsHandlersProvider
+    open let transitionIdGenerator: TransitionIdGenerator
+    open let controllersProvider: RouterControllersProvider
     
     public init(routerSeed seed: RouterSeed)
     {
@@ -36,7 +36,7 @@ public class BaseRouter:
     }
 
     // MARK: - DetailRouterTransitionable
-    public var detailTransitionsHandlerBox: RouterTransitionsHandlerBox {
+    open var detailTransitionsHandlerBox: RouterTransitionsHandlerBox {
         return transitionsHandlerBox
     }
 }

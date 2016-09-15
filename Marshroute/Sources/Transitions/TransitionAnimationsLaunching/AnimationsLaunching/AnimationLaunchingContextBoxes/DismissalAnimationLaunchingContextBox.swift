@@ -3,99 +3,99 @@ import UIKit
 
 /// Описание параметров запуска анимаций прямого перехода
 public enum DismissalAnimationLaunchingContextBox {
-    case Modal(launchingContext: ModalDismissalAnimationLaunchingContext)
-    case ModalNavigation(launchingContext: ModalNavigationDismissalAnimationLaunchingContext)
-    case ModalEndpointNavigation(launchingContext: ModalEndpointNavigationDismissalAnimationLaunchingContext)
-    case ModalMasterDetail(launchingContext: ModalMasterDetailDismissalAnimationLaunchingContext)
-    case Pop(launchingContext: PopAnimationLaunchingContext)
-    case Popover(launchingContext: PopoverDismissalAnimationLaunchingContext)
-    case PopoverNavigation(launchingContext: PopoverNavigationDismissalAnimationLaunchingContext)
+    case modal(launchingContext: ModalDismissalAnimationLaunchingContext)
+    case modalNavigation(launchingContext: ModalNavigationDismissalAnimationLaunchingContext)
+    case modalEndpointNavigation(launchingContext: ModalEndpointNavigationDismissalAnimationLaunchingContext)
+    case modalMasterDetail(launchingContext: ModalMasterDetailDismissalAnimationLaunchingContext)
+    case pop(launchingContext: PopAnimationLaunchingContext)
+    case popover(launchingContext: PopoverDismissalAnimationLaunchingContext)
+    case popoverNavigation(launchingContext: PopoverNavigationDismissalAnimationLaunchingContext)
     
     public init?(
         presentationAnimationLaunchingContextBox: PresentationAnimationLaunchingContextBox,
         targetViewController: UIViewController)
     {
         switch presentationAnimationLaunchingContextBox {
-        case .Modal(let launchingContext):
+        case .modal(let launchingContext):
             let modalDismissalAnimationLaunchingContext = ModalDismissalAnimationLaunchingContext(
                 modalPresentationAnimationLaunchingContext: launchingContext,
                 targetViewController: targetViewController
             )
             
             if let launchingContext = modalDismissalAnimationLaunchingContext {
-                self = .Modal(launchingContext: launchingContext)
+                self = .modal(launchingContext: launchingContext)
             } else {
                 return nil
             }
             
-        case .ModalNavigation(let launchingContext):
+        case .modalNavigation(let launchingContext):
             let modalNavigationDismissalAnimationLaunchingContext = ModalNavigationDismissalAnimationLaunchingContext(
                 modalNavigationPresentationAnimationLaunchingContext: launchingContext,
                 targetViewController: targetViewController
             )
             
             if let launchingContext = modalNavigationDismissalAnimationLaunchingContext {
-                self = .ModalNavigation(launchingContext: launchingContext)
+                self = .modalNavigation(launchingContext: launchingContext)
             } else {
                 return nil
             }
             
-        case .ModalEndpointNavigation(let launchingContext):
+        case .modalEndpointNavigation(let launchingContext):
             let modalEndpointNavigationDismissalAnimationLaunchingContext = ModalEndpointNavigationDismissalAnimationLaunchingContext(
                 modalEndpointNavigationPresentationAnimationLaunchingContext: launchingContext,
                 targetViewController: targetViewController
             )
             
             if let launchingContext = modalEndpointNavigationDismissalAnimationLaunchingContext {
-                self = .ModalEndpointNavigation(launchingContext: launchingContext)
+                self = .modalEndpointNavigation(launchingContext: launchingContext)
             } else {
                 return nil
             }
             
-        case .ModalMasterDetail(let launchingContext):
+        case .modalMasterDetail(let launchingContext):
             let modalMasterDetailDismissalAnimationLaunchingContext = ModalMasterDetailDismissalAnimationLaunchingContext(
                 modalPresentationAnimationLaunchingContext: launchingContext,
                 targetViewController: targetViewController
             )
             
             if let launchingContext = modalMasterDetailDismissalAnimationLaunchingContext {
-                self = .ModalMasterDetail(launchingContext: launchingContext)
+                self = .modalMasterDetail(launchingContext: launchingContext)
             } else {
                 return nil
             }
             
-        case .Push(let launchingContext):
+        case .push(let launchingContext):
             let popAnimationLaunchingContext = PopAnimationLaunchingContext(
                 pushAnimationLaunchingContext: launchingContext,
                 targetViewController: targetViewController
             )
             
             if let launchingContext = popAnimationLaunchingContext {
-                self = .Pop(launchingContext: launchingContext)
+                self = .pop(launchingContext: launchingContext)
             } else {
                 return nil
             }
             
-        case .Popover(let launchingContext):
+        case .popover(let launchingContext):
             let popoverDismissalAnimationLaunchingContext = PopoverDismissalAnimationLaunchingContext(
                 popoverPresentationAnimationLaunchingContext: launchingContext,
                 targetViewController: targetViewController
             )
             
             if let launchingContext = popoverDismissalAnimationLaunchingContext {
-                self = .Popover(launchingContext: launchingContext)
+                self = .popover(launchingContext: launchingContext)
             } else {
                 return nil
             }
             
-        case .PopoverNavigation(let launchingContext):
+        case .popoverNavigation(let launchingContext):
             let popoverNavigationDismissalAnimationLaunchingContext = PopoverNavigationDismissalAnimationLaunchingContext(
                 popoverNavigationPresentationAnimationLaunchingContext: launchingContext,
                 targetViewController: targetViewController
             )
             
             if let launchingContext = popoverNavigationDismissalAnimationLaunchingContext {
-                self = .PopoverNavigation(launchingContext: launchingContext)
+                self = .popoverNavigation(launchingContext: launchingContext)
             } else {
                 return nil
             }
@@ -105,26 +105,26 @@ public enum DismissalAnimationLaunchingContextBox {
     public var transitionsAnimatorBox: TransitionsAnimatorBox
     {
         switch self {
-        case .Modal(let launchingContext):
-            return .Modal(animator: launchingContext.animator)
+        case .modal(let launchingContext):
+            return .modal(animator: launchingContext.animator)
             
-        case .ModalNavigation(let launchingContext):
-            return .ModalNavigation(animator: launchingContext.animator)
+        case .modalNavigation(let launchingContext):
+            return .modalNavigation(animator: launchingContext.animator)
             
-        case .ModalEndpointNavigation(let launchingContext):
-            return .ModalEndpointNavigation(animator: launchingContext.animator)
+        case .modalEndpointNavigation(let launchingContext):
+            return .modalEndpointNavigation(animator: launchingContext.animator)
             
-        case .ModalMasterDetail(let launchingContext):
-            return .ModalMasterDetail(animator: launchingContext.animator)
+        case .modalMasterDetail(let launchingContext):
+            return .modalMasterDetail(animator: launchingContext.animator)
             
-        case .Pop(let launchingContext):
-            return .Navigation(animator: launchingContext.animator)
+        case .pop(let launchingContext):
+            return .navigation(animator: launchingContext.animator)
             
-        case .Popover(let launchingContext):
-            return .Popover(animator: launchingContext.animator)
+        case .popover(let launchingContext):
+            return .popover(animator: launchingContext.animator)
             
-        case .PopoverNavigation(let launchingContext):
-            return .PopoverNavigation(animator: launchingContext.animator)
+        case .popoverNavigation(let launchingContext):
+            return .popoverNavigation(animator: launchingContext.animator)
         }
     }
 }

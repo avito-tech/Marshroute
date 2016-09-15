@@ -4,13 +4,13 @@ import UIKit
 /// Например, на MFMailComposeViewController, UIImagePickerController
 public protocol EndpointRouter: class {
     func presentModalEndpointNavigationController(
-        navigationController: UINavigationController,
-        @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
+        _ navigationController: UINavigationController,
+        prepareForTransition: (_ routerSeed: RouterSeed) -> ())
     
     func presentModalEndpointNavigationController(
-        navigationController: UINavigationController,
+        _ navigationController: UINavigationController,
         animator: ModalEndpointNavigationTransitionsAnimator,
-        @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
+        prepareForTransition: (_ routerSeed: RouterSeed) -> ())
 }
 
 // MARK: - EndpointRouter Default Impl
@@ -22,8 +22,8 @@ extension EndpointRouter where
     Self: RouterControllersProviderHolder
 {
     public func presentModalEndpointNavigationController(
-        navigationController: UINavigationController,
-        @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
+        _ navigationController: UINavigationController,
+        prepareForTransition: (_ routerSeed: RouterSeed) -> ())
     {
         presentModalEndpointNavigationController(
             navigationController,
@@ -33,9 +33,9 @@ extension EndpointRouter where
     }
     
     public func presentModalEndpointNavigationController(
-        navigationController: UINavigationController,
+        _ navigationController: UINavigationController,
         animator: ModalEndpointNavigationTransitionsAnimator,
-        @noescape prepareForTransition: (routerSeed: RouterSeed) -> ())
+        prepareForTransition: (_ routerSeed: RouterSeed) -> ())
     {
         let navigationTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: navigationController
@@ -73,7 +73,7 @@ extension EndpointRouter where
             transitionId: generatedTransitionId
         )
         
-        prepareForTransition(routerSeed: routerSeed)
+        prepareForTransition(routerSeed)
         
         transitionsHandlerBox.unbox().performTransition(context: modalContext)
     }

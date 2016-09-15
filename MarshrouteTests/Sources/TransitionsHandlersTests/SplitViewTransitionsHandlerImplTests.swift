@@ -27,7 +27,7 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
         splitViewTransitionsHandler.performTransition(context: presentationContext)
         
         // Then
-        if case .ForContaining(let context, let transitionsHandler) = transitionsCoordinatorSpy.coordinatePerformingTransition! {
+        if case .forContaining(let context, let transitionsHandler) = transitionsCoordinatorSpy.coordinatePerformingTransition! {
             XCTAssert(context == presentationContext)
             XCTAssert(transitionsHandler === splitViewTransitionsHandler)
         } else { XCTFail() }
@@ -41,7 +41,7 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
         splitViewTransitionsHandler.undoTransitionsAfter(transitionId: generatedTansitionId)
         
         // Then
-        if case .ForContaining(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionsAfter! {
+        if case .forContaining(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionsAfter! {
             XCTAssert(transitionId == generatedTansitionId)
             XCTAssert(transitionsHandler === splitViewTransitionsHandler)
         } else { XCTFail() }
@@ -55,7 +55,7 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
         splitViewTransitionsHandler.undoTransitionWith(transitionId: generatedTansitionId)
         
         // Then
-        if case .ForContaining(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionWith! {
+        if case .forContaining(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionWith! {
             XCTAssert(transitionId == generatedTansitionId)
             XCTAssert(transitionsHandler === splitViewTransitionsHandler)
         } else { XCTFail() }
@@ -101,8 +101,8 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
         let allTransitionsHandlers = splitViewTransitionsHandler.allTransitionsHandlers!
         
         // Then
-        XCTAssertNotNil(allTransitionsHandlers.indexOf() { $0 === masterTransitionsHandler })
-        XCTAssertNotNil(allTransitionsHandlers.indexOf() { $0 === detailTransitionsHandler })
+        XCTAssertNotNil(allTransitionsHandlers.index() { $0 === masterTransitionsHandler })
+        XCTAssertNotNil(allTransitionsHandlers.index() { $0 === detailTransitionsHandler })
     }
     
     func testThatSplitViewTransitionsHandlerReturnsAllTransitionsHandlersOn_VisibleTransitionsHandlers_Call() {
@@ -116,7 +116,7 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
         let visibleTransitionsHandlers = splitViewTransitionsHandler.visibleTransitionsHandlers!
         
         // Then
-        XCTAssertNotNil(visibleTransitionsHandlers.indexOf() { $0 === masterTransitionsHandler })
-        XCTAssertNotNil(visibleTransitionsHandlers.indexOf() { $0 === detailTransitionsHandler })
+        XCTAssertNotNil(visibleTransitionsHandlers.index() { $0 === masterTransitionsHandler })
+        XCTAssertNotNil(visibleTransitionsHandlers.index() { $0 === detailTransitionsHandler })
     }
 }

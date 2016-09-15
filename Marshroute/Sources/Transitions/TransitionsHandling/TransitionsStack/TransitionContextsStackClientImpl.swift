@@ -1,32 +1,32 @@
 final public class TransitionContextsStackClientImpl: TransitionContextsStackClient {
-    private let stack: TransitionContextsStack
+    fileprivate let stack: TransitionContextsStack
     
     public init(transitionContextsStack: TransitionContextsStack = TransitionContextsStackImpl()) {
         stack = transitionContextsStack
     }
     
     // MARK: - TransitionContextsStackClient
-    public func lastTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    public func lastTransitionForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
         if let last = stack.last
-            where last.wasPerfromedByTransitionsHandler(transitionsHandler) {
+            , last.wasPerfromedByTransitionsHandler(transitionsHandler) {
                 return last
         }
         return nil
     }
     
-    public func chainedTransitionForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    public func chainedTransitionForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
         if let last = lastTransitionForTransitionsHandler(transitionsHandler)
-            where last.isChainedForTransitionsHandler(transitionsHandler) {
+            , last.isChainedForTransitionsHandler(transitionsHandler) {
                 return last
         }
         return nil
     }
     
-    public func chainedTransitionsHandlerBoxForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    public func chainedTransitionsHandlerBoxForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> RestoredTransitionTargetTransitionsHandlerBox?
     {
         let chainedTransition = chainedTransitionForTransitionsHandler(transitionsHandler)
@@ -34,33 +34,33 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
     }
     
     public func transitionBefore(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
         if let restored = stack.preceding(transitionId: transitionId)
-            where restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
+            , restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
                 return restored
         }
         return nil
     }
     
     public func transitionWith(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
         if let restored = stack[transitionId]
-            where restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
+            , restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
                 return restored
         }
         return nil
     }
     
-    public func allTransitionsForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    public func allTransitionsForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
     {
-        guard let first = stack.first where first.wasPerfromedByTransitionsHandler(transitionsHandler)
+        guard let first = stack.first, first.wasPerfromedByTransitionsHandler(transitionsHandler)
             else { return (nil, nil) }
         
         return transitionsAfter(
@@ -71,7 +71,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
     }
     
     public func transitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
         -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
@@ -96,7 +96,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
             chainedTransition = last
         }
         else {
-            pushTransitions.insert(last, atIndex: 0)
+            pushTransitions.insert(last, at: 0)
         }
         
         // идем по push-переходам, кладем в массив в порядке, в котором их выполняли
@@ -107,7 +107,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
                 didMatchId = transitionId == loopTransitionId
                 
                 if !didMatchId || (didMatchId && includingTransitionWithId) {
-                    pushTransitions.insert(previous, atIndex: 0)
+                    pushTransitions.insert(previous, at: 0)
                 }
             }
             else { loopTransitionId = nil } // останавливаем цикл
@@ -117,19 +117,19 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
     }
 
     public func deleteTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,
         includingTransitionWithId: Bool)
         -> Bool
     {
-        guard let first = stack.first where first.wasPerfromedByTransitionsHandler(transitionsHandler)
+        guard let first = stack.first , first.wasPerfromedByTransitionsHandler(transitionsHandler)
             else { return false }
         
         guard let _ = transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler)
             else { return false }
         
         if includingTransitionWithId {
-            stack.popTo(transitionId: transitionId)?.first
+            _ = stack.popTo(transitionId: transitionId)
             return (stack.popLast() != nil)
         }
         else {
@@ -138,7 +138,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
     }
     
     public func appendTransition(
-        context context: CompletedTransitionContext,
+        context: CompletedTransitionContext,
         forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> Bool
     {
@@ -152,7 +152,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
 
 // MARK: - CompletedTransitionContext helpers
 private extension CompletedTransitionContext {
-    func isMatchingTransitionsHandler(transitionsHandler: TransitionsHandler)
+    func isMatchingTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> Bool
     {
         let result = (sourceTransitionsHandler === transitionsHandler)
@@ -162,14 +162,14 @@ private extension CompletedTransitionContext {
 
 // MARK: - RestoredTransitionContext helpers
 private extension RestoredTransitionContext {
-    func wasPerfromedByTransitionsHandler(transitionsHandler: TransitionsHandler)
+    func wasPerfromedByTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> Bool
     {
         let result = (sourceTransitionsHandler === transitionsHandler)
         return result
     }
     
-    func isChainedForTransitionsHandler(transitionsHandler: TransitionsHandler)
+    func isChainedForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> Bool
     {
         let result = (targetTransitionsHandlerBox.unbox() !== transitionsHandler)

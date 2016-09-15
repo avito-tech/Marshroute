@@ -1,7 +1,7 @@
 /// Базовый класс для анимирующих обработчиков переходов
-public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, TransitionsCoordinatorHolder, TransitionsHandler {
+open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, TransitionsCoordinatorHolder, TransitionsHandler {
     // MARK: - TransitionsCoordinatorHolder
-    public let transitionsCoordinator: TransitionsCoordinator
+    open let transitionsCoordinator: TransitionsCoordinator
     
     public init(transitionsCoordinator: TransitionsCoordinator)
     {
@@ -9,41 +9,41 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
     }
     
     // MARK: - TransitionsHandler
-    public func performTransition(context context: PresentationTransitionContext)
+    open func performTransition(context: PresentationTransitionContext)
     {
         transitionsCoordinator.coordinatePerformingTransition(context: context, forAnimatingTransitionsHandler: self)
     }
     
-    public func undoTransitionsAfter(transitionId transitionId: TransitionId)
+    open func undoTransitionsAfter(transitionId: TransitionId)
     {
         transitionsCoordinator.coordinateUndoingTransitionsAfter(transitionId: transitionId, forAnimatingTransitionsHandler: self)
     }
     
-    public func undoTransitionWith(transitionId transitionId: TransitionId)
+    open func undoTransitionWith(transitionId: TransitionId)
     {
         transitionsCoordinator.coordinateUndoingTransitionWith(transitionId: transitionId, forAnimatingTransitionsHandler: self)
     }
     
-    public func undoAllChainedTransitions()
+    open func undoAllChainedTransitions()
     {
         transitionsCoordinator.coordinateUndoingAllChainedTransitions(forAnimatingTransitionsHandler: self)
     }
     
-    public func undoAllTransitions()
+    open func undoAllTransitions()
     {
         transitionsCoordinator.coordinateUndoingAllTransitions(forAnimatingTransitionsHandler: self)
     }
     
-    public func resetWithTransition(context context: ResettingTransitionContext)
+    open func resetWithTransition(context: ResettingTransitionContext)
     {
         transitionsCoordinator.coordinateResettingWithTransition(context: context, forAnimatingTransitionsHandler: self)
     }
     
     // MARK: - TransitionAnimationsLauncher
-    public func launchPresentationAnimation(inout launchingContextBox launchingContextBox: PresentationAnimationLaunchingContextBox)
+    open func launchPresentationAnimation(launchingContextBox: inout PresentationAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .Modal(let launchingContext):
+        case .modal(let launchingContext):
             let modalPresentationAnimationContext = ModalPresentationAnimationContext(
                 modalPresentationAnimationLaunchingContext: launchingContext
             )
@@ -52,7 +52,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
             }
             
-        case .ModalNavigation(let launchingContext):
+        case .modalNavigation(let launchingContext):
             let modalNavigationPresentationAnimationContext = ModalNavigationPresentationAnimationContext(
                 modalNavigationPresentationAnimationLaunchingContext: launchingContext
             )
@@ -61,7 +61,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
             }
             
-        case .ModalEndpointNavigation(let launchingContext):
+        case .modalEndpointNavigation(let launchingContext):
             let modalEndpointNavigationPresentationAnimationContext = ModalEndpointNavigationPresentationAnimationContext(
                 modalEndpointNavigationPresentationAnimationLaunchingContext: launchingContext
             )
@@ -70,7 +70,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
             }
             
-        case .ModalMasterDetail(let launchingContext):
+        case .modalMasterDetail(let launchingContext):
             let modalMasterDetailPresentationAnimationContext = ModalMasterDetailPresentationAnimationContext(
                 modalMasterDetailPresentationAnimationLaunchingContext: launchingContext
             )
@@ -79,10 +79,10 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
             }
             
-        case .Push(_):
+        case .push:
             debugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
-        case .Popover(let launchingContext):
+        case .popover(let launchingContext):
             let popoverPresentationAnimationContext = PopoverPresentationAnimationContext(
                 popoverPresentationAnimationLaunchingContext: launchingContext
             )
@@ -91,7 +91,7 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animatePerformingTransition(animationContext: animationContext)
             }
             
-        case .PopoverNavigation(let launchingContext):
+        case .popoverNavigation(let launchingContext):
             let popoverNavigationPresentationAnimationContext = PopoverNavigationPresentationAnimationContext(
                 popoverNavigationPresentationAnimationLaunchingContext: launchingContext
             )
@@ -102,24 +102,24 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
         }
     }
     
-    public func launchDismissalAnimation(launchingContextBox launchingContextBox: DismissalAnimationLaunchingContextBox)
+    open func launchDismissalAnimation(launchingContextBox: DismissalAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .Modal(let launchingContext):
+        case .modal(let launchingContext):
             let modalDismissalAnimationContext = ModalDismissalAnimationContext(
                 modalDismissalAnimationLaunchingContext: launchingContext
             )
             
             launchingContext.animator.animateUndoingTransition(animationContext: modalDismissalAnimationContext)
             
-        case .ModalNavigation(let launchingContext):
+        case .modalNavigation(let launchingContext):
             let modalNavigationDismissalAnimationContext = ModalNavigationDismissalAnimationContext(
                 modalNavigationDismissalAnimationLaunchingContext: launchingContext
             )
             
             launchingContext.animator.animateUndoingTransition(animationContext: modalNavigationDismissalAnimationContext)
             
-        case .ModalEndpointNavigation(let launchingContext):
+        case .modalEndpointNavigation(let launchingContext):
             let modalEndpointNavigationDismissalAnimationContext = ModalEndpointNavigationDismissalAnimationContext(
                 modalEndpointNavigationDismissalAnimationLaunchingContext: launchingContext
             )
@@ -127,28 +127,28 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
             launchingContext.animator.animateUndoingTransition(animationContext: modalEndpointNavigationDismissalAnimationContext)
             
             
-        case .ModalMasterDetail(let launchingContext):
+        case .modalMasterDetail(let launchingContext):
             let modalMasterDetailDismissalAnimationContext = ModalMasterDetailDismissalAnimationContext(
                 modalMasterDetailDismissalAnimationLaunchingContext: launchingContext
             )
             
             launchingContext.animator.animateUndoingTransition(animationContext: modalMasterDetailDismissalAnimationContext)
             
-        case .Pop(let launchingContext):
+        case .pop(let launchingContext):
             let popAnimationContext = PopAnimationContext(
                 popAnimationLaunchingContext: launchingContext
             )
             
             launchingContext.animator.animateUndoingTransition(animationContext: popAnimationContext)
             
-        case .Popover(let launchingContext):
+        case .popover(let launchingContext):
             let popoverDismissalAnimationContext = PopoverDismissalAnimationContext(
                 popoverDismissalAnimationLaunchingContext: launchingContext
             )
             
             launchingContext.animator.animateUndoingTransition(animationContext: popoverDismissalAnimationContext)
             
-        case .PopoverNavigation(let launchingContext):
+        case .popoverNavigation(let launchingContext):
             let popoverNavigationDismissalAnimationContext = PopoverNavigationDismissalAnimationContext(
                 popoverNavigationDismissalAnimationLaunchingContext: launchingContext
             )
@@ -157,10 +157,10 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
         }
     }
     
-    public func launchResettingAnimation(inout launchingContextBox launchingContextBox: ResettingAnimationLaunchingContextBox)
+    open func launchResettingAnimation(launchingContextBox: inout ResettingAnimationLaunchingContextBox)
     {
         switch launchingContextBox {
-        case .SettingNavigationRoot(let launchingContext):
+        case .settingNavigationRoot(let launchingContext):
             let settingAnimationContext = SettingNavigationAnimationContext(
                 settingAnimationLaunchingContext: launchingContext
             )
@@ -169,13 +169,13 @@ public class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transiti
                 launchingContext.animator.animateResettingWithTransition(animationContext: animationContext)
             }
             
-        case .ResettingNavigationRoot(_):
+        case .resettingNavigationRoot:
             debugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
-        case .Registering:
+        case .registering:
             break; // no need for animations
             
-        case .RegisteringEndpointNavigation:
+        case .registeringEndpointNavigation:
             break // no need for animations
         }
     }

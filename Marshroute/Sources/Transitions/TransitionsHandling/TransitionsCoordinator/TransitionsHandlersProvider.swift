@@ -4,15 +4,15 @@ public protocol TransitionsHandlersProvider: class {
     func animatingTransitionsHandler()
         -> AnimatingTransitionsHandler
     
-    func navigationTransitionsHandler(navigationController navigationController: UINavigationController)
+    func navigationTransitionsHandler(navigationController: UINavigationController)
         -> NavigationTransitionsHandlerImpl
     
-    func topTransitionsHandlerBox(transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox)
+    func topTransitionsHandlerBox(transitionsHandlerBox: TransitionsHandlerBox)
         -> TransitionsHandlerBox
     
-    func splitViewTransitionsHandler(splitViewController splitViewController: UISplitViewController)
+    func splitViewTransitionsHandler(splitViewController: UISplitViewController)
         -> SplitViewTransitionsHandlerImpl
     
-    func tabBarTransitionsHandler(tabBarController tabBarController: UITabBarController)
+    func tabBarTransitionsHandler(tabBarController: UITabBarController)
         ->TabBarTransitionsHandlerImpl
 }

@@ -13,7 +13,7 @@ public struct PresentationTransitionContext {
     
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    public private(set) var targetTransitionsHandlerBox: PresentationTransitionTargetTransitionsHandlerBox
+    public fileprivate(set) var targetTransitionsHandlerBox: PresentationTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?
@@ -35,7 +35,7 @@ public extension PresentationTransitionContext {
     {
         self.transitionId = transitionId
         self.targetViewController = targetViewController
-        self.targetTransitionsHandlerBox = .PendingAnimating
+        self.targetTransitionsHandlerBox = .pendingAnimating
        
         self.storableParameters = nil
         
@@ -44,7 +44,7 @@ public extension PresentationTransitionContext {
             animator: animator
         )
         
-        self.presentationAnimationLaunchingContextBox = .Push(
+        self.presentationAnimationLaunchingContextBox = .push(
             launchingContext: animationLaunchingContext
         )
     }
@@ -80,7 +80,7 @@ public extension PresentationTransitionContext {
             animator: animator
         )
         
-        self.presentationAnimationLaunchingContextBox = .Modal(
+        self.presentationAnimationLaunchingContextBox = .modal(
             launchingContext: animationLaunchingContext
         )
     }
@@ -105,7 +105,7 @@ public extension PresentationTransitionContext {
             animator: animator
         )
         
-        self.presentationAnimationLaunchingContextBox = .ModalMasterDetail(
+        self.presentationAnimationLaunchingContextBox = .modalMasterDetail(
             launchingContext: animationLaunchingContext
         )
     }
@@ -136,7 +136,7 @@ public extension PresentationTransitionContext {
             animator: animator
         )
         
-        self.presentationAnimationLaunchingContextBox = .ModalNavigation(
+        self.presentationAnimationLaunchingContextBox = .modalNavigation(
             launchingContext: animationLaunchingContext
         )
     }
@@ -161,7 +161,7 @@ public extension PresentationTransitionContext {
             animator: animator
         )
         
-        self.presentationAnimationLaunchingContextBox = .ModalEndpointNavigation(
+        self.presentationAnimationLaunchingContextBox = .modalEndpointNavigation(
             launchingContext: animationLaunchingContext
         )
     }
@@ -187,12 +187,12 @@ public extension PresentationTransitionContext {
         )
         
         let animationLaunchingContext = PopoverPresentationAnimationLaunchingContext(
-            transitionStyle: .PopoverFromView(sourceView: view, sourceRect: rect),
+            transitionStyle: .popoverFromView(sourceView: view, sourceRect: rect),
             targetViewController: targetViewController,
             popoverController: popoverController,
             animator: animator)
         
-        self.presentationAnimationLaunchingContextBox = .Popover(
+        self.presentationAnimationLaunchingContextBox = .popover(
             launchingContext: animationLaunchingContext
         )
     }
@@ -217,13 +217,13 @@ public extension PresentationTransitionContext {
         )
         
         let animationLaunchingContext = PopoverNavigationPresentationAnimationLaunchingContext(
-            transitionStyle: .PopoverFromView(sourceView: view, sourceRect: rect),
+            transitionStyle: .popoverFromView(sourceView: view, sourceRect: rect),
             targetViewController: targetViewController,
             targetNavigationController: navigationController,
             popoverController: popoverController,
             animator: animator)
         
-        self.presentationAnimationLaunchingContextBox = .PopoverNavigation(
+        self.presentationAnimationLaunchingContextBox = .popoverNavigation(
             launchingContext: animationLaunchingContext
         )
     }
@@ -246,12 +246,12 @@ public extension PresentationTransitionContext {
         )
         
         let animationLaunchingContext = PopoverPresentationAnimationLaunchingContext(
-            transitionStyle: .PopoverFromBarButtonItem(buttonItem: buttonItem),
+            transitionStyle: .popoverFromBarButtonItem(buttonItem: buttonItem),
             targetViewController: targetViewController,
             popoverController: popoverController,
             animator: animator)
         
-        self.presentationAnimationLaunchingContextBox = .Popover(
+        self.presentationAnimationLaunchingContextBox = .popover(
             launchingContext: animationLaunchingContext
         )
     }
@@ -275,13 +275,13 @@ public extension PresentationTransitionContext {
         )
         
         let animationLaunchingContext = PopoverNavigationPresentationAnimationLaunchingContext(
-            transitionStyle: .PopoverFromBarButtonItem(buttonItem: buttonItem),
+            transitionStyle: .popoverFromBarButtonItem(buttonItem: buttonItem),
             targetViewController: targetViewController,
             targetNavigationController: navigationController,
             popoverController: popoverController,
             animator: animator)
         
-        self.presentationAnimationLaunchingContextBox = .PopoverNavigation(
+        self.presentationAnimationLaunchingContextBox = .popoverNavigation(
             launchingContext: animationLaunchingContext
         )
     }
@@ -295,7 +295,7 @@ extension PresentationTransitionContext {
     }
     
     /// Проставляем непроставленного ранее обработчика переходов
-    mutating func setAnimatingTargetTransitionsHandler(transitionsHandler: AnimatingTransitionsHandler)
+    mutating func setAnimatingTargetTransitionsHandler(_ transitionsHandler: AnimatingTransitionsHandler)
     {
         assert(needsAnimatingTargetTransitionHandler)
         targetTransitionsHandlerBox = .init(animatingTransitionsHandler: transitionsHandler)

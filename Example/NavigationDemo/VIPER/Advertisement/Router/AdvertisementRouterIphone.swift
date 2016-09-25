@@ -3,7 +3,7 @@ import Marshroute
 
 final class AdvertisementRouterIphone: BaseDemoRouter, AdvertisementRouter {
     // MARK: - AdvertisementRouter
-    func showSimilarSearchResult(searchResultId searchResultId: SearchResultId) {
+    func showSimilarSearchResult(searchResultId: SearchResultId) {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let advertisementAssembly = assemblyFactory.advertisementAssembly()
             

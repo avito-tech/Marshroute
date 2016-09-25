@@ -1,9 +1,9 @@
 enum ModalMasterDetailTransitionsAnimatorSpyPerformCalls {
-    case Called(animationContext: ModalMasterDetailPresentationAnimationContext)
+    case called(animationContext: ModalMasterDetailPresentationAnimationContext)
 }
 
 enum ModalMasterDetailTransitionsAnimatorSpyUndoCalls {
-    case Called(animationContext: ModalMasterDetailDismissalAnimationContext)
+    case called(animationContext: ModalMasterDetailDismissalAnimationContext)
 }
 
 final class ModalMasterDetailTransitionsAnimatorSpy: ModalMasterDetailTransitionsAnimator
@@ -14,13 +14,13 @@ final class ModalMasterDetailTransitionsAnimatorSpy: ModalMasterDetailTransition
     
     override func animatePerformingTransition(animationContext context: ModalMasterDetailPresentationAnimationContext)
     {
-        animatePerforming = .Called(animationContext: context)
+        animatePerforming = .called(animationContext: context)
     }
     
     var animateUndoing: ModalMasterDetailTransitionsAnimatorSpyUndoCalls!
     
     override func animateUndoingTransition(animationContext context: ModalMasterDetailDismissalAnimationContext)
     {
-        animateUndoing = .Called(animationContext: context)
+        animateUndoing = .called(animationContext: context)
     }
 }

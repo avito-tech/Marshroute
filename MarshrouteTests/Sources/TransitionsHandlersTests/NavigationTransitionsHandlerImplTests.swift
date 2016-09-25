@@ -27,7 +27,7 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
         navigationTransitionsHandler.performTransition(context: presentationContext)
         
         // Then
-        if case .ForAnimating(let context, let transitionsHandler) = transitionsCoordinatorSpy.coordinatePerformingTransition! {
+        if case .forAnimating(let context, let transitionsHandler) = transitionsCoordinatorSpy.coordinatePerformingTransition! {
             XCTAssert(context == presentationContext)
             XCTAssert(transitionsHandler === navigationTransitionsHandler)
         } else { XCTFail() }
@@ -41,7 +41,7 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
         navigationTransitionsHandler.undoTransitionsAfter(transitionId: generatedTansitionId)
         
         // Then
-        if case .ForAnimating(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionsAfter! {
+        if case .forAnimating(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionsAfter! {
             XCTAssert(transitionId == generatedTansitionId)
             XCTAssert(transitionsHandler === navigationTransitionsHandler)
         } else { XCTFail() }
@@ -55,7 +55,7 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
         navigationTransitionsHandler.undoTransitionWith(transitionId: generatedTansitionId)
         
         // Then
-        if case .ForAnimating(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionWith! {
+        if case .forAnimating(let transitionId, let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingTransitionWith! {
             XCTAssert(transitionId == generatedTansitionId)
             XCTAssert(transitionsHandler === navigationTransitionsHandler)
         } else { XCTFail() }
@@ -66,7 +66,7 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
         navigationTransitionsHandler.undoAllChainedTransitions()
         
         // Then
-        if case .ForAnimating(let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingAllChainedTransitions! {
+        if case .forAnimating(let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingAllChainedTransitions! {
             XCTAssert(transitionsHandler === navigationTransitionsHandler)
         } else { XCTFail() }
     }
@@ -76,7 +76,7 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
         navigationTransitionsHandler.undoAllTransitions()
         
         // Then
-        if case .ForAnimating(let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingAllTransitions! {
+        if case .forAnimating(let transitionsHandler) = transitionsCoordinatorSpy.coordinateUndoingAllTransitions! {
             XCTAssert(transitionsHandler === navigationTransitionsHandler)
         } else { XCTFail() }
     }
@@ -89,7 +89,7 @@ final class NavigationTransitionsHandlerImplTests: XCTestCase {
         navigationTransitionsHandler.resetWithTransition(context: resettingContext)
         
         // Then
-        if case .ForAnimating(let context, let transitionsHandler) = transitionsCoordinatorSpy.coordinateResettingWithTransition! {
+        if case .forAnimating(let context, let transitionsHandler) = transitionsCoordinatorSpy.coordinateResettingWithTransition! {
             XCTAssert(context == resettingContext)
             XCTAssert(transitionsHandler === navigationTransitionsHandler)
         } else { XCTFail() }

@@ -1,38 +1,38 @@
 /// Описание всех аниматоров, выполняющих reset-переходы
 public enum ResettingTransitionsAnimatorBox {
-    case SettingNavigationRoot(animator: SetNavigationTransitionsAnimator)
-    case ResettingNavigationRoot(animator: ResetNavigationTransitionsAnimator)
-    case Registering
-    case RegisteringEndpointNavigation
+    case settingNavigationRoot(animator: SetNavigationTransitionsAnimator)
+    case resettingNavigationRoot(animator: ResetNavigationTransitionsAnimator)
+    case registering
+    case registeringEndpointNavigation
     
     public func enableAnimations() {
         switch self {
-        case .SettingNavigationRoot(let animator):
+        case .settingNavigationRoot(let animator):
             animator.shouldAnimate = true
             
-        case .ResettingNavigationRoot(let animator):
+        case .resettingNavigationRoot(let animator):
             animator.shouldAnimate = true
             
-        case .Registering:
+        case .registering:
             break // no need for animations
             
-        case .RegisteringEndpointNavigation:
+        case .registeringEndpointNavigation:
             break // no need for animations
         }
     }
     
     public func disableAnimations() {
         switch self {
-        case .SettingNavigationRoot(let animator):
+        case .settingNavigationRoot(let animator):
             animator.shouldAnimate = false
             
-        case .ResettingNavigationRoot(let animator):
+        case .resettingNavigationRoot(let animator):
             animator.shouldAnimate = false
             
-        case .Registering:
+        case .registering:
             break // no need for animations
             
-        case .RegisteringEndpointNavigation:
+        case .registeringEndpointNavigation:
             break // no need for animations
         }
     }

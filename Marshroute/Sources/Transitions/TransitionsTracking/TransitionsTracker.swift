@@ -15,17 +15,17 @@ public struct TrackedTransition {
 
 public protocol TransitionsTracker: class {
     func countOfTransitionsAfterTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         untilLastTransitionOfTransitionsHandler targetTransitionsHandler: TransitionsHandler)
         -> Int?
     
     func restoredTransitionFromTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         searchingFromTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
         -> RestoredTransitionContext?
     
     func restoredTransitionFromTrackedTransition(
-        trackedTransition: TrackedTransition,
+        _ trackedTransition: TrackedTransition,
         searchingFromTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
         -> RestoredTransitionContext?
 }

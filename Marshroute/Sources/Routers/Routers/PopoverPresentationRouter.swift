@@ -4,56 +4,56 @@ import UIKit
 public protocol PopoverPresentationRouter: class {
     // MARK: - UIViewController in UIPopoverController
     func presentPopoverFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func presentPopoverFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     
     func presentPopoverFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func presentPopoverFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     
     // MARK: - UIViewController in UINavigationController in UIPopoverController
     func presentPopoverWithNavigationControllerFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func presentPopoverWithNavigationControllerFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     
     func presentPopoverWithNavigationControllerFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     
     func presentPopoverWithNavigationControllerFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func presentPopoverWithNavigationControllerFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     
     func presentPopoverWithNavigationControllerFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
 }
@@ -68,9 +68,9 @@ extension PopoverPresentationRouter where
 {
     // MARK: - UIViewController in UIPopoverController
     public func presentPopoverFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         presentPopoverFromRect(
             rect,
@@ -81,9 +81,9 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     {
         let animatingTransitionsHandler = transitionsHandlersProvider.animatingTransitionsHandler()
@@ -107,7 +107,7 @@ extension PopoverPresentationRouter where
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
         
         do {
             let resetContext = ResettingTransitionContext(
@@ -135,8 +135,8 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         presentPopoverFromBarButtonItem(
             barButtonItem,
@@ -146,8 +146,8 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverTransitionsAnimator)
     {
         let animatingTransitionsHandler = transitionsHandlersProvider.animatingTransitionsHandler()
@@ -171,7 +171,7 @@ extension PopoverPresentationRouter where
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
         
         do {
             let resetContext = ResettingTransitionContext(
@@ -200,9 +200,9 @@ extension PopoverPresentationRouter where
     
     // MARK: - UIViewController in UINavigationController in UIPopoverController
     public func presentPopoverWithNavigationControllerFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         presentPopoverWithNavigationControllerFromRect(
             rect,
@@ -213,9 +213,9 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverWithNavigationControllerFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     {
         presentPopoverWithNavigationControllerFromRect(
@@ -228,9 +228,9 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverWithNavigationControllerFromRect(
-        rect: CGRect,
+        _ rect: CGRect,
         inView view: UIView,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
@@ -257,7 +257,7 @@ extension PopoverPresentationRouter where
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
         
         do {
             let resetContext = ResettingTransitionContext(
@@ -288,8 +288,8 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverWithNavigationControllerFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         presentPopoverWithNavigationControllerFromBarButtonItem(
             barButtonItem,
@@ -299,8 +299,8 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverWithNavigationControllerFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator)
     {
         presentPopoverWithNavigationControllerFromBarButtonItem(
@@ -312,8 +312,8 @@ extension PopoverPresentationRouter where
     }
     
     public func presentPopoverWithNavigationControllerFromBarButtonItem(
-        barButtonItem: UIBarButtonItem,
-        @noescape withViewControllerDerivedFrom deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ barButtonItem: UIBarButtonItem,
+        withViewControllerDerivedFrom deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: PopoverNavigationTransitionsAnimator,
         navigationController: UINavigationController)
     {
@@ -340,7 +340,7 @@ extension PopoverPresentationRouter where
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
 
         do {
             let resetContext = ResettingTransitionContext(

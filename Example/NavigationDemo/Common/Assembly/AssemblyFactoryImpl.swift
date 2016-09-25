@@ -1,6 +1,6 @@
 final class AssemblyFactoryImpl: AssemblyFactory {
     // MARK: - Init
-    private let serviceFactory: ServiceFactory
+    fileprivate let serviceFactory: ServiceFactory
     
     init(serviceFactory: ServiceFactory) {
         self.serviceFactory = serviceFactory

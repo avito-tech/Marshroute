@@ -1,59 +1,59 @@
 /// Описание всех аниматоров, выполняющих прямые и обратные переходы
 public enum TransitionsAnimatorBox {
-    case Modal(animator: ModalTransitionsAnimator)
-    case ModalNavigation(animator: ModalNavigationTransitionsAnimator)
-    case ModalEndpointNavigation(animator: ModalEndpointNavigationTransitionsAnimator)
-    case ModalMasterDetail(animator: ModalMasterDetailTransitionsAnimator)
-    case Navigation(animator: NavigationTransitionsAnimator)
-    case Popover(animator: PopoverTransitionsAnimator)
-    case PopoverNavigation(animator: PopoverNavigationTransitionsAnimator)
+    case modal(animator: ModalTransitionsAnimator)
+    case modalNavigation(animator: ModalNavigationTransitionsAnimator)
+    case modalEndpointNavigation(animator: ModalEndpointNavigationTransitionsAnimator)
+    case modalMasterDetail(animator: ModalMasterDetailTransitionsAnimator)
+    case navigation(animator: NavigationTransitionsAnimator)
+    case popover(animator: PopoverTransitionsAnimator)
+    case popoverNavigation(animator: PopoverNavigationTransitionsAnimator)
     
     public func enableAnimations() {
         switch self {
-        case .Modal(let animator):
+        case .modal(let animator):
             animator.shouldAnimate = true
             
-        case .ModalNavigation(let animator):
+        case .modalNavigation(let animator):
             animator.shouldAnimate = true
             
-        case .ModalEndpointNavigation(let animator):
+        case .modalEndpointNavigation(let animator):
             animator.shouldAnimate = true
           
-        case .ModalMasterDetail(let animator):
+        case .modalMasterDetail(let animator):
             animator.shouldAnimate = true
             
-        case .Navigation(let animator):
+        case .navigation(let animator):
             animator.shouldAnimate = true
             
-        case .Popover(let animator):
+        case .popover(let animator):
             animator.shouldAnimate = true
             
-        case .PopoverNavigation(let animator):
+        case .popoverNavigation(let animator):
             animator.shouldAnimate = true
         }
     }
     
     public func disableAnimations() {
         switch self {
-        case .Modal(let animator):
+        case .modal(let animator):
             animator.shouldAnimate = false
             
-        case .ModalNavigation(let animator):
+        case .modalNavigation(let animator):
             animator.shouldAnimate = false
             
-        case .ModalEndpointNavigation(let animator):
+        case .modalEndpointNavigation(let animator):
             animator.shouldAnimate = false
             
-        case .ModalMasterDetail(let animator):
+        case .modalMasterDetail(let animator):
             animator.shouldAnimate = false
             
-        case .Navigation(let animator):
+        case .navigation(let animator):
             animator.shouldAnimate = false
             
-        case .Popover(let animator):
+        case .popover(let animator):
             animator.shouldAnimate = false
             
-        case .PopoverNavigation(let animator):
+        case .popoverNavigation(let animator):
             animator.shouldAnimate = false
         }
     }

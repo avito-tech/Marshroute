@@ -3,7 +3,7 @@ import UIKit
 final class TransitionContextsCreator
 {
     static func createCompletedTransitionContextFromPresentationTransitionContext(
-        sourceTransitionsHandler sourceTransitionsHandler: AnimatingTransitionsHandler,
+        sourceTransitionsHandler: AnimatingTransitionsHandler,
         targetViewController: UIViewController,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
         -> CompletedTransitionContext
@@ -13,12 +13,12 @@ final class TransitionContextsCreator
             animator: NavigationTransitionsAnimator()
         )
         
-        let presentationAnimationLaunchingContextBox = PresentationAnimationLaunchingContextBox.Push(
+        let presentationAnimationLaunchingContextBox = PresentationAnimationLaunchingContextBox.push(
             launchingContext: pushAnimationLaunchingContext
         )
         
         let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
-            = .Presentation(launchingContextBox: presentationAnimationLaunchingContextBox)
+            = .presentation(launchingContextBox: presentationAnimationLaunchingContextBox)
         
         return CompletedTransitionContext(
             transitionId: TransitionIdGeneratorImpl().generateNewTransitionId(),
@@ -31,13 +31,13 @@ final class TransitionContextsCreator
     }
     
     static func createRegisteringCompletedTransitionContext(
-        sourceTransitionsHandler sourceTransitionsHandler: AnimatingTransitionsHandler,
+        sourceTransitionsHandler: AnimatingTransitionsHandler,
                                  targetViewController: UIViewController,
                                  targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
         -> CompletedTransitionContext
     {
         let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
-            = .Resetting(launchingContextBox: .Registering)
+            = .resetting(launchingContextBox: .registering)
         
         return CompletedTransitionContext(
             transitionId: TransitionIdGeneratorImpl().generateNewTransitionId(),

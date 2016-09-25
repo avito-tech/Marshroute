@@ -3,8 +3,8 @@ import UIKit
 private let ReuseId = "SearchResultsViewCell"
 
 final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSource {
-    private let tableView = UITableView(frame: .zero, style: .Plain)
-    private var searchResults = [SearchResultsViewData]()
+    fileprivate let tableView = UITableView(frame: .zero, style: .plain)
+    fileprivate var searchResults = [SearchResultsViewData]()
  
     // MARK: - Init
     init() {
@@ -12,14 +12,14 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
         addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorColor = .clearColor()
+        tableView.separatorColor = .clear
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func reloadWithSearchResults(searchResults: [SearchResultsViewData]) {
+    func reloadWithSearchResults(_ searchResults: [SearchResultsViewData]) {
         self.searchResults = searchResults
         tableView.reloadData()
     }
@@ -31,23 +31,23 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: - UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(ReuseId)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: ReuseId)
         
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: ReuseId)
-            cell?.textLabel?.highlightedTextColor = .whiteColor()
+            cell = UITableViewCell(style: .default, reuseIdentifier: ReuseId)
+            cell?.textLabel?.highlightedTextColor = .white
         }
 
-        let searchResult = searchResults[indexPath.row]
+        let searchResult = searchResults[(indexPath as NSIndexPath).row]
         
         let color = UIColor(
             red: CGFloat(searchResult.rgb.red),
@@ -63,8 +63,8 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: - UITableViewDelegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        searchResults[indexPath.row].onTap()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        searchResults[(indexPath as NSIndexPath).row].onTap()
     }
 }

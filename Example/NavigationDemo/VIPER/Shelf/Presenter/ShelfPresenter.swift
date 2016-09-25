@@ -2,9 +2,9 @@ import Foundation
 
 final class ShelfPresenter {
     // MARK: - Init
-    private let interactor: ShelfInteractor
+    fileprivate let interactor: ShelfInteractor
     
-    private let router: ShelfRouter
+    fileprivate let router: ShelfRouter
     
     init(interactor: ShelfInteractor, router: ShelfRouter) {
         self.interactor = interactor
@@ -19,7 +19,7 @@ final class ShelfPresenter {
     }
     
     // MARK: - Private
-    private func setupView() {
+    fileprivate func setupView() {
         view?.onViewDidLoad = { [weak self] in
             self?.view?.setTitle("shelves".localized)
         }

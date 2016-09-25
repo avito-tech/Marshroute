@@ -2,35 +2,35 @@ import UIKit
 
 /// Аниматор, выполняющий модальный переход на UISplitViewController.
 /// Также выполняет обратный переход
-public class ModalMasterDetailTransitionsAnimator: TransitionsAnimator
+open class ModalMasterDetailTransitionsAnimator: TransitionsAnimator
 {
-    public var shouldAnimate = true
+    open var shouldAnimate = true
     
-    public var targetModalTransitionStyle: UIModalTransitionStyle
-    public var targetModalPresentationStyle: UIModalPresentationStyle
+    open var targetModalTransitionStyle: UIModalTransitionStyle
+    open var targetModalPresentationStyle: UIModalPresentationStyle
     
     // MARK: - Init
     public init(
         targetModalTransitionStyle: UIModalTransitionStyle?,
         targetModalPresentationStyle: UIModalPresentationStyle?)
     {
-        self.targetModalTransitionStyle = targetModalTransitionStyle ?? .CoverVertical
-        self.targetModalPresentationStyle = targetModalPresentationStyle ?? .FullScreen
+        self.targetModalTransitionStyle = targetModalTransitionStyle ?? .coverVertical
+        self.targetModalPresentationStyle = targetModalPresentationStyle ?? .fullScreen
     }
     
     public init()
     {
-        self.targetModalTransitionStyle = .CoverVertical
-        self.targetModalPresentationStyle = .FullScreen
+        self.targetModalTransitionStyle = .coverVertical
+        self.targetModalPresentationStyle = .fullScreen
     }
     
     // MARK: - TransitionsAnimator
-    public func animatePerformingTransition(animationContext context: ModalMasterDetailPresentationAnimationContext)
+    open func animatePerformingTransition(animationContext context: ModalMasterDetailPresentationAnimationContext)
     {
         context.targetViewController.modalTransitionStyle = targetModalTransitionStyle
         context.targetViewController.modalPresentationStyle = targetModalPresentationStyle
         
-        context.sourceViewController.presentViewController(
+        context.sourceViewController.present(
             context.targetViewController,
             animated: shouldAnimate,
             completion: nil
@@ -38,10 +38,10 @@ public class ModalMasterDetailTransitionsAnimator: TransitionsAnimator
         shouldAnimate = true
     }
     
-    public func animateUndoingTransition(animationContext context: ModalMasterDetailDismissalAnimationContext)
+    open func animateUndoingTransition(animationContext context: ModalMasterDetailDismissalAnimationContext)
     {
-        context.targetViewController.dismissViewControllerAnimated(
-            shouldAnimate,
+        context.targetViewController.dismiss(
+            animated: shouldAnimate,
             completion: nil
         )
         shouldAnimate = true

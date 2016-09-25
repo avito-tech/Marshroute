@@ -6,7 +6,7 @@ final class FadeOutView: UIView {
         let frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         super.init(frame: frame)
         
-        self.backgroundColor = .clearColor()
+        self.backgroundColor = .clear
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -14,21 +14,21 @@ final class FadeOutView: UIView {
     }
     
     // MARK: - Drawing
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Red circle
         let context = UIGraphicsGetCurrentContext()
-        CGContextAddEllipseInRect(context, rect)
-        CGContextSetFillColor(context, CGColorGetComponents (UIColor.redColor().CGColor))
-        CGContextFillPath(context)
+        context?.addEllipse(in: rect)
+        context?.setFillColor(UIColor.red.cgColor.components! )
+        context?.fillPath()
     }
     
     // MARK: - Interval
     func fadeOut() {
-        UIView.animateWithDuration(
-            0.25,
+        UIView.animate(
+            withDuration: 0.25,
             animations: {
                 self.alpha = 0
-                self.transform = CGAffineTransformMakeScale(0.00001, 0.00001)
+                self.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
             },
             completion: { _ in
                 self.removeFromSuperview()

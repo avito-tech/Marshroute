@@ -2,50 +2,50 @@ import Marshroute
 
 final class TrackedModulesList {
     // MARK: - Private properties
-    private var modules = [TrackedModule]()
+    fileprivate var modules = [TrackedModule]()
     
     // MARK: - Internal
-    func append(trackedModule: TrackedModule) {
+    func append(_ trackedModule: TrackedModule) {
         guard trackedModule.weakTransitionsHandlerBox.unbox() !== nil
             else { return }
         
         releaseZombieModules()
         
-        guard !modules.contains({ $0.transitionId == trackedModule.transitionId })
+        guard !modules.contains(where: { $0.transitionId == trackedModule.transitionId })
             else { return }
         
         modules.append(trackedModule)
     }
     
     func removeTrackedModuleWithTransitionUserId(
-        transitionUserId: TransitionUserId,
+        _ transitionUserId: TransitionUserId,
         transitionId: TransitionId)
     {
         releaseZombieModules()
         
-        let index = modules.indexOf {
+        let index = modules.index {
             ($0.transitionUserId == transitionUserId) &&
                 ($0.transitionId == transitionId)
         }
         
         if let trackedModuleIndex = index {
-            modules.removeAtIndex(trackedModuleIndex)
+            modules.remove(at: trackedModuleIndex)
         }
     }
     
-    func removeTrackedModulesWithTransitionUserId(transitionUserId: TransitionUserId) {
+    func removeTrackedModulesWithTransitionUserId(_ transitionUserId: TransitionUserId) {
         releaseZombieModules()
         
-        let index = modules.indexOf { $0.transitionUserId == transitionUserId }
+        let index = modules.index { $0.transitionUserId == transitionUserId }
         
         if let trackedModuleIndex = index {
-            modules.removeAtIndex(trackedModuleIndex)
+            modules.remove(at: trackedModuleIndex)
         }
 
     }
 
     func trackedModulesWithTransitionUserId(
-        transitionUserId: TransitionUserId,
+        _ transitionUserId: TransitionUserId,
         mismatchingTransitionId transitionId: TransitionId)
         -> [TrackedModule]
     {
@@ -59,7 +59,7 @@ final class TrackedModulesList {
         return result
     }
     
-    func trackedModulesWithTransitionUserId(transitionUserId: TransitionUserId)
+    func trackedModulesWithTransitionUserId(_ transitionUserId: TransitionUserId)
         -> [TrackedModule]
     {
         releaseZombieModules()
@@ -70,7 +70,7 @@ final class TrackedModulesList {
     }
     
     // MARK: - Private
-    private func releaseZombieModules() {
+    fileprivate func releaseZombieModules() {
         modules = modules.filter { $0.weakTransitionsHandlerBox.unbox() !== nil }
     }
 }

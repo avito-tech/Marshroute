@@ -1,7 +1,27 @@
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
-    private weak var tabBarController: UITabBarController?
+    fileprivate weak var tabBarController: UITabBarController?
     
     public init(tabBarController: UITabBarController,
         transitionsCoordinator: TransitionsCoordinator)
@@ -15,7 +35,7 @@ final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
 
     // MARK: - TransitionsHandlerContainer
     override public var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        guard let tabsCount = tabBarController?.viewControllers?.count where tabsCount > 0
+        guard let tabsCount = tabBarController?.viewControllers?.count , tabsCount > 0
             else { return nil }
 
         return animatingTransitionsHandlers(
@@ -46,7 +66,7 @@ final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
 // MARK: - helpers
 private extension TabBarTransitionsHandlerImpl {
     func animatingTransitionsHandlers(
-        fromTabIndex fromTabIndex: Int,
+        fromTabIndex: Int,
         toTabIndex: Int,
         unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)
         -> [AnimatingTransitionsHandler]
@@ -60,7 +80,7 @@ private extension TabBarTransitionsHandlerImpl {
             
             if let containingTransitionsHandler = containingTransitionsHandlers?[index] {
                 if let childAnimatingTransitionHandlers = unboxContainingTransitionsHandler(containingTransitionsHandler) {
-                    result.appendContentsOf(childAnimatingTransitionHandlers)
+                    result.append(contentsOf: childAnimatingTransitionHandlers)
                 }
             }
         }

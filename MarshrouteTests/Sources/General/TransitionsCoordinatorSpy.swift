@@ -5,20 +5,20 @@ final class TransitionsCoordinatorSpy: TransitionsCoordinator
     var coordinatePerformingTransition: CoordinatePerformingTransition!
     
     func coordinatePerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
                 forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        coordinatePerformingTransition = .ForAnimating(
+        coordinatePerformingTransition = .forAnimating(
             context: context,
             transitionsHandler: transitionsHandler
         )
     }
     
     func coordinatePerformingTransition(
-        context context: PresentationTransitionContext,
+        context: PresentationTransitionContext,
                 forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
-        coordinatePerformingTransition = .ForContaining(
+        coordinatePerformingTransition = .forContaining(
             context: context,
             transitionsHandler: transitionsHandler
         )
@@ -29,20 +29,20 @@ final class TransitionsCoordinatorSpy: TransitionsCoordinator
     var coordinateUndoingTransitionsAfter: CoordinateUndoingTransitionsAfter!
     
     func coordinateUndoingTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
                      forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        coordinateUndoingTransitionsAfter = .ForAnimating(
+        coordinateUndoingTransitionsAfter = .forAnimating(
             transitionId: transitionId,
             transitionsHandler: transitionsHandler
         )
     }
     
     func coordinateUndoingTransitionsAfter(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
                      forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
-        coordinateUndoingTransitionsAfter = .ForContaining(
+        coordinateUndoingTransitionsAfter = .forContaining(
             transitionId: transitionId,
             transitionsHandler: transitionsHandler
         )
@@ -53,20 +53,20 @@ final class TransitionsCoordinatorSpy: TransitionsCoordinator
     var coordinateUndoingTransitionWith: CoordinateUndoingTransitionWith!
     
     func coordinateUndoingTransitionWith(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
                      forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        coordinateUndoingTransitionWith = .ForAnimating(
+        coordinateUndoingTransitionWith = .forAnimating(
             transitionId: transitionId,
             transitionsHandler: transitionsHandler
         )
     }
     
     func coordinateUndoingTransitionWith(
-        transitionId transitionId: TransitionId,
+        transitionId: TransitionId,
                      forContainingTransitionsHandler transitionsHandler: ContainingTransitionsHandler)
     {
-        coordinateUndoingTransitionWith = .ForContaining(
+        coordinateUndoingTransitionWith = .forContaining(
             transitionId: transitionId,
             transitionsHandler: transitionsHandler
         )
@@ -78,7 +78,7 @@ final class TransitionsCoordinatorSpy: TransitionsCoordinator
     func coordinateUndoingAllChainedTransitions(
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        coordinateUndoingAllChainedTransitions = .ForAnimating(
+        coordinateUndoingAllChainedTransitions = .forAnimating(
             transitionsHandler: transitionsHandler
         )
     }
@@ -90,7 +90,7 @@ final class TransitionsCoordinatorSpy: TransitionsCoordinator
     func coordinateUndoingAllTransitions(
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        coordinateUndoingAllTransitions = .ForAnimating(
+        coordinateUndoingAllTransitions = .forAnimating(
             transitionsHandler: transitionsHandler
         )
     }
@@ -100,10 +100,10 @@ final class TransitionsCoordinatorSpy: TransitionsCoordinator
     var coordinateResettingWithTransition: CoordinateResettingWithTransition?
     
     func coordinateResettingWithTransition(
-        context context: ResettingTransitionContext,
+        context: ResettingTransitionContext,
                 forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)
     {
-        coordinateResettingWithTransition = .ForAnimating(
+        coordinateResettingWithTransition = .forAnimating(
             context: context,
             transitionsHandler: transitionsHandler
         )

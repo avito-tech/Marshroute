@@ -1,8 +1,8 @@
 import UIKit
 
 final class RecursionViewController: BaseViewController, RecursionViewInput {
-    private let recursionView = RecursionView()
-    private let isDismissable: Bool
+    fileprivate let recursionView = RecursionView()
+    fileprivate let isDismissable: Bool
     
     // MARK: - Init
     init(isDismissable: Bool) {
@@ -29,7 +29,7 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "recursion".localized, // to Recursion module
-            style: .Plain,
+            style: .plain,
             target: self,
             action: #selector(RecursionViewController.onRecursionButtonTap(_:))
         )
@@ -38,7 +38,7 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
         
         if isDismissable {
             let dismissButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .Stop,
+                barButtonSystemItem: .stop,
                 target: self,
                 action: #selector(RecursionViewController.onDismissButtonTap(_:))
             )
@@ -47,7 +47,7 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
         
         let toCategoriesButtonItem = UIBarButtonItem(
             title: "categories".localized, // to Categories module
-            style: .Plain,
+            style: .plain,
             target: self,
             action: #selector(RecursionViewController.onCategoriesButtonTap(_:))
         )
@@ -58,40 +58,40 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
     }
     
     // MARK: - Private
-    @objc private func onRecursionButtonTap(sender: UIBarButtonItem) {
-        onRecursionButtonTap?(sender: sender)
+    @objc fileprivate func onRecursionButtonTap(_ sender: UIBarButtonItem) {
+        onRecursionButtonTap?(sender)
     }
     
-    @objc private func onCategoriesButtonTap(sender: UIBarButtonItem) {
-        onCategoriesButtonTap?(sender: sender)
+    @objc fileprivate func onCategoriesButtonTap(_ sender: UIBarButtonItem) {
+        onCategoriesButtonTap?(sender)
     }
     
-    @objc private func onDismissButtonTap(sender: UIBarButtonItem) {
+    @objc fileprivate func onDismissButtonTap(_ sender: UIBarButtonItem) {
         onDismissButtonTap?()
     }
     
     // MARK: - RecursionViewInput
-    @nonobjc func setTitle(title: String?) {
+    @nonobjc func setTitle(_ title: String?) {
         self.title = title
     }
     
-    func setTimerButtonVisible(visible: Bool) {
+    func setTimerButtonVisible(_ visible: Bool) {
         recursionView.setTimerButtonVisible(visible)
     }
     
-    func setTimerButtonEnabled(enabled: Bool) {
+    func setTimerButtonEnabled(_ enabled: Bool) {
         recursionView.setTimerButtonEnabled(enabled)
     }
     
-    func setTimerButtonTitle(title: String) {
+    func setTimerButtonTitle(_ title: String) {
         recursionView.setTimerButtonTitle(title)
     }
     
-    var onRecursionButtonTap: ((sender: AnyObject) -> ())?
+    var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
     
     var onDismissButtonTap: (() -> ())?
     
-    var onCategoriesButtonTap: ((sender: AnyObject) -> ())?
+    var onCategoriesButtonTap: ((_ sender: AnyObject) -> ())?
     
     var onTimerButtonTap: (() -> ())? {
         get { return recursionView.onTimerButtonTap }

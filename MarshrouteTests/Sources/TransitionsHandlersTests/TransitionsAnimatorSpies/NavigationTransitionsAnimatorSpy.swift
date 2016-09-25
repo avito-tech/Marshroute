@@ -1,9 +1,9 @@
 enum NavigationTransitionsAnimatorSpyPerformCalls {
-    case Called(animationContext: PushAnimationContext)
+    case called(animationContext: PushAnimationContext)
 }
 
 enum NavigationTransitionsAnimatorSpyUndoCalls {
-    case Called(animationContext: PopAnimationContext)
+    case called(animationContext: PopAnimationContext)
 }
 
 final class NavigationTransitionsAnimatorSpy: NavigationTransitionsAnimator
@@ -14,13 +14,13 @@ final class NavigationTransitionsAnimatorSpy: NavigationTransitionsAnimator
     
     override func animatePerformingTransition(animationContext context: PushAnimationContext)
     {
-        animatePerforming = .Called(animationContext: context)
+        animatePerforming = .called(animationContext: context)
     }
 
     var animateUndoing: NavigationTransitionsAnimatorSpyUndoCalls!
     
     override func animateUndoingTransition(animationContext context: PopAnimationContext)
     {
-        animateUndoing = .Called(animationContext: context)
+        animateUndoing = .called(animationContext: context)
     }
 }

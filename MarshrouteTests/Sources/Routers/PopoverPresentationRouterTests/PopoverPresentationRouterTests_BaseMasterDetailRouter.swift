@@ -44,7 +44,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     // MARK: - UIViewController in UIPopoverController
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_presentPopoverFromRect_WithCorrectPresentationContext() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -61,12 +61,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .Popover(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popover(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -75,7 +75,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentPopoverFromRect_WithCorrectPresentationContext_IfCustomAnimator() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -98,12 +98,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .Popover(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popover(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -113,7 +113,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_presentPopoverFromBarButtonItem_WithCorrectPresentationContext() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -130,12 +130,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .Popover(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popover(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
             XCTAssert(launchingContext.targetViewController! === targetViewController)
@@ -143,7 +143,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_presentPopoverFromBarButtonItem_WithCorrectPresentationContext_IfCustomAnimator() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -165,12 +165,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .Popover(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popover(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
             XCTAssert(launchingContext.animator === popoverTransitionsAnimator)
@@ -181,7 +181,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     // MARK: - UIViewController in UINavigationController in UIPopoverController
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_presentPopoverWithNavigationControllerFromRect_WithCorrectPresentationContext() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -198,12 +198,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .PopoverNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popoverNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -212,7 +212,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentPopoverWithNavigationControllerFromRect_WithCorrectPresentationContext_IfCustomAnimator() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -235,12 +235,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .PopoverNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popoverNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -250,7 +250,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentPopoverWithNavigationControllerFromRect_WithCorrectPresentationContext_IfCustomAnimator_CustomNavigationController() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -275,12 +275,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .PopoverNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popoverNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromView(let sourceView, let sourceRect) = launchingContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -291,7 +291,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_presentPopoverWithNavigationControllerFromBarButtonItem_WithCorrectPresentationContext() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -308,12 +308,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .PopoverNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popoverNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
             XCTAssert(launchingContext.targetViewController! === targetViewController)
@@ -321,7 +321,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_presentPopoverWithNavigationControllerFromBarButtonItem_WithCorrectPresentationContext_IfCustomAnimator() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -343,12 +343,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .PopoverNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popoverNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
             XCTAssert(launchingContext.animator === popoverNavigationTransitionsAnimator)
@@ -357,7 +357,7 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
     }
     
     func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_presentPopoverWithNavigationControllerFromBarButtonItem_WithCorrectPresentationContext_IfCustomAnimator_CustomNavigationController() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -381,12 +381,12 @@ final class PopoverPresentationRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is PopoverTransitionStorableParameters)
-        if case .PopoverNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
-            if case .PopoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is PopoverTransitionStorableParameters)
+        if case .some(.popoverNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
+            if case .popoverFromBarButtonItem(let buttonItem) = launchingContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
             XCTAssert(launchingContext.animator === popoverNavigationTransitionsAnimator)

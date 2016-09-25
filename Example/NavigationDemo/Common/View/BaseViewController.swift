@@ -17,7 +17,7 @@ class BaseViewController: UIViewController, ViewLifecycleObservable, DisposeBag,
         super.init(nibName: nil, bundle: nil)
     }
 
-    @available(*, unavailable, message="use init")
+    @available(*, unavailable, message: "use init")
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,25 +28,25 @@ class BaseViewController: UIViewController, ViewLifecycleObservable, DisposeBag,
         onViewDidLoad?()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         onViewWillAppear?()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         onViewDidAppear?()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         onViewWillDisappear?()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         onViewDidDisappear?()

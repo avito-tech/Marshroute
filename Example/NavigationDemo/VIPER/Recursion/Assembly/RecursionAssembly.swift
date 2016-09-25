@@ -2,9 +2,9 @@ import UIKit
 import Marshroute
 
 protocol RecursionAssembly: class {
-    func module(routerSeed routerSeed: RouterSeed)
+    func module(routerSeed: RouterSeed)
         -> UIViewController
     
-    func ipadModule(routerSeed routerSeed: RouterSeed)
+    func ipadModule(routerSeed: RouterSeed)
         -> UIViewController
 }

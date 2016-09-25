@@ -1,8 +1,8 @@
 import UIKit
 
 final class CategoriesViewController: BaseViewController, CategoriesViewInput {
-    private let categoriesView = CategoriesView()
-    private let isDismissable: Bool
+    fileprivate let categoriesView = CategoriesView()
+    fileprivate let isDismissable: Bool
     
     // MARK: - Init
     init(isDismissable: Bool) {
@@ -20,7 +20,7 @@ final class CategoriesViewController: BaseViewController, CategoriesViewInput {
         
         if isDismissable {
             navigationItem.rightBarButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .Stop,
+                barButtonSystemItem: .stop,
                 target: self,
                 action: #selector(CategoriesViewController.onDismissButtonTap(_:))
             )
@@ -28,28 +28,28 @@ final class CategoriesViewController: BaseViewController, CategoriesViewInput {
     }
     
     // MARK: - Private
-    @objc private func onDismissButtonTap(sender: UIBarButtonItem) {
+    @objc fileprivate func onDismissButtonTap(_ sender: UIBarButtonItem) {
         onDismissButtonTap?()
     }
    
     // MARK: - CategoriesViewInput
-    func setCategories(categories: [CategoriesViewData]) {
+    func setCategories(_ categories: [CategoriesViewData]) {
         categoriesView.reloadWithCategories(categories)
     }
     
-    @nonobjc func setTitle(title: String?) {
+    @nonobjc func setTitle(_ title: String?) {
         self.navigationItem.title = title
     }
     
-    func setTimerButtonVisible(visible: Bool) {
+    func setTimerButtonVisible(_ visible: Bool) {
         categoriesView.setTimerButtonVisible(visible)
     }
     
-    func setTimerButtonEnabled(enabled: Bool) {
+    func setTimerButtonEnabled(_ enabled: Bool) {
         categoriesView.setTimerButtonEnabled(enabled)
     }
     
-    func setTimerButtonTitle(title: String) {
+    func setTimerButtonTitle(_ title: String) {
         categoriesView.setTimerButtonTitle(title)
     }
     

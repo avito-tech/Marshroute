@@ -1,11 +1,11 @@
 import Marshroute
 
 final class RecursionAnimator: ModalNavigationTransitionsAnimator {
-    private let animatedTransitioning = AnimatedTransitioningImpl()
+    fileprivate let animatedTransitioning = AnimatedTransitioningImpl()
     
     // MARK: - ModalNavigationTransitionsAnimator
     override func animatePerformingTransition(animationContext context: ModalNavigationPresentationAnimationContext) {
-        targetModalPresentationStyle = .Custom
+        targetModalPresentationStyle = .custom
         context.targetNavigationController.transitioningDelegate = animatedTransitioning
         super.animatePerformingTransition(animationContext: context)
     }
@@ -21,33 +21,33 @@ private class AnimatedTransitioningImpl:
     UIViewControllerAnimatedTransitioning
 {
     // MARK: - UIViewControllerTransitioningDelegate
-    @objc func animationControllerForPresentedController(
-        presented: UIViewController,
-        presentingController: UIViewController,
-        sourceController: UIViewController)
+    @objc func animationController(
+        forPresented presented: UIViewController,
+        presenting presentingController: UIViewController,
+        source sourceController: UIViewController)
         -> UIViewControllerAnimatedTransitioning?
     {
         return self
     }
     
-    @objc func animationControllerForDismissedController(dismissed: UIViewController)
+    @objc func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning?
     {
         return self
     }
     
     // MARK: - UIViewControllerAnimatedTransitioning
-    @objc func transitionDuration(transitionContext: UIViewControllerContextTransitioning?)
-        -> NSTimeInterval
+    @objc func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?)
+        -> TimeInterval
     {
         return 0.6
     }
     
-    @objc func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        guard let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+    @objc func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        guard let toViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             else { return }
         
-        if toViewController.isBeingPresented() {
+        if toViewController.isBeingPresented {
             animatePresentation(transitionContext)
         } else {
             animateDismissal(transitionContext)
@@ -55,18 +55,22 @@ private class AnimatedTransitioningImpl:
     }
     
     // MARK: - Private
-    private func animatePresentation(transitionContext: UIViewControllerContextTransitioning)
+    fileprivate func animatePresentation(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        guard let sourceViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        guard let sourceViewController = transitionContext.viewController(forKey: .from)
             else { return }
         
-        guard let targetViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+        guard let targetViewController = transitionContext.viewController(forKey: .to)
             else { return }
         
-        guard let containerView = transitionContext.containerView()
+        guard let sourceViewSnapshotImage = sourceViewController.view.screenshot()
             else { return }
         
-        let transitionDuration = self.transitionDuration(transitionContext)
+        let sourceViewSnapshot = UIImageView(image: sourceViewSnapshotImage)
+        
+        let containerView = transitionContext.containerView
+        
+        let transitionDuration = self.transitionDuration(using: transitionContext)
         
         // Orientation bug fix
         // See: http://stackoverflow.com/a/20061872/351305
@@ -75,15 +79,14 @@ private class AnimatedTransitioningImpl:
         
         // Add black view below the container to hide `UITransitionView`s
         let blackView = UIView(frame: containerView.bounds)
-        blackView.backgroundColor = .blackColor()
+        blackView.backgroundColor = .black
         containerView.superview?.insertSubview(blackView, belowSubview: containerView)
         
         // Add source view's snapshot to container
-        let sourceViewSnapshot = sourceViewController.view.snapshotViewAfterScreenUpdates(false)
         containerView.addSubview(sourceViewSnapshot)
         
         // Hide source view
-        sourceViewController.view.hidden = true
+        sourceViewController.view.isHidden = true
         
         // Add destination view to container
         containerView.addSubview(targetViewController.view)
@@ -103,16 +106,16 @@ private class AnimatedTransitioningImpl:
         sourceViewController.beginAppearanceTransition(false, animated: true)
         
         // Animate
-        UIView.animateKeyframesWithDuration(
-            transitionDuration,
+        UIView.animateKeyframes(
+            withDuration: transitionDuration,
             delay: 0.0,
-            options: [.CalculationModeCubic],
+            options: [.calculationModeCubic],
             animations: {
-                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 1.0, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                     sourceViewSnapshot.frame = self.frameBelowView(containerView)
                 })
                 
-                UIView.addKeyframeWithRelativeStartTime(0.2, relativeDuration: 0.8, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8, animations: {
                     targetViewController.view.layer.transform = originalTransform
                 })
             },
@@ -124,7 +127,7 @@ private class AnimatedTransitioningImpl:
                 sourceViewSnapshot.removeFromSuperview()
                 
                 // Show the source view
-                sourceViewController.view.hidden = false
+                sourceViewController.view.isHidden = false
                 
                 // End appearance transition for source controller
                 sourceViewController.endAppearanceTransition()
@@ -135,33 +138,37 @@ private class AnimatedTransitioningImpl:
         )
     }
     
-    private func animateDismissal(transitionContext: UIViewControllerContextTransitioning)
+    fileprivate func animateDismissal(_ transitionContext: UIViewControllerContextTransitioning)
     {
-        guard let sourceViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        guard let sourceViewController = transitionContext.viewController(forKey: .from)
             else { return }
         
-        guard let targetViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
+        guard let targetViewController = transitionContext.viewController(forKey: .to)
             else { return }
         
-        guard let containerView = transitionContext.containerView()
+        guard let targetViewSnapshotImage = targetViewController.view.screenshot()
             else { return }
         
-        let transitionDuration = self.transitionDuration(transitionContext)
+        let targetViewSnapshot = UIImageView(image: targetViewSnapshotImage)
+        
+        let containerView = transitionContext.containerView
+        
+        let transitionDuration = self.transitionDuration(using: transitionContext)
         
         // Add black view below the container to hide `UITransitionView`s
         let blackView = UIView(frame: containerView.bounds)
-        blackView.backgroundColor = .blackColor()
+        blackView.backgroundColor = .black
         containerView.superview?.insertSubview(blackView, belowSubview: containerView)
         
         // Add source view to container
         containerView.addSubview(sourceViewController.view)
         
         // Add target view's snapshot to container
-        let targetViewSnapshot = targetViewController.view.snapshotViewAfterScreenUpdates(false)
+        
         containerView.addSubview(targetViewSnapshot)
         
         // Hide target view
-        targetViewController.view.hidden = true
+        targetViewController.view.isHidden = true
         
         // Move snapshot view below source view
         targetViewSnapshot.frame = frameBelowView(containerView)
@@ -171,16 +178,16 @@ private class AnimatedTransitioningImpl:
         targetViewController.beginAppearanceTransition(true, animated: true)
         
         // Animate
-        UIView.animateKeyframesWithDuration(
-            transitionDuration,
+        UIView.animateKeyframes(
+            withDuration: transitionDuration,
             delay: 0.0,
-            options: [.CalculationModeCubic],
+            options: [.calculationModeCubic],
             animations: {
-                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 1.0, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                     targetViewSnapshot.frame = containerView.bounds
                 })
                 
-                UIView.addKeyframeWithRelativeStartTime(0.0, relativeDuration: 1.0, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                     // Important: original transform3d is different from CATransform3DIdentity
                     var perspectiveTransform = sourceViewController.view.layer.transform
                     
@@ -197,7 +204,7 @@ private class AnimatedTransitioningImpl:
                 targetViewSnapshot.removeFromSuperview()
                 
                 // Show the target view
-                targetViewController.view.hidden = false
+                targetViewController.view.isHidden = false
                 
                 // End appearance transition for destination controller
                 targetViewController.endAppearanceTransition()
@@ -208,9 +215,20 @@ private class AnimatedTransitioningImpl:
         )
     }
     
-    private func frameBelowView(relativeView: UIView)
+    fileprivate func frameBelowView(_ relativeView: UIView)
         -> CGRect
     {
         return CGRect(x: 0, y: relativeView.frame.height, width: relativeView.frame.width, height: relativeView.frame.height)
+    }
+}
+
+extension UIView {
+    func screenshot() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0);
+        drawHierarchy(in: bounds, afterScreenUpdates: false)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return screenshot
     }
 }

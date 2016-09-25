@@ -3,7 +3,7 @@ import UIKit
 /// Роутер, управляющий двумя экранами (двумя UINavigationController'ами)
 /// Работает с двумя обработчиками переходов (master и detail).
 /// Например, роутер master-контроллера внутри SplitViewController'а
-public class BaseMasterDetailRouter:
+open class BaseMasterDetailRouter:
     TransitionsHandlersProviderHolder,
     TransitionIdGeneratorHolder,
     RouterIdentifiable,
@@ -20,13 +20,13 @@ public class BaseMasterDetailRouter:
     DetailRouter,
     RouterControllersProviderHolder
 {
-    public let masterTransitionsHandlerBox: RouterTransitionsHandlerBox
-    public let detailTransitionsHandlerBox: RouterTransitionsHandlerBox
-    public let transitionId: TransitionId
-    public private(set) weak var presentingTransitionsHandler: TransitionsHandler?
-    public let transitionsHandlersProvider: TransitionsHandlersProvider
-    public let transitionIdGenerator: TransitionIdGenerator
-    public let controllersProvider: RouterControllersProvider
+    open let masterTransitionsHandlerBox: RouterTransitionsHandlerBox
+    open let detailTransitionsHandlerBox: RouterTransitionsHandlerBox
+    open let transitionId: TransitionId
+    open fileprivate(set) weak var presentingTransitionsHandler: TransitionsHandler?
+    open let transitionsHandlersProvider: TransitionsHandlersProvider
+    open let transitionIdGenerator: TransitionIdGenerator
+    open let controllersProvider: RouterControllersProvider
     
     public init(routerSeed seed: MasterDetailRouterSeed)
     {
@@ -40,7 +40,7 @@ public class BaseMasterDetailRouter:
     }
     
     // MARK: - RouterTransitionable
-    public var transitionsHandlerBox: RouterTransitionsHandlerBox {
+    open var transitionsHandlerBox: RouterTransitionsHandlerBox {
         return masterTransitionsHandlerBox
     }
 }

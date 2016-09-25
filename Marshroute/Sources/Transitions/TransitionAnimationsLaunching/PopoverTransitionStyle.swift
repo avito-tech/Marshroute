@@ -2,12 +2,12 @@ import UIKit
 
 /// Стили переходов с участием UIPopoverController
 public enum PopoverTransitionStyle {
-    case PopoverFromView(
+    case popoverFromView(
         sourceView: UIView,
         sourceRect: CGRect
     )
     
-    case PopoverFromBarButtonItem(
+    case popoverFromBarButtonItem(
         buttonItem: UIBarButtonItem
     )
 }

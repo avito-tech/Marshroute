@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ApplicationModuleInput: class {
-    func showAuthorizationModule(completion: ((isAuthorized: Bool) -> ())?)
+    func showAuthorizationModule(_ completion: ((_ isAuthorized: Bool) -> ())?)
 }

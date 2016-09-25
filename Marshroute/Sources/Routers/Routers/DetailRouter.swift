@@ -3,17 +3,17 @@ import UIKit
 /// Роутер, работающий с одним UINavigationController'ом, и выполняющий push- и reset-переходы
 public protocol DetailRouter: class {
     func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     
     func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     
     func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
 }
 
@@ -21,7 +21,7 @@ public protocol DetailRouter: class {
 extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsHandlersProviderHolder, Self: RouterControllersProviderHolder {
     
     public func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         setViewControllerDerivedFrom(
             deriveViewController,
@@ -30,7 +30,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     public func setViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     {
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
@@ -45,7 +45,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
         
         let resetContext = ResettingTransitionContext(
             resettingRootViewController: viewController,
@@ -58,7 +58,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     public func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController)
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         pushViewControllerDerivedFrom(
             deriveViewController,
@@ -67,7 +67,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
     }
     
     public func pushViewControllerDerivedFrom(
-        @noescape deriveViewController: (routerSeed: RouterSeed) -> UIViewController,
+        _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: NavigationTransitionsAnimator)
     {
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
@@ -85,7 +85,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             controllersProvider: controllersProvider
         )
         
-        let viewController = deriveViewController(routerSeed: routerSeed)
+        let viewController = deriveViewController(routerSeed)
         
         let pushContext = PresentationTransitionContext(
             pushingViewController: viewController,

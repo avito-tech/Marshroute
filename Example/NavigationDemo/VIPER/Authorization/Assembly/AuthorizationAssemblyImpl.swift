@@ -3,7 +3,7 @@ import Marshroute
 
 final class AuthorizationAssemblyImpl: BaseAssembly, AuthorizationAssembly {
     // MARK: - AuthorizationAssembly
-    func module(routerSeed routerSeed: RouterSeed)
+    func module(routerSeed: RouterSeed)
         -> (viewController: UIViewController, moduleInput: AuthorizationModuleInput)
     {
         registerModuleAsBeingTracked(
@@ -32,8 +32,8 @@ final class AuthorizationAssemblyImpl: BaseAssembly, AuthorizationAssembly {
     }
     
     // MARK: - Private
-    private func registerModuleAsBeingTracked(
-        transitionsHandlerBox transitionsHandlerBox: TransitionsHandlerBox,
+    fileprivate func registerModuleAsBeingTracked(
+        transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)
     {
         // debugPrint(transitionUserId)

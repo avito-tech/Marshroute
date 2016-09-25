@@ -1,7 +1,7 @@
 import Foundation
 
 final class BannerInteractorImpl: BannerInteractor {
-    private let timerService: TimerService
+    fileprivate let timerService: TimerService
     
     // MARK: - Init
     init(timerService: TimerService) {
@@ -9,7 +9,7 @@ final class BannerInteractorImpl: BannerInteractor {
     }
     
     // MARK: - BannerInteractor
-    func startTimer(onTick onTick: ((secondsLeft: NSTimeInterval) -> ())?, onFire: (() -> ())?) {
+    func startTimer(onTick: ((_ secondsLeft: TimeInterval) -> ())?, onFire: (() -> ())?) {
         timerService.startTimer(seconds: 1, onTick: onTick, onFire: onFire)
     }
     

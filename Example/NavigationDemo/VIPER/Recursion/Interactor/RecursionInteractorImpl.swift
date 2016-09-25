@@ -1,7 +1,7 @@
 import Foundation
 
 final class RecursionInteractorImpl: RecursionInteractor {
-    private var timerService: TimerService?
+    fileprivate var timerService: TimerService?
     
     // MARK: - Init
     init(timerService: TimerService?) {
@@ -9,11 +9,11 @@ final class RecursionInteractorImpl: RecursionInteractor {
     }
     
     // MARK: - RecursionInteractor
-    func timerStatus(completion: (isEnabled: Bool) -> ()) {
-        completion(isEnabled: timerService != nil)
+    func timerStatus(_ completion: (_ isEnabled: Bool) -> ()) {
+        completion(timerService != nil)
     }
     
-    func startTimer(onTick onTick: ((secondsLeft: NSTimeInterval) -> ())?, onFire: (() -> ())?) {
+    func startTimer(onTick: ((_ secondsLeft: TimeInterval) -> ())?, onFire: (() -> ())?) {
         timerService?.startTimer(seconds: 6, onTick: onTick, onFire: onFire)
     }
 }

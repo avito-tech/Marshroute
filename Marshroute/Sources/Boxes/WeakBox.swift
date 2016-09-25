@@ -1,5 +1,5 @@
-public struct WeakBox<T where T: AnyObject> {
-    private weak var boxedValue: T?
+public struct WeakBox<T> where T: AnyObject {
+    fileprivate weak var boxedValue: T?
     
     public init(_ boxedValue: T)
     {

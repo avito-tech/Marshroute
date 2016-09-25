@@ -1,7 +1,7 @@
 import Marshroute
 
 protocol CategoriesRouter: class, RouterDismissable {
-    func showSubcategories(categoryId categoryId: CategoryId)
-    func showSearchResults(categoryId categoryId: CategoryId)
+    func showSubcategories(categoryId: CategoryId)
+    func showSearchResults(categoryId: CategoryId)
     func returnToCategories()
 }

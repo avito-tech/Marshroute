@@ -94,7 +94,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         ) { _ in }
         
         // Then
-        if case .Called(let animationContext) = modalEndpointNavigationTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = modalEndpointNavigationTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetNavigationController === targetNavigationController)
         } else { XCTFail() }
@@ -113,7 +113,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = modalTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = modalTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
         } else { XCTFail() }
@@ -135,7 +135,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = modalMasterDetailTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = modalMasterDetailTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
         } else { XCTFail() }
     }
@@ -160,7 +160,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = modalMasterDetailTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = modalMasterDetailTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === splitViewController)
         } else { XCTFail() }
@@ -177,7 +177,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = modalNavigationTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = modalNavigationTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
         } else { XCTFail() }
@@ -196,7 +196,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = modalNavigationTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = modalNavigationTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
             XCTAssert(animationContext.targetNavigationController === navigationController)
@@ -206,7 +206,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
     // MARK: PopoverPresentationRouter
     
     func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PresentPopoverFromRect() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -225,10 +225,10 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = popoverTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = popoverTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
-            if case .PopoverFromView(let sourceView, let sourceRect) = animationContext.transitionStyle {
+            if case .popoverFromView(let sourceView, let sourceRect) = animationContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -236,7 +236,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
     }
     
     func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PresentPopoverFromBarButtonItem() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -253,17 +253,17 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
             )
         
         // Then
-        if case .Called(let animationContext) = popoverTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = popoverTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
-            if case .PopoverFromBarButtonItem(let buttonItem) = animationContext.transitionStyle {
+            if case .popoverFromBarButtonItem(let buttonItem) = animationContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
         } else { XCTFail() }
     }
     
     func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PresentPopoverWithNavigationControllerFromRect() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -282,10 +282,10 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
-            if case .PopoverFromView(let sourceView, let sourceRect) = animationContext.transitionStyle {
+            if case .popoverFromView(let sourceView, let sourceRect) = animationContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -293,7 +293,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
     }
     
     func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PresentPopoverWithNavigationControllerFromRect_IfCustomNavigationController() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -314,11 +314,11 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
             XCTAssert(animationContext.targetNavigationController === navigationController)
-            if case .PopoverFromView(let sourceView, let sourceRect) = animationContext.transitionStyle {
+            if case .popoverFromView(let sourceView, let sourceRect) = animationContext.transitionStyle {
                 XCTAssertEqual(sourceRect, rect)
                 XCTAssertEqual(sourceView, view)
             } else { XCTFail() }
@@ -326,7 +326,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
     }
     
     func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PresentPopoverWithNavigationControllerFromBarButtonItem() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -343,17 +343,17 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
-            if case .PopoverFromBarButtonItem(let buttonItem) = animationContext.transitionStyle {
+            if case .popoverFromBarButtonItem(let buttonItem) = animationContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
         } else { XCTFail() }
     }
     
     func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PresentPopoverWithNavigationControllerFromBarButtonItem_IfCustomnavigationController() {
-        guard UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        guard UIDevice.current.userInterfaceIdiom == .pad
             else { return }
         
         // Given
@@ -372,11 +372,11 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         )
         
         // Then
-        if case .Called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
+        if case .called(let animationContext) = popoverNavigationTransitionsAnimator.animatePerforming! {
             XCTAssert(animationContext.sourceViewController === sourceViewController)
             XCTAssert(animationContext.targetViewController === targetViewController)
             XCTAssert(animationContext.targetNavigationController === navigationController)
-            if case .PopoverFromBarButtonItem(let buttonItem) = animationContext.transitionStyle {
+            if case .popoverFromBarButtonItem(let buttonItem) = animationContext.transitionStyle {
                 XCTAssert(buttonItem === barButtonItem)
             } else { XCTFail() }
         } else { XCTFail() }

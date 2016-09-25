@@ -1,6 +1,6 @@
 import Foundation
 
 protocol RecursionInteractor: class {
-    func timerStatus(completion: (isEnabled: Bool) -> ())
-    func startTimer(onTick onTick: ((secondsLeft: NSTimeInterval) -> ())?, onFire: (() -> ())?)
+    func timerStatus(_ completion: (_ isEnabled: Bool) -> ())
+    func startTimer(onTick: ((_ secondsLeft: TimeInterval) -> ())?, onFire: (() -> ())?)
 }

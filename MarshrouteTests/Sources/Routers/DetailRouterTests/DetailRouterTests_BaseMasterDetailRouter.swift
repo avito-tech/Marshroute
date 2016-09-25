@@ -53,11 +53,11 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.resetWithTransitionCalled)
         
         let resettingContext = detailAnimatingTransitionsHandlerSpy.resetWithTransitionContextParameter
-        XCTAssertEqual(resettingContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(resettingContext.targetViewController === targetViewController)
-        XCTAssert(resettingContext.targetTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
-        XCTAssertNil(resettingContext.storableParameters)
-        if case .ResettingNavigationRoot(let launchingContext) = resettingContext.resettingAnimationLaunchingContextBox {
+        XCTAssertEqual(resettingContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(resettingContext?.targetViewController === targetViewController)
+        XCTAssert(resettingContext?.targetTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
+        XCTAssertNil(resettingContext?.storableParameters)
+        if case .some(.resettingNavigationRoot(let launchingContext)) = resettingContext?.resettingAnimationLaunchingContextBox {
             XCTAssert(launchingContext.rootViewController! == targetViewController)
         } else { XCTFail() }
     }
@@ -77,11 +77,11 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.resetWithTransitionCalled)
         
         let resettingContext = detailAnimatingTransitionsHandlerSpy.resetWithTransitionContextParameter
-        XCTAssertEqual(resettingContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(resettingContext.targetViewController === targetViewController)
-        XCTAssert(resettingContext.targetTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
-        XCTAssertNil(resettingContext.storableParameters)
-        if case .ResettingNavigationRoot(let launchingContext) = resettingContext.resettingAnimationLaunchingContextBox {
+        XCTAssertEqual(resettingContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(resettingContext?.targetViewController === targetViewController)
+        XCTAssert(resettingContext?.targetTransitionsHandlerBox.unbox() === detailAnimatingTransitionsHandlerSpy)
+        XCTAssertNil(resettingContext?.storableParameters)
+        if case .some(.resettingNavigationRoot(let launchingContext)) = resettingContext?.resettingAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === resetNavigationTransitionsAnimator)
             XCTAssert(launchingContext.rootViewController! === targetViewController)
         } else { XCTFail() }
@@ -95,11 +95,11 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         }
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .PendingAnimating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssertNil(presentationContext.storableParameters)
-        if case .Push(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.pendingAnimating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssertNil(presentationContext?.storableParameters)
+        if case .some(.push(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.targetViewController! == targetViewController)
         } else { XCTFail() }
     }
@@ -116,11 +116,11 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         )
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .PendingAnimating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssertNil(presentationContext.storableParameters)
-        if case .Push(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.pendingAnimating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssertNil(presentationContext?.storableParameters)
+        if case .some(.push(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === navigationTransitionsAnimator)
             XCTAssert(launchingContext.targetViewController! === targetViewController)
         } else { XCTFail() }

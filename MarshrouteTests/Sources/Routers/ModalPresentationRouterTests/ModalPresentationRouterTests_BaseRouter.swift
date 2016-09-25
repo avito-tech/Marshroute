@@ -49,11 +49,11 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modal(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.targetViewController! == targetViewController)
         } else { XCTFail() }
     }
@@ -75,11 +75,11 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .Modal(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modal(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalTransitionsAnimator)
             XCTAssert(launchingContext.targetViewController! === targetViewController)
         } else { XCTFail() }
@@ -110,12 +110,12 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextMasterDetailModuleRouterSeed.transitionId)
-        XCTAssertEqual(presentationContext.transitionId, nextDetailModuleRouterSeed.transitionId)
+        XCTAssertEqual(presentationContext?.transitionId, nextMasterDetailModuleRouterSeed.transitionId)
+        XCTAssertEqual(presentationContext?.transitionId, nextDetailModuleRouterSeed.transitionId)
 
-        if case .Containing(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .ModalMasterDetail(_) = presentationContext.presentationAnimationLaunchingContextBox {} else { XCTFail() }
+        if case .some(.containing) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modalMasterDetail) = presentationContext?.presentationAnimationLaunchingContextBox {} else { XCTFail() }
     }
     
     func testThatRouterCallsItsTransitionsHandlerOn_PresentModalMasterDetailViewControllerDerivedFrom_WithCorrectPresentationContext_IfCustomAnimator() {
@@ -143,12 +143,12 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextMasterDetailModuleRouterSeed.transitionId)
-        XCTAssertEqual(presentationContext.transitionId, nextDetailModuleRouterSeed.transitionId)
+        XCTAssertEqual(presentationContext?.transitionId, nextMasterDetailModuleRouterSeed.transitionId)
+        XCTAssertEqual(presentationContext?.transitionId, nextDetailModuleRouterSeed.transitionId)
         
-        if case .Containing(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .ModalMasterDetail(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        if case .some(.containing) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modalMasterDetail(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalMasterDetailTransitionsAnimator)
         } else { XCTFail() }
     }
@@ -182,12 +182,12 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextMasterDetailModuleRouterSeed.transitionId)
-        XCTAssertEqual(presentationContext.transitionId, nextDetailModuleRouterSeed.transitionId)
+        XCTAssertEqual(presentationContext?.transitionId, nextMasterDetailModuleRouterSeed.transitionId)
+        XCTAssertEqual(presentationContext?.transitionId, nextDetailModuleRouterSeed.transitionId)
         
-        if case .Containing(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .ModalMasterDetail(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        if case .some(.containing) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modalMasterDetail(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalMasterDetailTransitionsAnimator)
             XCTAssert(launchingContext.targetViewController! === splitViewController)
         } else { XCTFail() }
@@ -210,11 +210,11 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating(_) = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .ModalNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modalNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.targetViewController! == targetViewController)
         } else { XCTFail() }
     }
@@ -236,11 +236,11 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .ModalNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modalNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalNavigationTransitionsAnimator)
             XCTAssert(launchingContext.targetViewController! === targetViewController)
         } else { XCTFail() }
@@ -265,11 +265,11 @@ final class ModalPresentationRouterTests_BaseRouter: XCTestCase
         XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
         let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
-        XCTAssertEqual(presentationContext.transitionId, nextModuleRouterSeed.transitionId)
-        XCTAssert(presentationContext.targetViewController === targetViewController)
-        if case .Animating = presentationContext.targetTransitionsHandlerBox {} else { XCTFail() }
-        XCTAssert(presentationContext.storableParameters! is NavigationTransitionStorableParameters)
-        if case .ModalNavigation(let launchingContext) = presentationContext.presentationAnimationLaunchingContextBox {
+        XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
+        XCTAssert(presentationContext?.targetViewController === targetViewController)
+        if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
+        XCTAssert(presentationContext?.storableParameters! is NavigationTransitionStorableParameters)
+        if case .some(.modalNavigation(let launchingContext)) = presentationContext?.presentationAnimationLaunchingContextBox {
             XCTAssert(launchingContext.animator === modalNavigationTransitionsAnimator)
             XCTAssert(launchingContext.targetViewController! === targetViewController)
             XCTAssert(launchingContext.targetNavigationController! === navigationController)

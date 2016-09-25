@@ -2,42 +2,42 @@ import UIKit
 
 /// Описание параметров запуска reset-анимаций
 public enum ResettingAnimationLaunchingContextBox {
-    case SettingNavigationRoot(launchingContext: SettingAnimationLaunchingContext)
-    case ResettingNavigationRoot(launchingContext: ResettingAnimationLaunchingContext)
-    case Registering
-    case RegisteringEndpointNavigation
+    case settingNavigationRoot(launchingContext: SettingAnimationLaunchingContext)
+    case resettingNavigationRoot(launchingContext: ResettingAnimationLaunchingContext)
+    case registering
+    case registeringEndpointNavigation
     
     public var resettingTransitionsAnimatorBox: ResettingTransitionsAnimatorBox
     {
         switch self {
-        case .SettingNavigationRoot(let launchingContext):
-            return .SettingNavigationRoot(animator: launchingContext.animator)
+        case .settingNavigationRoot(let launchingContext):
+            return .settingNavigationRoot(animator: launchingContext.animator)
             
-        case .ResettingNavigationRoot(let launchingContext):
-            return .ResettingNavigationRoot(animator: launchingContext.animator)
+        case .resettingNavigationRoot(let launchingContext):
+            return .resettingNavigationRoot(animator: launchingContext.animator)
             
-        case .Registering:
-            return .Registering
+        case .registering:
+            return .registering
             
-        case .RegisteringEndpointNavigation:
-            return .RegisteringEndpointNavigation
+        case .registeringEndpointNavigation:
+            return .registeringEndpointNavigation
         }
     }
     
-    public mutating func appendSourceViewController(sourceViewController: UIViewController)
+    public mutating func appendSourceViewController(_ sourceViewController: UIViewController)
     {
         switch self {
-        case .SettingNavigationRoot(_):
+        case .settingNavigationRoot:
             break // has no source view controller property
             
-        case .ResettingNavigationRoot(var launchingContext):
+        case .resettingNavigationRoot(var launchingContext):
             launchingContext.sourceViewController = sourceViewController
-            self = .ResettingNavigationRoot(launchingContext: launchingContext)
+            self = .resettingNavigationRoot(launchingContext: launchingContext)
             
-        case .Registering:
+        case .registering:
             break // no need for animations
             
-        case .RegisteringEndpointNavigation:
+        case .registeringEndpointNavigation:
             break // no need for animations
         }
     }

@@ -3,7 +3,7 @@ import Marshroute
 
 final class SearchResultsAssemblyImpl: BaseAssembly, SearchResultsAssembly {
     // MARK: - SearchResultsAssembly
-    func module(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
+    func module(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     {
         let router = SearchResultsRouterIphone(
@@ -14,7 +14,7 @@ final class SearchResultsAssemblyImpl: BaseAssembly, SearchResultsAssembly {
         return module(categoryId: categoryId, router: router)
     }
     
-    func ipadModule(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
+    func ipadModule(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     {
         let router = SearchResultsRouterIpad(
@@ -26,7 +26,7 @@ final class SearchResultsAssemblyImpl: BaseAssembly, SearchResultsAssembly {
     }
     
     // MARK - Private
-    private func module(categoryId categoryId: CategoryId, router: SearchResultsRouter)
+    fileprivate func module(categoryId: CategoryId, router: SearchResultsRouter)
         -> UIViewController
     {
         let interactor = SearchResultsInteractorImpl(

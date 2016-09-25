@@ -3,7 +3,7 @@ import Marshroute
 
 final class SearchResultsRouterIpad: BaseDemoRouter, SearchResultsRouter {
     // MARK: - SearchResultsRouter
-    func showAdvertisement(searchResultId searchResultId: SearchResultId) {
+    func showAdvertisement(searchResultId: SearchResultId) {
         pushViewControllerDerivedFrom { routerSeed -> UIViewController in
             let advertisementAssembly = assemblyFactory.advertisementAssembly()
             

@@ -1,11 +1,11 @@
 import Foundation
 
 protocol CategoriesInteractor: class {
-    func category(completion: () -> ())
-    func categoryTitle(completion: (title: String?) -> ())
-    func subcategories(completion: (subcategories: [Category]) -> ())
-    func subCategoryStatus(category: Category, completion: (categoryId: CategoryId, hasSubcategories: Bool) -> ())
+    func category(_ completion: () -> ())
+    func categoryTitle(_ completion: (_ title: String?) -> ())
+    func subcategories(_ completion: (_ subcategories: [Category]) -> ())
+    func subCategoryStatus(_ category: Category, completion: (_ categoryId: CategoryId, _ hasSubcategories: Bool) -> ())
     
-    func timerStatus(completion: (isEnabled: Bool) -> ())
-    func startTimer(onTick onTick: ((secondsLeft: NSTimeInterval) -> ())?, onFire: (() -> ())?)
+    func timerStatus(_ completion: (_ isEnabled: Bool) -> ())
+    func startTimer(onTick: ((_ secondsLeft: TimeInterval) -> ())?, onFire: (() -> ())?)
 }

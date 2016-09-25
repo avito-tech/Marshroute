@@ -2,8 +2,8 @@ import Foundation
 
 final class AdvertisementInteractorImpl: AdvertisementInteractor {
     // MARK: - Init
-    private let advertisementId: AdvertisementId
-    private let advertisementProvider: AdvertisementProvider
+    fileprivate let advertisementId: AdvertisementId
+    fileprivate let advertisementProvider: AdvertisementProvider
     
     init(advertisementId: AdvertisementId,
          advertisementProvider: AdvertisementProvider)
@@ -13,31 +13,31 @@ final class AdvertisementInteractorImpl: AdvertisementInteractor {
     }
     
     // MARK: - Private properties
-    private var advertisement: Advertisement?
+    fileprivate var advertisement: Advertisement?
     
     // MARK: - AdvertisementInteractor
-    func advertisement(completion: () -> ()) {
+    func advertisement(_ completion: () -> ()) {
         advertisement = advertisementProvider.advertisement(advertisementId: advertisementId)
         completion()
     }
     
-    func advertisementTitle(completion: (title: String?) -> ()) {
-        completion(title: advertisement?.title)
+    func advertisementTitle(_ completion: (_ title: String?) -> ()) {
+        completion(advertisement?.title)
     }
     
-    func advertisementPatternAssetName(completion: (assetName: String?) -> ()) {
-        completion(assetName: advertisement?.patternAssetName)
+    func advertisementPatternAssetName(_ completion: (_ assetName: String?) -> ()) {
+        completion(advertisement?.patternAssetName)
     }
     
-    func advertisementPlaceholderAssetName(completion: (assetName: String?) -> ()) {
-        completion(assetName: advertisement?.placeholderAssetName)
+    func advertisementPlaceholderAssetName(_ completion: (_ assetName: String?) -> ()) {
+        completion(advertisement?.placeholderAssetName)
     }
     
-    func advertisementRGB(completion:(rgb: (red: Double, green: Double, blue: Double)?) -> ()) {
-        completion(rgb: advertisement?.rgb)
+    func advertisementRGB(_ completion:(_ rgb: (red: Double, green: Double, blue: Double)?) -> ()) {
+        completion(advertisement?.rgb)
     }
     
-    func recommendedSearchResults(completion: (searchResults: [SearchResult]?) -> ()) {
-        completion(searchResults: advertisement?.recommendedSearchResults)
+    func recommendedSearchResults(_ completion: (_ searchResults: [SearchResult]?) -> ()) {
+        completion(advertisement?.recommendedSearchResults)
     }
 }

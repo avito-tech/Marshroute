@@ -1,7 +1,7 @@
 import UIKit
 
 final class AdvertisementViewController: BaseViewController, AdvertisementViewInput {
-    private let advertisementView = AdvertisementView()
+    fileprivate let advertisementView = AdvertisementView()
     
     override func loadView() {
         view = advertisementView
@@ -12,7 +12,7 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "recursion".localized, // to Recursion module
-            style: .Plain,
+            style: .plain,
             target: self,
             action: #selector(AdvertisementViewController.onRecursionButtonTap(_:))
         )
@@ -22,9 +22,9 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
         super.viewWillLayoutSubviews()
         
         let uiInsets = UIEdgeInsets(
-            top: topLayoutGuide.length ?? 0,
+            top: topLayoutGuide.length ,
             left: 0,
-            bottom: bottomLayoutGuide.length ?? 0,
+            bottom: bottomLayoutGuide.length,
             right: 0
         )
         
@@ -32,30 +32,30 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
     }
     
     // MARK: - Private
-    @objc private func onRecursionButtonTap(sender: UIBarButtonItem) {
-        onRecursionButtonTap?(sender: sender)
+    @objc fileprivate func onRecursionButtonTap(_ sender: UIBarButtonItem) {
+        onRecursionButtonTap?(sender)
     }
     
     // MARK: - AdvertisementViewInput
-    @nonobjc func setTitle(title: String?) {
+    @nonobjc func setTitle(_ title: String?) {
         self.title = title
     }
     
-    func setPatternAssetName(assetName: String?) {
+    func setPatternAssetName(_ assetName: String?) {
         advertisementView.setPatternAssetName(assetName)
     }
 
-    func setPlaceholderAssetName(assetName: String?) {
+    func setPlaceholderAssetName(_ assetName: String?) {
         advertisementView.setPlaceholderAssetName(assetName)
     }
     
-    func setBackgroundRGB(rgb: (red: Double, green: Double, blue: Double)?) {
+    func setBackgroundRGB(_ rgb: (red: Double, green: Double, blue: Double)?) {
         advertisementView.setBackgroundRGB(rgb)
     }
     
-    func setSimilarSearchResults(searchResults: [SearchResultsViewData]) {
+    func setSimilarSearchResults(_ searchResults: [SearchResultsViewData]) {
         advertisementView.setSimilarSearchResults(searchResults)
     }
     
-    var onRecursionButtonTap: ((sender: AnyObject) -> ())?
+    var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
 }

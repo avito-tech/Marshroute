@@ -3,21 +3,21 @@ final class ContainingTransitionsHandlerSpy: ContainingTransitionsHandler
     // MARK: - TransitionsHandler
     var performTransitionCalled = false
     var perFormTransitionContextParameter: PresentationTransitionContext!
-    override func performTransition(context context: PresentationTransitionContext) {
+    override func performTransition(context: PresentationTransitionContext) {
         performTransitionCalled = true
         perFormTransitionContextParameter = context
     }
     
     var undoTransitionsAfterCalled = false
     var undoTransitionsAfterTransitionIdParameter: TransitionId!
-    override func undoTransitionsAfter(transitionId transitionId: TransitionId) {
+    override func undoTransitionsAfter(transitionId: TransitionId) {
         undoTransitionsAfterCalled = true
         undoTransitionsAfterTransitionIdParameter = transitionId
     }
     
     var undoTransitionWithCalled = false
     var undoTransitionWithTransitionIdParameter: TransitionId!
-    override func undoTransitionWith(transitionId transitionId: TransitionId) {
+    override func undoTransitionWith(transitionId: TransitionId) {
         undoTransitionWithCalled = true
         undoTransitionWithTransitionIdParameter = transitionId
     }
@@ -34,7 +34,7 @@ final class ContainingTransitionsHandlerSpy: ContainingTransitionsHandler
     
     var resetWithTransitionCalled = false
     var resetWithTransitionContextParameter: ResettingTransitionContext!
-    override func resetWithTransition(context context: ResettingTransitionContext) {
+    override func resetWithTransition(context: ResettingTransitionContext) {
         resetWithTransitionCalled = true
         resetWithTransitionContextParameter = context
     }

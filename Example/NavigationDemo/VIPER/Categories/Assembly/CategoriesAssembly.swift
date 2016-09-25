@@ -2,23 +2,23 @@ import UIKit
 import Marshroute
 
 protocol CategoriesAssembly: class {
-    func module(routerSeed routerSeed: RouterSeed)
+    func module(routerSeed: RouterSeed)
         -> UIViewController
     
-    func ipadModule(routerSeed routerSeed: RouterSeed)
+    func ipadModule(routerSeed: RouterSeed)
         -> UIViewController
     
-    func ipadMasterDetailModule(routerSeed routerSeed: MasterDetailRouterSeed)
+    func ipadMasterDetailModule(routerSeed: MasterDetailRouterSeed)
         -> UIViewController
 }
 
 protocol SubcategoriesAssembly: class {
-    func module(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
+    func module(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     
-    func ipadModule(categoryId categoryId: CategoryId, routerSeed: RouterSeed)
+    func ipadModule(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     
-    func ipadMasterDetailModule(categoryId categoryId: CategoryId, routerSeed: MasterDetailRouterSeed)
+    func ipadMasterDetailModule(categoryId: CategoryId, routerSeed: MasterDetailRouterSeed)
         -> UIViewController
 }

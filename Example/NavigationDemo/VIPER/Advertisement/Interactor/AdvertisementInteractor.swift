@@ -1,10 +1,10 @@
 import Foundation
 
 protocol AdvertisementInteractor: class {
-    func advertisement(completion: () -> ())
-    func advertisementTitle(completion: (title: String?) -> ())
-    func advertisementPatternAssetName(completion: (assetName: String?) -> ())
-    func advertisementPlaceholderAssetName(completion: (assetName: String?) -> ())
-    func advertisementRGB(completion:(rgb: (red: Double, green: Double, blue: Double)?) -> ())
-    func recommendedSearchResults(completion: (searchResults: [SearchResult]?) -> ())
+    func advertisement(_ completion: () -> ())
+    func advertisementTitle(_ completion: (_ title: String?) -> ())
+    func advertisementPatternAssetName(_ completion: (_ assetName: String?) -> ())
+    func advertisementPlaceholderAssetName(_ completion: (_ assetName: String?) -> ())
+    func advertisementRGB(_ completion:(_ rgb: (red: Double, green: Double, blue: Double)?) -> ())
+    func recommendedSearchResults(_ completion: (_ searchResults: [SearchResult]?) -> ())
 }

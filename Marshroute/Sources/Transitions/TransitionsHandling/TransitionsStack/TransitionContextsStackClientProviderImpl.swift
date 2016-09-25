@@ -1,5 +1,5 @@
 public final class TransitionContextsStackClientProviderImpl {
-    private var historyItems = [TransitionsHistoryItem]()
+    fileprivate var historyItems = [TransitionsHistoryItem]()
     
     public init() {}
 }

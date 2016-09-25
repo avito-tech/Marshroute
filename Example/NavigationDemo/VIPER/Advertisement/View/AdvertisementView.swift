@@ -4,26 +4,26 @@ private let ReuseId = "AdvertisementViewCell"
 private let tableHeaderHeight: CGFloat = 44
 
 final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSource {
-    private let gradientView = GradientView()
-    private let patternView = UIView()
-    private let tableView = UITableView()
-    private var recommendedSearchResults = [SearchResultsViewData]()
-    private let placeholderImageView = UIImageView()
-    private var uiInsets = UIEdgeInsetsZero
+    fileprivate let gradientView = GradientView()
+    fileprivate let patternView = UIView()
+    fileprivate let tableView = UITableView()
+    fileprivate var recommendedSearchResults = [SearchResultsViewData]()
+    fileprivate let placeholderImageView = UIImageView()
+    fileprivate var uiInsets = UIEdgeInsets.zero
     
     // MARK: - Init
     init() {
         super.init(frame: .zero)
         
-        backgroundColor = .whiteColor()
+        backgroundColor = .white
         
         addSubview(gradientView)
         
         addSubview(patternView)
-        patternView.hidden = true
+        patternView.isHidden = true
         
         addSubview(placeholderImageView)
-        placeholderImageView.contentMode = .ScaleAspectFill
+        placeholderImageView.contentMode = .scaleAspectFill
         placeholderImageView.layer.masksToBounds = true
         
         addSubview(tableView)
@@ -37,36 +37,36 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: - Internal
-    func setPatternAssetName(assetName: String?) {
-        if let assetName = assetName, patternImage = UIImage(named: assetName) {
+    func setPatternAssetName(_ assetName: String?) {
+        if let assetName = assetName, let patternImage = UIImage(named: assetName) {
             patternView.backgroundColor = UIColor(patternImage: patternImage)
-            patternView.hidden = false
+            patternView.isHidden = false
         } else {
-            patternView.hidden = true
+            patternView.isHidden = true
         }
     }
     
-    func setPlaceholderAssetName(assetName: String?) {
-        if let assetName = assetName, placeholderImage = UIImage(named: assetName) {
+    func setPlaceholderAssetName(_ assetName: String?) {
+        if let assetName = assetName, let placeholderImage = UIImage(named: assetName) {
             placeholderImageView.image = placeholderImage
             setNeedsLayout()
         }
     }
     
-    func setBackgroundRGB(rgb: (red: Double, green: Double, blue: Double)?) {
+    func setBackgroundRGB(_ rgb: (red: Double, green: Double, blue: Double)?) {
         guard let color = colorFromRGB(rgb)
             else { return }
         
         gradientView.bottomColor = color
     }
     
-    func setSimilarSearchResults(searchResults: [SearchResultsViewData]) {
+    func setSimilarSearchResults(_ searchResults: [SearchResultsViewData]) {
         recommendedSearchResults = searchResults
         tableView.reloadData()
         setNeedsLayout()
     }
     
-    func setUIInsets(insets: UIEdgeInsets) {
+    func setUIInsets(_ insets: UIEdgeInsets) {
         uiInsets = insets
         
         tableView.contentInset.bottom = insets.bottom
@@ -93,23 +93,23 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: - UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recommendedSearchResults.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(ReuseId)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: ReuseId)
         
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: ReuseId)
-            cell?.textLabel?.highlightedTextColor = .whiteColor()
+            cell = UITableViewCell(style: .default, reuseIdentifier: ReuseId)
+            cell?.textLabel?.highlightedTextColor = .white
         }
         
-        let searchResult = recommendedSearchResults[indexPath.row]
+        let searchResult = recommendedSearchResults[(indexPath as NSIndexPath).row]
         
         let color = colorFromRGB(searchResult.rgb)
         
@@ -119,22 +119,22 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         return cell!
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Рекомендуемые объявления"
     }
     
     // MARK: - UITableViewDelegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        recommendedSearchResults[indexPath.row].onTap()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        recommendedSearchResults[(indexPath as NSIndexPath).row].onTap()
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableHeaderHeight
     }
     
     // MARK: - Private
-    private func colorFromRGB(rgb: (red: Double, green: Double, blue: Double)?) -> UIColor? {
+    fileprivate func colorFromRGB(_ rgb: (red: Double, green: Double, blue: Double)?) -> UIColor? {
         guard let rgb = rgb
             else { return nil }
         
@@ -150,12 +150,12 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
 }
 
 private class GradientView: UIView {
-    var bottomColor: UIColor = .whiteColor() {
+    var bottomColor: UIColor = .white {
         didSet {
             if let gradientLayer = layer as? CAGradientLayer {
                 gradientLayer.colors = [
-                    UIColor.whiteColor().CGColor,
-                    bottomColor.colorWithAlphaComponent(0.8).CGColor,
+                    UIColor.white.cgColor,
+                    bottomColor.withAlphaComponent(0.8).cgColor,
                 ]
                 
                 gradientLayer.locations = [0, 1]
@@ -164,7 +164,7 @@ private class GradientView: UIView {
     }
     
     // MARK: - Layer
-    override static func layerClass() -> AnyClass {
+    override static var layerClass : AnyClass {
         return CAGradientLayer.self
     }
 }

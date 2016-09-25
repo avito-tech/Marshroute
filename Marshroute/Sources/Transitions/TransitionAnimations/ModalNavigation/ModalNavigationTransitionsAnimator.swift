@@ -2,35 +2,35 @@ import UIKit
 
 /// Аниматор, выполняющий модальный переход на UIViewController, обернутый в UINavigationController.
 /// Также выполняет обратный переход
-public class ModalNavigationTransitionsAnimator: TransitionsAnimator
+open class ModalNavigationTransitionsAnimator: TransitionsAnimator
 {
-    public var shouldAnimate = true
+    open var shouldAnimate = true
     
-    public var targetModalTransitionStyle: UIModalTransitionStyle
-    public var targetModalPresentationStyle: UIModalPresentationStyle
+    open var targetModalTransitionStyle: UIModalTransitionStyle
+    open var targetModalPresentationStyle: UIModalPresentationStyle
     
     // MARK: - Init
     public init(
         targetModalTransitionStyle: UIModalTransitionStyle?,
         targetModalPresentationStyle: UIModalPresentationStyle?)
     {
-        self.targetModalTransitionStyle = targetModalTransitionStyle ?? .CoverVertical
-        self.targetModalPresentationStyle = targetModalPresentationStyle ?? .FullScreen
+        self.targetModalTransitionStyle = targetModalTransitionStyle ?? .coverVertical
+        self.targetModalPresentationStyle = targetModalPresentationStyle ?? .fullScreen
     }
     
     public init()
     {
-        self.targetModalTransitionStyle = .CoverVertical
-        self.targetModalPresentationStyle = .FullScreen
+        self.targetModalTransitionStyle = .coverVertical
+        self.targetModalPresentationStyle = .fullScreen
     }
     
     // MARK: - TransitionsAnimator
-    public func animatePerformingTransition(animationContext context: ModalNavigationPresentationAnimationContext)
+    open func animatePerformingTransition(animationContext context: ModalNavigationPresentationAnimationContext)
     {
         context.targetNavigationController.modalTransitionStyle = targetModalTransitionStyle
         context.targetNavigationController.modalPresentationStyle = targetModalPresentationStyle
         
-        context.sourceViewController.presentViewController(
+        context.sourceViewController.present(
             context.targetNavigationController,
             animated: shouldAnimate,
             completion: nil
@@ -38,10 +38,10 @@ public class ModalNavigationTransitionsAnimator: TransitionsAnimator
         shouldAnimate = true
     }
     
-    public func animateUndoingTransition(animationContext context: ModalNavigationDismissalAnimationContext)
+    open func animateUndoingTransition(animationContext context: ModalNavigationDismissalAnimationContext)
     {
-        context.targetViewController.dismissViewControllerAnimated(
-            shouldAnimate,
+        context.targetViewController.dismiss(
+            animated: shouldAnimate,
             completion: nil
         )
         shouldAnimate = true

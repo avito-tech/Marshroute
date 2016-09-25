@@ -1,7 +1,7 @@
 import UIKit
 
 final class ShelfViewController: BaseViewController, ShelfViewInput {
-    private let shelfView = ShelfView()
+    fileprivate let shelfView = ShelfView()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -9,7 +9,7 @@ final class ShelfViewController: BaseViewController, ShelfViewInput {
     }
     
     // MARK: - ShelfViewInput
-    @nonobjc func setTitle(title: String?) {
+    @nonobjc func setTitle(_ title: String?) {
         self.title = title
     }
 }

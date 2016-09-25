@@ -1,5 +1,5 @@
 import UIKit
 
 protocol TouchEventForwarder: class {
-    func forwardEvent(event: UIEvent, touches: Set<UITouch>)
+    func forwardEvent(_ event: UIEvent, touches: Set<UITouch>)
 }

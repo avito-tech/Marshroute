@@ -1,50 +1,50 @@
 enum CoordinatePerformingTransition {
-    case ForAnimating(
+    case forAnimating(
         context: PresentationTransitionContext,
         transitionsHandler: AnimatingTransitionsHandler
     )
-    case ForContaining(
+    case forContaining(
         context: PresentationTransitionContext,
         transitionsHandler: ContainingTransitionsHandler
     )
 }
 
 enum CoordinateUndoingTransitionsAfter {
-    case ForAnimating(
+    case forAnimating(
         transitionId: TransitionId,
         transitionsHandler: AnimatingTransitionsHandler
     )
-    case ForContaining(
+    case forContaining(
         transitionId: TransitionId,
         transitionsHandler: ContainingTransitionsHandler
     )
 }
 
 enum CoordinateUndoingTransitionWith {
-    case ForAnimating(
+    case forAnimating(
         transitionId: TransitionId,
         transitionsHandler: AnimatingTransitionsHandler
     )
-    case ForContaining(
+    case forContaining(
         transitionId: TransitionId,
         transitionsHandler: ContainingTransitionsHandler
     )
 }
 
 enum CoordinateUndoingAllChainedTransitions {
-    case ForAnimating(
+    case forAnimating(
         transitionsHandler: AnimatingTransitionsHandler
     )
 }
 
 enum CoordinateUndoingAllTransitions {
-    case ForAnimating(
+    case forAnimating(
         transitionsHandler: AnimatingTransitionsHandler
     )
 }
 
 enum CoordinateResettingWithTransition {
-    case ForAnimating(
+    case forAnimating(
         context: ResettingTransitionContext,
         transitionsHandler: AnimatingTransitionsHandler
     )

@@ -3,9 +3,9 @@ import UIKit
 private let ReuseId = "CategoriesViewCell"
 
 final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
-    private let tableView = UITableView()
-    private var timerButton: UIButton?
-    private var categories = [CategoriesViewData]()
+    fileprivate let tableView = UITableView()
+    fileprivate var timerButton: UIButton?
+    fileprivate var categories = [CategoriesViewData]()
     
     // MARK: - Init
     init() {
@@ -22,20 +22,20 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - Internal
-    func reloadWithCategories(categories: [CategoriesViewData]) {
+    func reloadWithCategories(_ categories: [CategoriesViewData]) {
         self.categories = categories
         tableView.reloadData()
     }
     
-    func setTimerButtonVisible(visible: Bool) {
+    func setTimerButtonVisible(_ visible: Bool) {
         if visible {
             if timerButton == nil {
                 let timerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
                 
-                timerButton.setTitleColor(.whiteColor(), forState: .Normal)
-                timerButton.backgroundColor = .blueColor()
+                timerButton.setTitleColor(.white, for: UIControlState())
+                timerButton.backgroundColor = .blue
                 
-                timerButton.addTarget(self, action: #selector(CategoriesView.onTimerButtonTap(_:)), forControlEvents: .TouchUpInside)
+                timerButton.addTarget(self, action: #selector(CategoriesView.onTimerButtonTap(_:)), for: .touchUpInside)
                 
                 self.timerButton = timerButton
             }
@@ -45,12 +45,12 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func setTimerButtonEnabled(enabled: Bool) {
-        timerButton?.enabled = enabled
+    func setTimerButtonEnabled(_ enabled: Bool) {
+        timerButton?.isEnabled = enabled
     }
     
-    func setTimerButtonTitle(title: String) {
-        timerButton?.setTitle(title, forState: .Normal)
+    func setTimerButtonTitle(_ title: String) {
+        timerButton?.setTitle(title, for: UIControlState())
     }
     
     var onTimerButtonTap: (() -> ())?
@@ -62,39 +62,39 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(ReuseId)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: ReuseId)
         if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: ReuseId)
+            cell = UITableViewCell(style: .default, reuseIdentifier: ReuseId)
         }
-        cell?.textLabel?.text = categories[indexPath.row].title
+        cell?.textLabel?.text = categories[(indexPath as NSIndexPath).row].title
         return cell!
     }
     
     // MARK: - UITableViewDelegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        categories[indexPath.row].onTap()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        categories[(indexPath as NSIndexPath).row].onTap()
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return timerButton
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return timerButton == nil ? 0 : 30
     }
     
     // MARK: - Private
-    @objc private func onTimerButtonTap(sender: UIButton) {
+    @objc fileprivate func onTimerButtonTap(_ sender: UIButton) {
         onTimerButtonTap?()
     }
 }

@@ -12,7 +12,7 @@ struct SearchResult {
 }
 
 protocol SearchResultsProvider: class {
-    func searchResults(categoryId categoryId: CategoryId, count: Int) -> [SearchResult]
-    func searchResult(searchResultId searchResultId: SearchResultId) -> SearchResult
-    func recommendedSearchResults(searchResultId searchResultId: SearchResultId) -> [SearchResult]
+    func searchResults(categoryId: CategoryId, count: Int) -> [SearchResult]
+    func searchResult(searchResultId: SearchResultId) -> SearchResult
+    func recommendedSearchResults(searchResultId: SearchResultId) -> [SearchResult]
 }

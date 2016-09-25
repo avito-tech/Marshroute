@@ -2,7 +2,7 @@ import UIKit
 
 /// Методы, чтобы вернуться на экран текущего модуля
 public protocol RouterFocusable: class {
-    func focusOnCurrentModule(completion completion: (() -> ())?)
+    func focusOnCurrentModule(completion: (() -> ())?)
 }
 
 public extension RouterFocusable {
@@ -13,7 +13,7 @@ public extension RouterFocusable {
 
 // MARK: - RouterFocusable Default Impl
 public extension RouterFocusable where Self: RouterTransitionable, Self: RouterIdentifiable, Self: RouterPresentable {
-    func focusOnCurrentModule(completion completion: (() -> ())?)
+    func focusOnCurrentModule(completion: (() -> ())?)
     {
         let transitionsHandler = transitionsHandlerBox.unbox()
         

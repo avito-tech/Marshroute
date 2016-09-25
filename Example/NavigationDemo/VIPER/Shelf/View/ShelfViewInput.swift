@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ShelfViewInput: class, ViewLifecycleObservable {
-    func setTitle(title: String?)
+    func setTitle(_ title: String?)
 }

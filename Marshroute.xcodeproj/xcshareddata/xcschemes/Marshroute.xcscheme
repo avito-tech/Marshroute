@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCF135151CFC9D44007229D1"
-               BuildableName = "Marshroute.app"
+               BlueprintIdentifier = "A2FBFBA31E150A8F00D3FB48"
+               BuildableName = "Marshroute.framework"
                BlueprintName = "Marshroute"
                ReferencedContainer = "container:Marshroute.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCF135291CFC9D44007229D1"
+               BlueprintIdentifier = "A2FBFBAB1E150A8F00D3FB48"
                BuildableName = "MarshrouteTests.xctest"
                BlueprintName = "MarshrouteTests"
                ReferencedContainer = "container:Marshroute.xcodeproj">
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CCF135151CFC9D44007229D1"
-            BuildableName = "Marshroute.app"
+            BlueprintIdentifier = "A2FBFBA31E150A8F00D3FB48"
+            BuildableName = "Marshroute.framework"
             BlueprintName = "Marshroute"
             ReferencedContainer = "container:Marshroute.xcodeproj">
          </BuildableReference>
@@ -61,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CCF135151CFC9D44007229D1"
-            BuildableName = "Marshroute.app"
+            BlueprintIdentifier = "A2FBFBA31E150A8F00D3FB48"
+            BuildableName = "Marshroute.framework"
             BlueprintName = "Marshroute"
             ReferencedContainer = "container:Marshroute.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CCF135151CFC9D44007229D1"
-            BuildableName = "Marshroute.app"
+            BlueprintIdentifier = "A2FBFBA31E150A8F00D3FB48"
+            BuildableName = "Marshroute.framework"
             BlueprintName = "Marshroute"
             ReferencedContainer = "container:Marshroute.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -1,3 +1,5 @@
+@testable import Marshroute
+
 final class DummyAnimatingTransitionsHandler: AnimatingTransitionsHandler {
     override func performTransition(context: PresentationTransitionContext) {}
     override func undoTransitionsAfter(transitionId: TransitionId) {}

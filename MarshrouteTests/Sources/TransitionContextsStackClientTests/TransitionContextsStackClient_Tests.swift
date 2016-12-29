@@ -1,4 +1,5 @@
 import XCTest
+@testable import Marshroute
 
 // MARK: - TransitionContextsStackTests
 final class TransitionContextsStackClientTests: XCTestCase

@@ -1,3 +1,5 @@
+@testable import Marshroute
+
 enum ResetNavigationTransitionsAnimatorSpyCalls {
     case called(animationContext: ResettingNavigationAnimationContext)
 }

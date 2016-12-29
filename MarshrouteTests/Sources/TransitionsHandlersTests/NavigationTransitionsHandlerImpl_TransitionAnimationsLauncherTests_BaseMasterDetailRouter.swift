@@ -1,4 +1,5 @@
 import XCTest
+@testable import Marshroute
 
 final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter: XCTestCase {
 

@@ -1,3 +1,5 @@
+@testable import Marshroute
+
 final class TransitionsCoordinatorSpy: TransitionsCoordinator
 {
     // MARK: - Performing

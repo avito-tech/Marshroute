@@ -1,3 +1,5 @@
+@testable import Marshroute
+
 final class ContainingTransitionsHandlerSpy: ContainingTransitionsHandler
 {
     // MARK: - TransitionsHandler

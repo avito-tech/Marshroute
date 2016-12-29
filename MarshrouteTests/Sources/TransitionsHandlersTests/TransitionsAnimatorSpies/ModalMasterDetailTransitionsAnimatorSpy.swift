@@ -1,3 +1,5 @@
+@testable import Marshroute
+
 enum ModalMasterDetailTransitionsAnimatorSpyPerformCalls {
     case called(animationContext: ModalMasterDetailPresentationAnimationContext)
 }

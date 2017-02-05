@@ -1,26 +1,15 @@
 language: objective-c
-osx_image: xcode7.3
-xcode_project: Marshroute.xcodeproj
-xcode_scheme: Marshroute
-xcode_sdk: iphonesimulator9.3
+osx_image: xcode8.2
+xcode_sdk: iphonesimulator10.2
+
 env:
   global:
-  - FRAMEWORK_NAME=Marshroute
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+
+  - IOS_DESTANATION="platform=iOS Simulator,id=22FA2149-1241-469C-BF6D-462D3837DB72,OS=10.2"
 before_install:
-- brew update
-- brew outdated carthage || brew upgrade carthage
-before_script:
-- carthage bootstrap
-before_deploy:
-- carthage build --no-skip-current
-- carthage archive $FRAMEWORK_NAME
-deploy:
-  provider: releases
-  api_key:
-    secure: niRoE2bTQVvnrm4UJ9je13EDMlM1h8us7+bd4ZEy4tnvEFPafEVKzthM/vPPjyIH2e5AXHHWf3HpurU+w+XSO1TGVJhuhmajxJgBB0OV5lIlCxXPJnhO3gggFolGqR68MUEbVH643UFH7waLDwQk7IrzkuIJxyJt4jWpHTXPSVxQlpdmJdtD2zKE78l+jpwNJoHAeFfzlCwxd9zvRt3JDmsPS6XBvjNARyG/yEAnTURqTdX+8vA5kzixl2fKVV2CLxLIgDDTHcjg/7BxTsMZzOd4r/aRCHVvR9mBJVNz3+mACZSiuhLGWOQcjvKyBovP30Aw1JvZJHm3qHNP344BK6CeERJTE7XtlCJlBvRNkTdhcH6q98pwOfynkhKSZ+ohUV2+4v1K0MdTxP+vwuxf1Z1DtL/Dh5HsCNNxfb6/cPtAljdFkNAIuhL2CBuRfD4AjaJVfHsaa/2kZj4orpsJBVRpaSNBYsDCbxZXD+gr3NpW1S735Nl5nDWHO8kCGArQ5K4FOxGWcAyJOzQCG4jIq+hIUXXeP8XsZMnnsmcKfJqXeg7StPxb002vHGpZw+c2OzGPuVRwpFu/xyXjoExlFuCv38Xek2dLiTCIyrFmuHJCMeyuNAzCpGuEMErWepBuNxGFqov4R89GyWo4m/cTQUA9ZPfIKouxey2ykprmDLg=
-  file: Marshroute.framework.zip
-  skip_cleanup: true
-  on:
-    repo: avito-tech/Marshroute
-    branch: github-master
-    tags: true
+  - gem install xcpretty-travis-formatter
+script:
+  - set -o pipefail
+  - xcodebuild -project Marshroute.xcodeproj -scheme "Marshroute" -destination "$IOS_DESTANATION" CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" test | xcpretty -f `xcpretty-travis-formatter`

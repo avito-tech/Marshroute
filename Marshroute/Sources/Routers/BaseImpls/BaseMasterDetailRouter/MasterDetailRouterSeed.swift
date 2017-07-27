@@ -9,6 +9,7 @@ public struct MasterDetailRouterSeed {
     public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider
+    public let animatorsProvider: RouterAnimatorsProvider
     
     public init(
         masterTransitionsHandlerBox: RouterTransitionsHandlerBox,
@@ -17,7 +18,8 @@ public struct MasterDetailRouterSeed {
         presentingTransitionsHandler: TransitionsHandler?,
         transitionsHandlersProvider: TransitionsHandlersProvider,
         transitionIdGenerator: TransitionIdGenerator,
-        controllersProvider: RouterControllersProvider)
+        controllersProvider: RouterControllersProvider,
+        animatorsProvider: RouterAnimatorsProvider)
     {
         self.masterTransitionsHandlerBox = masterTransitionsHandlerBox
         self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
@@ -26,5 +28,6 @@ public struct MasterDetailRouterSeed {
         self.transitionsHandlersProvider = transitionsHandlersProvider
         self.transitionIdGenerator = transitionIdGenerator
         self.controllersProvider = controllersProvider
+        self.animatorsProvider = animatorsProvider
     }
 }

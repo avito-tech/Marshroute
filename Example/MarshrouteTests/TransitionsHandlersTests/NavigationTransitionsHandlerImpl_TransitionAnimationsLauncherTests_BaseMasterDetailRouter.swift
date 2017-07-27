@@ -1,12 +1,14 @@
 import XCTest
 @testable import Marshroute
 
-final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter: XCTestCase {
+final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter: XCTestCase {
 
     var sourceViewController: UIViewController!
     var targetViewController: UIViewController!
+    var masterNavigationController: UINavigationController!
+    var detailNavigationController: UINavigationController!
     
-    var router: BaseRouter!
+    var router: BaseMasterDetailRouter!
     
     override func setUp() {
         super.setUp()
@@ -14,7 +16,11 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         sourceViewController = UIViewController()
         targetViewController = UIViewController()
         
+        masterNavigationController = UINavigationController()
+        detailNavigationController = UINavigationController()
+        
         let transitionIdGenerator = TransitionIdGeneratorImpl()
+        let transitionId = transitionIdGenerator.generateNewTransitionId()
         
         let stackClientProvider = TransitionContextsStackClientProviderImpl()
         
@@ -22,63 +28,127 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
             stackClientProvider: stackClientProvider
         )
         
-        let animatingTransitionsHandler = AnimatingTransitionsHandler(
+        let masterNavigationTransitionsHandler = NavigationTransitionsHandlerImpl(
+            navigationController: masterNavigationController,
             transitionsCoordinator: transitionsCoordinator
         )
         
-        
-        let setRootViewControllerContext = ResettingTransitionContext(
-            registeringViewController: sourceViewController,
-            animatingTransitionsHandler: animatingTransitionsHandler,
-            transitionId: transitionIdGenerator.generateNewTransitionId()
+        let setMasterRootViewControllerContext = ResettingTransitionContext(
+            settingRootViewController: sourceViewController,
+            forNavigationController: masterNavigationController,
+            animatingTransitionsHandler: masterNavigationTransitionsHandler,
+            animator: SetNavigationTransitionsAnimator(),
+            transitionId: transitionId
         )
         
-        // set root view controller for a transitions handler
-        animatingTransitionsHandler.resetWithTransition(context: setRootViewControllerContext)
+        // set root view controller for a master navigation controller
+        masterNavigationTransitionsHandler.resetWithTransition(context: setMasterRootViewControllerContext)
         
-        router = BaseRouter(
-            routerSeed: RouterSeed(
-                transitionsHandlerBox: .init(
-                    animatingTransitionsHandler: animatingTransitionsHandler
+        
+        
+        let detailNavigationTransitionsHandler = NavigationTransitionsHandlerImpl(
+            navigationController: detailNavigationController,
+            transitionsCoordinator: transitionsCoordinator
+        )
+        
+        let setDetailRootViewControllerContext = ResettingTransitionContext(
+            settingRootViewController: sourceViewController,
+            forNavigationController: detailNavigationController,
+            animatingTransitionsHandler: detailNavigationTransitionsHandler,
+            animator: SetNavigationTransitionsAnimator(),
+            transitionId: transitionId
+        )
+        
+        // set root view controller for a detail navigation controller
+        detailNavigationTransitionsHandler.resetWithTransition(context: setDetailRootViewControllerContext)
+        
+        
+        
+        router = BaseMasterDetailRouter(
+            routerSeed: MasterDetailRouterSeed(
+                masterTransitionsHandlerBox: .init(
+                    animatingTransitionsHandler: masterNavigationTransitionsHandler
+                ),
+                detailTransitionsHandlerBox: .init(
+                    animatingTransitionsHandler: detailNavigationTransitionsHandler
                 ),
                 transitionId: transitionIdGenerator.generateNewTransitionId(),
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
     }
     
     // MARK: - TransitionAnimationsLauncher
     
-    // MARK: DetailRouter
-    func testThatAnimatorIsNotCalledOn_SetViewControllerDerivedFrom() {
+    // MARK: MasterRouter
+    func testThatAnimatorIsCalledWithCorectResettingAnimationContextOn_SetMasterViewControllerDerivedFrom() {
         // Given
         let resetNavigationTransitionsAnimatorSpy = ResetNavigationTransitionsAnimatorSpy()
         
         // When
-        router.setViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.setMasterViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
             return targetViewController
             }, animator: resetNavigationTransitionsAnimatorSpy
         )
         
         // Then
-        XCTAssertNil(resetNavigationTransitionsAnimatorSpy.animateResetting)
+        if case .called(let animationContext) = resetNavigationTransitionsAnimatorSpy.animateResetting! {
+            XCTAssert(animationContext.rootViewController === targetViewController)
+        } else { XCTFail() }
     }
     
-    func testThatAnimatorIsNotCalledOn_PushViewControllerDerivedFrom() {
+    func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PushMasterViewControllerDerivedFrom() {
         // Given
         let navigationTransitionsAnimator = NavigationTransitionsAnimatorSpy()
         
         // When
-        router.pushViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.pushMasterViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
             return targetViewController
             }, animator: navigationTransitionsAnimator
         )
         
         // Then
-        XCTAssertNil(navigationTransitionsAnimator.animatePerforming)
+        if case .called(let animationContext) = navigationTransitionsAnimator.animatePerforming! {
+            XCTAssert(animationContext.sourceViewController === sourceViewController)
+            XCTAssert(animationContext.targetViewController === targetViewController)
+        } else { XCTFail() }
+    }
+    
+    func testThatAnimatorIsCalledWithCorectResettingAnimationContextOn_SetDetailViewControllerDerivedFrom() {
+        // Given
+        let resetNavigationTransitionsAnimatorSpy = ResetNavigationTransitionsAnimatorSpy()
+        
+        // When
+        router.setDetailViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+            return targetViewController
+            }, animator: resetNavigationTransitionsAnimatorSpy
+        )
+        
+        // Then
+        if case .called(let animationContext) = resetNavigationTransitionsAnimatorSpy.animateResetting! {
+            XCTAssert(animationContext.rootViewController === targetViewController)
+        } else { XCTFail() }
+    }
+    
+    func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PushDetailViewControllerDerivedFrom() {
+        // Given
+        let navigationTransitionsAnimator = NavigationTransitionsAnimatorSpy()
+        
+        // When
+        router.pushDetailViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+            return targetViewController
+            }, animator: navigationTransitionsAnimator
+        )
+        
+        // Then
+        if case .called(let animationContext) = navigationTransitionsAnimator.animatePerforming! {
+            XCTAssert(animationContext.sourceViewController === sourceViewController)
+            XCTAssert(animationContext.targetViewController === targetViewController)
+        } else { XCTFail() }
     }
     
     // MARK: EndpointRouter

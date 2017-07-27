@@ -17,6 +17,7 @@ extension RouterSeed {
         self.transitionsHandlersProvider = moduleSeed.marshrouteStack.transitionsHandlersProvider
         self.transitionIdGenerator = moduleSeed.marshrouteStack.transitionIdGenerator
         self.controllersProvider = moduleSeed.marshrouteStack.routerControllersProvider
+        self.animatorsProvider = moduleSeed.marshrouteStack.routerAnimatorsProvider
     }
 }
 
@@ -33,5 +34,6 @@ extension MasterDetailRouterSeed {
         self.transitionsHandlersProvider = moduleSeed.marshrouteStack.transitionsHandlersProvider
         self.transitionIdGenerator = moduleSeed.marshrouteStack.transitionIdGenerator
         self.controllersProvider = moduleSeed.marshrouteStack.routerControllersProvider
+        self.animatorsProvider = moduleSeed.marshrouteStack.routerAnimatorsProvider
     }
 }

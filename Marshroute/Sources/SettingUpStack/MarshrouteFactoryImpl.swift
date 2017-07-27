@@ -21,5 +21,9 @@ final public class MarshrouteFactoryImpl: MarshrouteFactory {
         -> RouterControllersProvider
     {
         return RouterControllersProviderImpl()
+    }    
+    
+    public func routerAnimatorsProvider() -> RouterAnimatorsProvider {
+        return RouterAnimatorsProviderImpl()
     }
 }

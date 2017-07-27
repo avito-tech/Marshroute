@@ -32,7 +32,8 @@ final class PopoverPresentationRouterTests_BaseRouter: XCTestCase
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
     }

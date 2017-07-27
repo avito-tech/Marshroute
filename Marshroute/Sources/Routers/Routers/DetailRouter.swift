@@ -23,14 +23,15 @@ extension DetailRouter where
     Self: RouterIdentifiable, 
     Self: TransitionIdGeneratorHolder, 
     Self: TransitionsHandlersProviderHolder, 
-    Self: RouterControllersProviderHolder 
+    Self: RouterControllersProviderHolder,
+    Self: RouterAnimatorsProviderHolder
 {    
     public func setViewControllerDerivedFrom(
         _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {
         setViewControllerDerivedFrom(
             deriveViewController,
-            animator: ResetNavigationTransitionsAnimator()
+            animator: animatorsProvider.resetNavigationTransitionsAnimator()
         )
     }
     
@@ -47,7 +48,8 @@ extension DetailRouter where
             presentingTransitionsHandler: nil,
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -67,7 +69,7 @@ extension DetailRouter where
     {
         pushViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimator()
+            animator: animatorsProvider.navigationTransitionsAnimator()
         )
     }
     
@@ -87,7 +89,8 @@ extension DetailRouter where
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)

@@ -9,4 +9,7 @@ public protocol MarshrouteFactory: class {
     
     func routerControllersProvider()
         -> RouterControllersProvider
+    
+    func routerAnimatorsProvider() 
+        -> RouterAnimatorsProvider 
 }

@@ -31,7 +31,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
             settingRootViewController: viewController,
             forNavigationController: navigationController,
             animatingTransitionsHandler: animatingTransitionsHandler,
-            animator: SetNavigationTransitionsAnimator(),
+            animator: marshrouteStack.routerAnimatorsProvider.setNavigationTransitionsAnimator(),
             transitionId: moduleSeed.transitionId
         )
         
@@ -85,7 +85,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
                 settingRootViewController: masterViewController,
                 forNavigationController: masterNavigationController,
                 animatingTransitionsHandler: masterAnimatingTransitionsHandler,
-                animator: SetNavigationTransitionsAnimator(),
+                animator: marshrouteStack.routerAnimatorsProvider.setNavigationTransitionsAnimator(),
                 transitionId: moduleSeed.transitionId
             )
             
@@ -108,7 +108,7 @@ final class RootModulesProviderImpl: RootModulesProvider {
                 settingRootViewController: viewController,
                 forNavigationController: detailNavigationController,
                 animatingTransitionsHandler: detailAnimatingTransitionsHandler,
-                animator: SetNavigationTransitionsAnimator(),
+                animator: marshrouteStack.routerAnimatorsProvider.setNavigationTransitionsAnimator(),
                 transitionId: moduleSeed.transitionId
             )
             

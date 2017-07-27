@@ -8,6 +8,7 @@ public struct RouterSeed {
     public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider
+    public let animatorsProvider: RouterAnimatorsProvider
    
     public init(
         transitionsHandlerBox: RouterTransitionsHandlerBox,
@@ -15,7 +16,8 @@ public struct RouterSeed {
         presentingTransitionsHandler: TransitionsHandler?,
         transitionsHandlersProvider: TransitionsHandlersProvider,
         transitionIdGenerator: TransitionIdGenerator,
-        controllersProvider: RouterControllersProvider)
+        controllersProvider: RouterControllersProvider,
+        animatorsProvider: RouterAnimatorsProvider)
     {
         self.transitionsHandlerBox = transitionsHandlerBox
         self.transitionId = transitionId
@@ -23,5 +25,6 @@ public struct RouterSeed {
         self.transitionsHandlersProvider = transitionsHandlersProvider
         self.transitionIdGenerator = transitionIdGenerator
         self.controllersProvider = controllersProvider
+        self.animatorsProvider = animatorsProvider
     }
 }

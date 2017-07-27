@@ -18,7 +18,8 @@ open class BaseMasterDetailRouter:
     MasterRouter,
     DetailRouterTransitionable,
     DetailRouter,
-    RouterControllersProviderHolder
+    RouterControllersProviderHolder,
+    RouterAnimatorsProviderHolder
 {
     open let masterTransitionsHandlerBox: RouterTransitionsHandlerBox
     open let detailTransitionsHandlerBox: RouterTransitionsHandlerBox
@@ -27,6 +28,7 @@ open class BaseMasterDetailRouter:
     open let transitionsHandlersProvider: TransitionsHandlersProvider
     open let transitionIdGenerator: TransitionIdGenerator
     open let controllersProvider: RouterControllersProvider
+    open let animatorsProvider: RouterAnimatorsProvider
     
     public init(routerSeed: MasterDetailRouterSeed) {
         self.transitionId = routerSeed.transitionId
@@ -36,6 +38,7 @@ open class BaseMasterDetailRouter:
         self.transitionsHandlersProvider = routerSeed.transitionsHandlersProvider
         self.transitionIdGenerator = routerSeed.transitionIdGenerator
         self.controllersProvider = routerSeed.controllersProvider
+        self.animatorsProvider = routerSeed.animatorsProvider
     }
     
     // MARK: - RouterTransitionable

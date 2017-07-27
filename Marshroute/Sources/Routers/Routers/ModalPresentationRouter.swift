@@ -49,7 +49,8 @@ extension ModalPresentationRouter where
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
     Self: TransitionsHandlersProviderHolder,
-    Self: RouterControllersProviderHolder
+    Self: RouterControllersProviderHolder,
+    Self: RouterAnimatorsProviderHolder
 {
     // MARK: - UIViewController
     public func presentModalViewControllerDerivedFrom(
@@ -57,7 +58,7 @@ extension ModalPresentationRouter where
     {
         presentModalViewControllerDerivedFrom(
             deriveViewController,
-            animator: ModalTransitionsAnimator()
+            animator: animatorsProvider.modalTransitionsAnimator()
         )
     }
     
@@ -83,7 +84,8 @@ extension ModalPresentationRouter where
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -116,7 +118,7 @@ extension ModalPresentationRouter where
         presentModalMasterDetailViewControllerDerivedFrom(
             deriveMasterViewController: deriveMasterViewController,
             deriveDetailViewController: deriveDetailViewController,
-            animator: ModalMasterDetailTransitionsAnimator()
+            animator: animatorsProvider.modalMasterDetailTransitionsAnimator()
         )
     }
     
@@ -183,7 +185,8 @@ extension ModalPresentationRouter where
                 presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
                 transitionsHandlersProvider: transitionsHandlersProvider,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: controllersProvider
+                controllersProvider: controllersProvider,
+                animatorsProvider: animatorsProvider
             )
             
             let masterViewController = deriveMasterViewController(masterRouterSeed)
@@ -192,7 +195,7 @@ extension ModalPresentationRouter where
                 settingRootViewController: masterViewController,
                 forNavigationController: masterNavigationController,
                 animatingTransitionsHandler: masterTransitionsHandler,
-                animator: SetNavigationTransitionsAnimator(),
+                animator: animatorsProvider.setNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
             
@@ -206,7 +209,8 @@ extension ModalPresentationRouter where
                 presentingTransitionsHandler: transitionsHandlerBox.unbox(),
                 transitionsHandlersProvider: transitionsHandlersProvider,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: controllersProvider
+                controllersProvider: controllersProvider,
+                animatorsProvider: animatorsProvider
             )
             
             let detailViewController = deriveDetailViewController(detailRouterSeed)
@@ -215,7 +219,7 @@ extension ModalPresentationRouter where
                 settingRootViewController: detailViewController,
                 forNavigationController: detailNavigationController,
                 animatingTransitionsHandler: detailTransitionsHandler,
-                animator: SetNavigationTransitionsAnimator(),
+                animator: animatorsProvider.setNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
             
@@ -278,7 +282,8 @@ extension ModalPresentationRouter where
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -288,7 +293,7 @@ extension ModalPresentationRouter where
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
                 animatingTransitionsHandler: navigationTransitionsHandler,
-                animator: SetNavigationTransitionsAnimator(),
+                animator: animatorsProvider.setNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
             

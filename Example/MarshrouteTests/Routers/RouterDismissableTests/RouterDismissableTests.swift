@@ -39,7 +39,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: presentingTransitionsHandlerSpy, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -66,7 +67,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -99,7 +101,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: presentingTransitionsHandlerSpy, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -131,7 +134,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         

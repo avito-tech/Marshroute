@@ -38,14 +38,15 @@ extension MasterRouter where
     Self: RouterIdentifiable, 
     Self: TransitionIdGeneratorHolder, 
     Self: TransitionsHandlersProviderHolder, 
-    Self: RouterControllersProviderHolder 
+    Self: RouterControllersProviderHolder,
+    Self: RouterAnimatorsProviderHolder
 {
     public func setMasterViewControllerDerivedFrom(
         _ deriveViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController)
     {
         setMasterViewControllerDerivedFrom(
             deriveViewController,
-            animator: ResetNavigationTransitionsAnimator()
+            animator: animatorsProvider.resetNavigationTransitionsAnimator()
         )
     }
     
@@ -63,7 +64,8 @@ extension MasterRouter where
             presentingTransitionsHandler: nil,
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider, 
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(masterDetailRouterSeed)
@@ -83,7 +85,7 @@ extension MasterRouter where
     {
         pushMasterViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimator()
+            animator: animatorsProvider.navigationTransitionsAnimator()
         )
     }
     
@@ -104,7 +106,8 @@ extension MasterRouter where
             presentingTransitionsHandler: masterTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(masterDetailRouterSeed)
@@ -123,7 +126,7 @@ extension MasterRouter where
     {
         setDetailViewControllerDerivedFrom(
             deriveViewController,
-            animator: ResetNavigationTransitionsAnimator()
+            animator: animatorsProvider.resetNavigationTransitionsAnimator()
         )
     }
     
@@ -140,7 +143,8 @@ extension MasterRouter where
             presentingTransitionsHandler: nil,
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(detailRouterSeed)
@@ -160,7 +164,7 @@ extension MasterRouter where
     {
         pushDetailViewControllerDerivedFrom(
             deriveViewController,
-            animator: NavigationTransitionsAnimator()
+            animator: animatorsProvider.navigationTransitionsAnimator()
         )
     }
     
@@ -180,7 +184,8 @@ extension MasterRouter where
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(detailRouterSeed)

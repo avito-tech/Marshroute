@@ -66,7 +66,8 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
     }

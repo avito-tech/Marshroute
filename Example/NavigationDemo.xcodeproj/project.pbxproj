@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1313F20C96058FEF50F595A6 /* Pods_NavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */; };
+		614B0EA94ABC0658555F57AC /* Pods_MarshrouteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5894B794547E432189047CC /* Pods_MarshrouteTests.framework */; };
 		CC0B1D441CC20687006707B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1D431CC20687006707B6 /* AppDelegate.swift */; };
 		CC0B1D4D1CC20687006707B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B1D4C1CC20687006707B6 /* Assets.xcassets */; };
 		CC0B1D611CC207FA006707B6 /* BaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1D5B1CC207FA006707B6 /* BaseAssembly.swift */; };
@@ -120,6 +121,43 @@
 		CCA065171CE0B0F700D08A67 /* TouchEventObserverImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA065161CE0B0F700D08A67 /* TouchEventObserverImpl.swift */; };
 		CCA065191CE0B18800D08A67 /* TouchEventForwarder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA065181CE0B18800D08A67 /* TouchEventForwarder.swift */; };
 		CCA0651F1CE0B51200D08A67 /* TouchEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0651D1CE0B51200D08A67 /* TouchEventListener.swift */; };
+		CCA7B3221F2A2D55009BF78B /* AnimatingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2F11F2A2D55009BF78B /* AnimatingTransitionsHandlerSpy.swift */; };
+		CCA7B3231F2A2D55009BF78B /* ContainingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2F21F2A2D55009BF78B /* ContainingTransitionsHandlerSpy.swift */; };
+		CCA7B3241F2A2D55009BF78B /* DummyTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2F31F2A2D55009BF78B /* DummyTransitionsHandler.swift */; };
+		CCA7B3251F2A2D55009BF78B /* TransitionContextsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2F41F2A2D55009BF78B /* TransitionContextsCreator.swift */; };
+		CCA7B3261F2A2D55009BF78B /* TransitionContextsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2F51F2A2D55009BF78B /* TransitionContextsExtensions.swift */; };
+		CCA7B3271F2A2D55009BF78B /* TransitionsCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2F61F2A2D55009BF78B /* TransitionsCoordinatorSpy.swift */; };
+		CCA7B3281F2A2D55009BF78B /* TransitionsCoordinatorSpyingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2F71F2A2D55009BF78B /* TransitionsCoordinatorSpyingEnums.swift */; };
+		CCA7B3291F2A2D55009BF78B /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2FA1F2A2D55009BF78B /* DetailRouterTests_BaseMasterDetailRouter.swift */; };
+		CCA7B32A1F2A2D55009BF78B /* DetailRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2FB1F2A2D55009BF78B /* DetailRouterTests_BaseRouter.swift */; };
+		CCA7B32B1F2A2D55009BF78B /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2FD1F2A2D55009BF78B /* EndpointRouterTests_BaseMasterDetailRouter.swift */; };
+		CCA7B32C1F2A2D55009BF78B /* EndpointRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B2FE1F2A2D55009BF78B /* EndpointRouterTests_BaseRouter.swift */; };
+		CCA7B32D1F2A2D55009BF78B /* MasterlRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3001F2A2D55009BF78B /* MasterlRouterTests.swift */; };
+		CCA7B32E1F2A2D55009BF78B /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3021F2A2D55009BF78B /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */; };
+		CCA7B32F1F2A2D55009BF78B /* ModalPresentationRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3031F2A2D55009BF78B /* ModalPresentationRouterTests_BaseRouter.swift */; };
+		CCA7B3301F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3051F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */; };
+		CCA7B3311F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3061F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseRouter.swift */; };
+		CCA7B3321F2A2D55009BF78B /* RouterDismissableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3081F2A2D55009BF78B /* RouterDismissableTests.swift */; };
+		CCA7B3331F2A2D55009BF78B /* RouterFocusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B30A1F2A2D55009BF78B /* RouterFocusableTests.swift */; };
+		CCA7B3341F2A2D55009BF78B /* TransitionContextsStackClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B30C1F2A2D55009BF78B /* TransitionContextsStackClient_Tests.swift */; };
+		CCA7B3351F2A2D55009BF78B /* TransitionContextsStack_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B30E1F2A2D55009BF78B /* TransitionContextsStack_Tests.swift */; };
+		CCA7B3361F2A2D55009BF78B /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3101F2A2D55009BF78B /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */; };
+		CCA7B3371F2A2D55009BF78B /* AnimatingTransitionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3111F2A2D55009BF78B /* AnimatingTransitionsHandlerTests.swift */; };
+		CCA7B3381F2A2D55009BF78B /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3121F2A2D55009BF78B /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */; };
+		CCA7B3391F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3131F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */; };
+		CCA7B33A1F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3141F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */; };
+		CCA7B33B1F2A2D55009BF78B /* NavigationTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3151F2A2D55009BF78B /* NavigationTransitionsHandlerImplTests.swift */; };
+		CCA7B33C1F2A2D55009BF78B /* SplitViewTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3161F2A2D55009BF78B /* SplitViewTransitionsHandlerImplTests.swift */; };
+		CCA7B33D1F2A2D55009BF78B /* TabBarTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3171F2A2D55009BF78B /* TabBarTransitionsHandlerImplTests.swift */; };
+		CCA7B33E1F2A2D55009BF78B /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3191F2A2D55009BF78B /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */; };
+		CCA7B33F1F2A2D55009BF78B /* ModalMasterDetailTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B31A1F2A2D55009BF78B /* ModalMasterDetailTransitionsAnimatorSpy.swift */; };
+		CCA7B3401F2A2D55009BF78B /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B31B1F2A2D55009BF78B /* ModalNavigationTransitionsAnimatorSpy.swift */; };
+		CCA7B3411F2A2D55009BF78B /* ModalTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B31C1F2A2D55009BF78B /* ModalTransitionsAnimatorSpy.swift */; };
+		CCA7B3421F2A2D55009BF78B /* NavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B31D1F2A2D55009BF78B /* NavigationTransitionsAnimatorSpy.swift */; };
+		CCA7B3431F2A2D55009BF78B /* PopoverNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B31E1F2A2D55009BF78B /* PopoverNavigationTransitionsAnimatorSpy.swift */; };
+		CCA7B3441F2A2D55009BF78B /* PopoverTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B31F1F2A2D55009BF78B /* PopoverTransitionsAnimatorSpy.swift */; };
+		CCA7B3451F2A2D55009BF78B /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3201F2A2D55009BF78B /* ResetNavigationTransitionsAnimatorSpy.swift */; };
+		CCA7B3461F2A2D55009BF78B /* SetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7B3211F2A2D55009BF78B /* SetNavigationTransitionsAnimatorSpy.swift */; };
 		CCA7C8EA1CD8FC5A00B7ADBD /* AdvertisementRouterIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7C8E91CD8FC5A00B7ADBD /* AdvertisementRouterIpad.swift */; };
 		CCA7C8EC1CD9049C00B7ADBD /* CategoriesRouterIpad.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7C8EB1CD9049C00B7ADBD /* CategoriesRouterIpad.swift */; };
 		CCA7C8FF1CD9296200B7ADBD /* AuthorizationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7C8F11CD9296200B7ADBD /* AuthorizationAssembly.swift */; };
@@ -159,9 +197,22 @@
 		CCFD1A891CFB293D0065EE42 /* pineapples.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A801CFB293D0065EE42 /* pineapples.jpg */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CCA7B2EB1F2A2CD8009BF78B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC0B1D381CC20687006707B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC0B1D3F1CC20687006707B6;
+			remoteInfo = NavigationDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		536F8B6C1650E5278D8EDA3B /* Pods-MarshrouteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.release.xcconfig"; sourceTree = "<group>"; };
+		5377AD578383CAC24CDD4BC5 /* Pods-MarshrouteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		616970D95027090C37F0EAAE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		994440772A8770662209C794 /* Pods-NavigationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A5894B794547E432189047CC /* Pods_MarshrouteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarshrouteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA56E2FDDF8BC096CA65A35 /* Pods-NavigationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CC0B1D401CC20687006707B6 /* NavigationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B1D431CC20687006707B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -277,6 +328,45 @@
 		CCA065161CE0B0F700D08A67 /* TouchEventObserverImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchEventObserverImpl.swift; sourceTree = "<group>"; };
 		CCA065181CE0B18800D08A67 /* TouchEventForwarder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchEventForwarder.swift; sourceTree = "<group>"; };
 		CCA0651D1CE0B51200D08A67 /* TouchEventListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchEventListener.swift; sourceTree = "<group>"; };
+		CCA7B2E61F2A2CD8009BF78B /* MarshrouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarshrouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCA7B2EA1F2A2CD8009BF78B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCA7B2F11F2A2D55009BF78B /* AnimatingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
+		CCA7B2F21F2A2D55009BF78B /* ContainingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
+		CCA7B2F31F2A2D55009BF78B /* DummyTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyTransitionsHandler.swift; sourceTree = "<group>"; };
+		CCA7B2F41F2A2D55009BF78B /* TransitionContextsCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsCreator.swift; sourceTree = "<group>"; };
+		CCA7B2F51F2A2D55009BF78B /* TransitionContextsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsExtensions.swift; sourceTree = "<group>"; };
+		CCA7B2F61F2A2D55009BF78B /* TransitionsCoordinatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B2F71F2A2D55009BF78B /* TransitionsCoordinatorSpyingEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpyingEnums.swift; sourceTree = "<group>"; };
+		CCA7B2FA1F2A2D55009BF78B /* DetailRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCA7B2FB1F2A2D55009BF78B /* DetailRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCA7B2FD1F2A2D55009BF78B /* EndpointRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCA7B2FE1F2A2D55009BF78B /* EndpointRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCA7B3001F2A2D55009BF78B /* MasterlRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterlRouterTests.swift; sourceTree = "<group>"; };
+		CCA7B3021F2A2D55009BF78B /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCA7B3031F2A2D55009BF78B /* ModalPresentationRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCA7B3051F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCA7B3061F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCA7B3081F2A2D55009BF78B /* RouterDismissableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismissableTests.swift; sourceTree = "<group>"; };
+		CCA7B30A1F2A2D55009BF78B /* RouterFocusableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusableTests.swift; sourceTree = "<group>"; };
+		CCA7B30C1F2A2D55009BF78B /* TransitionContextsStackClient_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient_Tests.swift; sourceTree = "<group>"; };
+		CCA7B30E1F2A2D55009BF78B /* TransitionContextsStack_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack_Tests.swift; sourceTree = "<group>"; };
+		CCA7B3101F2A2D55009BF78B /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCA7B3111F2A2D55009BF78B /* AnimatingTransitionsHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTests.swift; sourceTree = "<group>"; };
+		CCA7B3121F2A2D55009BF78B /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCA7B3131F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CCA7B3141F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CCA7B3151F2A2D55009BF78B /* NavigationTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CCA7B3161F2A2D55009BF78B /* SplitViewTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CCA7B3171F2A2D55009BF78B /* TabBarTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CCA7B3191F2A2D55009BF78B /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B31A1F2A2D55009BF78B /* ModalMasterDetailTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B31B1F2A2D55009BF78B /* ModalNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B31C1F2A2D55009BF78B /* ModalTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B31D1F2A2D55009BF78B /* NavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B31E1F2A2D55009BF78B /* PopoverNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B31F1F2A2D55009BF78B /* PopoverTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B3201F2A2D55009BF78B /* ResetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CCA7B3211F2A2D55009BF78B /* SetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
 		CCA7C8E91CD8FC5A00B7ADBD /* AdvertisementRouterIpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementRouterIpad.swift; sourceTree = "<group>"; };
 		CCA7C8EB1CD9049C00B7ADBD /* CategoriesRouterIpad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesRouterIpad.swift; sourceTree = "<group>"; };
 		CCA7C8F11CD9296200B7ADBD /* AuthorizationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationAssembly.swift; sourceTree = "<group>"; };
@@ -328,6 +418,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CCA7B2E31F2A2CD8009BF78B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614B0EA94ABC0658555F57AC /* Pods_MarshrouteTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -336,6 +434,8 @@
 			children = (
 				994440772A8770662209C794 /* Pods-NavigationDemo.debug.xcconfig */,
 				BAA56E2FDDF8BC096CA65A35 /* Pods-NavigationDemo.release.xcconfig */,
+				5377AD578383CAC24CDD4BC5 /* Pods-MarshrouteTests.debug.xcconfig */,
+				536F8B6C1650E5278D8EDA3B /* Pods-MarshrouteTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -345,6 +445,7 @@
 			children = (
 				616970D95027090C37F0EAAE /* Pods.framework */,
 				F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */,
+				A5894B794547E432189047CC /* Pods_MarshrouteTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -353,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0B1D421CC20687006707B6 /* NavigationDemo */,
+				CCA7B2E71F2A2CD8009BF78B /* MarshrouteTests */,
 				CC0B1D411CC20687006707B6 /* Products */,
 				8479DDDE48E868569E6C3ED7 /* Frameworks */,
 				23BEDE71C82381ECEB23FE67 /* Pods */,
@@ -363,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0B1D401CC20687006707B6 /* NavigationDemo.app */,
+				CCA7B2E61F2A2CD8009BF78B /* MarshrouteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -979,6 +1082,155 @@
 			path = TouchEventObserver/TouchEventListener;
 			sourceTree = "<group>";
 		};
+		CCA7B2E71F2A2CD8009BF78B /* MarshrouteTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B2F01F2A2D55009BF78B /* General */,
+				CCA7B2F81F2A2D55009BF78B /* Routers */,
+				CCA7B30B1F2A2D55009BF78B /* TransitionContextsStackClientTests */,
+				CCA7B30D1F2A2D55009BF78B /* TransitionContextsStackTests */,
+				CCA7B30F1F2A2D55009BF78B /* TransitionsHandlersTests */,
+				CCA7B2EA1F2A2CD8009BF78B /* Info.plist */,
+			);
+			path = MarshrouteTests;
+			sourceTree = "<group>";
+		};
+		CCA7B2F01F2A2D55009BF78B /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B2F11F2A2D55009BF78B /* AnimatingTransitionsHandlerSpy.swift */,
+				CCA7B2F21F2A2D55009BF78B /* ContainingTransitionsHandlerSpy.swift */,
+				CCA7B2F31F2A2D55009BF78B /* DummyTransitionsHandler.swift */,
+				CCA7B2F41F2A2D55009BF78B /* TransitionContextsCreator.swift */,
+				CCA7B2F51F2A2D55009BF78B /* TransitionContextsExtensions.swift */,
+				CCA7B2F61F2A2D55009BF78B /* TransitionsCoordinatorSpy.swift */,
+				CCA7B2F71F2A2D55009BF78B /* TransitionsCoordinatorSpyingEnums.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CCA7B2F81F2A2D55009BF78B /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B2F91F2A2D55009BF78B /* DetailRouterTests */,
+				CCA7B2FC1F2A2D55009BF78B /* EndpointRouterTests */,
+				CCA7B2FF1F2A2D55009BF78B /* MasterRouterTests */,
+				CCA7B3011F2A2D55009BF78B /* ModalPresentationRouterTests */,
+				CCA7B3041F2A2D55009BF78B /* PopoverPresentationRouterTests */,
+				CCA7B3071F2A2D55009BF78B /* RouterDismissableTests */,
+				CCA7B3091F2A2D55009BF78B /* RouterFocusableTests */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		CCA7B2F91F2A2D55009BF78B /* DetailRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B2FA1F2A2D55009BF78B /* DetailRouterTests_BaseMasterDetailRouter.swift */,
+				CCA7B2FB1F2A2D55009BF78B /* DetailRouterTests_BaseRouter.swift */,
+			);
+			path = DetailRouterTests;
+			sourceTree = "<group>";
+		};
+		CCA7B2FC1F2A2D55009BF78B /* EndpointRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B2FD1F2A2D55009BF78B /* EndpointRouterTests_BaseMasterDetailRouter.swift */,
+				CCA7B2FE1F2A2D55009BF78B /* EndpointRouterTests_BaseRouter.swift */,
+			);
+			path = EndpointRouterTests;
+			sourceTree = "<group>";
+		};
+		CCA7B2FF1F2A2D55009BF78B /* MasterRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B3001F2A2D55009BF78B /* MasterlRouterTests.swift */,
+			);
+			path = MasterRouterTests;
+			sourceTree = "<group>";
+		};
+		CCA7B3011F2A2D55009BF78B /* ModalPresentationRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B3021F2A2D55009BF78B /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */,
+				CCA7B3031F2A2D55009BF78B /* ModalPresentationRouterTests_BaseRouter.swift */,
+			);
+			path = ModalPresentationRouterTests;
+			sourceTree = "<group>";
+		};
+		CCA7B3041F2A2D55009BF78B /* PopoverPresentationRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B3051F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */,
+				CCA7B3061F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseRouter.swift */,
+			);
+			path = PopoverPresentationRouterTests;
+			sourceTree = "<group>";
+		};
+		CCA7B3071F2A2D55009BF78B /* RouterDismissableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B3081F2A2D55009BF78B /* RouterDismissableTests.swift */,
+			);
+			path = RouterDismissableTests;
+			sourceTree = "<group>";
+		};
+		CCA7B3091F2A2D55009BF78B /* RouterFocusableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B30A1F2A2D55009BF78B /* RouterFocusableTests.swift */,
+			);
+			path = RouterFocusableTests;
+			sourceTree = "<group>";
+		};
+		CCA7B30B1F2A2D55009BF78B /* TransitionContextsStackClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B30C1F2A2D55009BF78B /* TransitionContextsStackClient_Tests.swift */,
+			);
+			path = TransitionContextsStackClientTests;
+			sourceTree = "<group>";
+		};
+		CCA7B30D1F2A2D55009BF78B /* TransitionContextsStackTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B30E1F2A2D55009BF78B /* TransitionContextsStack_Tests.swift */,
+			);
+			path = TransitionContextsStackTests;
+			sourceTree = "<group>";
+		};
+		CCA7B30F1F2A2D55009BF78B /* TransitionsHandlersTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B3101F2A2D55009BF78B /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */,
+				CCA7B3111F2A2D55009BF78B /* AnimatingTransitionsHandlerTests.swift */,
+				CCA7B3121F2A2D55009BF78B /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */,
+				CCA7B3131F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */,
+				CCA7B3141F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */,
+				CCA7B3151F2A2D55009BF78B /* NavigationTransitionsHandlerImplTests.swift */,
+				CCA7B3161F2A2D55009BF78B /* SplitViewTransitionsHandlerImplTests.swift */,
+				CCA7B3171F2A2D55009BF78B /* TabBarTransitionsHandlerImplTests.swift */,
+				CCA7B3181F2A2D55009BF78B /* TransitionsAnimatorSpies */,
+			);
+			path = TransitionsHandlersTests;
+			sourceTree = "<group>";
+		};
+		CCA7B3181F2A2D55009BF78B /* TransitionsAnimatorSpies */ = {
+			isa = PBXGroup;
+			children = (
+				CCA7B3191F2A2D55009BF78B /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */,
+				CCA7B31A1F2A2D55009BF78B /* ModalMasterDetailTransitionsAnimatorSpy.swift */,
+				CCA7B31B1F2A2D55009BF78B /* ModalNavigationTransitionsAnimatorSpy.swift */,
+				CCA7B31C1F2A2D55009BF78B /* ModalTransitionsAnimatorSpy.swift */,
+				CCA7B31D1F2A2D55009BF78B /* NavigationTransitionsAnimatorSpy.swift */,
+				CCA7B31E1F2A2D55009BF78B /* PopoverNavigationTransitionsAnimatorSpy.swift */,
+				CCA7B31F1F2A2D55009BF78B /* PopoverTransitionsAnimatorSpy.swift */,
+				CCA7B3201F2A2D55009BF78B /* ResetNavigationTransitionsAnimatorSpy.swift */,
+				CCA7B3211F2A2D55009BF78B /* SetNavigationTransitionsAnimatorSpy.swift */,
+			);
+			path = TransitionsAnimatorSpies;
+			sourceTree = "<group>";
+		};
 		CCA7C8EF1CD9296200B7ADBD /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -1160,19 +1412,46 @@
 			productReference = CC0B1D401CC20687006707B6 /* NavigationDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CCA7B2E51F2A2CD8009BF78B /* MarshrouteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCA7B2EF1F2A2CD8009BF78B /* Build configuration list for PBXNativeTarget "MarshrouteTests" */;
+			buildPhases = (
+				AC6FFCA636BEAC8EF14313A9 /* [CP] Check Pods Manifest.lock */,
+				CCA7B2E21F2A2CD8009BF78B /* Sources */,
+				CCA7B2E31F2A2CD8009BF78B /* Frameworks */,
+				CCA7B2E41F2A2CD8009BF78B /* Resources */,
+				1CA9E3960DF403FE3F6C6EE1 /* [CP] Embed Pods Frameworks */,
+				AE6D35F04846D84F9926925D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCA7B2EC1F2A2CD8009BF78B /* PBXTargetDependency */,
+			);
+			name = MarshrouteTests;
+			productName = MarshrouteTests;
+			productReference = CCA7B2E61F2A2CD8009BF78B /* MarshrouteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CC0B1D381CC20687006707B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Тимур Юсипов";
 				TargetAttributes = {
 					CC0B1D3F1CC20687006707B6 = {
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0800;
+					};
+					CCA7B2E51F2A2CD8009BF78B = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5PHGGKL9UQ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CC0B1D3F1CC20687006707B6;
 					};
 				};
 			};
@@ -1191,6 +1470,7 @@
 			projectRoot = "";
 			targets = (
 				CC0B1D3F1CC20687006707B6 /* NavigationDemo */,
+				CCA7B2E51F2A2CD8009BF78B /* MarshrouteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1219,6 +1499,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CCA7B2E41F2A2CD8009BF78B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1237,6 +1524,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1CA9E3960DF403FE3F6C6EE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC6FFCA636BEAC8EF14313A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AE6D35F04846D84F9926925D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C58F4F3EBBC4C7ECE34E4445 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1249,7 +1581,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F2816C905D70325FEDBB1CFC /* [CP] Copy Pods Resources */ = {
@@ -1410,7 +1742,59 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CCA7B2E21F2A2CD8009BF78B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCA7B32F1F2A2D55009BF78B /* ModalPresentationRouterTests_BaseRouter.swift in Sources */,
+				CCA7B3451F2A2D55009BF78B /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B3261F2A2D55009BF78B /* TransitionContextsExtensions.swift in Sources */,
+				CCA7B32E1F2A2D55009BF78B /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCA7B3321F2A2D55009BF78B /* RouterDismissableTests.swift in Sources */,
+				CCA7B3411F2A2D55009BF78B /* ModalTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B32D1F2A2D55009BF78B /* MasterlRouterTests.swift in Sources */,
+				CCA7B3441F2A2D55009BF78B /* PopoverTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B3371F2A2D55009BF78B /* AnimatingTransitionsHandlerTests.swift in Sources */,
+				CCA7B3361F2A2D55009BF78B /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */,
+				CCA7B3331F2A2D55009BF78B /* RouterFocusableTests.swift in Sources */,
+				CCA7B3351F2A2D55009BF78B /* TransitionContextsStack_Tests.swift in Sources */,
+				CCA7B33C1F2A2D55009BF78B /* SplitViewTransitionsHandlerImplTests.swift in Sources */,
+				CCA7B3241F2A2D55009BF78B /* DummyTransitionsHandler.swift in Sources */,
+				CCA7B3421F2A2D55009BF78B /* NavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B3381F2A2D55009BF78B /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
+				CCA7B3251F2A2D55009BF78B /* TransitionContextsCreator.swift in Sources */,
+				CCA7B33F1F2A2D55009BF78B /* ModalMasterDetailTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B3271F2A2D55009BF78B /* TransitionsCoordinatorSpy.swift in Sources */,
+				CCA7B33E1F2A2D55009BF78B /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B33D1F2A2D55009BF78B /* TabBarTransitionsHandlerImplTests.swift in Sources */,
+				CCA7B32A1F2A2D55009BF78B /* DetailRouterTests_BaseRouter.swift in Sources */,
+				CCA7B3291F2A2D55009BF78B /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCA7B32C1F2A2D55009BF78B /* EndpointRouterTests_BaseRouter.swift in Sources */,
+				CCA7B33A1F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
+				CCA7B3391F2A2D55009BF78B /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */,
+				CCA7B3301F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCA7B3401F2A2D55009BF78B /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B3231F2A2D55009BF78B /* ContainingTransitionsHandlerSpy.swift in Sources */,
+				CCA7B3431F2A2D55009BF78B /* PopoverNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B3281F2A2D55009BF78B /* TransitionsCoordinatorSpyingEnums.swift in Sources */,
+				CCA7B3221F2A2D55009BF78B /* AnimatingTransitionsHandlerSpy.swift in Sources */,
+				CCA7B32B1F2A2D55009BF78B /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CCA7B3341F2A2D55009BF78B /* TransitionContextsStackClient_Tests.swift in Sources */,
+				CCA7B3461F2A2D55009BF78B /* SetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CCA7B33B1F2A2D55009BF78B /* NavigationTransitionsHandlerImplTests.swift in Sources */,
+				CCA7B3311F2A2D55009BF78B /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCA7B2EC1F2A2CD8009BF78B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC0B1D3F1CC20687006707B6 /* NavigationDemo */;
+			targetProxy = CCA7B2EB1F2A2CD8009BF78B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CCA064EA1CE061FF00D08A67 /* Categories.plist */ = {
@@ -1566,6 +1950,43 @@
 			};
 			name = Release;
 		};
+		CCA7B2ED1F2A2CD8009BF78B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5377AD578383CAC24CDD4BC5 /* Pods-MarshrouteTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
+				INFOPLIST_FILE = MarshrouteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.marshroute.tests.MarshrouteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationDemo.app/NavigationDemo";
+			};
+			name = Debug;
+		};
+		CCA7B2EE1F2A2CD8009BF78B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 536F8B6C1650E5278D8EDA3B /* Pods-MarshrouteTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
+				INFOPLIST_FILE = MarshrouteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.marshroute.tests.MarshrouteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationDemo.app/NavigationDemo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1586,6 +2007,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		CCA7B2EF1F2A2CD8009BF78B /* Build configuration list for PBXNativeTarget "MarshrouteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCA7B2ED1F2A2CD8009BF78B /* Debug */,
+				CCA7B2EE1F2A2CD8009BF78B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -56,7 +56,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -82,7 +83,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -108,7 +110,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -134,7 +137,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -164,7 +168,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -195,7 +200,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -226,7 +232,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         
@@ -257,7 +264,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
         

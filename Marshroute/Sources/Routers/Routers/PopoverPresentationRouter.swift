@@ -64,7 +64,8 @@ extension PopoverPresentationRouter where
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
     Self: TransitionsHandlersProviderHolder,
-    Self: RouterControllersProviderHolder
+    Self: RouterControllersProviderHolder,
+    Self: RouterAnimatorsProviderHolder
 {
     // MARK: - UIViewController in UIPopoverController
     public func presentPopoverFromRect(
@@ -104,7 +105,8 @@ extension PopoverPresentationRouter where
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -168,7 +170,8 @@ extension PopoverPresentationRouter where
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -254,7 +257,8 @@ extension PopoverPresentationRouter where
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -264,7 +268,7 @@ extension PopoverPresentationRouter where
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
                 animatingTransitionsHandler: navigationTransitionsHandler,
-                animator: SetNavigationTransitionsAnimator(),
+                animator: animatorsProvider.setNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
             
@@ -337,7 +341,8 @@ extension PopoverPresentationRouter where
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            animatorsProvider: animatorsProvider
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -347,7 +352,7 @@ extension PopoverPresentationRouter where
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
                 animatingTransitionsHandler: navigationTransitionsHandler,
-                animator: SetNavigationTransitionsAnimator(),
+                animator: animatorsProvider.setNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
             

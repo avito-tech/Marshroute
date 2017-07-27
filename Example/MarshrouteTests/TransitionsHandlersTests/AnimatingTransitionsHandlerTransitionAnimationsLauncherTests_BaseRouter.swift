@@ -1,11 +1,10 @@
 import XCTest
 @testable import Marshroute
 
-final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter: XCTestCase {
+final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter: XCTestCase {
 
     var sourceViewController: UIViewController!
     var targetViewController: UIViewController!
-    var navigationController: UINavigationController!
     
     var router: BaseRouter!
     
@@ -15,8 +14,6 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
         sourceViewController = UIViewController()
         targetViewController = UIViewController()
         
-        navigationController = UINavigationController()
-        
         let transitionIdGenerator = TransitionIdGeneratorImpl()
         
         let stackClientProvider = TransitionContextsStackClientProviderImpl()
@@ -25,33 +22,31 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
             stackClientProvider: stackClientProvider
         )
         
-        let navigationTransitionsHandler = NavigationTransitionsHandlerImpl(
-            navigationController: navigationController,
+        let animatingTransitionsHandler = AnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator
         )
         
         
         let setRootViewControllerContext = ResettingTransitionContext(
-            settingRootViewController: sourceViewController,
-            forNavigationController: navigationController,
-            animatingTransitionsHandler: navigationTransitionsHandler,
-            animator: SetNavigationTransitionsAnimator(),
+            registeringViewController: sourceViewController,
+            animatingTransitionsHandler: animatingTransitionsHandler,
             transitionId: transitionIdGenerator.generateNewTransitionId()
         )
         
-        // set root view controller for a navigation controller
-        navigationTransitionsHandler.resetWithTransition(context: setRootViewControllerContext)
+        // set root view controller for a transitions handler
+        animatingTransitionsHandler.resetWithTransition(context: setRootViewControllerContext)
         
         router = BaseRouter(
             routerSeed: RouterSeed(
                 transitionsHandlerBox: .init(
-                    animatingTransitionsHandler: navigationTransitionsHandler
+                    animatingTransitionsHandler: animatingTransitionsHandler
                 ),
                 transitionId: transitionIdGenerator.generateNewTransitionId(),
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
     }
@@ -59,7 +54,7 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
     // MARK: - TransitionAnimationsLauncher
     
     // MARK: DetailRouter
-    func testThatAnimatorIsCalledWithCorectResettingAnimationContextOn_SetViewControllerDerivedFrom() {
+    func testThatAnimatorIsNotCalledOn_SetViewControllerDerivedFrom() {
         // Given
         let resetNavigationTransitionsAnimatorSpy = ResetNavigationTransitionsAnimatorSpy()
         
@@ -70,12 +65,10 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
         )
         
         // Then
-        if case .called(let animationContext) = resetNavigationTransitionsAnimatorSpy.animateResetting! {
-            XCTAssert(animationContext.rootViewController === targetViewController)
-        } else { XCTFail() }
+        XCTAssertNil(resetNavigationTransitionsAnimatorSpy.animateResetting)
     }
     
-    func testThatAnimatorIsCalledWithCorectPresentationAnimationContextOn_PushViewControllerDerivedFrom() {
+    func testThatAnimatorIsNotCalledOn_PushViewControllerDerivedFrom() {
         // Given
         let navigationTransitionsAnimator = NavigationTransitionsAnimatorSpy()
         
@@ -86,10 +79,7 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
         )
         
         // Then
-        if case .called(let animationContext) = navigationTransitionsAnimator.animatePerforming! {
-            XCTAssert(animationContext.sourceViewController === sourceViewController)
-            XCTAssert(animationContext.targetViewController === targetViewController)
-        } else { XCTFail() }
+        XCTAssertNil(navigationTransitionsAnimator.animatePerforming)
     }
     
     // MARK: EndpointRouter

@@ -19,7 +19,8 @@ extension EndpointRouter where
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
     Self: TransitionsHandlersProviderHolder,
-    Self: RouterControllersProviderHolder
+    Self: RouterControllersProviderHolder,
+    Self: RouterAnimatorsProviderHolder
 {
     public func presentModalEndpointNavigationController(
         _ navigationController: UINavigationController,
@@ -53,7 +54,8 @@ extension EndpointRouter where
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider, 
+            animatorsProvider: animatorsProvider
         )
         
         do {

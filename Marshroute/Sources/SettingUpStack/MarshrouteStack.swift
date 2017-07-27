@@ -3,6 +3,7 @@ import Foundation
 public struct MarshrouteStack {
     public let transitionIdGenerator: TransitionIdGenerator
     public let routerControllersProvider: RouterControllersProvider
+    public let routerAnimatorsProvider: RouterAnimatorsProvider
     public let transitionsCoordinator: TransitionsCoordinator
     public let transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder
     public let topViewControllerFinder: TopViewControllerFinder
@@ -13,6 +14,7 @@ public struct MarshrouteStack {
     public init(
         transitionIdGenerator: TransitionIdGenerator,
         routerControllersProvider: RouterControllersProvider,
+        routerAnimatorsProvider: RouterAnimatorsProvider,
         transitionsCoordinator: TransitionsCoordinator,
         transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder,
         topViewControllerFinder: TopViewControllerFinder,
@@ -22,6 +24,7 @@ public struct MarshrouteStack {
     {
         self.transitionIdGenerator = transitionIdGenerator
         self.routerControllersProvider = routerControllersProvider
+        self.routerAnimatorsProvider = routerAnimatorsProvider
         self.transitionsCoordinator = transitionsCoordinator
         self.transitionsCoordinatorDelegateHolder = transitionsCoordinatorDelegateHolder
         self.topViewControllerFinder = topViewControllerFinder

@@ -1,9 +1,9 @@
 import XCTest
 @testable import Marshroute
 
-final class EndpointRouterTests_BaseRouter: XCTestCase
+final class EndpointRouterTests_BaseMasterDetailRouter: XCTestCase
 {
-    var detailAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
+    var masterAnimatingTransitionsHandlerSpy: AnimatingTransitionsHandlerSpy!
     var router: EndpointRouter!
     
     override func setUp() {
@@ -15,25 +15,31 @@ final class EndpointRouterTests_BaseRouter: XCTestCase
             stackClientProvider: TransitionContextsStackClientProviderImpl()
         )
         
-        detailAnimatingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(
+        masterAnimatingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(
             transitionsCoordinator: transitionsCoordinator
         )
         
-        router = BaseRouter(
-            routerSeed: RouterSeed(
-                transitionsHandlerBox: .init(
-                    animatingTransitionsHandler: detailAnimatingTransitionsHandlerSpy
+        router = BaseMasterDetailRouter(
+            routerSeed: MasterDetailRouterSeed(
+                masterTransitionsHandlerBox: .init(
+                    animatingTransitionsHandler: masterAnimatingTransitionsHandlerSpy
+                ),
+                detailTransitionsHandlerBox: .init(
+                    animatingTransitionsHandler: AnimatingTransitionsHandlerSpy(
+                        transitionsCoordinator: transitionsCoordinator
+                    )
                 ),
                 transitionId: transitionIdGenerator.generateNewTransitionId(),
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                animatorsProvider: RouterAnimatorsProviderImpl()
             )
         )
     }
     
-    func testThatRouterCallsItsTransitionsHandlerOn_PresentModalEndpointNavigationController_WithCorrectPresentationContext() {
+    func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentModalEndpointNavigationController_WithCorrectPresentationContext() {
         // Given
         let targetNavigationController = UINavigationController()
         var nextModuleRouterSeed: RouterSeed!
@@ -44,9 +50,9 @@ final class EndpointRouterTests_BaseRouter: XCTestCase
         }
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext?.targetViewController === targetNavigationController)
         if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -56,7 +62,7 @@ final class EndpointRouterTests_BaseRouter: XCTestCase
         } else { XCTFail() }
     }
     
-    func testThatRouterCallsItsTransitionsHandlerOn_PresentModalEndpointNavigationController_WithCorrectPresentationContext_IfCustomAnimator() {
+    func testThatMasterDetailRouterCallsItsMasterTransitionsHandlerOn_PresentModalEndpointNavigationController_WithCorrectPresentationContext_IfCustomAnimator() {
         // Given
         let targetNavigationController = UINavigationController()
         var nextModuleRouterSeed: RouterSeed!
@@ -70,9 +76,9 @@ final class EndpointRouterTests_BaseRouter: XCTestCase
         }
         
         // Then
-        XCTAssert(detailAnimatingTransitionsHandlerSpy.performTransitionCalled)
+        XCTAssert(masterAnimatingTransitionsHandlerSpy.performTransitionCalled)
         
-        let presentationContext = detailAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
+        let presentationContext = masterAnimatingTransitionsHandlerSpy.perFormTransitionContextParameter
         XCTAssertEqual(presentationContext?.transitionId, nextModuleRouterSeed.transitionId)
         XCTAssert(presentationContext?.targetViewController === targetNavigationController)
         if case .some(.animating) = presentationContext?.targetTransitionsHandlerBox {} else { XCTFail() }
@@ -82,4 +88,5 @@ final class EndpointRouterTests_BaseRouter: XCTestCase
             XCTAssert(launchingContext.targetNavigationController! === targetNavigationController)
         } else { XCTFail() }
     }
+ 
 }

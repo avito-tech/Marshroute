@@ -17,6 +17,8 @@ final public class MarshrouteSetupServiceImpl: MarshrouteSetupService {
         
         let routerControllersProvider = factory.routerControllersProvider()
         
+        let routerAnimatorsProvider = factory.routerAnimatorsProvider()
+        
         let stackClientProvider = factory.transitionContextsStackClientProvider()
         
         let transitionsCoordinator = TransitionsCoordinatorImpl(
@@ -25,7 +27,8 @@ final public class MarshrouteSetupServiceImpl: MarshrouteSetupService {
         
         return MarshrouteStack(
             transitionIdGenerator: transitionIdGenerator,
-            routerControllersProvider: routerControllersProvider,
+            routerControllersProvider: routerControllersProvider, 
+            routerAnimatorsProvider: routerAnimatorsProvider,
             transitionsCoordinator: transitionsCoordinator,
             transitionsCoordinatorDelegateHolder: transitionsCoordinator,
             topViewControllerFinder: transitionsCoordinator,

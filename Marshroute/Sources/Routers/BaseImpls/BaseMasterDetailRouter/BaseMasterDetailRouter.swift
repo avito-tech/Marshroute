@@ -28,15 +28,14 @@ open class BaseMasterDetailRouter:
     open let transitionIdGenerator: TransitionIdGenerator
     open let controllersProvider: RouterControllersProvider
     
-    public init(routerSeed seed: MasterDetailRouterSeed)
-    {
-        self.transitionId = seed.transitionId
-        self.masterTransitionsHandlerBox = seed.masterTransitionsHandlerBox
-        self.detailTransitionsHandlerBox = seed.detailTransitionsHandlerBox
-        self.presentingTransitionsHandler = seed.presentingTransitionsHandler
-        self.transitionsHandlersProvider = seed.transitionsHandlersProvider
-        self.transitionIdGenerator = seed.transitionIdGenerator
-        self.controllersProvider = seed.controllersProvider
+    public init(routerSeed: MasterDetailRouterSeed) {
+        self.transitionId = routerSeed.transitionId
+        self.masterTransitionsHandlerBox = routerSeed.masterTransitionsHandlerBox
+        self.detailTransitionsHandlerBox = routerSeed.detailTransitionsHandlerBox
+        self.presentingTransitionsHandler = routerSeed.presentingTransitionsHandler
+        self.transitionsHandlersProvider = routerSeed.transitionsHandlersProvider
+        self.transitionIdGenerator = routerSeed.transitionIdGenerator
+        self.controllersProvider = routerSeed.controllersProvider
     }
     
     // MARK: - RouterTransitionable

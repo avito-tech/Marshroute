@@ -18,8 +18,13 @@ public protocol DetailRouter: class {
 }
 
 // MARK: - DetailRouter Default Impl
-extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsHandlersProviderHolder, Self: RouterControllersProviderHolder {
-    
+extension DetailRouter where 
+    Self: DetailRouterTransitionable, 
+    Self: RouterIdentifiable, 
+    Self: TransitionIdGeneratorHolder, 
+    Self: TransitionsHandlersProviderHolder, 
+    Self: RouterControllersProviderHolder 
+{    
     public func setViewControllerDerivedFrom(
         _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     {

@@ -32,8 +32,14 @@ public protocol MasterRouter {
 }
 
 // MARK: - MasterRouter Default Impl
-extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsHandlersProviderHolder, Self: RouterControllersProviderHolder {
-    
+extension MasterRouter where 
+    Self: MasterRouterTransitionable, 
+    Self: DetailRouterTransitionable, 
+    Self: RouterIdentifiable, 
+    Self: TransitionIdGeneratorHolder, 
+    Self: TransitionsHandlersProviderHolder, 
+    Self: RouterControllersProviderHolder 
+{
     public func setMasterViewControllerDerivedFrom(
         _ deriveViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController)
     {

@@ -7,7 +7,7 @@ env:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
 
-  - IOS_DESTANATION="platform=iOS Simulator,OS=10.3,name=iPhone 7 Plus"
+  - IOS_DESTANATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7 Plus"
 before_install:
   - gem install xcpretty-travis-formatter
 script:

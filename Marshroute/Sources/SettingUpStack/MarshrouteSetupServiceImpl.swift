@@ -19,8 +19,11 @@ final public class MarshrouteSetupServiceImpl: MarshrouteSetupService {
         
         let stackClientProvider = factory.transitionContextsStackClientProvider()
         
+        let peekAndPopUtility = PeekAndPopUtilityImpl()
+        
         let transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: stackClientProvider
+            stackClientProvider: stackClientProvider, 
+            peekAndPopTransitionsCoordinator: peekAndPopUtility
         )
         
         return MarshrouteStack(
@@ -31,7 +34,8 @@ final public class MarshrouteSetupServiceImpl: MarshrouteSetupService {
             topViewControllerFinder: transitionsCoordinator,
             transitionsMarker: transitionsCoordinator,
             transitionsTracker: transitionsCoordinator,
-            transitionsHandlersProvider: transitionsCoordinator
+            transitionsHandlersProvider: transitionsCoordinator,
+            peekAndPopUtility: peekAndPopUtility
         )
     }
 }

@@ -130,7 +130,7 @@ public extension PresentationTransitionContext {
             presentedTransitionsHandler: targetTransitionsHandler
         )
         
-        let animationLaunchingContext = ModalNavigationPresentationAnimationLaunchingContext (
+        let animationLaunchingContext = ModalNavigationPresentationAnimationLaunchingContext(
             targetNavigationController: navigationController,
             targetViewController: targetViewController,
             animator: animator

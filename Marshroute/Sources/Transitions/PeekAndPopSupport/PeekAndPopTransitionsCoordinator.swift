@@ -1,3 +1,5 @@
+import UIKit
+
 public protocol PeekAndPopTransitionsCoordinator: class {
     func coordinatePeekIfNeededFor(
         viewController: UIViewController,

@@ -16,7 +16,8 @@ final class RouterDismissableTests: XCTestCase
         transitionId = transitionIdGenerator.generateNewTransitionId()
         
         transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: TransitionContextsStackClientProviderImpl()
+            stackClientProvider: TransitionContextsStackClientProviderImpl(),
+            peekAndPopTransitionsCoordinator: PeekAndPopUtilityImpl()
         )
         
         presentingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(

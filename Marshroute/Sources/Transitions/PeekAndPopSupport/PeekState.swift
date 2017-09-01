@@ -1,3 +1,5 @@
+import UIKit
+
 enum PeekState {
     case waitingForPeekAndPopData
     case receivedPeekAndPopData(PeekAndPopData)

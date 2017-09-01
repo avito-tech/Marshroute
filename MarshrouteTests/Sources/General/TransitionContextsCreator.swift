@@ -63,7 +63,8 @@ final class TransitionContextsCreator
             registeringEndpointNavigationController: UINavigationController(), animatingTransitionsHandler: NavigationTransitionsHandlerImpl(
                 navigationController: UINavigationController(),
                 transitionsCoordinator: TransitionsCoordinatorImpl(
-                    stackClientProvider: TransitionContextsStackClientProviderImpl()
+                    stackClientProvider: TransitionContextsStackClientProviderImpl(),
+                    peekAndPopTransitionsCoordinator: PeekAndPopUtilityImpl()
                 )
             ),
             transitionId: TransitionIdGeneratorImpl().generateNewTransitionId()

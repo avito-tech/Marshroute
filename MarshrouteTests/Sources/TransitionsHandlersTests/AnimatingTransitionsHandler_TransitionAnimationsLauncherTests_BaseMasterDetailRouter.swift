@@ -20,8 +20,11 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         
         let stackClientProvider = TransitionContextsStackClientProviderImpl()
         
+        let peekAndPopTransitionsCoordinator = PeekAndPopUtilityImpl()
+        
         let transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: stackClientProvider
+            stackClientProvider: stackClientProvider,
+            peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
         )
         
         let masterAnimatingTransitionsHandler = AnimatingTransitionsHandler(

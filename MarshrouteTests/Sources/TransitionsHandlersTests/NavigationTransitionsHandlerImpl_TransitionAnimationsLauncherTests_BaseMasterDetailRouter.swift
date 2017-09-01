@@ -24,8 +24,11 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
         
         let stackClientProvider = TransitionContextsStackClientProviderImpl()
         
+        let peekAndPopTransitionsCoordinator = PeekAndPopUtilityImpl()
+        
         let transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: stackClientProvider
+            stackClientProvider: stackClientProvider,
+            peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
         )
         
         let masterNavigationTransitionsHandler = NavigationTransitionsHandlerImpl(

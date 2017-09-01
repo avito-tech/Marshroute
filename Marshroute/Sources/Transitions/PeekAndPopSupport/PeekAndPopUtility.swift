@@ -1,3 +1,5 @@
+import UIKit
+
 public protocol PeekAndPopUtility: class {
     @available(iOS 9.0, *)
     @discardableResult

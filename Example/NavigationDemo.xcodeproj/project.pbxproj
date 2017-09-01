@@ -71,6 +71,8 @@
 		CC0B1E6E1CC3C91A006707B6 /* AdvertisementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */; };
 		CC0B1E6F1CC3C91A006707B6 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */; };
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
+		CC3B0EC11F59D6FF0034530E /* BaseAssemblySeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */; };
+		CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */; };
 		CC574ABE1CEF73C1008648D0 /* BannerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */; };
 		CC574ABF1CEF73C1008648D0 /* BannerAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */; };
 		CC574AC01CEF73C1008648D0 /* BannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */; };
@@ -227,6 +229,8 @@
 		CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementView.swift; sourceTree = "<group>"; };
 		CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
+		CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssemblySeed.swift; sourceTree = "<group>"; };
+		CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePeekAndPopViewController.swift; sourceTree = "<group>"; };
 		CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssembly.swift; sourceTree = "<group>"; };
 		CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssemblyImpl.swift; sourceTree = "<group>"; };
 		CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerInteractor.swift; sourceTree = "<group>"; };
@@ -414,6 +418,7 @@
 				CC0B1D661CC208DF006707B6 /* AssemblyFactory.swift */,
 				CC0B1D691CC20910006707B6 /* AssemblyFactoryImpl.swift */,
 				CC0B1D5B1CC207FA006707B6 /* BaseAssembly.swift */,
+				CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 		CC0B1D8B1CC20A43006707B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */,
 				CC0B1D8C1CC20A43006707B6 /* BaseViewController.swift */,
 				CC0B1DB71CC233F5006707B6 /* BaseTabBarController.swift */,
 				CC0B1D8D1CC20A43006707B6 /* ViewLifecycleObservable.swift */,
@@ -1317,6 +1323,7 @@
 				CC0B1DB81CC233F5006707B6 /* BaseTabBarController.swift in Sources */,
 				CC0B1D8E1CC20A43006707B6 /* BaseViewController.swift in Sources */,
 				CC0B1DEA1CC2D7EB006707B6 /* CategoriesProviderImpl.swift in Sources */,
+				CC3B0EC11F59D6FF0034530E /* BaseAssemblySeed.swift in Sources */,
 				CC0B1E671CC3C91A006707B6 /* AdvertisementAssembly.swift in Sources */,
 				CCE639691CDFD3B8002DF096 /* RecursionAnimator.swift in Sources */,
 				CCF4A8441CDFA0AF008170C1 /* TimerService.swift in Sources */,
@@ -1397,6 +1404,7 @@
 				CC0B1E151CC2DF84006707B6 /* SearchResultsAssembly.swift in Sources */,
 				CC8406961CD6767500644CA1 /* BaseDemoMasterDetailRouter.swift in Sources */,
 				CC0B1E561CC3C3D3006707B6 /* AdvertisementCacherImpl.swift in Sources */,
+				CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */,
 				CC8406831CD6693500644CA1 /* ShelfAssembly.swift in Sources */,
 				CC8406851CD6693500644CA1 /* ShelfInteractor.swift in Sources */,
 				CCA7C8EC1CD9049C00B7ADBD /* CategoriesRouterIpad.swift in Sources */,

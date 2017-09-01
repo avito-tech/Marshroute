@@ -1,13 +1,15 @@
 import Foundation
+import Marshroute
 
 class BaseAssembly {
     let assemblyFactory: AssemblyFactory
     let serviceFactory: ServiceFactory
+    let marshrouteStack: MarshrouteStack
     
-    init(assemblyFactory: AssemblyFactory,
-         serviceFactory: ServiceFactory)
+    init(assemblySeed: BaseAssemblySeed)
     {
-        self.assemblyFactory = assemblyFactory
-        self.serviceFactory = serviceFactory
+        self.assemblyFactory = assemblySeed.assemblyFactory
+        self.serviceFactory = assemblySeed.serviceFactory
+        self.marshrouteStack = assemblySeed.marshrouteStack
     }
 }

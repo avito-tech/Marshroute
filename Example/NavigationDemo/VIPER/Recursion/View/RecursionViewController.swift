@@ -31,7 +31,7 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
             title: "recursion".localized, // to Recursion module
             style: .plain,
             target: self,
-            action: #selector(RecursionViewController.onRecursionButtonTap(_:))
+            action: #selector(onRecursionButtonTap(_:))
         )
         
         var rightBarButtonItems = [UIBarButtonItem]()
@@ -40,7 +40,7 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
             let dismissButtonItem = UIBarButtonItem(
                 barButtonSystemItem: .stop,
                 target: self,
-                action: #selector(RecursionViewController.onDismissButtonTap(_:))
+                action: #selector(onDismissButtonTap(_:))
             )
             rightBarButtonItems.append(dismissButtonItem)
         }
@@ -49,7 +49,7 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
             title: "categories".localized, // to Categories module
             style: .plain,
             target: self,
-            action: #selector(RecursionViewController.onCategoriesButtonTap(_:))
+            action: #selector(onCategoriesButtonTap(_:))
         )
         
         rightBarButtonItems.append(toCategoriesButtonItem)

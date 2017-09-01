@@ -26,7 +26,7 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
             navigationItem.rightBarButtonItem = UIBarButtonItem(
                 barButtonSystemItem: .stop,
                 target: self,
-                action: #selector(CategoriesViewController.onDismissButtonTap(_:))
+                action: #selector(onDismissButtonTap(_:))
             )
         }
     }

@@ -16,7 +16,7 @@ final class RecursionView: UIView {
         addSubview(timerButton)
         timerButton.setTitleColor(.white, for: UIControlState())
         timerButton.backgroundColor = .blue
-        timerButton.addTarget(self, action: #selector(RecursionView.onTimerButtonTap(_:)), for: .touchUpInside)
+        timerButton.addTarget(self, action: #selector(onTimerButtonTap(_:)), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {

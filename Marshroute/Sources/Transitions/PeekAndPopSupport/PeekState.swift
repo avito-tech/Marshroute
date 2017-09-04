@@ -23,13 +23,13 @@ enum PeekState {
         }
     }
     
-    var viewController: UIViewController? {
+    var viewControllerIfPeekIsInProgress: UIViewController? {
         switch self {
         case .waitingForPeekAndPopData:
             return nil
             
         case .receivedPeekAndPopData:
-            return nil
+            return nil // See computed property's name
             
         case .inProgress(let peekAndPopData):
             return peekAndPopData.peekViewController
@@ -39,13 +39,13 @@ enum PeekState {
         }
     }
     
-    var popAction: (() -> ())? {
+    var popActionIfPeekIsInProgress: (() -> ())? {
         switch self {
         case .waitingForPeekAndPopData:
             return nil
             
         case .receivedPeekAndPopData:
-            return nil
+            return nil // See computed property's name
             
         case .inProgress(let peekAndPopData):
             return peekAndPopData.popAction

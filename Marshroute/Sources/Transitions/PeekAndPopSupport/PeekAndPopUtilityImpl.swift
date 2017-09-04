@@ -77,7 +77,7 @@ public final class PeekAndPopUtilityImpl:
             peekState = .finished
         }
         
-        return peekState.viewController
+        return peekState.viewControllerIfPeekIsInProgress
     }
     
     @available(iOS 9.0, *)
@@ -86,7 +86,7 @@ public final class PeekAndPopUtilityImpl:
         commit viewControllerToCommit: UIViewController)
     {
         // Commit peek
-        peekState.popAction?()
+        peekState.popActionIfPeekIsInProgress?()
         peekState = .finished
     }
     

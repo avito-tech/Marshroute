@@ -15,7 +15,8 @@ public final class PeekAndPopUtilityImpl:
     public func register(
         viewController: UIViewController, 
         sourceView: UIView,
-        onPeek: @escaping ((_ previewingContext: UIViewControllerPreviewing, _ location: CGPoint) -> ()))
+        onPeek: @escaping ((_ previewingContext: UIViewControllerPreviewing, _ location: CGPoint) -> ()),
+        onPreviewingContextChange: ((_ newPreviewingContext: UIViewControllerPreviewing) -> ())?)
         -> UIViewControllerPreviewing
     {
         unregister(viewController: viewController, sourceView: sourceView)
@@ -25,7 +26,8 @@ public final class PeekAndPopUtilityImpl:
         let registeredPreviewingData = RegisteredPreviewingData(
             viewController: viewController,
             previewingContext: previewingContext,
-            onPeek: onPeek
+            onPeek: onPeek,
+            onPreviewingContextChange: onPreviewingContextChange
         )
         
         registeredPreviewingDataList.append(registeredPreviewingData)
@@ -55,6 +57,7 @@ public final class PeekAndPopUtilityImpl:
     }
     
     // MARK: - UIViewControllerPreviewingDelegate
+    @available(iOS 9.0, *)
     public func previewingContext(
         _ previewingContext: UIViewControllerPreviewing,
         viewControllerForLocation location: CGPoint)
@@ -77,6 +80,7 @@ public final class PeekAndPopUtilityImpl:
         return peekState.viewController
     }
     
+    @available(iOS 9.0, *)
     public func previewingContext(
         _ previewingContext: UIViewControllerPreviewing,
         commit viewControllerToCommit: UIViewController)
@@ -91,18 +95,38 @@ public final class PeekAndPopUtilityImpl:
         viewController: UIViewController,
         popAction: @escaping (() -> ()))
     {
-        let didTransitionsToReceivedPeekAndPopDataState = peekState.transitionToReceivedPeekAndPopDataState(
-            viewController: viewController,
-            popAction: popAction
-        )
+        guard #available(iOS 9.0, *) else {
+            // `Peek and pop` is not supported on older iOS versions. Invoke new transition immediately
+            popAction()
+            return
+        }
         
-        if !didTransitionsToReceivedPeekAndPopDataState {
-            // No peek appears to be expected. Invoke transition as usually
+        switch peekState {
+        case .waitingForPeekAndPopData:
+            let peekAndPopData = PeekAndPopData(
+                peekViewController: viewController,
+                popAction: popAction
+            )
+            peekState = .receivedPeekAndPopData(peekAndPopData)
+            
+        case .receivedPeekAndPopData(let peekAndPopData):
+            // Another transition seems to occur during `peek`. Cancel `peek` and invoke new transition immediately
+            cancelPeekFor(peekAndPopData: peekAndPopData)
+            popAction()
+            
+        case .inProgress(let peekAndPopData):
+            // Another transition seems to occur during `peek`. Cancel `peek` and invoke new transition immediately
+            cancelPeekFor(peekAndPopData: peekAndPopData)
+            popAction()
+            
+        case .finished:
+            // No active `peek` seems to be in progress. Invoke new transition immediately
             popAction()
         }
     }
     
     // MARK: - Private
+    @available(iOS 9.0, *)
     private func registeredPreviewingDataFor(previewingContext: UIViewControllerPreviewing)
         -> RegisteredPreviewingData?
     {
@@ -111,10 +135,44 @@ public final class PeekAndPopUtilityImpl:
         return registeredPreviewingDataList.first { $0.previewingContext === previewingContext }
     }
     
-    private func cancelPeek() {
-        // TODO: проверить что при отмене peek and pop не пересоздаются gesture recongnizers
-        // (проверить через addTarget)
-        assertionFailure("TODO")
+    @available(iOS 9.0, *)
+    private func registeredPreviewingDataListFor(viewController: UIViewController?)
+        -> [RegisteredPreviewingData]
+    {
+        registeredPreviewingDataList = registeredPreviewingDataList.filter { !$0.isZombie }
+        
+        return registeredPreviewingDataList.filter { $0.viewController === viewController }
+    }
+    
+    @available(iOS 9.0, *)
+    private func cancelPeekFor(peekAndPopData: PeekAndPopData) {
+        peekState = .finished
+        
+        guard let viewController = peekAndPopData.peekViewController else {
+            return
+        }
+        
+        // Cancelling peek and pop may be implemented via reregistering a `viewController` for previewing
+        let registeredPreviewingDataList = registeredPreviewingDataListFor(viewController: viewController) 
+        
+        for registeredPreviewingData in registeredPreviewingDataList {
+            guard let sourceView = registeredPreviewingData.previewingContext?.sourceView else {
+                continue
+            }
+            
+            debugPrint("Cancelling `peek` for viewController: \(viewController)")
+            
+            // Reregister a `viewController` for previewing
+            let newPreviewingContext = reregister(
+                viewController: viewController,
+                sourceView: sourceView,
+                onPeek: registeredPreviewingData.onPeek,
+                onPreviewingContextChange: registeredPreviewingData.onPreviewingContextChange
+            )
+            
+            // Notify about a reregister
+            registeredPreviewingData.onPreviewingContextChange?(newPreviewingContext)
+        }
     }
 }
 
@@ -122,8 +180,10 @@ private struct RegisteredPreviewingData {
     weak var viewController: UIViewController?
     weak var previewingContext: UIViewControllerPreviewing?
     var onPeek: ((_ previewingContext: UIViewControllerPreviewing, _ location: CGPoint) -> ())
+    var onPreviewingContextChange: ((_ newPreviewingContext: UIViewControllerPreviewing) -> ())?
     
+    @available(iOS 9.0, *)
     var isZombie: Bool {
-        return viewController == nil || previewingContext == nil
+        return viewController == nil || previewingContext == nil || previewingContext?.sourceView == nil
     }
 }

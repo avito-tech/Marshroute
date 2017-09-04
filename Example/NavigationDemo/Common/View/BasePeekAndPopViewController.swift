@@ -53,7 +53,8 @@ class BasePeekAndPopViewController: BaseViewController
                             previewingContext: previewingContext,
                             location: location
                         )
-                    }
+                    },
+                    onPreviewingContextChange: nil
                 )
             }
         }

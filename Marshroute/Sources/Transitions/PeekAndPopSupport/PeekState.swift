@@ -6,31 +6,6 @@ enum PeekState {
     case inProgress(PeekAndPopData)
     case finished
 
-    mutating func transitionToReceivedPeekAndPopDataState(
-        viewController: UIViewController,
-        popAction: @escaping (() -> ()))
-        -> Bool
-    {
-        switch self {
-        case .waitingForPeekAndPopData:
-            let peekAndPopData = PeekAndPopData(
-                peekViewController: viewController,
-                popAction: popAction
-            )
-            self = .receivedPeekAndPopData(peekAndPopData)
-            return true
-            
-        case .receivedPeekAndPopData:
-            return false
-            
-        case .inProgress:
-            return false
-            
-        case .finished:
-            return false
-        }
-    }
-    
     mutating func transitionToInProgressState() -> Bool {
         switch self {
         case .waitingForPeekAndPopData:

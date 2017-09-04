@@ -1,6 +1,6 @@
 import UIKit
 
-final class SearchResultsViewController: BaseViewController, SearchResultsViewInput {
+final class SearchResultsViewController: BasePeekAndPopViewController, SearchResultsViewInput {
     fileprivate let searchResultsView = SearchResultsView()
     
     override func loadView() {
@@ -33,4 +33,26 @@ final class SearchResultsViewController: BaseViewController, SearchResultsViewIn
     }
     
     var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
+    
+    // MARK: - BasePeekAndPopViewController
+    override var peekSourceView: UIView {
+        return searchResultsView.peekSourceView
+    }
+    
+    override func startPeekWith(
+        previewingContext: UIViewControllerPreviewing,
+        location: CGPoint)
+    {
+        guard #available(iOS 9.0, *) 
+            else { return }
+        
+        guard let searchResultsPeekData = searchResultsView.peekDataAt(
+            location: location,
+            sourceView: previewingContext.sourceView)
+            else { return }
+        
+        previewingContext.sourceRect = searchResultsPeekData.sourceRect
+        
+        searchResultsPeekData.viewData.onTap()
+    }
 }

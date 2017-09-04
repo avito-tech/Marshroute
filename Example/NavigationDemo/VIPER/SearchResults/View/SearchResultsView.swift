@@ -19,9 +19,38 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Internal
     func reloadWithSearchResults(_ searchResults: [SearchResultsViewData]) {
         self.searchResults = searchResults
         tableView.reloadData()
+    }    
+    
+    var peekSourceView: UIView {
+        return tableView
+    }
+    
+    func peekDataAt(
+        location: CGPoint,
+        sourceView: UIView)
+        -> SearchResultsPeekData?
+    {
+        guard let indexPath = tableView.indexPathForRow(at: location)
+            else { return nil }
+        
+        guard let cell = tableView.cellForRow(at: indexPath)
+            else { return nil }
+        
+        guard indexPath.row < searchResults.count  
+            else { return nil }
+        
+        let searchResult = searchResults[indexPath.row]
+        
+        let cellFrameInSourceView = cell.convert(cell.bounds, to: tableView)
+        
+        return SearchResultsPeekData(
+            viewData: searchResult,
+            sourceRect: cellFrameInSourceView
+        )
     }
     
     // MARK: - Layout
@@ -67,4 +96,9 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
         tableView.deselectRow(at: indexPath, animated: true)
         searchResults[(indexPath as NSIndexPath).row].onTap()
     }
+}
+
+struct SearchResultsPeekData {
+    let viewData: SearchResultsViewData
+    let sourceRect: CGRect
 }

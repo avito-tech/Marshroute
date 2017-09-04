@@ -1,8 +1,9 @@
 import UIKit
 
-final class AdvertisementViewController: BaseViewController, AdvertisementViewInput {
+final class AdvertisementViewController: BasePeekAndPopViewController, AdvertisementViewInput {
     fileprivate let advertisementView = AdvertisementView()
     
+    // MARK: - Lifecycle
     override func loadView() {
         view = advertisementView
     }
@@ -29,6 +30,28 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
         )
         
         advertisementView.setUIInsets(uiInsets)
+    }
+    
+    // MARK: - BasePeekAndPopViewController
+    override var peekSourceView: UIView {
+        return advertisementView.peekSourceView
+    }
+    
+    override func startPeekWith(
+        previewingContext: UIViewControllerPreviewing,
+        location: CGPoint)
+    {
+        guard #available(iOS 9.0, *) 
+            else { return }
+        
+        guard let peekData = advertisementView.peekDataAt(
+            location: location,
+            sourceView: previewingContext.sourceView)
+            else { return }
+        
+        previewingContext.sourceRect = peekData.sourceRect
+        
+        peekData.viewData.onTap()
     }
     
     // MARK: - Private

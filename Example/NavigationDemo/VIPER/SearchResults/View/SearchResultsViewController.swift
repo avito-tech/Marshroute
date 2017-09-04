@@ -3,6 +3,7 @@ import UIKit
 final class SearchResultsViewController: BasePeekAndPopViewController, SearchResultsViewInput {
     fileprivate let searchResultsView = SearchResultsView()
     
+    // MARK: - Lifecycle
     override func loadView() {
         view = searchResultsView
     }
@@ -46,13 +47,13 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
         guard #available(iOS 9.0, *) 
             else { return }
         
-        guard let searchResultsPeekData = searchResultsView.peekDataAt(
+        guard let peekData = searchResultsView.peekDataAt(
             location: location,
             sourceView: previewingContext.sourceView)
             else { return }
         
-        previewingContext.sourceRect = searchResultsPeekData.sourceRect
+        previewingContext.sourceRect = peekData.sourceRect
         
-        searchResultsPeekData.viewData.onTap()
+        peekData.viewData.onTap()
     }
 }

@@ -71,7 +71,35 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         
         tableView.contentInset.bottom = insets.bottom
         tableView.scrollIndicatorInsets.bottom = insets.bottom
+    }    
+
+    var peekSourceView: UIView {
+        return tableView
     }
+    
+    func peekDataAt(
+        location: CGPoint,
+        sourceView: UIView)
+        -> RecommendedSearchResultsPeekData?
+    {
+        guard let indexPath = tableView.indexPathForRow(at: location)
+            else { return nil }
+        
+        guard let cell = tableView.cellForRow(at: indexPath)
+            else { return nil }
+        
+        guard indexPath.row < recommendedSearchResults.count  
+            else { return nil }
+        
+        let recommendedSearchResult = recommendedSearchResults[indexPath.row]
+        
+        let cellFrameInSourceView = cell.convert(cell.bounds, to: tableView)
+        
+        return RecommendedSearchResultsPeekData(
+            viewData: recommendedSearchResult,
+            sourceRect: cellFrameInSourceView
+        )
+    }    
     
     // MARK: - Layout
     override func layoutSubviews() {
@@ -167,4 +195,9 @@ private class GradientView: UIView {
     override static var layerClass : AnyClass {
         return CAGradientLayer.self
     }
+}
+
+struct RecommendedSearchResultsPeekData {
+    let viewData: SearchResultsViewData
+    let sourceRect: CGRect
 }

@@ -42,27 +42,23 @@ class BasePeekAndPopViewController: BaseViewController
     }
     
     // MARK: - Private
+    @available(iOS 9.0, *)
     private func registerForPeekAndPop() {
-        if #available(iOS 9.0, *) {
-            if traitCollection.forceTouchCapability == .available {
-                peekAndPopUtility.register(
-                    viewController: self,
-                    sourceView: peekSourceView,
-                    onPeek: { [weak self] (previewingContext, location) in
-                        self?.startPeekWith(
-                            previewingContext: previewingContext,
-                            location: location
-                        )
-                    },
-                    onPreviewingContextChange: nil
+        peekAndPopUtility.register(
+            viewController: self,
+            sourceView: peekSourceView,
+            onPeek: { [weak self] (previewingContext, location) in
+                self?.startPeekWith(
+                    previewingContext: previewingContext,
+                    location: location
                 )
-            }
-        }
+            },
+            onPreviewingContextChange: nil
+        )
     }
     
+    @available(iOS 9.0, *)
     private func unregisterFromPeekAndPop() {
-        if #available(iOS 9.0, *) {
-            peekAndPopUtility.unregister(viewController: self)
-        }
+        peekAndPopUtility.unregister(viewController: self)
     }
 }

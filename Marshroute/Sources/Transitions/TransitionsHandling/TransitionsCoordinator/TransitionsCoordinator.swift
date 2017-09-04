@@ -472,7 +472,6 @@ private extension TransitionsCoordinator where
         }
     }
     
-    
     func initiateUndoingTransitions(
         afterTransitionId transitionId: TransitionId,
         includingTransitionWithId: Bool,

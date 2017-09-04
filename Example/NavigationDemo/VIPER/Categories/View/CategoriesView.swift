@@ -53,7 +53,6 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
         timerButton?.setTitle(title, for: UIControlState())
     }
     
-    // MARK: - BasePeekAndPopViewController
     var peekSourceView: UIView {
         return tableView
     }

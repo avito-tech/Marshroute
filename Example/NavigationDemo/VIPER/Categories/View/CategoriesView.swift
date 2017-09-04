@@ -57,7 +57,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
         return tableView
     }
     
-    func peekDataAtLocation(
+    func peekDataAt(
         location: CGPoint,
         sourceView: UIView)
         -> CategoriesPeekData?

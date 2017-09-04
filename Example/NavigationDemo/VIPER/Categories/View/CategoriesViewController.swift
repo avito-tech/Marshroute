@@ -43,7 +43,7 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
         guard #available(iOS 9.0, *) 
             else { return }
         
-        guard let categoriesPeekData = categoriesView.peekDataAtLocation(
+        guard let categoriesPeekData = categoriesView.peekDataAt(
             location: location,
             sourceView: previewingContext.sourceView)
             else { return }

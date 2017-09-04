@@ -21,7 +21,14 @@ public final class PeekAndPopUtilityImpl:
     {
         unregister(viewController: viewController, sourceView: sourceView)
         
-        let previewingContext = viewController.registerForPreviewing(with: self, sourceView: sourceView)
+        if viewController.traitCollection.forceTouchCapability != .available {
+            debugPrint("You should not register a viewController for `peek and pop`, if it is unavailable in a trait collection: \(viewController)")
+        }
+        
+        let previewingContext = viewController.registerForPreviewing(
+            with: self,
+            sourceView: sourceView
+        )
         
         let registeredPreviewingData = RegisteredPreviewingData(
             viewController: viewController,
@@ -152,7 +159,7 @@ public final class PeekAndPopUtilityImpl:
             return
         }
         
-        // Cancelling peek and pop may be implemented via reregistering a `viewController` for previewing
+        // Cancelling `peek and pop` may be implemented via reregistering a `viewController` for previewing
         let registeredPreviewingDataList = registeredPreviewingDataListFor(viewController: viewController) 
         
         for registeredPreviewingData in registeredPreviewingDataList {

@@ -35,7 +35,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
                 timerButton.setTitleColor(.white, for: UIControlState())
                 timerButton.backgroundColor = .blue
                 
-                timerButton.addTarget(self, action: #selector(CategoriesView.onTimerButtonTap(_:)), for: .touchUpInside)
+                timerButton.addTarget(self, action: #selector(onTimerButtonTap(_:)), for: .touchUpInside)
                 
                 self.timerButton = timerButton
             }
@@ -51,6 +51,35 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     func setTimerButtonTitle(_ title: String) {
         timerButton?.setTitle(title, for: UIControlState())
+    }
+    
+    // MARK: - BasePeekAndPopViewController
+    var peekSourceView: UIView {
+        return tableView
+    }
+    
+    func peekDataAtLocation(
+        location: CGPoint,
+        sourceView: UIView)
+        -> CategoriesPeekData?
+    {
+        guard let indexPath = tableView.indexPathForRow(at: location)
+            else { return nil }
+        
+        guard let cell = tableView.cellForRow(at: indexPath)
+            else { return nil }
+        
+        guard indexPath.row < categories.count  
+            else { return nil }
+        
+        let category = categories[indexPath.row]
+        
+        let cellFrameInSourceView = cell.convert(cell.bounds, to: tableView)
+        
+        return CategoriesPeekData(
+            viewData: category,
+            sourceRect: cellFrameInSourceView
+        )
     }
     
     var onTimerButtonTap: (() -> ())?
@@ -97,4 +126,9 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
     @objc fileprivate func onTimerButtonTap(_ sender: UIButton) {
         onTimerButtonTap?()
     }
+}
+
+struct CategoriesPeekData {
+    let viewData: CategoriesViewData
+    let sourceRect: CGRect
 }

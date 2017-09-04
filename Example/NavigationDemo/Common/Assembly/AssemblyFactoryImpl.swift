@@ -1,72 +1,61 @@
+import Marshroute
+
 final class AssemblyFactoryImpl: AssemblyFactory {
     // MARK: - Init
-    fileprivate let serviceFactory: ServiceFactory
+    private let serviceFactory: ServiceFactory
+    private let marshrouteStack: MarshrouteStack
     
-    init(serviceFactory: ServiceFactory) {
+    init(
+        serviceFactory: ServiceFactory,
+        marshrouteStack: MarshrouteStack)
+    {
         self.serviceFactory = serviceFactory
+        self.marshrouteStack = marshrouteStack
     }
     
     // MARK: - AssemblyFactory
     func applicationAssembly() -> ApplicationAssembly {
-        return ApplicationAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return ApplicationAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func categoriesAssembly() -> CategoriesAssembly {
-        return CategoriesAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return CategoriesAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func subcategoriesAssembly() -> SubcategoriesAssembly {
-        return CategoriesAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return CategoriesAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func searchResultsAssembly() -> SearchResultsAssembly {
-        return SearchResultsAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return SearchResultsAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func advertisementAssembly() -> AdvertisementAssembly {
-        return AdvertisementAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return AdvertisementAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func recursionAssembly() -> RecursionAssembly {
-        return RecursionAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return RecursionAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func shelfAssembly() -> ShelfAssembly {
-        return ShelfAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return ShelfAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func authorizationAssembly() -> AuthorizationAssembly {
-        return AuthorizationAssemblyImpl(
-            assemblyFactory: self,
-            serviceFactory: serviceFactory
-        )
+        return AuthorizationAssemblyImpl(assemblySeed: assemblySeed)
     }
     
     func bannerAssembly() -> BannerAssembly {
-        return BannerAssemblyImpl(
+        return BannerAssemblyImpl(assemblySeed: assemblySeed)
+    }
+    
+    // MARK: - Private
+    private var assemblySeed: BaseAssemblySeed {
+        return BaseAssemblySeed(
             assemblyFactory: self,
-            serviceFactory: serviceFactory
+            serviceFactory: serviceFactory,
+            marshrouteStack: marshrouteStack
         )
     }
 }

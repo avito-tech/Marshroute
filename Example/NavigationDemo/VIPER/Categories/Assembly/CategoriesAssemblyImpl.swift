@@ -122,7 +122,8 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
         )
         
         let viewController = CategoriesViewController(
-            isDismissable: isDismissable
+            isDismissable: isDismissable,
+            peekAndPopUtility: marshrouteStack.peekAndPopUtility
         )
         
         viewController.addDisposable(presenter)

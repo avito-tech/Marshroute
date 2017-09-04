@@ -1,13 +1,17 @@
 import UIKit
+import Marshroute
 
-final class CategoriesViewController: BaseViewController, CategoriesViewInput {
+final class CategoriesViewController: BasePeekAndPopViewController, CategoriesViewInput {
     fileprivate let categoriesView = CategoriesView()
     fileprivate let isDismissable: Bool
     
     // MARK: - Init
-    init(isDismissable: Bool) {
+    init(
+        isDismissable: Bool,
+        peekAndPopUtility: PeekAndPopUtility)
+    {
         self.isDismissable = isDismissable
-        super.init()
+        super.init(peekAndPopUtility: peekAndPopUtility)
     }
     
     // MARK: - Lifecycle
@@ -22,9 +26,31 @@ final class CategoriesViewController: BaseViewController, CategoriesViewInput {
             navigationItem.rightBarButtonItem = UIBarButtonItem(
                 barButtonSystemItem: .stop,
                 target: self,
-                action: #selector(CategoriesViewController.onDismissButtonTap(_:))
+                action: #selector(onDismissButtonTap(_:))
             )
         }
+    }
+    
+    // MARK: - BasePeekAndPopViewController
+    override var peekSourceView: UIView {
+        return categoriesView.peekSourceView
+    }
+    
+    override func startPeekWith(
+        previewingContext: UIViewControllerPreviewing,
+        location: CGPoint)
+    {
+        guard #available(iOS 9.0, *) 
+            else { return }
+        
+        guard let categoriesPeekData = categoriesView.peekDataAtLocation(
+            location: location,
+            sourceView: previewingContext.sourceView)
+            else { return }
+        
+        previewingContext.sourceRect = categoriesPeekData.sourceRect
+        
+        categoriesPeekData.viewData.onTap()
     }
     
     // MARK: - Private

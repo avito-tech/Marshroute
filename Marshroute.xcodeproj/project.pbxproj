@@ -166,6 +166,12 @@
 		CC203D321F582901009AD274 /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC203D2F1F582901009AD274 /* NavigationTransitionsAnimator.swift */; };
 		CC203D331F582901009AD274 /* PopAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC203D301F582901009AD274 /* PopAnimationContext.swift */; };
 		CC203D341F582901009AD274 /* PushAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC203D311F582901009AD274 /* PushAnimationContext.swift */; };
+		CC3B0ECB1F59FE240034530E /* PeekAndPopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC51F59FE240034530E /* PeekAndPopData.swift */; };
+		CC3B0ECC1F59FE240034530E /* PeekAndPopTransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC61F59FE240034530E /* PeekAndPopTransitionsCoordinator.swift */; };
+		CC3B0ECD1F59FE240034530E /* PeekAndPopTransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC71F59FE240034530E /* PeekAndPopTransitionsCoordinatorHolder.swift */; };
+		CC3B0ECE1F59FE240034530E /* PeekAndPopUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC81F59FE240034530E /* PeekAndPopUtility.swift */; };
+		CC3B0ECF1F59FE240034530E /* PeekAndPopUtilityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC91F59FE240034530E /* PeekAndPopUtilityImpl.swift */; };
+		CC3B0ED01F59FE240034530E /* PeekState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0ECA1F59FE240034530E /* PeekState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +192,12 @@
 		CC203D2F1F582901009AD274 /* NavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		CC203D301F582901009AD274 /* PopAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimationContext.swift; sourceTree = "<group>"; };
 		CC203D311F582901009AD274 /* PushAnimationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAnimationContext.swift; sourceTree = "<group>"; };
+		CC3B0EC51F59FE240034530E /* PeekAndPopData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopData.swift; sourceTree = "<group>"; };
+		CC3B0EC61F59FE240034530E /* PeekAndPopTransitionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopTransitionsCoordinator.swift; sourceTree = "<group>"; };
+		CC3B0EC71F59FE240034530E /* PeekAndPopTransitionsCoordinatorHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopTransitionsCoordinatorHolder.swift; sourceTree = "<group>"; };
+		CC3B0EC81F59FE240034530E /* PeekAndPopUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtility.swift; sourceTree = "<group>"; };
+		CC3B0EC91F59FE240034530E /* PeekAndPopUtilityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImpl.swift; sourceTree = "<group>"; };
+		CC3B0ECA1F59FE240034530E /* PeekState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekState.swift; sourceTree = "<group>"; };
 		CCF135301CFC9D44007229D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCF1353B1CFC9E1A007229D1 /* StrongBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongBox.swift; sourceTree = "<group>"; };
 		CCF1353C1CFC9E1A007229D1 /* WeakBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
@@ -381,6 +393,19 @@
 			path = "Push-Pop";
 			sourceTree = "<group>";
 		};
+		CC3B0EC41F59FE240034530E /* PeekAndPopSupport */ = {
+			isa = PBXGroup;
+			children = (
+				CC3B0EC51F59FE240034530E /* PeekAndPopData.swift */,
+				CC3B0EC61F59FE240034530E /* PeekAndPopTransitionsCoordinator.swift */,
+				CC3B0EC71F59FE240034530E /* PeekAndPopTransitionsCoordinatorHolder.swift */,
+				CC3B0EC81F59FE240034530E /* PeekAndPopUtility.swift */,
+				CC3B0EC91F59FE240034530E /* PeekAndPopUtilityImpl.swift */,
+				CC3B0ECA1F59FE240034530E /* PeekState.swift */,
+			);
+			path = PeekAndPopSupport;
+			sourceTree = "<group>";
+		};
 		CCF1350D1CFC9D44007229D1 = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +528,7 @@
 		CCF1355C1CFC9E1A007229D1 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				CC3B0EC41F59FE240034530E /* PeekAndPopSupport */,
 				CCF135611CFC9E1A007229D1 /* TransitionAnimations */,
 				CCF135941CFC9E1B007229D1 /* TransitionAnimationsLaunching */,
 				CCF135C31CFC9E1B007229D1 /* TransitionContexts */,
@@ -1330,6 +1356,7 @@
 			files = (
 				A2FBFBC21E150B2E00D3FB48 /* StrongBox.swift in Sources */,
 				A2FBFBC31E150B2E00D3FB48 /* WeakBox.swift in Sources */,
+				CC3B0ED01F59FE240034530E /* PeekState.swift in Sources */,
 				A2FBFBC41E150B2E00D3FB48 /* BaseMasterDetailRouter.swift in Sources */,
 				A2FBFBC51E150B2E00D3FB48 /* MasterDetailRouterSeed.swift in Sources */,
 				A2FBFBC61E150B2E00D3FB48 /* BaseRouter.swift in Sources */,
@@ -1346,6 +1373,7 @@
 				A2FBFBD11E150B2E00D3FB48 /* RouterControllersProviderImpl.swift in Sources */,
 				A2FBFBD21E150B2E00D3FB48 /* RouterDismissable.swift in Sources */,
 				A2FBFBD31E150B2E00D3FB48 /* RouterFocusable.swift in Sources */,
+				CC3B0ECD1F59FE240034530E /* PeekAndPopTransitionsCoordinatorHolder.swift in Sources */,
 				A2FBFBD41E150B2E00D3FB48 /* RouterIdentifiable.swift in Sources */,
 				A2FBFBD51E150B2E00D3FB48 /* RouterPresentable.swift in Sources */,
 				CC203D331F582901009AD274 /* PopAnimationContext.swift in Sources */,
@@ -1353,6 +1381,7 @@
 				A2FBFBD71E150B2E00D3FB48 /* RouterTransitionsHandlerBox.swift in Sources */,
 				A2FBFBD81E150B2E00D3FB48 /* MarshrouteFactory.swift in Sources */,
 				A2FBFBD91E150B2E00D3FB48 /* MarshrouteFactoryImpl.swift in Sources */,
+				CC3B0ECC1F59FE240034530E /* PeekAndPopTransitionsCoordinator.swift in Sources */,
 				A2FBFBDA1E150B2E00D3FB48 /* MarshrouteSetupService.swift in Sources */,
 				A2FBFBDB1E150B2E00D3FB48 /* MarshrouteSetupServiceImpl.swift in Sources */,
 				A2FBFBDC1E150B2E00D3FB48 /* MarshrouteStack.swift in Sources */,
@@ -1363,12 +1392,14 @@
 				A2FBFBE11E150B2E00D3FB48 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
 				A2FBFBE21E150B2E00D3FB48 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
 				A2FBFBE31E150B2E00D3FB48 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
+				CC3B0ECF1F59FE240034530E /* PeekAndPopUtilityImpl.swift in Sources */,
 				A2FBFBE41E150B2E00D3FB48 /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
 				A2FBFBE51E150B2E00D3FB48 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
 				A2FBFBE61E150B2E00D3FB48 /* ModalNavigationDismissalAnimationContext.swift in Sources */,
 				A2FBFBE71E150B2E00D3FB48 /* ModalNavigationTransitionsAnimator.swift in Sources */,
 				A2FBFBE81E150B2E00D3FB48 /* ModalNavigationPresentationAnimationContext.swift in Sources */,
 				A2FBFBEC1E150B2E00D3FB48 /* ResetNavigationTransitionsAnimator.swift in Sources */,
+				CC3B0ECE1F59FE240034530E /* PeekAndPopUtility.swift in Sources */,
 				A2FBFBED1E150B2E00D3FB48 /* ResettingNavigationAnimationContext.swift in Sources */,
 				A2FBFBEE1E150B2E00D3FB48 /* SetNavigationTransitionsAnimator.swift in Sources */,
 				A2FBFBEF1E150B2E00D3FB48 /* SettingNavigationAnimationContext.swift in Sources */,
@@ -1400,6 +1431,7 @@
 				A2FBFC081E150B2E00D3FB48 /* SettingAnimationLaunchingContext.swift in Sources */,
 				A2FBFC091E150B2E00D3FB48 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
 				A2FBFC0A1E150B2E00D3FB48 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
+				CC3B0ECB1F59FE240034530E /* PeekAndPopData.swift in Sources */,
 				A2FBFC0B1E150B2E00D3FB48 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
 				A2FBFC0C1E150B2E00D3FB48 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
 				A2FBFC0D1E150B2E00D3FB48 /* PopoverTransitionStyle.swift in Sources */,

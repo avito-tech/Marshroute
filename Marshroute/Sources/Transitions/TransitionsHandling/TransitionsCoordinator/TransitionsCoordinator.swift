@@ -41,7 +41,8 @@ public protocol TransitionsCoordinator: class {
 extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
     Self: TransitionsCoordinatorDelegateHolder,
-    Self: TransitionsMarkersHolder
+    Self: TransitionsMarkersHolder,
+    Self: PeekAndPopTransitionsCoordinatorHolder
 {
     public func coordinatePerformingTransition(
         context: PresentationTransitionContext,
@@ -315,7 +316,8 @@ extension TransitionsCoordinator where
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
     Self: TransitionsCoordinatorDelegateHolder,
-    Self: TransitionsMarkersHolder
+    Self: TransitionsMarkersHolder,
+    Self: PeekAndPopTransitionsCoordinatorHolder
 {
     func coordinateUndoingTransitionsImpl(
         afterTransitionId transitionId: TransitionId,
@@ -396,7 +398,8 @@ private extension TransitionsCoordinator where
 private extension TransitionsCoordinator where
     Self: TransitionContextsStackClientProviderHolder,
     Self: TransitionsCoordinatorDelegateHolder,
-    Self: TransitionsMarkersHolder
+    Self: TransitionsMarkersHolder,
+    Self: PeekAndPopTransitionsCoordinatorHolder
 {
     func initiatePerformingTransition(
         context: PresentationTransitionContext,
@@ -410,8 +413,6 @@ private extension TransitionsCoordinator where
         
         guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler)
             else { assert(false, "сначала нужно было делать resetWithTransition, а не performTransition"); return }
-        
-        var context = context
         
         // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
         // если переход помечен пользовательским идентификатором
@@ -432,34 +433,45 @@ private extension TransitionsCoordinator where
         }
         
         if transitionAllowed {
-            // уведомляем делегата до вызова анимации `Presentation` перехода.
-            transitionsCoordinatorDelegate?.transitionsCoordinator(
-                coordinator: self,
-                willForceTransitionsHandler: animatingTransitionsHandler,
-                toLaunchPresentationAnimationOfTransition: context
-            )
-            
-            // дополняем параметры анимации информацией о текущем верхнем контроллере
-            context.presentationAnimationLaunchingContextBox.appendSourceViewController(
-                lastTransition.targetViewController
-            )
-            
-            // вызываем анимации, передавая параметры запуска анимации по ссылке,
-            // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
-            animatingTransitionsHandler.launchPresentationAnimation(
-                launchingContextBox: &context.presentationAnimationLaunchingContextBox
-            )
-            
-            // создаем новую запись о переходе
-            commitPerformingTransition(
-                context: context,
-                byTransitionsHandler: animatingTransitionsHandler,
-                withStackClient: stackClient
+            peekAndPopTransitionsCoordinator.coordinatePeekIfNeededFor(
+                viewController: context.targetViewController,
+                popAction: { [weak self] in
+                    guard let strongSelf = self 
+                        else { return }
+                    
+                    var context = context
+                    
+                    // уведомляем делегата до вызова анимации `Presentation` перехода.
+                    strongSelf.transitionsCoordinatorDelegate?.transitionsCoordinator(
+                        coordinator: strongSelf,
+                        willForceTransitionsHandler: animatingTransitionsHandler,
+                        toLaunchPresentationAnimationOfTransition: context
+                    )
+                    
+                    // дополняем параметры анимации информацией о текущем верхнем контроллере
+                    context.presentationAnimationLaunchingContextBox.appendSourceViewController(
+                        lastTransition.targetViewController
+                    )
+                    
+                    // вызываем анимации, передавая параметры запуска анимации по ссылке,
+                    // потому что они могут быть дополнены недостающими параметрами, например, UINavigationController'ом
+                    animatingTransitionsHandler.launchPresentationAnimation(
+                        launchingContextBox: &context.presentationAnimationLaunchingContextBox
+                    )
+                    
+                    // создаем новую запись о переходе
+                    strongSelf.commitPerformingTransition(
+                        context: context,
+                        byTransitionsHandler: animatingTransitionsHandler,
+                        withStackClient: stackClient
+                    )
+                }
             )
         } else {
             debugPrint("presentation transition was cancelled")
         }
     }
+    
     
     func initiateUndoingTransitions(
         afterTransitionId transitionId: TransitionId,

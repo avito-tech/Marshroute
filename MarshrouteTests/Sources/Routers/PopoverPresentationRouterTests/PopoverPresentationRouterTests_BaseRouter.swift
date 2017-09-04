@@ -15,8 +15,11 @@ final class PopoverPresentationRouterTests_BaseRouter: XCTestCase
         
         let transitionIdGenerator = TransitionIdGeneratorImpl()
         
+        let peekAndPopTransitionsCoordinator = PeekAndPopUtilityImpl()
+        
         let transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: TransitionContextsStackClientProviderImpl()
+            stackClientProvider: TransitionContextsStackClientProviderImpl(),
+            peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
         )
         
         detailAnimatingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(

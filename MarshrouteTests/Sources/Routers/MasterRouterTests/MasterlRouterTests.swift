@@ -15,8 +15,11 @@ final class MasterlRouterTests: XCTestCase
         
         let transitionIdGenerator = TransitionIdGeneratorImpl()
         
+        let peekAndPopTransitionsCoordinator = PeekAndPopUtilityImpl()
+        
         let transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: TransitionContextsStackClientProviderImpl()
+            stackClientProvider: TransitionContextsStackClientProviderImpl(),
+            peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
         )
         
         masterAnimatingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(

@@ -20,8 +20,11 @@ final class RouterFocusableTests: XCTestCase
         transitionIdGenerator = TransitionIdGeneratorImpl()
         transitionId = transitionIdGenerator.generateNewTransitionId()
         
+        let peekAndPopTransitionsCoordinator = PeekAndPopUtilityImpl()
+        
         transitionsCoordinator = TransitionsCoordinatorImpl(
-            stackClientProvider: TransitionContextsStackClientProviderImpl()
+            stackClientProvider: TransitionContextsStackClientProviderImpl(),
+            peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
         )
         
         masterAnimatingTransitionsHandlerSpy = AnimatingTransitionsHandlerSpy(

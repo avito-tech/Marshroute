@@ -25,9 +25,9 @@ final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.titleLabel?.numberOfLines = 1
-        button.addTarget(self, action: #selector(BannerView.onButtonTouchDown(_:)), for: .touchDown)
-        button.addTarget(self, action: #selector(BannerView.onButtonTouchUpOutside(_:)), for: .touchUpOutside)
-        button.addTarget(self, action: #selector(BannerView.onButtonTap(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(onButtonTouchDown(_:)), for: .touchDown)
+        button.addTarget(self, action: #selector(onButtonTouchUpOutside(_:)), for: .touchUpOutside)
+        button.addTarget(self, action: #selector(onButtonTap(_:)), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {

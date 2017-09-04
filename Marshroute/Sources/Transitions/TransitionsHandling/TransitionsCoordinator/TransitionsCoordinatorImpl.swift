@@ -8,7 +8,8 @@ public final class TransitionsCoordinatorImpl:
     TransitionsTracker,
     TransitionsMarker,
     TransitionsMarkersHolder,
-    TransitionsHandlersProvider
+    TransitionsHandlersProvider,
+    PeekAndPopTransitionsCoordinatorHolder
 {
     // MARK: - TransitionContextsStackClientProviderHolder
     public let stackClientProvider: TransitionContextsStackClientProvider
@@ -19,10 +20,16 @@ public final class TransitionsCoordinatorImpl:
     // MARK: - TransitionsMarkersHolder
     public var markers = [TransitionId : TransitionUserId]()
     
+    // MARK: - PeekAndPopTransitionsCoordinatorHolder
+    public let peekAndPopTransitionsCoordinator: PeekAndPopTransitionsCoordinator
+    
     // MARK: - Init
-    public init(stackClientProvider: TransitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl())
+    public init(
+        stackClientProvider: TransitionContextsStackClientProvider = TransitionContextsStackClientProviderImpl(),
+        peekAndPopTransitionsCoordinator: PeekAndPopTransitionsCoordinator)
     {
         self.stackClientProvider = stackClientProvider
+        self.peekAndPopTransitionsCoordinator = peekAndPopTransitionsCoordinator
     }
     
     // MARK: - TopViewControllerFinder

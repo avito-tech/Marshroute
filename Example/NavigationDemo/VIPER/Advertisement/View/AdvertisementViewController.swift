@@ -14,7 +14,7 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
             title: "recursion".localized, // to Recursion module
             style: .plain,
             target: self,
-            action: #selector(AdvertisementViewController.onRecursionButtonTap(_:))
+            action: #selector(onRecursionButtonTap(_:))
         )
     }
     

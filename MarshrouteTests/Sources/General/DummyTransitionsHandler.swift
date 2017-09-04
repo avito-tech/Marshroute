@@ -13,7 +13,12 @@ final class DummyAnimatingTransitionsHandler: AnimatingTransitionsHandler {
     override func launchResettingAnimation(launchingContextBox: inout ResettingAnimationLaunchingContextBox) {}
     
     init() {
-        let coodinator = TransitionsCoordinatorImpl()
+        let peekAndPopTransitionsCoordinator = PeekAndPopUtilityImpl()
+        
+        let coodinator = TransitionsCoordinatorImpl(
+            peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
+        )
+        
         super.init(transitionsCoordinator: coodinator)
     }
 }

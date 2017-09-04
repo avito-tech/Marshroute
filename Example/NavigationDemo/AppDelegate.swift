@@ -60,7 +60,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         // Init assemly factory
         let assemblyFactory = AssemblyFactoryImpl(
-            serviceFactory: serviceFactory
+            serviceFactory: serviceFactory,
+            marshrouteStack: applicationModuleSeed.marshrouteStack
         )
         
         let applicationModule: ApplicationModule

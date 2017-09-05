@@ -1,13 +1,17 @@
 import UIKit
+import Marshroute
 
-final class RecursionViewController: BaseViewController, RecursionViewInput {
+final class RecursionViewController: BasePeekAndPopViewController, RecursionViewInput {
     fileprivate let recursionView = RecursionView()
     fileprivate let isDismissable: Bool
     
     // MARK: - Init
-    init(isDismissable: Bool) {
+    init(
+        isDismissable: Bool,
+        peekAndPopUtility: PeekAndPopUtility)
+    {
         self.isDismissable = isDismissable
-        super.init()
+        super.init(peekAndPopUtility: peekAndPopUtility)
     }
     
     // MARK: - Lifecycle
@@ -55,6 +59,30 @@ final class RecursionViewController: BaseViewController, RecursionViewInput {
         rightBarButtonItems.append(toCategoriesButtonItem)
         
         navigationItem.rightBarButtonItems = rightBarButtonItems
+    }
+    
+    // MARK: - BasePeekAndPopViewController
+    override var peekSourceViews: [UIView] {
+        return [
+            navigationController?.navigationBar
+            ].flatMap { $0 }
+    }
+
+    @available(iOS 9.0, *)
+    override func startPeekWith(previewingContext: UIViewControllerPreviewing, location: CGPoint) {
+        let matchingControl = previewingContext.sourceView.subviews.first {
+            $0.frame.contains(location) 
+                && $0 is UIControl
+                && !$0.isHidden
+                && $0.isUserInteractionEnabled
+        }
+        
+        if let matchingControl = matchingControl as? UIControl {
+            previewingContext.sourceRect = matchingControl.frame
+            matchingControl.isHighlighted = false
+            matchingControl.isSelected = false
+            matchingControl.sendActions(for: .touchUpInside)
+        }
     }
     
     // MARK: - Private

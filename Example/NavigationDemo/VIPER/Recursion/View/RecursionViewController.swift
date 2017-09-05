@@ -63,21 +63,7 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
     
     // MARK: - BasePeekAndPopViewController
     override var peekSourceViews: [UIView] {
-        return [
-            navigationController?.navigationBar
-            ].flatMap { $0 }
-    }
-
-    @available(iOS 9.0, *)
-    override func startPeekWith(previewingContext: UIViewControllerPreviewing, location: CGPoint) {
-        guard let matchingControl = previewingContext.sourceView.controlAt(location: location) else {
-            return
-        }
-         
-        previewingContext.sourceRect = matchingControl.frame
-        matchingControl.isHighlighted = false
-        matchingControl.isSelected = false
-        matchingControl.sendActions(for: .touchUpInside)
+        return [navigationController?.navigationBar].flatMap { $0 }
     }
     
     // MARK: - Private

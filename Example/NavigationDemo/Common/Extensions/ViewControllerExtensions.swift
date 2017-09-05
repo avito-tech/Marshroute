@@ -1,14 +1,33 @@
 import UIKit
 
 extension UIView {
-    func controlAt(location: CGPoint) -> UIControl? {
-        let matchingControl = subviews.first {
-            $0.frame.contains(location) 
-                && $0 is UIControl
-                && !$0.isHidden
-                && $0.isUserInteractionEnabled
+    func interactableControlAt(location: CGPoint) -> UIControl? {
+        return interactableControlAt(location: location, rootView: self)
+    }
+    
+    private func interactableControlAt(location: CGPoint, rootView: UIView) -> UIControl? {
+        for subview in subviews {
+            guard subview.isUserInteractionEnabled else {
+                continue
+            }
+            
+            guard !subview.isHidden else {
+                continue
+            }
+            
+            let subviewFrameInRootView = subview.convert(subview.bounds, to: rootView)
+            
+            guard subviewFrameInRootView.contains(location) else {
+                continue
+            }
+            
+            if let control = subview as? UIControl {
+                return control
+            } else if let controlInNestedSubviews = subview.interactableControlAt(location: location, rootView: rootView) {
+                return controlInNestedSubviews
+            }
         }
         
-        return matchingControl as? UIControl
+        return nil
     }
 }

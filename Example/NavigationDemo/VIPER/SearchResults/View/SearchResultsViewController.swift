@@ -53,11 +53,11 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
                 previewingContext.sourceRect = peekData.sourceRect
                 peekData.viewData.onTap()
             } 
-        } else if let matchingControl = previewingContext.sourceView.controlAt(location: location) {    
-            previewingContext.sourceRect = matchingControl.frame
-            matchingControl.isHighlighted = false
-            matchingControl.isSelected = false
-            matchingControl.sendActions(for: .touchUpInside)
+        } else {
+            super.startPeekWith(
+                previewingContext: previewingContext,
+                location: location
+            )
         }            
     }
 }

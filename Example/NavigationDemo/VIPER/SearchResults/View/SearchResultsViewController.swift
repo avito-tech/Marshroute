@@ -37,7 +37,7 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
     
     // MARK: - BasePeekAndPopViewController
     override var peekSourceViews: [UIView] {
-        return searchResultsView.peekSourceViews
+        return searchResultsView.peekSourceViews + [navigationController?.navigationBar].flatMap { $0 }
     }
     
     @available(iOS 9.0, *)
@@ -45,13 +45,19 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
         previewingContext: UIViewControllerPreviewing,
         location: CGPoint)
     {
-        guard let peekData = searchResultsView.peekDataAt(
-            location: location,
-            sourceView: previewingContext.sourceView)
-            else { return }
-        
-        previewingContext.sourceRect = peekData.sourceRect
-        
-        peekData.viewData.onTap()
+        if searchResultsView.peekSourceViews.contains(previewingContext.sourceView) {
+            if let peekData = searchResultsView.peekDataAt(
+                location: location,
+                sourceView: previewingContext.sourceView) 
+            {
+                previewingContext.sourceRect = peekData.sourceRect
+                peekData.viewData.onTap()
+            } 
+        } else if let matchingControl = previewingContext.sourceView.controlAt(location: location) {    
+            previewingContext.sourceRect = matchingControl.frame
+            matchingControl.isHighlighted = false
+            matchingControl.isSelected = false
+            matchingControl.sendActions(for: .touchUpInside)
+        }            
     }
 }

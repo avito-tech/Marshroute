@@ -70,19 +70,14 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
 
     @available(iOS 9.0, *)
     override func startPeekWith(previewingContext: UIViewControllerPreviewing, location: CGPoint) {
-        let matchingControl = previewingContext.sourceView.subviews.first {
-            $0.frame.contains(location) 
-                && $0 is UIControl
-                && !$0.isHidden
-                && $0.isUserInteractionEnabled
+        guard let matchingControl = previewingContext.sourceView.controlAt(location: location) else {
+            return
         }
-        
-        if let matchingControl = matchingControl as? UIControl {
-            previewingContext.sourceRect = matchingControl.frame
-            matchingControl.isHighlighted = false
-            matchingControl.isSelected = false
-            matchingControl.sendActions(for: .touchUpInside)
-        }
+         
+        previewingContext.sourceRect = matchingControl.frame
+        matchingControl.isHighlighted = false
+        matchingControl.isSelected = false
+        matchingControl.sendActions(for: .touchUpInside)
     }
     
     // MARK: - Private

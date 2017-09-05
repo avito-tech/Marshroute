@@ -32,7 +32,16 @@ class BasePeekAndPopViewController: BaseViewController
     // MARK: - Lifecycle
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
+        reregisterForPeekAndPopIfAvailable()
+    }
+    
+    override func didMove(toParentViewController parent: UIViewController?) {
+        super.didMove(toParentViewController: parent)
+        reregisterForPeekAndPopIfAvailable()
+    }
+    
+    // MARK: - Private    
+    private func reregisterForPeekAndPopIfAvailable() {
         if #available(iOS 9.0, *) {
             if traitCollection.forceTouchCapability == .available {
                 registerForPeekAndPop()
@@ -41,8 +50,7 @@ class BasePeekAndPopViewController: BaseViewController
             }
         }
     }
-    
-    // MARK: - Private
+
     @available(iOS 9.0, *)
     private func registerForPeekAndPop() {
         for peekSourceView in peekSourceViews {

@@ -34,7 +34,7 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
     
     // MARK: - BasePeekAndPopViewController
     override var peekSourceViews: [UIView] {
-        return advertisementView.peekSourceViews
+        return advertisementView.peekSourceViews + [navigationController?.navigationBar].flatMap { $0 }
     }
     
     @available(iOS 9.0, *)
@@ -42,14 +42,21 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
         previewingContext: UIViewControllerPreviewing,
         location: CGPoint)
     {
-        guard let peekData = advertisementView.peekDataAt(
-            location: location,
-            sourceView: previewingContext.sourceView)
-            else { return }
-        
-        previewingContext.sourceRect = peekData.sourceRect
-        
-        peekData.viewData.onTap()
+        if advertisementView.peekSourceViews.contains(previewingContext.sourceView) {
+            if let peekData = advertisementView.peekDataAt(
+                location: location,
+                sourceView: previewingContext.sourceView)
+            {            
+                previewingContext.sourceRect = peekData.sourceRect
+                
+                peekData.viewData.onTap()
+            }
+        } else if let matchingControl = previewingContext.sourceView.controlAt(location: location) {    
+            previewingContext.sourceRect = matchingControl.frame
+            matchingControl.isHighlighted = false
+            matchingControl.isSelected = false
+            matchingControl.sendActions(for: .touchUpInside)
+        }
     }
     
     // MARK: - Private

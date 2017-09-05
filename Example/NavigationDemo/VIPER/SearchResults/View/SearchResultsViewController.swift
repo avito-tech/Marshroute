@@ -36,8 +36,8 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
     var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
     
     // MARK: - BasePeekAndPopViewController
-    override var peekSourceView: UIView {
-        return searchResultsView.peekSourceView
+    override var peekSourceViews: [UIView] {
+        return searchResultsView.peekSourceViews
     }
     
     override func startPeekWith(

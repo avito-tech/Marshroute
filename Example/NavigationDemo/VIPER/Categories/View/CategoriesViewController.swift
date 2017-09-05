@@ -32,8 +32,8 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
     }
     
     // MARK: - BasePeekAndPopViewController
-    override var peekSourceView: UIView {
-        return categoriesView.peekSourceView
+    override var peekSourceViews: [UIView] {
+        return categoriesView.peekSourceViews
     }
     
     override func startPeekWith(

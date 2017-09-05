@@ -33,8 +33,8 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
     }
     
     // MARK: - BasePeekAndPopViewController
-    override var peekSourceView: UIView {
-        return advertisementView.peekSourceView
+    override var peekSourceViews: [UIView] {
+        return advertisementView.peekSourceViews
     }
     
     override func startPeekWith(

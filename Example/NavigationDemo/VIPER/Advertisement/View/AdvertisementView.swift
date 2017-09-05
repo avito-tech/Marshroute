@@ -73,8 +73,8 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         tableView.scrollIndicatorInsets.bottom = insets.bottom
     }    
 
-    var peekSourceView: UIView {
-        return tableView
+    var peekSourceViews: [UIView] {
+        return [tableView]
     }
     
     func peekDataAt(

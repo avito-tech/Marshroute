@@ -53,8 +53,8 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
         timerButton?.setTitle(title, for: UIControlState())
     }
     
-    var peekSourceView: UIView {
-        return tableView
+    var peekSourceViews: [UIView] {
+        return [tableView]
     }
     
     func peekDataAt(

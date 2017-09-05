@@ -25,8 +25,8 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
         tableView.reloadData()
     }    
     
-    var peekSourceView: UIView {
-        return tableView
+    var peekSourceViews: [UIView] {
+        return [tableView]
     }
     
     func peekDataAt(

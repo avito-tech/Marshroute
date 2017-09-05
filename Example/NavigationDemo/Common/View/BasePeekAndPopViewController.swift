@@ -14,11 +14,12 @@ class BasePeekAndPopViewController: BaseViewController
     }
     
     // MARK: - Override point
-    var peekSourceView: UIView {
+    var peekSourceViews: [UIView] {
         assert(isViewLoaded)
-        return view
+        return [view]
     }
     
+    @available(iOS 9.0, *)
     func startPeekWith(
         previewingContext: UIViewControllerPreviewing,
         location: CGPoint)
@@ -44,17 +45,19 @@ class BasePeekAndPopViewController: BaseViewController
     // MARK: - Private
     @available(iOS 9.0, *)
     private func registerForPeekAndPop() {
-        peekAndPopUtility.register(
-            viewController: self,
-            sourceView: peekSourceView,
-            onPeek: { [weak self] (previewingContext, location) in
-                self?.startPeekWith(
-                    previewingContext: previewingContext,
-                    location: location
-                )
-            },
-            onPreviewingContextChange: nil
-        )
+        for peekSourceView in peekSourceViews {
+            peekAndPopUtility.register(
+                viewController: self,
+                sourceView: peekSourceView,
+                onPeek: { [weak self] (previewingContext, location) in
+                    self?.startPeekWith(
+                        previewingContext: previewingContext,
+                        location: location
+                    )
+                },
+                onPreviewingContextChange: nil
+            )
+        }
     }
     
     @available(iOS 9.0, *)

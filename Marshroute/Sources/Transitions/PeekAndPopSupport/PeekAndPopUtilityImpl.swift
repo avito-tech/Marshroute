@@ -8,7 +8,14 @@ public final class PeekAndPopUtilityImpl:
 {
     // MARK: - State
     private var registeredPreviewingDataList = [RegisteredPreviewingData]()
-    private var peekState: PeekState = .finished 
+    private var peekState: PeekState = .finished
+    
+    private weak var peekGestureRecognizer: UIGestureRecognizer? {
+        didSet {
+            oldValue?.removeTarget(self, action: nil)
+            peekGestureRecognizer?.addTarget(self, action: #selector(onPeekGestureChange(_:)))
+        }
+    }
     
     // MARK: - PeekAndPopUtility
     @available(iOS 9.0, *)
@@ -71,7 +78,7 @@ public final class PeekAndPopUtilityImpl:
         viewControllerForLocation location: CGPoint)
         -> UIViewController? 
     {
-        // Prepare to receive peek and pop data
+        // Prepare to receive `peek and pop` data
         peekState = .waitingForPeekAndPopData
         
         // Invoke callback to force some router to perform transition
@@ -80,9 +87,12 @@ public final class PeekAndPopUtilityImpl:
         
         // Check if router requested a transition
         let didTransitionToInProgressState = peekState.transitionToInProgressState()
-        if !didTransitionToInProgressState {
+        
+        if didTransitionToInProgressState {
+            peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
+        } else {
             debugPrint("You were supposed to force some router to make some transition within `onPeek`")
-            peekState = .finished
+            resetPeekState()
         }
         
         return peekState.viewControllerIfPeekIsInProgress
@@ -95,7 +105,7 @@ public final class PeekAndPopUtilityImpl:
     {
         // Commit peek
         peekState.popActionIfPeekIsInProgress?()
-        peekState = .finished
+        resetPeekState()
     }
     
     // MARK: - PeekAndPopTransitionsCoordinator
@@ -111,39 +121,20 @@ public final class PeekAndPopUtilityImpl:
         
         switch peekState {
         case .waitingForPeekAndPopData:
-            let fullPopAction: (() -> ())
+            var rollbackUnbindingViewControllerFromParent: (() -> ())?
             
-            if let navigationController = viewController.navigationController {
-                // (*) If you present a `viewController` in a `peek` mode, 
-                // whereas the `viewController` is already embeded into a `parent` controller 
-                // (i.e.: `UINavigationController` and/or probably `UIPopoverController`),
-                // then `UIKit` will require you to unbind the `viewController` from its `parent`
-                let filteredViewControllers = navigationController.viewControllers.filter { $0 !== viewController }
-                navigationController.viewControllers = filteredViewControllers
-                
-                fullPopAction = {
-                    // Return `viewController` back to its `parent`
-                    let restoredViewControllers = navigationController.viewControllers + [viewController]
-                    navigationController.viewControllers = restoredViewControllers                        
-                    
-                    popAction()
-                }
-            } else {
-                fullPopAction = popAction
-            }
-
-            if viewController.parent != nil {
-                // Probably an unhandled edge case. See (*) for details
-                debugPrint(
-                    "The following code may crash your app with `NSInvalidArgumentException` \n"
-                        + "reason: 'Application tried to present modally an active controller ... \n"
-                        + "If so, please report an issue at a github repo page"
-                )
-            }
+            unbindViewControllerFromParent(
+                viewController: viewController,
+                rollback: &rollbackUnbindingViewControllerFromParent
+            )
+ 
             
             let peekAndPopData = PeekAndPopData(
                 peekViewController: viewController,
-                popAction: fullPopAction
+                popAction: {
+                    rollbackUnbindingViewControllerFromParent?()
+                    popAction()
+                }
             )
             
             peekState = .receivedPeekAndPopData(peekAndPopData)
@@ -185,7 +176,7 @@ public final class PeekAndPopUtilityImpl:
     
     @available(iOS 9.0, *)
     private func cancelPeekFor(peekAndPopData: PeekAndPopData) {
-        peekState = .finished
+        resetPeekState()
         
         guard let viewController = peekAndPopData.peekViewController else {
             return
@@ -211,6 +202,49 @@ public final class PeekAndPopUtilityImpl:
             
             // Notify about a reregister
             registeredPreviewingData.onPreviewingContextChange?(newPreviewingContext)
+        }
+    }
+    
+    private func resetPeekState() {
+        peekState = .finished
+        peekGestureRecognizer = nil
+    }
+    
+    private func unbindViewControllerFromParent(
+        viewController: UIViewController,
+        rollback: inout (() -> ())?)
+    {
+        if let navigationController = viewController.navigationController {
+            // (*) If you present a `viewController` in a `peek` mode, 
+            // whereas the `viewController` is already embeded into a `parent` controller 
+            // (i.e.: `UINavigationController` and/or probably `UIPopoverController`),
+            // then `UIKit` will require you to unbind the `viewController` from its `parent`
+            let filteredViewControllers = navigationController.viewControllers.filter { $0 !== viewController }
+            navigationController.viewControllers = filteredViewControllers
+            
+            rollback = {
+                // Return `viewController` back to its `parent`
+                let restoredViewControllers = navigationController.viewControllers + [viewController]
+                navigationController.viewControllers = restoredViewControllers                        
+            }
+        }
+        
+        if viewController.parent != nil {
+            // Probably an unhandled edge case. See (*) for details
+            debugPrint(
+                "The following `peek` may crash your app with `NSInvalidArgumentException` \n"
+                    + "reason: 'Application tried to present modally an active controller ...'. \n"
+                    + "If so, please report an issue at a github repo page"
+            )
+        }
+    }
+    
+    @objc private func onPeekGestureChange(_ sender: UIGestureRecognizer) {
+        // When a user cancels `peek`, gesture recognizer's state is `.ended`
+        // When a user commits `peek`, gesture recognizer's state is `.cancelled`
+        if sender.state == .ended {
+            // Release the `peek` view controller
+            resetPeekState()
         }
     }
 }

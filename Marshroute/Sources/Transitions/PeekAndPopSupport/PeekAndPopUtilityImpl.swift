@@ -82,8 +82,8 @@ public final class PeekAndPopUtilityImpl:
         peekState = .waitingForPeekAndPopData
         
         // Invoke callback to force some router to perform transition
-        let registeredPreviewingData = registeredPreviewingDataFor(previewingContext: previewingContext)
-        registeredPreviewingData?.onPeek(previewingContext, location)
+        let onscreenRegisteredPreviewingData = onscreenRegisteredPreviewingDataFor(previewingContext: previewingContext)
+        onscreenRegisteredPreviewingData?.onPeek(previewingContext, location)
         
         // Check if router requested a transition
         let didTransitionToInProgressState = peekState.transitionToInProgressState()
@@ -157,12 +157,16 @@ public final class PeekAndPopUtilityImpl:
     
     // MARK: - Private
     @available(iOS 9.0, *)
-    private func registeredPreviewingDataFor(previewingContext: UIViewControllerPreviewing)
+    private func onscreenRegisteredPreviewingDataFor(previewingContext: UIViewControllerPreviewing)
         -> RegisteredPreviewingData?
     {
         registeredPreviewingDataList = registeredPreviewingDataList.filter { !$0.isZombie }
         
-        return registeredPreviewingDataList.first { $0.previewingContext === previewingContext }
+        let matchingRegisteredPreviewingData = registeredPreviewingDataList.first { $0.previewingContext === previewingContext }
+        
+        return matchingRegisteredPreviewingData?.isOnscreen == true
+            ? matchingRegisteredPreviewingData
+            : nil
     }
     
     @available(iOS 9.0, *)
@@ -258,5 +262,10 @@ private struct RegisteredPreviewingData {
     @available(iOS 9.0, *)
     var isZombie: Bool {
         return viewController == nil || previewingContext == nil || previewingContext?.sourceView == nil
+    }
+    
+    @available(iOS 9.0, *)
+    var isOnscreen: Bool {
+        return previewingContext?.sourceView.window != nil && viewController?.view.window != nil
     }
 }

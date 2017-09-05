@@ -22,7 +22,8 @@ public final class PeekAndPopUtilityImpl:
         unregister(viewController: viewController, sourceView: sourceView)
         
         if viewController.traitCollection.forceTouchCapability != .available {
-            debugPrint("You should not register a viewController for `peek and pop`, if it is unavailable in a trait collection: \(viewController)")
+            debugPrint("You should not register a viewController for `peek and pop`, "
+                + "if it is unavailable in a trait collection: \(viewController)")
         }
         
         let previewingContext = viewController.registerForPreviewing(
@@ -110,10 +111,41 @@ public final class PeekAndPopUtilityImpl:
         
         switch peekState {
         case .waitingForPeekAndPopData:
+            let fullPopAction: (() -> ())
+            
+            if let navigationController = viewController.navigationController {
+                // (*) If you present a `viewController` in a `peek` mode, 
+                // whereas the `viewController` is already embeded into a `parent` controller 
+                // (i.e.: `UINavigationController` and/or probably `UIPopoverController`),
+                // then `UIKit` will require you to unbind the `viewController` from its `parent`
+                let filteredViewControllers = navigationController.viewControllers.filter { $0 !== viewController }
+                navigationController.viewControllers = filteredViewControllers
+                
+                fullPopAction = {
+                    // Return `viewController` back to its `parent`
+                    let restoredViewControllers = navigationController.viewControllers + [viewController]
+                    navigationController.viewControllers = restoredViewControllers                        
+                    
+                    popAction()
+                }
+            } else {
+                fullPopAction = popAction
+            }
+
+            if viewController.parent != nil {
+                // Probably an unhandled edge case. See (*) for details
+                debugPrint(
+                    "The following code may crash your app with `NSInvalidArgumentException` \n"
+                        + "reason: 'Application tried to present modally an active controller ... \n"
+                        + "If so, please report an issue at a github repo page"
+                )
+            }
+            
             let peekAndPopData = PeekAndPopData(
                 peekViewController: viewController,
-                popAction: popAction
+                popAction: fullPopAction
             )
+            
             peekState = .receivedPeekAndPopData(peekAndPopData)
             
         case .receivedPeekAndPopData(let peekAndPopData):

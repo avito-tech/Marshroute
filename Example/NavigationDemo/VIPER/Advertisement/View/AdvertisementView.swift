@@ -66,6 +66,11 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         setNeedsLayout()
     }
     
+    func setSimilarSearchResultsHidden(_ hidden: Bool) {
+        tableView.isHidden = hidden
+        setNeedsLayout()
+    }
+    
     func setUIInsets(_ insets: UIEdgeInsets) {
         uiInsets = insets
         
@@ -108,16 +113,20 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         gradientView.frame = bounds
         patternView.frame = bounds
         
-        let tableHeight =
-            CGFloat(recommendedSearchResults.count) * tableView.rowHeight
-            + CGFloat(tableView.numberOfSections) * tableHeaderHeight
-        
-        let tableTop = bounds.height - tableHeight
-        
-        let tableFrame = CGRect(x: 0, y: tableTop, width: bounds.width, height: tableHeight)
-        tableView.frame = tableFrame
-        
-        placeholderImageView.frame = CGRect(x: 0, y: uiInsets.top, width: bounds.width, height: tableTop)
+        if tableView.isHidden {
+            placeholderImageView.frame = bounds
+        } else {
+            let tableHeight =
+                CGFloat(recommendedSearchResults.count) * tableView.rowHeight
+                    + CGFloat(tableView.numberOfSections) * tableHeaderHeight
+            
+            let tableTop = bounds.height - tableHeight
+            
+            let tableFrame = CGRect(x: 0, y: tableTop, width: bounds.width, height: tableHeight)
+            tableView.frame = tableFrame
+            
+            placeholderImageView.frame = CGRect(x: 0, y: uiInsets.top, width: bounds.width, height: tableTop)            
+        }
     }
     
     // MARK: - UITableViewDataSource

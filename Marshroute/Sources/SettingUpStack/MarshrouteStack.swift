@@ -10,6 +10,8 @@ public struct MarshrouteStack {
     public let transitionsTracker: TransitionsTracker
     public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let peekAndPopUtility: PeekAndPopUtility
+    public let peekAndPopStateObservable: PeekAndPopStateObservable
+    public let peekAndPopStateViewControllerObservable: PeekAndPopStateViewControllerObservable
     
     public init(
         transitionIdGenerator: TransitionIdGenerator,
@@ -20,7 +22,9 @@ public struct MarshrouteStack {
         transitionsMarker: TransitionsMarker,
         transitionsTracker: TransitionsTracker,
         transitionsHandlersProvider: TransitionsHandlersProvider,
-        peekAndPopUtility: PeekAndPopUtility)
+        peekAndPopUtility: PeekAndPopUtility,
+        peekAndPopStateObservable: PeekAndPopStateObservable,
+        peekAndPopStateViewControllerObservable: PeekAndPopStateViewControllerObservable)
     {
         self.transitionIdGenerator = transitionIdGenerator
         self.routerControllersProvider = routerControllersProvider
@@ -31,5 +35,7 @@ public struct MarshrouteStack {
         self.transitionsTracker = transitionsTracker
         self.transitionsHandlersProvider = transitionsHandlersProvider
         self.peekAndPopUtility = peekAndPopUtility
+        self.peekAndPopStateObservable = peekAndPopStateObservable
+        self.peekAndPopStateViewControllerObservable = peekAndPopStateViewControllerObservable
     }
 }

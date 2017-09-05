@@ -111,6 +111,7 @@
 		C34950E7FA4B1167032CC7363A22C1B1 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F25A0FC48AEC869B99CFB02AEFFB7B /* PopoverTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C60881700FE3C7809E2753CD71BF35D5 /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846342B109E1FEDEF33C6262553A7ACE /* TransitionsCoordinatorDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C76A4611C339A685CFB0BC068B5D9BC1 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6769F6AF4A5C8953BE882069FB1F377C /* BaseRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CC3E33C11F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33C01F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift */; };
 		CD62A032C5604433BCC7F7C1FE2597CB /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A16B8D9630741833486BC1DC51E339D /* TransitionsCoordinatorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D1123CB0D79FA6001021F094A24C9965 /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45FF6FBC30B9E3826BEBA03824AAE3 /* WeakTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D182DBC4177DD7BA7022EB839567456D /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFB53CA6A0FFB1B81B0307C39C60EDF /* PopoverPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -171,7 +172,7 @@
 		1EE253EB01F3F0048002362B2993F6C8 /* ModalDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		1F77D34879D1648B53F07FCB68B41295 /* PeekAndPopTransitionsCoordinatorHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PeekAndPopTransitionsCoordinatorHolder.swift; sourceTree = "<group>"; };
 		1F957496FAD4FCFF2B8973678FC937D4 /* TransitionContextsStack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack.swift; sourceTree = "<group>"; };
-		20913C76593C11785CD074CC809B1289 /* Pods_NavigationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NavigationDemo.framework; path = "Pods-NavigationDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20913C76593C11785CD074CC809B1289 /* Pods_NavigationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavigationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BCA134350A5941ED757B8720A536AC /* RouterTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		2181C1D192A19B17A74817098D426468 /* SplitViewTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
 		22AA2BC147F04215436E6EC94C6CE204 /* BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
@@ -209,7 +210,7 @@
 		5CE3884E75544646383916C6D5847D74 /* TransitionContextsStackClientProviderHolder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderHolder.swift; sourceTree = "<group>"; };
 		5E04E665BBD8C7734BF043A4D7F6C9CD /* NavigationTransitionsHandlerImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl.swift; sourceTree = "<group>"; };
 		5E557AD68F2DE5FE840301DF4EBF6594 /* RestoredTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestoredTransitionContext.swift; sourceTree = "<group>"; };
-		632AA372E779C4D729CB4C887F90444C /* Marshroute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Marshroute.framework; path = Marshroute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		632AA372E779C4D729CB4C887F90444C /* Marshroute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Marshroute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BEE25CF93A3176958A905244809729 /* ResettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6769F6AF4A5C8953BE882069FB1F377C /* BaseRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -235,9 +236,9 @@
 		8DFB53CA6A0FFB1B81B0307C39C60EDF /* PopoverPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		908A415C77878E82B32B5B6196DDEF20 /* PresentationAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
 		9229854760310CAF08D1BCC8BDAB101B /* TransitionUserId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionUserId.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93D6017E1E4677D9EBD82709DFFC41EF /* ModalPresentationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalPresentationAnimationContext.swift; sourceTree = "<group>"; };
-		95D7F2CA2138E179445BD2AE020798E2 /* Pods-NavigationDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NavigationDemo.modulemap"; sourceTree = "<group>"; };
+		95D7F2CA2138E179445BD2AE020798E2 /* Pods-NavigationDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NavigationDemo.modulemap"; sourceTree = "<group>"; };
 		973CADE810D73F75CB5566E0906FAAB7 /* SettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
 		9893640C9D2873A452028AE614F131EE /* ModalPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		9936516AEC869C9E1FBCA50BACECA925 /* ResettingTransitionsAnimatorBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingTransitionsAnimatorBox.swift; sourceTree = "<group>"; };
@@ -251,7 +252,7 @@
 		A3B915C0C7FFD69B1318FD37CF30F672 /* ResetNavigationTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimator.swift; sourceTree = "<group>"; };
 		A3BB971149908E5B60E2B8ACE22471C0 /* RouterPresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterPresentable.swift; sourceTree = "<group>"; };
 		A40DDC568AEE608174AD76803B89CC38 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAA33DAC221216EC7C410F4729F959B7 /* Marshroute.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Marshroute.modulemap; sourceTree = "<group>"; };
+		AAA33DAC221216EC7C410F4729F959B7 /* Marshroute.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Marshroute.modulemap; sourceTree = "<group>"; };
 		AAC3098280FA878264E52DC7C020724E /* PresentationTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationTransitionContext.swift; sourceTree = "<group>"; };
 		AB6DA3E65F665D4091B925263AE070C1 /* RouterControllersProviderImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderImpl.swift; sourceTree = "<group>"; };
 		AE57738913A35349DDE25C9798B10427 /* EndpointRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
@@ -273,6 +274,7 @@
 		C3B751FEC0E7E686B971CA69593C087B /* ModalTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimator.swift; sourceTree = "<group>"; };
 		C622BE6507DAA3F63D578DADA0C65DE9 /* SettingAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		C7CCFB8000A819AB5DEDEC835555B1B4 /* StrongBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StrongBox.swift; sourceTree = "<group>"; };
+		CC3E33C01F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopStateObservable.swift; sourceTree = "<group>"; };
 		CD560940C555442898610A5F832EE9F4 /* RouterDismissable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterDismissable.swift; sourceTree = "<group>"; };
 		CF6DAF1DDCCC809510B909CCAC544731 /* ContainingTransitionsHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandler.swift; sourceTree = "<group>"; };
 		CFA526E528B53AF1AF236C9008A45728 /* ModalNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
@@ -327,7 +329,6 @@
 			children = (
 				BAC8014389C26B5284DFCA60E56F967A /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -336,7 +337,6 @@
 			children = (
 				4C8F2EE6F42514E210764947A283E5DA /* PopoverNavigationPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -345,7 +345,6 @@
 			children = (
 				E0EA1A147B2B89C88F2B1F74A35E448B /* PopoverDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -357,7 +356,6 @@
 				03C9A6780914B1458C8D20B029B81AA2 /* TransitionIdGeneratorHolder.swift */,
 				2CCF90264E14E9A080D5B708BF42A7EF /* TransitionIdGeneratorImpl.swift */,
 			);
-			name = TransitionId;
 			path = TransitionId;
 			sourceTree = "<group>";
 		};
@@ -372,7 +370,6 @@
 				A138A815D1E622581B159108ED5CFF3A /* TransitionContextsStackClientProviderImpl.swift */,
 				D4DA6AA99FEF417ACEE515FE286BFE73 /* TransitionContextsStackImpl.swift */,
 			);
-			name = TransitionsStack;
 			path = TransitionsStack;
 			sourceTree = "<group>";
 		};
@@ -382,7 +379,6 @@
 				6769F6AF4A5C8953BE882069FB1F377C /* BaseRouter.swift */,
 				816AB433AE0E1E004639AE1BB7D3E2AC /* RouterSeed.swift */,
 			);
-			name = BaseRouter;
 			path = BaseRouter;
 			sourceTree = "<group>";
 		};
@@ -392,7 +388,6 @@
 				FC27357A07CD64CC88E9EC35C0BA680D /* SetNavigationTransitionsAnimator.swift */,
 				973CADE810D73F75CB5566E0906FAAB7 /* SettingNavigationAnimationContext.swift */,
 			);
-			name = Set;
 			path = Set;
 			sourceTree = "<group>";
 		};
@@ -401,7 +396,6 @@
 			children = (
 				F1F9B421C985A02A4DA595E847A7D5A4 /* PopoverPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -412,10 +406,10 @@
 				9FC3E6DACFC701F39F8D05FBFA3CF9A9 /* PeekAndPopTransitionsCoordinator.swift */,
 				1F77D34879D1648B53F07FCB68B41295 /* PeekAndPopTransitionsCoordinatorHolder.swift */,
 				2F5E5B0AE5795B209072A4C7E3708205 /* PeekAndPopUtility.swift */,
+				CC3E33C01F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift */,
 				C246CDEBE4C6BD1930D657E2236B03D8 /* PeekAndPopUtilityImpl.swift */,
 				D993483A7FA81A527E0B1CA6AB61E45E /* PeekState.swift */,
 			);
-			name = PeekAndPopSupport;
 			path = PeekAndPopSupport;
 			sourceTree = "<group>";
 		};
@@ -425,7 +419,6 @@
 				A3B915C0C7FFD69B1318FD37CF30F672 /* ResetNavigationTransitionsAnimator.swift */,
 				63BEE25CF93A3176958A905244809729 /* ResettingNavigationAnimationContext.swift */,
 			);
-			name = Reset;
 			path = Reset;
 			sourceTree = "<group>";
 		};
@@ -435,7 +428,6 @@
 				C7CCFB8000A819AB5DEDEC835555B1B4 /* StrongBox.swift */,
 				00F6B518A68F7A511C0E72377527D61E /* WeakBox.swift */,
 			);
-			name = Boxes;
 			path = Boxes;
 			sourceTree = "<group>";
 		};
@@ -446,7 +438,6 @@
 				A44AE0227207FFC983D39BAB341F1BD9 /* Dismissal */,
 				4B41CB48A3511F50F26FBA4478B7DCCD /* Presentation */,
 			);
-			name = ModalEndpointNavigation;
 			path = ModalEndpointNavigation;
 			sourceTree = "<group>";
 		};
@@ -458,7 +449,6 @@
 				A67705D573258E31CC19FFD9226BC8C5 /* Reset */,
 				6A559726982614900C3171AF2AAB5D2D /* Set */,
 			);
-			name = Navigation;
 			path = Navigation;
 			sourceTree = "<group>";
 		};
@@ -467,7 +457,6 @@
 			children = (
 				8DFB53CA6A0FFB1B81B0307C39C60EDF /* PopoverPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -477,7 +466,6 @@
 				77569DC2AF217E49557E9208A85AAA90 /* Dismissal */,
 				939331F6882B13541C068A542942FB9B /* Presentation */,
 			);
-			name = ModalMasterDetail;
 			path = ModalMasterDetail;
 			sourceTree = "<group>";
 		};
@@ -486,7 +474,6 @@
 			children = (
 				87A5F1D70FEB94FBD0F9EE9536EF2CDA /* PopoverNavigationDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -496,7 +483,6 @@
 				07311C3658DB88618581F52EDB804CE8 /* Dismissal */,
 				64AD9EB8506D44FB0ABC4238C72D02A8 /* Presentation */,
 			);
-			name = ModalEndpointNavigation;
 			path = ModalEndpointNavigation;
 			sourceTree = "<group>";
 		};
@@ -507,7 +493,6 @@
 				3F21DC09896EF3ED38BAFEE0B0616A5B /* PopAnimationContext.swift */,
 				E6A487C254517C26465D7B115C0B7790 /* PushAnimationContext.swift */,
 			);
-			name = "Push-Pop";
 			path = "Push-Pop";
 			sourceTree = "<group>";
 		};
@@ -517,7 +502,6 @@
 				738E1C07339BCED4C5C58A27255B1D50 /* TransitionAnimationsLauncher.swift */,
 				D0289ECD2A6ED0726010B44519C6DB8C /* AnimationLaunchingContextBoxes */,
 			);
-			name = AnimationsLaunching;
 			path = AnimationsLaunching;
 			sourceTree = "<group>";
 		};
@@ -528,7 +512,6 @@
 				A238C3F9C5601933D228381980A635B4 /* Dismissal */,
 				43612500ABA4B1614379A61A1AFCC0A1 /* Presentation */,
 			);
-			name = Modal;
 			path = Modal;
 			sourceTree = "<group>";
 		};
@@ -537,7 +520,6 @@
 			children = (
 				93D6017E1E4677D9EBD82709DFFC41EF /* ModalPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -546,7 +528,6 @@
 			children = (
 				2E7BF50DFC99292F787D81894052F51F /* ModalNavigationDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -555,7 +536,6 @@
 			children = (
 				C38F9D7F7D81399336613785AC01C8F2 /* ModalEndpointNavigationPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -568,7 +548,6 @@
 				47B4BF6572071F3386C3A47916557C91 /* MarshrouteSetupServiceImpl.swift */,
 				756057F1DEF5406302E0B073C16CC8BE /* MarshrouteStack.swift */,
 			);
-			name = SettingUpStack;
 			path = SettingUpStack;
 			sourceTree = "<group>";
 		};
@@ -588,7 +567,6 @@
 				8ED0383B2899C1592E9CC7B1C7B20DE2 /* Dismissal */,
 				133100DE44651AA39201EBD8D6989E77 /* Presentation */,
 			);
-			name = Popover;
 			path = Popover;
 			sourceTree = "<group>";
 		};
@@ -606,7 +584,6 @@
 				6DE4C03B5ADDCFE0690E1C455F7E1BD3 /* TransitionStorableParameters */,
 				BA8FE955D8A14163187E1EADF97A12A2 /* TransitionsTracking */,
 			);
-			name = Transitions;
 			path = Transitions;
 			sourceTree = "<group>";
 		};
@@ -615,7 +592,6 @@
 			children = (
 				5590E995A044992D8E06AFB712EC7649 /* ModalEndpointNavigationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -632,7 +608,6 @@
 			children = (
 				C622BE6507DAA3F63D578DADA0C65DE9 /* SettingAnimationLaunchingContext.swift */,
 			);
-			name = Set;
 			path = Set;
 			sourceTree = "<group>";
 		};
@@ -643,7 +618,6 @@
 				E2F25A0FC48AEC869B99CFB02AEFFB7B /* PopoverTransitionStorableParameters.swift */,
 				68EB71C9F07EA1241F707F8D8B3028C7 /* TransitionStorableParameters.swift */,
 			);
-			name = TransitionStorableParameters;
 			path = TransitionStorableParameters;
 			sourceTree = "<group>";
 		};
@@ -652,7 +626,6 @@
 			children = (
 				DFE91A39F857AFDA7568FDE42562D2D1 /* Sources */,
 			);
-			name = Marshroute;
 			path = Marshroute;
 			sourceTree = "<group>";
 		};
@@ -661,7 +634,6 @@
 			children = (
 				81E858E5307F10240C3BE3E1CE0B11E2 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -672,7 +644,6 @@
 				8BD82C8C85C44ACBF3A3ACCC2705912B /* TransitionsCoordinator */,
 				0EF611C02C43D217C4E9682897325C40 /* TransitionsStack */,
 			);
-			name = TransitionsHandling;
 			path = TransitionsHandling;
 			sourceTree = "<group>";
 		};
@@ -682,7 +653,6 @@
 				F917F779AF498F1FB104F80EC51662BD /* Dismissal */,
 				841370A2132A063985CC4BC577118F68 /* Presentation */,
 			);
-			name = ModalNavigation;
 			path = ModalNavigation;
 			sourceTree = "<group>";
 		};
@@ -702,7 +672,6 @@
 			children = (
 				42124A2FD5E45C8288D17F3BA02B31A7 /* ModalNavigationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -712,7 +681,6 @@
 				A257EB967FDA0D7EBADE5C22749C3DEB /* BaseImpls */,
 				9992E8AD906FA2589226CE22F226A074 /* Routers */,
 			);
-			name = Routers;
 			path = Routers;
 			sourceTree = "<group>";
 		};
@@ -721,7 +689,6 @@
 			children = (
 				185B82454900B83EE946CBD4645081E0 /* PopoverNavigationPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -737,7 +704,6 @@
 				011C8933793523D340A9F957AF93B468 /* TransitionsHandlersProviderHolder.swift */,
 				9DF1947375A7964913131A5A878BCF0C /* TransitionsHistoryItem.swift */,
 			);
-			name = TransitionsCoordinator;
 			path = TransitionsCoordinator;
 			sourceTree = "<group>";
 		};
@@ -746,7 +712,6 @@
 			children = (
 				27B00BAF811D289CEC45813C355FBCB8 /* PopoverDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -763,7 +728,6 @@
 				A5314B7BD2FDB43266DBF2905ECEEA84 /* Popover */,
 				92B28B8615CF6B0FA7EA4B39B031E2A8 /* PopoverNavigation */,
 			);
-			name = TransitionAnimationsLaunching;
 			path = TransitionAnimationsLaunching;
 			sourceTree = "<group>";
 		};
@@ -783,7 +747,6 @@
 				E5D52FDABBB2D9D42C5835909D5E94D6 /* Dismissal */,
 				884F28AD702A6BD338250A65DE0506DD /* Presentation */,
 			);
-			name = PopoverNavigation;
 			path = PopoverNavigation;
 			sourceTree = "<group>";
 		};
@@ -792,7 +755,6 @@
 			children = (
 				EDFF48E71631D6DF9F01171E9BB1C71A /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -816,7 +778,6 @@
 				F13BDD8CF988552AFDB223B3E89A3BFD /* RouterTransitionable.swift */,
 				20BCA134350A5941ED757B8720A536AC /* RouterTransitionsHandlerBox.swift */,
 			);
-			name = Routers;
 			path = Routers;
 			sourceTree = "<group>";
 		};
@@ -834,7 +795,6 @@
 				4F89E5F1C29D1EA4A7626DCE171B9D18 /* Popover */,
 				A2737C2D4AEFA5D391E1D8090CB5BC45 /* PopoverNavigation */,
 			);
-			name = TransitionAnimations;
 			path = TransitionAnimations;
 			sourceTree = "<group>";
 		};
@@ -845,7 +805,6 @@
 				4A994E9FBC9A282AFC90EDD18325BEDD /* Dismissal */,
 				C726E73FA22690F66178D7F313EF68E8 /* Presentation */,
 			);
-			name = ModalNavigation;
 			path = ModalNavigation;
 			sourceTree = "<group>";
 		};
@@ -858,7 +817,6 @@
 				2181C1D192A19B17A74817098D426468 /* SplitViewTransitionsHandlerImpl.swift */,
 				0AE2DCF83E4631897DA7C289E7957132 /* TabBarTransitionsHandlerImpl.swift */,
 			);
-			name = TransitionsHandlerImpls;
 			path = TransitionsHandlerImpls;
 			sourceTree = "<group>";
 		};
@@ -867,7 +825,6 @@
 			children = (
 				FBFF182BB591B7C9B3979381E3E16FDB /* ModalDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -877,7 +834,6 @@
 				F7001888B1E165F646E91C2C0EF7C601 /* BaseMasterDetailRouter */,
 				10359852991030C88B7B4619F06CAA19 /* BaseRouter */,
 			);
-			name = BaseImpls;
 			path = BaseImpls;
 			sourceTree = "<group>";
 		};
@@ -888,7 +844,6 @@
 				23E7149D2C1213464E01D6AE20FF549A /* Dismissal */,
 				0804B1AEC95C5D5E6A3ABEDB139C8982 /* Presentation */,
 			);
-			name = PopoverNavigation;
 			path = PopoverNavigation;
 			sourceTree = "<group>";
 		};
@@ -897,7 +852,6 @@
 			children = (
 				E4A79E63150499881591D2EA8BCA75E4 /* ModalEndpointNavigationDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -907,7 +861,6 @@
 				09EE37D102969D9CFAB2BB157CAD50CE /* Dismissal */,
 				1C3F048E239C2A9EB56FDEBDCD668EC8 /* Presentation */,
 			);
-			name = Popover;
 			path = Popover;
 			sourceTree = "<group>";
 		};
@@ -918,7 +871,6 @@
 				15C2F8F7860B237169F1A4BB6A0413C7 /* Reset */,
 				10F994FC9FCC8CF5CAE39DB54E46241D /* Set */,
 			);
-			name = Navigation;
 			path = Navigation;
 			sourceTree = "<group>";
 		};
@@ -927,7 +879,6 @@
 			children = (
 				9A904EDEC611ABC87E5B881AE6F18011 /* ResettingAnimationLaunchingContext.swift */,
 			);
-			name = Reset;
 			path = Reset;
 			sourceTree = "<group>";
 		};
@@ -936,7 +887,6 @@
 			children = (
 				BDEB9EC926D69328D059C6484B0488AE /* TransitionsTracker.swift */,
 			);
-			name = TransitionsTracking;
 			path = TransitionsTracking;
 			sourceTree = "<group>";
 		};
@@ -963,7 +913,6 @@
 				AFB13CBE26EC6A57F3F4FB7A5CBCA29D /* TransitionsMarkersHolder.swift */,
 				9229854760310CAF08D1BCC8BDAB101B /* TransitionUserId.swift */,
 			);
-			name = TransitionsMarking;
 			path = TransitionsMarking;
 			sourceTree = "<group>";
 		};
@@ -972,7 +921,6 @@
 			children = (
 				586DE3038F37CDFD266259D67ECDA1C3 /* ModalNavigationPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -1001,7 +949,6 @@
 				908A415C77878E82B32B5B6196DDEF20 /* PresentationAnimationLaunchingContextBox.swift */,
 				3336CA30CEB28A268E1D4EB57C47A65E /* ResettingAnimationLaunchingContextBox.swift */,
 			);
-			name = AnimationLaunchingContextBoxes;
 			path = AnimationLaunchingContextBoxes;
 			sourceTree = "<group>";
 		};
@@ -1020,7 +967,6 @@
 				E629A8B07A6D939B4F0011F69006B537 /* Dismissal */,
 				E602E3ED094840A3A706962AF9539190 /* Presentation */,
 			);
-			name = ModalMasterDetail;
 			path = ModalMasterDetail;
 			sourceTree = "<group>";
 		};
@@ -1033,7 +979,6 @@
 				4F9CD16348452C801212EE1026F7DC61 /* Transitions */,
 				E163D6EF6455B5D33913BFA67BB9BDC3 /* ViewControllerAdditions */,
 			);
-			name = Sources;
 			path = Sources;
 			sourceTree = "<group>";
 		};
@@ -1042,7 +987,6 @@
 			children = (
 				F414A9378BDD9F1322B041FB1E7293C0 /* TopViewControllerFinder.swift */,
 			);
-			name = ViewControllerAdditions;
 			path = ViewControllerAdditions;
 			sourceTree = "<group>";
 		};
@@ -1065,7 +1009,6 @@
 			children = (
 				1EE253EB01F3F0048002362B2993F6C8 /* ModalDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1074,7 +1017,6 @@
 			children = (
 				0D9D2C0528F6E5D68AC88A1DD4E8ACAC /* PopoverNavigationDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1083,7 +1025,6 @@
 			children = (
 				6C1E20A3F6ABBA5E3BFF89F6B84261DD /* ModalMasterDetailPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -1092,7 +1033,6 @@
 			children = (
 				9DB19F4A28DB7ADA2DF67A7D09B8A3CF /* ModalMasterDetailDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1102,7 +1042,6 @@
 				E540982D6F4D9DAD77728E047BEACE0B /* Dismissal */,
 				FFD7194CB14E135F69693422541C9C59 /* Presentation */,
 			);
-			name = Modal;
 			path = Modal;
 			sourceTree = "<group>";
 		};
@@ -1112,7 +1051,6 @@
 				22AA2BC147F04215436E6EC94C6CE204 /* BaseMasterDetailRouter.swift */,
 				EA24ED08368F23B2F4F2CE01AE106684 /* MasterDetailRouterSeed.swift */,
 			);
-			name = BaseMasterDetailRouter;
 			path = BaseMasterDetailRouter;
 			sourceTree = "<group>";
 		};
@@ -1131,7 +1069,6 @@
 				7DB4C072D9D6F275A23AD6BC0CAD7CEA /* TransitionsHandlerBox.swift */,
 				DE45FF6FBC30B9E3826BEBA03824AAE3 /* WeakTransitionsHandlerBox.swift */,
 			);
-			name = TransitionContexts;
 			path = TransitionContexts;
 			sourceTree = "<group>";
 		};
@@ -1140,7 +1077,6 @@
 			children = (
 				CFA526E528B53AF1AF236C9008A45728 /* ModalNavigationDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1149,7 +1085,6 @@
 			children = (
 				4FEF93037711B46A872A84ECFD928D99 /* PopAnimationLaunchingContext.swift */,
 			);
-			name = Pop;
 			path = Pop;
 			sourceTree = "<group>";
 		};
@@ -1158,7 +1093,6 @@
 			children = (
 				5CB97D171C31A61F99FF2191289F2965 /* PushAnimationLaunchingContext.swift */,
 			);
-			name = Push;
 			path = Push;
 			sourceTree = "<group>";
 		};
@@ -1168,7 +1102,6 @@
 				B457C48011787E8259FBDEE0F10C5766 /* TransitionsHandler.swift */,
 				FE920C158877235ACFF7FD272978AAB5 /* TransitionsHandlerContainer.swift */,
 			);
-			name = TransitionsHandler;
 			path = TransitionsHandler;
 			sourceTree = "<group>";
 		};
@@ -1177,7 +1110,6 @@
 			children = (
 				9893640C9D2873A452028AE614F131EE /* ModalPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -1362,6 +1294,7 @@
 				7CF832B29ED131645F3A987A6F2BF34F /* SetNavigationTransitionsAnimator.swift in Sources */,
 				C289A779A02C2F709FF745E5D8AE5213 /* SettingAnimationLaunchingContext.swift in Sources */,
 				669CD6A4087B9CC230856BAA0F9382CC /* SettingNavigationAnimationContext.swift in Sources */,
+				CC3E33C11F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift in Sources */,
 				8D63940DA1E03C986EAC73858F43E810 /* SourceAnimationLaunchingContextBox.swift in Sources */,
 				0CE2C20EC244D25DBCCF21D954E51FB7 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
 				4CDF85FC3A9CE54BE732599DBBB0C865 /* StrongBox.swift in Sources */,

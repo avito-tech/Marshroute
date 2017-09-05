@@ -1,7 +1,22 @@
 import UIKit
+import Marshroute
 
 final class AdvertisementViewController: BasePeekAndPopViewController, AdvertisementViewInput {
+    // MARK: - Private properties
     fileprivate let advertisementView = AdvertisementView()
+    private let peekAndPopStateViewControllerObservable: PeekAndPopStateViewControllerObservable
+    
+    // MARK: - Init
+    init(
+        peekAndPopStateViewControllerObservable: PeekAndPopStateViewControllerObservable,
+        peekAndPopUtility: PeekAndPopUtility) 
+    {
+        self.peekAndPopStateViewControllerObservable = peekAndPopStateViewControllerObservable
+        
+        super.init(peekAndPopUtility: peekAndPopUtility)
+        
+        subscribeForPeekAndPopStateChanges()
+    }
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -64,6 +79,15 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
         onRecursionButtonTap?(sender)
     }
     
+    private func subscribeForPeekAndPopStateChanges() {
+        peekAndPopStateViewControllerObservable.addObserver(
+            disposableViewController: self,
+            onPeekAndPopStateChange: { [weak self] isInPeekState in
+                self?.onPeekStateChange?(isInPeekState)
+            }
+        )
+    }
+    
     // MARK: - AdvertisementViewInput
     @nonobjc func setTitle(_ title: String?) {
         self.title = title
@@ -85,5 +109,11 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
         advertisementView.setSimilarSearchResults(searchResults)
     }
     
+    func setSimilarSearchResultsHidden(_ hidden: Bool) {
+        advertisementView.setSimilarSearchResultsHidden(hidden)
+    }
+    
     var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
+    
+    var onPeekStateChange: ((_ isInPeekState: Bool) -> ())?
 }

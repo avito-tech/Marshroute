@@ -89,7 +89,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         window = touchEventSharingWindow
         window?.makeKeyAndVisible()
+        
+        subscribeOnPeekAndPopStateChanges(
+            observable: applicationModuleSeed.marshrouteStack.peekAndPopStateObservable
+        )
 
         return true
+    }
+    
+    private func subscribeOnPeekAndPopStateChanges(observable: PeekAndPopStateObservable) {
+        observable.addObserver(
+            disposable: self,
+            onPeekAndPopStateChange: { viewController, isInPeekState in
+                debugPrint("viewController: \(viewController) isInPeekState: \(isInPeekState)")
+            }
+        )
     }
 }

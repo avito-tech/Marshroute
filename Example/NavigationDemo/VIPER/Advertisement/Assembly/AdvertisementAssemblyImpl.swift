@@ -60,6 +60,7 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
         )
         
         let viewController = AdvertisementViewController(
+            peekAndPopStateViewControllerObservable: marshrouteStack.peekAndPopStateViewControllerObservable,
             peekAndPopUtility: marshrouteStack.peekAndPopUtility
         )
         

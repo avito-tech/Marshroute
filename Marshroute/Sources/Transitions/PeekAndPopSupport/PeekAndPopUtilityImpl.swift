@@ -4,7 +4,9 @@ public final class PeekAndPopUtilityImpl:
     NSObject,
     PeekAndPopUtility,
     UIViewControllerPreviewingDelegate,
-    PeekAndPopTransitionsCoordinator 
+    PeekAndPopTransitionsCoordinator ,
+    PeekAndPopStateObservable,
+    PeekAndPopStateViewControllerObservable
 {
     // MARK: - State
     private var registeredPreviewingDataList = [RegisteredPreviewingData]()
@@ -16,6 +18,8 @@ public final class PeekAndPopUtilityImpl:
             peekGestureRecognizer?.addTarget(self, action: #selector(onPeekGestureChange(_:)))
         }
     }
+    
+    private var peekAndPopStateObservers = [PeekAndPopStateObserver]()
     
     // MARK: - PeekAndPopUtility
     @available(iOS 9.0, *)
@@ -92,10 +96,18 @@ public final class PeekAndPopUtilityImpl:
             peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
         } else {
             debugPrint("You were supposed to force some router to make some transition within `onPeek`")
-            resetPeekState()
+            resetPeekStateAndNotifyObservers()
         }
         
-        return peekState.viewControllerIfPeekIsInProgress
+        if let peekViewController = peekState.viewControllerIfPeekIsInProgress {
+            notifyPeekAndPopStateObserversOn(
+                viewController: peekViewController,
+                beingInPeekState: true
+            )
+            return peekViewController
+        } else {
+            return nil
+        }
     }
     
     @available(iOS 9.0, *)
@@ -105,7 +117,7 @@ public final class PeekAndPopUtilityImpl:
     {
         // Commit peek
         peekState.popActionIfPeekIsInProgress?()
-        resetPeekState()
+        resetPeekStateAndNotifyObservers()
     }
     
     // MARK: - PeekAndPopTransitionsCoordinator
@@ -155,6 +167,27 @@ public final class PeekAndPopUtilityImpl:
         }
     }
     
+    // MARK: - PeekAndPopStateObservable
+    public func addObserver(
+        disposable: AnyObject,
+        onPeekAndPopStateChange: @escaping ((_ viewController: UIViewController, _ isInPeekState: Bool) -> ()))
+    {
+        peekAndPopStateObservers = peekAndPopStateObservers.filter { !$0.isZombie }
+        
+        let peekAndPopStateObserver = PeekAndPopStateObserver(
+            disposable: disposable,
+            onPeekAndPopStateChange: onPeekAndPopStateChange
+        )
+        
+        peekAndPopStateObservers.append(peekAndPopStateObserver)
+        
+        // Invoke callback immediately no feed a new observer with the latest data
+        if let peekViewController = peekState.viewControllerIfPeekIsInProgress {
+            let isInPeekState = true
+            onPeekAndPopStateChange(peekViewController, isInPeekState)
+        }
+    }
+    
     // MARK: - Private
     @available(iOS 9.0, *)
     private func onscreenRegisteredPreviewingDataFor(previewingContext: UIViewControllerPreviewing)
@@ -180,7 +213,7 @@ public final class PeekAndPopUtilityImpl:
     
     @available(iOS 9.0, *)
     private func cancelPeekFor(peekAndPopData: PeekAndPopData) {
-        resetPeekState()
+        resetPeekStateAndNotifyObservers()
         
         guard let viewController = peekAndPopData.peekViewController else {
             return
@@ -209,9 +242,27 @@ public final class PeekAndPopUtilityImpl:
         }
     }
     
-    private func resetPeekState() {
+    private func resetPeekStateAndNotifyObservers() {
+        if let peekViewController = peekState.viewControllerIfPeekIsInProgress {
+            notifyPeekAndPopStateObserversOn(
+                viewController: peekViewController,
+                beingInPeekState: false
+            )
+        }
+            
         peekState = .finished
         peekGestureRecognizer = nil
+    }
+    
+    private func notifyPeekAndPopStateObserversOn(
+        viewController: UIViewController,
+        beingInPeekState isInPeekState: Bool)
+    {
+        peekAndPopStateObservers = peekAndPopStateObservers.filter { !$0.isZombie }
+        
+        peekAndPopStateObservers.forEach {
+            $0.onPeekAndPopStateChange(viewController, isInPeekState)
+        }
     }
     
     private func unbindViewControllerFromParent(
@@ -248,7 +299,7 @@ public final class PeekAndPopUtilityImpl:
         // When a user commits `peek`, gesture recognizer's state is `.cancelled`
         if sender.state == .ended {
             // Release the `peek` view controller
-            resetPeekState()
+            resetPeekStateAndNotifyObservers()
         }
     }
 }
@@ -267,5 +318,14 @@ private struct RegisteredPreviewingData {
     @available(iOS 9.0, *)
     var isOnscreen: Bool {
         return previewingContext?.sourceView.window != nil && viewController?.view.window != nil
+    }
+}
+
+private struct PeekAndPopStateObserver {
+    weak var disposable: AnyObject?
+    var onPeekAndPopStateChange: ((_ viewController: UIViewController, _ isInPeekState: Bool) -> ())   
+    
+    var isZombie: Bool {
+        return disposable == nil
     }
 }

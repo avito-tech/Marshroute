@@ -6,5 +6,7 @@ protocol AdvertisementViewInput: class, ViewLifecycleObservable {
     func setPlaceholderAssetName(_ assetName: String?)
     func setBackgroundRGB(_ rgb: (red: Double, green: Double, blue: Double)?)
     func setSimilarSearchResults(_ searchResults: [SearchResultsViewData])
+    func setSimilarSearchResultsHidden(_ hidden: Bool)
     var onRecursionButtonTap: ((_ sender: AnyObject) -> ())? { get set }
+    var onPeekStateChange: ((_ isInPeekState: Bool) -> ())? { get set }
 }

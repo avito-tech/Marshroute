@@ -36,13 +36,11 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
         return categoriesView.peekSourceViews
     }
     
+    @available(iOS 9.0, *)
     override func startPeekWith(
         previewingContext: UIViewControllerPreviewing,
         location: CGPoint)
     {
-        guard #available(iOS 9.0, *) 
-            else { return }
-        
         guard let peekData = categoriesView.peekDataAt(
             location: location,
             sourceView: previewingContext.sourceView)

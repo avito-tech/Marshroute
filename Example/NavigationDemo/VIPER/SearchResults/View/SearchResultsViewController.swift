@@ -40,13 +40,11 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
         return searchResultsView.peekSourceViews
     }
     
+    @available(iOS 9.0, *)
     override func startPeekWith(
         previewingContext: UIViewControllerPreviewing,
         location: CGPoint)
     {
-        guard #available(iOS 9.0, *) 
-            else { return }
-        
         guard let peekData = searchResultsView.peekDataAt(
             location: location,
             sourceView: previewingContext.sourceView)

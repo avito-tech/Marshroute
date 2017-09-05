@@ -37,13 +37,11 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
         return advertisementView.peekSourceViews
     }
     
+    @available(iOS 9.0, *)
     override func startPeekWith(
         previewingContext: UIViewControllerPreviewing,
         location: CGPoint)
     {
-        guard #available(iOS 9.0, *) 
-            else { return }
-        
         guard let peekData = advertisementView.peekDataAt(
             location: location,
             sourceView: previewingContext.sourceView)

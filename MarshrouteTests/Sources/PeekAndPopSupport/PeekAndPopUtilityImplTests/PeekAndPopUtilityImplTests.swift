@@ -37,16 +37,15 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         peekInterruptingViewController = nil
     }
     
-    func testPeekAndPopUtility_doesNotNotifyRegisteredViewController_ifPeekBeginsOnOffscreenRegisteredViewController() {
+    func testPeekAndPopUtility_notifiesNoRegisteredViewController_ifPeekBeginsOnOffscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-        expectation.isInverted = true
+        let invertedExpectation = self.invertedExpectation()
         
         unbindSourceViewControllerFromWindow()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
-                expectation.fulfill()
+                invertedExpectation.fulfill()
             }
         )
         
@@ -76,16 +75,15 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_doesNotNotifyUnregisteredViewController_ifPeekBeginsOnOffscreenRegisteredViewController() {
+    func testPeekAndPopUtility_notifiesNoReregisteredViewController_ifPeekBeginsOnOffscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-        expectation.isInverted = true
-        
+        let invertedExpectation = self.invertedExpectation()
+
         unbindSourceViewControllerFromWindow()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
-                expectation.fulfill()
+                invertedExpectation.fulfill()
             }
         )
         
@@ -98,16 +96,15 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_doesNotNotifyUnregisteredViewController_ifPeekBeginsOnOnscreenRegisteredViewController() {
+    func testPeekAndPopUtility_notifiesNoUnregisteredViewController_ifPeekBeginsOnOnscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-        expectation.isInverted = true
+        let invertedExpectation = self.invertedExpectation()
         
         bindSourceViewControllerToWindow()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
-                expectation.fulfill()
+                invertedExpectation.fulfill()
             }
         )
         
@@ -137,7 +134,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         XCTAssert(viewController === peekViewController)
     }
     
-    func testPeekAndPopUtility_doesNotPassPeekViewControllerToUIKit_ifPeekBeginsOnOffscreenRegisteredViewController() {
+    func testPeekAndPopUtility_passesNoPeekViewControllerToUIKit_ifPeekBeginsOnOffscreenRegisteredViewController() {
         // Given
         unbindSourceViewControllerFromWindow()
         
@@ -156,8 +153,8 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
     
     func testPeekAndPopUtility_invokesPopAction_ifSomeTransitionOccursNotDuringActivePeek() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-      
+        let expectation = self.expectation()
+        
         bindSourceViewControllerToWindow()
         
         registerSourceViewControllerForPreviewing()
@@ -175,8 +172,8 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
     
     func testPeekAndPopUtility_invokesPopAction_ifPeekBeginsOnOffscreenRegisteredViewControllerAndSomeTransitionOccurs() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-      
+        let expectation = self.expectation()
+        
         unbindSourceViewControllerFromWindow()
         
         registerSourceViewControllerForPreviewing()
@@ -194,18 +191,17 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_doesNotInvokePopAction_ifPeekDidBeginButDidNotCommitOnOnscreenRegisteredViewController() {
+    func testPeekAndPopUtility_invokesNoPopAction_ifPeekDidBeginButDidNotCommitOnOnscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-        expectation.isInverted = true
-      
+        let invertedExpectation = self.invertedExpectation()
+        
         bindSourceViewControllerToWindow()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
                 self.passPeekViewControllerToPeekAndPopUtility(
-                    popAction:  {
-                        expectation.fulfill()
+                    popAction: {
+                        invertedExpectation.fulfill()
                     }
                 )
             }
@@ -220,14 +216,14 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
     
     func testPeekAndPopUtility_invokesPopAction_ifPeekDidCommitOnOnscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
+        let expectation = self.expectation()
         
         bindSourceViewControllerToWindow()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
                 self.passPeekViewControllerToPeekAndPopUtility(
-                    popAction:  {
+                    popAction: {
                         expectation.fulfill()
                     }
                 )
@@ -243,18 +239,17 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_doesNotInvokePopAction_ifPeekGetsInterruptedWithAnotherTransitionOnOnscreenRegisteredViewController() {
+    func testPeekAndPopUtility_invokesNoPopAction_ifPeekGetsInterruptedWithAnotherTransitionOnOnscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-        expectation.isInverted = true
+        let invertedExpectation = self.invertedExpectation()
         
         bindSourceViewControllerToWindow()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
                 self.passPeekViewControllerToPeekAndPopUtility(
-                    popAction:  {
-                        expectation.fulfill()
+                    popAction: {
+                        invertedExpectation.fulfill()
                     }
                 )
             }
@@ -269,18 +264,17 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_doesNotInvokePopAction_ifPeekGetsCancelledByUserOnOnscreenRegisteredViewController() {
+    func testPeekAndPopUtility_invokesNoPopAction_ifPeekGetsCancelledByUserOnOnscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
-        expectation.isInverted = true
+        let invertedExpectation = self.invertedExpectation()
         
         bindSourceViewControllerToWindow()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
                 self.passPeekViewControllerToPeekAndPopUtility(
-                    popAction:  {
-                        expectation.fulfill()
+                    popAction: {
+                        invertedExpectation.fulfill()
                     }
                 )
             }
@@ -407,5 +401,15 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
             viewController: peekInterruptingViewController!,
             popAction: popAction
         )
+    }
+    
+    private func expectation() -> XCTestExpectation {
+        return expectation(description: "async expectation")
+    }
+    
+    private func invertedExpectation() -> XCTestExpectation {
+        let result = expectation(description: "inverted async expectation")
+        result.isInverted = true
+        return result
     }
 }

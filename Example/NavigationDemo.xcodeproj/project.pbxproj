@@ -113,6 +113,7 @@
 		CC42685B1F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268361F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift */; };
 		CC42685C1F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268371F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift */; };
 		CC42685E1F5FFC0000F4C407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC42685D1F5FFC0000F4C407 /* Info.plist */; };
+		CC4268621F600CF400F4C407 /* PeekAndPopUtilityImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268611F600CF400F4C407 /* PeekAndPopUtilityImplTests.swift */; };
 		CC574ABE1CEF73C1008648D0 /* BannerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */; };
 		CC574ABF1CEF73C1008648D0 /* BannerAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */; };
 		CC574AC01CEF73C1008648D0 /* BannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */; };
@@ -324,6 +325,7 @@
 		CC4268361F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
 		CC4268371F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
 		CC42685D1F5FFC0000F4C407 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC4268611F600CF400F4C407 /* PeekAndPopUtilityImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImplTests.swift; sourceTree = "<group>"; };
 		CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssembly.swift; sourceTree = "<group>"; };
 		CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssemblyImpl.swift; sourceTree = "<group>"; };
 		CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerInteractor.swift; sourceTree = "<group>"; };
@@ -870,6 +872,7 @@
 			isa = PBXGroup;
 			children = (
 				CC4268061F5FF8C300F4C407 /* General */,
+				CC42685F1F600C9900F4C407 /* PeekAndPopSupport */,
 				CC42680E1F5FF8C300F4C407 /* Routers */,
 				CC4268211F5FF8C300F4C407 /* TransitionContextsStackClientTests */,
 				CC4268231F5FF8C300F4C407 /* TransitionContextsStackTests */,
@@ -1013,6 +1016,22 @@
 				CC4268371F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift */,
 			);
 			path = TransitionsAnimatorSpies;
+			sourceTree = "<group>";
+		};
+		CC42685F1F600C9900F4C407 /* PeekAndPopSupport */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268601F600CE400F4C407 /* PeekAndPopUtilityImplTests */,
+			);
+			path = PeekAndPopSupport;
+			sourceTree = "<group>";
+		};
+		CC4268601F600CE400F4C407 /* PeekAndPopUtilityImplTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268611F600CF400F4C407 /* PeekAndPopUtilityImplTests.swift */,
+			);
+			path = PeekAndPopUtilityImplTests;
 			sourceTree = "<group>";
 		};
 		CC574AAE1CEF73C1008648D0 /* Banner */ = {
@@ -1797,6 +1816,7 @@
 				CC4268381F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift in Sources */,
 				CC42684E1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
 				CC4268481F5FF8C300F4C407 /* RouterDismissableTests.swift in Sources */,
+				CC4268621F600CF400F4C407 /* PeekAndPopUtilityImplTests.swift in Sources */,
 				CC42684C1F5FF8C300F4C407 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */,
 				CC42684D1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTests.swift in Sources */,
 				CC4268571F5FF8C300F4C407 /* ModalTransitionsAnimatorSpy.swift in Sources */,

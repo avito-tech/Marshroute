@@ -126,7 +126,6 @@ open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transition
             
             launchingContext.animator.animateUndoingTransition(animationContext: modalEndpointNavigationDismissalAnimationContext)
             
-            
         case .modalMasterDetail(let launchingContext):
             let modalMasterDetailDismissalAnimationContext = ModalMasterDetailDismissalAnimationContext(
                 modalMasterDetailDismissalAnimationLaunchingContext: launchingContext

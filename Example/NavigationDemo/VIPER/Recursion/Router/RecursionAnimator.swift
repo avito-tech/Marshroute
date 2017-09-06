@@ -224,7 +224,7 @@ private class AnimatedTransitioningImpl:
 
 extension UIView {
     func screenshot() -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0);
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, 0)
         drawHierarchy(in: bounds, afterScreenUpdates: false)
         let screenshot = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

@@ -71,10 +71,9 @@ private extension TransitionContextsStackImpl {
     func indexOfCompletedTransition(transitionId: TransitionId)
         -> Int?
     {
-        let transitionIds = storage.map() { $0.transitionId }
-        if let index = transitionIds.index(where: { $0 == transitionId })
-            , index < storage.count {
-                return index
+        let transitionIds = storage.map { $0.transitionId }
+        if let index = transitionIds.index(where: { $0 == transitionId }), index < storage.count {
+            return index
         }
         return nil
     }
@@ -82,15 +81,14 @@ private extension TransitionContextsStackImpl {
     func indexOfCompletedTransitionPreceding(transitionId: TransitionId)
         -> Int?
     {
-        if let index = indexOfCompletedTransition(transitionId: transitionId)
-            , index > 0 {
-                return index - 1
+        if let index = indexOfCompletedTransition(transitionId: transitionId), index > 0 {
+            return index - 1
         }
         return nil
     }
     
     subscript(index: Int?) -> CompletedTransitionContext? {
-        if let index = index , index >= 0 && index < storage.count {
+        if let index = index, index >= 0 && index < storage.count {
             return storage[index]
         }
         return nil
@@ -106,11 +104,11 @@ private extension TransitionContextsStackImpl {
     func popTo(index: Int?)
         -> [RestoredTransitionContext]?
     {
-        guard let nonNegative = index , index! >= 0
+        guard let nonNegative = index, index! >= 0
             else { return nil }
         
         // заранее проверяем, если не попадем в цикл for, чтобы не создавать пустой массив result
-        guard let fromIndex = (nonNegative + 1) as Int? , fromIndex < storage.count
+        guard let fromIndex = (nonNegative + 1) as Int?, fromIndex < storage.count
             else { return nil }
         
         var result = [RestoredTransitionContext]()
@@ -119,8 +117,7 @@ private extension TransitionContextsStackImpl {
             if let last = popLast() {
                 // складываем в том порядке как вынимали
                 result.append(last)
-            }
-            else { break }
+            } else { break }
         }
         
         return result
@@ -133,7 +130,7 @@ extension TransitionContextsStackImpl: CustomDebugStringConvertible {
         updateStack()
         
         var description = "TransitionContextsStack: " + String(describing: Unmanaged.passUnretained(self).toOpaque())
-        description += "\n   --- all ids: \(storage.map( { $0.transitionId } ))"
+        description += "\n   --- all ids: \(storage.map( { $0.transitionId }))"
         return description
     }
 }

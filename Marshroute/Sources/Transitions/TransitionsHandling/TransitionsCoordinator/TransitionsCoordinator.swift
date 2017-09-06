@@ -577,7 +577,7 @@ private extension TransitionsCoordinator where
             presentationAnimationLaunchingContextBox: presentationAnimationLaunchingContextBox,
             targetViewController: precedingTransition.targetViewController
         ) else {
-            debugPrint("FAILED TO CREATE `DismissalAnimationLaunchingContextBox` from `PresentationAnimationLaunchingContextBox`");
+            debugPrint("FAILED TO CREATE `DismissalAnimationLaunchingContextBox` from `PresentationAnimationLaunchingContextBox`")
             return
         }
         
@@ -589,8 +589,7 @@ private extension TransitionsCoordinator where
                 toLaunchDismissalAnimationByAnimator: dismissalAnimationLaunchingContextBox.transitionsAnimatorBox,
                 ofTransitionWithId: targetTransitionId
             )
-        }
-        else {
+        } else {
             transitionsCoordinatorDelegate?.transitionsCoordinator(
                 coordinator: self,
                 willForceTransitionsHandler: animatingTransitionsHandler,
@@ -711,8 +710,7 @@ private extension TransitionsCoordinator where
                     
                     // иначе обрываем цикл
                     chainedTransitionsHandlerBox = nil
-                }
-                else { assert(false, "добавились новые виды обработчиков. нужно дописать код"); break }
+                } else { assert(false, "добавились новые виды обработчиков. нужно дописать код"); break }
             }
         }
         return nil
@@ -839,8 +837,7 @@ extension TransitionsCoordinator where
                     forTransitionsHandler: transitionsHandler,
                     includingTransitionWithId: false
                 )
-            }
-            else {
+            } else {
                 // у дочерних нужно считать все перерходы
                 (chainedTransition, pushTransitions) = stackClient.allTransitionsForTransitionsHandler(
                     transitionsHandler
@@ -988,8 +985,7 @@ private extension TransitionsCoordinator {
         
         if let animatingTransitionsHandler = transitionsHandlerBox.unboxAnimatingTransitionsHandler() {
             result.append(animatingTransitionsHandler)
-        }
-        else if let containingTransitionsHandler = transitionsHandlerBox.unboxContainingTransitionsHandler(),
+        } else if let containingTransitionsHandler = transitionsHandlerBox.unboxContainingTransitionsHandler(),
             let childAnimatingTransitionsHandlers = unboxContainingTransitionsHandler(containingTransitionsHandler)
         {
             result.append(contentsOf: childAnimatingTransitionsHandlers)

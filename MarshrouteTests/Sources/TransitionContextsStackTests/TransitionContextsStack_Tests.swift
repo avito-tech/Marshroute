@@ -62,7 +62,7 @@ final class TransitionContextsStackTests: XCTestCase {
         // append zombie. must still be empty
         __stackImpl.append(autoZombieContext)
         subtest_Stack(__stackImpl,
-            toBeEmptyAfterAddingZombie:autoZombieContext
+            toBeEmptyAfterAddingZombie: autoZombieContext
         )
     }
     
@@ -72,7 +72,7 @@ final class TransitionContextsStackTests: XCTestCase {
         XCTAssertNil(__stackImpl.first, "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
         XCTAssertNil(__stackImpl.last, "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
         XCTAssertNil(__stackImpl[zombieContext.transitionId], "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
-        XCTAssertNil(__stackImpl.preceding(transitionId:zombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
+        XCTAssertNil(__stackImpl.preceding(transitionId: zombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
         XCTAssertNil(__stackImpl.popTo(transitionId: zombieContext.transitionId), "при добавлении зомби, он должен удаляться при любом mutating'e или чтении стека. стек должен быть пуст")
     }
     
@@ -98,7 +98,7 @@ final class TransitionContextsStackTests: XCTestCase {
         XCTAssertEqual(__stackImpl.first!.transitionId, neverZombieContext1.transitionId, "вставили не зомби. должны достать его же")
         XCTAssertNotNil(__stackImpl[neverZombieContext1.transitionId], "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
         XCTAssertEqual(__stackImpl[neverZombieContext1.transitionId]!.transitionId, neverZombieContext1.transitionId, "вставили не зомби. должны достать его же")
-        XCTAssertNil(__stackImpl.preceding(transitionId:neverZombieContext1.transitionId), "добавили одну запись. перед ней нет других записей")
+        XCTAssertNil(__stackImpl.preceding(transitionId: neverZombieContext1.transitionId), "добавили одну запись. перед ней нет других записей")
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext1.transitionId), "добавили одну запись. после нее нет других записей")
     }
     
@@ -180,7 +180,7 @@ final class TransitionContextsStackTests: XCTestCase {
         XCTAssertNil(__stackImpl.first, "один append, один pop. должно быть пусто")
         XCTAssertNil(__stackImpl.last, "один append, один pop. должно быть пусто")
         XCTAssertNil(__stackImpl[neverZombieContext1.transitionId], "один append, один pop. должно быть пусто")
-        XCTAssertNil(__stackImpl.preceding(transitionId:neverZombieContext1.transitionId), "один append, один pop. должно быть пусто")
+        XCTAssertNil(__stackImpl.preceding(transitionId: neverZombieContext1.transitionId), "один append, один pop. должно быть пусто")
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext1.transitionId), "один append, один pop. должно быть пусто")
     }
     
@@ -225,11 +225,11 @@ final class TransitionContextsStackTests: XCTestCase {
         XCTAssertEqual(__stackImpl.last!.transitionId, neverZombieContext2.transitionId, "вставили второго не зомби вторым. он должен быть последним")
         XCTAssertNotNil(__stackImpl[neverZombieContext1.transitionId], "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
         XCTAssertEqual(__stackImpl[neverZombieContext1.transitionId]!.transitionId, neverZombieContext1.transitionId, "вставили не зомби. должны достать его же")
-        XCTAssertNil(__stackImpl.preceding(transitionId:neverZombieContext1.transitionId), "перед первым не зомби никого не должно быть")
+        XCTAssertNil(__stackImpl.preceding(transitionId: neverZombieContext1.transitionId), "перед первым не зомби никого не должно быть")
         XCTAssertNotNil(__stackImpl[neverZombieContext2.transitionId], "при добавлении не зомби, он не должен удаляться из стека, пока жив targetViewController")
         XCTAssertEqual(__stackImpl[neverZombieContext2.transitionId]!.transitionId, neverZombieContext2.transitionId, "вставили не зомби. должны достать его же")
-        XCTAssertNotNil(__stackImpl.preceding(transitionId:neverZombieContext2.transitionId), "перед вторым не зомби должен идти первый")
-        XCTAssertEqual(__stackImpl.preceding(transitionId:neverZombieContext2.transitionId)?.transitionId, neverZombieContext1.transitionId, "перед вторым не зомби должен идти первый")
+        XCTAssertNotNil(__stackImpl.preceding(transitionId: neverZombieContext2.transitionId), "перед вторым не зомби должен идти первый")
+        XCTAssertEqual(__stackImpl.preceding(transitionId: neverZombieContext2.transitionId)?.transitionId, neverZombieContext1.transitionId, "перед вторым не зомби должен идти первый")
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext2.transitionId), "после второго не зомби никого не должно быть")
     }
     
@@ -448,8 +448,8 @@ final class TransitionContextsStackTests: XCTestCase {
         XCTAssertNil(__stackImpl.last, "два append'а, два pop'а. должно быть пусто")
         XCTAssertNil(__stackImpl[neverZombieContext1.transitionId], "два append'а, два pop'а. должно быть пусто")
         XCTAssertNil(__stackImpl[neverZombieContext2.transitionId], "два append'а, два pop'а. должно быть пусто")
-        XCTAssertNil(__stackImpl.preceding(transitionId:neverZombieContext1.transitionId), "два append'а, два pop'а. должно быть пусто")
-        XCTAssertNil(__stackImpl.preceding(transitionId:neverZombieContext2.transitionId), "два append'а, два pop'а. должно быть пусто")
+        XCTAssertNil(__stackImpl.preceding(transitionId: neverZombieContext1.transitionId), "два append'а, два pop'а. должно быть пусто")
+        XCTAssertNil(__stackImpl.preceding(transitionId: neverZombieContext2.transitionId), "два append'а, два pop'а. должно быть пусто")
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext1.transitionId), "два append'а, два pop'а. должно быть пусто")
         XCTAssertNil(__stackImpl.popTo(transitionId: neverZombieContext2.transitionId), "два append'а, два pop'а. должно быть пусто")
     }

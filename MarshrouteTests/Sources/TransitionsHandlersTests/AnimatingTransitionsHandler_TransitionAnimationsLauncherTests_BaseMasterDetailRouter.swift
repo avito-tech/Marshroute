@@ -14,7 +14,6 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         sourceViewController = UIViewController()
         targetViewController = UIViewController()
         
-        
         let transitionIdGenerator = TransitionIdGeneratorImpl()
         let transitionId = transitionIdGenerator.generateNewTransitionId()
         
@@ -31,7 +30,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
             transitionsCoordinator: transitionsCoordinator
         )
         
-        let setMasterRootViewControllerContext =  ResettingTransitionContext(
+        let setMasterRootViewControllerContext = ResettingTransitionContext(
             registeringViewController: sourceViewController,
             animatingTransitionsHandler: masterAnimatingTransitionsHandler,
             transitionId: transitionId
@@ -40,13 +39,11 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         // set root view controller for a master transitions handler
         masterAnimatingTransitionsHandler.resetWithTransition(context: setMasterRootViewControllerContext)
         
-        
-        
         let detailAnimatingTransitionsHandler = AnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator
         )
         
-        let setDetailRootViewControllerContext =  ResettingTransitionContext(
+        let setDetailRootViewControllerContext = ResettingTransitionContext(
             registeringViewController: sourceViewController,
             animatingTransitionsHandler: detailAnimatingTransitionsHandler,
             transitionId: transitionId
@@ -54,8 +51,6 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         
         // set root view controller for a detail transitions handler
         detailAnimatingTransitionsHandler.resetWithTransition(context: setDetailRootViewControllerContext)
-        
-        
         
         router = BaseMasterDetailRouter(
             routerSeed: MasterDetailRouterSeed(
@@ -82,7 +77,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         let resetNavigationTransitionsAnimatorSpy = ResetNavigationTransitionsAnimatorSpy()
         
         // When
-        router.setMasterViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.setMasterViewControllerDerivedFrom( { (_) -> UIViewController in
             return targetViewController
             }, animator: resetNavigationTransitionsAnimatorSpy
         )
@@ -96,7 +91,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         let navigationTransitionsAnimator = NavigationTransitionsAnimatorSpy()
         
         // When
-        router.pushMasterViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.pushMasterViewControllerDerivedFrom( { (_) -> UIViewController in
             return targetViewController
             }, animator: navigationTransitionsAnimator
         )
@@ -110,7 +105,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         let resetNavigationTransitionsAnimatorSpy = ResetNavigationTransitionsAnimatorSpy()
         
         // When
-        router.setDetailViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.setDetailViewControllerDerivedFrom( { (_) -> UIViewController in
             return targetViewController
             }, animator: resetNavigationTransitionsAnimatorSpy
         )
@@ -124,7 +119,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         let navigationTransitionsAnimator = NavigationTransitionsAnimatorSpy()
         
         // When
-        router.pushDetailViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.pushDetailViewControllerDerivedFrom( { (_) -> UIViewController in
             return targetViewController
             }, animator: navigationTransitionsAnimator
         )
@@ -160,7 +155,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         let modalTransitionsAnimator = ModalTransitionsAnimatorSpy()
         
         // When
-        router.presentModalViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.presentModalViewControllerDerivedFrom( { (_) -> UIViewController in
             return targetViewController
             }, animator: modalTransitionsAnimator
         )
@@ -181,7 +176,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
             deriveMasterViewController: { (routerSeed) -> UIViewController in
                 return UIViewController()
             },
-            deriveDetailViewController: { (routerSeed) -> UIViewController in
+            deriveDetailViewController: { (_) -> UIViewController in
                 return UIViewController()
             },
             animator: modalMasterDetailTransitionsAnimator
@@ -203,7 +198,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
             deriveMasterViewController: { (routerSeed) -> UIViewController in
                 return UIViewController()
             },
-            deriveDetailViewController: { (routerSeed) -> UIViewController in
+            deriveDetailViewController: { (_) -> UIViewController in
                 return UIViewController()
             },
             animator: modalMasterDetailTransitionsAnimator,
@@ -224,7 +219,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         let modalNavigationTransitionsAnimator = ModalNavigationTransitionsAnimatorSpy()
         
         // When
-        router.presentModalNavigationControllerWithRootViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.presentModalNavigationControllerWithRootViewControllerDerivedFrom( { (_) -> UIViewController in
             return targetViewController
             }, animator: modalNavigationTransitionsAnimator
         )
@@ -242,7 +237,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         let modalNavigationTransitionsAnimator = ModalNavigationTransitionsAnimatorSpy()
         
         // When
-        router.presentModalNavigationControllerWithRootViewControllerDerivedFrom( { (routerSeed) -> UIViewController in
+        router.presentModalNavigationControllerWithRootViewControllerDerivedFrom( { (_) -> UIViewController in
             return targetViewController
             }, animator: modalNavigationTransitionsAnimator,
                navigationController: navigationController
@@ -271,7 +266,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         router.presentPopoverFromRect(
             rect,
             inView: view,
-            withViewControllerDerivedFrom: { (routerSeed) -> UIViewController in
+            withViewControllerDerivedFrom: { (_) -> UIViewController in
                 return targetViewController
             },
             animator: popoverTransitionsAnimator
@@ -299,7 +294,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         // When
         router.presentPopoverFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: { (routerSeed) -> UIViewController in
+            withViewControllerDerivedFrom: { (_) -> UIViewController in
                 return targetViewController
             },
             animator: popoverTransitionsAnimator
@@ -328,7 +323,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         router.presentPopoverWithNavigationControllerFromRect(
             rect,
             inView: view,
-            withViewControllerDerivedFrom: { (routerSeed) -> UIViewController in
+            withViewControllerDerivedFrom: { (_) -> UIViewController in
                 return targetViewController
             },
             animator: popoverNavigationTransitionsAnimator
@@ -359,7 +354,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         router.presentPopoverWithNavigationControllerFromRect(
             rect,
             inView: view,
-            withViewControllerDerivedFrom: { (routerSeed) -> UIViewController in
+            withViewControllerDerivedFrom: { (_) -> UIViewController in
                 return targetViewController
             },
             animator: popoverNavigationTransitionsAnimator,
@@ -389,7 +384,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         // When
         router.presentPopoverWithNavigationControllerFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: { (routerSeed) -> UIViewController in
+            withViewControllerDerivedFrom: { (_) -> UIViewController in
                 return targetViewController
             },
             animator: popoverNavigationTransitionsAnimator
@@ -417,7 +412,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         // When
         router.presentPopoverWithNavigationControllerFromBarButtonItem(
             barButtonItem,
-            withViewControllerDerivedFrom: { (routerSeed) -> UIViewController in
+            withViewControllerDerivedFrom: { (_) -> UIViewController in
                 return targetViewController
             },
             animator: popoverNavigationTransitionsAnimator,

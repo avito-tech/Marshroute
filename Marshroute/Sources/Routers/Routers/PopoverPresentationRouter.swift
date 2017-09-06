@@ -197,7 +197,6 @@ extension PopoverPresentationRouter where
         presentingTransitionsHandlerBox.unbox().performTransition(context: popoverContext)
     }
     
-    
     // MARK: - UIViewController in UINavigationController in UIPopoverController
     public func presentPopoverWithNavigationControllerFromRect(
         _ rect: CGRect,

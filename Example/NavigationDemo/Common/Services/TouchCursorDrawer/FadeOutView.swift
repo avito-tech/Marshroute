@@ -28,7 +28,7 @@ final class FadeOutView: UIView {
             withDuration: 0.25,
             animations: {
                 self.alpha = 0
-                self.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+                self.transform = CGAffineTransform(scaleX: 0.000_01, y: 0.000_01)
             },
             completion: { _ in
                 self.removeFromSuperview()

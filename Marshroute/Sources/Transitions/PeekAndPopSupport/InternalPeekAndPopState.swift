@@ -4,7 +4,7 @@ enum InternalPeekAndPopState {
     case waitingForPeekAndPopData
     case receivedPeekAndPopData(PeekAndPopData)
     case inProgress(PeekAndPopData)
-    case finished(isPeekCommited: Bool)
+    case finished(isPeekCommitted: Bool)
 
     var peekAndPopDataIfReceived: PeekAndPopData? {
         switch self {
@@ -22,7 +22,7 @@ enum InternalPeekAndPopState {
         }
     }
     
-    var isPeekCommited: Bool {
+    var isPeekCommitted: Bool {
         switch self {
         case .waitingForPeekAndPopData:
             return false
@@ -33,8 +33,8 @@ enum InternalPeekAndPopState {
         case .inProgress:
             return false
             
-        case .finished(let isPeekCommited):
-            return isPeekCommited
+        case .finished(let isPeekCommitted):
+            return isPeekCommitted
         }
     }
     

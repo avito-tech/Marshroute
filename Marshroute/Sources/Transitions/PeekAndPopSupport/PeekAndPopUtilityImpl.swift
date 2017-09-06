@@ -11,7 +11,7 @@ public final class PeekAndPopUtilityImpl:
     // MARK: - State
     private var registeredPreviewingDataList = [RegisteredPreviewingData]()
     
-    private var internalPeekAndPopState: InternalPeekAndPopState = .finished(isPeekCommited: false) {
+    private var internalPeekAndPopState: InternalPeekAndPopState = .finished(isPeekCommitted: false) {
         didSet {
             releasePeekGestureRecognizerIfNeeded(
                 internalPeekAndPopState: internalPeekAndPopState
@@ -115,7 +115,7 @@ public final class PeekAndPopUtilityImpl:
             return peekViewController
         } else {
             debugPrint("You were supposed to force some router to make some transition within `onPeek`")
-            internalPeekAndPopState = .finished(isPeekCommited: false)
+            internalPeekAndPopState = .finished(isPeekCommitted: false)
             return nil
         }
     }
@@ -127,7 +127,7 @@ public final class PeekAndPopUtilityImpl:
     {
         // Commit peek
         internalPeekAndPopState.popActionIfPeekIsInProgress?()
-        internalPeekAndPopState = .finished(isPeekCommited: true)
+        internalPeekAndPopState = .finished(isPeekCommitted: true)
     }
     
     // MARK: - PeekAndPopTransitionsCoordinator
@@ -149,7 +149,6 @@ public final class PeekAndPopUtilityImpl:
                 viewController: viewController,
                 rollback: &rollbackUnbindingViewControllerFromParent
             )
- 
             
             let peekAndPopData = PeekAndPopData(
                 peekViewController: viewController,
@@ -228,7 +227,7 @@ public final class PeekAndPopUtilityImpl:
             reregisterViewControllerForPreviewing(peekViewController)
         }
         
-        internalPeekAndPopState = .finished(isPeekCommited: false)
+        internalPeekAndPopState = .finished(isPeekCommitted: false)
     }
     
     @available(iOS 9.0, *)
@@ -260,7 +259,7 @@ public final class PeekAndPopUtilityImpl:
             ) 
         } else if let oldPeekViewController = oldInternalPeekAndPopState.viewControllerIfPeekIsInProgress {
             notifyPeekAndPopStateObserversOn(
-                peekAndPopState: (internalPeekAndPopState.isPeekCommited) 
+                peekAndPopState: (internalPeekAndPopState.isPeekCommitted) 
                     ? .popped
                     : .cancelled,
                 forViewController: oldPeekViewController
@@ -338,7 +337,7 @@ public final class PeekAndPopUtilityImpl:
         // When a user commits `peek`, gesture recognizer's state is `.cancelled`
         if sender.state == .ended {
             // Release the `peek` view controller
-            internalPeekAndPopState = .finished(isPeekCommited: false)
+            internalPeekAndPopState = .finished(isPeekCommitted: false)
         }
     }
 }

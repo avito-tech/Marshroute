@@ -33,7 +33,7 @@ final class AdvertisementInteractorImpl: AdvertisementInteractor {
         completion(advertisement?.placeholderAssetName)
     }
     
-    func advertisementRGB(_ completion:(_ rgb: (red: Double, green: Double, blue: Double)?) -> ()) {
+    func advertisementRGB(_ completion: (_ rgb: (red: Double, green: Double, blue: Double)?) -> ()) {
         completion(advertisement?.rgb)
     }
     

@@ -9,9 +9,8 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
     public func lastTransitionForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
-        if let last = stack.last
-            , last.wasPerfromedByTransitionsHandler(transitionsHandler) {
-                return last
+        if let last = stack.last, last.wasPerfromedByTransitionsHandler(transitionsHandler) {
+            return last
         }
         return nil
     }
@@ -19,9 +18,8 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
     public func chainedTransitionForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
-        if let last = lastTransitionForTransitionsHandler(transitionsHandler)
-            , last.isChainedForTransitionsHandler(transitionsHandler) {
-                return last
+        if let last = lastTransitionForTransitionsHandler(transitionsHandler), last.isChainedForTransitionsHandler(transitionsHandler) {
+            return last
         }
         return nil
     }
@@ -38,9 +36,8 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
         forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
-        if let restored = stack.preceding(transitionId: transitionId)
-            , restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
-                return restored
+        if let restored = stack.preceding(transitionId: transitionId), restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
+            return restored
         }
         return nil
     }
@@ -50,9 +47,8 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
         forTransitionsHandler transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     {
-        if let restored = stack[transitionId]
-            , restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
-                return restored
+        if let restored = stack[transitionId], restored.wasPerfromedByTransitionsHandler(transitionsHandler) {
+            return restored
         }
         return nil
     }
@@ -94,8 +90,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
         // только последний переход может быть не push-переходом (описывать модальное окно или поповер)
         if last.isChainedForTransitionsHandler(transitionsHandler) {
             chainedTransition = last
-        }
-        else {
+        } else {
             pushTransitions.insert(last, at: 0)
         }
         
@@ -109,8 +104,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
                 if !didMatchId || (didMatchId && includingTransitionWithId) {
                     pushTransitions.insert(previous, at: 0)
                 }
-            }
-            else { loopTransitionId = nil } // останавливаем цикл
+            } else { loopTransitionId = nil } // останавливаем цикл
         }
         
         return (chainedTransition, pushTransitions)
@@ -122,7 +116,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
         includingTransitionWithId: Bool)
         -> Bool
     {
-        guard let first = stack.first , first.wasPerfromedByTransitionsHandler(transitionsHandler)
+        guard let first = stack.first, first.wasPerfromedByTransitionsHandler(transitionsHandler)
             else { return false }
         
         guard let _ = transitionWith(transitionId: transitionId, forTransitionsHandler: transitionsHandler)
@@ -131,8 +125,7 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
         if includingTransitionWithId {
             _ = stack.popTo(transitionId: transitionId)
             return (stack.popLast() != nil)
-        }
-        else {
+        } else {
             return (stack.popTo(transitionId: transitionId)?.first != nil)
         }
     }

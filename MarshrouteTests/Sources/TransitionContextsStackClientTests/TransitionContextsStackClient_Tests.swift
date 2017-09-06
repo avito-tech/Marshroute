@@ -114,14 +114,13 @@ final class TransitionContextsStackClientTests: XCTestCase
         
         do { // transitionsAfter
             let transitionsAfter = __stackClientImpl.transitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: false)
-            XCTAssertNil(transitionsAfter.chainedTransition , "добавили один переход. после него переходов не должно быть")
-            XCTAssertNil(transitionsAfter.pushTransitions , "добавили один переход. после него переходов не должно быть")
+            XCTAssertNil(transitionsAfter.chainedTransition, "добавили один переход. после него переходов не должно быть")
+            XCTAssertNil(transitionsAfter.pushTransitions, "добавили один переход. после него переходов не должно быть")
             
             let transitionsAfterIncludingTransitionWithId = __stackClientImpl.transitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyTransitionsHandler, includingTransitionWithId: true)
-            XCTAssertNil(transitionsAfterIncludingTransitionWithId.chainedTransition , "добавили один переход. после него переходов не должно быть")
-            XCTAssertNotNil(transitionsAfterIncludingTransitionWithId.pushTransitions , "добавили один переход. должен был добавиться")
+            XCTAssertNil(transitionsAfterIncludingTransitionWithId.chainedTransition, "добавили один переход. после него переходов не должно быть")
+            XCTAssertNotNil(transitionsAfterIncludingTransitionWithId.pushTransitions, "добавили один переход. должен был добавиться")
             XCTAssertEqual(transitionsAfterIncludingTransitionWithId.pushTransitions!.first?.transitionId, neverZombieContext1.transitionId, "сделали один переход. должен был добавиться")
-            
             
             let transitionsAfterForNotAppededTransitionsHandler = __stackClientImpl.transitionsAfter(transitionId: neverZombieContext1.transitionId, forTransitionsHandler: dummyThirdPartyTransitionsHandler, includingTransitionWithId: false)
             XCTAssertNil(transitionsAfterForNotAppededTransitionsHandler.chainedTransition, "переход для этого обработчика не добавляли. для него не должно быть chained переходов")

@@ -10,14 +10,12 @@ public enum TransitionsHandlerBox {
         case .animating(let weakBox):
             if let animatingTransitionsHandler = weakBox.unbox() {
                 self = .init(animatingTransitionsHandler: animatingTransitionsHandler)
-            }
-            else { return nil }
+            } else { return nil }
 
         case .containing(let weakBox):
             if let containingTransitionsHandler = weakBox.unbox() {
                 self = .init(containingTransitionsHandler: containingTransitionsHandler)
-            }
-            else { return nil }
+            } else { return nil }
         }
     }
     

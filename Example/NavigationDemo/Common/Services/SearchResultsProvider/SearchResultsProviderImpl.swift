@@ -58,7 +58,7 @@ final class SearchResultsProviderImpl: SearchResultsProvider {
     
     func recommendedSearchResults(searchResultId: SearchResultId) -> [SearchResult] {
         
-        let white: Double = 255/255.0
+        let white: Double = 255 / 255.0
         let requiresAuthorization = false
         
         let titles_Ids_Placeholders = [

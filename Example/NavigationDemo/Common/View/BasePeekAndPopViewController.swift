@@ -83,7 +83,7 @@ class BasePeekAndPopViewController: BaseViewController
         for peekSourceView in peekSourceViews {
             peekAndPopUtility.register(
                 viewController: self,
-                sourceView: peekSourceView,
+                forPreviewingInSourceView: peekSourceView,
                 onPeek: { [weak self] (previewingContext, location) in
                     self?.startPeekWith(
                         previewingContext: previewingContext,
@@ -97,6 +97,6 @@ class BasePeekAndPopViewController: BaseViewController
     
     @available(iOS 9.0, *)
     private func unregisterFromPeekAndPop() {
-        peekAndPopUtility.unregister(viewController: self)
+        peekAndPopUtility.unregisterViewControllerFromPreviewing(self)
     }
 }

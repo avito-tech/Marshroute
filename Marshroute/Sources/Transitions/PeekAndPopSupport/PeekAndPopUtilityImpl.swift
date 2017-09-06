@@ -37,12 +37,14 @@ public final class PeekAndPopUtilityImpl:
     @available(iOS 9.0, *)
     public func register(
         viewController: UIViewController, 
-        sourceView: UIView,
+        forPreviewingInSourceView sourceView: UIView,
         onPeek: @escaping ((_ previewingContext: UIViewControllerPreviewing, _ location: CGPoint) -> ()),
         onPreviewingContextChange: ((_ newPreviewingContext: UIViewControllerPreviewing) -> ())?)
-        -> UIViewControllerPreviewing
     {
-        unregister(viewController: viewController, sourceView: sourceView)
+        unregister(
+            viewController: viewController,
+            fromPreviewingInSourceView: sourceView
+        )
         
         if viewController.traitCollection.forceTouchCapability != .available {
             debugPrint("You should not register a viewController for `peek and pop`, "
@@ -62,12 +64,15 @@ public final class PeekAndPopUtilityImpl:
         )
         
         registeredPreviewingDataList.append(registeredPreviewingData)
-        
-        return previewingContext
+         
+        onPreviewingContextChange?(previewingContext)
     }
     
     @available(iOS 9.0, *)
-    public func unregister(viewController: UIViewController, sourceView: UIView?) {
+    public func unregister(
+        viewController: UIViewController,
+        fromPreviewingInSourceView sourceView: UIView?)
+    {
         registeredPreviewingDataList = registeredPreviewingDataList.filter { registeredPreviewingData in
             let shouldKeepInCollection: Bool
             
@@ -235,16 +240,12 @@ public final class PeekAndPopUtilityImpl:
                 continue
             }
             
-            // Reregister a `viewController` for previewing
-            let newPreviewingContext = reregister(
+            reregister(
                 viewController: viewController,
-                sourceView: sourceView,
+                forPreviewingInSourceView: sourceView,
                 onPeek: registeredPreviewingData.onPeek,
                 onPreviewingContextChange: registeredPreviewingData.onPreviewingContextChange
             )
-            
-            // Notify about a reregister
-            registeredPreviewingData.onPreviewingContextChange?(newPreviewingContext)
         }
     }
     

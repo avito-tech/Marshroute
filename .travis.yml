@@ -12,4 +12,4 @@ before_install:
   - gem install xcpretty-travis-formatter
 script:
   - set -o pipefail
-  - xcodebuild -project Marshroute.xcodeproj -scheme "Marshroute" -destination "$IOS_DESTANATION" CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" test | xcpretty -f `xcpretty-travis-formatter`
+  - xcodebuild -workspace "Example/NavigationDemo.xcworkspace" -scheme "NavigationDemo" -destination "$IOS_DESTANATION" CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" clean test | xcpretty -f `xcpretty-travis-formatter`

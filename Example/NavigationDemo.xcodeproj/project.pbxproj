@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1313F20C96058FEF50F595A6 /* Pods_NavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */; };
+		BF69B5A3AE24511680DB2ED1 /* Pods_MarshrouteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE239487B05BB3C04361F501 /* Pods_MarshrouteTests.framework */; };
 		CC0B1D441CC20687006707B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1D431CC20687006707B6 /* AppDelegate.swift */; };
 		CC0B1D4D1CC20687006707B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC0B1D4C1CC20687006707B6 /* Assets.xcassets */; };
 		CC0B1D611CC207FA006707B6 /* BaseAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1D5B1CC207FA006707B6 /* BaseAssembly.swift */; };
@@ -74,6 +75,44 @@
 		CC3B0EC11F59D6FF0034530E /* BaseAssemblySeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */; };
 		CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */; };
 		CC3E33BF1F5ED38F0013FA0D /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */; };
+		CC4268381F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268071F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift */; };
+		CC4268391F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268081F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift */; };
+		CC42683A1F5FF8C300F4C407 /* DummyTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268091F5FF8C300F4C407 /* DummyTransitionsHandler.swift */; };
+		CC42683B1F5FF8C300F4C407 /* TransitionContextsCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42680A1F5FF8C300F4C407 /* TransitionContextsCreator.swift */; };
+		CC42683C1F5FF8C300F4C407 /* TransitionContextsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42680B1F5FF8C300F4C407 /* TransitionContextsExtensions.swift */; };
+		CC42683D1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42680C1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift */; };
+		CC42683E1F5FF8C300F4C407 /* TransitionsCoordinatorSpyingEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42680D1F5FF8C300F4C407 /* TransitionsCoordinatorSpyingEnums.swift */; };
+		CC42683F1F5FF8C300F4C407 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268101F5FF8C300F4C407 /* DetailRouterTests_BaseMasterDetailRouter.swift */; };
+		CC4268401F5FF8C300F4C407 /* DetailRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268111F5FF8C300F4C407 /* DetailRouterTests_BaseRouter.swift */; };
+		CC4268411F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268131F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift */; };
+		CC4268421F5FF8C300F4C407 /* EndpointRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268141F5FF8C300F4C407 /* EndpointRouterTests_BaseRouter.swift */; };
+		CC4268431F5FF8C300F4C407 /* MasterlRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268161F5FF8C300F4C407 /* MasterlRouterTests.swift */; };
+		CC4268441F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268181F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */; };
+		CC4268451F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268191F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseRouter.swift */; };
+		CC4268461F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42681B1F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */; };
+		CC4268471F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42681C1F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseRouter.swift */; };
+		CC4268481F5FF8C300F4C407 /* RouterDismissableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42681E1F5FF8C300F4C407 /* RouterDismissableTests.swift */; };
+		CC4268491F5FF8C300F4C407 /* RouterFocusableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268201F5FF8C300F4C407 /* RouterFocusableTests.swift */; };
+		CC42684A1F5FF8C300F4C407 /* TransitionContextsStackClient_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268221F5FF8C300F4C407 /* TransitionContextsStackClient_Tests.swift */; };
+		CC42684B1F5FF8C300F4C407 /* TransitionContextsStack_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268241F5FF8C300F4C407 /* TransitionContextsStack_Tests.swift */; };
+		CC42684C1F5FF8C300F4C407 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268261F5FF8C300F4C407 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */; };
+		CC42684D1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268271F5FF8C300F4C407 /* AnimatingTransitionsHandlerTests.swift */; };
+		CC42684E1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268281F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */; };
+		CC42684F1F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268291F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */; };
+		CC4268501F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42682A1F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */; };
+		CC4268511F5FF8C300F4C407 /* NavigationTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42682B1F5FF8C300F4C407 /* NavigationTransitionsHandlerImplTests.swift */; };
+		CC4268521F5FF8C300F4C407 /* SplitViewTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42682C1F5FF8C300F4C407 /* SplitViewTransitionsHandlerImplTests.swift */; };
+		CC4268531F5FF8C300F4C407 /* TabBarTransitionsHandlerImplTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42682D1F5FF8C300F4C407 /* TabBarTransitionsHandlerImplTests.swift */; };
+		CC4268541F5FF8C300F4C407 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC42682F1F5FF8C300F4C407 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */; };
+		CC4268551F5FF8C300F4C407 /* ModalMasterDetailTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268301F5FF8C300F4C407 /* ModalMasterDetailTransitionsAnimatorSpy.swift */; };
+		CC4268561F5FF8C300F4C407 /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268311F5FF8C300F4C407 /* ModalNavigationTransitionsAnimatorSpy.swift */; };
+		CC4268571F5FF8C300F4C407 /* ModalTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268321F5FF8C300F4C407 /* ModalTransitionsAnimatorSpy.swift */; };
+		CC4268581F5FF8C300F4C407 /* NavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268331F5FF8C300F4C407 /* NavigationTransitionsAnimatorSpy.swift */; };
+		CC4268591F5FF8C300F4C407 /* PopoverNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268341F5FF8C300F4C407 /* PopoverNavigationTransitionsAnimatorSpy.swift */; };
+		CC42685A1F5FF8C300F4C407 /* PopoverTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268351F5FF8C300F4C407 /* PopoverTransitionsAnimatorSpy.swift */; };
+		CC42685B1F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268361F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift */; };
+		CC42685C1F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268371F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift */; };
+		CC42685E1F5FFC0000F4C407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC42685D1F5FFC0000F4C407 /* Info.plist */; };
 		CC574ABE1CEF73C1008648D0 /* BannerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */; };
 		CC574ABF1CEF73C1008648D0 /* BannerAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */; };
 		CC574AC01CEF73C1008648D0 /* BannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */; };
@@ -162,13 +201,25 @@
 		CCFD1A891CFB293D0065EE42 /* pineapples.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCFD1A801CFB293D0065EE42 /* pineapples.jpg */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CC4268001F5FF76F00F4C407 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC0B1D381CC20687006707B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC0B1D3F1CC20687006707B6;
+			remoteInfo = NavigationDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		616970D95027090C37F0EAAE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C1CE8A4F513C6013BD4CCAC /* Pods-MarshrouteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.release.xcconfig"; sourceTree = "<group>"; };
+		77767704E4AC1FE96EDB2B9E /* Pods-MarshrouteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.debug.xcconfig"; sourceTree = "<group>"; };
 		994440772A8770662209C794 /* Pods-NavigationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BAA56E2FDDF8BC096CA65A35 /* Pods-NavigationDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavigationDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CC0B1D401CC20687006707B6 /* NavigationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC0B1D431CC20687006707B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CC0B1D4C1CC20687006707B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC0B1D4C1CC20687006707B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		CC0B1D5B1CC207FA006707B6 /* BaseAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssembly.swift; sourceTree = "<group>"; };
 		CC0B1D661CC208DF006707B6 /* AssemblyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyFactory.swift; sourceTree = "<group>"; };
 		CC0B1D691CC20910006707B6 /* AssemblyFactoryImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyFactoryImpl.swift; sourceTree = "<group>"; };
@@ -233,6 +284,46 @@
 		CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssemblySeed.swift; sourceTree = "<group>"; };
 		CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePeekAndPopViewController.swift; sourceTree = "<group>"; };
 		CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		CC4267FB1F5FF76F00F4C407 /* MarshrouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarshrouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC4267FF1F5FF76F00F4C407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC4268071F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
+		CC4268081F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
+		CC4268091F5FF8C300F4C407 /* DummyTransitionsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyTransitionsHandler.swift; sourceTree = "<group>"; };
+		CC42680A1F5FF8C300F4C407 /* TransitionContextsCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsCreator.swift; sourceTree = "<group>"; };
+		CC42680B1F5FF8C300F4C407 /* TransitionContextsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsExtensions.swift; sourceTree = "<group>"; };
+		CC42680C1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpy.swift; sourceTree = "<group>"; };
+		CC42680D1F5FF8C300F4C407 /* TransitionsCoordinatorSpyingEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionsCoordinatorSpyingEnums.swift; sourceTree = "<group>"; };
+		CC4268101F5FF8C300F4C407 /* DetailRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CC4268111F5FF8C300F4C407 /* DetailRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC4268131F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CC4268141F5FF8C300F4C407 /* EndpointRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC4268161F5FF8C300F4C407 /* MasterlRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterlRouterTests.swift; sourceTree = "<group>"; };
+		CC4268181F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CC4268191F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC42681B1F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouterTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CC42681C1F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverPresentationRouterTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC42681E1F5FF8C300F4C407 /* RouterDismissableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterDismissableTests.swift; sourceTree = "<group>"; };
+		CC4268201F5FF8C300F4C407 /* RouterFocusableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterFocusableTests.swift; sourceTree = "<group>"; };
+		CC4268221F5FF8C300F4C407 /* TransitionContextsStackClient_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClient_Tests.swift; sourceTree = "<group>"; };
+		CC4268241F5FF8C300F4C407 /* TransitionContextsStack_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContextsStack_Tests.swift; sourceTree = "<group>"; };
+		CC4268261F5FF8C300F4C407 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CC4268271F5FF8C300F4C407 /* AnimatingTransitionsHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTests.swift; sourceTree = "<group>"; };
+		CC4268281F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC4268291F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift; sourceTree = "<group>"; };
+		CC42682A1F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift; sourceTree = "<group>"; };
+		CC42682B1F5FF8C300F4C407 /* NavigationTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CC42682C1F5FF8C300F4C407 /* SplitViewTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CC42682D1F5FF8C300F4C407 /* TabBarTransitionsHandlerImplTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarTransitionsHandlerImplTests.swift; sourceTree = "<group>"; };
+		CC42682F1F5FF8C300F4C407 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalEndpointNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268301F5FF8C300F4C407 /* ModalMasterDetailTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268311F5FF8C300F4C407 /* ModalNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268321F5FF8C300F4C407 /* ModalTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268331F5FF8C300F4C407 /* NavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268341F5FF8C300F4C407 /* PopoverNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268351F5FF8C300F4C407 /* PopoverTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268361F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC4268371F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNavigationTransitionsAnimatorSpy.swift; sourceTree = "<group>"; };
+		CC42685D1F5FFC0000F4C407 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssembly.swift; sourceTree = "<group>"; };
 		CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssemblyImpl.swift; sourceTree = "<group>"; };
 		CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerInteractor.swift; sourceTree = "<group>"; };
@@ -307,7 +398,6 @@
 		CCE593EA1CF2654F0019F81D /* AuthorizationModuleRegisteringService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleRegisteringService.swift; sourceTree = "<group>"; };
 		CCE593EC1CF266720019F81D /* AuthorizationModuleTrackingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleTrackingService.swift; sourceTree = "<group>"; };
 		CCE639681CDFD3B8002DF096 /* RecursionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecursionAnimator.swift; sourceTree = "<group>"; };
-		CCE6396A1CE05992002DF096 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		CCE639741CE05A48002DF096 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CCE639751CE05A48002DF096 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CCE639781CE05ABE002DF096 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -323,6 +413,7 @@
 		CCFD1A7F1CFB293D0065EE42 /* grapes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grapes.jpg; sourceTree = "<group>"; };
 		CCFD1A801CFB293D0065EE42 /* pineapples.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pineapples.jpg; sourceTree = "<group>"; };
 		F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavigationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE239487B05BB3C04361F501 /* Pods_MarshrouteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarshrouteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +425,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC4267F81F5FF76F00F4C407 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF69B5A3AE24511680DB2ED1 /* Pods_MarshrouteTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -342,6 +441,8 @@
 			children = (
 				994440772A8770662209C794 /* Pods-NavigationDemo.debug.xcconfig */,
 				BAA56E2FDDF8BC096CA65A35 /* Pods-NavigationDemo.release.xcconfig */,
+				77767704E4AC1FE96EDB2B9E /* Pods-MarshrouteTests.debug.xcconfig */,
+				6C1CE8A4F513C6013BD4CCAC /* Pods-MarshrouteTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -351,6 +452,7 @@
 			children = (
 				616970D95027090C37F0EAAE /* Pods.framework */,
 				F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */,
+				FE239487B05BB3C04361F501 /* Pods_MarshrouteTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -359,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0B1D421CC20687006707B6 /* NavigationDemo */,
+				CC4267FC1F5FF76F00F4C407 /* MarshrouteTests */,
 				CC0B1D411CC20687006707B6 /* Products */,
 				8479DDDE48E868569E6C3ED7 /* Frameworks */,
 				23BEDE71C82381ECEB23FE67 /* Pods */,
@@ -369,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0B1D401CC20687006707B6 /* NavigationDemo.app */,
+				CC4267FB1F5FF76F00F4C407 /* MarshrouteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,9 +484,7 @@
 				CC0B1DBD1CC23C3A006707B6 /* ApplicationModuleSeedProvider.swift */,
 				CC0B1D591CC207FA006707B6 /* Common */,
 				CC0B1D581CC207DD006707B6 /* VIPER */,
-				CC0B1D4C1CC20687006707B6 /* Assets.xcassets */,
 				CC8406661CD6623800644CA1 /* Resources */,
-				CCE6396B1CE05992002DF096 /* Info.plist */,
 			);
 			path = NavigationDemo;
 			sourceTree = "<group>";
@@ -755,6 +857,164 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CC4267FC1F5FF76F00F4C407 /* MarshrouteTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268051F5FF8C300F4C407 /* Sources */,
+				CC4267FF1F5FF76F00F4C407 /* Info.plist */,
+			);
+			path = MarshrouteTests;
+			sourceTree = "<group>";
+		};
+		CC4268051F5FF8C300F4C407 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268061F5FF8C300F4C407 /* General */,
+				CC42680E1F5FF8C300F4C407 /* Routers */,
+				CC4268211F5FF8C300F4C407 /* TransitionContextsStackClientTests */,
+				CC4268231F5FF8C300F4C407 /* TransitionContextsStackTests */,
+				CC4268251F5FF8C300F4C407 /* TransitionsHandlersTests */,
+			);
+			name = Sources;
+			path = ../../MarshrouteTests/Sources;
+			sourceTree = "<group>";
+		};
+		CC4268061F5FF8C300F4C407 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268071F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift */,
+				CC4268081F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift */,
+				CC4268091F5FF8C300F4C407 /* DummyTransitionsHandler.swift */,
+				CC42680A1F5FF8C300F4C407 /* TransitionContextsCreator.swift */,
+				CC42680B1F5FF8C300F4C407 /* TransitionContextsExtensions.swift */,
+				CC42680C1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift */,
+				CC42680D1F5FF8C300F4C407 /* TransitionsCoordinatorSpyingEnums.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		CC42680E1F5FF8C300F4C407 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				CC42680F1F5FF8C300F4C407 /* DetailRouterTests */,
+				CC4268121F5FF8C300F4C407 /* EndpointRouterTests */,
+				CC4268151F5FF8C300F4C407 /* MasterRouterTests */,
+				CC4268171F5FF8C300F4C407 /* ModalPresentationRouterTests */,
+				CC42681A1F5FF8C300F4C407 /* PopoverPresentationRouterTests */,
+				CC42681D1F5FF8C300F4C407 /* RouterDismissableTests */,
+				CC42681F1F5FF8C300F4C407 /* RouterFocusableTests */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		CC42680F1F5FF8C300F4C407 /* DetailRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268101F5FF8C300F4C407 /* DetailRouterTests_BaseMasterDetailRouter.swift */,
+				CC4268111F5FF8C300F4C407 /* DetailRouterTests_BaseRouter.swift */,
+			);
+			path = DetailRouterTests;
+			sourceTree = "<group>";
+		};
+		CC4268121F5FF8C300F4C407 /* EndpointRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268131F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift */,
+				CC4268141F5FF8C300F4C407 /* EndpointRouterTests_BaseRouter.swift */,
+			);
+			path = EndpointRouterTests;
+			sourceTree = "<group>";
+		};
+		CC4268151F5FF8C300F4C407 /* MasterRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268161F5FF8C300F4C407 /* MasterlRouterTests.swift */,
+			);
+			path = MasterRouterTests;
+			sourceTree = "<group>";
+		};
+		CC4268171F5FF8C300F4C407 /* ModalPresentationRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268181F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift */,
+				CC4268191F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseRouter.swift */,
+			);
+			path = ModalPresentationRouterTests;
+			sourceTree = "<group>";
+		};
+		CC42681A1F5FF8C300F4C407 /* PopoverPresentationRouterTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC42681B1F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift */,
+				CC42681C1F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseRouter.swift */,
+			);
+			path = PopoverPresentationRouterTests;
+			sourceTree = "<group>";
+		};
+		CC42681D1F5FF8C300F4C407 /* RouterDismissableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC42681E1F5FF8C300F4C407 /* RouterDismissableTests.swift */,
+			);
+			path = RouterDismissableTests;
+			sourceTree = "<group>";
+		};
+		CC42681F1F5FF8C300F4C407 /* RouterFocusableTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268201F5FF8C300F4C407 /* RouterFocusableTests.swift */,
+			);
+			path = RouterFocusableTests;
+			sourceTree = "<group>";
+		};
+		CC4268211F5FF8C300F4C407 /* TransitionContextsStackClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268221F5FF8C300F4C407 /* TransitionContextsStackClient_Tests.swift */,
+			);
+			path = TransitionContextsStackClientTests;
+			sourceTree = "<group>";
+		};
+		CC4268231F5FF8C300F4C407 /* TransitionContextsStackTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268241F5FF8C300F4C407 /* TransitionContextsStack_Tests.swift */,
+			);
+			path = TransitionContextsStackTests;
+			sourceTree = "<group>";
+		};
+		CC4268251F5FF8C300F4C407 /* TransitionsHandlersTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC4268261F5FF8C300F4C407 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */,
+				CC4268271F5FF8C300F4C407 /* AnimatingTransitionsHandlerTests.swift */,
+				CC4268281F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift */,
+				CC4268291F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift */,
+				CC42682A1F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift */,
+				CC42682B1F5FF8C300F4C407 /* NavigationTransitionsHandlerImplTests.swift */,
+				CC42682C1F5FF8C300F4C407 /* SplitViewTransitionsHandlerImplTests.swift */,
+				CC42682D1F5FF8C300F4C407 /* TabBarTransitionsHandlerImplTests.swift */,
+				CC42682E1F5FF8C300F4C407 /* TransitionsAnimatorSpies */,
+			);
+			path = TransitionsHandlersTests;
+			sourceTree = "<group>";
+		};
+		CC42682E1F5FF8C300F4C407 /* TransitionsAnimatorSpies */ = {
+			isa = PBXGroup;
+			children = (
+				CC42682F1F5FF8C300F4C407 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift */,
+				CC4268301F5FF8C300F4C407 /* ModalMasterDetailTransitionsAnimatorSpy.swift */,
+				CC4268311F5FF8C300F4C407 /* ModalNavigationTransitionsAnimatorSpy.swift */,
+				CC4268321F5FF8C300F4C407 /* ModalTransitionsAnimatorSpy.swift */,
+				CC4268331F5FF8C300F4C407 /* NavigationTransitionsAnimatorSpy.swift */,
+				CC4268341F5FF8C300F4C407 /* PopoverNavigationTransitionsAnimatorSpy.swift */,
+				CC4268351F5FF8C300F4C407 /* PopoverTransitionsAnimatorSpy.swift */,
+				CC4268361F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift */,
+				CC4268371F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift */,
+			);
+			path = TransitionsAnimatorSpies;
+			sourceTree = "<group>";
+		};
 		CC574AAE1CEF73C1008648D0 /* Banner */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +1132,7 @@
 		CC8406661CD6623800644CA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CC0B1D4C1CC20687006707B6 /* Assets.xcassets */,
 				CCFD1A761CFB293D0065EE42 /* Patterns */,
 				CCFD1A7B1CFB293D0065EE42 /* Placeholders */,
 				CCE639721CE05A48002DF096 /* Localization */,
@@ -879,6 +1140,7 @@
 				CC8406681CD6623800644CA1 /* Default-568h@2x.png */,
 				CC8406691CD6623800644CA1 /* Recursion.jpg */,
 				CC8406981CD67BA100644CA1 /* Shelf.png */,
+				CC42685D1F5FFC0000F4C407 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1169,19 +1431,46 @@
 			productReference = CC0B1D401CC20687006707B6 /* NavigationDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CC4267FA1F5FF76F00F4C407 /* MarshrouteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC4268021F5FF76F00F4C407 /* Build configuration list for PBXNativeTarget "MarshrouteTests" */;
+			buildPhases = (
+				CF59CF8ADDA3475A48C02528 /* [CP] Check Pods Manifest.lock */,
+				CC4267F71F5FF76F00F4C407 /* Sources */,
+				CC4267F81F5FF76F00F4C407 /* Frameworks */,
+				CC4267F91F5FF76F00F4C407 /* Resources */,
+				5B4EFE3BC77F057DC043A279 /* [CP] Embed Pods Frameworks */,
+				EA9F620E8C10F4A708A91A2A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC4268011F5FF76F00F4C407 /* PBXTargetDependency */,
+			);
+			name = MarshrouteTests;
+			productName = MarshrouteTests;
+			productReference = CC4267FB1F5FF76F00F4C407 /* MarshrouteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CC0B1D381CC20687006707B6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Тимур Юсипов";
 				TargetAttributes = {
 					CC0B1D3F1CC20687006707B6 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5PHGGKL9UQ;
 						LastSwiftMigration = 0800;
+					};
+					CC4267FA1F5FF76F00F4C407 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5PHGGKL9UQ;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1200,6 +1489,7 @@
 			projectRoot = "";
 			targets = (
 				CC0B1D3F1CC20687006707B6 /* NavigationDemo */,
+				CC4267FA1F5FF76F00F4C407 /* MarshrouteTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1219,12 +1509,20 @@
 				CCFD1A821CFB293D0065EE42 /* plaits.png in Resources */,
 				CCFD1A851CFB293D0065EE42 /* apples.jpg in Resources */,
 				CC84066B1CD6623800644CA1 /* Default-568h@2x.png in Resources */,
+				CC42685E1F5FFC0000F4C407 /* Info.plist in Resources */,
 				CCFD1A861CFB293D0065EE42 /* bananas.jpg in Resources */,
 				CC8406991CD67BA100644CA1 /* Shelf.png in Resources */,
 				CCFD1A831CFB293D0065EE42 /* sea.png in Resources */,
 				CCE639761CE05A48002DF096 /* Localizable.strings in Resources */,
 				CCFD1A891CFB293D0065EE42 /* pineapples.jpg in Resources */,
 				CC0B1D4D1CC20687006707B6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC4267F91F5FF76F00F4C407 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1246,6 +1544,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5B4EFE3BC77F057DC043A279 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C58F4F3EBBC4C7ECE34E4445 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1259,6 +1572,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CF59CF8ADDA3475A48C02528 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EA9F620E8C10F4A708A91A2A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F2816C905D70325FEDBB1CFC /* [CP] Copy Pods Resources */ = {
@@ -1422,7 +1765,59 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC4267F71F5FF76F00F4C407 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC4268471F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseRouter.swift in Sources */,
+				CC4268421F5FF8C300F4C407 /* EndpointRouterTests_BaseRouter.swift in Sources */,
+				CC4268401F5FF8C300F4C407 /* DetailRouterTests_BaseRouter.swift in Sources */,
+				CC4268521F5FF8C300F4C407 /* SplitViewTransitionsHandlerImplTests.swift in Sources */,
+				CC4268501F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
+				CC42683D1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift in Sources */,
+				CC42685C1F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC4268411F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CC42684B1F5FF8C300F4C407 /* TransitionContextsStack_Tests.swift in Sources */,
+				CC42683C1F5FF8C300F4C407 /* TransitionContextsExtensions.swift in Sources */,
+				CC42683F1F5FF8C300F4C407 /* DetailRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CC4268451F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseRouter.swift in Sources */,
+				CC4268561F5FF8C300F4C407 /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC4268581F5FF8C300F4C407 /* NavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC4268531F5FF8C300F4C407 /* TabBarTransitionsHandlerImplTests.swift in Sources */,
+				CC42683E1F5FF8C300F4C407 /* TransitionsCoordinatorSpyingEnums.swift in Sources */,
+				CC4268431F5FF8C300F4C407 /* MasterlRouterTests.swift in Sources */,
+				CC4268441F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CC4268511F5FF8C300F4C407 /* NavigationTransitionsHandlerImplTests.swift in Sources */,
+				CC4268591F5FF8C300F4C407 /* PopoverNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC42685A1F5FF8C300F4C407 /* PopoverTransitionsAnimatorSpy.swift in Sources */,
+				CC42684F1F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */,
+				CC4268491F5FF8C300F4C407 /* RouterFocusableTests.swift in Sources */,
+				CC4268391F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift in Sources */,
+				CC42683B1F5FF8C300F4C407 /* TransitionContextsCreator.swift in Sources */,
+				CC4268381F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift in Sources */,
+				CC42684E1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
+				CC4268481F5FF8C300F4C407 /* RouterDismissableTests.swift in Sources */,
+				CC42684C1F5FF8C300F4C407 /* AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMasterDetailRouter.swift in Sources */,
+				CC42684D1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTests.swift in Sources */,
+				CC4268571F5FF8C300F4C407 /* ModalTransitionsAnimatorSpy.swift in Sources */,
+				CC4268541F5FF8C300F4C407 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC4268461F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
+				CC42684A1F5FF8C300F4C407 /* TransitionContextsStackClient_Tests.swift in Sources */,
+				CC42683A1F5FF8C300F4C407 /* DummyTransitionsHandler.swift in Sources */,
+				CC42685B1F5FF8C300F4C407 /* ResetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC4268551F5FF8C300F4C407 /* ModalMasterDetailTransitionsAnimatorSpy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CC4268011F5FF76F00F4C407 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC0B1D3F1CC20687006707B6 /* NavigationDemo */;
+			targetProxy = CC4268001F5FF76F00F4C407 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CCA064EA1CE061FF00D08A67 /* Categories.plist */ = {
@@ -1432,14 +1827,6 @@
 				CCA064ED1CE0620D00D08A67 /* en */,
 			);
 			name = Categories.plist;
-			sourceTree = "<group>";
-		};
-		CCE6396B1CE05992002DF096 /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCE6396A1CE05992002DF096 /* en */,
-			);
-			name = Info.plist;
 			sourceTree = "<group>";
 		};
 		CCE639731CE05A48002DF096 /* Localizable.strings */ = {
@@ -1554,7 +1941,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = NavigationDemo/Info.plist;
+				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
+				INFOPLIST_FILE = "$(SRCROOT)/NavigationDemo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
@@ -1569,10 +1957,44 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = NavigationDemo/Info.plist;
+				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
+				INFOPLIST_FILE = "$(SRCROOT)/NavigationDemo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CC4268031F5FF76F00F4C407 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77767704E4AC1FE96EDB2B9E /* Pods-MarshrouteTests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
+				INFOPLIST_FILE = MarshrouteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.MarshrouteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CC4268041F5FF76F00F4C407 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C1CE8A4F513C6013BD4CCAC /* Pods-MarshrouteTests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
+				INFOPLIST_FILE = MarshrouteTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.MarshrouteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1595,6 +2017,15 @@
 			buildConfigurations = (
 				CC0B1D551CC20687006707B6 /* Debug */,
 				CC0B1D561CC20687006707B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC4268021F5FF76F00F4C407 /* Build configuration list for PBXNativeTarget "MarshrouteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC4268031F5FF76F00F4C407 /* Debug */,
+				CC4268041F5FF76F00F4C407 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

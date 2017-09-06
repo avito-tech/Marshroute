@@ -39,7 +39,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
     
     func testPeekAndPopUtility_notifiesRegisteredViewController_ifPeekBeginsOnOnscreenRegisteredViewController() {
         // Given
-        let expectation = self.expectation(description: "async expectation")
+        let expectation = self.expectation()
         
         bindSourceViewControllerToWindow()
         
@@ -64,7 +64,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         
         registerSourceViewControllerForPreviewing()
         
-        unregisterSourceViewControllerFromPreviwing()
+        unregisterSourceViewControllerFromPreviewing()
         
         registerSourceViewControllerForPreviewing(
             onPeek: { _ in
@@ -110,7 +110,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
             }
         )
         
-        unregisterSourceViewControllerFromPreviwing()
+        unregisterSourceViewControllerFromPreviewing()
         
         // When
         beginPeekOnRegisteredViewController()
@@ -131,7 +131,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
             }
         )
         
-        unregisterSourceViewControllerFromPreviwing()
+        unregisterSourceViewControllerFromPreviewing()
         
         // When
         beginPeekOnRegisteredViewController()
@@ -139,8 +139,6 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         // Then
         waitForExpectations(timeout: asyncTimeout)
     }
-    
-    
     
     func testPeekAndPopUtility_passesPeekViewControllerToUiKit_ifPeekBeginsOnOnscreenRegisteredViewController() {
         // Given
@@ -174,10 +172,51 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         
         // Then
         XCTAssert(viewController === nil)
+    }    
+    
+    func testPeekAndPopUtility_passesPreviewingContext_ifViewControllerRegistersForPreviewing() {
+        // When
+        registerSourceViewControllerForPreviewing()
+        
+        // Then
+        XCTAssert(previewingContext != nil)
     }
     
+    func testPeekAndPopUtility_passesPreviewingContext_ifViewControllerReregistersForPreviewing() {
+        // When
+        registerSourceViewControllerForPreviewing()
+        
+        unregisterSourceViewControllerFromPreviewing()
+        
+        previewingContext = nil
+        
+        registerSourceViewControllerForPreviewing()
+        
+        // Then
+        XCTAssert(previewingContext != nil)
+    }
     
-    
+    func testPeekAndPopUtility_passesPreviewingContext_ifPeekGetsInterruptedWithAnotherTransitionOnOnscreenRegisteredViewController() {
+        // Given
+        bindSourceViewControllerToWindow()
+        
+        registerSourceViewControllerForPreviewing(
+            onPeek: { _ in
+                self.invokeTransitionToPeekViewController() 
+            }
+        )
+        
+        let previousPreviewingContext = previewingContext
+        
+        // When
+        beginPeekOnRegisteredViewController()
+        
+        
+        interruptPeekWithAnotherTransitionOnRegisteredViewController()
+        
+        // Then
+        XCTAssert(previewingContext !== previousPreviewingContext)
+    }
     
     func testPeekAndPopUtility_invokesPopAction_ifSomeTransitionOccursNotDuringActivePeek() {
         // Given
@@ -313,14 +352,9 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         
         cancelPeekOnRegisteredViewController()
         
-        unbindSourceViewControllerFromWindow()
-        
         // Then
         waitForExpectations(timeout: asyncTimeout)
     }
-    
-    
-    
     
     func testPeekAndPopUtility_releasesPeekViewController_ifPeekBeginsOnOffscreenRegisteredViewControllerAndSomeTransitionOccurs() {
         // Given
@@ -375,8 +409,6 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         
         commitPickOnRegisteredViewController()
         
-        unbindSourceViewControllerFromWindow()
-        
         // Then
         DispatchQueue.main.async {
             XCTAssert(weakPeekViewController == nil)
@@ -386,7 +418,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_releasesPeekViewController_ifPeekGetsInterruptedWithAnotherTransitionOnscreenRegisteredViewController() {
+    func testPeekAndPopUtility_releasesPeekViewController_ifPeekGetsInterruptedWithAnotherTransitionOnOnscreenRegisteredViewController() {
         // Given
         let expectation = self.expectation()
         
@@ -405,8 +437,6 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         beginPeekOnRegisteredViewController()
         
         interruptPeekWithAnotherTransitionOnRegisteredViewController()
-        
-        unbindSourceViewControllerFromWindow()
         
         // Then
         DispatchQueue.main.async {
@@ -436,8 +466,6 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         beginPeekOnRegisteredViewController()
         
         cancelPeekOnRegisteredViewController()
-        
-        unbindSourceViewControllerFromWindow()
         
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -474,7 +502,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         )
     }
     
-    private func unregisterSourceViewControllerFromPreviwing() {
+    private func unregisterSourceViewControllerFromPreviewing() {
         peekAndPopUtility.unregister(
             viewController: sourceViewController,
             fromPreviewingInSourceView: sourceView
@@ -496,12 +524,12 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         )
     }
     
-    private func interruptPeekWithAnotherTransitionOnRegisteredViewController() {
-        passPeekInterruptingViewControllerToPeekAndPopUtility()
-    }
-    
     private func cancelPeekOnRegisteredViewController() {
         previewingContext?.previewingGestureRecognizerForFailureRelationship.state = .ended
+    }
+    
+    private func interruptPeekWithAnotherTransitionOnRegisteredViewController() {
+        invokeTransitionToPeekInterruptingViewController()
     }
     
     private func invokeTransitionToPeekViewController(popAction: @escaping (() -> ()) = {}) {
@@ -511,7 +539,7 @@ final class PeekAndPopUtilityImplTests: XCTestCase {
         )
     }
     
-    private func passPeekInterruptingViewControllerToPeekAndPopUtility(popAction: @escaping (() -> ()) = {}) {
+    private func invokeTransitionToPeekInterruptingViewController(popAction: @escaping (() -> ()) = {}) {
         peekAndPopUtility.coordinatePeekIfNeededFor(
             viewController: peekInterruptingViewController!,
             popAction: popAction

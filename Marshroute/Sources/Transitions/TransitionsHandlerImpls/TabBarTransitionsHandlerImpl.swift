@@ -1,5 +1,5 @@
 import UIKit
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+fileprivate func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l < r
@@ -10,7 +10,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+fileprivate func > <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l > r
@@ -18,7 +18,6 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     return rhs < lhs
   }
 }
-
 
 final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
     fileprivate weak var tabBarController: UITabBarController?
@@ -35,7 +34,7 @@ final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
 
     // MARK: - TransitionsHandlerContainer
     override public var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        guard let tabsCount = tabBarController?.viewControllers?.count , tabsCount > 0
+        guard let tabsCount = tabBarController?.viewControllers?.count, tabsCount > 0
             else { return nil }
 
         return animatingTransitionsHandlers(

@@ -14,5 +14,5 @@ public protocol TransitionsHandlersProvider: class {
         -> SplitViewTransitionsHandlerImpl
     
     func tabBarTransitionsHandler(tabBarController: UITabBarController)
-        ->TabBarTransitionsHandlerImpl
+        -> TabBarTransitionsHandlerImpl
 }

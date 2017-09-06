@@ -53,7 +53,6 @@ final class RootModulesProviderImpl: RootModulesProvider {
         let masterNavigationController = marshrouteStack.routerControllersProvider.navigationController()
         let detailNavigationController = marshrouteStack.routerControllersProvider.navigationController()
         
-        
         let masterAnimatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: masterNavigationController
         )

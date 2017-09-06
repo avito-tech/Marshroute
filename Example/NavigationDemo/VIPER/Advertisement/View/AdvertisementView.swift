@@ -201,7 +201,7 @@ private class GradientView: UIView {
     }
     
     // MARK: - Layer
-    override static var layerClass : AnyClass {
+    override static var layerClass: AnyClass {
         return CAGradientLayer.self
     }
 }

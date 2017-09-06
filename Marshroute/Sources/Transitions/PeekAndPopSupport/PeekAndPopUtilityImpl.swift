@@ -149,7 +149,6 @@ public final class PeekAndPopUtilityImpl:
                 viewController: viewController,
                 rollback: &rollbackUnbindingViewControllerFromParent
             )
- 
             
             let peekAndPopData = PeekAndPopData(
                 peekViewController: viewController,

@@ -18,7 +18,7 @@ public final class TransitionsCoordinatorImpl:
     public weak var transitionsCoordinatorDelegate: TransitionsCoordinatorDelegate?
     
     // MARK: - TransitionsMarkersHolder
-    public var markers = [TransitionId : TransitionUserId]()
+    public var markers = [TransitionId: TransitionUserId]()
     
     // MARK: - PeekAndPopTransitionsCoordinatorHolder
     public let peekAndPopTransitionsCoordinator: PeekAndPopTransitionsCoordinator
@@ -118,7 +118,7 @@ public final class TransitionsCoordinatorImpl:
     }
     
     public func tabBarTransitionsHandler(tabBarController: UITabBarController)
-        ->TabBarTransitionsHandlerImpl
+        -> TabBarTransitionsHandlerImpl
     {
         return tabBarTransitionsHandlerImpl(tabBarController: tabBarController)
     }

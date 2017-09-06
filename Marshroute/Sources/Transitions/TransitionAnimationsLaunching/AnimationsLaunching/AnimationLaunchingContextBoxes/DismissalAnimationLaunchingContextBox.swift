@@ -1,6 +1,5 @@
 import UIKit
 
-
 /// Описание параметров запуска анимаций прямого перехода
 public enum DismissalAnimationLaunchingContextBox {
     case modal(launchingContext: ModalDismissalAnimationLaunchingContext)

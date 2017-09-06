@@ -106,8 +106,8 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
         let allTransitionsHandlers = tabBarTransitionsHandler.allTransitionsHandlers!
         
         // Then
-        XCTAssertNotNil(allTransitionsHandlers.index() { $0 === animatingTransitionsHandler1 })
-        XCTAssertNotNil(allTransitionsHandlers.index() { $0 === animatingTransitionsHandler2 })
+        XCTAssertNotNil(allTransitionsHandlers.index { $0 === animatingTransitionsHandler1 })
+        XCTAssertNotNil(allTransitionsHandlers.index { $0 === animatingTransitionsHandler2 })
     }
     
     func testThatTabBarTransitionsHandlerUnboxesContainingTransitionsHandlersAndReturnsAllTransitionsHandlersOn_AllTransitionsHandlers_Call() {
@@ -138,9 +138,9 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
         let allTransitionsHandlers = tabBarTransitionsHandler.allTransitionsHandlers!
         
         // Then
-        XCTAssertNotNil(allTransitionsHandlers.index() { $0 === animatingTransitionsHandler })
-        XCTAssertNotNil(allTransitionsHandlers.index() { $0 === masterTransitionsHandler })
-        XCTAssertNotNil(allTransitionsHandlers.index() { $0 === detailTransitionsHandler })
+        XCTAssertNotNil(allTransitionsHandlers.index { $0 === animatingTransitionsHandler })
+        XCTAssertNotNil(allTransitionsHandlers.index { $0 === masterTransitionsHandler })
+        XCTAssertNotNil(allTransitionsHandlers.index { $0 === detailTransitionsHandler })
     }
     
     func testThatTabBarTransitionsHandlerReturnsVisibleTransitionsHandlerOn_VisibleTransitionsHandlers_Call_IfVisibleIsAnimating() {
@@ -159,8 +159,8 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
         let visibleTransitionsHandlers = tabBarTransitionsHandler.visibleTransitionsHandlers!
         
         // Then
-        XCTAssertNil(visibleTransitionsHandlers.index() { $0 === animatingTransitionsHandler1 })
-        XCTAssertNotNil(visibleTransitionsHandlers.index() { $0 === animatingTransitionsHandler2 })
+        XCTAssertNil(visibleTransitionsHandlers.index { $0 === animatingTransitionsHandler1 })
+        XCTAssertNotNil(visibleTransitionsHandlers.index { $0 === animatingTransitionsHandler2 })
     }
     
     func testThatTabBarTransitionsHandlerUnboxesContainingTransitionsHandlerAndReturnsAllItsTransitionsHandlerOn_VisibleTransitionsHandlers_Call_IfVisibleIsContaining() {
@@ -193,8 +193,8 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
         let visibleTransitionsHandlers = tabBarTransitionsHandler.visibleTransitionsHandlers!
         
         // Then
-        XCTAssertNil(visibleTransitionsHandlers.index() { $0 === animatingTransitionsHandler })
-        XCTAssertNotNil(visibleTransitionsHandlers.index() { $0 === masterTransitionsHandler })
-        XCTAssertNotNil(visibleTransitionsHandlers.index() { $0 === detailTransitionsHandler })
+        XCTAssertNil(visibleTransitionsHandlers.index { $0 === animatingTransitionsHandler })
+        XCTAssertNotNil(visibleTransitionsHandlers.index { $0 === masterTransitionsHandler })
+        XCTAssertNotNil(visibleTransitionsHandlers.index { $0 === detailTransitionsHandler })
     }
 }

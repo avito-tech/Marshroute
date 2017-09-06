@@ -26,9 +26,9 @@ final class CategoriesProviderImpl: CategoriesProvider {
         return NSArray(contentsOfFile: path!) as! [[String: AnyObject]]
     }
     
-    fileprivate func categoryForId(_ categoryId: String, inCategories categoryDictionaries:[[String: AnyObject]]) -> Category? {
+    fileprivate func categoryForId(_ categoryId: String, inCategories categoryDictionaries: [[String: AnyObject]]) -> Category? {
         for categoryDictionary in categoryDictionaries {
-            if let id = categoryDictionary["id"] as? CategoryId , id == categoryId {
+            if let id = categoryDictionary["id"] as? CategoryId, id == categoryId {
                 return category(categoryDictionary: categoryDictionary)
             }
             

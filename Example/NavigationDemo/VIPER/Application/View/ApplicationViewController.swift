@@ -84,11 +84,10 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
             options: UIViewAnimationOptions(),
             animations: {
                 bannerView.transform = CGAffineTransform(translationX: 0, y: -bannerView.frame.height)
-            }, completion:  { _ in
+            }, completion: { _ in
                 bannerView.transform = CGAffineTransform.identity
                 bannerView.removeFromSuperview()
             }
         )
     }
 }
-

@@ -299,7 +299,9 @@ public final class PeekAndPopUtilityImpl:
         viewController: UIViewController,
         rollback: inout (() -> ())?)
     {
-        if let navigationController = viewController.navigationController {
+        if let navigationController = viewController.navigationController, 
+            let index = navigationController.viewControllers.index(where: { $0 === viewController }) 
+        {
             // (*) If you present a `viewController` in a `peek` mode, 
             // whereas the `viewController` is already embeded into a `parent` controller 
             // (i.e.: `UINavigationController` and/or probably `UIPopoverController`),
@@ -309,7 +311,14 @@ public final class PeekAndPopUtilityImpl:
             
             rollback = {
                 // Return `viewController` back to its `parent`
-                let restoredViewControllers = navigationController.viewControllers + [viewController]
+                var restoredViewControllers = navigationController.viewControllers
+                
+                if index < restoredViewControllers.count {
+                    restoredViewControllers.insert(viewController, at: index)
+                } else {
+                    restoredViewControllers.append(viewController)
+                }
+                
                 navigationController.viewControllers = restoredViewControllers                        
             }
         }

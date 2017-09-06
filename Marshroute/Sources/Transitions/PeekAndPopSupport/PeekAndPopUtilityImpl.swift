@@ -134,9 +134,26 @@ public final class PeekAndPopUtilityImpl:
         _ previewingContext: UIViewControllerPreviewing,
         commit viewControllerToCommit: UIViewController)
     {
-        // Commit peek
-        internalPeekAndPopState.popActionIfPeekIsInProgress?()
-        internalPeekAndPopState = .finished(isPeekCommitted: true)
+        let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived
+            ?? internalPeekAndPopState.peekAndPopDataIfPeekIsInProgress
+        
+        if let peekAndPopData = peekAndPopData, 
+            let peekViewController = peekAndPopData.peekViewController
+        {
+            if peekViewController === viewControllerToCommit {
+                // Commit peek
+                peekAndPopData.popAction()
+                internalPeekAndPopState = .finished(isPeekCommitted: true)
+            } else {
+                debugPrint(
+                    "Cancelling `peek` for view controller: \(peekViewController), "
+                        + "due to a request to commit view controller: \(viewControllerToCommit)"
+                )
+                cancelPeekFor(peekAndPopData: peekAndPopData)
+            } 
+        } else {
+            internalPeekAndPopState = .finished(isPeekCommitted: false)
+        }
     }
     
     // MARK: - PeekAndPopTransitionsCoordinator
@@ -201,7 +218,7 @@ public final class PeekAndPopUtilityImpl:
         peekAndPopStateObservers.append(peekAndPopStateObserver)
         
         // Invoke callback immediately no notify a new observer about current state
-        if let peekViewController = internalPeekAndPopState.viewControllerIfPeekIsInProgress {
+        if let peekViewController = internalPeekAndPopState.peekViewControllerIfPeekIsInProgress {
             onPeekAndPopStateChange(peekViewController, .inPeek)
         }
     }
@@ -235,7 +252,7 @@ public final class PeekAndPopUtilityImpl:
             let sourceViewController = peekAndPopData.sourceViewController
         {
             // Cancelling `peek and pop` may be implemented via reregistering a `sourceViewController` for previewing
-            debugPrint("Cancelling `peek` for viewController: \(peekViewController)")
+            debugPrint("Cancelling `peek` for view controller: \(peekViewController)")
             reregisterViewControllerForPreviewing(sourceViewController)
         }
         
@@ -264,12 +281,12 @@ public final class PeekAndPopUtilityImpl:
         internalPeekAndPopState: InternalPeekAndPopState,
         oldInternalPeekAndPopState: InternalPeekAndPopState)
     {
-        if let peekViewController = internalPeekAndPopState.viewControllerIfPeekIsInProgress {
+        if let peekViewController = internalPeekAndPopState.peekViewControllerIfPeekIsInProgress {
             notifyPeekAndPopStateObserversOn(
                 peekAndPopState: .inPeek,
                 forViewController: peekViewController
             ) 
-        } else if let oldPeekViewController = oldInternalPeekAndPopState.viewControllerIfPeekIsInProgress {
+        } else if let oldPeekViewController = oldInternalPeekAndPopState.peekViewControllerIfPeekIsInProgress {
             notifyPeekAndPopStateObserversOn(
                 peekAndPopState: (internalPeekAndPopState.isPeekCommitted) 
                     ? .popped

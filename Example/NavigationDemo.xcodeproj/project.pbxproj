@@ -181,7 +181,7 @@
 		CCA7C9141CD9414A00B7ADBD /* TouchId.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA7C9131CD9414A00B7ADBD /* TouchId.png */; };
 		CCD6F5B01F606EC500A3E163 /* DummyViewControllerPreviewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6F5AD1F606EC500A3E163 /* DummyViewControllerPreviewing.swift */; };
 		CCD6F5B11F606EC500A3E163 /* TestablePeekAndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6F5AE1F606EC500A3E163 /* TestablePeekAndPopViewController.swift */; };
-		CCD6F5B21F606EC500A3E163 /* UIGestureRecognizerSubclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6F5AF1F606EC500A3E163 /* UIGestureRecognizerSubclass.swift */; };
+		CCD6F5B21F606EC500A3E163 /* TestableGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6F5AF1F606EC500A3E163 /* TestableGestureRecognizer.swift */; };
 		CCE593DF1CF25FFA0019F81D /* ModuleRegisteringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593D91CF25FFA0019F81D /* ModuleRegisteringService.swift */; };
 		CCE593E01CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */; };
 		CCE593E11CF25FFA0019F81D /* TrackedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */; };
@@ -397,7 +397,7 @@
 		CCA7C9131CD9414A00B7ADBD /* TouchId.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TouchId.png; sourceTree = "<group>"; };
 		CCD6F5AD1F606EC500A3E163 /* DummyViewControllerPreviewing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyViewControllerPreviewing.swift; sourceTree = "<group>"; };
 		CCD6F5AE1F606EC500A3E163 /* TestablePeekAndPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestablePeekAndPopViewController.swift; sourceTree = "<group>"; };
-		CCD6F5AF1F606EC500A3E163 /* UIGestureRecognizerSubclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerSubclass.swift; sourceTree = "<group>"; };
+		CCD6F5AF1F606EC500A3E163 /* TestableGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableGestureRecognizer.swift; sourceTree = "<group>"; };
 		CCE593D91CF25FFA0019F81D /* ModuleRegisteringService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleRegisteringService.swift; sourceTree = "<group>"; };
 		CCE593DA1CF25FFA0019F81D /* ModuleRegisteringServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleRegisteringServiceImpl.swift; sourceTree = "<group>"; };
 		CCE593DB1CF25FFA0019F81D /* TrackedModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedModule.swift; sourceTree = "<group>"; };
@@ -1354,7 +1354,7 @@
 			children = (
 				CCD6F5AD1F606EC500A3E163 /* DummyViewControllerPreviewing.swift */,
 				CCD6F5AE1F606EC500A3E163 /* TestablePeekAndPopViewController.swift */,
-				CCD6F5AF1F606EC500A3E163 /* UIGestureRecognizerSubclass.swift */,
+				CCD6F5AF1F606EC500A3E163 /* TestableGestureRecognizer.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1821,7 +1821,7 @@
 				CC4268561F5FF8C300F4C407 /* ModalNavigationTransitionsAnimatorSpy.swift in Sources */,
 				CC4268581F5FF8C300F4C407 /* NavigationTransitionsAnimatorSpy.swift in Sources */,
 				CC4268531F5FF8C300F4C407 /* TabBarTransitionsHandlerImplTests.swift in Sources */,
-				CCD6F5B21F606EC500A3E163 /* UIGestureRecognizerSubclass.swift in Sources */,
+				CCD6F5B21F606EC500A3E163 /* TestableGestureRecognizer.swift in Sources */,
 				CC42683E1F5FF8C300F4C407 /* TransitionsCoordinatorSpyingEnums.swift in Sources */,
 				CC4268431F5FF8C300F4C407 /* MasterlRouterTests.swift in Sources */,
 				CC4268441F5FF8C300F4C407 /* ModalPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,

@@ -7,16 +7,21 @@ final class DummyViewControllerPreviewing: NSObject, UIViewControllerPreviewing 
         set { _sourceRect = newValue }
     }
 
+    var delegate: UIViewControllerPreviewingDelegate {
+        return _delegate!
+    }
+    
+    weak var _delegate: UIViewControllerPreviewingDelegate?
+
     let previewingGestureRecognizerForFailureRelationship: UIGestureRecognizer = TestableGestureRecognizer()
     var _sourceRect: CGRect = .zero
-    let delegate: UIViewControllerPreviewingDelegate 
     let sourceView: UIView
     
     init(
         delegate: UIViewControllerPreviewingDelegate,
         sourceView: UIView)
     {
-        self.delegate = delegate
+        self._delegate = delegate
         self.sourceView = sourceView
         
         super.init()

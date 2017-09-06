@@ -99,22 +99,31 @@ public final class PeekAndPopUtilityImpl:
         viewControllerForLocation location: CGPoint)
         -> UIViewController? 
     {
-        // Prepare to receive `peek and pop` data
-        internalPeekAndPopState = .waitingForPeekAndPopData
-        
-        // Invoke callback to force some router to perform transition
-        let onscreenRegisteredPreviewingData = onscreenRegisteredPreviewingDataFor(previewingContext: previewingContext)
-        onscreenRegisteredPreviewingData?.onPeek(previewingContext, location)
-        
-        // Check if router requested a transition
-        if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived,
-            let peekViewController = peekAndPopData.peekViewController
+        if let onscreenRegisteredPreviewingData = onscreenRegisteredPreviewingDataFor(previewingContext: previewingContext),
+            let onscreenRegisteredViewController = onscreenRegisteredPreviewingData.viewController 
         {
-            internalPeekAndPopState = .inProgress(peekAndPopData)
-            peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
-            return peekViewController
+            // Prepare to receive `peek and pop` data
+            internalPeekAndPopState = .waitingForPeekAndPopData(
+                sourceViewControllerBox: WeakBox(onscreenRegisteredViewController)
+            )
+            
+            // Invoke callback to force some router to perform transition
+            onscreenRegisteredPreviewingData.onPeek(previewingContext, location)
+            
+            // Check if router requested a transition
+            if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived,
+                let peekViewController = peekAndPopData.peekViewController
+            {
+                internalPeekAndPopState = .inProgress(peekAndPopData)
+                peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
+                return peekViewController
+            } else {
+                debugPrint("You were supposed to force some router to make some transition within `onPeek`")
+                internalPeekAndPopState = .finished(isPeekCommitted: false)
+                return nil
+            }
         } else {
-            debugPrint("You were supposed to force some router to make some transition within `onPeek`")
+            // Cancel `peek`
             internalPeekAndPopState = .finished(isPeekCommitted: false)
             return nil
         }
@@ -142,7 +151,7 @@ public final class PeekAndPopUtilityImpl:
         }
         
         switch internalPeekAndPopState {
-        case .waitingForPeekAndPopData:
+        case .waitingForPeekAndPopData(let sourceViewControllerBox):
             var rollbackUnbindingViewControllerFromParent: (() -> ())?
             
             unbindViewControllerFromParent(
@@ -152,6 +161,7 @@ public final class PeekAndPopUtilityImpl:
             
             let peekAndPopData = PeekAndPopData(
                 peekViewController: viewController,
+                sourceViewController: sourceViewControllerBox.unbox(),
                 popAction: {
                     rollbackUnbindingViewControllerFromParent?()
                     popAction()
@@ -221,10 +231,12 @@ public final class PeekAndPopUtilityImpl:
     
     @available(iOS 9.0, *)
     private func cancelPeekFor(peekAndPopData: PeekAndPopData) {
-        if let peekViewController = peekAndPopData.peekViewController {
-            // Cancelling `peek and pop` may be implemented via reregistering a `peekViewController` for previewing
+        if let peekViewController = peekAndPopData.peekViewController,
+            let sourceViewController = peekAndPopData.sourceViewController
+        {
+            // Cancelling `peek and pop` may be implemented via reregistering a `sourceViewController` for previewing
             debugPrint("Cancelling `peek` for viewController: \(peekViewController)")
-            reregisterViewControllerForPreviewing(peekViewController)
+            reregisterViewControllerForPreviewing(sourceViewController)
         }
         
         internalPeekAndPopState = .finished(isPeekCommitted: false)

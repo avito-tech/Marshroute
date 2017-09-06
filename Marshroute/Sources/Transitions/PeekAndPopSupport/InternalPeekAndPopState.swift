@@ -1,7 +1,7 @@
 import UIKit
 
 enum InternalPeekAndPopState {
-    case waitingForPeekAndPopData
+    case waitingForPeekAndPopData(sourceViewControllerBox: WeakBox<UIViewController>)
     case receivedPeekAndPopData(PeekAndPopData)
     case inProgress(PeekAndPopData)
     case finished(isPeekCommitted: Bool)

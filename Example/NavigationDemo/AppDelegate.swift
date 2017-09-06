@@ -100,8 +100,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     private func subscribeOnPeekAndPopStateChanges(observable: PeekAndPopStateObservable) {
         observable.addObserver(
             disposable: self,
-            onPeekAndPopStateChange: { viewController, isInPeekState in
-                debugPrint("viewController: \(viewController) isInPeekState: \(isInPeekState)")
+            onPeekAndPopStateChange: { viewController, peekAndPopState in
+                debugPrint("viewController: \(viewController) changed `peek and pop` state: \(peekAndPopState)")
             }
         )
     }

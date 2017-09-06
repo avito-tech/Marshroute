@@ -51,8 +51,12 @@ final class AdvertisementPresenter {
             self?.router.showRecursion(sender: sender)
         }
         
-        view?.onPeekStateChange = { [weak self] isInPeekState in
-            self?.view?.setSimilarSearchResultsHidden(isInPeekState)
+        view?.onPeek = { [weak self] in
+            self?.view?.setSimilarSearchResultsHidden(true)
+        }
+        
+        view?.onPop = { [weak self] in
+            self?.view?.setSimilarSearchResultsHidden(false)
         }
     }
     

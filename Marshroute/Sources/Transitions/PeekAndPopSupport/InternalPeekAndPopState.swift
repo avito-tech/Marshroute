@@ -1,25 +1,40 @@
 import UIKit
 
-enum PeekState {
+enum InternalPeekAndPopState {
     case waitingForPeekAndPopData
     case receivedPeekAndPopData(PeekAndPopData)
     case inProgress(PeekAndPopData)
-    case finished
+    case finished(isPeekCommited: Bool)
 
-    mutating func transitionToInProgressState() -> Bool {
+    var peekAndPopDataIfReceived: PeekAndPopData? {
+        switch self {
+        case .waitingForPeekAndPopData:
+            return nil
+            
+        case .receivedPeekAndPopData(let peekAndPopData):
+            return peekAndPopData
+            
+        case .inProgress:
+            return nil // See computed property's name
+            
+        case .finished:
+            return nil
+        }
+    }
+    
+    var isPeekCommited: Bool {
         switch self {
         case .waitingForPeekAndPopData:
             return false
             
-        case .receivedPeekAndPopData(let peekAndPopData):
-            self = .inProgress(peekAndPopData)
-            return true
+        case .receivedPeekAndPopData:
+            return false
             
         case .inProgress:
             return false
             
-        case .finished:
-            return false
+        case .finished(let isPeekCommited):
+            return isPeekCommited
         }
     }
     

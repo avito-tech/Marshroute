@@ -82,8 +82,15 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
     private func subscribeForPeekAndPopStateChanges() {
         peekAndPopStateViewControllerObservable.addObserver(
             disposableViewController: self,
-            onPeekAndPopStateChange: { [weak self] isInPeekState in
-                self?.onPeekStateChange?(isInPeekState)
+            onPeekAndPopStateChange: { [weak self] peekAndPopState in
+                switch peekAndPopState {
+                case .inPeek:
+                    self?.onPeek?()
+                case .popped:
+                    self?.onPop?()
+                case .cancelled:
+                    break
+                }
             }
         )
     }
@@ -115,5 +122,7 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
     
     var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
     
-    var onPeekStateChange: ((_ isInPeekState: Bool) -> ())?
+    var onPeek: (() -> ())?
+    
+    var onPop: (() -> ())?
 }

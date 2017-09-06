@@ -112,6 +112,7 @@
 		C60881700FE3C7809E2753CD71BF35D5 /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846342B109E1FEDEF33C6262553A7ACE /* TransitionsCoordinatorDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		C76A4611C339A685CFB0BC068B5D9BC1 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6769F6AF4A5C8953BE882069FB1F377C /* BaseRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CC3E33C11F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33C01F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift */; };
+		CC3E33C51F5FDCDF0013FA0D /* PeekAndPopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33C41F5FDCDF0013FA0D /* PeekAndPopState.swift */; };
 		CD62A032C5604433BCC7F7C1FE2597CB /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A16B8D9630741833486BC1DC51E339D /* TransitionsCoordinatorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D1123CB0D79FA6001021F094A24C9965 /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45FF6FBC30B9E3826BEBA03824AAE3 /* WeakTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		D182DBC4177DD7BA7022EB839567456D /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFB53CA6A0FFB1B81B0307C39C60EDF /* PopoverPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -135,7 +136,7 @@
 		EC9CE25B3E75115B5F61FF1AFED8222E /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB71C9F07EA1241F707F8D8B3028C7 /* TransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		ED0E81F4AA0DCF1E45929BDE3C93D14E /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6039DB5B6AB63A95E92FF6227097AC /* TransitionContextsStackClientProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EE980DFD8426BAF03385730F4D1C76B6 /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA6AA99FEF417ACEE515FE286BFE73 /* TransitionContextsStackImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EFE670AE6EC38298F5087FFD8FF29BC0 /* PeekState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D993483A7FA81A527E0B1CA6AB61E45E /* PeekState.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EFE670AE6EC38298F5087FFD8FF29BC0 /* InternalPeekAndPopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D993483A7FA81A527E0B1CA6AB61E45E /* InternalPeekAndPopState.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F3BF98FAC03E74AAD53C57BBC64D83EC /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08261F6AC4A9BC77597922501EAAC0DE /* DetailRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F5A49C438D81F9DFCA01D77899BCC20A /* MarshrouteStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756057F1DEF5406302E0B073C16CC8BE /* MarshrouteStack.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		F5FDCE8E9C839363D911116C5648B0AF /* ModalPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F42B55D1C6481DA2960E01BC096BAD /* ModalPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -275,11 +276,12 @@
 		C622BE6507DAA3F63D578DADA0C65DE9 /* SettingAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		C7CCFB8000A819AB5DEDEC835555B1B4 /* StrongBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StrongBox.swift; sourceTree = "<group>"; };
 		CC3E33C01F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopStateObservable.swift; sourceTree = "<group>"; };
+		CC3E33C41F5FDCDF0013FA0D /* PeekAndPopState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopState.swift; sourceTree = "<group>"; };
 		CD560940C555442898610A5F832EE9F4 /* RouterDismissable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterDismissable.swift; sourceTree = "<group>"; };
 		CF6DAF1DDCCC809510B909CCAC544731 /* ContainingTransitionsHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContainingTransitionsHandler.swift; sourceTree = "<group>"; };
 		CFA526E528B53AF1AF236C9008A45728 /* ModalNavigationDismissalAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalNavigationDismissalAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		D4DA6AA99FEF417ACEE515FE286BFE73 /* TransitionContextsStackImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackImpl.swift; sourceTree = "<group>"; };
-		D993483A7FA81A527E0B1CA6AB61E45E /* PeekState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PeekState.swift; sourceTree = "<group>"; };
+		D993483A7FA81A527E0B1CA6AB61E45E /* InternalPeekAndPopState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InternalPeekAndPopState.swift; sourceTree = "<group>"; };
 		D9F42B55D1C6481DA2960E01BC096BAD /* ModalPresentationRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalPresentationRouter.swift; sourceTree = "<group>"; };
 		DBBB75889F936AC98374F6A602741797 /* MasterRouterTransitionable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MasterRouterTransitionable.swift; sourceTree = "<group>"; };
 		DE45FF6FBC30B9E3826BEBA03824AAE3 /* WeakTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeakTransitionsHandlerBox.swift; sourceTree = "<group>"; };
@@ -402,13 +404,14 @@
 		13DAE951F5BD8ADB391EF3FF2E44C311 /* PeekAndPopSupport */ = {
 			isa = PBXGroup;
 			children = (
+				D993483A7FA81A527E0B1CA6AB61E45E /* InternalPeekAndPopState.swift */,
 				F2F0757CED6C0C09C41A68D54F7C03C6 /* PeekAndPopData.swift */,
+				CC3E33C41F5FDCDF0013FA0D /* PeekAndPopState.swift */,
+				CC3E33C01F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift */,
 				9FC3E6DACFC701F39F8D05FBFA3CF9A9 /* PeekAndPopTransitionsCoordinator.swift */,
 				1F77D34879D1648B53F07FCB68B41295 /* PeekAndPopTransitionsCoordinatorHolder.swift */,
 				2F5E5B0AE5795B209072A4C7E3708205 /* PeekAndPopUtility.swift */,
-				CC3E33C01F5F0E7A0013FA0D /* PeekAndPopStateObservable.swift */,
 				C246CDEBE4C6BD1930D657E2236B03D8 /* PeekAndPopUtilityImpl.swift */,
-				D993483A7FA81A527E0B1CA6AB61E45E /* PeekState.swift */,
 			);
 			path = PeekAndPopSupport;
 			sourceTree = "<group>";
@@ -1246,11 +1249,12 @@
 				70F0508053DFCCFDD9F12F5EF38C4867 /* NavigationTransitionsHandlerImpl.swift in Sources */,
 				047EAFA3D12155754034113250F43A15 /* NavigationTransitionStorableParameters.swift in Sources */,
 				B3712865C9F9642D98F2B36115072607 /* PeekAndPopData.swift in Sources */,
+				CC3E33C51F5FDCDF0013FA0D /* PeekAndPopState.swift in Sources */,
 				B8355CC59B276140709BF5A5F62E6AA3 /* PeekAndPopTransitionsCoordinator.swift in Sources */,
 				2FD3D1F94F6C178E48A8359140799444 /* PeekAndPopTransitionsCoordinatorHolder.swift in Sources */,
 				01BD68C80669D2B244E5ECD926A9024A /* PeekAndPopUtility.swift in Sources */,
 				8B128D90DC93D982DF2F7FABA530AA29 /* PeekAndPopUtilityImpl.swift in Sources */,
-				EFE670AE6EC38298F5087FFD8FF29BC0 /* PeekState.swift in Sources */,
+				EFE670AE6EC38298F5087FFD8FF29BC0 /* InternalPeekAndPopState.swift in Sources */,
 				7920A06602C9DD4BD5D46CC94049E6C0 /* PopAnimationContext.swift in Sources */,
 				65AD02B4482B9FD4EF20A08409E328A5 /* PopAnimationLaunchingContext.swift in Sources */,
 				902F28249704A8A6460A735AA987E5E6 /* PopoverDismissalAnimationContext.swift in Sources */,

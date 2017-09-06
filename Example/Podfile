@@ -8,3 +8,7 @@ use_frameworks!
 target 'NavigationDemo' do
    pod 'Marshroute', :path => '../'
 end
+
+target 'MarshrouteTests' do
+   pod 'Marshroute', :path => '../'
+end

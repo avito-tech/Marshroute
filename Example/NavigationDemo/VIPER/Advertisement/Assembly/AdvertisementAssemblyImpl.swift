@@ -59,7 +59,11 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
             router: router
         )
         
-        let viewController = AdvertisementViewController()
+        let viewController = AdvertisementViewController(
+            peekAndPopStateViewControllerObservable: marshrouteStack.peekAndPopStateViewControllerObservable,
+            peekAndPopUtility: marshrouteStack.peekAndPopUtility
+        )
+        
         viewController.addDisposable(presenter)
         
         presenter.view = viewController

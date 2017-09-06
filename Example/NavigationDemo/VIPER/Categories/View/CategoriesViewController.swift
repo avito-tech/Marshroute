@@ -32,25 +32,23 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
     }
     
     // MARK: - BasePeekAndPopViewController
-    override var peekSourceView: UIView {
-        return categoriesView.peekSourceView
+    override var peekSourceViews: [UIView] {
+        return categoriesView.peekSourceViews
     }
     
+    @available(iOS 9.0, *)
     override func startPeekWith(
         previewingContext: UIViewControllerPreviewing,
         location: CGPoint)
     {
-        guard #available(iOS 9.0, *) 
-            else { return }
-        
-        guard let categoriesPeekData = categoriesView.peekDataAtLocation(
+        guard let peekData = categoriesView.peekDataAt(
             location: location,
             sourceView: previewingContext.sourceView)
             else { return }
         
-        previewingContext.sourceRect = categoriesPeekData.sourceRect
+        previewingContext.sourceRect = peekData.sourceRect
         
-        categoriesPeekData.viewData.onTap()
+        peekData.viewData.onTap()
     }
     
     // MARK: - Private

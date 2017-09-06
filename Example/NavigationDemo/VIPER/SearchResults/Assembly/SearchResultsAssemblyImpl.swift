@@ -42,7 +42,10 @@ final class SearchResultsAssemblyImpl: BaseAssembly, SearchResultsAssembly {
         
         presenter.applicationModuleInput = assemblyFactory.applicationAssembly().sharedModuleInput()
         
-        let viewController = SearchResultsViewController()
+        let viewController = SearchResultsViewController(
+            peekAndPopUtility: marshrouteStack.peekAndPopUtility
+        )
+        
         viewController.addDisposable(presenter)
         
         presenter.view = viewController

@@ -35,7 +35,9 @@ final public class MarshrouteSetupServiceImpl: MarshrouteSetupService {
             transitionsMarker: transitionsCoordinator,
             transitionsTracker: transitionsCoordinator,
             transitionsHandlersProvider: transitionsCoordinator,
-            peekAndPopUtility: peekAndPopUtility
+            peekAndPopUtility: peekAndPopUtility, 
+            peekAndPopStateObservable: peekAndPopUtility,
+            peekAndPopStateViewControllerObservable: peekAndPopUtility
         )
     }
 }

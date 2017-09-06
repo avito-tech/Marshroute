@@ -66,12 +66,45 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         setNeedsLayout()
     }
     
+    func setSimilarSearchResultsHidden(_ hidden: Bool) {
+        tableView.isHidden = hidden
+        setNeedsLayout()
+    }
+    
     func setUIInsets(_ insets: UIEdgeInsets) {
         uiInsets = insets
         
         tableView.contentInset.bottom = insets.bottom
         tableView.scrollIndicatorInsets.bottom = insets.bottom
+    }    
+
+    var peekSourceViews: [UIView] {
+        return [tableView]
     }
+    
+    func peekDataAt(
+        location: CGPoint,
+        sourceView: UIView)
+        -> RecommendedSearchResultsPeekData?
+    {
+        guard let indexPath = tableView.indexPathForRow(at: location)
+            else { return nil }
+        
+        guard let cell = tableView.cellForRow(at: indexPath)
+            else { return nil }
+        
+        guard indexPath.row < recommendedSearchResults.count  
+            else { return nil }
+        
+        let recommendedSearchResult = recommendedSearchResults[indexPath.row]
+        
+        let cellFrameInSourceView = cell.convert(cell.bounds, to: tableView)
+        
+        return RecommendedSearchResultsPeekData(
+            viewData: recommendedSearchResult,
+            sourceRect: cellFrameInSourceView
+        )
+    }    
     
     // MARK: - Layout
     override func layoutSubviews() {
@@ -80,16 +113,20 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         gradientView.frame = bounds
         patternView.frame = bounds
         
-        let tableHeight =
-            CGFloat(recommendedSearchResults.count) * tableView.rowHeight
-            + CGFloat(tableView.numberOfSections) * tableHeaderHeight
-        
-        let tableTop = bounds.height - tableHeight
-        
-        let tableFrame = CGRect(x: 0, y: tableTop, width: bounds.width, height: tableHeight)
-        tableView.frame = tableFrame
-        
-        placeholderImageView.frame = CGRect(x: 0, y: uiInsets.top, width: bounds.width, height: tableTop)
+        if tableView.isHidden {
+            placeholderImageView.frame = bounds
+        } else {
+            let tableHeight =
+                CGFloat(recommendedSearchResults.count) * tableView.rowHeight
+                    + CGFloat(tableView.numberOfSections) * tableHeaderHeight
+            
+            let tableTop = bounds.height - tableHeight
+            
+            let tableFrame = CGRect(x: 0, y: tableTop, width: bounds.width, height: tableHeight)
+            tableView.frame = tableFrame
+            
+            placeholderImageView.frame = CGRect(x: 0, y: uiInsets.top, width: bounds.width, height: tableTop)            
+        }
     }
     
     // MARK: - UITableViewDataSource
@@ -167,4 +204,9 @@ private class GradientView: UIView {
     override static var layerClass : AnyClass {
         return CAGradientLayer.self
     }
+}
+
+struct RecommendedSearchResultsPeekData {
+    let viewData: SearchResultsViewData
+    let sourceRect: CGRect
 }

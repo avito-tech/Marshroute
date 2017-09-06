@@ -1,8 +1,24 @@
 import UIKit
+import Marshroute
 
-final class AdvertisementViewController: BaseViewController, AdvertisementViewInput {
+final class AdvertisementViewController: BasePeekAndPopViewController, AdvertisementViewInput {
+    // MARK: - Private properties
     fileprivate let advertisementView = AdvertisementView()
+    private let peekAndPopStateViewControllerObservable: PeekAndPopStateViewControllerObservable
     
+    // MARK: - Init
+    init(
+        peekAndPopStateViewControllerObservable: PeekAndPopStateViewControllerObservable,
+        peekAndPopUtility: PeekAndPopUtility) 
+    {
+        self.peekAndPopStateViewControllerObservable = peekAndPopStateViewControllerObservable
+        
+        super.init(peekAndPopUtility: peekAndPopUtility)
+        
+        subscribeForPeekAndPopStateChanges()
+    }
+    
+    // MARK: - Lifecycle
     override func loadView() {
         view = advertisementView
     }
@@ -31,9 +47,45 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
         advertisementView.setUIInsets(uiInsets)
     }
     
+    // MARK: - BasePeekAndPopViewController
+    override var peekSourceViews: [UIView] {
+        return advertisementView.peekSourceViews + [navigationController?.navigationBar].flatMap { $0 }
+    }
+    
+    @available(iOS 9.0, *)
+    override func startPeekWith(
+        previewingContext: UIViewControllerPreviewing,
+        location: CGPoint)
+    {
+        if advertisementView.peekSourceViews.contains(previewingContext.sourceView) {
+            if let peekData = advertisementView.peekDataAt(
+                location: location,
+                sourceView: previewingContext.sourceView)
+            {            
+                previewingContext.sourceRect = peekData.sourceRect
+                
+                peekData.viewData.onTap()
+            }
+        } else {
+            super.startPeekWith(
+                previewingContext: previewingContext,
+                location: location
+            )
+        }
+    }
+    
     // MARK: - Private
     @objc fileprivate func onRecursionButtonTap(_ sender: UIBarButtonItem) {
         onRecursionButtonTap?(sender)
+    }
+    
+    private func subscribeForPeekAndPopStateChanges() {
+        peekAndPopStateViewControllerObservable.addObserver(
+            disposableViewController: self,
+            onPeekAndPopStateChange: { [weak self] isInPeekState in
+                self?.onPeekStateChange?(isInPeekState)
+            }
+        )
     }
     
     // MARK: - AdvertisementViewInput
@@ -57,5 +109,11 @@ final class AdvertisementViewController: BaseViewController, AdvertisementViewIn
         advertisementView.setSimilarSearchResults(searchResults)
     }
     
+    func setSimilarSearchResultsHidden(_ hidden: Bool) {
+        advertisementView.setSimilarSearchResultsHidden(hidden)
+    }
+    
     var onRecursionButtonTap: ((_ sender: AnyObject) -> ())?
+    
+    var onPeekStateChange: ((_ isInPeekState: Bool) -> ())?
 }

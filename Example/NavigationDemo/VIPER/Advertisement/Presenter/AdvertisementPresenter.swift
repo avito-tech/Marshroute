@@ -50,6 +50,10 @@ final class AdvertisementPresenter {
         view?.onRecursionButtonTap = { [weak self] sender in
             self?.router.showRecursion(sender: sender)
         }
+        
+        view?.onPeekStateChange = { [weak self] isInPeekState in
+            self?.view?.setSimilarSearchResultsHidden(isInPeekState)
+        }
     }
     
     fileprivate func viewSearchResultsFromInteractorSearchResults(_ searchResults: [SearchResult]) -> [SearchResultsViewData] {

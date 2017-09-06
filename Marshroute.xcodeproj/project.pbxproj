@@ -172,6 +172,7 @@
 		CC3B0ECE1F59FE240034530E /* PeekAndPopUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC81F59FE240034530E /* PeekAndPopUtility.swift */; };
 		CC3B0ECF1F59FE240034530E /* PeekAndPopUtilityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC91F59FE240034530E /* PeekAndPopUtilityImpl.swift */; };
 		CC3B0ED01F59FE240034530E /* PeekState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0ECA1F59FE240034530E /* PeekState.swift */; };
+		CC3E33C31F5F18850013FA0D /* PeekAndPopStateObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33C21F5F18850013FA0D /* PeekAndPopStateObservable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +199,7 @@
 		CC3B0EC81F59FE240034530E /* PeekAndPopUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtility.swift; sourceTree = "<group>"; };
 		CC3B0EC91F59FE240034530E /* PeekAndPopUtilityImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImpl.swift; sourceTree = "<group>"; };
 		CC3B0ECA1F59FE240034530E /* PeekState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekState.swift; sourceTree = "<group>"; };
+		CC3E33C21F5F18850013FA0D /* PeekAndPopStateObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopStateObservable.swift; sourceTree = "<group>"; };
 		CCF135301CFC9D44007229D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCF1353B1CFC9E1A007229D1 /* StrongBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrongBox.swift; sourceTree = "<group>"; };
 		CCF1353C1CFC9E1A007229D1 /* WeakBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				CC3B0EC51F59FE240034530E /* PeekAndPopData.swift */,
+				CC3E33C21F5F18850013FA0D /* PeekAndPopStateObservable.swift */,
 				CC3B0EC61F59FE240034530E /* PeekAndPopTransitionsCoordinator.swift */,
 				CC3B0EC71F59FE240034530E /* PeekAndPopTransitionsCoordinatorHolder.swift */,
 				CC3B0EC81F59FE240034530E /* PeekAndPopUtility.swift */,
@@ -1425,6 +1428,7 @@
 				A2FBFC021E150B2E00D3FB48 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
 				A2FBFC031E150B2E00D3FB48 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
 				A2FBFC041E150B2E00D3FB48 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
+				CC3E33C31F5F18850013FA0D /* PeekAndPopStateObservable.swift in Sources */,
 				A2FBFC051E150B2E00D3FB48 /* PopAnimationLaunchingContext.swift in Sources */,
 				A2FBFC061E150B2E00D3FB48 /* PushAnimationLaunchingContext.swift in Sources */,
 				A2FBFC071E150B2E00D3FB48 /* ResettingAnimationLaunchingContext.swift in Sources */,

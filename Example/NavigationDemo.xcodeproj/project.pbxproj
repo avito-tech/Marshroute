@@ -73,6 +73,7 @@
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
 		CC3B0EC11F59D6FF0034530E /* BaseAssemblySeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */; };
 		CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */; };
+		CC3E33BF1F5ED38F0013FA0D /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */; };
 		CC574ABE1CEF73C1008648D0 /* BannerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */; };
 		CC574ABF1CEF73C1008648D0 /* BannerAssemblyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */; };
 		CC574AC01CEF73C1008648D0 /* BannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */; };
@@ -231,6 +232,7 @@
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
 		CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssemblySeed.swift; sourceTree = "<group>"; };
 		CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePeekAndPopViewController.swift; sourceTree = "<group>"; };
+		CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CC574AB01CEF73C1008648D0 /* BannerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssembly.swift; sourceTree = "<group>"; };
 		CC574AB11CEF73C1008648D0 /* BannerAssemblyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerAssemblyImpl.swift; sourceTree = "<group>"; };
 		CC574AB31CEF73C1008648D0 /* BannerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerInteractor.swift; sourceTree = "<group>"; };
@@ -1107,6 +1109,7 @@
 			isa = PBXGroup;
 			children = (
 				CCE639781CE05ABE002DF096 /* StringExtensions.swift */,
+				CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1312,6 +1315,7 @@
 				CC0B1D871CC20999006707B6 /* CategoriesRouterIphone.swift in Sources */,
 				CCA0651F1CE0B51200D08A67 /* TouchEventListener.swift in Sources */,
 				CC0B1E1B1CC2DF84006707B6 /* SearchResultsRouterIphone.swift in Sources */,
+				CC3E33BF1F5ED38F0013FA0D /* ViewControllerExtensions.swift in Sources */,
 				CC0B1D611CC207FA006707B6 /* BaseAssembly.swift in Sources */,
 				CCA7C9041CD9296200B7ADBD /* AuthorizationRouter.swift in Sources */,
 				CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */,

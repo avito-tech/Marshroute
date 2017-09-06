@@ -43,7 +43,8 @@ final class RecursionAssemblyImpl: BaseAssembly, RecursionAssembly {
         )
         
         let viewController = RecursionViewController(
-            isDismissable: isDismissable
+            isDismissable: isDismissable,
+            peekAndPopUtility: marshrouteStack.peekAndPopUtility
         )
         
         viewController.addDisposable(presenter)

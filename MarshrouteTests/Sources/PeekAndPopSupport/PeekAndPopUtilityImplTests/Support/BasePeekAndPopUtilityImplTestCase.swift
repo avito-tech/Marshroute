@@ -8,8 +8,11 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     var peekAndPopUtility: PeekAndPopUtilityImpl!
     var sourceViewController: UIViewController!
     var sourceView: UIView!
+    var sourceViewController2: UIViewController!
+    var sourceView2: UIView!
     var window: UIWindow!
     var previewingContext: UIViewControllerPreviewing?
+    var previewingContext2: UIViewControllerPreviewing?
     var peekViewController: UIViewController?
     var peekNavigationController: UINavigationController?
     var peekViewControllerAnotherParentViewController: UIViewController!
@@ -20,6 +23,8 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         peekAndPopUtility = PeekAndPopUtilityImpl()
         sourceViewController = TestablePeekAndPopViewController()
         sourceView = sourceViewController.view
+        sourceViewController2 = TestablePeekAndPopViewController()
+        sourceView2 = sourceViewController2.view
         window = UIWindow()
         peekViewController = UIViewController()
         peekNavigationController = UINavigationController(rootViewController: peekViewController!)
@@ -32,8 +37,11 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         peekAndPopUtility = nil
         sourceViewController = nil
         sourceView = nil
+        sourceViewController2 = nil
+        sourceView2 = nil
         window = nil
         previewingContext = nil
+        previewingContext2 = nil
         peekViewController = nil
         peekNavigationController = nil
         peekViewControllerAnotherParentViewController = nil
@@ -47,8 +55,11 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     }
     
     func bindSourceViewControllerToWindow() {
-        window.rootViewController = sourceViewController
         window.addSubview(sourceView)
+    }
+    
+    func bindSourceViewController2ToWindow() {
+        window.addSubview(sourceView2)
     }
     
     func bindPeekViewControllerToAnotherParent() {
@@ -71,6 +82,21 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         )
     }
     
+    func registerSourceViewController2ForPreviewing(
+        onPeek: ((_ previewingContext: UIViewControllerPreviewing) -> ())? = nil)
+    {
+        peekAndPopUtility.register(
+            viewController: sourceViewController2,
+            forPreviewingInSourceView: sourceView2,
+            onPeek: { previewingContext, _ in 
+                onPeek?(previewingContext)
+            },
+            onPreviewingContextChange: { [weak self] previewingContext in
+                self?.previewingContext2 = previewingContext
+            }
+        )
+    }
+    
     func unregisterSourceViewControllerFromPreviewing() {
         peekAndPopUtility.unregister(
             viewController: sourceViewController,
@@ -87,17 +113,34 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         )
     }
     
+    private let peekLocation = CGPoint(x: 100, y: 100)
+    
     @discardableResult
     func beginPeekOnRegisteredViewController() -> UIViewController? {
         return peekAndPopUtility.previewingContext(
             previewingContext!,
-            viewControllerForLocation: .zero
+            viewControllerForLocation: peekLocation
+        )
+    }
+    
+    @discardableResult
+    func beginPeekOnRegisteredViewController2() -> UIViewController? {
+        return peekAndPopUtility.previewingContext(
+            previewingContext2!,
+            viewControllerForLocation: peekLocation
         )
     }
     
     func commitPickOnRegisteredViewController() {
         peekAndPopUtility.previewingContext(
             previewingContext!,
+            commit: peekViewController!
+        )
+    }
+    
+    func commitPickOnRegisteredViewController2() {
+        peekAndPopUtility.previewingContext(
+            previewingContext2!,
             commit: peekViewController!
         )
     }

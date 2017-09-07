@@ -76,6 +76,12 @@ public final class PeekAndPopUtilityImpl:
         registeredPreviewingDataList = registeredPreviewingDataList.filter { registeredPreviewingData in
             let shouldKeepInCollection: Bool
             
+            if registeredPreviewingData.viewController == viewController,
+                let previewingContext = registeredPreviewingData.previewingContext
+            {
+                viewController.unregisterForPreviewing(withContext: previewingContext)
+            }
+            
             if registeredPreviewingData.isZombie {
                 shouldKeepInCollection = false
             } else if registeredPreviewingData.viewController == viewController {

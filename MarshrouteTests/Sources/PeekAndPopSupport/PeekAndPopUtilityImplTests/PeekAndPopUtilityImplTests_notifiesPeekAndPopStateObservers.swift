@@ -18,7 +18,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
 
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
-                callbackCounter = callbackCounter + 1
+                callbackCounter += 1
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
@@ -80,7 +80,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
 
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
-                callbackCounter = callbackCounter + 1
+                callbackCounter += 1
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
@@ -115,7 +115,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
-                callbackCounter = callbackCounter + 1
+                callbackCounter += 1
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
@@ -150,7 +150,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
-                callbackCounter = callbackCounter + 1
+                callbackCounter += 1
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)

@@ -73,7 +73,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         let category = categories[indexPath.row]
         
-        let cellFrameInSourceView = cell.convert(cell.bounds, to: tableView)
+        let cellFrameInSourceView = cell.convert(cell.bounds, to: sourceView)
         
         return CategoriesPeekData(
             viewData: category,

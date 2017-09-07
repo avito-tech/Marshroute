@@ -12,6 +12,7 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     var previewingContext: UIViewControllerPreviewing?
     var peekViewController: UIViewController?
     var peekNavigationController: UINavigationController?
+    var peekViewControllerAnotherParentViewController: UIViewController!
     var peekInterruptingViewController: UIViewController!
 
     override func setUp() {
@@ -22,6 +23,7 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         window = UIWindow()
         peekViewController = UIViewController()
         peekNavigationController = UINavigationController(rootViewController: peekViewController!)
+        peekViewControllerAnotherParentViewController = UIViewController()
         peekInterruptingViewController = UIViewController()
     }
     
@@ -34,6 +36,7 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         previewingContext = nil
         peekViewController = nil
         peekNavigationController = nil
+        peekViewControllerAnotherParentViewController = nil
         peekInterruptingViewController = nil
     }
         
@@ -46,6 +49,11 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     func bindSourceViewControllerToWindow() {
         window.rootViewController = sourceViewController
         window.addSubview(sourceView)
+    }
+    
+    func bindPeekViewControllerToAnotherParent() {
+        peekNavigationController?.viewControllers = []
+        peekViewControllerAnotherParentViewController!.addChildViewController(peekViewController!)
     }
     
     func registerSourceViewControllerForPreviewing(
@@ -92,6 +100,13 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
             previewingContext!,
             commit: peekViewController!
         )
+    }
+    
+    func commitPickOnRegisteredViewControllerToNotPeekViewController() {
+        peekAndPopUtility.previewingContext(
+            previewingContext!,
+            commit: UIViewController()
+        )   
     }
     
     func cancelPeekOnRegisteredViewController() {

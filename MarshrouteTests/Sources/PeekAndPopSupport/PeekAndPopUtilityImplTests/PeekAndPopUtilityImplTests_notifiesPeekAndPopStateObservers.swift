@@ -2,50 +2,6 @@ import XCTest
 @testable import Marshroute
 
 final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePeekAndPopUtilityImplTestCase {    
-    func testPeekAndPopUtility_notifiesNoPeekAndPopStateObservers_ifSomeTransitionOccursNotDuringActivePeek() {
-        // Given
-        let invertedExpectation = self.invertedExpectation()
-        
-        bindSourceViewControllerToWindow()
-        
-        registerSourceViewControllerForPreviewing()
-        
-        subscribeForPeekAndPopStateChanges(
-            onPeekAndPopStateChange: { _, _ in
-                invertedExpectation.fulfill()
-            }
-        )
-        
-        // When
-        invokeTransitionToPeekViewController()
-        
-        // Then
-        waitForExpectations(timeout: asyncTimeout)
-    }
-    
-    func testPeekAndPopUtility_notifiesNoPeekAndPopStateObservers_ifPeekBeginsOnOffscreenRegisteredViewControllerAndSomeTransitionOccurs() {
-        // Given
-        let invertedExpectation = self.invertedExpectation()
-        
-        unbindSourceViewControllerFromWindow()
-        
-        registerSourceViewControllerForPreviewing()
-        
-        subscribeForPeekAndPopStateChanges(
-            onPeekAndPopStateChange: { _, _ in
-                invertedExpectation.fulfill()
-            }
-        )
-        
-        // When
-        beginPeekOnRegisteredViewController()
-        
-        invokeTransitionToPeekViewController()
-        
-        // Then
-        waitForExpectations(timeout: asyncTimeout)
-    }
-    
     func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsCommitedOnOnscreenRegisteredViewController() {
         // Given
         let expectation = self.expectation()
@@ -121,7 +77,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         )
         
         var callbackCounter = 0
-        
+
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
                 callbackCounter = callbackCounter + 1
@@ -178,6 +134,41 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         waitForExpectations(timeout: asyncTimeout)
     }
     
+    func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsCommitedOnOnscreenRegisteredViewControllerWithNotPeekViewController() {
+        // Given
+        let expectation = self.expectation()
+        
+        bindSourceViewControllerToWindow()
+        
+        registerSourceViewControllerForPreviewing(
+            onPeek: { _ in
+                self.invokeTransitionToPeekViewController()
+            }
+        )
+        
+        var callbackCounter = 0
+        
+        subscribeForPeekAndPopStateChanges(
+            onPeekAndPopStateChange: { viewController, peekAndPopState in
+                callbackCounter = callbackCounter + 1
+                
+                if callbackCounter == 2 {
+                    XCTAssert(viewController === self.peekViewController)
+                    XCTAssert(peekAndPopState == .cancelled)
+                    expectation.fulfill()
+                }
+            }
+        )
+        
+        // When
+        beginPeekOnRegisteredViewController()
+        
+        commitPickOnRegisteredViewControllerToNotPeekViewController()
+        
+        // Then
+        waitForExpectations(timeout: asyncTimeout)
+    }
+    
     func testPeekAndPopUtility_notifiesNewPeekAndPopStateObserversImmediately_ifPeekIsInProgress() {
         // Given
         let expectation = self.expectation()
@@ -201,6 +192,77 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
                 expectation.fulfill()
             }
         )
+        
+        // Then
+        waitForExpectations(timeout: asyncTimeout)
+    }
+    
+    func testPeekAndPopUtility_notifiesNoPeekAndPopStateObservers_ifSomeTransitionOccursNotDuringActivePeek() {
+        // Given
+        let invertedExpectation = self.invertedExpectation()
+        
+        bindSourceViewControllerToWindow()
+        
+        registerSourceViewControllerForPreviewing()
+        
+        subscribeForPeekAndPopStateChanges(
+            onPeekAndPopStateChange: { _, _ in
+                invertedExpectation.fulfill()
+            }
+        )
+        
+        // When
+        invokeTransitionToPeekViewController()
+        
+        // Then
+        waitForExpectations(timeout: asyncTimeout)
+    }
+    
+    func testPeekAndPopUtility_notifiesNoPeekAndPopStateObservers_ifPeekBeginsOnOffscreenRegisteredViewControllerAndSomeTransitionOccurs() {
+        // Given
+        let invertedExpectation = self.invertedExpectation()
+        
+        unbindSourceViewControllerFromWindow()
+        
+        registerSourceViewControllerForPreviewing()
+        
+        subscribeForPeekAndPopStateChanges(
+            onPeekAndPopStateChange: { _, _ in
+                invertedExpectation.fulfill()
+            }
+        )
+        
+        // When
+        beginPeekOnRegisteredViewController()
+        
+        invokeTransitionToPeekViewController()
+        
+        // Then
+        waitForExpectations(timeout: asyncTimeout)
+    }
+    
+    func testPeekAndPopUtility_notifiesNoPeekAndPopStateObservers_ifPeekBeginsOnOnscreenRegisteredViewControllerWithNotNavigationParentViewController() {
+        // Given
+        let invertedExpectation = self.invertedExpectation()
+        
+        bindSourceViewControllerToWindow()
+        
+        bindPeekViewControllerToAnotherParent()
+        
+        registerSourceViewControllerForPreviewing(
+            onPeek: { _ in
+                self.invokeTransitionToPeekViewController()
+            }
+        )
+        
+        subscribeForPeekAndPopStateChanges(
+            onPeekAndPopStateChange: { _, _ in
+                invertedExpectation.fulfill()
+            }
+        )
+        
+        // When
+        beginPeekOnRegisteredViewController()
         
         // Then
         waitForExpectations(timeout: asyncTimeout)

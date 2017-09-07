@@ -128,7 +128,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         
         // When
         router.presentModalMasterDetailViewControllerDerivedFrom(
-            deriveMasterViewController: { (routerSeed) -> UIViewController in
+            deriveMasterViewController: { (_) -> UIViewController in
                 return UIViewController()
             },
             deriveDetailViewController: { (_) -> UIViewController in
@@ -150,7 +150,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
         
         // When
         router.presentModalMasterDetailViewControllerDerivedFrom(
-            deriveMasterViewController: { (routerSeed) -> UIViewController in
+            deriveMasterViewController: { (_) -> UIViewController in
                 return UIViewController()
             },
             deriveDetailViewController: { (_) -> UIViewController in

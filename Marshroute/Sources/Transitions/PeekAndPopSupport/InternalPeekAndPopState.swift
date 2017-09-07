@@ -1,7 +1,7 @@
 import UIKit
 
 enum InternalPeekAndPopState {
-    case waitingForPeekAndPopData
+    case waitingForPeekAndPopData(sourceViewControllerBox: WeakBox<UIViewController>)
     case receivedPeekAndPopData(PeekAndPopData)
     case inProgress(PeekAndPopData)
     case finished(isPeekCommitted: Bool)
@@ -22,6 +22,26 @@ enum InternalPeekAndPopState {
         }
     }
     
+    var peekAndPopDataIfPeekIsInProgress: PeekAndPopData? {
+        switch self {
+        case .waitingForPeekAndPopData:
+            return nil
+            
+        case .receivedPeekAndPopData:
+            return nil // See computed property's name
+            
+        case .inProgress(let peekAndPopData):
+            return peekAndPopData
+            
+        case .finished:
+            return nil
+        }
+    }
+    
+    var peekViewControllerIfPeekIsInProgress: UIViewController? {
+        return peekAndPopDataIfPeekIsInProgress?.peekViewController
+    }
+    
     var isPeekCommitted: Bool {
         switch self {
         case .waitingForPeekAndPopData:
@@ -35,38 +55,6 @@ enum InternalPeekAndPopState {
             
         case .finished(let isPeekCommitted):
             return isPeekCommitted
-        }
-    }
-    
-    var viewControllerIfPeekIsInProgress: UIViewController? {
-        switch self {
-        case .waitingForPeekAndPopData:
-            return nil
-            
-        case .receivedPeekAndPopData:
-            return nil // See computed property's name
-            
-        case .inProgress(let peekAndPopData):
-            return peekAndPopData.peekViewController
-            
-        case .finished:
-            return nil
-        }
-    }
-    
-    var popActionIfPeekIsInProgress: (() -> ())? {
-        switch self {
-        case .waitingForPeekAndPopData:
-            return nil
-            
-        case .receivedPeekAndPopData:
-            return nil // See computed property's name
-            
-        case .inProgress(let peekAndPopData):
-            return peekAndPopData.popAction
-            
-        case .finished:
-            return nil
         }
     }
 }

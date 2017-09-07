@@ -99,22 +99,31 @@ public final class PeekAndPopUtilityImpl:
         viewControllerForLocation location: CGPoint)
         -> UIViewController? 
     {
-        // Prepare to receive `peek and pop` data
-        internalPeekAndPopState = .waitingForPeekAndPopData
-        
-        // Invoke callback to force some router to perform transition
-        let onscreenRegisteredPreviewingData = onscreenRegisteredPreviewingDataFor(previewingContext: previewingContext)
-        onscreenRegisteredPreviewingData?.onPeek(previewingContext, location)
-        
-        // Check if router requested a transition
-        if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived,
-            let peekViewController = peekAndPopData.peekViewController
+        if let onscreenRegisteredPreviewingData = onscreenRegisteredPreviewingDataFor(previewingContext: previewingContext),
+            let onscreenRegisteredViewController = onscreenRegisteredPreviewingData.viewController 
         {
-            internalPeekAndPopState = .inProgress(peekAndPopData)
-            peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
-            return peekViewController
+            // Prepare to receive `peek and pop` data
+            internalPeekAndPopState = .waitingForPeekAndPopData(
+                sourceViewControllerBox: WeakBox(onscreenRegisteredViewController)
+            )
+            
+            // Invoke callback to force some router to perform transition
+            onscreenRegisteredPreviewingData.onPeek(previewingContext, location)
+            
+            // Check if router requested a transition
+            if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived,
+                let peekViewController = peekAndPopData.peekViewController
+            {
+                internalPeekAndPopState = .inProgress(peekAndPopData)
+                peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
+                return peekViewController
+            } else {
+                debugPrint("You were supposed to force some router to make some transition within `onPeek`")
+                internalPeekAndPopState = .finished(isPeekCommitted: false)
+                return nil
+            }
         } else {
-            debugPrint("You were supposed to force some router to make some transition within `onPeek`")
+            // Cancel `peek`
             internalPeekAndPopState = .finished(isPeekCommitted: false)
             return nil
         }
@@ -125,9 +134,25 @@ public final class PeekAndPopUtilityImpl:
         _ previewingContext: UIViewControllerPreviewing,
         commit viewControllerToCommit: UIViewController)
     {
-        // Commit peek
-        internalPeekAndPopState.popActionIfPeekIsInProgress?()
-        internalPeekAndPopState = .finished(isPeekCommitted: true)
+        let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived
+            ?? internalPeekAndPopState.peekAndPopDataIfPeekIsInProgress
+        
+        if let peekAndPopData = peekAndPopData, 
+            let peekViewController = peekAndPopData.peekViewController
+        {
+            if peekViewController === viewControllerToCommit {
+                // Commit peek
+                peekAndPopData.popAction()
+                internalPeekAndPopState = .finished(isPeekCommitted: true)
+            } else {
+                cancelPeekFor(
+                    peekAndPopData: peekAndPopData,
+                    reason: .popIsRequestedToAnotherViewController(viewControllerToCommit)
+                )
+            } 
+        } else {
+            internalPeekAndPopState = .finished(isPeekCommitted: false)
+        }
     }
     
     // MARK: - PeekAndPopTransitionsCoordinator
@@ -142,32 +167,48 @@ public final class PeekAndPopUtilityImpl:
         }
         
         switch internalPeekAndPopState {
-        case .waitingForPeekAndPopData:
+        case .waitingForPeekAndPopData(let sourceViewControllerBox):
             var rollbackUnbindingViewControllerFromParent: (() -> ())?
             
-            unbindViewControllerFromParent(
+            let peekCancellationReason = unbindViewControllerFromParent(
                 viewController: viewController,
                 rollback: &rollbackUnbindingViewControllerFromParent
             )
             
             let peekAndPopData = PeekAndPopData(
                 peekViewController: viewController,
+                sourceViewController: sourceViewControllerBox.unbox(),
                 popAction: {
                     rollbackUnbindingViewControllerFromParent?()
                     popAction()
                 }
             )
             
-            internalPeekAndPopState = .receivedPeekAndPopData(peekAndPopData)
+            if let peekCancellationReason = peekCancellationReason {
+                cancelPeekFor(
+                    peekAndPopData: peekAndPopData,
+                    reason: peekCancellationReason
+                )
+            } else {
+                // Store a `peek` view controller to use within `UIViewControllerPreviewingDelegate`'s implementation
+                // and thus start a `peek and pop` session
+                internalPeekAndPopState = .receivedPeekAndPopData(peekAndPopData)                
+            }
             
         case .receivedPeekAndPopData(let peekAndPopData):
             // Another transition seems to occur during `peek`. Cancel `peek` and invoke new transition immediately
-            cancelPeekFor(peekAndPopData: peekAndPopData)
+            cancelPeekFor(
+                peekAndPopData: peekAndPopData,
+                reason: .isInterruptedByTransitionToAnotherViewController(viewController)
+            )
             popAction()
             
         case .inProgress(let peekAndPopData):
             // Another transition seems to occur during `peek`. Cancel `peek` and invoke new transition immediately
-            cancelPeekFor(peekAndPopData: peekAndPopData)
+            cancelPeekFor(
+                peekAndPopData: peekAndPopData,
+                reason: .isInterruptedByTransitionToAnotherViewController(viewController)
+            )
             popAction()
             
         case .finished:
@@ -191,7 +232,7 @@ public final class PeekAndPopUtilityImpl:
         peekAndPopStateObservers.append(peekAndPopStateObserver)
         
         // Invoke callback immediately no notify a new observer about current state
-        if let peekViewController = internalPeekAndPopState.viewControllerIfPeekIsInProgress {
+        if let peekViewController = internalPeekAndPopState.peekViewControllerIfPeekIsInProgress {
             onPeekAndPopStateChange(peekViewController, .inPeek)
         }
     }
@@ -220,11 +261,39 @@ public final class PeekAndPopUtilityImpl:
     }
     
     @available(iOS 9.0, *)
-    private func cancelPeekFor(peekAndPopData: PeekAndPopData) {
-        if let peekViewController = peekAndPopData.peekViewController {
-            // Cancelling `peek and pop` may be implemented via reregistering a `peekViewController` for previewing
-            debugPrint("Cancelling `peek` for viewController: \(peekViewController)")
-            reregisterViewControllerForPreviewing(peekViewController)
+    private func cancelPeekFor(peekAndPopData: PeekAndPopData, reason: PeekCancellationReason) {
+        if let peekViewController = peekAndPopData.peekViewController,
+            let sourceViewController = peekAndPopData.sourceViewController
+        {
+            let readableCancellationReason: String
+            
+            switch reason {
+            case .isInterruptedByTransitionToAnotherViewController(let targetViewController):
+                readableCancellationReason = 
+                    "Cancelling `peek` for view controller: \(peekViewController), "
+                    + "because it got interrupted by a transition to another view controller: \(targetViewController)"
+                
+            case .peekViewControllerHasNonNilParent(let parentViewController):
+                // See (*) for details
+                readableCancellationReason = 
+                    "Cancelling `peek` to a view controller: \(peekViewController), "
+                    + "because it is has a non nil parent view controller: \(parentViewController). "
+                    + "This is done to avoid your app's possible crash your app with `NSInvalidArgumentException` "
+                    + "reason: 'Application tried to present modally an active controller ...'."
+                    + "If so, please report an issue at a `Marshroute`'s github repo page: "
+                    + "https://github.com/avito-tech/Marshroute"
+                
+            case .popIsRequestedToAnotherViewController(let viewControllerToCommit):
+                readableCancellationReason = 
+                "Cancelling `peek` to a view controller: \(peekViewController), "
+                + "because `UIKit` requested `UIViewControllerPreviewingDelegate` "
+                + "to commit another view controller: \(viewControllerToCommit)"
+            }
+           
+            debugPrint(readableCancellationReason)
+            
+            // Cancelling `peek and pop` may be implemented via reregistering a `sourceViewController` for previewing
+            reregisterViewControllerForPreviewing(sourceViewController)
         }
         
         internalPeekAndPopState = .finished(isPeekCommitted: false)
@@ -252,12 +321,12 @@ public final class PeekAndPopUtilityImpl:
         internalPeekAndPopState: InternalPeekAndPopState,
         oldInternalPeekAndPopState: InternalPeekAndPopState)
     {
-        if let peekViewController = internalPeekAndPopState.viewControllerIfPeekIsInProgress {
+        if let peekViewController = internalPeekAndPopState.peekViewControllerIfPeekIsInProgress {
             notifyPeekAndPopStateObserversOn(
                 peekAndPopState: .inPeek,
                 forViewController: peekViewController
             ) 
-        } else if let oldPeekViewController = oldInternalPeekAndPopState.viewControllerIfPeekIsInProgress {
+        } else if let oldPeekViewController = oldInternalPeekAndPopState.peekViewControllerIfPeekIsInProgress {
             notifyPeekAndPopStateObserversOn(
                 peekAndPopState: (internalPeekAndPopState.isPeekCommitted) 
                     ? .popped
@@ -297,6 +366,7 @@ public final class PeekAndPopUtilityImpl:
     private func unbindViewControllerFromParent(
         viewController: UIViewController,
         rollback: inout (() -> ())?)
+        -> PeekCancellationReason?
     {
         if let navigationController = viewController.navigationController, 
             let index = navigationController.viewControllers.index(where: { $0 === viewController }) 
@@ -322,14 +392,7 @@ public final class PeekAndPopUtilityImpl:
             }
         }
         
-        if viewController.parent != nil {
-            // Probably an unhandled edge case. See (*) for details
-            debugPrint(
-                "The following `peek` may crash your app with `NSInvalidArgumentException` \n"
-                    + "reason: 'Application tried to present modally an active controller ...'. \n"
-                    + "If so, please report an issue at a github repo page"
-            )
-        }
+        return viewController.parent.flatMap { .peekViewControllerHasNonNilParent($0) } 
     }
     
     @objc private func onPeekGestureChange(_ sender: UIGestureRecognizer) {
@@ -366,4 +429,10 @@ private struct PeekAndPopStateObserver {
     var isZombie: Bool {
         return disposable == nil
     }
+}
+
+private enum PeekCancellationReason {
+    case isInterruptedByTransitionToAnotherViewController(UIViewController)
+    case peekViewControllerHasNonNilParent(UIViewController)
+    case popIsRequestedToAnotherViewController(UIViewController)
 }

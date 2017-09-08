@@ -45,7 +45,7 @@ final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSourc
         
         let searchResult = searchResults[indexPath.row]
         
-        let cellFrameInSourceView = cell.convert(cell.bounds, to: tableView)
+        let cellFrameInSourceView = cell.convert(cell.bounds, to: sourceView)
         
         return SearchResultsPeekData(
             viewData: searchResult,

@@ -47,7 +47,7 @@ public final class PeekAndPopUtilityImpl:
         )
         
         if viewController.traitCollection.forceTouchCapability != .available {
-            debugPrint("You should not register a viewController for `peek and pop`, "
+            debugPrint("You should not register a view controller for `peek and pop`, "
                 + "if it is unavailable in a trait collection: \(viewController)")
         }
         
@@ -76,6 +76,12 @@ public final class PeekAndPopUtilityImpl:
         registeredPreviewingDataList = registeredPreviewingDataList.filter { registeredPreviewingData in
             let shouldKeepInCollection: Bool
             
+            if registeredPreviewingData.viewController == viewController,
+                let previewingContext = registeredPreviewingData.previewingContext
+            {
+                viewController.unregisterForPreviewing(withContext: previewingContext)
+            }
+            
             if registeredPreviewingData.isZombie {
                 shouldKeepInCollection = false
             } else if registeredPreviewingData.viewController == viewController {
@@ -102,12 +108,29 @@ public final class PeekAndPopUtilityImpl:
         if let onscreenRegisteredPreviewingData = onscreenRegisteredPreviewingDataFor(previewingContext: previewingContext),
             let onscreenRegisteredViewController = onscreenRegisteredPreviewingData.viewController 
         {
-            // Prepare to receive `peek and pop` data
-            internalPeekAndPopState = .waitingForPeekAndPopData(
-                sourceViewControllerBox: WeakBox(onscreenRegisteredViewController)
+            // `UIKit` may invoke this method several times in a loop for every matching `peek` source view.
+            // In this case we should check whether previous `peek` request was satisfied and cancel current `peek` request
+            let isRequestedPeekAlreadyInProgress = checkIfPeekIsAlreadyInProgressFor(
+                previewingContext: previewingContext,
+                location: location
             )
             
-            // Invoke callback to force some router to perform transition
+            if isRequestedPeekAlreadyInProgress {
+                // Cancel `peek` request
+                return nil
+            }
+            
+            let peekRequestData = PeekRequestData(
+                previewingContext: previewingContext,
+                sourceViewController: onscreenRegisteredViewController,
+                peekLocation: location
+            )
+            
+            // Prepare to receive `peek and pop` data
+            internalPeekAndPopState = .waitingForPeekAndPopData(peekRequestData)
+            
+            // Invoke callback that finally forces some router to perform a transition,
+            // that will be intercepted within `PeekAndPopTransitionsCoordinator` implementation
             onscreenRegisteredPreviewingData.onPeek(previewingContext, location)
             
             // Check if router requested a transition
@@ -167,7 +190,7 @@ public final class PeekAndPopUtilityImpl:
         }
         
         switch internalPeekAndPopState {
-        case .waitingForPeekAndPopData(let sourceViewControllerBox):
+        case .waitingForPeekAndPopData(let peekRequestData):
             var rollbackUnbindingViewControllerFromParent: (() -> ())?
             
             let peekCancellationReason = unbindViewControllerFromParent(
@@ -177,7 +200,9 @@ public final class PeekAndPopUtilityImpl:
             
             let peekAndPopData = PeekAndPopData(
                 peekViewController: viewController,
-                sourceViewController: sourceViewControllerBox.unbox(),
+                sourceViewController: peekRequestData.sourceViewController,
+                peekLocation: peekRequestData.peekLocation,
+                previewingContext: peekRequestData.previewingContext,
                 popAction: {
                     rollbackUnbindingViewControllerFromParent?()
                     popAction()
@@ -252,6 +277,28 @@ public final class PeekAndPopUtilityImpl:
     }
     
     @available(iOS 9.0, *)
+    private func checkIfPeekIsAlreadyInProgressFor(
+        previewingContext: UIViewControllerPreviewing,
+        location: CGPoint)
+        -> Bool
+    { 
+        if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfPeekIsInProgress,
+            let existingPreviewingContext = peekAndPopData.previewingContext,
+            peekAndPopData.sourceViewController != nil
+        {
+            let exisitingSourceView = existingPreviewingContext.sourceView
+            let existingPeekLocation = peekAndPopData.peekLocation
+            
+            let existingPeekLocationInWindow = exisitingSourceView.convert(existingPeekLocation, to: nil)
+            let newPeekLocationInWindow = previewingContext.sourceView.convert(location, to: nil)
+            
+            return existingPeekLocationInWindow == newPeekLocationInWindow
+        }
+        
+        return false
+    }
+    
+    @available(iOS 9.0, *)
     private func registeredPreviewingDataListFor(viewController: UIViewController?)
         -> [RegisteredPreviewingData]
     {
@@ -285,9 +332,9 @@ public final class PeekAndPopUtilityImpl:
                 
             case .popIsRequestedToAnotherViewController(let viewControllerToCommit):
                 readableCancellationReason = 
-                "Cancelling `peek` to a view controller: \(peekViewController), "
-                + "because `UIKit` requested `UIViewControllerPreviewingDelegate` "
-                + "to commit another view controller: \(viewControllerToCommit)"
+                    "Cancelling `peek` to a view controller: \(peekViewController), "
+                    + "because `UIKit` requested `UIViewControllerPreviewingDelegate` "
+                    + "to commit another view controller: \(viewControllerToCommit)"
             }
            
             debugPrint(readableCancellationReason)

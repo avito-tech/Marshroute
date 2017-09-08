@@ -26,4 +26,12 @@ final class DummyViewControllerPreviewing: NSObject, UIViewControllerPreviewing 
         
         super.init()
     }
+    
+    func unregister() {
+        // Required to avoid the following crash:
+        // `[MarshrouteTests.DummyViewControllerPreviewing unregister]: unrecognized selector sent to instance ...`
+        // 
+        // It occures during unregistering view controller from previewing:
+        // `viewController.unregisterForPreviewing(withContext: previewingContext)`
+    }
 }

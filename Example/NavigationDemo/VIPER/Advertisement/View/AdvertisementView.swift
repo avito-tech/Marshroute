@@ -98,7 +98,7 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         
         let recommendedSearchResult = recommendedSearchResults[indexPath.row]
         
-        let cellFrameInSourceView = cell.convert(cell.bounds, to: tableView)
+        let cellFrameInSourceView = cell.convert(cell.bounds, to: sourceView)
         
         return RecommendedSearchResultsPeekData(
             viewData: recommendedSearchResult,

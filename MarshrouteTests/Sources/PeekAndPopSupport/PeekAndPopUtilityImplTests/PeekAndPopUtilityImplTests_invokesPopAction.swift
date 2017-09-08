@@ -67,6 +67,36 @@ final class PeekAndPopUtilityImplTests_invokesPopAction: BasePeekAndPopUtilityIm
         waitForExpectations(timeout: asyncTimeout)
     }
     
+    func testPeekAndPopUtility_invokesPopAction_ifSamePeekFailedToBeginAndNewPeekGetsCommitedOnOnscreenRegisteredViewController() {
+        // Given
+        let expectation = self.expectation()
+        
+        bindSourceViewControllerToWindow()
+        bindSourceViewController2ToWindow()
+        
+        registerSourceViewControllerForPreviewing()
+        
+        registerSourceViewController2ForPreviewing(
+            onPeek: { _ in
+                self.invokeTransitionToPeekViewController(
+                    popAction: {
+                        expectation.fulfill()
+                    }
+                )
+            }
+        )
+        
+        // When
+        beginPeekOnRegisteredViewController()
+        
+        beginPeekOnRegisteredViewController2()
+        
+        commitPickOnRegisteredViewController2()
+        
+        // Then
+        waitForExpectations(timeout: asyncTimeout)
+    }
+    
     func testPeekAndPopUtility_invokesNoPopAction_ifPeekBeginsOnOnscreenRegisteredViewController() {
         // Given
         let invertedExpectation = self.invertedExpectation()
@@ -185,6 +215,64 @@ final class PeekAndPopUtilityImplTests_invokesPopAction: BasePeekAndPopUtilityIm
         beginPeekOnRegisteredViewController()
         
         cancelPeekOnRegisteredViewController()
+        
+        // Then
+        waitForExpectations(timeout: asyncTimeout)
+    }
+    
+    func testPeekAndPopUtility_invokesNoPopAction_ifSamePeekIsAlreadyBeganAndNewPeekBeginsOnOnscreenRegisteredViewController() {
+        // Given
+        let invertedExpectation = self.invertedExpectation()
+        
+        bindSourceViewControllerToWindow()
+        
+        bindSourceViewController2ToWindow()
+        
+        registerSourceViewControllerForPreviewing(
+            onPeek: { _ in
+                self.invokeTransitionToPeekViewController()
+            }
+        )
+        
+        registerSourceViewController2ForPreviewing(
+            onPeek: { _ in
+                invertedExpectation.fulfill()
+            }
+        )
+        
+        // When
+        beginPeekOnRegisteredViewController()
+        
+        beginPeekOnRegisteredViewController2()
+        
+        // Then
+        waitForExpectations(timeout: asyncTimeout)
+    }
+    
+    func testPeekAndPopUtility_invokesNoPopAction_ifSamePeekFailedToBeginAndNewPeekBeginsOnOnscreenRegisteredViewController() {
+        // Given
+        let invertedExpectation = self.invertedExpectation()
+        
+        bindSourceViewControllerToWindow()
+        
+        bindSourceViewController2ToWindow()
+        
+        registerSourceViewControllerForPreviewing()
+        
+        registerSourceViewController2ForPreviewing(
+            onPeek: { _ in
+                self.invokeTransitionToPeekViewController(
+                    popAction: {
+                        invertedExpectation.fulfill()
+                    }
+                )
+            }
+        )
+        
+        // When
+        beginPeekOnRegisteredViewController()
+        
+        beginPeekOnRegisteredViewController2()
         
         // Then
         waitForExpectations(timeout: asyncTimeout)

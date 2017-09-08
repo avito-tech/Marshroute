@@ -5,6 +5,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
     func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsCommitedOnOnscreenRegisteredViewController() {
         // Given
         let expectation = self.expectation()
+        expectation.expectedFulfillmentCount = 2
         
         bindSourceViewControllerToWindow()
         
@@ -19,11 +20,11 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
                 callbackCounter += 1
+                expectation.fulfill()
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
                     XCTAssert(peekAndPopState == .popped)
-                    expectation.fulfill()
                 }
             }
         )
@@ -67,6 +68,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
     func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsInterruptedWithAnotherTransitionOnOnscreenRegisteredViewController() {
         // Given
         let expectation = self.expectation()
+        expectation.expectedFulfillmentCount = 2
         
         bindSourceViewControllerToWindow()
         
@@ -81,11 +83,11 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
                 callbackCounter += 1
+                expectation.fulfill()
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
                     XCTAssert(peekAndPopState == .cancelled)
-                    expectation.fulfill()
                 }
             }
         )
@@ -102,6 +104,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
     func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsCancelledByUserOnOnscreenRegisteredViewController() {
         // Given
         let expectation = self.expectation()
+        expectation.expectedFulfillmentCount = 2
         
         bindSourceViewControllerToWindow()
         
@@ -116,11 +119,11 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
                 callbackCounter += 1
+                expectation.fulfill()
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
                     XCTAssert(peekAndPopState == .cancelled)
-                    expectation.fulfill()
                 }
             }
         )
@@ -137,6 +140,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
     func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsCommitedOnOnscreenRegisteredViewControllerWithNotPeekViewController() {
         // Given
         let expectation = self.expectation()
+        expectation.expectedFulfillmentCount = 2
         
         bindSourceViewControllerToWindow()
         
@@ -151,11 +155,11 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         subscribeForPeekAndPopStateChanges(
             onPeekAndPopStateChange: { viewController, peekAndPopState in
                 callbackCounter += 1
+                expectation.fulfill()
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
                     XCTAssert(peekAndPopState == .cancelled)
-                    expectation.fulfill()
                 }
             }
         )

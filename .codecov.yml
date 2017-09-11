@@ -3,6 +3,6 @@ coverage:
   round: up
   range: "0...100"
 
-ignore:
-  - Example
-  - MarshrouteTests
+  ignore:
+    - Example/NavigationDemo
+    - MarshrouteTests/Sources

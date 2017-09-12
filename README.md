@@ -1,7 +1,23 @@
 # Marshroute
 [![GitHub license](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/avito-tech/Marshroute/blob/master/LICENSE) [![GitHub release](https://img.shields.io/badge/Version-0.4.0-brightgreen.svg)](https://github.com/avito-tech/Marshroute/releases)  [![Swift 3 support](https://img.shields.io/badge/Swift%203-supported-brightgreen.svg)](https://github.com/avito-tech/Marshroute/pull/1) [![cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-blue.svg)](https://cocoapods.org) [![carthage compatible](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/avito-tech/Marshroute.svg?branch=master)](https://travis-ci.org/avito-tech/Marshroute) [![Code Coverage](https://img.shields.io/codecov/c/github/avito-tech/Marshroute.svg)](https://codecov.io/gh/avito-tech/Marshroute)
 
-## Overview
+## Contents
+
+* [Overview](#overview)
+    * [Tuning the transition animation](#tuning-the-transition-animation)
+* [3d touch support](#3d-touch-support)
+    * [`PeekAndPopUtility`](#peek-and-pop-utility)
+    * [Peek and pop state observing](#peek-and-pop-state-observing)
+* [Demo](#demo)
+* [Requirements](#requirements)
+* [Installation](#installation)
+    * [Cocoapods](#cocoapods)
+    * [Carthage](#carthage)
+* [Contacts](#contacts)
+* [Licence](#licence)
+* [Objective-c support](#objective-c support)
+
+## <a name="overview"/> Overview
 
 This repo contains the source code for making your `Router`s  simple but extremely powerful!
 
@@ -47,7 +63,7 @@ presentModalViewControllerDerivedFrom { routerSeed -> UIViewController in
 Once again, the transition will be forwarded to the top, keeping the `Router` very plain and straightforward.
 So that, the `Router` keeps being responsible for only one thing: selecting the style of a transition. 
 
-### Tuning the transition animation
+### <a name="tuning-the-transition-animation"/> Tuning the transition animation
 
 You may add an animator to customize the way your transition looks like. For example
 
@@ -72,9 +88,10 @@ The key line here is
 
 So the syntax remains clean and it is super easy to switch back to the original animation style.
 
-## 3d touch support
 
-## `PeekAndPopUtility`
+## <a name="3d-touch-support"/> 3d touch support
+
+### <a name="peek-and-pop-utility"/> `PeekAndPopUtility`
 
 Want to add fancy peek and pop previews? Easy peasy! Just use `PeekAndPopUtility` from the `MarshrouteStack` and register your view controller as capable of previewing other controllers!
 
@@ -115,7 +132,7 @@ This behavior is a result of `UIKit` Api restrictions: `UIViewControllerPreviewi
 
 You can also use `onPreviewingContextChange` closure to set up your gesture recognizer failure relationships.
 
-## `PeekAndPopStateObservable` and `PeekAndPopStateViewControllerObservable`
+### <a name="peek-and-pop-state-observing"/> Peek and pop state observing
 
 You can use `PeekAndPopStateObservable` from the `MarshrouteStack` to observe any view controller's `peek and pop` state changes. 
 This may be useful for analytics purposes.
@@ -161,7 +178,7 @@ view?.onPop = { [weak self] in
 }
 ```
 
-## Demo
+## <a name="demo"/> Demo
 
 Check out the [demo](https://github.com/avito-tech/Marshroute/tree/master/Example) project. 
 This demo is written in `Swift` using `VIPER` architecture and shows all the capabilities which `Router`s are now full of.
@@ -177,13 +194,15 @@ To see this effect taking place, you should make several transitions deeper into
 Starting with 0.4.0 the demo project was updated to show `PeekAndPopUtility` in action: you can press on any table view cell and navigation bar button to get a preview of an underlying transition.
 You can also learn how to use `PeekAndPopStateViewControllerObservable` to adjust `AdvertisementViewController`'s appearance in `peek` and `popped` modes: in a `peek` mode you will see only a fullscreen colored image pattern, while in a `popped` mode you will also see a similar advertisements section.
 
-## Requirements
+## <a name="requirements"/> Requirements
 
 - iOS 8.0+
 - Xcode 7.3+
 
-## Installation
-### CocoaPods
+Note: peek and pop is supported only for iOS 9.0+
+
+## <a name="installation"/> Installation
+### <a name="cocoapods"/> Cocoapods
 
 To install Marshroute using CocoaPods, add the following lines to your `Podfile`:
 
@@ -197,7 +216,7 @@ pod 'Marshroute'
 
 Then run `pod install` command. For details of the installation and usage of CocoaPods, visit [its official website](https://cocoapods.org).
 
-### Carthage
+### <a name="carthage"/> Carthage
 
 To install Marshroute using Carthage, add the following lines to your `Cartfile`:
 ```ruby
@@ -206,11 +225,12 @@ github "avito-tech/Marshroute" ~> 0.4.0
 
 Then run `carthage update --platform iOS` command. For details of the installation and usage of Carthage, visit [its  repo website](https://github.com/Carthage/Carthage).
 
-## Contacts
-Feel free to send your questions at `tyusipov@avito.ru`
+## <a name="contacts"/> Contacts
 
-## License
+Feel free to send your questions at `tyusipov@avito.ru` or to open an issue
+
+## <a name="licence"/> Licence
 MIT
 
-## Objective-c support
+## <a name="objective-c support"/> Objective-c support
 The framework is written in pure `Swift` using its latest features, so if you want to use `Marshroute` in your `Objective-c` application you will have to write your `Router`s in `Swift`.

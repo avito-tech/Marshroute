@@ -15,7 +15,7 @@
     * [Carthage](#carthage)
 * [Contacts](#contacts)
 * [Licence](#licence)
-* [Objective-c support](#objective-c support)
+* [Objective-c support](#objective-c-support)
 
 ## <a name="overview"/> Overview
 
@@ -232,5 +232,5 @@ Feel free to send your questions at `tyusipov@avito.ru` or to open an issue
 ## <a name="licence"/> Licence
 MIT
 
-## <a name="objective-c support"/> Objective-c support
+## <a name="objective-c-support"/> Objective-c support
 The framework is written in pure `Swift` using its latest features, so if you want to use `Marshroute` in your `Objective-c` application you will have to write your `Router`s in `Swift`.

@@ -1,4 +1,4 @@
-[0.4](https://github.com/avito-tech/Marshroute/releases/tag/0.4)
+[0.4.0](https://github.com/avito-tech/Marshroute/releases/tag/0.4.0)
 - Support 3d touch (peek and pop)
 
 [0.3.6](https://github.com/avito-tech/Marshroute/releases/tag/0.3.6)

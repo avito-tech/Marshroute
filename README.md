@@ -6,7 +6,7 @@
 * [Overview](#overview)
     * [Tuning the transition animation](#tuning-the-transition-animation)
 * [3d touch support](#3d-touch-support)
-    * [`PeekAndPopUtility`](#peek-and-pop-utility)
+    * [PeekAndPopUtility](#peek-and-pop-utility)
     * [Peek and pop state observing](#peek-and-pop-state-observing)
 * [Demo](#demo)
 * [Requirements](#requirements)
@@ -91,7 +91,7 @@ So the syntax remains clean and it is super easy to switch back to the original 
 
 ## <a name="3d-touch-support"/> 3d touch support
 
-### <a name="peek-and-pop-utility"/> `PeekAndPopUtility`
+### <a name="peek-and-pop-utility"/> PeekAndPopUtility
 
 Want to add fancy peek and pop previews? Easy peasy! Just use `PeekAndPopUtility` from the `MarshrouteStack` and register your view controller as capable of previewing other controllers!
 

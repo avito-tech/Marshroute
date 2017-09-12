@@ -11,9 +11,12 @@ final class RecursionAssemblyImpl: BaseAssembly, RecursionAssembly {
             routerSeed: routerSeed
         )
         
-        let isDismissable = routerSeed.presentingTransitionsHandler != nil
+        let viewControllerPosition = ViewControllerPosition(routerSeed: routerSeed)
         
-        return module(router: router, isDismissable: isDismissable)
+        return module(
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
     
     func ipadModule(routerSeed: RouterSeed)
@@ -24,13 +27,18 @@ final class RecursionAssemblyImpl: BaseAssembly, RecursionAssembly {
             routerSeed: routerSeed
         )
         
-        let isDismissable = routerSeed.presentingTransitionsHandler != nil
+        let viewControllerPosition = ViewControllerPosition(routerSeed: routerSeed)
         
-        return module(router: router, isDismissable: isDismissable)
+        return module(
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
     
     // MARK - Private
-    fileprivate func module(router: RecursionRouter, isDismissable: Bool)
+    fileprivate func module(
+        router: RecursionRouter,
+        viewControllerPosition: ViewControllerPosition)
       -> UIViewController
     {
         let interactor = RecursionInteractorImpl(
@@ -43,7 +51,7 @@ final class RecursionAssemblyImpl: BaseAssembly, RecursionAssembly {
         )
         
         let viewController = RecursionViewController(
-            isDismissable: isDismissable,
+            viewControllerPosition: viewControllerPosition,
             peekAndPopUtility: marshrouteStack.peekAndPopUtility
         )
         

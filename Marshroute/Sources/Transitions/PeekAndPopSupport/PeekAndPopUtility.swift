@@ -44,7 +44,6 @@ public extension PeekAndPopUtility {
         )
     }
     
-    
     @available(iOS 9.0, *)
     @discardableResult
     func reregister(

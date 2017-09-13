@@ -3,14 +3,14 @@ import Marshroute
 
 final class CategoriesViewController: BasePeekAndPopViewController, CategoriesViewInput {
     fileprivate let categoriesView = CategoriesView()
-    fileprivate let isDismissable: Bool
+    fileprivate let viewControllerPosition: ViewControllerPosition
     
     // MARK: - Init
     init(
-        isDismissable: Bool,
+        viewControllerPosition: ViewControllerPosition,
         peekAndPopUtility: PeekAndPopUtility)
     {
-        self.isDismissable = isDismissable
+        self.viewControllerPosition = viewControllerPosition
         super.init(peekAndPopUtility: peekAndPopUtility)
     }
     
@@ -22,7 +22,7 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if isDismissable {
+        if viewControllerPosition == .modal {
             navigationItem.rightBarButtonItem = UIBarButtonItem(
                 barButtonSystemItem: .stop,
                 target: self,

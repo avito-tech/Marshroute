@@ -3,14 +3,14 @@ import Marshroute
 
 final class RecursionViewController: BasePeekAndPopViewController, RecursionViewInput {
     fileprivate let recursionView = RecursionView()
-    fileprivate let isDismissable: Bool
+    fileprivate let viewControllerPosition: ViewControllerPosition
     
     // MARK: - Init
     init(
-        isDismissable: Bool,
+        viewControllerPosition: ViewControllerPosition,
         peekAndPopUtility: PeekAndPopUtility)
     {
-        self.isDismissable = isDismissable
+        self.viewControllerPosition = viewControllerPosition
         super.init(peekAndPopUtility: peekAndPopUtility)
     }
     
@@ -40,7 +40,7 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
         
         var rightBarButtonItems = [UIBarButtonItem]()
         
-        if isDismissable {
+        if viewControllerPosition == .modal {
             let dismissButtonItem = UIBarButtonItem(
                 barButtonSystemItem: .stop,
                 target: self,

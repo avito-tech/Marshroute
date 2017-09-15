@@ -2,17 +2,17 @@ import UIKit
 
 enum InternalPeekAndPopState {
     case waitingForPeekAndPopData(PeekRequestData)
-    case receivedPeekAndPopData(PeekAndPopData)
-    case inProgress(PeekAndPopData)
+    case receivedPeekAndPopData(StrongPeekAndPopData)
+    case inProgress(WeakPeekAndPopData)
     case finished(isPeekCommitted: Bool)
 
-    var peekAndPopDataIfReceived: PeekAndPopData? {
+    var peekAndPopDataIfReceived: StrongPeekAndPopData? {
         switch self {
         case .waitingForPeekAndPopData:
             return nil
             
-        case .receivedPeekAndPopData(let peekAndPopData):
-            return peekAndPopData
+        case .receivedPeekAndPopData(let strongPeekAndPopData):
+            return strongPeekAndPopData
             
         case .inProgress:
             return nil // See computed property's name
@@ -30,8 +30,8 @@ enum InternalPeekAndPopState {
         case .receivedPeekAndPopData:
             return nil // See computed property's name
             
-        case .inProgress(let peekAndPopData):
-            return peekAndPopData
+        case .inProgress(let weakPeekAndPopData):
+            return weakPeekAndPopData
             
         case .finished:
             return nil

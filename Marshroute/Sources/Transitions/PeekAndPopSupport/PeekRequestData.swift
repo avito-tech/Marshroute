@@ -1,7 +1,7 @@
 import UIKit
 
 struct PeekRequestData {
-    weak var previewingContext: UIViewControllerPreviewing?
-    weak var sourceViewController: UIViewController?
+    let previewingContext: UIViewControllerPreviewing
+    let sourceViewController: UIViewController
     let peekLocation: CGPoint
 }

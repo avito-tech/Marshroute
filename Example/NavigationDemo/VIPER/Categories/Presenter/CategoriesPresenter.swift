@@ -13,7 +13,9 @@ final class CategoriesPresenter {
     // MARK: - Weak properties
     weak var view: CategoriesViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

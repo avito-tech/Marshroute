@@ -13,7 +13,9 @@ final class AdvertisementPresenter {
     // MARK: - Weak properties
     weak var view: AdvertisementViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

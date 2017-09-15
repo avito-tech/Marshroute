@@ -132,7 +132,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         ]
         
         let containingTransitionsHandlers = [
-            0: firstTab.containingTransitionsHandler,
+            0: firstTab.containingTransitionsHandler
         ]
         
         return (viewControllers, animatingTransitionsHandlers, containingTransitionsHandlers)

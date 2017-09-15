@@ -192,7 +192,7 @@ private class GradientView: UIView {
             if let gradientLayer = layer as? CAGradientLayer {
                 gradientLayer.colors = [
                     UIColor.white.cgColor,
-                    bottomColor.withAlphaComponent(0.8).cgColor,
+                    bottomColor.withAlphaComponent(0.8).cgColor
                 ]
                 
                 gradientLayer.locations = [0, 1]

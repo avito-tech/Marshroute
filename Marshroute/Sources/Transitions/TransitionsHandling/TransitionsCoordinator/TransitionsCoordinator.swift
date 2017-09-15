@@ -308,7 +308,6 @@ extension TransitionsCoordinator where
         } else {
             debugPrint("resetting transition was cancelled")
         }
-        
     }
 }
 

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_NavigationDemoVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_NavigationDemoVersionString[];
+FOUNDATION_EXPORT double Pods_MarshrouteExampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_MarshrouteExampleVersionString[];
 

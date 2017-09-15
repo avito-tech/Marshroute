@@ -5,10 +5,10 @@ platform :ios, :deployment_target => '8.0'
 inhibit_all_warnings!
 use_frameworks!
 
-target 'NavigationDemo' do
+target 'MarshrouteExample' do
    pod 'Marshroute', :path => '../'
-end
-
-target 'MarshrouteTests' do
-   pod 'Marshroute', :path => '../'
+   
+   target 'MarshrouteTests' do
+       inherit! :search_paths
+   end
 end

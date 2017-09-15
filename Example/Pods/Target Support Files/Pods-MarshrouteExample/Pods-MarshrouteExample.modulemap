@@ -1,0 +1,6 @@
+framework module Pods_MarshrouteExample {
+  umbrella header "Pods-MarshrouteExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

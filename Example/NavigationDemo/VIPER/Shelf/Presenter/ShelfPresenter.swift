@@ -14,7 +14,9 @@ final class ShelfPresenter {
     // MARK: - Weak properties
     weak var view: ShelfViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

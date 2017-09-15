@@ -14,7 +14,9 @@ final class RecursionPresenter {
     // MARK: - Weak properties
     weak var view: RecursionViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

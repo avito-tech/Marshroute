@@ -14,7 +14,9 @@ final class ApplicationPresenter: ApplicationModuleInput {
     // MARK: - Weak properties
     weak var view: ApplicationViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

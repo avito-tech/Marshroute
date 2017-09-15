@@ -134,14 +134,11 @@ public final class PeekAndPopUtilityImpl:
             onscreenRegisteredPreviewingData.onPeek(previewingContext, location)
             
             // Check if router requested a transition
-            if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived,
-                let peekViewController = peekAndPopData.peekViewController
-            {
-                internalPeekAndPopState = .inProgress(peekAndPopData)
+            if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived {
+                internalPeekAndPopState = .inProgress(peekAndPopData.toWeakPeekAndPopData())
                 peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
-                return peekViewController
+                return peekAndPopData.peekViewController
             } else {
-                debugPrint("You were supposed to force some router to make some transition within `onPeek`")
                 internalPeekAndPopState = .finished(isPeekCommitted: false)
                 return nil
             }
@@ -198,11 +195,11 @@ public final class PeekAndPopUtilityImpl:
                 rollback: &rollbackUnbindingViewControllerFromParent
             )
             
-            let peekAndPopData = PeekAndPopData(
+            let peekAndPopData = StrongPeekAndPopData(
                 peekViewController: viewController,
                 sourceViewController: peekRequestData.sourceViewController,
-                peekLocation: peekRequestData.peekLocation,
                 previewingContext: peekRequestData.previewingContext,
+                peekLocation: peekRequestData.peekLocation,
                 popAction: {
                     rollbackUnbindingViewControllerFromParent?()
                     popAction()
@@ -228,10 +225,10 @@ public final class PeekAndPopUtilityImpl:
             )
             popAction()
             
-        case .inProgress(let peekAndPopData):
+        case .inProgress(let weakPeekAndPopData):
             // Another transition seems to occur during `peek`. Cancel `peek` and invoke new transition immediately
             cancelPeekFor(
-                peekAndPopData: peekAndPopData,
+                peekAndPopData: weakPeekAndPopData,
                 reason: .isInterruptedByTransitionToAnotherViewController(viewController)
             )
             popAction()

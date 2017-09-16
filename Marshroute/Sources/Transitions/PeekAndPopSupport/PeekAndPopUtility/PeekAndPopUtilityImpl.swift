@@ -73,7 +73,7 @@ public final class PeekAndPopUtilityImpl:
             
             if registeredPreviewingData.isZombie {
                 shouldKeepInCollection = false
-            } else if registeredPreviewingData.viewController == viewController {
+            } else if registeredPreviewingData.viewController === viewController {
                 if let sourceView = sourceView {
                     shouldKeepInCollection = registeredPreviewingData.previewingContext?.sourceView != sourceView
                 } else {
@@ -312,7 +312,7 @@ public final class PeekAndPopUtilityImpl:
                     + "because it is has a non nil parent view controller: \(parentViewController). "
                     + "This is done to avoid your app's possible crash your app with `NSInvalidArgumentException` "
                     + "reason: 'Application tried to present modally an active controller ...'."
-                    + "If so, please report an issue at a `Marshroute`'s github repo page: "
+                    + "If so, please report an issue at a `Marshroute`'s github repo page:"
                     + "https://github.com/avito-tech/Marshroute"
                 
             case .popIsRequestedToAnotherViewController(let viewControllerToCommit):

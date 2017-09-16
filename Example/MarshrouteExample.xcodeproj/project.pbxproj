@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1313F20C96058FEF50F595A6 /* Pods_NavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */; };
 		700D1B1D421DEF8478E627AE /* Pods_MarshrouteExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D2592A6EB40064F50F87C25 /* Pods_MarshrouteExample.framework */; };
 		BF69B5A3AE24511680DB2ED1 /* Pods_MarshrouteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE239487B05BB3C04361F501 /* Pods_MarshrouteTests.framework */; };
 		CC9CD4971F6C86C500944F44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC9CD4961F6C86C500944F44 /* LaunchScreen.storyboard */; };
@@ -199,7 +198,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1313F20C96058FEF50F595A6 /* Pods_NavigationDemo.framework in Frameworks */,
 				700D1B1D421DEF8478E627AE /* Pods_MarshrouteExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1402,7 +1400,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
 				INFOPLIST_FILE = "$(SRCROOT)/MarsrouteExample/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1419,7 +1417,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
 				INFOPLIST_FILE = "$(SRCROOT)/MarsrouteExample/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -92,33 +92,4 @@ final class PeekAndPopUtilityImplTests_releasesPeekViewController: BasePeekAndPo
         
         waitForExpectations(timeout: asyncTimeout)
     }
-    
-    func testPeekAndPopUtility_releasesPeekViewController_ifPeekGetsCancelledByUserOnOnscreenRegisteredViewController() {
-        // Given
-        let expectation = self.expectation()
-        
-        weak var weakPeekViewController = peekViewController
-        
-        bindSourceViewControllerToWindow()
-        
-        registerSourceViewControllerForPreviewing(
-            onPeek: { _ in
-                self.invokeTransitionToPeekViewController()
-                self.peekViewController = nil
-            }
-        )
-        
-        // When
-        beginPeekOnRegisteredViewController()
-        
-        cancelPeekOnRegisteredViewController()
-        
-        // Then
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            XCTAssert(weakPeekViewController == nil)
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: asyncTimeout)
-    }
 }    

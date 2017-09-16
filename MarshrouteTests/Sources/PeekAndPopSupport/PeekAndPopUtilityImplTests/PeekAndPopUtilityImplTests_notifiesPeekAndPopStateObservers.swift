@@ -101,42 +101,6 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsCancelledByUserOnOnscreenRegisteredViewController() {
-        // Given
-        let expectation = self.expectation()
-        expectation.expectedFulfillmentCount = 2
-        
-        bindSourceViewControllerToWindow()
-        
-        registerSourceViewControllerForPreviewing(
-            onPeek: { _ in
-                self.invokeTransitionToPeekViewController()
-            }
-        )
-        
-        var callbackCounter = 0
-        
-        subscribeForPeekAndPopStateChanges(
-            onPeekAndPopStateChange: { viewController, peekAndPopState in
-                callbackCounter += 1
-                expectation.fulfill()
-                
-                if callbackCounter == 2 {
-                    XCTAssert(viewController === self.peekViewController)
-                    XCTAssert(peekAndPopState == .cancelled)
-                }
-            }
-        )
-        
-        // When
-        beginPeekOnRegisteredViewController()
-        
-        cancelPeekOnRegisteredViewController()
-        
-        // Then
-        waitForExpectations(timeout: asyncTimeout)
-    }
-    
     func testPeekAndPopUtility_notifiesPeekAndPopStateObservers_ifPeekGetsCommitedOnOnscreenRegisteredViewControllerWithNotPeekViewController() {
         // Given
         let expectation = self.expectation()

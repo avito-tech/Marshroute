@@ -21,9 +21,9 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     override func setUp() {
         super.setUp()
         peekAndPopUtility = PeekAndPopUtilityImpl()
-        sourceViewController = TestablePeekAndPopViewController()
+        sourceViewController = UIViewController()
         sourceView = sourceViewController.view
-        sourceViewController2 = TestablePeekAndPopViewController()
+        sourceViewController2 = UIViewController()
         sourceView2 = sourceViewController2.view
         window = UIWindow()
         peekViewController = UIViewController()
@@ -150,10 +150,6 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
             previewingContext!,
             commit: UIViewController()
         )   
-    }
-    
-    func cancelPeekOnRegisteredViewController() {
-        previewingContext?.previewingGestureRecognizerForFailureRelationship.state = .ended
     }
     
     func interruptPeekWithAnotherTransitionOnRegisteredViewController() {

@@ -444,7 +444,10 @@ public final class PeekAndPopUtilityImpl:
         // When a user commits `peek`, gesture recognizer's state is `.cancelled`
         if sender.state == .ended {
             // Release the `peek` view controller
-            internalPeekAndPopState = .finished(isPeekCommitted: false)
+            
+            // AI-7195: Disable peek and pop cancelling due to bugs on iOS 11
+            //internalPeekAndPopState = .finished(isPeekCommitted: false)
+            // TODO tyusipov AI-7205: Remove all `gesture recognizer` observing
         }
     }
 }

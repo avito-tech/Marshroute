@@ -405,13 +405,26 @@ private extension TransitionsCoordinator where
         }
         
         if transitionAllowed {
+            let transitionId = context.transitionId
+            let targetViewController = context.targetViewController
+            let targetTransitionsHandlerBox = context.targetTransitionsHandlerBox
+            let storableParameters = context.storableParameters
+            let presentationAnimationLaunchingContextBox = context.presentationAnimationLaunchingContextBox
+            
             peekAndPopTransitionsCoordinator.coordinatePeekIfNeededFor(
                 viewController: context.targetViewController,
-                popAction: { [weak self] in
-                    guard let strongSelf = self 
+                popAction: { [weak self, weak targetViewController] in
+                    guard let strongSelf = self, 
+                        let targetViewController = targetViewController
                         else { return }
                     
-                    var context = context
+                    var context = PresentationTransitionContext(
+                        transitionId: transitionId,
+                        targetViewController: targetViewController,
+                        targetTransitionsHandlerBox: targetTransitionsHandlerBox,
+                        storableParameters: storableParameters,
+                        presentationAnimationLaunchingContextBox: presentationAnimationLaunchingContextBox
+                    )
                     
                     // уведомляем делегата до вызова анимации `Presentation` перехода.
                     strongSelf.transitionsCoordinatorDelegate?.transitionsCoordinator(

@@ -394,7 +394,10 @@ public final class PeekAndPopUtilityImpl:
             let filteredViewControllers = navigationController.viewControllers.filter { $0 !== viewController }
             navigationController.viewControllers = filteredViewControllers
             
-            rollback = {
+            rollback = { [weak viewController] in
+                guard let viewController = viewController 
+                    else { return }
+                
                 // Return `viewController` back to its `parent`
                 var restoredViewControllers = navigationController.viewControllers
                 

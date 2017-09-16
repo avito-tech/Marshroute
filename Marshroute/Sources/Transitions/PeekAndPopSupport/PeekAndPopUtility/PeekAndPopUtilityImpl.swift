@@ -4,7 +4,7 @@ public final class PeekAndPopUtilityImpl:
     NSObject,
     PeekAndPopUtility,
     UIViewControllerPreviewingDelegate,
-    PeekAndPopTransitionsCoordinator ,
+    PeekAndPopTransitionsCoordinator,
     PeekAndPopStateObservable,
     PeekAndPopStateViewControllerObservable
 {
@@ -13,21 +13,10 @@ public final class PeekAndPopUtilityImpl:
     
     private var internalPeekAndPopState: InternalPeekAndPopState = .finished(isPeekCommitted: false) {
         didSet {
-            releasePeekGestureRecognizerIfNeeded(
-                internalPeekAndPopState: internalPeekAndPopState
-            )
-            
             notifyPeekAndPopStateObserversIfNeededOn(
                 internalPeekAndPopState: internalPeekAndPopState,
                 oldInternalPeekAndPopState: oldValue
             )
-        }
-    }
-    
-    private weak var peekGestureRecognizer: UIGestureRecognizer? {
-        didSet {
-            oldValue?.removeTarget(self, action: nil)
-            peekGestureRecognizer?.addTarget(self, action: #selector(onPeekGestureChange(_:)))
         }
     }
     
@@ -136,7 +125,6 @@ public final class PeekAndPopUtilityImpl:
             // Check if router requested a transition
             if let peekAndPopData = internalPeekAndPopState.peekAndPopDataIfReceived {
                 internalPeekAndPopState = .inProgress(peekAndPopData.toWeakPeekAndPopData())
-                peekGestureRecognizer = previewingContext.previewingGestureRecognizerForFailureRelationship
                 return peekAndPopData.peekViewController
             } else {
                 internalPeekAndPopState = .finished(isPeekCommitted: false)
@@ -380,22 +368,6 @@ public final class PeekAndPopUtilityImpl:
         }
     }
     
-    private func releasePeekGestureRecognizerIfNeeded(internalPeekAndPopState: InternalPeekAndPopState) {
-        switch internalPeekAndPopState {
-        case .waitingForPeekAndPopData:
-            peekGestureRecognizer = nil
-
-        case .receivedPeekAndPopData:
-            peekGestureRecognizer = nil
-            
-        case .inProgress:
-            break
-            
-        case .finished:
-            peekGestureRecognizer = nil   
-        }
-    }
-    
     private func notifyPeekAndPopStateObserversOn(
         peekAndPopState: PeekAndPopState,
         forViewController viewController: UIViewController)
@@ -437,18 +409,6 @@ public final class PeekAndPopUtilityImpl:
         }
         
         return viewController.parent.flatMap { .peekViewControllerHasNonNilParent($0) } 
-    }
-    
-    @objc private func onPeekGestureChange(_ sender: UIGestureRecognizer) {
-        // When a user cancels `peek`, gesture recognizer's state is `.ended`
-        // When a user commits `peek`, gesture recognizer's state is `.cancelled`
-        if sender.state == .ended {
-            // Release the `peek` view controller
-            
-            // AI-7195: Disable peek and pop cancelling due to bugs on iOS 11
-            //internalPeekAndPopState = .finished(isPeekCommitted: false)
-            // TODO tyusipov AI-7205: Remove all `gesture recognizer` observing
-        }
     }
 }
 

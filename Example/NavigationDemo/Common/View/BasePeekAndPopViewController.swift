@@ -19,8 +19,7 @@ class BasePeekAndPopViewController: BaseViewController
     
     // MARK: - Override point
     var peekSourceViews: [UIView] {
-        assert(isViewLoaded)
-        return [view]
+        return []
     }
     
     @available(iOS 9.0, *)

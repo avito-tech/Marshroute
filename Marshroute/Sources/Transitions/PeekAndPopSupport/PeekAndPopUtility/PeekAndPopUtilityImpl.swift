@@ -241,7 +241,7 @@ public final class PeekAndPopUtilityImpl:
         
         peekAndPopStateObservers.append(peekAndPopStateObserver)
         
-        // Invoke callback immediately no notify a new observer about current state
+        // Invoke callback immediately to introduce current state to a new observer
         if let peekViewController = internalPeekAndPopState.peekViewControllerIfPeekIsInProgress {
             onPeekAndPopStateChange(peekViewController, .inPeek)
         }

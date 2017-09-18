@@ -12,6 +12,7 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
     {
         self.isDismissable = isDismissable
         super.init(peekAndPopUtility: peekAndPopUtility)
+        automaticallyAdjustsScrollViewInsets = true
     }
     
     // MARK: - Lifecycle

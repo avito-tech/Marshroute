@@ -15,6 +15,8 @@ class BaseViewController: UIViewController, ViewLifecycleObservable, DisposeBag,
     // MARK: - Lifecycle
     init() {
         super.init(nibName: nil, bundle: nil)
+        
+        automaticallyAdjustsScrollViewInsets = false
     }
 
     @available(*, unavailable, message: "use init")

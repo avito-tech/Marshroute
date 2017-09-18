@@ -24,15 +24,12 @@ final class AuthorizationViewController: BaseViewController, AuthorizationViewIn
             target: self,
             action: #selector(onSubmitButtonTap(_:))
         )
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super .viewWillLayoutSubviews()
         
-        authorizationView.contentInset = { [weak self] in
-            return  UIEdgeInsets(
-                top: self?.topLayoutGuide.length ?? 0,
-                left: 0,
-                bottom: self?.bottomLayoutGuide.length ?? 0,
-                right: 0
-            )
-        }
+        authorizationView.defaultContentInsets = defaultContentInsets
     }
     
     // MARK: - Private 

@@ -3,7 +3,9 @@ import UIKit
 final class RecursionView: UIView {
     fileprivate let backgroundImageView = UIImageView(image: UIImage(named: "Recursion.jpg"))
     fileprivate let timerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
-    var contentInset: (() -> (UIEdgeInsets))?
+    
+    // MARK: - Internal
+    var defaultContentInsets: UIEdgeInsets = .zero
     
     // MARK: - Init
     init() {
@@ -26,9 +28,7 @@ final class RecursionView: UIView {
     // MARK: - Layout
     override func layoutSubviews() {
         backgroundImageView.frame = bounds
-        
-        let contentInset = self.contentInset?() ?? UIEdgeInsets.zero
-        timerButton.frame = CGRect(x: 0, y: contentInset.top, width: bounds.width, height: 30)
+        timerButton.frame = CGRect(x: 0, y: defaultContentInsets.top, width: bounds.width, height: 30)
     }
     
     // MARK: - Internal

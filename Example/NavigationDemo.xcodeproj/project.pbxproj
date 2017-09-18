@@ -72,6 +72,7 @@
 		CC0B1E6E1CC3C91A006707B6 /* AdvertisementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */; };
 		CC0B1E6F1CC3C91A006707B6 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */; };
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
+		CC2B55DE1F6FAFAD00B7B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */; };
 		CC3B0EC11F59D6FF0034530E /* BaseAssemblySeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */; };
 		CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */; };
 		CC3E33BF1F5ED38F0013FA0D /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */; };
@@ -287,6 +288,7 @@
 		CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementView.swift; sourceTree = "<group>"; };
 		CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
+		CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssemblySeed.swift; sourceTree = "<group>"; };
 		CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePeekAndPopViewController.swift; sourceTree = "<group>"; };
 		CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -1169,6 +1171,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0B1D4C1CC20687006707B6 /* Assets.xcassets */,
+				CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */,
 				CCFD1A761CFB293D0065EE42 /* Patterns */,
 				CCFD1A7B1CFB293D0065EE42 /* Placeholders */,
 				CCE639721CE05A48002DF096 /* Localization */,
@@ -1550,6 +1553,7 @@
 				CCA064EC1CE061FF00D08A67 /* Categories.plist in Resources */,
 				CCFD1A871CFB293D0065EE42 /* cherries.jpg in Resources */,
 				CCFD1A811CFB293D0065EE42 /* aztec.png in Resources */,
+				CC2B55DE1F6FAFAD00B7B96C /* LaunchScreen.storyboard in Resources */,
 				CCFD1A821CFB293D0065EE42 /* plaits.png in Resources */,
 				CCFD1A851CFB293D0065EE42 /* apples.jpg in Resources */,
 				CC84066B1CD6623800644CA1 /* Default-568h@2x.png in Resources */,

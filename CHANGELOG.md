@@ -1,5 +1,5 @@
 [0.4.1](https://github.com/avito-tech/Marshroute/releases/tag/0.4.1)
-- Fix 3d touch on iOS 11. Migrate to Swift 4
+- Fix 3d touch on iOS 11
 
 [0.4.0](https://github.com/avito-tech/Marshroute/releases/tag/0.4.0)
 - Support 3d touch (peek and pop)

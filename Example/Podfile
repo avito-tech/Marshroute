@@ -12,3 +12,19 @@ end
 target 'MarshrouteTests' do
    pod 'Marshroute', :path => '../'
 end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
+            
+            # Note, that whole module optimization disables assertions by default.
+            # We add '-Onone' to our debug configuration's 'OTHER_SWIFT_FLAGS' in order to enable those assertions back.
+            # Adding '-Onone' also dramatically reduces compilation times, so it is prefered for debug builds
+            
+            if config.name == 'Debug'
+                config.build_settings['OTHER_SWIFT_FLAGS'] ||= ['$(inherited)', '-D', 'DEBUG', '-Onone']
+            end
+        end
+    end
+end

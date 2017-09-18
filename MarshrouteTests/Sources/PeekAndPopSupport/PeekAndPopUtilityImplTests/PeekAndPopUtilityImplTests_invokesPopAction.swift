@@ -195,31 +195,6 @@ final class PeekAndPopUtilityImplTests_invokesPopAction: BasePeekAndPopUtilityIm
         waitForExpectations(timeout: asyncTimeout)
     }
     
-    func testPeekAndPopUtility_invokesNoPopAction_ifPeekGetsCancelledByUserOnOnscreenRegisteredViewController() {
-        // Given
-        let invertedExpectation = self.invertedExpectation()
-        
-        bindSourceViewControllerToWindow()
-        
-        registerSourceViewControllerForPreviewing(
-            onPeek: { _ in
-                self.invokeTransitionToPeekViewController(
-                    popAction: {
-                        invertedExpectation.fulfill()
-                    }
-                )
-            }
-        )
-        
-        // When
-        beginPeekOnRegisteredViewController()
-        
-        cancelPeekOnRegisteredViewController()
-        
-        // Then
-        waitForExpectations(timeout: asyncTimeout)
-    }
-    
     func testPeekAndPopUtility_invokesNoPopAction_ifSamePeekIsAlreadyBeganAndNewPeekBeginsOnOnscreenRegisteredViewController() {
         // Given
         let invertedExpectation = self.invertedExpectation()

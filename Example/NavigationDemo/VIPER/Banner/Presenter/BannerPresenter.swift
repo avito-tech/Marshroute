@@ -11,7 +11,9 @@ final class BannerPresenter: BannerModuleInput {
     // MARK: - Weak properties
     weak var view: BannerViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

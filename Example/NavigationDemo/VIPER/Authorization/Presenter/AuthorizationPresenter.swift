@@ -20,7 +20,9 @@ final class AuthorizationPresenter: AuthorizationModuleInput {
     // MARK: - Weak properties
     weak var view: AuthorizationViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

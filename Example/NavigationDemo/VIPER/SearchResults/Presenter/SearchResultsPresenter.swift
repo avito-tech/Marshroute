@@ -13,7 +13,9 @@ final class SearchResultsPresenter {
     // MARK: - Weak properties
     weak var view: SearchResultsViewInput? {
         didSet {
-            setupView()
+            if oldValue !== view {
+                setupView()
+            }
         }
     }
     

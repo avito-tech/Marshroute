@@ -88,7 +88,7 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
                     self?.onPeek?()
                 case .popped:
                     self?.onPop?()
-                case .cancelled:
+                case .interrupted:
                     break
                 }
             }

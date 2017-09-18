@@ -362,7 +362,7 @@ public final class PeekAndPopUtilityImpl:
             notifyPeekAndPopStateObserversOn(
                 peekAndPopState: (internalPeekAndPopState.isPeekCommitted) 
                     ? .popped
-                    : .cancelled,
+                    : .interrupted,
                 forViewController: oldPeekViewController
             ) 
         }

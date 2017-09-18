@@ -87,7 +87,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
-                    XCTAssert(peekAndPopState == .cancelled)
+                    XCTAssert(peekAndPopState == .interrupted)
                 }
             }
         )
@@ -123,7 +123,7 @@ final class PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers: BasePee
                 
                 if callbackCounter == 2 {
                     XCTAssert(viewController === self.peekViewController)
-                    XCTAssert(peekAndPopState == .cancelled)
+                    XCTAssert(peekAndPopState == .interrupted)
                 }
             }
         )

@@ -412,7 +412,6 @@ public final class PeekAndPopUtilityImpl:
             }
             
             if filteredViewControllers.isEmpty {
-                // TODO AI-7205 tyusipov: Test
                 rollback = { [weak viewController] in
                     // Retain a strong reference to a `navigationController`.
                     // This is likely to be a modal navigation transition. 

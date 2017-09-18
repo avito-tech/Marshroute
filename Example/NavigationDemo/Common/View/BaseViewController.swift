@@ -22,6 +22,11 @@ class BaseViewController: UIViewController, ViewLifecycleObservable, DisposeBag,
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        debugPrint("\(#function), \(self)")
+    }
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

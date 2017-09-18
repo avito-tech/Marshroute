@@ -73,6 +73,8 @@
 		CC0B1E6F1CC3C91A006707B6 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */; };
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
 		CC2B55DE1F6FAFAD00B7B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */; };
+		CC2B55E21F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */; };
+		CC2B55E41F6FCD1400B7B96C /* TestablePeekAndPopSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */; };
 		CC3B0EC11F59D6FF0034530E /* BaseAssemblySeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */; };
 		CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */; };
 		CC3E33BF1F5ED38F0013FA0D /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */; };
@@ -289,6 +291,8 @@
 		CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
 		CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift; sourceTree = "<group>"; };
+		CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestablePeekAndPopSourceViewController.swift; sourceTree = "<group>"; };
 		CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssemblySeed.swift; sourceTree = "<group>"; };
 		CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePeekAndPopViewController.swift; sourceTree = "<group>"; };
 		CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -1047,6 +1051,7 @@
 				CCD6F5B71F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_notifiesRegisteredViewControllerOnPeek.swift */,
 				CCD6F5B81F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_passesPeekViewControllerToUiKit.swift */,
 				CCD6F5C11F60C2D700A3E163 /* PeekAndPopUtilityImplTests_passesPreviewingContextToRegisteredViewController.swift */,
+				CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */,
 				CCD6F5B91F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_releasesPeekViewController.swift */,
 				CCD6F5AC1F606EC500A3E163 /* Support */,
 			);
@@ -1366,6 +1371,7 @@
 			isa = PBXGroup;
 			children = (
 				CCD6F5B31F60BDDA00A3E163 /* BasePeekAndPopUtilityImplTestCase.swift */,
+				CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1825,6 +1831,7 @@
 				CC4268501F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
 				CC42683D1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift in Sources */,
 				CC42685C1F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC2B55E41F6FCD1400B7B96C /* TestablePeekAndPopSourceViewController.swift in Sources */,
 				CC4268411F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */,
 				CC42684B1F5FF8C300F4C407 /* TransitionContextsStack_Tests.swift in Sources */,
 				CC42683C1F5FF8C300F4C407 /* TransitionContextsExtensions.swift in Sources */,
@@ -1846,6 +1853,7 @@
 				CC4268491F5FF8C300F4C407 /* RouterFocusableTests.swift in Sources */,
 				CC4268391F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift in Sources */,
 				CC42683B1F5FF8C300F4C407 /* TransitionContextsCreator.swift in Sources */,
+				CC2B55E21F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift in Sources */,
 				CCD6F5C21F60C2D700A3E163 /* PeekAndPopUtilityImplTests_passesPreviewingContextToRegisteredViewController.swift in Sources */,
 				CC4268381F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift in Sources */,
 				CC42684E1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,

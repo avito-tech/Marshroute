@@ -65,20 +65,21 @@ public final class PeekAndPopUtilityImpl:
         registeredPreviewingDataList = registeredPreviewingDataList.filter { registeredPreviewingData in
             let shouldKeepInCollection: Bool
             
-            if registeredPreviewingData.viewController == viewController,
-                let previewingContext = registeredPreviewingData.previewingContext
-            {
-                viewController.unregisterForPreviewing(withContext: previewingContext)
-            }
-            
             if registeredPreviewingData.isZombie {
                 shouldKeepInCollection = false
-            } else if registeredPreviewingData.viewController === viewController {
+            } else if registeredPreviewingData.viewController === viewController,
+                let previewingContext = registeredPreviewingData.previewingContext 
+            {
                 if let sourceView = sourceView {
-                    shouldKeepInCollection = registeredPreviewingData.previewingContext?.sourceView != sourceView
+                    shouldKeepInCollection = previewingContext.sourceView !== sourceView
                 } else {
                     shouldKeepInCollection = false
                 }
+                
+                if !shouldKeepInCollection {
+                    viewController.unregisterForPreviewing(withContext: previewingContext)
+                }
+                
             } else {
                 shouldKeepInCollection = true
             }

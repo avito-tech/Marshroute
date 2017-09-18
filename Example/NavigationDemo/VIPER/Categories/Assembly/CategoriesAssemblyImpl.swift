@@ -17,9 +17,13 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
             routerSeed: routerSeed
         )
         
-        let isDismissable = routerSeed.presentingTransitionsHandler != nil
+        let viewControllerPosition = ViewControllerPosition(routerSeed: routerSeed)
         
-        return module(interactor: interactor, router: router, isDismissable: isDismissable)
+        return module(
+            interactor: interactor,
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
     
     func ipadModule(routerSeed: RouterSeed)
@@ -36,9 +40,13 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
             routerSeed: routerSeed
         )
         
-        let isDismissable = routerSeed.presentingTransitionsHandler != nil
+        let viewControllerPosition = ViewControllerPosition(routerSeed: routerSeed)
         
-        return module(interactor: interactor, router: router, isDismissable: isDismissable)
+        return module(
+            interactor: interactor,
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
     
     func ipadMasterDetailModule(routerSeed: MasterDetailRouterSeed)
@@ -55,9 +63,13 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
             routerSeed: routerSeed
         )
         
-        let isDismissable = routerSeed.presentingTransitionsHandler != nil
+        let viewControllerPosition = ViewControllerPosition(masterDetailRouterSeed: routerSeed)
         
-        return module(interactor: interactor, router: router, isDismissable: isDismissable)
+        return module(
+            interactor: interactor,
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
     
     // MARK: - SubcategoriesAssembly
@@ -75,7 +87,13 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
             routerSeed: routerSeed
         )
         
-        return module(interactor: interactor, router: router, isDismissable: false)
+        let viewControllerPosition = ViewControllerPosition(routerSeed: routerSeed)
+        
+        return module(
+            interactor: interactor,
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
     
     func ipadModule(categoryId: CategoryId, routerSeed: RouterSeed)
@@ -92,7 +110,13 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
             routerSeed: routerSeed
         )
         
-        return module(interactor: interactor, router: router, isDismissable: false)
+        let viewControllerPosition = ViewControllerPosition(routerSeed: routerSeed)
+        
+        return module(
+            interactor: interactor,
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
 
     func ipadMasterDetailModule(categoryId: CategoryId, routerSeed: MasterDetailRouterSeed)
@@ -109,11 +133,20 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
             routerSeed: routerSeed
         )
         
-        return module(interactor: interactor, router: router, isDismissable: false)
+        let viewControllerPosition = ViewControllerPosition(masterDetailRouterSeed: routerSeed)
+        
+        return module(
+            interactor: interactor,
+            router: router,
+            viewControllerPosition: viewControllerPosition
+        )
     }
     
     // MARK: - Private
-    fileprivate func module(interactor: CategoriesInteractor, router: CategoriesRouter, isDismissable: Bool)
+    fileprivate func module(
+        interactor: CategoriesInteractor,
+        router: CategoriesRouter,
+        viewControllerPosition: ViewControllerPosition)
         -> UIViewController
     {
         let presenter = CategoriesPresenter(
@@ -122,7 +155,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
         )
         
         let viewController = CategoriesViewController(
-            isDismissable: isDismissable,
+            viewControllerPosition: viewControllerPosition,
             peekAndPopUtility: marshrouteStack.peekAndPopUtility
         )
         

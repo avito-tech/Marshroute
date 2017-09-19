@@ -40,7 +40,7 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
             x: 0,
             y: 0,
             width: containerViewController.view.frame.width,
-            height: topViewController.topLayoutGuide.length 
+            height: topViewController.defaultContentInsets.top 
         )
         
         bannerView.frame = bannerFrame

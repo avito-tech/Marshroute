@@ -65,20 +65,21 @@ public final class PeekAndPopUtilityImpl:
         registeredPreviewingDataList = registeredPreviewingDataList.filter { registeredPreviewingData in
             let shouldKeepInCollection: Bool
             
-            if registeredPreviewingData.viewController == viewController,
-                let previewingContext = registeredPreviewingData.previewingContext
-            {
-                viewController.unregisterForPreviewing(withContext: previewingContext)
-            }
-            
             if registeredPreviewingData.isZombie {
                 shouldKeepInCollection = false
-            } else if registeredPreviewingData.viewController === viewController {
+            } else if registeredPreviewingData.viewController === viewController,
+                let previewingContext = registeredPreviewingData.previewingContext 
+            {
                 if let sourceView = sourceView {
-                    shouldKeepInCollection = registeredPreviewingData.previewingContext?.sourceView != sourceView
+                    shouldKeepInCollection = previewingContext.sourceView !== sourceView
                 } else {
                     shouldKeepInCollection = false
                 }
+                
+                if !shouldKeepInCollection {
+                    viewController.unregisterForPreviewing(withContext: previewingContext)
+                }
+                
             } else {
                 shouldKeepInCollection = true
             }
@@ -362,7 +363,7 @@ public final class PeekAndPopUtilityImpl:
             notifyPeekAndPopStateObserversOn(
                 peekAndPopState: (internalPeekAndPopState.isPeekCommitted) 
                     ? .popped
-                    : .cancelled,
+                    : .interrupted,
                 forViewController: oldPeekViewController
             ) 
         }
@@ -394,10 +395,10 @@ public final class PeekAndPopUtilityImpl:
             let filteredViewControllers = navigationController.viewControllers.filter { $0 !== viewController }
             navigationController.viewControllers = filteredViewControllers
             
-            rollback = { [weak viewController] in
-                guard let viewController = viewController 
-                    else { return }
-                
+            func bindViewController(
+                _ viewController: UIViewController,
+                backToNavigationController navigationController: UINavigationController)
+            {
                 // Return `viewController` back to its `parent`
                 var restoredViewControllers = navigationController.viewControllers
                 
@@ -408,6 +409,29 @@ public final class PeekAndPopUtilityImpl:
                 }
                 
                 navigationController.viewControllers = restoredViewControllers                        
+            }
+            
+            if filteredViewControllers.isEmpty {
+                rollback = { [weak viewController] in
+                    // Retain a strong reference to a `navigationController`.
+                    // This is likely to be a modal navigation transition. 
+                    guard let viewController = viewController 
+                        else { return }
+                    
+                    // Return `viewController` back to its `parent`
+                    bindViewController(viewController, backToNavigationController: navigationController)
+                }
+            } else {
+                rollback = { [weak viewController, weak navigationController] in
+                    // Retain a weak reference to a `navigationController`.
+                    // This is likely to be a push transition.
+                    guard let viewController = viewController,
+                        let navigationController = navigationController
+                        else { return }
+                    
+                    // Return `viewController` back to its `parent`
+                    bindViewController(viewController, backToNavigationController: navigationController)      
+                }
             }
         }
         

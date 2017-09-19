@@ -6,9 +6,10 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     let asyncTimeout: TimeInterval = 0.1
     
     var peekAndPopUtility: PeekAndPopUtilityImpl!
-    var sourceViewController: UIViewController!
+    var sourceViewController: TestablePeekAndPopSourceViewController!
     var sourceView: UIView!
-    var sourceViewController2: UIViewController!
+    var otherSourceView: UIView!
+    var sourceViewController2: TestablePeekAndPopSourceViewController!
     var sourceView2: UIView!
     var window: UIWindow!
     var previewingContext: UIViewControllerPreviewing?
@@ -21,9 +22,10 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     override func setUp() {
         super.setUp()
         peekAndPopUtility = PeekAndPopUtilityImpl()
-        sourceViewController = UIViewController()
+        sourceViewController = TestablePeekAndPopSourceViewController()
         sourceView = sourceViewController.view
-        sourceViewController2 = UIViewController()
+        otherSourceView = UIView()
+        sourceViewController2 = TestablePeekAndPopSourceViewController()
         sourceView2 = sourceViewController2.view
         window = UIWindow()
         peekViewController = UIViewController()
@@ -37,6 +39,7 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         peekAndPopUtility = nil
         sourceViewController = nil
         sourceView = nil
+        otherSourceView = nil
         sourceViewController2 = nil
         sourceView2 = nil
         window = nil
@@ -82,6 +85,21 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         )
     }
     
+    func registerSourceViewControllerForPreviewingWithOtherSourceView(
+        onPeek: ((_ previewingContext: UIViewControllerPreviewing) -> ())? = nil)
+    {
+        peekAndPopUtility.register(
+            viewController: sourceViewController,
+            forPreviewingInSourceView: otherSourceView,
+            onPeek: { previewingContext, _ in 
+                onPeek?(previewingContext)
+        },
+            onPreviewingContextChange: { [weak self] previewingContext in
+                self?.previewingContext = previewingContext
+            }
+        )
+    }
+    
     func registerSourceViewController2ForPreviewing(
         onPeek: ((_ previewingContext: UIViewControllerPreviewing) -> ())? = nil)
     {
@@ -101,6 +119,19 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
         peekAndPopUtility.unregister(
             viewController: sourceViewController,
             fromPreviewingInSourceView: sourceView
+        )
+    }
+    
+    func unregisterSourceViewControllerFromPreviewingWithOtherSourceView() {
+        peekAndPopUtility.unregister(
+            viewController: sourceViewController,
+            fromPreviewingInSourceView: otherSourceView
+        )
+    }
+    
+    func unregisterSourceViewControllerFromPreviewingInAllSourceViews() {
+        peekAndPopUtility.unregisterViewControllerFromPreviewingInAllSourceViews(
+            sourceViewController
         )
     }
     

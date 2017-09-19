@@ -15,6 +15,8 @@ class BaseViewController: UIViewController, ViewLifecycleObservable, DisposeBag,
     // MARK: - Lifecycle
     init() {
         super.init(nibName: nil, bundle: nil)
+        
+        automaticallyAdjustsScrollViewInsets = false
     }
 
     @available(*, unavailable, message: "use init")
@@ -22,6 +24,11 @@ class BaseViewController: UIViewController, ViewLifecycleObservable, DisposeBag,
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        debugPrint("\(#function), \(self)")
+    }
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

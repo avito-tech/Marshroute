@@ -72,9 +72,13 @@
 		CC0B1E6E1CC3C91A006707B6 /* AdvertisementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */; };
 		CC0B1E6F1CC3C91A006707B6 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */; };
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
+		CC2B55DE1F6FAFAD00B7B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */; };
+		CC2B55E21F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */; };
+		CC2B55E41F6FCD1400B7B96C /* TestablePeekAndPopSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */; };
+		CC2B55E61F6FDDBE00B7B96C /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E51F6FDDBD00B7B96C /* ViewControllerExtensions.swift */; };
 		CC3B0EC11F59D6FF0034530E /* BaseAssemblySeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */; };
 		CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */; };
-		CC3E33BF1F5ED38F0013FA0D /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */; };
+		CC3E33BF1F5ED38F0013FA0D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3E33BE1F5ED38F0013FA0D /* ViewExtensions.swift */; };
 		CC4268381F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268071F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift */; };
 		CC4268391F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268081F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift */; };
 		CC42683A1F5FF8C300F4C407 /* DummyTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4268091F5FF8C300F4C407 /* DummyTransitionsHandler.swift */; };
@@ -287,9 +291,13 @@
 		CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementView.swift; sourceTree = "<group>"; };
 		CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
+		CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift; sourceTree = "<group>"; };
+		CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestablePeekAndPopSourceViewController.swift; sourceTree = "<group>"; };
+		CC2B55E51F6FDDBD00B7B96C /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		CC3B0EC01F59D6FF0034530E /* BaseAssemblySeed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAssemblySeed.swift; sourceTree = "<group>"; };
 		CC3B0EC21F59D8B30034530E /* BasePeekAndPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePeekAndPopViewController.swift; sourceTree = "<group>"; };
-		CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
+		CC3E33BE1F5ED38F0013FA0D /* ViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		CC4267FB1F5FF76F00F4C407 /* MarshrouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarshrouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC4267FF1F5FF76F00F4C407 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC4268071F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandlerSpy.swift; sourceTree = "<group>"; };
@@ -1045,6 +1053,7 @@
 				CCD6F5B71F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_notifiesRegisteredViewControllerOnPeek.swift */,
 				CCD6F5B81F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_passesPeekViewControllerToUiKit.swift */,
 				CCD6F5C11F60C2D700A3E163 /* PeekAndPopUtilityImplTests_passesPreviewingContextToRegisteredViewController.swift */,
+				CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */,
 				CCD6F5B91F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_releasesPeekViewController.swift */,
 				CCD6F5AC1F606EC500A3E163 /* Support */,
 			);
@@ -1169,6 +1178,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0B1D4C1CC20687006707B6 /* Assets.xcassets */,
+				CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */,
 				CCFD1A761CFB293D0065EE42 /* Patterns */,
 				CCFD1A7B1CFB293D0065EE42 /* Placeholders */,
 				CCE639721CE05A48002DF096 /* Localization */,
@@ -1363,6 +1373,7 @@
 			isa = PBXGroup;
 			children = (
 				CCD6F5B31F60BDDA00A3E163 /* BasePeekAndPopUtilityImplTestCase.swift */,
+				CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1415,7 +1426,8 @@
 			isa = PBXGroup;
 			children = (
 				CCE639781CE05ABE002DF096 /* StringExtensions.swift */,
-				CC3E33BE1F5ED38F0013FA0D /* ViewControllerExtensions.swift */,
+				CC3E33BE1F5ED38F0013FA0D /* ViewExtensions.swift */,
+				CC2B55E51F6FDDBD00B7B96C /* ViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1503,7 +1515,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Тимур Юсипов";
 				TargetAttributes = {
 					CC0B1D3F1CC20687006707B6 = {
@@ -1550,6 +1562,7 @@
 				CCA064EC1CE061FF00D08A67 /* Categories.plist in Resources */,
 				CCFD1A871CFB293D0065EE42 /* cherries.jpg in Resources */,
 				CCFD1A811CFB293D0065EE42 /* aztec.png in Resources */,
+				CC2B55DE1F6FAFAD00B7B96C /* LaunchScreen.storyboard in Resources */,
 				CCFD1A821CFB293D0065EE42 /* plaits.png in Resources */,
 				CCFD1A851CFB293D0065EE42 /* apples.jpg in Resources */,
 				CC84066B1CD6623800644CA1 /* Default-568h@2x.png in Resources */,
@@ -1701,7 +1714,7 @@
 				CC0B1D871CC20999006707B6 /* CategoriesRouterIphone.swift in Sources */,
 				CCA0651F1CE0B51200D08A67 /* TouchEventListener.swift in Sources */,
 				CC0B1E1B1CC2DF84006707B6 /* SearchResultsRouterIphone.swift in Sources */,
-				CC3E33BF1F5ED38F0013FA0D /* ViewControllerExtensions.swift in Sources */,
+				CC3E33BF1F5ED38F0013FA0D /* ViewExtensions.swift in Sources */,
 				CC0B1D611CC207FA006707B6 /* BaseAssembly.swift in Sources */,
 				CCA7C9041CD9296200B7ADBD /* AuthorizationRouter.swift in Sources */,
 				CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */,
@@ -1763,6 +1776,7 @@
 				CC0B1D6B1CC20910006707B6 /* AssemblyFactoryImpl.swift in Sources */,
 				CCA7C90D1CD9321300B7ADBD /* ApplicationModuleInput.swift in Sources */,
 				CC84068C1CD6693500644CA1 /* ShelfViewInput.swift in Sources */,
+				CC2B55E61F6FDDBE00B7B96C /* ViewControllerExtensions.swift in Sources */,
 				CC0B1D441CC20687006707B6 /* AppDelegate.swift in Sources */,
 				CCA7C9031CD9296200B7ADBD /* AuthorizationPresenter.swift in Sources */,
 				CCA7C9051CD9296200B7ADBD /* AuthorizationRouterIphone.swift in Sources */,
@@ -1820,6 +1834,7 @@
 				CC4268501F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
 				CC42683D1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift in Sources */,
 				CC42685C1F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */,
+				CC2B55E41F6FCD1400B7B96C /* TestablePeekAndPopSourceViewController.swift in Sources */,
 				CC4268411F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */,
 				CC42684B1F5FF8C300F4C407 /* TransitionContextsStack_Tests.swift in Sources */,
 				CC42683C1F5FF8C300F4C407 /* TransitionContextsExtensions.swift in Sources */,
@@ -1841,6 +1856,7 @@
 				CC4268491F5FF8C300F4C407 /* RouterFocusableTests.swift in Sources */,
 				CC4268391F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift in Sources */,
 				CC42683B1F5FF8C300F4C407 /* TransitionContextsCreator.swift in Sources */,
+				CC2B55E21F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift in Sources */,
 				CCD6F5C21F60C2D700A3E163 /* PeekAndPopUtilityImplTests_passesPreviewingContextToRegisteredViewController.swift in Sources */,
 				CC4268381F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift in Sources */,
 				CC42684E1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
@@ -1901,14 +1917,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1931,7 +1953,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1951,14 +1973,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1975,7 +2003,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1995,8 +2023,11 @@
 				INFOPLIST_FILE = "$(SRCROOT)/NavigationDemo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Onone";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -2011,6 +2042,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/NavigationDemo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Onone";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

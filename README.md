@@ -197,7 +197,7 @@ You can also learn how to use `PeekAndPopStateViewControllerObservable` to adjus
 ## <a name="requirements"/> Requirements
 
 - iOS 8.0+
-- Xcode 7.3+
+- Xcode 9.0+
 
 Note: peek and pop is supported only for iOS 9.0+
 

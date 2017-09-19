@@ -11,6 +11,8 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        automaticallyAdjustsScrollViewInsets = true
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "recursion".localized, // to Recursion module
             style: .plain,

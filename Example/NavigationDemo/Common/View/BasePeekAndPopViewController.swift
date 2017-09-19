@@ -13,10 +13,6 @@ class BasePeekAndPopViewController: BaseViewController
         super.init()
     }
     
-    deinit {
-        debugPrint("\(#function), \(self)")
-    }
-    
     // MARK: - Override point
     var peekSourceViews: [UIView] {
         return []

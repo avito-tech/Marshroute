@@ -5,7 +5,9 @@ final class AuthorizationView: UIView {
     fileprivate let backgroundView: UIImageView?
     fileprivate let emailTextField = UITextField()
     fileprivate let passwordTextField = UITextField()
-    var contentInset: (() -> (UIEdgeInsets))?
+    
+    // MARK: - Internal
+    var defaultContentInsets: UIEdgeInsets = .zero
     
     // MARK: - Init
     init() {
@@ -41,7 +43,7 @@ final class AuthorizationView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let topLayoutGuide = contentInset?().top ?? 64
+        let topLayoutGuide = defaultContentInsets.top
         
         let centerX = bounds.midX
         let textFieldWidth: CGFloat = 240

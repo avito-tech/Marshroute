@@ -12,6 +12,7 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
     {
         self.viewControllerPosition = viewControllerPosition
         super.init(peekAndPopUtility: peekAndPopUtility)
+        automaticallyAdjustsScrollViewInsets = true
     }
     
     // MARK: - Lifecycle

@@ -22,15 +22,6 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recursionView.contentInset = { [weak self] in
-            return  UIEdgeInsets(
-                top: self?.topLayoutGuide.length ?? 0,
-                left: 0,
-                bottom: self?.bottomLayoutGuide.length ?? 0,
-                right: 0
-            )
-        }
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "recursion".localized, // to Recursion module
             style: .plain,
@@ -59,6 +50,12 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
         rightBarButtonItems.append(toCategoriesButtonItem)
         
         navigationItem.rightBarButtonItems = rightBarButtonItems
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super .viewWillLayoutSubviews()
+        
+        recursionView.defaultContentInsets = defaultContentInsets
     }
     
     // MARK: - BasePeekAndPopViewController

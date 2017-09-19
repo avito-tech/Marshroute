@@ -37,14 +37,7 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
-        let uiInsets = UIEdgeInsets(
-            top: topLayoutGuide.length ,
-            left: 0,
-            bottom: bottomLayoutGuide.length,
-            right: 0
-        )
-        
-        advertisementView.setUIInsets(uiInsets)
+        advertisementView.defaultContentInsets = defaultContentInsets
     }
     
     // MARK: - BasePeekAndPopViewController
@@ -88,7 +81,7 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
                     self?.onPeek?()
                 case .popped:
                     self?.onPop?()
-                case .cancelled:
+                case .interrupted:
                     break
                 }
             }

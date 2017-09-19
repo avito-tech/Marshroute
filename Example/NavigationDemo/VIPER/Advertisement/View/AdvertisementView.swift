@@ -9,7 +9,14 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     fileprivate let tableView = UITableView()
     fileprivate var recommendedSearchResults = [SearchResultsViewData]()
     fileprivate let placeholderImageView = UIImageView()
-    fileprivate var uiInsets = UIEdgeInsets.zero
+    
+    // MARK: - Internal
+    var defaultContentInsets: UIEdgeInsets = .zero {
+        didSet {
+            tableView.contentInset.bottom = defaultContentInsets.bottom
+            tableView.scrollIndicatorInsets.bottom = defaultContentInsets.bottom 
+        }
+    }
     
     // MARK: - Init
     init() {
@@ -70,13 +77,6 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
         tableView.isHidden = hidden
         setNeedsLayout()
     }
-    
-    func setUIInsets(_ insets: UIEdgeInsets) {
-        uiInsets = insets
-        
-        tableView.contentInset.bottom = insets.bottom
-        tableView.scrollIndicatorInsets.bottom = insets.bottom
-    }    
 
     var peekSourceViews: [UIView] {
         return [tableView]
@@ -125,7 +125,7 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
             let tableFrame = CGRect(x: 0, y: tableTop, width: bounds.width, height: tableHeight)
             tableView.frame = tableFrame
             
-            placeholderImageView.frame = CGRect(x: 0, y: uiInsets.top, width: bounds.width, height: tableTop)            
+            placeholderImageView.frame = CGRect(x: 0, y: defaultContentInsets.top, width: bounds.width, height: tableTop)            
         }
     }
     

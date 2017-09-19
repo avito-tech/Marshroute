@@ -1,33 +1,16 @@
 import UIKit
 
-extension UIView {
-    func interactableControlAt(location: CGPoint) -> UIControl? {
-        return interactableControlAt(location: location, rootView: self)
-    }
-    
-    private func interactableControlAt(location: CGPoint, rootView: UIView) -> UIControl? {
-        for subview in subviews {
-            guard subview.isUserInteractionEnabled else {
-                continue
-            }
-            
-            guard !subview.isHidden else {
-                continue
-            }
-            
-            let subviewFrameInRootView = subview.convert(subview.bounds, to: rootView)
-            
-            guard subviewFrameInRootView.contains(location) else {
-                continue
-            }
-            
-            if let control = subview as? UIControl {
-                return control
-            } else if let controlInNestedSubviews = subview.interactableControlAt(location: location, rootView: rootView) {
-                return controlInNestedSubviews
-            }
+extension UIViewController {
+    var defaultContentInsets: UIEdgeInsets {
+        if #available(iOS 11.0, *) {
+            return .zero // `view` already hase `safeAreaInsets` on iOS 11
+        } else {
+            return UIEdgeInsets(
+                top: topLayoutGuide.length,
+                left: 0,
+                bottom: bottomLayoutGuide.length,
+                right: 0
+            ) 
         }
-        
-        return nil
     }
 }

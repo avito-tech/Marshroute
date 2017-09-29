@@ -159,7 +159,7 @@ peekAndPopStateViewControllerObservable.addObserver(
             self?.onPeek?()
         case .popped:
             self?.onPop?()
-        case .cancelled:
+        case .interrupted:
             break
         }
     }

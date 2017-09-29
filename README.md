@@ -13,9 +13,10 @@
 * [Installation](#installation)
     * [Cocoapods](#cocoapods)
     * [Carthage](#carthage)
-* [Contacts](#contacts)
 * [Licence](#licence)
 * [Objective-c support](#objective-c-support)
+* [Useful links](#useful-links)
+* [Authors](#authors)
 
 ## <a name="overview"/> Overview
 
@@ -225,12 +226,17 @@ github "avito-tech/Marshroute" ~> 0.4.0
 
 Then run `carthage update --platform iOS` command. For details of the installation and usage of Carthage, visit [its  repo website](https://github.com/Carthage/Carthage).
 
-## <a name="contacts"/> Contacts
-
-Feel free to send your questions at `tyusipov@avito.ru` or to open an issue
 
 ## <a name="licence"/> Licence
 MIT
 
 ## <a name="objective-c-support"/> Objective-c support
 The framework is written in pure `Swift` using its latest features, so if you want to use `Marshroute` in your `Objective-c` application you will have to write your `Router`s in `Swift`.
+
+## <a name="useful-links"/> Useful links
+You can watch [this video](https://www.youtube.com/watch?v=kyOm_dC038s&t=1s) to get a closer look at the reasons and ideas which formed the basis of `Marshroute` (in Russian).
+
+You can also read [this guide](https://github.com/avito-tech/Marshroute/wiki/Examples) of using `Marshroute` when implementing `DeepLink`s support in your application.
+
+## <a name="authors"/> Authors
+Timur Yusipov (tyusipov@avito.ru, ykylele@gmail.com, https://twitter.com/Fizmatchel, https://stackoverflow.com/users/2982854/tim).

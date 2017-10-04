@@ -46,7 +46,7 @@ public final class MarshrouteFacade {
  
     public func tabBarModule(
         _ tabBarController: UITabBarController? = nil,
-        tabControllerDeriviationFunctionType: [TabControllerDeriviationFunctionType])
+        tabControllerDeriviationFunctionTypes: [TabControllerDeriviationFunctionType])
         -> MarshrouteModule<UITabBarController>
     {
         let tabBarController = tabBarController ?? UITabBarController()
@@ -71,7 +71,7 @@ public final class MarshrouteFacade {
             }
         }
         
-        for (tabIndex, deriviationFunctionType) in tabControllerDeriviationFunctionType.enumerated() {
+        for (tabIndex, deriviationFunctionType) in tabControllerDeriviationFunctionTypes.enumerated() {
             switch deriviationFunctionType {
             case .detailController(let detailControllerDeriviationFunctionType):
                 let (viewController, routerSeed) = deriveDetailViewControllerFrom(

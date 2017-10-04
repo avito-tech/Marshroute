@@ -28,7 +28,23 @@ public final class MarshrouteFacade {
         )
     }
     
-    public func tabBarController(
+    public func splitModule(
+        _ splitViewController: UISplitViewController? = nil,
+        masterDetailViewControllerDeriviationFuctionType: MasterDetailViewControllerDeriviationFuctionType)
+        -> MarshrouteModule<UISplitViewController>
+    {
+        let (splitViewController, routerSeed) = deriveMasterDetailViewControllerFrom(
+            masterDetailViewControllerDeriviationFuctionType: masterDetailViewControllerDeriviationFuctionType,
+            splitViewController: splitViewController
+        )
+        
+        return MarshrouteModule<UISplitViewController>(
+            viewController: splitViewController,
+            routerSeed: routerSeed
+        )
+    }
+ 
+    public func tabBarModule(
         _ tabBarController: UITabBarController? = nil,
         tabControllerDeriviationFunctionType: [TabControllerDeriviationFunctionType])
         -> MarshrouteModule<UITabBarController>
@@ -310,9 +326,10 @@ public final class MarshrouteFacade {
         return (viewController, routerSeed)
     }
     
-    private func deriveMasterDetailViewControllerFrom(
-        masterDetailViewControllerDeriviationFuctionType: MasterDetailViewControllerDeriviationFuctionType)
-        -> (UIViewController, RouterSeed)
+	private func deriveMasterDetailViewControllerFrom(
+        masterDetailViewControllerDeriviationFuctionType: MasterDetailViewControllerDeriviationFuctionType,
+        splitViewController: UISplitViewController? = nil)
+        -> (UISplitViewController, RouterSeed)
     {
         let (detailController, detaillRouterSeed) = deriveDetailViewControllerFrom(
             detailControllerDeriviationFunctionType: masterDetailViewControllerDeriviationFuctionType.detailFunctionType
@@ -326,7 +343,8 @@ public final class MarshrouteFacade {
         let masterTransitionsHandlerBox = masterRouterSeed.masterTransitionsHandlerBox
         let detailTransitionsHandlerBox = detaillRouterSeed.transitionsHandlerBox
         
-        let splitViewController = marshrouteStack.routerControllersProvider.splitViewController()
+        let splitViewController = splitViewController
+            ?? marshrouteStack.routerControllersProvider.splitViewController()
         
         splitViewController.viewControllers = [masterController, detailController]
         

@@ -17,29 +17,9 @@ public final class MarshrouteFacade {
         withRootViewControllerDerivedFrom deriveViewController: (RouterSeed) -> (UIViewController))
         -> MarshrouteModule<UINavigationController>
     {
-        let navigationController = navigationController
-            ?? marshrouteStack.routerControllersProvider.navigationController()
-        
-        let navigationTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let (_, navigationController, routerSeed) = deriveDetailViewControllerInNavigationControllerFrom(
+            deriveDetailViewController: deriveViewController,
             navigationController: navigationController
-        )
-        
-        let routerSeed = makeRouterSeed(
-            animatingTransitionsHandler: navigationTransitionsHandler
-        )
-    
-        let viewController = deriveViewController(routerSeed)
-        
-        let resetContext = ResettingTransitionContext(
-            settingRootViewController: viewController,
-            forNavigationController: navigationController,
-            animatingTransitionsHandler: navigationTransitionsHandler,
-            animator: SetNavigationTransitionsAnimator(),
-            transitionId: transitionId
-        )
-        
-        navigationTransitionsHandler.resetWithTransition(
-            context: resetContext
         )
         
         return MarshrouteModule<UINavigationController>(
@@ -63,21 +43,33 @@ public final class MarshrouteFacade {
         var containingTransitionsHandlers = [Int: ContainingTransitionsHandler]()
         var tabControllers = [UIViewController]()
          
+        func appendTransitionHandlersFrom(
+            routerSeed: RouterSeed,
+            forTabIndex tabIndex: Int)
+        {
+            switch routerSeed.transitionsHandlerBox {
+            case .animating(strongBox: let animatingTransitionsHandlerBox):
+                animatingTransitionsHandlers[tabIndex] = animatingTransitionsHandlerBox.unbox()
+            case .containing(strongBox: let containingTransitionsHandlerBox):
+                containingTransitionsHandlers[tabIndex] = containingTransitionsHandlerBox.unbox()
+            }
+        }
+        
         for (tabIndex, deriviationFunctionType) in tabControllerDeriviationFunctionType.enumerated() {
             switch deriviationFunctionType {
             case .detailController(let detailControllerDeriviationFunctionType):
-                let (viewController, animatingTransitionsHandler) = deriveDetailViewControllerFrom(
+                let (viewController, routerSeed) = deriveDetailViewControllerFrom(
                     detailControllerDeriviationFunctionType: detailControllerDeriviationFunctionType
                 )
                 tabControllers.append(viewController)
-                animatingTransitionsHandlers[tabIndex] = animatingTransitionsHandler
+                appendTransitionHandlersFrom(routerSeed: routerSeed, forTabIndex: tabIndex)
                 
             case .masterDetailViewController(let masterDetailViewControllerDeriviationFuctionType):
-                let (viewController, containingTransitionsHandler) = deriveMasterDetailViewControllerFrom(
+                let (viewController, routerSeed) = deriveMasterDetailViewControllerFrom(
                     masterDetailViewControllerDeriviationFuctionType: masterDetailViewControllerDeriviationFuctionType
                 )
                 tabControllers.append(viewController)
-                containingTransitionsHandlers[tabIndex] = containingTransitionsHandler
+                appendTransitionHandlersFrom(routerSeed: routerSeed, forTabIndex: tabIndex)
             }
         }
         
@@ -129,7 +121,7 @@ public final class MarshrouteFacade {
     
     private func deriveDetailViewControllerFrom(
         detailControllerDeriviationFunctionType: DetailViewControllerDeriviationFunctionType)
-        -> (UIViewController, AnimatingTransitionsHandler)
+        -> (UIViewController, RouterSeed)
     {
         switch detailControllerDeriviationFunctionType {
         case .controller(let deriveDetailViewController):
@@ -146,7 +138,7 @@ public final class MarshrouteFacade {
     
     private func deriveDetailViewControllerFrom(
         deriveDetailViewController: DeriveDetailViewController)
-        -> (UIViewController, AnimatingTransitionsHandler)
+        -> (UIViewController, RouterSeed)
     {
         let animatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.animatingTransitionsHandler()
         
@@ -164,14 +156,28 @@ public final class MarshrouteFacade {
         
         animatingTransitionsHandler.resetWithTransition(context: resetContext)
         
-        return (viewController, animatingTransitionsHandler)
+        return (viewController, routerSeed)
     }
     
     private func deriveDetailViewControllerInNavigationControllerFrom(
         deriveDetailViewController: DeriveDetailViewController)
-        -> (UIViewController, AnimatingTransitionsHandler)
+        -> (UIViewController, RouterSeed)
     {
-        let navigationController = marshrouteStack.routerControllersProvider.navigationController()
+        let (viewController, _, routerSeed) =  deriveDetailViewControllerInNavigationControllerFrom(
+            deriveDetailViewController: deriveDetailViewController,
+            navigationController: nil
+        )
+        
+        return (viewController, routerSeed)
+    }
+    
+    private func deriveDetailViewControllerInNavigationControllerFrom(
+        deriveDetailViewController: DeriveDetailViewController,
+        navigationController: UINavigationController?)
+        -> (UIViewController, UINavigationController, RouterSeed)
+    {
+        let navigationController = navigationController
+            ?? marshrouteStack.routerControllersProvider.navigationController()
         
         let navigationTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: navigationController
@@ -195,10 +201,21 @@ public final class MarshrouteFacade {
             context: resetContext
         )
         
-        return (viewController, navigationTransitionsHandler)
+        return (viewController, navigationController, routerSeed)
     }
     
     // MARK: - MasterDetail helpers
+    private func makeMasterDetailRouterSeed(
+        masterAnimaingTransitionsHandler: AnimatingTransitionsHandler,
+        detailTransitionsHandlerBox: TransitionsHandlerBox)
+        -> MasterDetailRouterSeed
+    {
+        return makeMasterDetailRouterSeed(
+            masterTransitionsHandlerBox: .init(animatingTransitionsHandler: masterAnimaingTransitionsHandler),
+            detailTransitionsHandlerBox: detailTransitionsHandlerBox
+        )
+    }
+    
     private func makeMasterDetailRouterSeed(
         masterTransitionsHandlerBox: TransitionsHandlerBox,
         detailTransitionsHandlerBox: TransitionsHandlerBox)
@@ -218,7 +235,7 @@ public final class MarshrouteFacade {
     private func deriveMasterViewControllerFrom(
         detailTransitionsHandlerBox: TransitionsHandlerBox,
         masterControllerDeriviationFunctionType: MasterViewControllerDeriviationFunctionType)
-        -> (UIViewController, AnimatingTransitionsHandler)
+        -> (UIViewController, MasterDetailRouterSeed)
     {
         switch masterControllerDeriviationFunctionType {
         case .controller(let deriveMasterViewController):
@@ -238,12 +255,12 @@ public final class MarshrouteFacade {
     private func deriveMasterViewControllerFrom(
         detailTransitionsHandlerBox: TransitionsHandlerBox,
         deriveMasterViewController: DeriveMasterViewController)
-        -> (UIViewController, AnimatingTransitionsHandler)
+        -> (UIViewController, MasterDetailRouterSeed)
     {
-        let animatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.animatingTransitionsHandler()
+        let animatingMasterTransitionsHandler = marshrouteStack.transitionsHandlersProvider.animatingTransitionsHandler()
         
         let routerSeed = makeMasterDetailRouterSeed(
-            masterTransitionsHandlerBox: .init(animatingTransitionsHandler: animatingTransitionsHandler),
+            masterAnimaingTransitionsHandler: animatingMasterTransitionsHandler,
             detailTransitionsHandlerBox: detailTransitionsHandlerBox
         )
         
@@ -251,19 +268,19 @@ public final class MarshrouteFacade {
         
         let resetContext = ResettingTransitionContext(
             registeringViewController: viewController,
-            animatingTransitionsHandler: animatingTransitionsHandler,
+            animatingTransitionsHandler: animatingMasterTransitionsHandler,
             transitionId: transitionId
         )
         
-        animatingTransitionsHandler.resetWithTransition(context: resetContext)
+        animatingMasterTransitionsHandler.resetWithTransition(context: resetContext)
         
-        return (viewController, animatingTransitionsHandler)
+        return (viewController, routerSeed)
     }
     
     private func deriveMasterViewControllerInNavigationControllerFrom(
         detailTransitionsHandlerBox: TransitionsHandlerBox,
         deriveMasterViewController: DeriveMasterViewController)
-        -> (UIViewController, AnimatingTransitionsHandler)
+        -> (UIViewController, MasterDetailRouterSeed)
     {
         let navigationController = marshrouteStack.routerControllersProvider.navigationController()
         
@@ -272,7 +289,7 @@ public final class MarshrouteFacade {
         )
         
         let routerSeed = makeMasterDetailRouterSeed(
-            masterTransitionsHandlerBox: .init(animatingTransitionsHandler: navigationTransitionsHandler),
+            masterAnimaingTransitionsHandler: navigationTransitionsHandler,
             detailTransitionsHandlerBox: detailTransitionsHandlerBox
         )
         
@@ -290,21 +307,24 @@ public final class MarshrouteFacade {
             context: resetContext
         )
         
-        return (viewController, navigationTransitionsHandler)
+        return (viewController, routerSeed)
     }
     
     private func deriveMasterDetailViewControllerFrom(
         masterDetailViewControllerDeriviationFuctionType: MasterDetailViewControllerDeriviationFuctionType)
-        -> (UIViewController, SplitViewTransitionsHandlerImpl)
+        -> (UIViewController, RouterSeed)
     {
-        let (detailController, detaillTransitionHandler) = deriveDetailViewControllerFrom(
+        let (detailController, detaillRouterSeed) = deriveDetailViewControllerFrom(
             detailControllerDeriviationFunctionType: masterDetailViewControllerDeriviationFuctionType.detailFunctionType
         )
         
-        let (masterController, masterTransitionsHandler) = deriveMasterViewControllerFrom(
-            detailTransitionsHandlerBox: .init(animatingTransitionsHandler: detaillTransitionHandler),
+        let (masterController, masterRouterSeed) = deriveMasterViewControllerFrom(
+            detailTransitionsHandlerBox: detaillRouterSeed.transitionsHandlerBox,
             masterControllerDeriviationFunctionType: masterDetailViewControllerDeriviationFuctionType.masterFunctionType
         )
+        
+        let masterTransitionsHandlerBox = masterRouterSeed.masterTransitionsHandlerBox
+        let detailTransitionsHandlerBox = detaillRouterSeed.transitionsHandlerBox
         
         let splitViewController = marshrouteStack.routerControllersProvider.splitViewController()
         
@@ -314,9 +334,13 @@ public final class MarshrouteFacade {
             splitViewController: splitViewController
         )
         
-        splitTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
-        splitTransitionsHandler.detailTransitionsHandler = detaillTransitionHandler
+        splitTransitionsHandler.masterTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
+        splitTransitionsHandler.detailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
         
-        return (splitViewController, splitTransitionsHandler)
+        let routerSeed = makeRouterSeed(
+            containingTransitionsHandler: splitTransitionsHandler
+        )
+        
+        return (splitViewController, routerSeed)
     }
 }

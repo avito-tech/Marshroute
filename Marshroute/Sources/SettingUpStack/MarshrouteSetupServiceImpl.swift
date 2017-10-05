@@ -3,6 +3,7 @@ import Foundation
 public final class MarshrouteSetupServiceImpl: MarshrouteSetupService {
     // MARK: - Private properties
     fileprivate let factory: MarshrouteFactory
+    private lazy var lazyMarshrouteStack = { self.makeMarshrouteStack() }()
     
     // MARK: - Init
     public init(factory: MarshrouteFactory = MarshrouteFactoryImpl()) {
@@ -11,6 +12,13 @@ public final class MarshrouteSetupServiceImpl: MarshrouteSetupService {
     
     // MARK: - MarshrouteSetupService
     public func marshrouteStack()
+        -> MarshrouteStack
+    {
+        return lazyMarshrouteStack
+    }
+    
+    // MARK: - Private
+    private func makeMarshrouteStack()
         -> MarshrouteStack
     {
         let transitionIdGenerator = factory.transitionIdGenerator()

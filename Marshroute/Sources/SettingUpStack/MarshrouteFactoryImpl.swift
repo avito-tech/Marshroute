@@ -1,6 +1,6 @@
 import Foundation
 
-final public class MarshrouteFactoryImpl: MarshrouteFactory {
+public final class MarshrouteFactoryImpl: MarshrouteFactory {
     // MARK: - Init
     public init() {}
     

@@ -1,6 +1,6 @@
 import UIKit
 
-final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
+public final class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
     public init(
         tabBarController: UITabBarController?,
         transitionsCoordinator: TransitionsCoordinator)

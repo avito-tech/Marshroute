@@ -1,4 +1,4 @@
-final public class TransitionContextsStackClientImpl: TransitionContextsStackClient {
+public final class TransitionContextsStackClientImpl: TransitionContextsStackClient {
     fileprivate let stack: TransitionContextsStack
     
     public init(transitionContextsStack: TransitionContextsStack = TransitionContextsStackImpl()) {

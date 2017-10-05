@@ -1,6 +1,6 @@
 import UIKit
 
-final public class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
+public final class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
     public private(set) weak var splitViewController: UISplitViewController?
     
     public init(

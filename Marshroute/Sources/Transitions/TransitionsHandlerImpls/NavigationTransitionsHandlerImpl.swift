@@ -1,6 +1,6 @@
 import UIKit
 
-final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
+public final class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
     fileprivate weak var navigationController: UINavigationController?
     
     public init(navigationController: UINavigationController,

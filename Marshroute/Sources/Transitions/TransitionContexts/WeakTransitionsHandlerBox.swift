@@ -7,12 +7,10 @@ public enum WeakTransitionsHandlerBox {
     {
         switch transitionsHandlerBox {
         case .animating(let strongBox):
-            let animatingTransitionsHandler = strongBox.unbox()
-            self = .init(animatingTransitionsHandler: animatingTransitionsHandler)
+            self = .animating(strongBox.toWeakBox())
             
         case .containing(let strongBox):
-            let containingTransitionsHandler = strongBox.unbox()
-            self = .init(containingTransitionsHandler: containingTransitionsHandler)
+            self = .containing(strongBox.toWeakBox())
         }
     }
     

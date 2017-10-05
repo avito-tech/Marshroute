@@ -10,17 +10,14 @@ public struct WeakBox<T> where T: AnyObject {
     {
         return boxedValue
     }
-}
 
-/*
- * если раскомментировать, то получим Segmentation fault: 11
- * до лучших времен Swift'а
-
-extension WeakBox {
-    init(other: StrongBox<T>)
+    init(_ other: StrongBox<T>)
     {
         self.boxedValue = other.unbox()
     }
+    
+    public func toStrongBox() -> StrongBox<T>? 
+    {
+        return StrongBox(self)
+    }
 }
-
-*/

@@ -10,14 +10,17 @@ public struct StrongBox<T> where T: AnyObject {
     {
         return boxedValue
     }
-}
 
-public extension StrongBox {
-    init?(other: WeakBox<T>)
+    public init?(_ other: WeakBox<T>)
     {
         guard let boxedValue = other.unbox()
             else { return nil }
         
         self.boxedValue = boxedValue
+    }
+    
+    public func toWeakBox() -> WeakBox<T>
+    {
+        return WeakBox(self)
     }
 }

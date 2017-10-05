@@ -11,4 +11,12 @@ final class DemoAssertionPlugin: MarshrouteAssertionPlugin {
         let demoMessage = demoPrefix + message()
         Swift.assert(condition(), demoMessage, file: file, line: line)
     }
+    
+    func assertionFailure(
+        _ message: @autoclosure () -> String,
+        file: StaticString,
+        line: UInt) {
+        let demoMessage = demoPrefix + message()
+        Swift.assertionFailure(demoMessage, file: file, line: line)
+    }
 }

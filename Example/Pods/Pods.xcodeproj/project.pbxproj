@@ -16,6 +16,9 @@
 		0A5462D8285FF5AFA27C87A26667BB8B /* SettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E56757C8F70E225E3069886384F07E /* SettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0AB06369C48890A985471FBB7C01A2FD /* PeekAndPopUtilityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5598BC2DF91555053E380158B39AE8 /* PeekAndPopUtilityImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0B66D27C59871EC7EBC47C4ECAB15D85 /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614ED3CB15A7334CC87A345C893AA3F2 /* TransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0CBCF82A1F86573900E2F0E6 /* MarshroutePrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8291F86573900E2F0E6 /* MarshroutePrint.swift */; };
+		0CBCF82C1F86576800E2F0E6 /* MarshroutePrintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF82B1F86576800E2F0E6 /* MarshroutePrintManager.swift */; };
+		0CBCF82E1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF82D1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift */; };
 		0D8448C40E1248AA53CD72BCB0BD3EF3 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7CF50458D4F43B61EBE6CE404E1CA /* PushAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0ECB73E2D82412C795DAA2E2B991A12D /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF12BF1BB400C3F19EA74937FCA96BB /* MasterRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0EE44C32B3962482A97F09EA4A8C4BFA /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5376B94C79ACABF65A4A4EE597F818B9 /* PopoverDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -170,15 +173,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03744CEBE4E888D103282BCCEC402BB1 /* Pods-NavigationDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NavigationDemo.modulemap"; sourceTree = "<group>"; };
+		03744CEBE4E888D103282BCCEC402BB1 /* Pods-NavigationDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NavigationDemo.modulemap"; sourceTree = "<group>"; };
 		04EF9E2723700DBAC2CA7262410501F2 /* ResettingAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		050001AD67F8B2F022D5E9F8875E2267 /* CompletedTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompletedTransitionContext.swift; sourceTree = "<group>"; };
 		0A20D986F721AD50AC99018C54719BDF /* TransitionContextsStackClientProviderImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProviderImpl.swift; sourceTree = "<group>"; };
 		0B2B134AFE20585CF46028BCFD933664 /* PopAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopAnimationContext.swift; sourceTree = "<group>"; };
+		0CBCF8291F86573900E2F0E6 /* MarshroutePrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshroutePrint.swift; sourceTree = "<group>"; };
+		0CBCF82B1F86576800E2F0E6 /* MarshroutePrintManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshroutePrintManager.swift; sourceTree = "<group>"; };
+		0CBCF82D1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshroutePrintPlugin.swift; sourceTree = "<group>"; };
 		0D328A7330ADB7DA9F39750DB15FDF64 /* Pods-NavigationDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NavigationDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		0E90FEF293DF19EEE7373DE6AC9A2E83 /* PresentationTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationTransitionContext.swift; sourceTree = "<group>"; };
 		0EB7893E6D76EAC09E5EB9E42778F587 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
-		0EE9E7D44D7F019D3A7AF028446C91D6 /* Pods-MarshrouteTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MarshrouteTests.modulemap"; sourceTree = "<group>"; };
+		0EE9E7D44D7F019D3A7AF028446C91D6 /* Pods-MarshrouteTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MarshrouteTests.modulemap"; sourceTree = "<group>"; };
 		1145C3BAC9941A2ED147E7F966D793B3 /* Pods-NavigationDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NavigationDemo-frameworks.sh"; sourceTree = "<group>"; };
 		11E1FCFBEF7DF88968FFEF90CE5A0C24 /* ModalMasterDetailTransitionsAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailTransitionsAnimator.swift; sourceTree = "<group>"; };
 		177618397369FB7A9B2128BAAF2B4E75 /* TransitionsTracker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsTracker.swift; sourceTree = "<group>"; };
@@ -212,7 +218,7 @@
 		37D43C8B674ADFA17905112B7BA04AAE /* PeekAndPopUtility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtility.swift; sourceTree = "<group>"; };
 		3AC6ACEB47285F58C1399319C24DB77D /* TransitionsHandlersProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionsHandlersProvider.swift; sourceTree = "<group>"; };
 		3B77CFF73C7DF7F6066D11977F4AA0B8 /* AnimatingTransitionsHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AnimatingTransitionsHandler.swift; sourceTree = "<group>"; };
-		3D3BEADD0C11CD67AFB956F934C3A9ED /* Pods_NavigationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NavigationDemo.framework; path = "Pods-NavigationDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3BEADD0C11CD67AFB956F934C3A9ED /* Pods_NavigationDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NavigationDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E09E158E9F43AA3781A92E0C5A4BE42 /* TransitionContextsStackClientProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionContextsStackClientProvider.swift; sourceTree = "<group>"; };
 		40621AC1287267879A2ABBFFFBE892EA /* ModalDismissalAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalDismissalAnimationContext.swift; sourceTree = "<group>"; };
 		4274F5B537748EB940A930541A4B1BC8 /* PeekAndPopState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PeekAndPopState.swift; sourceTree = "<group>"; };
@@ -268,7 +274,7 @@
 		891910AFE7DEE5CBDB5CECA7C4ABDF68 /* RestoredTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RestoredTransitionContext.swift; sourceTree = "<group>"; };
 		8A25056CF7039D4B11F0F01FB5C12E76 /* Pods-MarshrouteTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MarshrouteTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		92EEC13904C29520A85E2ECFE807AC90 /* MarshrouteSetupService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MarshrouteSetupService.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		95E3A8111E9B1A695B3E8CFA9EB548D0 /* PopoverPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
 		9CDC88B55B9FDD4D4EFED0D3E9621C3D /* ResettingNavigationAnimationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingNavigationAnimationContext.swift; sourceTree = "<group>"; };
 		9E3819C47657A563CDEE9E2DA184D5B0 /* Pods-NavigationDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NavigationDemo-dummy.m"; sourceTree = "<group>"; };
@@ -279,7 +285,7 @@
 		A524ECCF7EB9D28FD9C78FCE605E80D5 /* RouterControllersProviderImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterControllersProviderImpl.swift; sourceTree = "<group>"; };
 		A611C0B8A0E9A3FF483BA7C84388F47C /* PopoverTransitionStorableParameters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PopoverTransitionStorableParameters.swift; sourceTree = "<group>"; };
 		A907F0A537798E3D6BC1AD0625969EF9 /* RouterPresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterPresentable.swift; sourceTree = "<group>"; };
-		AAA33DAC221216EC7C410F4729F959B7 /* Marshroute.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Marshroute.modulemap; sourceTree = "<group>"; };
+		AAA33DAC221216EC7C410F4729F959B7 /* Marshroute.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Marshroute.modulemap; sourceTree = "<group>"; };
 		AABDF5C41BACD9584D8313A04AC6F58F /* ResettingTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		AD6BCB8C9DA3B1E05A5E38DDA316D774 /* PeekAndPopStateObservable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PeekAndPopStateObservable.swift; sourceTree = "<group>"; };
 		B4F70119783A9743EDA9095C8C8DF5FC /* TransitionUserId.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TransitionUserId.swift; sourceTree = "<group>"; };
@@ -329,8 +335,8 @@
 		F41AB1644ECC6897DBB905444C535D12 /* EndpointRouter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
 		F420469A663B04F2E157DC327A47C1BD /* CompletedTransitionTargetTransitionsHandlerBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CompletedTransitionTargetTransitionsHandlerBox.swift; sourceTree = "<group>"; };
 		F61290DEABB1328D1349E03B45445267 /* ResettingAnimationLaunchingContextBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResettingAnimationLaunchingContextBox.swift; sourceTree = "<group>"; };
-		F8435D7AEF234BB000F96C4469D2C77B /* Pods_MarshrouteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MarshrouteTests.framework; path = "Pods-MarshrouteTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F9B9A7D0D5A7595525B7447C6226C392 /* Marshroute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Marshroute.framework; path = Marshroute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8435D7AEF234BB000F96C4469D2C77B /* Pods_MarshrouteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarshrouteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9B9A7D0D5A7595525B7447C6226C392 /* Marshroute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Marshroute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9CFD032882D3205B3E3326E5AFA8479 /* RouterFocusable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RouterFocusable.swift; sourceTree = "<group>"; };
 		FD94E171ADFD1FCD3F78DCDA031973BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDEC05797E200BFA720413034EF44F1C /* Pods-NavigationDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NavigationDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -372,8 +378,25 @@
 				A611C0B8A0E9A3FF483BA7C84388F47C /* PopoverTransitionStorableParameters.swift */,
 				1FCAEE8BBB47E1A3D0EFC02B7DB9C396 /* TransitionStorableParameters.swift */,
 			);
-			name = TransitionStorableParameters;
 			path = TransitionStorableParameters;
+			sourceTree = "<group>";
+		};
+		0CBCF8271F86561500E2F0E6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0CBCF8281F86571800E2F0E6 /* PrintUtiliites */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0CBCF8281F86571800E2F0E6 /* PrintUtiliites */ = {
+			isa = PBXGroup;
+			children = (
+				0CBCF8291F86573900E2F0E6 /* MarshroutePrint.swift */,
+				0CBCF82B1F86576800E2F0E6 /* MarshroutePrintManager.swift */,
+				0CBCF82D1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift */,
+			);
+			path = PrintUtiliites;
 			sourceTree = "<group>";
 		};
 		0D8536931A4EA961EB5BC88ED07586A9 /* Presentation */ = {
@@ -381,7 +404,6 @@
 			children = (
 				6CAFDC0B10953FFC45C9A9CF0255E0A4 /* ModalEndpointNavigationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -390,7 +412,6 @@
 			children = (
 				66879B6CD54803A81104B3BCF897427D /* ModalNavigationDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -406,7 +427,6 @@
 				82400723E11DDD5DE3F0620634B5B67E /* TransitionsHandlersProviderHolder.swift */,
 				6EF3D8ACDECC70F117AFD97C2F8BE694 /* TransitionsHistoryItem.swift */,
 			);
-			name = TransitionsCoordinator;
 			path = TransitionsCoordinator;
 			sourceTree = "<group>";
 		};
@@ -416,7 +436,6 @@
 				67A6A993E641E14637F78333C6AD7DD8 /* BaseImpls */,
 				6287C171F625D97AF21E677555535505 /* Routers */,
 			);
-			name = Routers;
 			path = Routers;
 			sourceTree = "<group>";
 		};
@@ -425,7 +444,6 @@
 			children = (
 				E48B6CEE72B800D5E105CFB1475F48AE /* ModalPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -435,7 +453,6 @@
 				4274F5B537748EB940A930541A4B1BC8 /* PeekAndPopState.swift */,
 				AD6BCB8C9DA3B1E05A5E38DDA316D774 /* PeekAndPopStateObservable.swift */,
 			);
-			name = PeekAndPopState;
 			path = PeekAndPopState;
 			sourceTree = "<group>";
 		};
@@ -447,7 +464,6 @@
 				7B5598BC2DF91555053E380158B39AE8 /* PeekAndPopUtilityImpl.swift */,
 				C37F129DB4DB50D767ADA003B4D6098F /* PeekRequestData.swift */,
 			);
-			name = PeekAndPopUtility;
 			path = PeekAndPopUtility;
 			sourceTree = "<group>";
 		};
@@ -459,7 +475,6 @@
 				357E7E8E7D0A04B6984B40533A2053C1 /* Reset */,
 				AB4C1FD47BE7CF61DF9F8FEE384441AB /* Set */,
 			);
-			name = Navigation;
 			path = Navigation;
 			sourceTree = "<group>";
 		};
@@ -477,7 +492,6 @@
 				D44B2CD2B803A01E7608CB9D3D83E5E1 /* Popover */,
 				CB34CF6F72AB3ED58BED3E1B8F2040E6 /* PopoverNavigation */,
 			);
-			name = TransitionAnimations;
 			path = TransitionAnimations;
 			sourceTree = "<group>";
 		};
@@ -486,7 +500,6 @@
 			children = (
 				5376B94C79ACABF65A4A4EE597F818B9 /* PopoverDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -496,7 +509,6 @@
 				4D8568DC736DCB514305213E1FEFFADE /* BaseMasterDetailRouter.swift */,
 				2E3F71DC4871AB48BDDA3B4B314A26BA /* MasterDetailRouterSeed.swift */,
 			);
-			name = BaseMasterDetailRouter;
 			path = BaseMasterDetailRouter;
 			sourceTree = "<group>";
 		};
@@ -511,7 +523,6 @@
 				0A20D986F721AD50AC99018C54719BDF /* TransitionContextsStackClientProviderImpl.swift */,
 				2579E06B843EB07F93F1C939063B114B /* TransitionContextsStackImpl.swift */,
 			);
-			name = TransitionsStack;
 			path = TransitionsStack;
 			sourceTree = "<group>";
 		};
@@ -520,7 +531,6 @@
 			children = (
 				04EF9E2723700DBAC2CA7262410501F2 /* ResettingAnimationLaunchingContext.swift */,
 			);
-			name = Reset;
 			path = Reset;
 			sourceTree = "<group>";
 		};
@@ -529,7 +539,6 @@
 			children = (
 				3349536B15D05622DCC164A6269B292D /* ModalMasterDetailDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -538,7 +547,6 @@
 			children = (
 				0EB7893E6D76EAC09E5EB9E42778F587 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -565,7 +573,6 @@
 			children = (
 				E4C7FEE793DC4D3468EF2A7EBEAE906C /* PopAnimationLaunchingContext.swift */,
 			);
-			name = Pop;
 			path = Pop;
 			sourceTree = "<group>";
 		};
@@ -578,7 +585,6 @@
 				E50EF7D2B45D93AC7FF79C58D2E99445 /* SplitViewTransitionsHandlerImpl.swift */,
 				B5CE00B70EEABB3BDCD5C9CEA0610CE5 /* TabBarTransitionsHandlerImpl.swift */,
 			);
-			name = TransitionsHandlerImpls;
 			path = TransitionsHandlerImpls;
 			sourceTree = "<group>";
 		};
@@ -588,7 +594,6 @@
 				760AC4FE5A56F8511F9A493F7AA0B55A /* StrongBox.swift */,
 				DFA1EC804555C1ED8F45BA648B2C34A1 /* WeakBox.swift */,
 			);
-			name = Boxes;
 			path = Boxes;
 			sourceTree = "<group>";
 		};
@@ -598,7 +603,6 @@
 				7F808BBF7E0537061F0D324A6C5494A6 /* ResetNavigationTransitionsAnimator.swift */,
 				9CDC88B55B9FDD4D4EFED0D3E9621C3D /* ResettingNavigationAnimationContext.swift */,
 			);
-			name = Reset;
 			path = Reset;
 			sourceTree = "<group>";
 		};
@@ -608,7 +612,6 @@
 				EA815756E624197B413A31B9EBD77897 /* Dismissal */,
 				0D8536931A4EA961EB5BC88ED07586A9 /* Presentation */,
 			);
-			name = ModalEndpointNavigation;
 			path = ModalEndpointNavigation;
 			sourceTree = "<group>";
 		};
@@ -619,7 +622,6 @@
 				133D4AFED6DBD4FA1CC86CCFE4014307 /* TransitionsCoordinator */,
 				33F4E45BA3DC544655AC39336530A30B /* TransitionsStack */,
 			);
-			name = TransitionsHandling;
 			path = TransitionsHandling;
 			sourceTree = "<group>";
 		};
@@ -628,7 +630,6 @@
 			children = (
 				664A467B8C61A370E96369B75541CAAB /* PopoverNavigationPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -637,7 +638,6 @@
 			children = (
 				208B68B0272F3995296608B8A00F5899 /* PopoverNavigationDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -646,7 +646,6 @@
 			children = (
 				80D19112148CAA4FE6D4B1B286DEFB58 /* PopoverPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -657,7 +656,6 @@
 				6A02681AAF422DA603F4BEEBB021C605 /* PresentationAnimationLaunchingContextBox.swift */,
 				F61290DEABB1328D1349E03B45445267 /* ResettingAnimationLaunchingContextBox.swift */,
 			);
-			name = AnimationLaunchingContextBoxes;
 			path = AnimationLaunchingContextBoxes;
 			sourceTree = "<group>";
 		};
@@ -666,7 +664,6 @@
 			children = (
 				B82EDF714507AE5B01E6529A85BF34D2 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -690,7 +687,6 @@
 				2D0CD70156A2D7F654CB5ED2FC15C466 /* RouterTransitionable.swift */,
 				5248F1FA89A3CFB0BB9656047C96689B /* RouterTransitionsHandlerBox.swift */,
 			);
-			name = Routers;
 			path = Routers;
 			sourceTree = "<group>";
 		};
@@ -699,7 +695,6 @@
 			children = (
 				84E93E30A1B25DC35F8D6F5836223533 /* PopoverNavigationPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -711,7 +706,6 @@
 				BFBED1C3FB34F54BEA73CC1C6777989C /* TransitionIdGeneratorHolder.swift */,
 				BBEE6A89C5FC4CDB3D080E79B9AE6A2A /* TransitionIdGeneratorImpl.swift */,
 			);
-			name = TransitionId;
 			path = TransitionId;
 			sourceTree = "<group>";
 		};
@@ -721,7 +715,6 @@
 				111F48FC2873D1151231CCCEBCD773E9 /* Dismissal */,
 				96F71AC3890035694DA7F0BA5010373F /* Presentation */,
 			);
-			name = ModalNavigation;
 			path = ModalNavigation;
 			sourceTree = "<group>";
 		};
@@ -731,7 +724,6 @@
 				2C934BA7C574A71DD69A2A96688E4459 /* BaseMasterDetailRouter */,
 				A6AAA66458B2B697973A639BCB8CE287 /* BaseRouter */,
 			);
-			name = BaseImpls;
 			path = BaseImpls;
 			sourceTree = "<group>";
 		};
@@ -740,7 +732,6 @@
 			children = (
 				86155EF0DCFC077C8881E7EA917FC2EF /* ModalMasterDetailPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -757,7 +748,6 @@
 			children = (
 				95E3A8111E9B1A695B3E8CFA9EB548D0 /* PopoverPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -774,7 +764,6 @@
 				8FA36573DC070ED879EB17BC0ED86746 /* Popover */,
 				EEC4E712967C8EF527AC1AECA933ED43 /* PopoverNavigation */,
 			);
-			name = TransitionAnimationsLaunching;
 			path = TransitionAnimationsLaunching;
 			sourceTree = "<group>";
 		};
@@ -783,7 +772,6 @@
 			children = (
 				EF0AE01A2912785C39AF67CA64A3974C /* PopoverDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -792,7 +780,6 @@
 			children = (
 				88A45A0BE41733551BCA2E41A0E2E68B /* Sources */,
 			);
-			name = Marshroute;
 			path = Marshroute;
 			sourceTree = "<group>";
 		};
@@ -801,7 +788,6 @@
 			children = (
 				26D7CF50458D4F43B61EBE6CE404E1CA /* PushAnimationLaunchingContext.swift */,
 			);
-			name = Push;
 			path = Push;
 			sourceTree = "<group>";
 		};
@@ -811,7 +797,6 @@
 				614ED3CB15A7334CC87A345C893AA3F2 /* TransitionsHandler.swift */,
 				77EC7C229D36B2A182EF79A10CBB5E75 /* TransitionsHandlerContainer.swift */,
 			);
-			name = TransitionsHandler;
 			path = TransitionsHandler;
 			sourceTree = "<group>";
 		};
@@ -821,7 +806,6 @@
 				BA212D251C568EA380E7268321E2522A /* PeekAndPopTransitionsCoordinator.swift */,
 				CDC358BA03FFD6B134A2BEF13FE13893 /* PeekAndPopTransitionsCoordinatorHolder.swift */,
 			);
-			name = PeekAndPopTransitionsCoordinator;
 			path = PeekAndPopTransitionsCoordinator;
 			sourceTree = "<group>";
 		};
@@ -831,7 +815,6 @@
 				C26D90F166DBC8159F69AE3F0877D0FB /* TopViewControllerFinder.swift */,
 				1EDA2CB6A3969F34E186C830653D0E53 /* ViewControllerPosition.swift */,
 			);
-			name = ViewControllerAdditions;
 			path = ViewControllerAdditions;
 			sourceTree = "<group>";
 		};
@@ -843,7 +826,6 @@
 				260B00E988E5AF87B4A0EA88AC125F02 /* StrongPeekAndPopData.swift */,
 				49BA92A269DABDDFA2E5888F35054E0D /* WeakPeekAndPopData.swift */,
 			);
-			name = PeekAndPopData;
 			path = PeekAndPopData;
 			sourceTree = "<group>";
 		};
@@ -866,7 +848,6 @@
 				73CF03134FA93E7BF91FE663EBEC0CA0 /* PeekAndPopTransitionsCoordinator */,
 				1E440CF8280CC860D0B97BB1DD18CFF5 /* PeekAndPopUtility */,
 			);
-			name = PeekAndPopSupport;
 			path = PeekAndPopSupport;
 			sourceTree = "<group>";
 		};
@@ -876,7 +857,6 @@
 				B695E8C4C4D16717AE4D06E0FA9543C8 /* Dismissal */,
 				BEE28AB00C3FB38F225320C3E1582EF9 /* Presentation */,
 			);
-			name = Modal;
 			path = Modal;
 			sourceTree = "<group>";
 		};
@@ -886,7 +866,6 @@
 				214CFF1064847A59212A33FEDBE8F1C1 /* SetNavigationTransitionsAnimator.swift */,
 				C45F882B7D47CD0DA9B0B76A73746B40 /* SettingNavigationAnimationContext.swift */,
 			);
-			name = Set;
 			path = Set;
 			sourceTree = "<group>";
 		};
@@ -895,20 +874,19 @@
 			children = (
 				40621AC1287267879A2ABBFFFBE892EA /* ModalDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
 		88A45A0BE41733551BCA2E41A0E2E68B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0CBCF8271F86561500E2F0E6 /* Utilities */,
 				456F918390AB59DA8116FA0BE682153D /* Boxes */,
 				133ED5E2070DCB28457C0E0FB0AFD163 /* Routers */,
 				92E74A5798130DADE7731B14764D6FD9 /* SettingUpStack */,
 				99441D2449F261F8301F9A4EF7BECAE9 /* Transitions */,
 				7AC72B21EB365C87D91A2A4C35C12F51 /* ViewControllerAdditions */,
 			);
-			name = Sources;
 			path = Sources;
 			sourceTree = "<group>";
 		};
@@ -919,7 +897,6 @@
 				3BC76899E07C4A432006C3457C724A09 /* Dismissal */,
 				67D7751919B9D787EF8E89E7526B9BD4 /* Presentation */,
 			);
-			name = ModalMasterDetail;
 			path = ModalMasterDetail;
 			sourceTree = "<group>";
 		};
@@ -929,7 +906,6 @@
 				2C74F585EF9CDF850D8CC867E9A303F0 /* Dismissal */,
 				69B031918BC1B32A9A3447D5888C4085 /* Presentation */,
 			);
-			name = Popover;
 			path = Popover;
 			sourceTree = "<group>";
 		};
@@ -952,7 +928,6 @@
 				E400C2E2F16AB2D7F55806F4654AE179 /* MarshrouteSetupServiceImpl.swift */,
 				572F85FED90F9D52C33BAEDD058660B4 /* MarshrouteStack.swift */,
 			);
-			name = SettingUpStack;
 			path = SettingUpStack;
 			sourceTree = "<group>";
 		};
@@ -961,7 +936,6 @@
 			children = (
 				E445193D03A5DA94FA5A54AD64F6DD75 /* ModalNavigationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -980,7 +954,6 @@
 				CB33FF6E2C94277D8D16C58E9C77BB4F /* TransitionsHandlerBox.swift */,
 				300136E89AF2388DFBC40B6F681C3958 /* WeakTransitionsHandlerBox.swift */,
 			);
-			name = TransitionContexts;
 			path = TransitionContexts;
 			sourceTree = "<group>";
 		};
@@ -998,7 +971,6 @@
 				061D6F118431E1D0632EC59002E782D4 /* TransitionStorableParameters */,
 				AC2C30AE87A27247149DEE3EB2A9B0E7 /* TransitionsTracking */,
 			);
-			name = Transitions;
 			path = Transitions;
 			sourceTree = "<group>";
 		};
@@ -1007,7 +979,6 @@
 			children = (
 				58066A5AEAFA37968BF431C197C0EBB9 /* ModalNavigationDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1034,7 +1005,6 @@
 			children = (
 				B5C9B215D7706435616D4B03E6C1E2BF /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1044,7 +1014,6 @@
 				D492C0EFFB76AE1D858C2B93F2FF28E1 /* BaseRouter.swift */,
 				33FD65D80613A4EA4D6D71A56C1DC1F0 /* RouterSeed.swift */,
 			);
-			name = BaseRouter;
 			path = BaseRouter;
 			sourceTree = "<group>";
 		};
@@ -1053,7 +1022,6 @@
 			children = (
 				C8E56757C8F70E225E3069886384F07E /* SettingAnimationLaunchingContext.swift */,
 			);
-			name = Set;
 			path = Set;
 			sourceTree = "<group>";
 		};
@@ -1062,7 +1030,6 @@
 			children = (
 				177618397369FB7A9B2128BAAF2B4E75 /* TransitionsTracker.swift */,
 			);
-			name = TransitionsTracking;
 			path = TransitionsTracking;
 			sourceTree = "<group>";
 		};
@@ -1073,7 +1040,6 @@
 				1B94273EB8D00F3913B0225DC85A761D /* TransitionsMarkersHolder.swift */,
 				B4F70119783A9743EDA9095C8C8DF5FC /* TransitionUserId.swift */,
 			);
-			name = TransitionsMarking;
 			path = TransitionsMarking;
 			sourceTree = "<group>";
 		};
@@ -1082,7 +1048,6 @@
 			children = (
 				70EDB9BA7590EECAA635B30BE8FF89E1 /* ModalDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1093,7 +1058,6 @@
 				485CC2026A37F8EB4402924A94F0513B /* Reset */,
 				84C1E9B09091250D6922A5BF0DF199F8 /* Set */,
 			);
-			name = Navigation;
 			path = Navigation;
 			sourceTree = "<group>";
 		};
@@ -1110,7 +1074,6 @@
 			children = (
 				2DE4471B98B8C8DC7316ABFD518CCFDE /* ModalPresentationAnimationLaunchingContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -1121,7 +1084,6 @@
 				5713645189A74F69C9A5D6AD7485AEC8 /* Dismissal */,
 				55F9C93CE2A1CC5CB0132DB26BFA6A6C /* Presentation */,
 			);
-			name = PopoverNavigation;
 			path = PopoverNavigation;
 			sourceTree = "<group>";
 		};
@@ -1140,7 +1102,6 @@
 				6B48D1616A333A82A5D195F8F26E3C99 /* Dismissal */,
 				5DBFCE187B7EB79E995CA5DBF95BC0F0 /* Presentation */,
 			);
-			name = Popover;
 			path = Popover;
 			sourceTree = "<group>";
 		};
@@ -1149,7 +1110,6 @@
 			children = (
 				8632F0CF2CEA334C3B29A5E01D76213F /* ModalNavigationPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -1169,7 +1129,6 @@
 				A5BBD786AD94859D170ACBF2FFBD2972 /* Dismissal */,
 				3C511CB3178A577A83F442676B3346D7 /* Presentation */,
 			);
-			name = ModalMasterDetail;
 			path = ModalMasterDetail;
 			sourceTree = "<group>";
 		};
@@ -1178,7 +1137,6 @@
 			children = (
 				2BE824E1E2777F706EBAB626A75C3A1E /* ModalEndpointNavigationPresentationAnimationContext.swift */,
 			);
-			name = Presentation;
 			path = Presentation;
 			sourceTree = "<group>";
 		};
@@ -1189,7 +1147,6 @@
 				8618DC8F05A6F70D46547515C332BE1F /* Dismissal */,
 				16F945DAD8ECEFACB59B4946C67D4FC5 /* Presentation */,
 			);
-			name = Modal;
 			path = Modal;
 			sourceTree = "<group>";
 		};
@@ -1214,7 +1171,6 @@
 				0B2B134AFE20585CF46028BCFD933664 /* PopAnimationContext.swift */,
 				C7C590ABF8C56139D625AD7070FE5B43 /* PushAnimationContext.swift */,
 			);
-			name = "Push-Pop";
 			path = "Push-Pop";
 			sourceTree = "<group>";
 		};
@@ -1232,7 +1188,6 @@
 			children = (
 				C67A348E1301178D02196322F1ADB21F /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1242,7 +1197,6 @@
 				60F56F2EA1C4561986732705D862F893 /* Dismissal */,
 				6333FA91C23662AEA657063ED870CB77 /* Presentation */,
 			);
-			name = PopoverNavigation;
 			path = PopoverNavigation;
 			sourceTree = "<group>";
 		};
@@ -1251,7 +1205,6 @@
 			children = (
 				871F07EA4A3FA3022AB73DD0F4AF4CF3 /* ModalEndpointNavigationDismissalAnimationContext.swift */,
 			);
-			name = Dismissal;
 			path = Dismissal;
 			sourceTree = "<group>";
 		};
@@ -1261,7 +1214,6 @@
 				717C21FB6ECD25543BFB5D53D7808F01 /* TransitionAnimationsLauncher.swift */,
 				5FE54CDEE13A94F913C270774059A586 /* AnimationLaunchingContextBoxes */,
 			);
-			name = AnimationsLaunching;
 			path = AnimationsLaunching;
 			sourceTree = "<group>";
 		};
@@ -1272,7 +1224,6 @@
 				A059E01B2BA45BB47B3533E309490C92 /* Dismissal */,
 				D920D78FAAF413C7E92D2F9362A25492 /* Presentation */,
 			);
-			name = ModalNavigation;
 			path = ModalNavigation;
 			sourceTree = "<group>";
 		};
@@ -1283,7 +1234,6 @@
 				F52EF94F1E7BC8D89BCED530400A84BD /* Dismissal */,
 				DDF21B470E86176CB64D3531DBE7E1B0 /* Presentation */,
 			);
-			name = ModalEndpointNavigation;
 			path = ModalEndpointNavigation;
 			sourceTree = "<group>";
 		};
@@ -1450,6 +1400,7 @@
 				1E6C7EB38F3FBD7C17DE38A918E6D1D5 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
 				7BAEA2136AE40062D3C80FFD995138AA /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
 				6A1832CD875B1D12D7DCFEF30D8A551E /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
+				0CBCF82A1F86573900E2F0E6 /* MarshroutePrint.swift in Sources */,
 				9A181E0CBBBC2757F348DDA032B592CF /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
 				4B217917B22CEE37F8BC8582DB30E72E /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
 				888DA8377B88F8A0BB71A8993643489E /* ModalNavigationDismissalAnimationContext.swift in Sources */,
@@ -1498,6 +1449,7 @@
 				B1A83C62D42C5D075925D82E5D748FAC /* ResettingAnimationLaunchingContextBox.swift in Sources */,
 				1E4D983E79262F2190EBC04F907B92D4 /* ResettingNavigationAnimationContext.swift in Sources */,
 				CBABDEBD0BF69797B8E2C7E607340ED9 /* ResettingTransitionContext.swift in Sources */,
+				0CBCF82C1F86576800E2F0E6 /* MarshroutePrintManager.swift in Sources */,
 				7876A1A25E7349D9A0A47E5DA1D250E3 /* ResettingTransitionsAnimatorBox.swift in Sources */,
 				E1907F0C8243A3478B216B327AAE196E /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
 				32D64B7E2C7DFD9060D93C2ECD4BA70F /* RestoredTransitionContext.swift in Sources */,
@@ -1509,6 +1461,7 @@
 				C024CE6A84DDED890E68B0757E619AE3 /* RouterFocusable.swift in Sources */,
 				04476E11A00F6715B3B389DC5611EA61 /* RouterIdentifiable.swift in Sources */,
 				A12E49DD8BA49826588E3604D0CD85E3 /* RouterPresentable.swift in Sources */,
+				0CBCF82E1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift in Sources */,
 				A4438FAC3F4FC297264A66C5FD80EB31 /* RouterSeed.swift in Sources */,
 				AD524440495CA1A6512B37C4F106D234 /* RouterTransitionable.swift in Sources */,
 				7CBC9983C3EC462027D389187F821397 /* RouterTransitionsHandlerBox.swift in Sources */,

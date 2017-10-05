@@ -48,7 +48,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         animator: ResetNavigationTransitionsAnimator)
     {
         guard let animatingMasterTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
-            else { assert(false); return }
+            else { marshrouteAssert(false); return }
         
         let masterDetailRouterSeed = MasterDetailRouterSeed(
             masterTransitionsHandlerBox: masterTransitionsHandlerBox,
@@ -126,7 +126,7 @@ extension MasterRouter where Self: MasterRouterTransitionable, Self: DetailRoute
         animator: ResetNavigationTransitionsAnimator)
     {
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
-            else { assert(false); return }
+            else { marshrouteAssert(false); return }
         
         let detailRouterSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,

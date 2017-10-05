@@ -379,13 +379,13 @@ private extension TransitionsCoordinator where
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler?)
     {
         guard let animatingTransitionsHandler = animatingTransitionsHandler
-            else { assert(false, "к этому моменту должен быть найден анимирующий обработчик"); return }
+            else { marshrouteAssert(false, "к этому моменту должен быть найден анимирующий обработчик"); return }
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
-            else { assert(false, "сначала нужно было делать resetWithTransition, а не performTransition"); return }
+            else { marshrouteAssert(false, "сначала нужно было делать resetWithTransition, а не performTransition"); return }
         
         guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler)
-            else { assert(false, "сначала нужно было делать resetWithTransition, а не performTransition"); return }
+            else { marshrouteAssert(false, "сначала нужно было делать resetWithTransition, а не performTransition"); return }
         
         // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
         // если переход помечен пользовательским идентификатором
@@ -548,13 +548,13 @@ private extension TransitionsCoordinator where
             transitionId: context.transitionId,
             forTransitionsHandler: animatingTransitionsHandler
         ) else {
-            assert(false, "нужно вызвать `resetWithTransition:` вместо того, чтобы отменять самый первый переход")
+            marshrouteAssert(false, "нужно вызвать `resetWithTransition:` вместо того, чтобы отменять самый первый переход")
             return
         }
         
         guard let presentationAnimationLaunchingContextBox
             = context.sourceAnimationLaunchingContextBox.unboxPresentationAnimationLaunchingContextBox() else {
-            assert(false, "невозможно сделать обратный переход для `reset`-перехода. только для `presentation`-перехода")
+            marshrouteAssert(false, "невозможно сделать обратный переход для `reset`-перехода. только для `presentation`-перехода")
             return
         }
         
@@ -668,7 +668,7 @@ private extension TransitionsCoordinator where
                 // если дочерний - анимирующий
                 if let chainedAnimatingTransitionsHandler = chainedTransitionsHandlerBox!.unboxAnimatingTransitionsHandler() {
                     guard let chainedStackClient = stackClientProvider.stackClient(forTransitionsHandler: chainedAnimatingTransitionsHandler)
-                        else { assert(false); break }
+                        else { marshrouteAssert(false); break }
                     
                     // если какой-то дочерний анимирующий обработчик выполнял переход с переданным id, возвращаем его
                     if (chainedStackClient.transitionWith(transitionId: transitionId, forTransitionsHandler: chainedAnimatingTransitionsHandler) != nil) {
@@ -696,7 +696,7 @@ private extension TransitionsCoordinator where
                     
                     // иначе обрываем цикл
                     chainedTransitionsHandlerBox = nil
-                } else { assert(false, "добавились новые виды обработчиков. нужно дописать код"); break }
+                } else { marshrouteAssert(false, "добавились новые виды обработчиков. нужно дописать код"); break }
             }
         }
         return nil
@@ -1015,7 +1015,7 @@ private extension TransitionsCoordinator where
 
         // ищем последний переход, выполненный анимирующим обработчиком
         guard stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler) != nil else {
-            assert(false, "нужно было вызывать resetWithTransition(context:). а не performTransition(context:)")
+            marshrouteAssert(false, "нужно было вызывать resetWithTransition(context:). а не performTransition(context:)")
             return
         }
         
@@ -1025,7 +1025,7 @@ private extension TransitionsCoordinator where
         )
         
         guard completedTransitionContext != nil
-            else { assert(false); return }
+            else { marshrouteAssert(false); return }
         
         // создаем новую запись о переходе
         _ = stackClient.appendTransition(
@@ -1058,7 +1058,7 @@ private extension TransitionsCoordinator where
         )
         
         guard completedTransitionContext != nil
-            else { assert(false); return }
+            else { marshrouteAssert(false); return }
         
         // создаем новую запись о переходе
         _ = stackClient.appendTransition(

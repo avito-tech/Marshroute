@@ -3,6 +3,8 @@ public enum TabControllerDeriviationFunctionType {
     case masterDetailViewController(MasterDetailViewControllerDeriviationFuctionType)
     
     // MARK: - Convenience functions
+    
+    // MARK: Detail view controller
     public static func deriveDetailViewController(
         _ deriveDetailViewController: @escaping DeriveDetailViewController)
         -> TabControllerDeriviationFunctionType
@@ -21,54 +23,122 @@ public enum TabControllerDeriviationFunctionType {
         )
     }
     
-    public static func deriveMasterDetailViewController(
-        deriveMasterViewController: @escaping DeriveMasterViewController,
-        deriveDetailViewController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
-    {
-        return .masterDetailViewController(
-            MasterDetailViewControllerDeriviationFuctionType(
-                masterFunctionType: .controller(deriveMasterViewController),
-                detailFunctionType: .controller(deriveDetailViewController)
-            )
-        )
-    }
-    
+    // MARK: MasterDetail view controller. Master and Detail not in UINavigationController
     public static func derive(
-        deriveMasterViewControllerInNavigationController: @escaping DeriveMasterViewController,
-        deriveDetailViewController: @escaping DeriveDetailViewController)
+        masterDetailViewController: @escaping DeriveMasterDetailViewController,
+        masterViewController: @escaping DeriveMasterViewController,
+        detailViewController: @escaping DeriveDetailViewController)
         -> TabControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
-                masterFunctionType: .controllerInNavigationController(deriveMasterViewControllerInNavigationController),
-                detailFunctionType: .controller(deriveDetailViewController)
+                deriveMasterDetailViewController: masterDetailViewController,
+                masterFunctionType: .controller(masterViewController),
+                detailFunctionType: .controller(detailViewController)
             )
         )
     }
     
     public static func deriveMasterDetailViewController(
-        deriveMasterViewController: @escaping DeriveMasterViewController,
-        deriveDetailViewControllerInNavigationController: @escaping DeriveDetailViewController)
+        masterViewController: @escaping DeriveMasterViewController,
+        detailViewController: @escaping DeriveDetailViewController)
         -> TabControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
-                masterFunctionType: .controller(deriveMasterViewController),
-                detailFunctionType: .controllerInNavigationController(deriveDetailViewControllerInNavigationController)
+                deriveMasterDetailViewController: nil,
+                masterFunctionType: .controller(masterViewController),
+                detailFunctionType: .controller(detailViewController)
             )
         )
     }
     
+    // MARK: MasterDetail view controller. Master in UINavigationController. Detail not in UINavigationController
     public static func derive(
-        deriveMasterViewControllerInNavigationController: @escaping DeriveMasterViewController,
-        deriveDetailViewControllerInNavigationController: @escaping DeriveDetailViewController)
+        masterDetailViewController: @escaping DeriveMasterDetailViewController,
+        masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
+        detailViewController: @escaping DeriveDetailViewController)
         -> TabControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
-                masterFunctionType: .controllerInNavigationController(deriveMasterViewControllerInNavigationController),
-                detailFunctionType: .controllerInNavigationController(deriveDetailViewControllerInNavigationController)
+                deriveMasterDetailViewController: masterDetailViewController,
+                masterFunctionType: .controllerInNavigationController(masterViewControllerInNavigationController),
+                detailFunctionType: .controller(detailViewController)
+            )
+        )
+    }
+    
+    public static func deriveMasterDetailViewController(
+        masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
+        detailViewController: @escaping DeriveDetailViewController)
+        -> TabControllerDeriviationFunctionType
+    {
+        return .masterDetailViewController(
+            MasterDetailViewControllerDeriviationFuctionType(
+                deriveMasterDetailViewController: nil,
+                masterFunctionType: .controllerInNavigationController(masterViewControllerInNavigationController),
+                detailFunctionType: .controller(detailViewController)
+            )
+        )
+    }
+
+    // MARK: MasterDetail view controller. Detail in UINavigationController. Master not in UINavigationController
+    public static func derive(
+        masterDetailViewController: @escaping DeriveMasterDetailViewController,
+        masterViewController: @escaping DeriveMasterViewController,
+        detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
+        -> TabControllerDeriviationFunctionType
+    {
+        return .masterDetailViewController(
+            MasterDetailViewControllerDeriviationFuctionType(
+                deriveMasterDetailViewController: masterDetailViewController,
+                masterFunctionType: .controller(masterViewController),
+                detailFunctionType: .controllerInNavigationController(detailViewControllerInNavigationController)
+            )
+        )
+    }
+    
+    public static func deriveMasterDetailViewController(
+        masterViewController: @escaping DeriveMasterViewController,
+        detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
+        -> TabControllerDeriviationFunctionType
+    {
+        return .masterDetailViewController(
+            MasterDetailViewControllerDeriviationFuctionType(
+                deriveMasterDetailViewController: nil,
+                masterFunctionType: .controller(masterViewController),
+                detailFunctionType: .controllerInNavigationController(detailViewControllerInNavigationController)
+            )
+        )
+    }
+    
+    // MARK: MasterDetail view controller. Master and Detail in UINavigationController
+    public static func derive(
+        masterDetailViewController: @escaping DeriveMasterDetailViewController,
+        masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
+        detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
+        -> TabControllerDeriviationFunctionType
+    {
+        return .masterDetailViewController(
+            MasterDetailViewControllerDeriviationFuctionType(
+                deriveMasterDetailViewController: masterDetailViewController,
+                masterFunctionType: .controllerInNavigationController(masterViewControllerInNavigationController),
+                detailFunctionType: .controllerInNavigationController(detailViewControllerInNavigationController)
+            )
+        )
+    }
+    
+    public static func deriveMasterDetailViewController(
+        masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
+        detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
+        -> TabControllerDeriviationFunctionType
+    {
+        return .masterDetailViewController(
+            MasterDetailViewControllerDeriviationFuctionType(
+                deriveMasterDetailViewController: nil,
+                masterFunctionType: .controllerInNavigationController(masterViewControllerInNavigationController),
+                detailFunctionType: .controllerInNavigationController(detailViewControllerInNavigationController)
             )
         )
     }

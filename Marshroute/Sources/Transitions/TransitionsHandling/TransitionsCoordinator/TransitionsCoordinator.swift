@@ -1082,7 +1082,8 @@ extension TransitionsCoordinator where
         )
     }
     
-    func navigationTransitionsHandlerImpl(navigationController: UINavigationController)
+    func navigationTransitionsHandlerImpl(
+        navigationController: UINavigationController)
         -> NavigationTransitionsHandlerImpl
     {
         return NavigationTransitionsHandlerImpl(
@@ -1091,7 +1092,8 @@ extension TransitionsCoordinator where
         )
     }
     
-    func topTransitionsHandlerBoxImpl(transitionsHandlerBox: TransitionsHandlerBox)
+    func topTransitionsHandlerBoxImpl(
+        transitionsHandlerBox: TransitionsHandlerBox)
         -> TransitionsHandlerBox
     {
         let unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?
@@ -1118,7 +1120,8 @@ extension TransitionsCoordinator where
         return transitionsHandlerBox
     }
     
-    func splitViewTransitionsHandlerImpl(splitViewController: UISplitViewController)
+    func splitViewTransitionsHandlerImpl(
+        splitViewController: UISplitViewController?)
         -> SplitViewTransitionsHandlerImpl
     {
         return SplitViewTransitionsHandlerImpl(
@@ -1127,7 +1130,8 @@ extension TransitionsCoordinator where
         )
     }
     
-    func tabBarTransitionsHandlerImpl(tabBarController: UITabBarController)
+    func tabBarTransitionsHandlerImpl(
+        tabBarController: UITabBarController?)
         -> TabBarTransitionsHandlerImpl
     {
         return TabBarTransitionsHandlerImpl(

@@ -10,9 +10,27 @@ public protocol TransitionsHandlersProvider: class {
     func topTransitionsHandlerBox(transitionsHandlerBox: TransitionsHandlerBox)
         -> TransitionsHandlerBox
     
-    func splitViewTransitionsHandler(splitViewController: UISplitViewController)
+    // `splitViewController` is made `Optional` to allow `MarshrouteFacade` to create `RouterSeed`s 
+    // before `UISplitViewController`-based modules (a module is usually created from a `RouterSeed`)
+    func splitViewTransitionsHandler(splitViewController: UISplitViewController?)
         -> SplitViewTransitionsHandlerImpl
     
-    func tabBarTransitionsHandler(tabBarController: UITabBarController)
+    // `tabBarController` is made `Optional` to allow `MarshrouteFacade` to create `RouterSeed`s 
+    // before `UITabBarController`-based modules (a module is usually created from a `RouterSeed`)
+    func tabBarTransitionsHandler(tabBarController: UITabBarController?)
         -> TabBarTransitionsHandlerImpl
+}
+
+public extension TransitionsHandlersProvider {
+    func splitViewTransitionsHandler()
+        -> SplitViewTransitionsHandlerImpl
+    {
+        return splitViewTransitionsHandler(splitViewController: nil)
+    }
+    
+    func tabBarTransitionsHandler()
+        -> TabBarTransitionsHandlerImpl
+    {
+        return tabBarTransitionsHandler(tabBarController: nil)
+    }
 }

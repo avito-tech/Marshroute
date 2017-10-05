@@ -111,13 +111,13 @@ public final class TransitionsCoordinatorImpl:
         return topTransitionsHandlerBoxImpl(transitionsHandlerBox: transitionsHandlerBox)
     }
     
-    public func splitViewTransitionsHandler(splitViewController: UISplitViewController)
+    public func splitViewTransitionsHandler(splitViewController: UISplitViewController?)
         -> SplitViewTransitionsHandlerImpl
     {
         return splitViewTransitionsHandlerImpl(splitViewController: splitViewController)
     }
     
-    public func tabBarTransitionsHandler(tabBarController: UITabBarController)
+    public func tabBarTransitionsHandler(tabBarController: UITabBarController?)
         -> TabBarTransitionsHandlerImpl
     {
         return tabBarTransitionsHandlerImpl(tabBarController: tabBarController)

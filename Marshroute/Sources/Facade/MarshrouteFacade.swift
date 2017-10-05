@@ -29,13 +29,11 @@ public final class MarshrouteFacade {
     }
     
     public func splitModule(
-        _ splitViewController: UISplitViewController? = nil,
         masterDetailViewControllerDeriviationFuctionType: MasterDetailViewControllerDeriviationFuctionType)
         -> MarshrouteModule<UISplitViewController>
     {
         let (splitViewController, routerSeed) = deriveMasterDetailViewControllerFrom(
-            masterDetailViewControllerDeriviationFuctionType: masterDetailViewControllerDeriviationFuctionType,
-            splitViewController: splitViewController
+            masterDetailViewControllerDeriviationFuctionType: masterDetailViewControllerDeriviationFuctionType
         )
         
         return MarshrouteModule<UISplitViewController>(
@@ -327,8 +325,7 @@ public final class MarshrouteFacade {
     }
     
 	private func deriveMasterDetailViewControllerFrom(
-        masterDetailViewControllerDeriviationFuctionType: MasterDetailViewControllerDeriviationFuctionType,
-        splitViewController: UISplitViewController? = nil)
+        masterDetailViewControllerDeriviationFuctionType: MasterDetailViewControllerDeriviationFuctionType)
         -> (UISplitViewController, RouterSeed)
     {
         let (detailController, detaillRouterSeed) = deriveDetailViewControllerFrom(
@@ -342,15 +339,8 @@ public final class MarshrouteFacade {
         
         let masterTransitionsHandlerBox = masterRouterSeed.masterTransitionsHandlerBox
         let detailTransitionsHandlerBox = detaillRouterSeed.transitionsHandlerBox
-        
-        let splitViewController = splitViewController
-            ?? marshrouteStack.routerControllersProvider.splitViewController()
-        
-        splitViewController.viewControllers = [masterController, detailController]
-        
-        let splitTransitionsHandler = marshrouteStack.transitionsHandlersProvider.splitViewTransitionsHandler(
-            splitViewController: splitViewController
-        )
+
+        let splitTransitionsHandler = marshrouteStack.transitionsHandlersProvider.splitViewTransitionsHandler()
         
         splitTransitionsHandler.masterTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
         splitTransitionsHandler.detailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
@@ -358,6 +348,14 @@ public final class MarshrouteFacade {
         let routerSeed = makeRouterSeed(
             containingTransitionsHandler: splitTransitionsHandler
         )
+        
+        let splitViewController = masterDetailViewControllerDeriviationFuctionType
+            .deriveMasterDetailViewController?(routerSeed)
+            ?? marshrouteStack.routerControllersProvider.splitViewController()        
+        
+        splitViewController.viewControllers = [masterController, detailController]
+        
+        splitTransitionsHandler.setSplitViewController(splitViewController)
         
         return (splitViewController, routerSeed)
     }

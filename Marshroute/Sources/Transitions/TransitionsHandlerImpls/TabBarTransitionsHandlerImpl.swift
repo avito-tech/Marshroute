@@ -1,15 +1,15 @@
 import UIKit
 
 final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
-    fileprivate weak var tabBarController: UITabBarController?
-    
-    public init(tabBarController: UITabBarController,
+    public init(
+        tabBarController: UITabBarController?,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.tabBarController = tabBarController
         super.init(transitionsCoordinator: transitionsCoordinator)
     }
     
+    public private(set) weak var tabBarController: UITabBarController?
     public var animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler]?
     public var containingTransitionsHandlers: [Int: ContainingTransitionsHandler]?
 
@@ -39,13 +39,21 @@ final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
             unboxContainingTransitionsHandler: { (containingTransitionsHandler) -> [AnimatingTransitionsHandler]? in
                 // у видимого вложенного содержащего обработчика спрашиваем всех обработчиков, а не видимых
                 return containingTransitionsHandler.allTransitionsHandlers
-        })
+            }
+        )
     }
-}
+    
+    // MARK: - Public
+    public final func setTabBarController(_ tabBarController: UITabBarController) {
+        if let tabBarController = self.tabBarController {
+            debugPrint("You should not edit `tabBarController` if it has already been set. Aborting")
+        } else {
+            self.tabBarController = tabBarController
+        }
+    }
 
-// MARK: - helpers
-private extension TabBarTransitionsHandlerImpl {
-    func animatingTransitionsHandlers(
+    // MARK: - Private
+    private func animatingTransitionsHandlers(
         fromTabIndex: Int,
         toTabIndex: Int,
         unboxContainingTransitionsHandler: (ContainingTransitionsHandler) -> [AnimatingTransitionsHandler]?)

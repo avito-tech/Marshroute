@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     {
         // Init `Marshroute` stack
         MarshroutePrintManager.setUpPrintPlugin(DemoPrintPlugin())
-        MarshrouteAssertionManager.setUpPrintPlugin(DemoAssertionPlugin())
+        MarshrouteAssertionManager.setUpAssertionPlugin(DemoAssertionPlugin())
         let marshrouteSetupService = MarshrouteSetupServiceImpl()
         
         let applicationModuleSeed = ApplicationModuleSeedProvider().applicationModuleSeed(

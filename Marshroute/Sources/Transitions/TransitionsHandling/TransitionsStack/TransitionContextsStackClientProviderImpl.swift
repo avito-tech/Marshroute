@@ -13,7 +13,7 @@ extension TransitionContextsStackClientProviderImpl: TransitionContextsStackClie
         
         let matchingHistoryItems = historyItems.filter { $0.transitionsHandler === transitionsHandler }
         
-        assert(matchingHistoryItems.count <= 1)
+        marshrouteAssert(matchingHistoryItems.count <= 1)
         
         return matchingHistoryItems.first?.stackClient
     }

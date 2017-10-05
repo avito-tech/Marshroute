@@ -43,7 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         // Init `Marshroute` stack
-        MarshroutePrintManager.setupPrintPlugin(DemoPrintPlugin())
+        MarshroutePrintManager.setUpPrintPlugin(DemoPrintPlugin())
+        MarshrouteAssertionManager.setUpAssertionPlugin(DemoAssertionPlugin())
         let marshrouteSetupService = MarshrouteSetupServiceImpl()
         
         let applicationModuleSeed = ApplicationModuleSeedProvider().applicationModuleSeed(

@@ -13,6 +13,7 @@
 * [Installation](#installation)
     * [Cocoapods](#cocoapods)
     * [Carthage](#carthage)
+* [Customization](#plugin-customization)
 * [Licence](#licence)
 * [Objective-c support](#objective-c-support)
 * [Useful links](#useful-links)
@@ -88,7 +89,6 @@ The key line here is
 ```
 
 So the syntax remains clean and it is super easy to switch back to the original animation style.
-
 
 ## <a name="3d-touch-support"/> 3d touch support
 
@@ -226,6 +226,14 @@ github "avito-tech/Marshroute" ~> 0.4.2
 
 Then run `carthage update --platform iOS` command. For details of the installation and usage of Carthage, visit [its  repo website](https://github.com/Carthage/Carthage).
 
+## <a name="plugin-customization"/> Customization
+
+You can provide custom print and assert realization using `MarshroutePrintPlugin` and `MarshrouteAssertionPlugin`.
+This is as easy as:
+```
+MarshroutePrintManager.setUpPrintPlugin(YourPrintPlugin())
+MarshrouteAssertionManager.setUpAssertionPlugin(YourAssertionPlugin())
+```
 
 ## <a name="licence"/> Licence
 MIT

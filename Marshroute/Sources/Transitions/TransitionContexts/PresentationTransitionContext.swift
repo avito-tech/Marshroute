@@ -57,12 +57,12 @@ public extension PresentationTransitionContext {
         animator: ModalTransitionsAnimator,
         transitionId: TransitionId)
     {
-        assert(
+        marshrouteAssert(
             !(targetViewController is UISplitViewController) && !(targetViewController is UITabBarController),
             "use presentingModalMasterDetailViewController:targetTransitionsHandler:animator:transitionId:"
         )
         
-        assert(
+        marshrouteAssert(
             !(targetViewController is UINavigationController),
             "use presentingModalNavigationController:targetTransitionsHandler:animator:transitionId:"
         )
@@ -117,7 +117,7 @@ public extension PresentationTransitionContext {
         animator: ModalNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
-        assert(
+        marshrouteAssert(
             !(targetViewController is UISplitViewController) && !(targetViewController is UITabBarController),
             "use presentingModalMasterDetailViewController:targetTransitionsHandler:animator:transitionId:"
         )
@@ -297,7 +297,7 @@ extension PresentationTransitionContext {
     /// Проставляем непроставленного ранее обработчика переходов
     mutating func setAnimatingTargetTransitionsHandler(_ transitionsHandler: AnimatingTransitionsHandler)
     {
-        assert(needsAnimatingTargetTransitionHandler)
+        marshrouteAssert(needsAnimatingTargetTransitionHandler)
         targetTransitionsHandlerBox = .init(animatingTransitionsHandler: transitionsHandler)
     }
 }

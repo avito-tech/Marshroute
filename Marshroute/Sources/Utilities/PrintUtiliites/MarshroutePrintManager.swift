@@ -1,15 +1,15 @@
 public final class MarshroutePrintManager {
-    private static var sharedInstance: MarshroutePrintPlugin = DefaultMarshroutePrintPlugin()
+    private static var instance: MarshroutePrintPlugin = DefaultMarshroutePrintPlugin()
     
-    public static func setupPrintPlugin(_ plugin: MarshroutePrintPlugin) {
-        sharedInstance = plugin
+    public static func setUpPrintPlugin(_ plugin: MarshroutePrintPlugin) {
+        instance = plugin
     }
     
     static func print(_ item: Any, separator: String, terminator: String) {
-        sharedInstance.print(item, separator: separator, terminator: terminator)
+        instance.print(item, separator: separator, terminator: terminator)
     }
     
     static func debugPrint(_ item: Any, separator: String, terminator: String) {
-        sharedInstance.print(item, separator: separator, terminator: terminator)
+        instance.print(item, separator: separator, terminator: terminator)
     }
 }

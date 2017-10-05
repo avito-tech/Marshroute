@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CBCF8311F865F5A00E2F0E6 /* PrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8301F865F5A00E2F0E6 /* PrintPlugin.swift */; };
+		0CBCF83A1F8679E500E2F0E6 /* AssertionPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8391F8679E500E2F0E6 /* AssertionPlugin.swift */; };
 		1313F20C96058FEF50F595A6 /* Pods_NavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */; };
 		BF69B5A3AE24511680DB2ED1 /* Pods_MarshrouteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE239487B05BB3C04361F501 /* Pods_MarshrouteTests.framework */; };
 		CC0B1D441CC20687006707B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1D431CC20687006707B6 /* AppDelegate.swift */; };
@@ -224,6 +225,7 @@
 
 /* Begin PBXFileReference section */
 		0CBCF8301F865F5A00E2F0E6 /* PrintPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPlugin.swift; sourceTree = "<group>"; };
+		0CBCF8391F8679E500E2F0E6 /* AssertionPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionPlugin.swift; sourceTree = "<group>"; };
 		616970D95027090C37F0EAAE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1CE8A4F513C6013BD4CCAC /* Pods-MarshrouteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.release.xcconfig"; sourceTree = "<group>"; };
 		77767704E4AC1FE96EDB2B9E /* Pods-MarshrouteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				0CBCF8301F865F5A00E2F0E6 /* PrintPlugin.swift */,
+				0CBCF8391F8679E500E2F0E6 /* AssertionPlugin.swift */,
 			);
 			path = Plugins;
 			sourceTree = "<group>";
@@ -1826,6 +1829,7 @@
 				CC8406851CD6693500644CA1 /* ShelfInteractor.swift in Sources */,
 				CCA7C8EC1CD9049C00B7ADBD /* CategoriesRouterIpad.swift in Sources */,
 				CC8406911CD6713800644CA1 /* RootModulesProviderImpl.swift in Sources */,
+				0CBCF83A1F8679E500E2F0E6 /* AssertionPlugin.swift in Sources */,
 				CC0B1E1A1CC2DF84006707B6 /* SearchResultsRouter.swift in Sources */,
 				CC0B1D811CC20999006707B6 /* CategoriesAssemblyImpl.swift in Sources */,
 				CC84068A1CD6693500644CA1 /* ShelfView.swift in Sources */,

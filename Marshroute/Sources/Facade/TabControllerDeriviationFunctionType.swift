@@ -1,5 +1,12 @@
+public typealias DeriveTabBarController = ((RouterSeed) -> (UITabBarController))
+
+/// Defines a type of function to create a view controller for some tab of `UITabBarController`  
 public enum TabControllerDeriviationFunctionType {
+    /// Creates a regular `UIViewController` (probably wrapped into `UINavigationController`) 
     case detailController(DetailViewControllerDeriviationFunctionType)
+    
+    /// Creates a master-detail view controller (`UISplitViewController`)
+    /// Both master and detail view controllers may be wrapped into `UINavigationController` 
     case masterDetailViewController(MasterDetailViewControllerDeriviationFuctionType)
     
     // MARK: - Convenience functions

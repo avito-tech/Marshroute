@@ -4,4 +4,5 @@ import UIKit
 public protocol RouterControllersProvider: class {
     func navigationController() -> UINavigationController
     func splitViewController() -> UISplitViewController
+    func tabBarController() -> UITabBarController
 }

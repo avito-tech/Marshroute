@@ -43,15 +43,11 @@ public final class MarshrouteFacade {
     }
  
     public func tabBarModule(
-        _ tabBarController: UITabBarController? = nil,
-        tabControllerDeriviationFunctionTypes: [TabControllerDeriviationFunctionType])
+        deriveTabBarController: DeriveTabBarController? = nil,
+        deriveTabViewControllersFromFunctions tabControllerDeriviationFunctions: [TabControllerDeriviationFunctionType])
         -> MarshrouteModule<UITabBarController>
     {
-        let tabBarController = tabBarController ?? UITabBarController()
-        
-        let tabTransitionsHandler = marshrouteStack.transitionsHandlersProvider.tabBarTransitionsHandler(
-            tabBarController: tabBarController
-        )
+        let tabTransitionsHandler = marshrouteStack.transitionsHandlersProvider.tabBarTransitionsHandler()
         
         var animatingTransitionsHandlers = [Int: AnimatingTransitionsHandler]()
         var containingTransitionsHandlers = [Int: ContainingTransitionsHandler]()
@@ -69,8 +65,8 @@ public final class MarshrouteFacade {
             }
         }
         
-        for (tabIndex, deriviationFunctionType) in tabControllerDeriviationFunctionTypes.enumerated() {
-            switch deriviationFunctionType {
+        for (tabIndex, tabControllerDeriviationFunction) in tabControllerDeriviationFunctions.enumerated() {
+            switch tabControllerDeriviationFunction {
             case .detailController(let detailControllerDeriviationFunctionType):
                 let (viewController, routerSeed) = deriveDetailViewControllerFrom(
                     detailControllerDeriviationFunctionType: detailControllerDeriviationFunctionType
@@ -93,6 +89,13 @@ public final class MarshrouteFacade {
         let routerSeed = makeRouterSeed(
             containingTransitionsHandler: tabTransitionsHandler
         )
+        
+        let tabBarController = deriveTabBarController?(routerSeed)
+            ?? marshrouteStack.routerControllersProvider.tabBarController()
+        
+        tabBarController.viewControllers = tabControllers
+        
+        tabTransitionsHandler.setTabBarController(tabBarController)
         
         return MarshrouteModule<UITabBarController>(
             viewController: tabBarController,

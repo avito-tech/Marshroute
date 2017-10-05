@@ -34,7 +34,7 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         animator: ResetNavigationTransitionsAnimator)
     {
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
-            else { marshrouteAssert(false); return }
+            else { marshrouteAssertionFailure(); return }
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,

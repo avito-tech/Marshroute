@@ -38,7 +38,7 @@ public struct CompletedTransitionContext {
         sourceTransitionsHandler: AnimatingTransitionsHandler)
     {
         guard !context.needsAnimatingTargetTransitionHandler else {
-            marshrouteAssert(false, "заполните `targetTransitionsHandlerBox` анимирующим обработчиком переходов раньше - до выполнения самого перехода")
+            marshrouteAssertionFailure("заполните `targetTransitionsHandlerBox` анимирующим обработчиком переходов раньше - до выполнения самого перехода")
             return nil
         }
         

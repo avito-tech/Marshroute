@@ -25,7 +25,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     private func existingModule()
         -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>?
     {
-        return ApplicationModuleHolder.init().applicationModule
+        return ApplicationModuleHolder.instance.applicationModule
     }
     
     private func module(isPad: Bool)

@@ -5,6 +5,7 @@
 
 * [Overview](#overview)
     * [Tuning the transition animation](#tuning-the-transition-animation)
+    * [Customization](#plugin-customization)
 * [3d touch support](#3d-touch-support)
     * [PeekAndPopUtility](#peek-and-pop-utility)
     * [Peek and pop state observing](#peek-and-pop-state-observing)
@@ -89,6 +90,14 @@ The key line here is
 
 So the syntax remains clean and it is super easy to switch back to the original animation style.
 
+### <a name="plugin-customization"/> Customization
+
+You can provide custom print and assert realization using `MarshroutePrintPlugin` and `MarshrouteAssertionPlugin`.
+This is as easy as:
+```
+MarshroutePrintManager.setUpPrintPlugin(YourPrintPlugin())
+MarshrouteAssertionManager.setUpAssertionPlugin(YourAssertionPlugin())
+```
 
 ## <a name="3d-touch-support"/> 3d touch support
 

@@ -80,7 +80,7 @@ open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transition
             }
             
         case .push:
-            debugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
+            marshrouteDebugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
         case .popover(let launchingContext):
             let popoverPresentationAnimationContext = PopoverPresentationAnimationContext(
@@ -169,7 +169,7 @@ open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transition
             }
             
         case .resettingNavigationRoot:
-            debugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
+            marshrouteDebugPrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
         case .registering:
             break; // no need for animations

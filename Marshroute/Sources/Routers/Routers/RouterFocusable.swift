@@ -19,7 +19,7 @@ public extension RouterFocusable where Self: RouterTransitionable, Self: RouterI
         
         if transitionsHandler === transitionsHandlerBox.unboxContainingTransitionsHandler() {
             if presentingTransitionsHandler == nil {
-                debugPrint("`focusOnCurrentModule:` нельзя вызывать у корневого неанимирующего роутера приложения")
+                marshrouteDebugPrint("`focusOnCurrentModule:` нельзя вызывать у корневого неанимирующего роутера приложения")
                 return
             }
         }

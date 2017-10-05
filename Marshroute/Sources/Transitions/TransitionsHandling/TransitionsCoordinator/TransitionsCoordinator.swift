@@ -257,7 +257,7 @@ extension TransitionsCoordinator where
                     lastTransition.targetViewController
                 )
             } else {
-                debugPrint(
+                marshrouteDebugPrint(
                     "Cannot reset `rootViewController` of a `UINavigationController`." +
                     "No `rootViewController` found. You should first set `rootViewController`." +
                     "see `ResettingAnimationLaunchingContextBox.resettingNavigationRoot`"
@@ -306,7 +306,7 @@ extension TransitionsCoordinator where
                 withStackClient: stackClient
             )
         } else {
-            debugPrint("resetting transition was cancelled")
+            marshrouteDebugPrint("resetting transition was cancelled")
         }
         
     }
@@ -454,7 +454,7 @@ private extension TransitionsCoordinator where
                 }
             )
         } else {
-            debugPrint("presentation transition was cancelled")
+            marshrouteDebugPrint("presentation transition was cancelled")
         }
     }
     
@@ -464,7 +464,7 @@ private extension TransitionsCoordinator where
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler?)
     {
         guard let animatingTransitionsHandler = animatingTransitionsHandler else {
-            debugPrint("обработчик, выполнивший переход с transitionId: \(transitionId), не найден. возможен лишний вызов метода отмены перехода")
+            marshrouteDebugPrint("обработчик, выполнивший переход с transitionId: \(transitionId), не найден. возможен лишний вызов метода отмены перехода")
             return
         }
         
@@ -563,7 +563,7 @@ private extension TransitionsCoordinator where
             presentationAnimationLaunchingContextBox: presentationAnimationLaunchingContextBox,
             targetViewController: precedingTransition.targetViewController
         ) else {
-            debugPrint("FAILED TO CREATE `DismissalAnimationLaunchingContextBox` from `PresentationAnimationLaunchingContextBox`")
+            marshrouteDebugPrint("FAILED TO CREATE `DismissalAnimationLaunchingContextBox` from `PresentationAnimationLaunchingContextBox`")
             return
         }
         

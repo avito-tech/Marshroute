@@ -36,7 +36,7 @@ public final class PeekAndPopUtilityImpl:
         )
         
         if viewController.traitCollection.forceTouchCapability != .available {
-            debugPrint("You should not register a view controller for `peek and pop`, "
+            marshrouteDebugPrint("You should not register a view controller for `peek and pop`, "
                 + "if it is unavailable in a trait collection: \(viewController)")
         }
         
@@ -323,7 +323,7 @@ public final class PeekAndPopUtilityImpl:
                     + "to commit another view controller: \(viewControllerToCommit)"
             }
            
-            debugPrint(readableCancellationReason)
+            marshrouteDebugPrint(readableCancellationReason)
             
             // Cancelling `peek and pop` may be implemented via reregistering a `sourceViewController` for previewing
             reregisterViewControllerForPreviewing(sourceViewController)

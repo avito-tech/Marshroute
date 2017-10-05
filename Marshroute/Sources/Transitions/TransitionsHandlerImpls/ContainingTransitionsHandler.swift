@@ -35,16 +35,16 @@ open class ContainingTransitionsHandler: TransitionsHandlerContainer, Transition
     
     open func undoAllChainedTransitions()
     {
-        debugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
+        marshrouteDebugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
     open func undoAllTransitions()
     {
-        debugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
+        marshrouteDebugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
     
     open func resetWithTransition(context: ResettingTransitionContext)
     {
-        debugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
+        marshrouteDebugPrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
     }
 }

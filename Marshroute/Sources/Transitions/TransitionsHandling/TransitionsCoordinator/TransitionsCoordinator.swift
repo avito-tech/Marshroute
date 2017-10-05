@@ -387,7 +387,7 @@ private extension TransitionsCoordinator where
         guard let lastTransition = stackClient.lastTransitionForTransitionsHandler(animatingTransitionsHandler)
             else { assert(false, "сначала нужно было делать resetWithTransition, а не performTransition"); return }
         
-        // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
+        // спрашиваем делегата о разрешении выполнения анимаций `Presentation` перехода,
         // если переход помечен пользовательским идентификатором
         let transitionUserId = markers[context.transitionId]
         let transitionAllowed: Bool

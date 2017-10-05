@@ -5,10 +5,10 @@ public protocol MarshroutePrintPlugin {
 
 final class DefaultMarshroutePrintPlugin: MarshroutePrintPlugin {
     func print(_ item: Any, separator: String, terminator: String) {
-        print(item, separator: separator, terminator: terminator)
+        Swift.print(item, separator: separator, terminator: terminator)
     }
     
     func debugPrint(_ item: Any, separator: String, terminator: String) {
-        debugPrint(item, separator: separator, terminator: terminator)
+        Swift.debugPrint(item, separator: separator, terminator: terminator)
     }
 }

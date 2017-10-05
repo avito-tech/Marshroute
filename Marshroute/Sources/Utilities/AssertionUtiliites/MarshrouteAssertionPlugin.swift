@@ -4,6 +4,11 @@ public protocol MarshrouteAssertionPlugin {
         _ message: @autoclosure () -> String,
         file: StaticString,
         line: UInt)
+    
+    func assertionFailure(
+        _ message: @autoclosure () -> String,
+        file: StaticString,
+        line: UInt)
 }
 
 final class DefaultMarshrouteAssertionPlugin: MarshrouteAssertionPlugin {
@@ -13,5 +18,12 @@ final class DefaultMarshrouteAssertionPlugin: MarshrouteAssertionPlugin {
         file: StaticString,
         line: UInt) {
         Swift.assert(condition, message, file: file, line: line)
+    }
+    
+    func assertionFailure(
+        _ message: @autoclosure () -> String,
+        file: StaticString,
+        line: UInt) {
+        Swift.assertionFailure(message, file: file, line: line)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CBCF8311F865F5A00E2F0E6 /* PrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8301F865F5A00E2F0E6 /* PrintPlugin.swift */; };
 		1313F20C96058FEF50F595A6 /* Pods_NavigationDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85A938D3DCD5CE101DCA321 /* Pods_NavigationDemo.framework */; };
 		BF69B5A3AE24511680DB2ED1 /* Pods_MarshrouteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE239487B05BB3C04361F501 /* Pods_MarshrouteTests.framework */; };
 		CC0B1D441CC20687006707B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1D431CC20687006707B6 /* AppDelegate.swift */; };
@@ -222,6 +223,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CBCF8301F865F5A00E2F0E6 /* PrintPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintPlugin.swift; sourceTree = "<group>"; };
 		616970D95027090C37F0EAAE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1CE8A4F513C6013BD4CCAC /* Pods-MarshrouteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.release.xcconfig"; sourceTree = "<group>"; };
 		77767704E4AC1FE96EDB2B9E /* Pods-MarshrouteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarshrouteTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -457,6 +459,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CBCF82F1F865F4800E2F0E6 /* Plugins */ = {
+			isa = PBXGroup;
+			children = (
+				0CBCF8301F865F5A00E2F0E6 /* PrintPlugin.swift */,
+			);
+			path = Plugins;
+			sourceTree = "<group>";
+		};
 		23BEDE71C82381ECEB23FE67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +538,7 @@
 		CC0B1D591CC207FA006707B6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0CBCF82F1F865F4800E2F0E6 /* Plugins */,
 				CC0B1D5A1CC207FA006707B6 /* Assembly */,
 				CCE639771CE05AAE002DF096 /* Extensions */,
 				CC0B1D5F1CC207FA006707B6 /* Router */,
@@ -1774,6 +1785,7 @@
 				CC0B1D801CC20999006707B6 /* CategoriesAssembly.swift in Sources */,
 				CC0B1E4B1CC3BFE8006707B6 /* AdvertisementProvider.swift in Sources */,
 				CC0B1D6B1CC20910006707B6 /* AssemblyFactoryImpl.swift in Sources */,
+				0CBCF8311F865F5A00E2F0E6 /* PrintPlugin.swift in Sources */,
 				CCA7C90D1CD9321300B7ADBD /* ApplicationModuleInput.swift in Sources */,
 				CC84068C1CD6693500644CA1 /* ShelfViewInput.swift in Sources */,
 				CC2B55E61F6FDDBE00B7B96C /* ViewControllerExtensions.swift in Sources */,

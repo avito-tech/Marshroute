@@ -151,9 +151,12 @@ public final class MarshrouteFacade {
             )
             
         case .controllerInNavigationController(let deriveDetailViewController):
-            return deriveDetailViewControllerInNavigationControllerFrom(
+            let (navigationController, routerSeed) = deriveDetailViewControllerInNavigationControllerFrom(
                 deriveDetailViewController: deriveDetailViewController
             )
+            return (navigationController, routerSeed)
+            // Cannot use `return` in one line due to a `Swift` 4 error: 
+            // Cannot express tuple conversion '(UINavigationController, RouterSeed)' to '(UIViewController, RouterSeed)'
         }
     }
     
@@ -182,14 +185,14 @@ public final class MarshrouteFacade {
     
     private func deriveDetailViewControllerInNavigationControllerFrom(
         deriveDetailViewController: DeriveDetailViewController)
-        -> (UIViewController, RouterSeed)
+        -> (UINavigationController, RouterSeed)
     {
-        let (viewController, _, routerSeed) =  deriveDetailViewControllerInNavigationControllerFrom(
+        let (_, navigationController, routerSeed) = deriveDetailViewControllerInNavigationControllerFrom(
             deriveDetailViewController: deriveDetailViewController,
             navigationController: nil
         )
         
-        return (viewController, routerSeed)
+        return (navigationController, routerSeed)
     }
     
     private func deriveDetailViewControllerInNavigationControllerFrom(

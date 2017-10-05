@@ -1,11 +1,11 @@
 import UIKit
 
-public struct MarshrouteModule<V: UIViewController> {
-    public let viewController: V
+public struct MarshrouteModule<ViewController: UIViewController> {
+    public let viewController: ViewController
     public let routerSeed: RouterSeed
     
     public init(
-        viewController: V,
+        viewController: ViewController,
         routerSeed: RouterSeed)
     {
         self.viewController = viewController

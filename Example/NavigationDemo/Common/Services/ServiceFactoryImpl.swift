@@ -10,11 +10,9 @@ final class ServiceFactoryImpl: ServiceFactory {
     fileprivate let moduleRegisteringServiceInstance: ModuleRegisteringServiceImpl
     
     // MARK: - Init
-    init(topViewControllerFinder: TopViewControllerFinder,
-         rootTransitionsHandlerProvider: @escaping (() -> (ContainingTransitionsHandler?)),
-         transitionsMarker: TransitionsMarker,
-         transitionsTracker: TransitionsTracker,
-         transitionsCoordinatorDelegateHolder: TransitionsCoordinatorDelegateHolder)
+    init(
+        marshrouteStack: MarshrouteStack,
+        rootTransitionsHandlerProvider: @escaping (() -> (ContainingTransitionsHandler?)))
     {
         searchResultsCacherInstance = SearchResultsCacherImpl()
         
@@ -25,13 +23,13 @@ final class ServiceFactoryImpl: ServiceFactory {
         touchEventForwarderInstance = touchEventObserverAndForwarder
         
         topViewControllerFindingServiceInstance = TopViewControllerFindingServiceImpl(
-            topViewControllerFinder: topViewControllerFinder,
+            topViewControllerFinder: marshrouteStack.topViewControllerFinder,
             rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
         )
         
         let moduleRegisteringServiceInstance = ModuleRegisteringServiceImpl(
-            transitionsTracker: transitionsTracker,
-            transitionsMarker: transitionsMarker,
+            transitionsTracker: marshrouteStack.transitionsTracker,
+            transitionsMarker: marshrouteStack.transitionsMarker,
             
             // `1` means, that if previous module is `bananas` (distance to it from current module is 1),
             //     then attempt to open a new `bananas` module will open previous module instead of a new one.
@@ -44,7 +42,8 @@ final class ServiceFactoryImpl: ServiceFactory {
         
         self.moduleRegisteringServiceInstance = moduleRegisteringServiceInstance
         
-        transitionsCoordinatorDelegateHolder.transitionsCoordinatorDelegate = moduleRegisteringServiceInstance
+        marshrouteStack.transitionsCoordinatorDelegateHolder
+            .transitionsCoordinatorDelegate = moduleRegisteringServiceInstance
     }
     
     // MARK: - ServiceFactory
@@ -64,10 +63,6 @@ final class ServiceFactoryImpl: ServiceFactory {
             searchResultsProvider: searchResultsProvider(),
             advertisementCacher: advertisementCacher()
         )
-    }
-    
-    func rootModulesProvider() -> RootModulesProvider {
-        return RootModulesProviderImpl()
     }
     
     func timerService() -> TimerService {

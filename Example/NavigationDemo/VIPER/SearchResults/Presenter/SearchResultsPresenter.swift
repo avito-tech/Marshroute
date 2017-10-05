@@ -19,7 +19,7 @@ final class SearchResultsPresenter {
         }
     }
     
-    weak var applicationModuleInput: ApplicationModuleInput?
+    weak var applicationModuleInput: ApplicationModule?
     
     // MARK: - Private
     fileprivate func setupView() {

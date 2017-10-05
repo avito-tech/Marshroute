@@ -43,36 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
         // Init `Marshroute` stack
-        let marshrouteSetupService = MarshrouteSetupServiceImpl()
-        
-        let applicationModuleSeed = ApplicationModuleSeedProvider().applicationModuleSeed(
-            marshrouteSetupService: marshrouteSetupService
-        )
+        let marshrouteStack = MarshrouteSetupServiceImpl().marshrouteStack()        
         
         // Init service factory
         let serviceFactory = ServiceFactoryImpl(
-            topViewControllerFinder: applicationModuleSeed.marshrouteStack.topViewControllerFinder,
-            rootTransitionsHandlerProvider: rootTransitionsHandlerProvider,
-            transitionsMarker: applicationModuleSeed.marshrouteStack.transitionsMarker,
-            transitionsTracker: applicationModuleSeed.marshrouteStack.transitionsTracker,
-            transitionsCoordinatorDelegateHolder: applicationModuleSeed.marshrouteStack.transitionsCoordinatorDelegateHolder
+            marshrouteStack: marshrouteStack,
+            rootTransitionsHandlerProvider: rootTransitionsHandlerProvider
         )
         
         // Init assemly factory
         let assemblyFactory = AssemblyFactoryImpl(
             serviceFactory: serviceFactory,
-            marshrouteStack: applicationModuleSeed.marshrouteStack
+            marshrouteStack: marshrouteStack
         )
         
-        let applicationModule: ApplicationModule
+        let applicationModule: AssembledMarshrouteModule<UITabBarController, ApplicationModule>
             
         if UIDevice.current.userInterfaceIdiom == .pad {
-            applicationModule = assemblyFactory.applicationAssembly().ipadModule(moduleSeed: applicationModuleSeed)
+            applicationModule = assemblyFactory.applicationAssembly().ipadModule()
         } else {
-            applicationModule = assemblyFactory.applicationAssembly().module(moduleSeed: applicationModuleSeed)
+            applicationModule = assemblyFactory.applicationAssembly().module()
         }
         
-        rootTransitionsHandler = applicationModule.transitionsHandler
+        rootTransitionsHandler = applicationModule.routerSeed.transitionsHandlerBox.unboxContainingTransitionsHandler()
         
         // Main application window, which shares delivered touch events with its `touchEventForwarder`
         let touchEventSharingWindow = TouchEventSharingWindow(frame: UIScreen.main.bounds)
@@ -91,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         window?.makeKeyAndVisible()
         
         subscribeOnPeekAndPopStateChanges(
-            observable: applicationModuleSeed.marshrouteStack.peekAndPopStateObservable
+            observable: marshrouteStack.peekAndPopStateObservable
         )
 
         return true

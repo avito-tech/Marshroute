@@ -1,7 +1,7 @@
 import UIKit
 
 final class ApplicationModuleHolder {
-    var applicationModule: ApplicationModule?
+    var applicationModule: AssembledMarshrouteModule<UITabBarController, ApplicationModule>?
     
     static let instance = ApplicationModuleHolder()
 }

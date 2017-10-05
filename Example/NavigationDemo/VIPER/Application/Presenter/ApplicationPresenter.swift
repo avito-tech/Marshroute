@@ -1,6 +1,6 @@
 import Foundation
 
-final class ApplicationPresenter: ApplicationModuleInput {
+final class ApplicationPresenter: ApplicationModule {
     // MARK: - Init
     fileprivate let interactor: ApplicationInteractor
     
@@ -37,7 +37,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
         }
     }
     
-    // MARK: - ApplicationModuleInput
+    // MARK: - ApplicationModule
     func showAuthorizationModule(_ completion: ((_ isAuthorized: Bool) -> ())?) {
         router.authorizationStatus { [weak self] isPresented in
             if isPresented {

@@ -3,33 +3,54 @@ import Marshroute
 
 final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     // MARK: - ApplicationAssembly
-    func module(moduleSeed: ApplicationModuleSeed)
-        -> ApplicationModule
+    func module()
+        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
     {
-        return module(moduleSeed: moduleSeed, ipad: false)
+        return existingModule() ?? module(isPad: false)
     }
     
-    func ipadModule(moduleSeed: ApplicationModuleSeed)
-        -> ApplicationModule
+    func ipadModule()
+        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
     {
-        return module(moduleSeed: moduleSeed, ipad: true)
+        return existingModule() ?? module(isPad: true)
     }
     
     func sharedModuleInput()
-        -> ApplicationModuleInput?
+        -> ApplicationModule?
     {
-        return ApplicationModuleHolder.instance.applicationModule?.moduleInput
+        return existingModule()?.interface
     }
     
     // MARK: - Private
-    fileprivate func module(moduleSeed: ApplicationModuleSeed, ipad: Bool)
-        -> ApplicationModule
+    private func existingModule()
+        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>?
     {
-        if let savedModule = ApplicationModuleHolder.instance.applicationModule {
-            return savedModule
-        }
+        return ApplicationModuleHolder.init().applicationModule
+    }
+    
+    private func module(isPad: Bool)
+        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
+    {
+        var result: AssembledMarshrouteModule<UITabBarController, ApplicationModule>!
+     
+        _ = MarshrouteFacade().tabBarModule(
+            deriveTabBarController: { routerSeed in 
+                result = self.module(routerSeed: routerSeed, isPad: isPad)
+                return result.viewController
+            },
+            deriveTabViewControllersFromFunctions: tabDeriviationFunctions(isPad: isPad)
+        )
         
+        return result
+    }
+    
+    private func module(
+        routerSeed: RouterSeed,
+        isPad: Bool)
+        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
+    {   
         // Banner module
+        
         let (bannerView, bannerModuleInput) = assemblyFactory.bannerAssembly().module()
         
         // Application module
@@ -41,26 +62,13 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
             bannerView: bannerView
         )
         
-        let tabBarTransitionsHandler = moduleSeed.marshrouteStack.transitionsHandlersProvider.tabBarTransitionsHandler(
-            tabBarController: tabBarController
-        )
-        
-        let tabBarTransitionsHandlerBox = RouterTransitionsHandlerBox(
-            containingTransitionsHandler: tabBarTransitionsHandler
-        )
-        
-        let routerSeed = RouterSeed(
-            moduleSeed: moduleSeed,
-            transitionsHandlerBox: tabBarTransitionsHandlerBox
-        )
-        
         let interactor = ApplicationInteractorImpl()
         
         let authorizationModuleTrackingService = serviceFactory.authorizationModuleTrackingService()
         
         let router: ApplicationRouter
-            
-        if ipad {
+        
+        if isPad {
             router = ApplicationRouterIpad(
                 authorizationModuleTrackingService: authorizationModuleTrackingService,
                 assemblyFactory: assemblyFactory,
@@ -84,160 +92,54 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         presenter.view = tabBarController
         presenter.bannerModuleInput = bannerModuleInput
         
-        let tabs = self.tabs(moduleSeed: moduleSeed)
-        
-        tabBarController.viewControllers = tabs.viewControllers
-        tabBarTransitionsHandler.animatingTransitionsHandlers = tabs.animatingTransitionsHandlers
-        tabBarTransitionsHandler.containingTransitionsHandlers = tabs.containingTransitionsHandlers
-        
-        let applicationModule = ApplicationModule(
-            viewController: tabBarController,
-            moduleInput: presenter,
-            transitionsHandler: tabBarTransitionsHandler
+        let module = AssembledMarshrouteModule(
+            viewController: tabBarController as UITabBarController,
+            interface: presenter as ApplicationModule,
+            disposeBag: tabBarController,
+            routerSeed: routerSeed
         )
-
-        ApplicationModuleHolder.instance.applicationModule = applicationModule
         
-        return applicationModule
-    }
-
-    fileprivate func tabs(moduleSeed: ApplicationModuleSeed)
-        -> (viewControllers: [UIViewController],
-        animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],
-        containingTransitionsHandlers: [Int: ContainingTransitionsHandler])
-    {
-        if case .pad = UIDevice.current.userInterfaceIdiom {
-            return ipadTabs(moduleSeed: moduleSeed)
-        } else {
-            return iphoneTabs(moduleSeed: moduleSeed)
-        }
+        ApplicationModuleHolder.instance.applicationModule = module
+        
+        return module
     }
     
-    // MARK: - iPad
-    fileprivate func ipadTabs(moduleSeed: ApplicationModuleSeed)
-        -> (viewControllers: [UIViewController],
-        animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],
-        containingTransitionsHandlers: [Int: ContainingTransitionsHandler])
+    private func tabDeriviationFunctions(isPad: Bool)
+        -> [TabControllerDeriviationFunctionType]
     {
-        let firstTab = ipadFirstTab(moduleSeed: moduleSeed)
-        let secondTab = ipadSecondTab(moduleSeed: moduleSeed)
-        
-        let viewControllers: [UIViewController] = [
-            firstTab.splitViewController,
-            secondTab.navigationController
-        ]
-        
-        let animatingTransitionsHandlers = [
-            1: secondTab.animatingTransitionsHandler
-        ]
-        
-        let containingTransitionsHandlers = [
-            0: firstTab.containingTransitionsHandler,
-        ]
-        
-        return (viewControllers, animatingTransitionsHandlers, containingTransitionsHandlers)
+        return isPad ? ipadTabDeriviationFunctions() : iponeTabDeriviationFunctions()
     }
     
-    fileprivate func ipadFirstTab(moduleSeed: ApplicationModuleSeed)
-        -> (splitViewController: UISplitViewController, containingTransitionsHandler: ContainingTransitionsHandler)
+    private func iponeTabDeriviationFunctions()
+        -> [TabControllerDeriviationFunctionType]
     {
-        let rootModulesProvider = serviceFactory.rootModulesProvider()
-        
-        let categoriesAndShelvesModule = rootModulesProvider.masterDetailModule(
-            moduleSeed: moduleSeed,
-            deriveMasterViewController: { routerSeed -> UIViewController in
-                let categoriesAssembly = assemblyFactory.categoriesAssembly()
-                
-                let viewController = categoriesAssembly.ipadMasterDetailModule(routerSeed: routerSeed)
-                
-                return viewController
+        let result: [TabControllerDeriviationFunctionType] = [
+            .deriveDetailViewControllerInNavigationController { routerSeed in
+                self.assemblyFactory.categoriesAssembly().module(routerSeed: routerSeed)
             },
-            deriveDetailViewController: { routerSeed -> UIViewController in
-                let shelfAssembly = assemblyFactory.shelfAssembly()
-                
-                let viewController = shelfAssembly.module(routerSeed: routerSeed)
-                
-                return viewController
-        })
-        
-        categoriesAndShelvesModule.splitViewController.tabBarItem.title = "advertisements".localized
-        
-        return categoriesAndShelvesModule
-    }
-    
-    fileprivate func ipadSecondTab(moduleSeed: ApplicationModuleSeed)
-        -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
-    {
-        let rootModulesProvider = serviceFactory.rootModulesProvider()
-        
-        let recursionModule = rootModulesProvider.detailModule(moduleSeed: moduleSeed) { routerSeed -> UIViewController in
-            let recursionAssembly = assemblyFactory.recursionAssembly()
-            
-            let viewController = recursionAssembly.ipadModule(routerSeed: routerSeed)
-            
-            return viewController
-        }
-        
-        recursionModule.navigationController.tabBarItem.title = "recursion".localized
-        
-        return recursionModule
-    }
-    
-    // MARK: - iPhone
-    fileprivate func iphoneTabs(moduleSeed: ApplicationModuleSeed)
-        -> (viewControllers: [UIViewController],
-        animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],
-        containingTransitionsHandlers: [Int: ContainingTransitionsHandler])
-    {
-        let firstTab = iphoneFirstTab(moduleSeed: moduleSeed)
-        let secondTab = iphoneSecondTab(moduleSeed: moduleSeed)
-        
-        let viewControllers: [UIViewController] = [
-            firstTab.navigationController,
-            secondTab.navigationController
+            .deriveDetailViewControllerInNavigationController { routerSeed in
+                self.assemblyFactory.recursionAssembly().module(routerSeed: routerSeed)
+            }
         ]
-        
-        let animatingTransitionsHandlers = [
-            0: firstTab.animatingTransitionsHandler,
-            1: secondTab.animatingTransitionsHandler
+        return result
+    }
+    
+    private func ipadTabDeriviationFunctions()
+        -> [TabControllerDeriviationFunctionType]
+    {
+        let result: [TabControllerDeriviationFunctionType] = [
+            .deriveMasterDetailViewController(
+                masterViewControllerInNavigationController: { routerSeed in
+                    self.assemblyFactory.categoriesAssembly().ipadMasterDetailModule(routerSeed: routerSeed)
+                },
+                detailViewControllerInNavigationController: { routerSeed in
+                    self.assemblyFactory.shelfAssembly().module(routerSeed: routerSeed)
+                }
+            ),
+            .deriveDetailViewControllerInNavigationController { routerSeed in
+                self.assemblyFactory.recursionAssembly().module(routerSeed: routerSeed)
+            }
         ]
-        
-        return (viewControllers, animatingTransitionsHandlers, [:])
-    }
-    
-    fileprivate func iphoneFirstTab(moduleSeed: ApplicationModuleSeed)
-        -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
-    {
-        let rootModulesProvider = serviceFactory.rootModulesProvider()
-        
-        let categoriesModule = rootModulesProvider.detailModule(moduleSeed: moduleSeed) { routerSeed -> UIViewController in
-            let categoriesAssembly = assemblyFactory.categoriesAssembly()
-            
-            let viewController = categoriesAssembly.module(routerSeed: routerSeed)
-            
-            return viewController
-        }
-        
-        categoriesModule.navigationController.tabBarItem.title = "advertisements".localized
-        
-        return categoriesModule
-    }
-    
-    fileprivate func iphoneSecondTab(moduleSeed: ApplicationModuleSeed)
-    -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
-    {
-        let rootModulesProvider = serviceFactory.rootModulesProvider()
-        
-        let recursionModule = rootModulesProvider.detailModule(moduleSeed: moduleSeed) { routerSeed -> UIViewController in
-            let recursionAssembly = assemblyFactory.recursionAssembly()
-            
-            let viewController = recursionAssembly.module(routerSeed: routerSeed)
-            
-            return viewController
-        }
-        
-        recursionModule.navigationController.tabBarItem.title = "recursion".localized
-        
-        return recursionModule
+        return result
     }
 }

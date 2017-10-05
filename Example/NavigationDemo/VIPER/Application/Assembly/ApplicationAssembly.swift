@@ -1,19 +1,13 @@
 import UIKit
 import Marshroute
 
-struct ApplicationModule {
-    var viewController: UIViewController
-    var moduleInput: ApplicationModuleInput
-    var transitionsHandler: ContainingTransitionsHandler
-}
-
 protocol ApplicationAssembly: class {
-    func module(moduleSeed: ApplicationModuleSeed)
-        -> ApplicationModule
+    func module()
+        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
     
-    func ipadModule(moduleSeed: ApplicationModuleSeed)
-        -> ApplicationModule
+    func ipadModule()
+        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
     
     func sharedModuleInput()
-        -> ApplicationModuleInput?
+        -> ApplicationModule?
 }

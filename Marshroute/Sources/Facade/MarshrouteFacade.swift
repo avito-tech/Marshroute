@@ -6,9 +6,13 @@ public final class MarshrouteFacade {
     private let transitionId: TransitionId    
     
     // MARK: - Init
-    public init(marshrouteSetupService: MarshrouteSetupService = MarshrouteSetupServiceImpl()) {
-        marshrouteStack = marshrouteSetupService.marshrouteStack()
-        transitionId = marshrouteStack.transitionIdGenerator.generateNewTransitionId()
+    public convenience init(marshrouteSetupService: MarshrouteSetupService = MarshrouteSetupServiceImpl()) {
+        self.init(marshrouteStack: marshrouteSetupService.marshrouteStack())
+    }
+    
+    public init(marshrouteStack: MarshrouteStack) {
+        self.marshrouteStack = marshrouteStack
+        self.transitionId = marshrouteStack.transitionIdGenerator.generateNewTransitionId()
     }
     
     // MARK: - Public

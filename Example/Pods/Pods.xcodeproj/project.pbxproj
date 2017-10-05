@@ -19,6 +19,9 @@
 		0CBCF82A1F86573900E2F0E6 /* MarshroutePrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8291F86573900E2F0E6 /* MarshroutePrint.swift */; };
 		0CBCF82C1F86576800E2F0E6 /* MarshroutePrintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF82B1F86576800E2F0E6 /* MarshroutePrintManager.swift */; };
 		0CBCF82E1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF82D1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift */; };
+		0CBCF8361F8670EE00E2F0E6 /* MarshrouteAssertionPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8331F8670EE00E2F0E6 /* MarshrouteAssertionPlugin.swift */; };
+		0CBCF8371F8670EE00E2F0E6 /* MarshrouteAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8341F8670EE00E2F0E6 /* MarshrouteAssert.swift */; };
+		0CBCF8381F8670EE00E2F0E6 /* MarshrouteAssertionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBCF8351F8670EE00E2F0E6 /* MarshrouteAssertionManager.swift */; };
 		0D8448C40E1248AA53CD72BCB0BD3EF3 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D7CF50458D4F43B61EBE6CE404E1CA /* PushAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0ECB73E2D82412C795DAA2E2B991A12D /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF12BF1BB400C3F19EA74937FCA96BB /* MasterRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		0EE44C32B3962482A97F09EA4A8C4BFA /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5376B94C79ACABF65A4A4EE597F818B9 /* PopoverDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -181,6 +184,9 @@
 		0CBCF8291F86573900E2F0E6 /* MarshroutePrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshroutePrint.swift; sourceTree = "<group>"; };
 		0CBCF82B1F86576800E2F0E6 /* MarshroutePrintManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshroutePrintManager.swift; sourceTree = "<group>"; };
 		0CBCF82D1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarshroutePrintPlugin.swift; sourceTree = "<group>"; };
+		0CBCF8331F8670EE00E2F0E6 /* MarshrouteAssertionPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteAssertionPlugin.swift; sourceTree = "<group>"; };
+		0CBCF8341F8670EE00E2F0E6 /* MarshrouteAssert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteAssert.swift; sourceTree = "<group>"; };
+		0CBCF8351F8670EE00E2F0E6 /* MarshrouteAssertionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteAssertionManager.swift; sourceTree = "<group>"; };
 		0D328A7330ADB7DA9F39750DB15FDF64 /* Pods-NavigationDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NavigationDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		0E90FEF293DF19EEE7373DE6AC9A2E83 /* PresentationTransitionContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresentationTransitionContext.swift; sourceTree = "<group>"; };
 		0EB7893E6D76EAC09E5EB9E42778F587 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ModalMasterDetailPresentationAnimationLaunchingContext.swift; sourceTree = "<group>"; };
@@ -384,6 +390,7 @@
 		0CBCF8271F86561500E2F0E6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0CBCF8321F866FB600E2F0E6 /* AssertionUtiliites */,
 				0CBCF8281F86571800E2F0E6 /* PrintUtiliites */,
 			);
 			path = Utilities;
@@ -397,6 +404,16 @@
 				0CBCF82D1F8659A900E2F0E6 /* MarshroutePrintPlugin.swift */,
 			);
 			path = PrintUtiliites;
+			sourceTree = "<group>";
+		};
+		0CBCF8321F866FB600E2F0E6 /* AssertionUtiliites */ = {
+			isa = PBXGroup;
+			children = (
+				0CBCF8341F8670EE00E2F0E6 /* MarshrouteAssert.swift */,
+				0CBCF8351F8670EE00E2F0E6 /* MarshrouteAssertionManager.swift */,
+				0CBCF8331F8670EE00E2F0E6 /* MarshrouteAssertionPlugin.swift */,
+			);
+			path = AssertionUtiliites;
 			sourceTree = "<group>";
 		};
 		0D8536931A4EA961EB5BC88ED07586A9 /* Presentation */ = {
@@ -1387,6 +1404,7 @@
 				AD6FB1B84F63F63CC91547D9DC7BB3A2 /* MarshrouteSetupServiceImpl.swift in Sources */,
 				EF5490FB20E9E06176F4718D2C310B2E /* MarshrouteStack.swift in Sources */,
 				5A3909B1A09D46E95E33CB28A78127ED /* MasterDetailRouterSeed.swift in Sources */,
+				0CBCF8381F8670EE00E2F0E6 /* MarshrouteAssertionManager.swift in Sources */,
 				0ECB73E2D82412C795DAA2E2B991A12D /* MasterRouter.swift in Sources */,
 				B5B6D7430760AD772059F5E0B53D145A /* MasterRouterTransitionable.swift in Sources */,
 				7421CBC26049FE0FF15E5D10614CDCE6 /* ModalDismissalAnimationContext.swift in Sources */,
@@ -1423,6 +1441,7 @@
 				564A0B451E1B6689D0D0FCF5BF123ACB /* PeekAndPopUtility.swift in Sources */,
 				0AB06369C48890A985471FBB7C01A2FD /* PeekAndPopUtilityImpl.swift in Sources */,
 				E93D37557CFDB36477C131C707E2F7DE /* PeekRequestData.swift in Sources */,
+				0CBCF8361F8670EE00E2F0E6 /* MarshrouteAssertionPlugin.swift in Sources */,
 				CA4F4336D931669C626A34673C60EB79 /* PopAnimationContext.swift in Sources */,
 				74ECFA6F0A4557FE3C697E1F884E17AB /* PopAnimationLaunchingContext.swift in Sources */,
 				4B1AF2D72696680AD6DFA257CF2D58EA /* PopoverDismissalAnimationContext.swift in Sources */,
@@ -1491,6 +1510,7 @@
 				F7CB98604E31B5B3AC2FC2FD4BF3A7B4 /* TransitionsCoordinatorDelegate.swift in Sources */,
 				2007E24208662B496F8811A73DF06ED4 /* TransitionsCoordinatorDelegateHolder.swift in Sources */,
 				4479932EE8BF644968AAC9BB36ECA9BF /* TransitionsCoordinatorHolder.swift in Sources */,
+				0CBCF8371F8670EE00E2F0E6 /* MarshrouteAssert.swift in Sources */,
 				4EFC41B59DB5A38CD5BF031D833E01A6 /* TransitionsCoordinatorImpl.swift in Sources */,
 				0B66D27C59871EC7EBC47C4ECAB15D85 /* TransitionsHandler.swift in Sources */,
 				6137177BCA1574D37F42490AA9912A7D /* TransitionsHandlerBox.swift in Sources */,

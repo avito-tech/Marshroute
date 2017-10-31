@@ -1,10 +1,10 @@
 import UIKit
 
 final class AuthorizationView: UIView {
-    fileprivate let backgroundImage = UIImage(named: "TouchId.png")
-    fileprivate let backgroundView: UIImageView?
-    fileprivate let emailTextField = UITextField()
-    fileprivate let passwordTextField = UITextField()
+    private let backgroundImage = UIImage(named: "TouchId.png")
+    private let backgroundView: UIImageView?
+    private let emailTextField = UITextField()
+    private let passwordTextField = UITextField()
     
     // MARK: - Internal
     var defaultContentInsets: UIEdgeInsets = .zero

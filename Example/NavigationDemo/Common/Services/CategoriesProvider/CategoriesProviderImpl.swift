@@ -16,17 +16,17 @@ final class CategoriesProviderImpl: CategoriesProvider {
     }
     
     // MARK: - Private
-    fileprivate func allCategories() -> [Category] {
+    private func allCategories() -> [Category] {
         let allCategories = self.allCategoryDictionaries()
         return allCategories.map { category(categoryDictionary: $0) }
     }
     
-    fileprivate func allCategoryDictionaries() -> [[String: AnyObject]] {
+    private func allCategoryDictionaries() -> [[String: AnyObject]] {
         let path = Bundle.main.path(forResource: "Categories", ofType: "plist")
         return NSArray(contentsOfFile: path!) as! [[String: AnyObject]]
     }
     
-    fileprivate func categoryForId(_ categoryId: String, inCategories categoryDictionaries: [[String: AnyObject]]) -> Category? {
+    private func categoryForId(_ categoryId: String, inCategories categoryDictionaries: [[String: AnyObject]]) -> Category? {
         for categoryDictionary in categoryDictionaries {
             if let id = categoryDictionary["id"] as? CategoryId, id == categoryId {
                 return category(categoryDictionary: categoryDictionary)
@@ -41,7 +41,7 @@ final class CategoriesProviderImpl: CategoriesProvider {
         return nil
     }
     
-    fileprivate func category(categoryDictionary: [String: AnyObject]) -> Category {
+    private func category(categoryDictionary: [String: AnyObject]) -> Category {
         return Category(
             title: categoryDictionary["title"] as! String,
             id: categoryDictionary["id"] as! CategoryId,
@@ -49,7 +49,7 @@ final class CategoriesProviderImpl: CategoriesProvider {
         )
     }
     
-    fileprivate func subcategories(categoryDictionaries: [[String: AnyObject]]?) -> [Category]? {
+    private func subcategories(categoryDictionaries: [[String: AnyObject]]?) -> [Category]? {
         if let categoryDictionaries = categoryDictionaries {
             return categoryDictionaries.map { category(categoryDictionary: $0) }
         }

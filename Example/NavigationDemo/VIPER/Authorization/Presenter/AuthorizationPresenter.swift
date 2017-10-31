@@ -2,9 +2,9 @@ import Foundation
 
 final class AuthorizationPresenter: AuthorizationModuleInput {
     // MARK: - Private properties
-    fileprivate let interactor: AuthorizationInteractor
-    fileprivate let router: AuthorizationRouter
-    fileprivate var isAuthorized = false
+    private let interactor: AuthorizationInteractor
+    private let router: AuthorizationRouter
+    private var isAuthorized = false
     
     // MARK: - Init
     init(interactor: AuthorizationInteractor, router: AuthorizationRouter) {
@@ -27,7 +27,7 @@ final class AuthorizationPresenter: AuthorizationModuleInput {
     }
     
     // MARK: - Private
-    fileprivate func setupView() {
+    private func setupView() {
         view?.onSubmitButtonTap = { [weak self] in
             self?.isAuthorized = true
             self?.router.dismissCurrentModule()

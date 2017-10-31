@@ -2,7 +2,7 @@ import Foundation
 
 final class SearchResultsCacherImpl: SearchResultsCacher {
     // MARK: - Private properties
-    fileprivate var cache = [SearchResultId: SearchResult]()
+    private var cache = [SearchResultId: SearchResult]()
     
     // MARK: - SearchResultsCacher
     func cache(searchResult: SearchResult) {

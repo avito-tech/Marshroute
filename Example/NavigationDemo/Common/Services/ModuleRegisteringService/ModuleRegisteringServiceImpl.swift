@@ -10,12 +10,12 @@ final class ModuleRegisteringServiceImpl:
     TransitionsCoordinatorDelegate
 {
     // MARK: - Private properties
-    fileprivate let moduleList = TrackedModulesList()
+    private let moduleList = TrackedModulesList()
 
-    fileprivate let transitionsTracker: TransitionsTracker
-    fileprivate let transitionsMarker: TransitionsMarker
-    fileprivate let distanceThresholdBetweenSiblingModules: Int
-    fileprivate let rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?))
+    private let transitionsTracker: TransitionsTracker
+    private let transitionsMarker: TransitionsMarker
+    private let distanceThresholdBetweenSiblingModules: Int
+    private let rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?))
     
     // MARK: - Init
     init(transitionsTracker: TransitionsTracker,

@@ -2,8 +2,8 @@ import UIKit
 
 final class ApplicationViewController: BaseTabBarController, ApplicationViewInput {
     // MARK: - Init
-    fileprivate let topViewControllerFindingService: TopViewControllerFindingService
-    fileprivate let bannerView: UIView
+    private let topViewControllerFindingService: TopViewControllerFindingService
+    private let bannerView: UIView
     
     init(topViewControllerFindingService: TopViewControllerFindingService,
          bannerView: UIView)
@@ -61,7 +61,7 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
     var onDeviceShake: (() -> ())?
     
     // MARK: - Private
-    fileprivate func animateBannerIn(_ bannerView: UIView, completion: (() -> ())?) {
+    private func animateBannerIn(_ bannerView: UIView, completion: (() -> ())?) {
         bannerView.transform = CGAffineTransform(translationX: 0, y: -bannerView.frame.height)
         
         UIView.animate(
@@ -77,7 +77,7 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
         )
     }
     
-    fileprivate func animateBannerOut(_ bannerView: UIView) {
+    private func animateBannerOut(_ bannerView: UIView) {
         UIView.animate(
             withDuration: 0.4,
             delay: 0,

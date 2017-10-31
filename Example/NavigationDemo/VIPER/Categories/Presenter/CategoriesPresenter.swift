@@ -2,8 +2,8 @@ import Foundation
 
 final class CategoriesPresenter {
     // MARK: - Init
-    fileprivate let interactor: CategoriesInteractor
-    fileprivate let router: CategoriesRouter
+    private let interactor: CategoriesInteractor
+    private let router: CategoriesRouter
     
     init(interactor: CategoriesInteractor, router: CategoriesRouter) {
         self.interactor = interactor
@@ -20,7 +20,7 @@ final class CategoriesPresenter {
     }
     
     // MARK: - Private
-    fileprivate func setupView() {
+    private func setupView() {
         view?.onViewDidLoad = { [weak self] in
             self?.interactor.category {
                 self?.interactor.categoryTitle { title in
@@ -66,11 +66,11 @@ final class CategoriesPresenter {
         }
     }
     
-    fileprivate func viewCategoriesFromInteractorCategories(_ categories: [Category]) -> [CategoriesViewData] {
+    private func viewCategoriesFromInteractorCategories(_ categories: [Category]) -> [CategoriesViewData] {
         return categories.map { viewCategoryFromCategory($0) }
     }
     
-    fileprivate func viewCategoryFromCategory(_ category: Category) -> CategoriesViewData {
+    private func viewCategoryFromCategory(_ category: Category) -> CategoriesViewData {
         return CategoriesViewData(
             title: category.title,
             onTap: { [weak self] in

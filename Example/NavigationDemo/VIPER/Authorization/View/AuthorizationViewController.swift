@@ -1,7 +1,7 @@
 import UIKit
 
 final class AuthorizationViewController: BaseViewController, AuthorizationViewInput {
-    fileprivate let authorizationView = AuthorizationView()
+    private let authorizationView = AuthorizationView()
     
     // MARK - Lifecycle
     override func loadView() {
@@ -33,11 +33,11 @@ final class AuthorizationViewController: BaseViewController, AuthorizationViewIn
     }
     
     // MARK: - Private 
-    @objc fileprivate func onCancelButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onCancelButtonTap(_ sender: UIBarButtonItem) {
         onCancelButtonTap?()
     }
     
-    @objc fileprivate func onSubmitButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onSubmitButtonTap(_ sender: UIBarButtonItem) {
         onSubmitButtonTap?()
     }
     

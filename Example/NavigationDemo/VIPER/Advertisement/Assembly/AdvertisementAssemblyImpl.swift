@@ -72,7 +72,7 @@ final class AdvertisementAssemblyImpl: BaseAssembly, AdvertisementAssembly {
     }
     
     // MARK: - Private
-    fileprivate func registerModuleAsBeingTracked(
+    private func registerModuleAsBeingTracked(
         searchResultId: SearchResultId,
         transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)

@@ -2,8 +2,8 @@ import UIKit
 import Marshroute
 
 final class RecursionViewController: BasePeekAndPopViewController, RecursionViewInput {
-    fileprivate let recursionView = RecursionView()
-    fileprivate let viewControllerPosition: ViewControllerPosition
+    private let recursionView = RecursionView()
+    private let viewControllerPosition: ViewControllerPosition
     
     // MARK: - Init
     init(
@@ -64,15 +64,15 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
     }
     
     // MARK: - Private
-    @objc fileprivate func onRecursionButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onRecursionButtonTap(_ sender: UIBarButtonItem) {
         onRecursionButtonTap?(sender)
     }
     
-    @objc fileprivate func onCategoriesButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onCategoriesButtonTap(_ sender: UIBarButtonItem) {
         onCategoriesButtonTap?(sender)
     }
     
-    @objc fileprivate func onDismissButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onDismissButtonTap(_ sender: UIBarButtonItem) {
         onDismissButtonTap?()
     }
     

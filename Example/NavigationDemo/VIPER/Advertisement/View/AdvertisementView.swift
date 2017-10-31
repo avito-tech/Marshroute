@@ -4,11 +4,11 @@ private let ReuseId = "AdvertisementViewCell"
 private let tableHeaderHeight: CGFloat = 44
 
 final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSource {
-    fileprivate let gradientView = GradientView()
-    fileprivate let patternView = UIView()
-    fileprivate let tableView = UITableView()
-    fileprivate var recommendedSearchResults = [SearchResultsViewData]()
-    fileprivate let placeholderImageView = UIImageView()
+    private let gradientView = GradientView()
+    private let patternView = UIView()
+    private let tableView = UITableView()
+    private var recommendedSearchResults = [SearchResultsViewData]()
+    private let placeholderImageView = UIImageView()
     
     // MARK: - Internal
     var defaultContentInsets: UIEdgeInsets = .zero {
@@ -171,7 +171,7 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     }
     
     // MARK: - Private
-    fileprivate func colorFromRGB(_ rgb: (red: Double, green: Double, blue: Double)?) -> UIColor? {
+    private func colorFromRGB(_ rgb: (red: Double, green: Double, blue: Double)?) -> UIColor? {
         guard let rgb = rgb
             else { return nil }
         

@@ -1,7 +1,7 @@
 import UIKit
 
 final class SearchResultsViewController: BasePeekAndPopViewController, SearchResultsViewInput {
-    fileprivate let searchResultsView = SearchResultsView()
+    private let searchResultsView = SearchResultsView()
     
     // MARK: - Lifecycle
     override func loadView() {
@@ -22,7 +22,7 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
     }
     
     // MARK: - Private
-    @objc fileprivate func onRecursionButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onRecursionButtonTap(_ sender: UIBarButtonItem) {
         onRecursionButtonTap?(sender)
     }
     

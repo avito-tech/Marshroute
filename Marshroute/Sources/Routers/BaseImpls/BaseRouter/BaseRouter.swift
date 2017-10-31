@@ -20,7 +20,7 @@ open class BaseRouter:
 {
     open let transitionsHandlerBox: RouterTransitionsHandlerBox
     open let transitionId: TransitionId
-    open fileprivate(set) weak var presentingTransitionsHandler: TransitionsHandler?
+    open private(set) weak var presentingTransitionsHandler: TransitionsHandler?
     open let transitionsHandlersProvider: TransitionsHandlersProvider
     open let transitionIdGenerator: TransitionIdGenerator
     open let controllersProvider: RouterControllersProvider

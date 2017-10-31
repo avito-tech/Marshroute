@@ -26,7 +26,7 @@ final class SearchResultsAssemblyImpl: BaseAssembly, SearchResultsAssembly {
     }
     
     // MARK - Private
-    fileprivate func module(categoryId: CategoryId, router: SearchResultsRouter)
+    private func module(categoryId: CategoryId, router: SearchResultsRouter)
         -> UIViewController
     {
         let interactor = SearchResultsInteractorImpl(

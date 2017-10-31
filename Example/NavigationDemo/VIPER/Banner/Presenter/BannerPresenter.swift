@@ -2,7 +2,7 @@ import Foundation
 
 final class BannerPresenter: BannerModuleInput {
     // MARK: - Init
-    fileprivate let interactor: BannerInteractor
+    private let interactor: BannerInteractor
     
     init(interactor: BannerInteractor) {
         self.interactor = interactor
@@ -18,7 +18,7 @@ final class BannerPresenter: BannerModuleInput {
     }
     
     // MARK: - Private
-    fileprivate func setupView() {
+    private func setupView() {
         view?.onTap = { [weak self] in
             self?.interactor.invalidateTimer()
             self?.onBannerTap?()

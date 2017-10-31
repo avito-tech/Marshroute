@@ -2,9 +2,9 @@ import Foundation
 
 final class ApplicationPresenter: ApplicationModuleInput {
     // MARK: - Init
-    fileprivate let interactor: ApplicationInteractor
+    private let interactor: ApplicationInteractor
     
-    fileprivate let router: ApplicationRouter
+    private let router: ApplicationRouter
     
     init(interactor: ApplicationInteractor, router: ApplicationRouter) {
         self.interactor = interactor
@@ -25,7 +25,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
     weak var bannerModuleInput: BannerModuleInput?
     
     // MARK: - Private
-    fileprivate func setupView() {
+    private func setupView() {
         view?.onMemoryWarning = { [weak self] in
             self?.showAuthorizationModule(nil)
         }
@@ -74,7 +74,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
         showBanner(onBannerTap: onBannerTap)
     }
     
-    fileprivate func showBanner(onBannerTap: @escaping (() -> ())) {
+    private func showBanner(onBannerTap: @escaping (() -> ())) {
         view?.showBanner { [weak self] in
             self?.bannerModuleInput?.setPresented()
             

@@ -4,7 +4,7 @@ import UIKit
 /// например, MFMailComposeViewController, UIImagePickerController
 public struct ModalEndpointNavigationPresentationAnimationLaunchingContext {
     /// навигационный контроллер, на который нужно осуществить модальный переход
-    public fileprivate(set) weak var targetNavigationController: UINavigationController?
+    public private(set) weak var targetNavigationController: UINavigationController?
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
     public let animator: ModalEndpointNavigationTransitionsAnimator

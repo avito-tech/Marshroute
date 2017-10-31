@@ -3,9 +3,9 @@ import UIKit
 private let ReuseId = "CategoriesViewCell"
 
 final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
-    fileprivate let tableView = UITableView()
-    fileprivate var timerButton: UIButton?
-    fileprivate var categories = [CategoriesViewData]()
+    private let tableView = UITableView()
+    private var timerButton: UIButton?
+    private var categories = [CategoriesViewData]()
     
     // MARK: - Init
     init() {
@@ -122,7 +122,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - Private
-    @objc fileprivate func onTimerButtonTap(_ sender: UIButton) {
+    @objc private func onTimerButtonTap(_ sender: UIButton) {
         onTimerButtonTap?()
     }
 }

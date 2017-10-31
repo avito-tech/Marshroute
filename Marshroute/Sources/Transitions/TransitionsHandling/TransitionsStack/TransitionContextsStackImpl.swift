@@ -1,5 +1,5 @@
 public final class TransitionContextsStackImpl: TransitionContextsStack {
-    fileprivate var storage = [CompletedTransitionContext]()
+    private var storage = [CompletedTransitionContext]()
     
     public init() {}
     

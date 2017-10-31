@@ -2,8 +2,8 @@ import Foundation
 
 final class AdvertisementInteractorImpl: AdvertisementInteractor {
     // MARK: - Init
-    fileprivate let advertisementId: AdvertisementId
-    fileprivate let advertisementProvider: AdvertisementProvider
+    private let advertisementId: AdvertisementId
+    private let advertisementProvider: AdvertisementProvider
     
     init(advertisementId: AdvertisementId,
          advertisementProvider: AdvertisementProvider)
@@ -13,7 +13,7 @@ final class AdvertisementInteractorImpl: AdvertisementInteractor {
     }
     
     // MARK: - Private properties
-    fileprivate var advertisement: Advertisement?
+    private var advertisement: Advertisement?
     
     // MARK: - AdvertisementInteractor
     func advertisement(_ completion: () -> ()) {

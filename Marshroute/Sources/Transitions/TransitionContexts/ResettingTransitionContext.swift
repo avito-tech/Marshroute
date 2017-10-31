@@ -13,7 +13,7 @@ public struct ResettingTransitionContext {
     
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    public fileprivate(set) var targetTransitionsHandlerBox: ResettingTransitionTargetTransitionsHandlerBox
+    public private(set) var targetTransitionsHandlerBox: ResettingTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?

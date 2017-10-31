@@ -1,8 +1,8 @@
 import UIKit
 
 final class ShelfView: UIView {
-    fileprivate let shelfImage = UIImage(named: "Shelf.png")
-    fileprivate var shelfImageViews = [UIImageView]()
+    private let shelfImage = UIImage(named: "Shelf.png")
+    private var shelfImageViews = [UIImageView]()
     
     // MARK: - Init
     init() {

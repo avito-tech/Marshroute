@@ -6,13 +6,13 @@ public struct PopoverNavigationPresentationAnimationLaunchingContext {
     public let transitionStyle: PopoverTransitionStyle
     
     /// контроллер, лежащий в поповере, который нужно показать
-    public fileprivate(set) weak var targetViewController: UIViewController?
+    public private(set) weak var targetViewController: UIViewController?
     
     /// контроллер, лежащий в поповере, который нужно показать
-    public fileprivate(set) weak var targetNavigationController: UINavigationController?
+    public private(set) weak var targetNavigationController: UINavigationController?
     
     // поповер, который нужно показать
-    public fileprivate(set) weak var popoverController: UIPopoverController?
+    public private(set) weak var popoverController: UIPopoverController?
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
     public let animator: PopoverNavigationTransitionsAnimator

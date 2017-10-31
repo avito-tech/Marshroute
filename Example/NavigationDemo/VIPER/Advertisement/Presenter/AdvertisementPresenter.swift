@@ -2,8 +2,8 @@ import Foundation
 
 final class AdvertisementPresenter {
     // MARK: - Init
-    fileprivate let interactor: AdvertisementInteractor
-    fileprivate let router: AdvertisementRouter
+    private let interactor: AdvertisementInteractor
+    private let router: AdvertisementRouter
     
     init(interactor: AdvertisementInteractor, router: AdvertisementRouter) {
         self.interactor = interactor
@@ -20,7 +20,7 @@ final class AdvertisementPresenter {
     }
     
     // MARK: - Private
-    fileprivate func setupView() {
+    private func setupView() {
         view?.onViewDidLoad = { [weak self] in
             self?.interactor.advertisement {
                 self?.interactor.advertisementTitle { title in
@@ -62,11 +62,11 @@ final class AdvertisementPresenter {
         }
     }
     
-    fileprivate func viewSearchResultsFromInteractorSearchResults(_ searchResults: [SearchResult]) -> [SearchResultsViewData] {
+    private func viewSearchResultsFromInteractorSearchResults(_ searchResults: [SearchResult]) -> [SearchResultsViewData] {
         return searchResults.map { viewSearchResultFromInteractorSearchResult($0) }
     }
     
-    fileprivate func viewSearchResultFromInteractorSearchResult(_ searchResult: SearchResult) -> SearchResultsViewData {
+    private func viewSearchResultFromInteractorSearchResult(_ searchResult: SearchResult) -> SearchResultsViewData {
         return SearchResultsViewData(
             title: searchResult.title,
             rgb: searchResult.rgb,

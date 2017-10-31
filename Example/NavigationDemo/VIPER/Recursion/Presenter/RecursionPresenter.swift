@@ -2,9 +2,9 @@ import Foundation
 
 final class RecursionPresenter {
     // MARK: - Init
-    fileprivate let interactor: RecursionInteractor
+    private let interactor: RecursionInteractor
     
-    fileprivate let router: RecursionRouter
+    private let router: RecursionRouter
     
     init(interactor: RecursionInteractor, router: RecursionRouter) {
         self.interactor = interactor
@@ -21,7 +21,7 @@ final class RecursionPresenter {
     }
     
     // MARK: - Private
-    fileprivate func setupView() {
+    private func setupView() {
         view?.setTitle("recursion".localized)
         
         view?.onViewDidLoad = { [weak self] in

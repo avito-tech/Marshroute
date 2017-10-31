@@ -1,5 +1,5 @@
 final public class TransitionContextsStackClientImpl: TransitionContextsStackClient {
-    fileprivate let stack: TransitionContextsStack
+    private let stack: TransitionContextsStack
     
     public init(transitionContextsStack: TransitionContextsStack = TransitionContextsStackImpl()) {
         stack = transitionContextsStack

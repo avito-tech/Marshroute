@@ -2,8 +2,8 @@ import UIKit
 import Marshroute
 
 final class CategoriesViewController: BasePeekAndPopViewController, CategoriesViewInput {
-    fileprivate let categoriesView = CategoriesView()
-    fileprivate let viewControllerPosition: ViewControllerPosition
+    private let categoriesView = CategoriesView()
+    private let viewControllerPosition: ViewControllerPosition
     
     // MARK: - Init
     init(
@@ -53,7 +53,7 @@ final class CategoriesViewController: BasePeekAndPopViewController, CategoriesVi
     }
     
     // MARK: - Private
-    @objc fileprivate func onDismissButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onDismissButtonTap(_ sender: UIBarButtonItem) {
         onDismissButtonTap?()
     }
    

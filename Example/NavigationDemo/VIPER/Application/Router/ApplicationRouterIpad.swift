@@ -3,7 +3,7 @@ import Marshroute
 
 final class ApplicationRouterIpad: BaseDemoRouter, ApplicationRouter {
     // MARK: - Private properties
-    fileprivate let authorizationModuleTrackingService: AuthorizationModuleTrackingService
+    private let authorizationModuleTrackingService: AuthorizationModuleTrackingService
     
     // MARK: - Init
     init(authorizationModuleTrackingService: AuthorizationModuleTrackingService,

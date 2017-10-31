@@ -3,8 +3,8 @@ import UIKit
 private let ReuseId = "SearchResultsViewCell"
 
 final class SearchResultsView: UIView, UITableViewDelegate, UITableViewDataSource {
-    fileprivate let tableView = UITableView(frame: .zero, style: .plain)
-    fileprivate var searchResults = [SearchResultsViewData]()
+    private let tableView = UITableView(frame: .zero, style: .plain)
+    private var searchResults = [SearchResultsViewData]()
  
     // MARK: - Init
     init() {

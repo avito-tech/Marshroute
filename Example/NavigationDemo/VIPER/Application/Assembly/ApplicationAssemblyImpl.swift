@@ -22,7 +22,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     }
     
     // MARK: - Private
-    fileprivate func module(moduleSeed: ApplicationModuleSeed, ipad: Bool)
+    private func module(moduleSeed: ApplicationModuleSeed, ipad: Bool)
         -> ApplicationModule
     {
         if let savedModule = ApplicationModuleHolder.instance.applicationModule {
@@ -101,7 +101,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         return applicationModule
     }
 
-    fileprivate func tabs(moduleSeed: ApplicationModuleSeed)
+    private func tabs(moduleSeed: ApplicationModuleSeed)
         -> (viewControllers: [UIViewController],
         animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],
         containingTransitionsHandlers: [Int: ContainingTransitionsHandler])
@@ -114,7 +114,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     }
     
     // MARK: - iPad
-    fileprivate func ipadTabs(moduleSeed: ApplicationModuleSeed)
+    private func ipadTabs(moduleSeed: ApplicationModuleSeed)
         -> (viewControllers: [UIViewController],
         animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],
         containingTransitionsHandlers: [Int: ContainingTransitionsHandler])
@@ -138,7 +138,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         return (viewControllers, animatingTransitionsHandlers, containingTransitionsHandlers)
     }
     
-    fileprivate func ipadFirstTab(moduleSeed: ApplicationModuleSeed)
+    private func ipadFirstTab(moduleSeed: ApplicationModuleSeed)
         -> (splitViewController: UISplitViewController, containingTransitionsHandler: ContainingTransitionsHandler)
     {
         let rootModulesProvider = serviceFactory.rootModulesProvider()
@@ -165,7 +165,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         return categoriesAndShelvesModule
     }
     
-    fileprivate func ipadSecondTab(moduleSeed: ApplicationModuleSeed)
+    private func ipadSecondTab(moduleSeed: ApplicationModuleSeed)
         -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         let rootModulesProvider = serviceFactory.rootModulesProvider()
@@ -184,7 +184,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     }
     
     // MARK: - iPhone
-    fileprivate func iphoneTabs(moduleSeed: ApplicationModuleSeed)
+    private func iphoneTabs(moduleSeed: ApplicationModuleSeed)
         -> (viewControllers: [UIViewController],
         animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],
         containingTransitionsHandlers: [Int: ContainingTransitionsHandler])
@@ -205,7 +205,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         return (viewControllers, animatingTransitionsHandlers, [:])
     }
     
-    fileprivate func iphoneFirstTab(moduleSeed: ApplicationModuleSeed)
+    private func iphoneFirstTab(moduleSeed: ApplicationModuleSeed)
         -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         let rootModulesProvider = serviceFactory.rootModulesProvider()
@@ -223,7 +223,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         return categoriesModule
     }
     
-    fileprivate func iphoneSecondTab(moduleSeed: ApplicationModuleSeed)
+    private func iphoneSecondTab(moduleSeed: ApplicationModuleSeed)
     -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
     {
         let rootModulesProvider = serviceFactory.rootModulesProvider()

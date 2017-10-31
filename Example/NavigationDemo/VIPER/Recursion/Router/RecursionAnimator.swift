@@ -1,7 +1,7 @@
 import Marshroute
 
 final class RecursionAnimator: ModalNavigationTransitionsAnimator {
-    fileprivate let animatedTransitioning = AnimatedTransitioningImpl()
+    private let animatedTransitioning = AnimatedTransitioningImpl()
     
     // MARK: - ModalNavigationTransitionsAnimator
     override func animatePerformingTransition(animationContext context: ModalNavigationPresentationAnimationContext) {
@@ -55,7 +55,7 @@ private class AnimatedTransitioningImpl:
     }
     
     // MARK: - Private
-    fileprivate func animatePresentation(_ transitionContext: UIViewControllerContextTransitioning)
+    private func animatePresentation(_ transitionContext: UIViewControllerContextTransitioning)
     {
         guard let sourceViewController = transitionContext.viewController(forKey: .from)
             else { return }
@@ -138,7 +138,7 @@ private class AnimatedTransitioningImpl:
         )
     }
     
-    fileprivate func animateDismissal(_ transitionContext: UIViewControllerContextTransitioning)
+    private func animateDismissal(_ transitionContext: UIViewControllerContextTransitioning)
     {
         guard let sourceViewController = transitionContext.viewController(forKey: .from)
             else { return }
@@ -215,7 +215,7 @@ private class AnimatedTransitioningImpl:
         )
     }
     
-    fileprivate func frameBelowView(_ relativeView: UIView)
+    private func frameBelowView(_ relativeView: UIView)
         -> CGRect
     {
         return CGRect(x: 0, y: relativeView.frame.height, width: relativeView.frame.width, height: relativeView.frame.height)

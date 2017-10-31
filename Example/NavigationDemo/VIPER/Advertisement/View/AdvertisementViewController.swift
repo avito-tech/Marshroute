@@ -3,7 +3,7 @@ import Marshroute
 
 final class AdvertisementViewController: BasePeekAndPopViewController, AdvertisementViewInput {
     // MARK: - Private properties
-    fileprivate let advertisementView = AdvertisementView()
+    private let advertisementView = AdvertisementView()
     private let peekAndPopStateViewControllerObservable: PeekAndPopStateViewControllerObservable
     
     // MARK: - Init
@@ -68,7 +68,7 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
     }
     
     // MARK: - Private
-    @objc fileprivate func onRecursionButtonTap(_ sender: UIBarButtonItem) {
+    @objc private func onRecursionButtonTap(_ sender: UIBarButtonItem) {
         onRecursionButtonTap?(sender)
     }
     

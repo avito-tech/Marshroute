@@ -143,7 +143,7 @@ final class CategoriesAssemblyImpl: BaseAssembly, CategoriesAssembly, Subcategor
     }
     
     // MARK: - Private
-    fileprivate func module(
+    private func module(
         interactor: CategoriesInteractor,
         router: CategoriesRouter,
         viewControllerPosition: ViewControllerPosition)

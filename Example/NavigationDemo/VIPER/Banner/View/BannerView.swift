@@ -2,8 +2,8 @@ import UIKit
 
 final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
     // MARK: - Init
-    fileprivate let button = UIButton()
-    fileprivate let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    private let button = UIButton()
+    private let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,15 +55,15 @@ final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
     var onTouchUpOutside: (() -> ())?
     
     // MARK: - Private
-    @objc fileprivate func onButtonTouchDown(_ sender: UIButton) {
+    @objc private func onButtonTouchDown(_ sender: UIButton) {
         onTouchDown?()
     }
     
-    @objc fileprivate func onButtonTouchUpOutside(_ sender: UIButton) {
+    @objc private func onButtonTouchUpOutside(_ sender: UIButton) {
         onTouchUpOutside?()
     }
     
-    @objc fileprivate func onButtonTap(_ sender: UIButton) {
+    @objc private func onButtonTap(_ sender: UIButton) {
         onTap?()
     }
 }

@@ -4,10 +4,10 @@ import UIKit
 /// для первоначально проставления корневого контроллера в UINavigationController
 public struct SettingAnimationLaunchingContext {
     /// контроллер, который нужно вставить в `UINavigationController`
-    public fileprivate(set) weak var rootViewController: UIViewController?
+    public private(set) weak var rootViewController: UIViewController?
     
     // навигационный контроллер, осуществляющий reset-переход
-    public fileprivate(set) weak var navigationController: UINavigationController?
+    public private(set) weak var navigationController: UINavigationController?
     
     /// аниматор, выполняющий reset-анимации
     public let animator: SetNavigationTransitionsAnimator

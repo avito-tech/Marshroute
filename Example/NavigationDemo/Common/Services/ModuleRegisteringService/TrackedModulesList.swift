@@ -2,7 +2,7 @@ import Marshroute
 
 final class TrackedModulesList {
     // MARK: - Private properties
-    fileprivate var modules = [TrackedModule]()
+    private var modules = [TrackedModule]()
     
     // MARK: - Internal
     func append(_ trackedModule: TrackedModule) {
@@ -70,7 +70,7 @@ final class TrackedModulesList {
     }
     
     // MARK: - Private
-    fileprivate func releaseZombieModules() {
+    private func releaseZombieModules() {
         modules = modules.filter { $0.weakTransitionsHandlerBox.unbox() !== nil }
     }
 }

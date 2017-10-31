@@ -2,12 +2,12 @@ import Foundation
 
 final class SearchResultsInteractorImpl: SearchResultsInteractor {
     // MARK: - Init
-    fileprivate let categoryId: CategoryId
-    fileprivate let categoriesProvider: CategoriesProvider
-    fileprivate let searchResultsProvider: SearchResultsProvider
+    private let categoryId: CategoryId
+    private let categoriesProvider: CategoriesProvider
+    private let searchResultsProvider: SearchResultsProvider
     
     // MARK: - Private propeties
-    fileprivate var category: Category?
+    private var category: Category?
     
     init(categoryId: CategoryId,
          categoriesProvider: CategoriesProvider,

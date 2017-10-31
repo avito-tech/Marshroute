@@ -2,12 +2,12 @@ import Marshroute
 
 final class ServiceFactoryImpl: ServiceFactory {
     // MARK: - Private properties
-    fileprivate let searchResultsCacherInstance: SearchResultsCacher
-    fileprivate let advertisementCacherInstance: AdvertisementCacher
-    fileprivate let touchEventObserverInstance: TouchEventObserver
-    fileprivate let touchEventForwarderInstance: TouchEventForwarder
-    fileprivate let topViewControllerFindingServiceInstance: TopViewControllerFindingService
-    fileprivate let moduleRegisteringServiceInstance: ModuleRegisteringServiceImpl
+    private let searchResultsCacherInstance: SearchResultsCacher
+    private let advertisementCacherInstance: AdvertisementCacher
+    private let touchEventObserverInstance: TouchEventObserver
+    private let touchEventForwarderInstance: TouchEventForwarder
+    private let topViewControllerFindingServiceInstance: TopViewControllerFindingService
+    private let moduleRegisteringServiceInstance: ModuleRegisteringServiceImpl
     
     // MARK: - Init
     init(topViewControllerFinder: TopViewControllerFinder,

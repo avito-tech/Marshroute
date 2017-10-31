@@ -13,7 +13,7 @@ public struct PresentationTransitionContext {
     
     /// обработчик переходов для модуля, на который нужно перейти
     /// (может отличаться от обработчика переходов, ответственного за выполнение текущего перехода)
-    public fileprivate(set) var targetTransitionsHandlerBox: PresentationTransitionTargetTransitionsHandlerBox
+    public private(set) var targetTransitionsHandlerBox: PresentationTransitionTargetTransitionsHandlerBox
     
     /// параметры перехода, на которые нужно держать сильную ссылку (например, обработчик переходов SplitViewController'а)
     public let storableParameters: TransitionStorableParameters?

@@ -32,7 +32,7 @@ final class AuthorizationAssemblyImpl: BaseAssembly, AuthorizationAssembly {
     }
     
     // MARK: - Private
-    fileprivate func registerModuleAsBeingTracked(
+    private func registerModuleAsBeingTracked(
         transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)
     {

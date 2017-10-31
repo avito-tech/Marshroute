@@ -7,7 +7,7 @@ private struct TouchEventListenerWeakBox {
 
 final class TouchEventObserverImpl: TouchEventObserver, TouchEventForwarder {
     // MARK: - Init
-    fileprivate var touchListenerBoxes = [TouchEventListenerWeakBox]()
+    private var touchListenerBoxes = [TouchEventListenerWeakBox]()
     
     // MARK: - TouchEventObserver
     func addListener(_ listener: TouchEventListener) {

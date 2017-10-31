@@ -27,7 +27,7 @@ final class TopViewControllerFindingServiceImpl: TopViewControllerFindingService
     }
     
     // MARK: - Private 
-    fileprivate func topViewController()
+    private func topViewController()
         -> UIViewController?
     {
         guard let rootTransitionsHandler = rootTransitionsHandlerProvider()
@@ -40,7 +40,7 @@ final class TopViewControllerFindingServiceImpl: TopViewControllerFindingService
         return topViewController
     }
     
-    fileprivate func containerViewControllerForViewController(_ viewController: UIViewController)
+    private func containerViewControllerForViewController(_ viewController: UIViewController)
         -> UIViewController
     {
         var containerViewController = viewController

@@ -1,9 +1,9 @@
 import Foundation
 
 final class CategoriesInteractorImpl: CategoriesInteractor {
-    fileprivate let categoriesProvider: CategoriesProvider
-    fileprivate let categoryId: CategoryId?
-    fileprivate var timerService: TimerService?
+    private let categoriesProvider: CategoriesProvider
+    private let categoryId: CategoryId?
+    private var timerService: TimerService?
     
     // MARK: - Init
     init(categoryId: CategoryId?, categoriesProvider: CategoriesProvider, timerService: TimerService?) {
@@ -13,7 +13,7 @@ final class CategoriesInteractorImpl: CategoriesInteractor {
     }
     
     // MARK: - Private propeties
-    fileprivate var category: Category?
+    private var category: Category?
     
     // MARK: - CategoriesInteractor
     func category(_ completion: () -> ()) {

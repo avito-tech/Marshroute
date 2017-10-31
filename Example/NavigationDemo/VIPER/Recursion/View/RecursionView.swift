@@ -1,8 +1,8 @@
 import UIKit
 
 final class RecursionView: UIView {
-    fileprivate let backgroundImageView = UIImageView(image: UIImage(named: "Recursion.jpg"))
-    fileprivate let timerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
+    private let backgroundImageView = UIImageView(image: UIImage(named: "Recursion.jpg"))
+    private let timerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
     
     // MARK: - Internal
     var defaultContentInsets: UIEdgeInsets = .zero
@@ -47,7 +47,7 @@ final class RecursionView: UIView {
     var onTimerButtonTap: (() -> ())?
 
     // MARK: - Private
-    @objc fileprivate func onTimerButtonTap(_ sender: UIButton) {
+    @objc private func onTimerButtonTap(_ sender: UIButton) {
         onTimerButtonTap?()
     }
 }

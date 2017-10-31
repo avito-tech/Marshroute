@@ -9,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     // Auxiliary window to show touch marker (even over `UIPopoverController`).
     // It should be created lazily, because `UIKit` works incorrenctly
     // if you create two `UIWindow`s at `application(_:didFinishLaunchingWithOptions:)`
-    fileprivate lazy var touchCursorDrawingWindow: UIWindow? = {
+    private lazy var touchCursorDrawingWindow: UIWindow? = {
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         window.isUserInteractionEnabled = false
@@ -21,19 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return window
     }()
     
-    fileprivate var touchCursorDrawer: TouchCursorDrawerImpl?
+    private var touchCursorDrawer: TouchCursorDrawerImpl?
     
-    fileprivate var touchCursorDrawingWindowProvider: (() -> (UIWindow?)) {
+    private var touchCursorDrawingWindowProvider: (() -> (UIWindow?)) {
         return { [weak self] in
             return self?.touchCursorDrawingWindow
         }
     }
     
-    fileprivate var touchEventObserver: TouchEventObserver?
+    private var touchEventObserver: TouchEventObserver?
 
-    fileprivate var rootTransitionsHandler: ContainingTransitionsHandler?
+    private var rootTransitionsHandler: ContainingTransitionsHandler?
     
-    fileprivate var rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)) {
+    private var rootTransitionsHandlerProvider: (() -> (ContainingTransitionsHandler?)) {
         return { [weak self] in
             return self?.rootTransitionsHandler
         }

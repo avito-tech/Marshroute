@@ -1,7 +1,7 @@
 import UIKit
 
 final public class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
-    fileprivate weak var splitViewController: UISplitViewController?
+    private weak var splitViewController: UISplitViewController?
     
     public init(splitViewController: UISplitViewController,
         transitionsCoordinator: TransitionsCoordinator)

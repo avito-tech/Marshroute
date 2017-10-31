@@ -11,7 +11,7 @@ extension DisposeBag where Self: DisposeBagHolder {
 
 // Non thread safe `DisposeBag` implementation
 final class DisposeBagImpl: DisposeBag {
-    fileprivate var disposables: [AnyObject] = []
+    private var disposables: [AnyObject] = []
     
     func addDisposable(_ anyObject: AnyObject) {
         disposables.append(anyObject)

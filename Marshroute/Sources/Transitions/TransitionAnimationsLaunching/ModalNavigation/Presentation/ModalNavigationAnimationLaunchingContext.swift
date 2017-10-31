@@ -3,10 +3,10 @@ import UIKit
 /// Описание параметров запуска анимаций прямого модального перехода на UINavigationController
 public struct ModalNavigationPresentationAnimationLaunchingContext {
     /// навигационный контроллер, на который нужно осуществить модальный переход
-    public fileprivate(set) weak var targetNavigationController: UINavigationController?
+    public private(set) weak var targetNavigationController: UINavigationController?
     
     /// контроллер, на навигационный контроллер которого нужно осуществить модальный переход
-    public fileprivate(set) weak var targetViewController: UIViewController?
+    public private(set) weak var targetViewController: UIViewController?
     
     /// аниматор, выполняющий анимации прямого и обратного перехода
     public let animator: ModalNavigationTransitionsAnimator

@@ -1,10 +1,10 @@
 import Foundation
 
 final class TimerServiceImpl: TimerService {
-    fileprivate var timer: Timer?
-    fileprivate var interval: TimeInterval = 0
-    fileprivate var onFire: (() -> ())?
-    fileprivate var onTick: ((_ secondsLeft: TimeInterval) -> ())?
+    private var timer: Timer?
+    private var interval: TimeInterval = 0
+    private var onFire: (() -> ())?
+    private var onTick: ((_ secondsLeft: TimeInterval) -> ())?
     
     // MARK: - TimerService
     func startTimer(
@@ -41,7 +41,7 @@ final class TimerServiceImpl: TimerService {
     }
     
     // MARK: - Private
-    fileprivate func scheduleTick() {
+    private func scheduleTick() {
         onTick?(interval)
         
         timer = Timer.scheduledTimer(
@@ -53,7 +53,7 @@ final class TimerServiceImpl: TimerService {
         )
     }
     
-    @objc fileprivate func onTimer(_ sender: Timer) {
+    @objc private func onTimer(_ sender: Timer) {
         interval -= 1
         
         if interval > 0 {

@@ -1,7 +1,7 @@
 import Foundation
 
 final class RecursionInteractorImpl: RecursionInteractor {
-    fileprivate var timerService: TimerService?
+    private var timerService: TimerService?
     
     // MARK: - Init
     init(timerService: TimerService?) {

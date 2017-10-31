@@ -1,5 +1,5 @@
 public struct StrongBox<T> where T: AnyObject {
-    fileprivate let boxedValue: T
+    private let boxedValue: T
     
     public init(_ boxedValue: T)
     {

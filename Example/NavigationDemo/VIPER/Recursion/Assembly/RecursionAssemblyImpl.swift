@@ -36,7 +36,7 @@ final class RecursionAssemblyImpl: BaseAssembly, RecursionAssembly {
     }
     
     // MARK - Private
-    fileprivate func module(
+    private func module(
         router: RecursionRouter,
         viewControllerPosition: ViewControllerPosition)
       -> UIViewController

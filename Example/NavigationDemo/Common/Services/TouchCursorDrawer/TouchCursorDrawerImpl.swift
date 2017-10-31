@@ -2,8 +2,8 @@ import UIKit
 
 final class TouchCursorDrawerImpl: TouchEventListener {
     // MARK: - Init
-    fileprivate let windowProvider: (() -> (UIWindow?))
-    fileprivate var fadeOutViews = [FadeOutView]()
+    private let windowProvider: (() -> (UIWindow?))
+    private var fadeOutViews = [FadeOutView]()
     
     init(windowProvider: @escaping (() -> (UIWindow?))) {
         self.windowProvider = windowProvider
@@ -28,7 +28,7 @@ final class TouchCursorDrawerImpl: TouchEventListener {
     }
     
     // MARK: - Private
-    fileprivate func addFadeOutViewsForTouches(_ touches: Set<UITouch>) {
+    private func addFadeOutViewsForTouches(_ touches: Set<UITouch>) {
         guard let window = windowProvider()
             else { return }
         
@@ -40,7 +40,7 @@ final class TouchCursorDrawerImpl: TouchEventListener {
         }
     }
     
-    fileprivate func removeFadeOutViews() {
+    private func removeFadeOutViews() {
         for fadeOutView in fadeOutViews {
             fadeOutView.fadeOut()
         }

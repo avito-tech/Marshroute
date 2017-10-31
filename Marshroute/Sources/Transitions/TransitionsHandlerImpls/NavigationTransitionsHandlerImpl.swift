@@ -1,7 +1,7 @@
 import UIKit
 
 final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
-    fileprivate weak var navigationController: UINavigationController?
+    private weak var navigationController: UINavigationController?
     
     public init(navigationController: UINavigationController,
                 transitionsCoordinator: TransitionsCoordinator)

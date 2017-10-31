@@ -1,7 +1,7 @@
 import Foundation
 
 final class BannerInteractorImpl: BannerInteractor {
-    fileprivate let timerService: TimerService
+    private let timerService: TimerService
     
     // MARK: - Init
     init(timerService: TimerService) {

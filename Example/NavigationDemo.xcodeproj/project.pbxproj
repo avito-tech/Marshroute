@@ -71,6 +71,7 @@
 		CC0B1E6F1CC3C91A006707B6 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */; };
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
 		CC0D2F1F1FE538C000C0419B /* InitialNavigationStateInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D2F1E1FE538C000C0419B /* InitialNavigationStateInitializer.swift */; };
+		CC0D2F231FE54CBF00C0419B /* AuthorizationOpener.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D2F221FE54CBA00C0419B /* AuthorizationOpener.swift */; };
 		CC2B55DE1F6FAFAD00B7B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */; };
 		CC2B55E21F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */; };
 		CC2B55E41F6FCD1400B7B96C /* TestablePeekAndPopSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */; };
@@ -290,6 +291,7 @@
 		CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
 		CC0D2F1E1FE538C000C0419B /* InitialNavigationStateInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialNavigationStateInitializer.swift; sourceTree = "<group>"; };
+		CC0D2F221FE54CBA00C0419B /* AuthorizationOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationOpener.swift; sourceTree = "<group>"; };
 		CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift; sourceTree = "<group>"; };
 		CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestablePeekAndPopSourceViewController.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 		CC0B1D591CC207FA006707B6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CC0D2F211FE54CB000C0419B /* ModuleOpeners */,
 				CC0B1D5A1CC207FA006707B6 /* Assembly */,
 				CCE639771CE05AAE002DF096 /* Extensions */,
 				CC0B1D5F1CC207FA006707B6 /* Router */,
@@ -877,6 +880,14 @@
 				CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CC0D2F211FE54CB000C0419B /* ModuleOpeners */ = {
+			isa = PBXGroup;
+			children = (
+				CC0D2F221FE54CBA00C0419B /* AuthorizationOpener.swift */,
+			);
+			path = ModuleOpeners;
 			sourceTree = "<group>";
 		};
 		CC4267FC1F5FF76F00F4C407 /* MarshrouteTests */ = {
@@ -1703,6 +1714,7 @@
 				CC84068B1CD6693500644CA1 /* ShelfViewController.swift in Sources */,
 				CC574ACC1CEF9909008648D0 /* ApplicationRouterIpad.swift in Sources */,
 				CCA7C90A1CD92E5500B7ADBD /* ApplicationModuleHolder.swift in Sources */,
+				CC0D2F231FE54CBF00C0419B /* AuthorizationOpener.swift in Sources */,
 				CC0B1DAC1CC230F3006707B6 /* ApplicationAssembly.swift in Sources */,
 				CC0B1D871CC20999006707B6 /* CategoriesRouterIphone.swift in Sources */,
 				CCA0651F1CE0B51200D08A67 /* TouchEventListener.swift in Sources */,

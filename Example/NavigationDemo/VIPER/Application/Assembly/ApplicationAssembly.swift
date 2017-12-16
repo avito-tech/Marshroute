@@ -8,7 +8,7 @@ protocol ApplicationAssembly: class {
         isPad: Bool)
         -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
     
-    func sharedModuleInput()
+    func sharedApplicationModuleInterface()
         -> ApplicationModule?
 }
 

@@ -27,7 +27,7 @@ final class ApplicationPresenter: ApplicationModule {
     // MARK: - Private
     fileprivate func setupView() {
         view?.onMemoryWarning = { [weak self] in
-            self?.showAuthorizationModule(nil)
+            self?.openAuthorizationModule()
         }
         
         view?.onDeviceShake = { [weak self] in
@@ -38,7 +38,7 @@ final class ApplicationPresenter: ApplicationModule {
     }
     
     // MARK: - ApplicationModule
-    func showAuthorizationModule(_ completion: ((_ isAuthorized: Bool) -> ())?) {
+    func openAuthorizationModule(completion: ((_ isAuthorized: Bool) -> ())?) {
         router.authorizationStatus { [weak self] isPresented in
             if isPresented {
                 self?.authorizationModuleInput?.onComplete = completion

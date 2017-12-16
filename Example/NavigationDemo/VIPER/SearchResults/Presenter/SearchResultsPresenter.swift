@@ -1,13 +1,20 @@
 import Foundation
 
 final class SearchResultsPresenter {
-    // MARK: - Init
+    // MARK: - Private properties
     fileprivate let interactor: SearchResultsInteractor
     fileprivate let router: SearchResultsRouter
+    private let authorizationOpener: AuthorizationOpener
     
-    init(interactor: SearchResultsInteractor, router: SearchResultsRouter) {
+    // MARK: - Init
+    init(
+        interactor: SearchResultsInteractor,
+        router: SearchResultsRouter,
+        authorizationOpener: AuthorizationOpener)
+    {
         self.interactor = interactor
         self.router = router
+        self.authorizationOpener = authorizationOpener
     }
     
     // MARK: - Weak properties
@@ -18,8 +25,6 @@ final class SearchResultsPresenter {
             }
         }
     }
-    
-    weak var applicationModuleInput: ApplicationModule?
     
     // MARK: - Private
     fileprivate func setupView() {
@@ -61,11 +66,11 @@ final class SearchResultsPresenter {
     
     fileprivate func showAdvertisement(searchResultId: SearchResultId, afterAuthorization: Bool) {
         if afterAuthorization {
-            applicationModuleInput?.showAuthorizationModule( { [weak self] isAuthorized in
+            authorizationOpener.openAuthorizationModule { [weak self] isAuthorized in
                 if isAuthorized {
                     self?.router.showAdvertisement(searchResultId: searchResultId)
                 }
-            })
+            }
         } else {
             router.showAdvertisement(searchResultId: searchResultId)
         }

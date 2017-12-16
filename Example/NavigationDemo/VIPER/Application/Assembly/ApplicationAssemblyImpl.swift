@@ -16,7 +16,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         )
     }
     
-    func sharedModuleInput()
+    func sharedApplicationModuleInterface()
         -> ApplicationModule?
     {
         return existingModule()?.interface

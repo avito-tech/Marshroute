@@ -35,12 +35,17 @@ final class SearchResultsAssemblyImpl: BaseAssembly, SearchResultsAssembly {
             searchResultsProvider: serviceFactory.searchResultsProvider()
         )
         
-        let presenter = SearchResultsPresenter(
-            interactor: interactor,
-            router: router
+        let applicationModuleInterface = assemblyFactory.applicationAssembly().sharedApplicationModuleInterface()
+        
+        let authorizationOpener = WeakAuthorizationOpener(
+            authorizationOpener: applicationModuleInterface
         )
         
-        presenter.applicationModuleInput = assemblyFactory.applicationAssembly().sharedModuleInput()
+        let presenter = SearchResultsPresenter(
+            interactor: interactor,
+            router: router,
+            authorizationOpener: authorizationOpener
+        )
         
         let viewController = SearchResultsViewController(
             peekAndPopUtility: marshrouteStack.peekAndPopUtility

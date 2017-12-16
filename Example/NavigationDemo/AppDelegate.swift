@@ -57,19 +57,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             marshrouteStack: marshrouteStack
         )
         
-        let applicationModule: AssembledMarshrouteModule<UITabBarController, ApplicationModule>
-            
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            applicationModule = assemblyFactory.applicationAssembly().ipadModule()
-        } else {
-            applicationModule = assemblyFactory.applicationAssembly().module()
-        }
+        let initialNavigationStateInitializer = InitialNavigationStateInitializer(
+            assemblyFactory: assemblyFactory
+        )
         
-        rootTransitionsHandler = applicationModule.routerSeed.transitionsHandlerBox.unboxContainingTransitionsHandler()
+        let isPad = UIDevice.current.userInterfaceIdiom == .pad
+        let applicationMarshrouteModule = initialNavigationStateInitializer.module(isPad: isPad)
+        
+        rootTransitionsHandler = applicationMarshrouteModule.routerSeed.transitionsHandlerBox.unboxContainingTransitionsHandler()
         
         // Main application window, which shares delivered touch events with its `touchEventForwarder`
         let touchEventSharingWindow = TouchEventSharingWindow(frame: UIScreen.main.bounds)
-        touchEventSharingWindow.rootViewController = applicationModule.viewController
+        touchEventSharingWindow.rootViewController = applicationMarshrouteModule.viewController
         touchEventSharingWindow.touchEventForwarder = serviceFactory.touchEventForwarder()
         
         // Object for drawing temporary red markers in places where user touches the screen

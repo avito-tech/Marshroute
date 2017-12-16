@@ -3,16 +3,17 @@ import Marshroute
 
 final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     // MARK: - ApplicationAssembly
-    func module()
+    func module(
+        routerSeed: RouterSeed,
+        instantiateTabViewControllers: (() -> ()),
+        isPad: Bool)
         -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
     {
-        return existingModule() ?? module(isPad: false)
-    }
-    
-    func ipadModule()
-        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
-    {
-        return existingModule() ?? module(isPad: true)
+        return existingModule() ?? moduleImpl(
+            routerSeed: routerSeed,
+            instantiateTabViewControllers: instantiateTabViewControllers,
+            isPad: isPad
+        )
     }
     
     func sharedModuleInput()
@@ -28,27 +29,16 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         return ApplicationModuleHolder.instance.applicationModule
     }
     
-    private func module(isPad: Bool)
-        -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
-    {
-        var result: AssembledMarshrouteModule<UITabBarController, ApplicationModule>!
-     
-        _ = MarshrouteFacade().tabBarModule(
-            deriveTabBarController: { routerSeed in 
-                result = self.module(routerSeed: routerSeed, isPad: isPad)
-                return result.viewController
-            },
-            deriveTabViewControllersFromFunctions: tabDeriviationFunctions(isPad: isPad)
-        )
-        
-        return result
-    }
-    
-    private func module(
+    private func moduleImpl(
         routerSeed: RouterSeed,
+        instantiateTabViewControllers: (() -> ()),
         isPad: Bool)
         -> AssembledMarshrouteModule<UITabBarController, ApplicationModule>
     {   
+        // This demo does not depend on tabs initialization order
+        // In your app you can choose another appropriate moment
+        instantiateTabViewControllers()
+        
         // Banner module
         
         let (bannerView, bannerModuleInput) = assemblyFactory.bannerAssembly().module()
@@ -102,44 +92,5 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         ApplicationModuleHolder.instance.applicationModule = module
         
         return module
-    }
-    
-    private func tabDeriviationFunctions(isPad: Bool)
-        -> [TabControllerDeriviationFunctionType]
-    {
-        return isPad ? ipadTabDeriviationFunctions() : iponeTabDeriviationFunctions()
-    }
-    
-    private func iponeTabDeriviationFunctions()
-        -> [TabControllerDeriviationFunctionType]
-    {
-        let result: [TabControllerDeriviationFunctionType] = [
-            .deriveDetailViewControllerInNavigationController { routerSeed in
-                self.assemblyFactory.categoriesAssembly().module(routerSeed: routerSeed)
-            },
-            .deriveDetailViewControllerInNavigationController { routerSeed in
-                self.assemblyFactory.recursionAssembly().module(routerSeed: routerSeed)
-            }
-        ]
-        return result
-    }
-    
-    private func ipadTabDeriviationFunctions()
-        -> [TabControllerDeriviationFunctionType]
-    {
-        let result: [TabControllerDeriviationFunctionType] = [
-            .deriveMasterDetailViewController(
-                masterViewControllerInNavigationController: { routerSeed in
-                    self.assemblyFactory.categoriesAssembly().ipadMasterDetailModule(routerSeed: routerSeed)
-                },
-                detailViewControllerInNavigationController: { routerSeed in
-                    self.assemblyFactory.shelfAssembly().module(routerSeed: routerSeed)
-                }
-            ),
-            .deriveDetailViewControllerInNavigationController { routerSeed in
-                self.assemblyFactory.recursionAssembly().module(routerSeed: routerSeed)
-            }
-        ]
-        return result
     }
 }

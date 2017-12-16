@@ -1,7 +1,9 @@
-public typealias DeriveTabBarController = ((RouterSeed) -> (UITabBarController))
+public typealias InstantiateTabViewControllers = (() -> ())
+
+public typealias DeriveTabBarController = ((RouterSeed, InstantiateTabViewControllers) -> (UITabBarController))
 
 /// Defines a type of function to create a view controller for some tab of `UITabBarController`  
-public enum TabControllerDeriviationFunctionType {
+public enum TabViewControllerDeriviationFunctionType {
     /// Creates a regular `UIViewController` (probably wrapped into `UINavigationController`) 
     case detailController(DetailViewControllerDeriviationFunctionType)
     
@@ -14,7 +16,7 @@ public enum TabControllerDeriviationFunctionType {
     // MARK: Detail view controller
     public static func deriveDetailViewController(
         _ deriveDetailViewController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .detailController(
             .controller(deriveDetailViewController)
@@ -23,7 +25,7 @@ public enum TabControllerDeriviationFunctionType {
     
     public static func deriveDetailViewControllerInNavigationController(
         _ deriveDetailViewController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .detailController(
             .controllerInNavigationController(deriveDetailViewController)
@@ -35,7 +37,7 @@ public enum TabControllerDeriviationFunctionType {
         masterDetailViewController: @escaping DeriveMasterDetailViewController,
         masterViewController: @escaping DeriveMasterViewController,
         detailViewController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
@@ -49,7 +51,7 @@ public enum TabControllerDeriviationFunctionType {
     public static func deriveMasterDetailViewController(
         masterViewController: @escaping DeriveMasterViewController,
         detailViewController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
@@ -65,7 +67,7 @@ public enum TabControllerDeriviationFunctionType {
         masterDetailViewController: @escaping DeriveMasterDetailViewController,
         masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
         detailViewController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
@@ -79,7 +81,7 @@ public enum TabControllerDeriviationFunctionType {
     public static func deriveMasterDetailViewController(
         masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
         detailViewController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
@@ -95,7 +97,7 @@ public enum TabControllerDeriviationFunctionType {
         masterDetailViewController: @escaping DeriveMasterDetailViewController,
         masterViewController: @escaping DeriveMasterViewController,
         detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
@@ -109,7 +111,7 @@ public enum TabControllerDeriviationFunctionType {
     public static func deriveMasterDetailViewController(
         masterViewController: @escaping DeriveMasterViewController,
         detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
@@ -125,7 +127,7 @@ public enum TabControllerDeriviationFunctionType {
         masterDetailViewController: @escaping DeriveMasterDetailViewController,
         masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
         detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(
@@ -139,7 +141,7 @@ public enum TabControllerDeriviationFunctionType {
     public static func deriveMasterDetailViewController(
         masterViewControllerInNavigationController: @escaping DeriveMasterViewController,
         detailViewControllerInNavigationController: @escaping DeriveDetailViewController)
-        -> TabControllerDeriviationFunctionType
+        -> TabViewControllerDeriviationFunctionType
     {
         return .masterDetailViewController(
             MasterDetailViewControllerDeriviationFuctionType(

@@ -70,6 +70,7 @@
 		CC0B1E6E1CC3C91A006707B6 /* AdvertisementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */; };
 		CC0B1E6F1CC3C91A006707B6 /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */; };
 		CC0B1E701CC3C91A006707B6 /* AdvertisementViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */; };
+		CC0D2F1F1FE538C000C0419B /* InitialNavigationStateInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0D2F1E1FE538C000C0419B /* InitialNavigationStateInitializer.swift */; };
 		CC2B55DE1F6FAFAD00B7B96C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */; };
 		CC2B55E21F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */; };
 		CC2B55E41F6FCD1400B7B96C /* TestablePeekAndPopSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */; };
@@ -288,6 +289,7 @@
 		CC0B1E641CC3C91A006707B6 /* AdvertisementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementView.swift; sourceTree = "<group>"; };
 		CC0B1E651CC3C91A006707B6 /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		CC0B1E661CC3C91A006707B6 /* AdvertisementViewInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewInput.swift; sourceTree = "<group>"; };
+		CC0D2F1E1FE538C000C0419B /* InitialNavigationStateInitializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialNavigationStateInitializer.swift; sourceTree = "<group>"; };
 		CC2B55DD1F6FAFAD00B7B96C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC2B55E11F6FC95A00B7B96C /* PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImplTests_registersViewControllerForPreviewing.swift; sourceTree = "<group>"; };
 		CC2B55E31F6FCD1300B7B96C /* TestablePeekAndPopSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestablePeekAndPopSourceViewController.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0B1D431CC20687006707B6 /* AppDelegate.swift */,
+				CC0D2F1E1FE538C000C0419B /* InitialNavigationStateInitializer.swift */,
 				CC0B1D591CC207FA006707B6 /* Common */,
 				CC0B1D581CC207DD006707B6 /* VIPER */,
 				CC8406661CD6623800644CA1 /* Resources */,
@@ -1800,6 +1803,7 @@
 				CC0B1E561CC3C3D3006707B6 /* AdvertisementCacherImpl.swift in Sources */,
 				CC3B0EC31F59D8B30034530E /* BasePeekAndPopViewController.swift in Sources */,
 				CC8406831CD6693500644CA1 /* ShelfAssembly.swift in Sources */,
+				CC0D2F1F1FE538C000C0419B /* InitialNavigationStateInitializer.swift in Sources */,
 				CC8406851CD6693500644CA1 /* ShelfInteractor.swift in Sources */,
 				CCA7C8EC1CD9049C00B7ADBD /* CategoriesRouterIpad.swift in Sources */,
 				CC0B1E1A1CC2DF84006707B6 /* SearchResultsRouter.swift in Sources */,

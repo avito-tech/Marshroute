@@ -284,6 +284,6 @@ public final class ViewControllerDeriver {
             context: resetContext
         )
         
-        return (viewController, routerSeed)
+        return (navigationController, routerSeed)
     }
 }

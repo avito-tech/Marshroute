@@ -9,10 +9,13 @@ final class InitialNavigationStateInitializer {
     // MARK: - Init
     init(
         assemblyFactory: AssemblyFactory,
-        marshrouteFacade: MarshrouteFacade = MarshrouteFacade())
+        marshrouteStack: MarshrouteStack)
     {
         self.assemblyFactory = assemblyFactory
-        self.marshrouteFacade = marshrouteFacade
+        
+        self.marshrouteFacade = MarshrouteFacade(
+            marshrouteStack: marshrouteStack
+        )
     }
     
     // MARK: - Internal

@@ -7,7 +7,7 @@ public final class MarshrouteFacade {
     
     // MARK: - Init
     public convenience init(
-        marshrouteSetupService: MarshrouteSetupService = MarshrouteSetupServiceImpl())
+        marshrouteSetupService: MarshrouteSetupService)
     {
         self.init(
             marshrouteStack: marshrouteSetupService.marshrouteStack()

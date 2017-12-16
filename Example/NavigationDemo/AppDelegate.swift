@@ -58,7 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         )
         
         let initialNavigationStateInitializer = InitialNavigationStateInitializer(
-            assemblyFactory: assemblyFactory
+            assemblyFactory: assemblyFactory,
+            marshrouteStack: marshrouteStack
         )
         
         let isPad = UIDevice.current.userInterfaceIdiom == .pad

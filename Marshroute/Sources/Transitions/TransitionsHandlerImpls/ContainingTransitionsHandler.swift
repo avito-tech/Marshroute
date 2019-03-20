@@ -1,7 +1,7 @@
 /// Базовый класс для содержащих обработчиков переходов
 open class ContainingTransitionsHandler: TransitionsHandlerContainer, TransitionsCoordinatorHolder, TransitionsHandler {
     // MARK: - TransitionsCoordinatorHolder    
-    open let transitionsCoordinator: TransitionsCoordinator
+    public let transitionsCoordinator: TransitionsCoordinator
     
     public init(transitionsCoordinator: TransitionsCoordinator)
     {

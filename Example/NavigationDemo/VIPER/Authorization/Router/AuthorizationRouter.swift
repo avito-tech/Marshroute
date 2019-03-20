@@ -1,5 +1,5 @@
 import Marshroute
 
-protocol AuthorizationRouter: class, RouterDismissable {
+protocol AuthorizationRouter: RouterDismissable {
     
 }

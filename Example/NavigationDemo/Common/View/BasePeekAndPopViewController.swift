@@ -57,8 +57,8 @@ class BasePeekAndPopViewController: BaseViewController
         reregisterForPeekAndPopIfAvailable()
     }
     
-    override func didMove(toParentViewController parent: UIViewController?) {
-        super.didMove(toParentViewController: parent)
+    override func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
         reregisterForPeekAndPopIfAvailable()
     }
     

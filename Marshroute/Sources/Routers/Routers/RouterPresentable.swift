@@ -5,5 +5,5 @@ public protocol RouterPresentable: class {
     /// убрать свой модуль и вернуться на предыдущий модуль через
     /// ```swift
     /// undoTransitionWith(transitionId:)
-    weak var presentingTransitionsHandler: TransitionsHandler? { get }
+    var presentingTransitionsHandler: TransitionsHandler? { get }
 }

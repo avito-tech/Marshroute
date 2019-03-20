@@ -1,6 +1,6 @@
 import Marshroute
 
-protocol CategoriesRouter: class, RouterDismissable {
+protocol CategoriesRouter: RouterDismissable {
     func showSubcategories(categoryId: CategoryId)
     func showSearchResults(categoryId: CategoryId)
     func returnToCategories()

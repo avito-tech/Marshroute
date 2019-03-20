@@ -39,7 +39,7 @@ final class SearchResultsViewController: BasePeekAndPopViewController, SearchRes
     
     // MARK: - BasePeekAndPopViewController
     override var peekSourceViews: [UIView] {
-        return searchResultsView.peekSourceViews + [navigationController?.navigationBar].flatMap { $0 }
+        return searchResultsView.peekSourceViews + [navigationController?.navigationBar].compactMap { $0 }
     }
     
     @available(iOS 9.0, *)

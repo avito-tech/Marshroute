@@ -23,7 +23,7 @@ final class TrackedModulesList {
     {
         releaseZombieModules()
         
-        let index = modules.index {
+        let index = modules.firstIndex {
             ($0.transitionUserId == transitionUserId) &&
                 ($0.transitionId == transitionId)
         }

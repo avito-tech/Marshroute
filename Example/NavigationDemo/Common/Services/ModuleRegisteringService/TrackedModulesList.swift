@@ -36,7 +36,7 @@ final class TrackedModulesList {
     func removeTrackedModulesWithTransitionUserId(_ transitionUserId: TransitionUserId) {
         releaseZombieModules()
         
-        let index = modules.index { $0.transitionUserId == transitionUserId }
+        let index = modules.firstIndex { $0.transitionUserId == transitionUserId }
         
         if let trackedModuleIndex = index {
             modules.remove(at: trackedModuleIndex)

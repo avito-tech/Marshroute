@@ -60,7 +60,7 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
     
     // MARK: - BasePeekAndPopViewController
     override var peekSourceViews: [UIView] {
-        return [navigationController?.navigationBar].flatMap { $0 }
+        return [navigationController?.navigationBar].compactMap { $0 }
     }
     
     // MARK: - Private

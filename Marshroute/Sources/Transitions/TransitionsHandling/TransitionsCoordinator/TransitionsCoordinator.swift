@@ -826,7 +826,7 @@ extension TransitionsCoordinator where
             guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: transitionsHandler)
                 else { return nil }
             
-            let (chainedTransition, pushTransitions): (RestoredTransitionContext?, [RestoredTransitionContext]?)
+            var (chainedTransition, pushTransitions): (RestoredTransitionContext?, [RestoredTransitionContext]?)
             
             if transitionsHandler === fromTransitionsHandler {
                 // у начально нужно считать только переходы после переданного идентификатора

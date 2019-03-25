@@ -20,13 +20,13 @@ open class BaseMasterDetailRouter:
     DetailRouter,
     RouterControllersProviderHolder
 {
-    open let masterTransitionsHandlerBox: RouterTransitionsHandlerBox
-    open let detailTransitionsHandlerBox: RouterTransitionsHandlerBox
-    open let transitionId: TransitionId
+    public let masterTransitionsHandlerBox: RouterTransitionsHandlerBox
+    public let detailTransitionsHandlerBox: RouterTransitionsHandlerBox
+    public let transitionId: TransitionId
     open fileprivate(set) weak var presentingTransitionsHandler: TransitionsHandler?
-    open let transitionsHandlersProvider: TransitionsHandlersProvider
-    open let transitionIdGenerator: TransitionIdGenerator
-    open let controllersProvider: RouterControllersProvider
+    public let transitionsHandlersProvider: TransitionsHandlersProvider
+    public let transitionIdGenerator: TransitionIdGenerator
+    public let controllersProvider: RouterControllersProvider
     
     public init(routerSeed seed: MasterDetailRouterSeed)
     {

@@ -67,7 +67,7 @@ class BasePeekAndPopUtilityImplTestCase: XCTestCase {
     
     func bindPeekViewControllerToAnotherParent() {
         peekNavigationController?.viewControllers = []
-        peekViewControllerAnotherParentViewController!.addChildViewController(peekViewController!)
+        peekViewControllerAnotherParentViewController!.addChild(peekViewController!)
     }
     
     func registerSourceViewControllerForPreviewing(

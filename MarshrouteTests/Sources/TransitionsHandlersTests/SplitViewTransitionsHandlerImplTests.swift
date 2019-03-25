@@ -102,8 +102,8 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
         let allTransitionsHandlers = splitViewTransitionsHandler.allTransitionsHandlers!
         
         // Then
-        XCTAssertNotNil(allTransitionsHandlers.index { $0 === masterTransitionsHandler })
-        XCTAssertNotNil(allTransitionsHandlers.index { $0 === detailTransitionsHandler })
+        XCTAssertNotNil(allTransitionsHandlers.firstIndex { $0 === masterTransitionsHandler })
+        XCTAssertNotNil(allTransitionsHandlers.firstIndex { $0 === detailTransitionsHandler })
     }
     
     func testThatSplitViewTransitionsHandlerReturnsAllTransitionsHandlersOn_VisibleTransitionsHandlers_Call() {
@@ -117,7 +117,7 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
         let visibleTransitionsHandlers = splitViewTransitionsHandler.visibleTransitionsHandlers!
         
         // Then
-        XCTAssertNotNil(visibleTransitionsHandlers.index { $0 === masterTransitionsHandler })
-        XCTAssertNotNil(visibleTransitionsHandlers.index { $0 === detailTransitionsHandler })
+        XCTAssertNotNil(visibleTransitionsHandlers.firstIndex { $0 === masterTransitionsHandler })
+        XCTAssertNotNil(visibleTransitionsHandlers.firstIndex { $0 === detailTransitionsHandler })
     }
 }

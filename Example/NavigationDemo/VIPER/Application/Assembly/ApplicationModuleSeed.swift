@@ -11,12 +11,14 @@ extension RouterSeed {
         moduleSeed: ApplicationModuleSeed,
         transitionsHandlerBox: TransitionsHandlerBox)
     {
-        self.transitionsHandlerBox = transitionsHandlerBox
-        self.transitionId = moduleSeed.transitionId
-        self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsHandlersProvider = moduleSeed.marshrouteStack.transitionsHandlersProvider
-        self.transitionIdGenerator = moduleSeed.marshrouteStack.transitionIdGenerator
-        self.controllersProvider = moduleSeed.marshrouteStack.routerControllersProvider
+        self.init(
+            transitionsHandlerBox: transitionsHandlerBox,
+            transitionId: moduleSeed.transitionId,
+            presentingTransitionsHandler: moduleSeed.presentingTransitionsHandler,
+            transitionsHandlersProvider: moduleSeed.marshrouteStack.transitionsHandlersProvider,
+            transitionIdGenerator: moduleSeed.marshrouteStack.transitionIdGenerator,
+            controllersProvider: moduleSeed.marshrouteStack.routerControllersProvider
+        )
     }
 }
 
@@ -26,12 +28,14 @@ extension MasterDetailRouterSeed {
         masterTransitionsHandlerBox: TransitionsHandlerBox,
         detailTransitionsHandlerBox: TransitionsHandlerBox)
     {
-        self.masterTransitionsHandlerBox = masterTransitionsHandlerBox
-        self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
-        self.transitionId = moduleSeed.transitionId
-        self.presentingTransitionsHandler = moduleSeed.presentingTransitionsHandler
-        self.transitionsHandlersProvider = moduleSeed.marshrouteStack.transitionsHandlersProvider
-        self.transitionIdGenerator = moduleSeed.marshrouteStack.transitionIdGenerator
-        self.controllersProvider = moduleSeed.marshrouteStack.routerControllersProvider
+        self.init(
+            masterTransitionsHandlerBox: masterTransitionsHandlerBox,
+            detailTransitionsHandlerBox: detailTransitionsHandlerBox,
+            transitionId: moduleSeed.transitionId,
+            presentingTransitionsHandler: moduleSeed.presentingTransitionsHandler,
+            transitionsHandlersProvider: moduleSeed.marshrouteStack.transitionsHandlersProvider,
+            transitionIdGenerator: moduleSeed.marshrouteStack.transitionIdGenerator,
+            controllersProvider: moduleSeed.marshrouteStack.routerControllersProvider
+        )
     }
 }

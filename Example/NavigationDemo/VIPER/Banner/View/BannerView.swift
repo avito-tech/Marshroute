@@ -19,7 +19,7 @@ final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
         
         addSubview(button)
         button.backgroundColor = .clear
-        button.setTitleColor(.white, for: UIControlState())
+        button.setTitleColor(.white, for: UIControl.State())
         button.setTitleColor(.yellow, for: .highlighted)
         button.setTitleColor(.yellow, for: .selected)
         button.titleLabel?.textAlignment = .center
@@ -47,7 +47,7 @@ final class BannerView: UIView, BannerViewInput, DisposeBag, DisposeBagHolder {
     
     // MARK: - BannerViewInput
     func setTitle(_ title: String) {
-        button.setTitle(title, for: UIControlState())
+        button.setTitle(title, for: UIControl.State())
     }
     
     var onTouchDown: (() -> ())?

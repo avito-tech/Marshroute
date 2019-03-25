@@ -72,7 +72,7 @@ private extension TransitionContextsStackImpl {
         -> Int?
     {
         let transitionIds = storage.map { $0.transitionId }
-        if let index = transitionIds.index(where: { $0 == transitionId }), index < storage.count {
+        if let index = transitionIds.firstIndex(where: { $0 == transitionId }), index < storage.count {
             return index
         }
         return nil

@@ -1,3 +1,6 @@
+[0.4.3](https://github.com/avito-tech/Marshroute/releases/tag/0.4.3)
+- Migrate to Swift 4.2
+
 [0.4.2](https://github.com/avito-tech/Marshroute/releases/tag/0.4.2)
 - Migrate to Swift 4
 

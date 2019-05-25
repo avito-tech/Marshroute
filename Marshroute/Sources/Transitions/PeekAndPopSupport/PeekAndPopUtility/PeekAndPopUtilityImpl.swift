@@ -386,7 +386,7 @@ public final class PeekAndPopUtilityImpl:
         -> PeekCancellationReason?
     {
         if let navigationController = viewController.navigationController, 
-            let index = navigationController.viewControllers.index(where: { $0 === viewController }) 
+            let index = navigationController.viewControllers.firstIndex(where: { $0 === viewController }) 
         {
             // (*) If you present a `viewController` in a `peek` mode, 
             // whereas the `viewController` is already embeded into a `parent` controller 

@@ -21,7 +21,7 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
         onMemoryWarning?()
     }
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if case .motionShake = motion {
             onDeviceShake?()
         }
@@ -67,7 +67,7 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
         UIView.animate(
             withDuration: 0.4,
             delay: 0,
-            options: UIViewAnimationOptions(),
+            options: UIView.AnimationOptions(),
             animations: {
                 bannerView.transform = CGAffineTransform.identity
             },
@@ -81,7 +81,7 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
         UIView.animate(
             withDuration: 0.4,
             delay: 0,
-            options: UIViewAnimationOptions(),
+            options: UIView.AnimationOptions(),
             animations: {
                 bannerView.transform = CGAffineTransform(translationX: 0, y: -bannerView.frame.height)
             }, completion: { _ in

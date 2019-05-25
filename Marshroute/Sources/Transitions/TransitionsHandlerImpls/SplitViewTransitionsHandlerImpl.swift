@@ -26,6 +26,6 @@ final public class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler
 // MARK: - helpers
 private extension SplitViewTransitionsHandlerImpl {
     var bothTransitionsHandlers: [AnimatingTransitionsHandler] {
-        return [masterTransitionsHandler, detailTransitionsHandler].flatMap { $0 }
+        return [masterTransitionsHandler, detailTransitionsHandler].compactMap { $0 }
     }
 }

@@ -42,7 +42,7 @@ final class AdvertisementViewController: BasePeekAndPopViewController, Advertise
     
     // MARK: - BasePeekAndPopViewController
     override var peekSourceViews: [UIView] {
-        return advertisementView.peekSourceViews + [navigationController?.navigationBar].flatMap { $0 }
+        return advertisementView.peekSourceViews + [navigationController?.navigationBar].compactMap { $0 }
     }
     
     @available(iOS 9.0, *)

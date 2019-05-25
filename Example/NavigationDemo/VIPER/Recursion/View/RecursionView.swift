@@ -16,7 +16,7 @@ final class RecursionView: UIView {
         backgroundImageView.layer.masksToBounds = true
         
         addSubview(timerButton)
-        timerButton.setTitleColor(.white, for: UIControlState())
+        timerButton.setTitleColor(.white, for: UIControl.State())
         timerButton.backgroundColor = .blue
         timerButton.addTarget(self, action: #selector(onTimerButtonTap(_:)), for: .touchUpInside)
     }
@@ -41,7 +41,7 @@ final class RecursionView: UIView {
     }
     
     func setTimerButtonTitle(_ title: String) {
-        timerButton.setTitle(title, for: UIControlState())
+        timerButton.setTitle(title, for: UIControl.State())
     }
     
     var onTimerButtonTap: (() -> ())?

@@ -1,7 +1,7 @@
 /// Базовый класс для анимирующих обработчиков переходов
 open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, TransitionsCoordinatorHolder, TransitionsHandler {
     // MARK: - TransitionsCoordinatorHolder
-    open let transitionsCoordinator: TransitionsCoordinator
+    public let transitionsCoordinator: TransitionsCoordinator
     
     public init(transitionsCoordinator: TransitionsCoordinator)
     {

@@ -15,7 +15,7 @@ final class TouchEventObserverImpl: TouchEventObserver, TouchEventForwarder {
         touchListenerBoxes = touchListenerBoxes.filter { $0.listener != nil }
         
         // Check if listener is already registered
-        guard touchListenerBoxes.index(where: { $0.listener === listener }) == nil
+        guard touchListenerBoxes.firstIndex(where: { $0.listener === listener }) == nil
             else { return } // `Set` could be useful, but it has some nasty constraints
         
         // Register listener

@@ -32,7 +32,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
             if timerButton == nil {
                 let timerButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
                 
-                timerButton.setTitleColor(.white, for: UIControlState())
+                timerButton.setTitleColor(.white, for: UIControl.State())
                 timerButton.backgroundColor = .blue
                 
                 timerButton.addTarget(self, action: #selector(onTimerButtonTap(_:)), for: .touchUpInside)
@@ -50,7 +50,7 @@ final class CategoriesView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setTimerButtonTitle(_ title: String) {
-        timerButton?.setTitle(title, for: UIControlState())
+        timerButton?.setTitle(title, for: UIControl.State())
     }
     
     var peekSourceViews: [UIView] {

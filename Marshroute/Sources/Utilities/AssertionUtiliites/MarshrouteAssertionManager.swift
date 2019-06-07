@@ -10,13 +10,13 @@ public final class MarshrouteAssertionManager {
         _ message: @autoclosure () -> String,
         file: StaticString,
         line: UInt) {
-        instance.assert(condition, message, file: file, line: line)
+        instance.assert(condition(), message(), file: file, line: line)
     }
     
     static func assertionFailure(
         _ message: @autoclosure () -> String,
         file: StaticString,
         line: UInt) {
-        instance.assertionFailure(message, file: file, line: line)
+        instance.assertionFailure(message(), file: file, line: line)
     }
 }

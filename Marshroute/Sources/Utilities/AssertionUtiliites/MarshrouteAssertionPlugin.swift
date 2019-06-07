@@ -17,13 +17,13 @@ final class DefaultMarshrouteAssertionPlugin: MarshrouteAssertionPlugin {
         _ message: @autoclosure () -> String,
         file: StaticString,
         line: UInt) {
-        Swift.assert(condition, message, file: file, line: line)
+        Swift.assert(condition(), message(), file: file, line: line)
     }
     
     func assertionFailure(
         _ message: @autoclosure () -> String,
         file: StaticString,
         line: UInt) {
-        Swift.assertionFailure(message, file: file, line: line)
+        Swift.assertionFailure(message(), file: file, line: line)
     }
 }

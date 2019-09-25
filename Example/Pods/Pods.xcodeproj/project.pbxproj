@@ -7,170 +7,170 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		019217FC17A6720A382952CE311880CC /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272832494791D847F663B5E1589DABA9 /* RouterFocusable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		066B7350A7C1BADB56D0786B6FCDB7EB /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8229C03160244E8CB6AF9FE970BD1A6 /* NavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		067DFB622D5A1A2A68780F08C46EA4AA /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF7E694187E7C4D6DFBB067793370D /* PopoverTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		06BEAFB6888F9F3B9C64C1539A6A1603 /* PeekAndPopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD52D8AF394AB792689F1F1276B6 /* PeekAndPopData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		07CCD7F7BC4EABE7052155B8D5EEDD82 /* MarshroutePrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41A0999A9B0AD8900E3597535C101DB /* MarshroutePrint.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0A46F00BCB942C1093FC35A72D57DFDD /* ResettingAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7578164C88E8BAB8B450CF5530420 /* ResettingAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0A5506E394B3EE96C5AED033498BA967 /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5B349E7F6A8E70646829EDB02E8D62 /* TopViewControllerFinder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0AFCBE4D45B6636BCBD6808D853E8DC2 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AF7DD09970215C27732E976D7AE91 /* NavigationTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0CEF6973AD059969F9C32E24AD28C822 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92221595FB8E95E506B604F7A57CF372 /* RouterDismissable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		0ECEE733CB5A1E2634E5A9432FAD8FDA /* PopoverNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311A71DA551E1F5D733E4F114D474CD /* PopoverNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		10B7764B0C9E42166F4F42477FC62FEE /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE86EC32BE3574382D5F98BBD735B2D /* PopoverDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1521A82B0D661E57E12F5AF0A18DF9CD /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13E0311E3CE78D1276B3732F409C7A /* TransitionContextsStack.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		157AE838020D58D5281CDBD3A8C1517E /* ModalDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCFA3181918FBEFA2DB60CDDA42A38 /* ModalDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		176F633E5C68560BDD08F48C3785FE6D /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A29DF05C6219741C836730EAC2AD7 /* RouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1853B711FC6087C9D76A4396E105EBD2 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCE80A88EFFE2E3FB275DC709AC48A /* CompletedTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		19E096C93BB04926A27AA43DFDCE5B16 /* PeekAndPopUtilityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89800E99E7918A901B3FA545A48091A9 /* PeekAndPopUtilityImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1BB24D5DC3BB23433A6CD25EFA021AA9 /* PeekAndPopTransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357120A31C1B8DE25E16897B9F4DFEC /* PeekAndPopTransitionsCoordinatorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1C3D55213E81407D6228BED8800BD358 /* TransitionsHandlersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F46430F5484B2C5DBEEB1DFC4A726 /* TransitionsHandlersProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1C7A2705D11B21C3C80C11A40656DB62 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5E8846938B65CC7E578AAF0EBC96E /* PopoverNavigationPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1D501C5042589067930468A084F87077 /* TransitionUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD768C0CA4409C0C27AB301E76AB7FC3 /* TransitionUserId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1DE642B7EBD43E061DE2B9908DD02C70 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA8A8A02F5FF8816E7E79E3425A8D19 /* PresentationTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1F58D1F9346191F49305BFFC2526C3CD /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF093564E28A087EA26EFFD80F5A55 /* ModalEndpointNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		1F7E593A0E496E85DF96420F226382A5 /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057565119264FDB44E0DBCE5B07E6283 /* NavigationTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		227189225BE23AA6676C0EFCFEFE7744 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938F9B5BAAF3AAEC7D701BA2D948378D /* ModalMasterDetailPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		22D6B95A67DC2CA64FFC4F1517C490C1 /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85693EF20449BBF831313A236187731A /* DismissalAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		23E25471F3F730D47DDD78F489AC8BAF /* ModalMasterDetailTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF13A46A6348069299A394BA3966112 /* ModalMasterDetailTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		23EC213AA1F1C1903C22E9B30815C5B5 /* InternalPeekAndPopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D3ED1A6079CA6551D0433C999A9D96 /* InternalPeekAndPopState.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		24C76F208B564F0B3351189E089A8F26 /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C297B218A2B38B20B81296A2E96A547 /* RouterTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		26380C4944CF1253FCAF6D9F8F652924 /* MasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FFB47CE9F3D5538ABA7882240F96E /* MasterDetailRouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		2C5FCA46B5675471D1AD08843116756A /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5793C05ABA79A46A0EC67E4CD078CB2 /* TransitionsCoordinatorDelegateHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		30E07977754C8034EB1AC2F6041EDD24 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633FFDE65FCBDFA6D576BDB06427520 /* ModalMasterDetailDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		311B7B59C12A7B83B3B04B0837622A89 /* PresentationTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3957F3A0C748C87D4761FF4C1F82947 /* PresentationTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		313DAD139F03EF9FE062FC65C290D01A /* ModalPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F61829FCDC461F1D4A4C560253BA7 /* ModalPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3932CC4CB57DC5D815895CACF829BF8C /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84460D19045A0FBD7055322B00F17235 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		39F818932303F323C6B4E5B21BF31975 /* MarshrouteFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2C70D0E72E7A40C1F93F5F871A4CA /* MarshrouteFactoryImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3AA31CBEAA3BE8C20DD4D5CBA065B417 /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81722F66FD3C93D9F83273DB3E9CF19A /* TransitionIdGeneratorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3D46FB2B8AACE4ABF19C1B90AAA9F04E /* MarshrouteSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41972317EA584322E487DBE4BD579BEF /* MarshrouteSetupServiceImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3E5829086337CF117E53255C8B77917A /* WeakPeekAndPopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FB786B65880F949394BE3F0E8E7D5 /* WeakPeekAndPopData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		43F539FBE73DDA41B2ADCBF341FF6FD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		44513D7C7C03F42AD8E366CEE1FB4331 /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA4866741AB4760898B249B992D2B34 /* TransitionsHandlerContainer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4546489D7EF619BE32B5BC864C0E057F /* MarshroutePrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18876D01C65B5B30D38AC1010B322D /* MarshroutePrintPlugin.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		45E936E9752BB4F223FD7AAD74D4A31E /* TransitionIdGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07A361F64959433CA51CDE97F4521DC /* TransitionIdGeneratorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		463A9CB32E3503CBFFEDE6C4A3E306C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		46D58A83AF4B22389469DD6BC3786C46 /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE02447C2B4A464BC3F3B6BE285FA5F /* TransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		47A38AD0ACE6D62F87CD6BB5DC3DEFEA /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBD971087EB4A05EC8E05F27270625 /* TabBarTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		47BD58FF0386CD62D68F07DC50F57AED /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EDC990BBC0F2369E152ADF659CA3DC /* TransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4D65F1749F632B2435C52B0FC4A31D55 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CC10D7B230C1C16AC505E005960E8 /* ModalNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4EE8938B73D35D60A070DD2DF9072C3B /* ResettingTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1649CEDB101A181C9B4611A3D16E2DBD /* ResettingTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		4F19B447BCD138D21BAB134A02855863 /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69946DC2460606363EF8A7B4B32C9607 /* TransitionContextsStackClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		51952B57A189E750550643F775BDDD93 /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737CB605EB26A1AEFAD82822B565E27 /* TransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		51E3E875630913A3462A2ADF3DF8AB18 /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E9D49A0DFAAB00DC59BE39F283C31 /* TransitionsHistoryItem.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		523D27D2D99916522860D313D8DD12FE /* TransitionContextsStackClientProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9E4CD7550AF5DDEB3D679989DFCA7 /* TransitionContextsStackClientProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		547C10297412517C4916C9D44B4B174C /* PopoverNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C5FDF073EC80137F9163E53B7D4801 /* PopoverNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5624BDB2D7DDBC722325DAE8B619BBE0 /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967C0A3A432C5C0C8E492AB87BAEDB1 /* DetailRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5C586D7D5478030ECEE4A0F91A214297 /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FBFFFFFFB84D3E1A217FC4B40A4430 /* PopoverTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5DBF7BCC5AE3F1595C8D5A74B53DAB28 /* RestoredTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC0F03900AAC51AAF789756552E1B59 /* RestoredTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		5F43600B1FF16E2540D3364B2797C401 /* PeekAndPopDataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9A09CE97D803622D2EFAB5665E71D1 /* PeekAndPopDataHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6097DE8CFE4AF5048B9C7A60BDEE96BA /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ABA293B2CC048614B9D158B08E4508 /* TransitionContextsStackImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		644BE5A47D73C5A4E825D9486FE293EF /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F732C7970265D2A9E45FE79B0197B /* WeakTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		662FDF0BF2A4C86A0FE4F925AC5F7C71 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646E652FF70981A72553907097026C8 /* ModalEndpointNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6684F1852AA63C3A63895ECFCBEDF9E7 /* PopAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A252E1F11DB05449AA6CA177E46D8F9 /* PopAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		673FB6D7CD7FD07D8EB45EFF5DC58323 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A848065E3F173E2FA99C1A4B1DFB69F /* ModalDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		699BF2EACEFFC92121F7E600AD8EC93A /* PeekAndPopTransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20EB6622980801DCABA93AA80209A91 /* PeekAndPopTransitionsCoordinator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6A94E3828E0ADACF700EBDABB417A199 /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDF902C7C41EE23C41ABDD6A3B4330 /* PopoverTransitionStyle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6AE1BE25B8399D52972CB7CFD1B0D054 /* PopoverDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551B53FD8ACCDB301AF36B78CAE6CCDB /* PopoverDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6AE4DA42593DBFCDB019285DF1900864 /* SettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48BA352E8EAF2CEA484C50E6BCDA23 /* SettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6D1361E213B4A9F3B39115AD8ACBA78A /* Pods-NavigationDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EB8EE2ECFD364558A7F54463E5C39 /* Pods-NavigationDemo-dummy.m */; };
-		6E4DFB38061D1108E60123DD8AF0C20C /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2C0600A5A812FCDA9CA2C316CABDB /* SplitViewTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6EBB7B4464A1E35FF0FFA4C22A938C56 /* SetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB2A135B228E2D7AF58669DDC416AD /* SetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		6F88057295BBA0B0D393E5B9A4F5F2EB /* MarshrouteAssertionPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0601BA1DEC3D3E3FD1258F0FC29148 /* MarshrouteAssertionPlugin.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		71FB160E57F1CB9425CC4C813ECFF7B0 /* MarshrouteSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D08AD4FA1B5AC0FA313827AFABCDD /* MarshrouteSetupService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		721457E8B12CDE72462744C0DDCB2004 /* MarshrouteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2079F6AA2CEA7E3EBFD9208D052F713C /* MarshrouteFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		722CEDF57364BE955AEE94850E620945 /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968D8352F6EE8F99EB045DEF2B546EC /* ResetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		74132CF60059D57B53767FE538574BC4 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D98188BC4024F733BC62062479407A7 /* ModalEndpointNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7427CEE56AF762EA52FE3077B0AA1B3E /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09516ED5A3CA81ECDAC9A3077038D8F /* ModalEndpointNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		76D931AE4D51E4F8E16298CAB871659D /* MarshrouteStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2DF9B017B049A1EC04EDA6C7AA082 /* MarshrouteStack.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		775F7F23496D7A9CD74933A15AA2D3BB /* MarshroutePrintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D92C795A3A944DA93CCFEC3AD60C2C9 /* MarshroutePrintManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		78FFC9FF23EE2E723E585F926E53C45F /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689C8C2B2716E686AE4CCADD56661E2 /* TransitionContextsStackClientProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		79A6A48DDE4F5D84D28E394EFA7BD522 /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5368735D0B5E6BE63A2AA30DE90645 /* TransitionContextsStackClientProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7B94BA7AA18759E16424EE5E94D54E4E /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFFE51028C44AF1AF87803C8D0A712 /* TransitionsCoordinator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7D305C0473AEF74253DCF298D07B86E5 /* TransitionsHandlersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A378F44B0877DEBD75FBECB24ED1B18 /* TransitionsHandlersProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7E70C6E867BC06B431D21D61E75B4869 /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2648E66371E083C06E8116E14E6AF /* BaseMasterDetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		7FFD8A1EC1D7680232A3BAFAF571B9DC /* TransitionContextsStackClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881711DD4B99D007A677948F75D243A /* TransitionContextsStackClientImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		825D97EDE8EBD1D308C0D5C068D55904 /* PeekAndPopUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5085619EC93F9136A9545E096DF2ABB /* PeekAndPopUtility.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8340887E44BCF1DE2E1E4900DBDAF166 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23146AA9C669377654604DA9B4A76B4B /* MasterRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		850193C0B3C2F9A279D1223BBE726176 /* ViewControllerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1661975313EDD6DA1E823BCFC5F531F2 /* ViewControllerPosition.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		85621E95CB4B28E124004F1827C66725 /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B7DD46BD964C7774F7C6B6B8343F4 /* EndpointRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8BA63F9E3D8F9648DC068F8E02FF87BF /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950EE74BB8BA01C5E6E2E8C29DBB407C /* TransitionsCoordinatorDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8C658333EAE5B7427998FBEBBA5DA474 /* MarshrouteAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B078C2B4C668F1DEC1CBDE169DAC233B /* MarshrouteAssert.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		8E92F25D0FB4AD92863A5471A6B38641 /* ModalNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659F45CDFDD0F13A5518D8F60DD75A5 /* ModalNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		919A3ED340AD22F678C93D6F80CDA750 /* PopAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C3A1898C714D164FBAD9156096BF /* PopAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		929D0A4D8E43BAAE00AD2BC70A30E04F /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C63797D9AE3D4132ACE4CBD493A96 /* MasterRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		93A409C8B519D364984B5CD6ADF275FE /* StrongPeekAndPopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3636D97E691ED4EDF5F28D27F4ABD76 /* StrongPeekAndPopData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		94949E49CC3910695A285B12FA454324 /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260415F840743614324B5B82762820E /* TransitionAnimationsLauncher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		95A12FBC0877A34CF13F4C9A08CA736C /* Marshroute-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E43850C5FF6EC95B7AF099D0810E7C7C /* Marshroute-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		99448C93775751CAD13138C93BC0A2E8 /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3F7924AE64FFC9211037CE76046BC /* RouterIdentifiable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9E4FED0F288EFDB2BB191C9EB0F16D25 /* ModalNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E8A057D27C70718F74001AB753786 /* ModalNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		9F027B276DB9DACC63BD716FFB64BAE2 /* PopoverPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806C18200D67DC83A15BDFE867B027A /* PopoverPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A00922F1B915EFCC72C321C139777906 /* PopoverNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA6D53C47FA029F0E4EA21F3E6F5CF /* PopoverNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A01039FDC5359F4DDC7662716E43D1C3 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E066C6E5DE3664B6C223E24D7FDFD98 /* BaseRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A0AC5B04A8CCE85038D43C812AA5C7F3 /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E28A89908E7BEE71E440EB61E2397 /* TransitionsMarkersHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A0B5B593E37F9092860CF7BB556AB51B /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06634D3997CA38FFB333FFE01A7CA3 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A0E952D73A1425759294C043D2CCC831 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A60E46B029E02F1E2EA5B0BBC1CC8D /* PushAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A1AEF1E7C498B781653E84394A219D48 /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0305B8A06223D782AC1038C3FFEFB /* StrongBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A1E889C852DE8A6DB8D6B17EFFC264B7 /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE558B707593C0EEB214BA4D74077B /* TransitionsCoordinatorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		A66D0D5D92CDF298A77019B10BD8D671 /* ModalNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C66BA9BD336FC335E312DDCBA9F8BFF /* ModalNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B20882E059795E41A019A149E1BEB08B /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A8F5855EDEC9DC127556F269DD383 /* TransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		B6CA62138FCAEECB7B18657462E8BC63 /* RouterPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE081CE420BBB0A68479CA758983F9 /* RouterPresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BAD87A5B027095C77CB898F2BA258523 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC4351DE14557548BFDDA554F0D34F /* PopoverPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BADB23EA7B02640371BFD4A02BFFD4A3 /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D58A1A2C6A90B9D90421E8459965A11 /* RouterControllersProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BAF44AEDFF4AA601281A2A42022ECF7E /* PeekAndPopStateObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527D4EC48179EEEEE7290EB7A943B3B /* PeekAndPopStateObservable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BBA84BF862221EBC262183DBC2949535 /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EDCDF0475BB67332C72F9C784AC079 /* AnimatingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BBE935F9F5BBFBAAF3F2514C9D37329D /* PushAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABCC979E299DED10CD277ADAAD091F /* PushAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BF9A29DED42E7DCE3492625AF4D5DD92 /* PresentationAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F048D30437CC772B3AD1CAEEFEF21 /* PresentationAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C3965DC29A49200E6F5ABFB6EEF2DF93 /* PresentationTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C71AC17E9621DB36F17C1AF9121D4A /* PresentationTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		C7987F01358651D0D5451951A01024B0 /* Pods-MarshrouteTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B3701187A872570494BD141D8E84A /* Pods-MarshrouteTests-dummy.m */; };
-		C9D486C077562C4487EDDB6ACE6DCE03 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3564EFA5617DB1FEC74A3DC167E8BAAF /* RestoredTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CA33E246FC11CDB16FA9FBDDC903C133 /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF57BA1247EEF1E135C5B427C53C01D /* TransitionsCoordinatorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CADB5E40CBE889FF6E4A2F8167986CDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		CB3C41FB0158F266280A2901DAAB0220 /* TransitionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2DB4BE0D9116E6AAB517DAB6C42DDB /* TransitionId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CCD45F4D065D2968CDC83024AEC1A459 /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC046C0F66BA1A57260C0161089DF642 /* RouterControllersProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		CD1F46C599B13064FADF0B5EC585439D /* Pods-NavigationDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACF138226B371D2C5C23E2AA634315FD /* Pods-NavigationDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDE25D131DE10AAF236D51B6ABED61F8 /* PeekAndPopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727355510B22F013DF16C38D22EDB04 /* PeekAndPopState.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D01EB3E316BB222B68C1386931B816DA /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA7AE9CA642FA4C3B58A1B2B58C262 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		D6D151D18F2CF8B30D535E1A7433C42B /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED1147D3F46595228BDA990177E11B /* ResettingTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DAD744BC6B3F09937249FE168C93315C /* ResettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF2F583A5BD4369B15DBEE3597A12E /* ResettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DB732070E9CDF1599E68F7320A62EB30 /* Pods-MarshrouteTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AFC82D71E9BE3947B6900B91E8E559 /* Pods-MarshrouteTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DDC3E2085F71BF10D1D35728D1DDC038 /* ModalPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CDD6E1548000B49C8D9F00DDBE720 /* ModalPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		DDE3511C2957F3E844D6B0FD595D923A /* MarshrouteAssertionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9902E208A0F5768A224D55F57A3FAF /* MarshrouteAssertionManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E13E1F35276963A1707D81482850EBD7 /* TransitionsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12812059B02C894860353FC533C608D8 /* TransitionsMarker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E3CFFC2E2DEAD73FEF2FD60218441073 /* PopoverPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC4EABF6ADEA111D3EF18C954FB1D7 /* PopoverPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E53328C4EBCC63B4D58D91EEA4654AED /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A5B0F5E57A6EB2F68FBEEA71F3C99 /* RouterControllersProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E765F45C17A60C9A066AD074EEECA4C2 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1A11BCD9B3A15A20CAAE611EF4199 /* WeakBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E781A2F5D0D144C9D246C3B3F6A54764 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411BDF1ABB8377533013FF0A82A8951 /* ResettingTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E7EAB2A612CDFC4E1F7874BE52257572 /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6F41324711087C6881D9EA8DF79FBB /* TransitionIdGenerator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		E83DC09C9F2B821F53BBBF477F1BC94D /* Marshroute-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D152C38D3FA3BE42550BBEDD0F00C47 /* Marshroute-dummy.m */; };
-		ED1C960B1054F99B0B084D997C7AF619 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414ADF1F4B6221DFE015D111B1FC268 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		EE08BE6795DC7F1FFCEC7892E8588E77 /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA15B6E400303F7BEF20E5EE2BE0BD3 /* CompletedTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F3D995C3FE6AA2F3058431FCA8CF27B0 /* PeekRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680B239416FFC0D8F9DF5E8D19E8FF04 /* PeekRequestData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F473721181B585AB42F7E2335CF11E16 /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5EC1AA2235F8CC20B6C0041A5BC710 /* ContainingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F476BC8A9E06ED240ACE99C61C7DEDF4 /* ResettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68170F7513562EFCD6EF31AE9D8C673 /* ResettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F5A8F88CE094195011812D2EFA49EE0C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1007D15FA49F0D558583F3EFFDDE36 /* DetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F5D0D717D337E719F33A0773641150BF /* SettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EA1352F9E8C34CECD726D80666ABF /* SettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F7E6936A88DC54C7248320D7B20FE7DD /* ModalPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5360306659874B84A9BDA593E796F /* ModalPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		F873E80F9AAA8D6319676298A749D529 /* RouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591B2722B2DF0D21ED932E90F9D63DCD /* RouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FAD0B5673F668BB353EC9CC33A76F872 /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F2AEE9606B2B7EED2D4E485B4BB4D /* SourceAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FBC2318A7B6CA196EB85673BB61C6B14 /* ModalNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C239DEC92BE1B1139729059ACD84CE6 /* ModalNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FD6A3F6FC05E8CBAEEDDADC84E062544 /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECD00B1009BD0F467D30C225F2D733 /* TransitionsTracker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		FE5A9C03919F8FA9D10AD41CF67409D9 /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97B0E06A439ED45083F1EE05CAA928 /* ModalTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0203329ECB42FBA332264861CA4F963C /* StrongPeekAndPopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3636D97E691ED4EDF5F28D27F4ABD76 /* StrongPeekAndPopData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		029146231B0377B7C9B5831A5C765778 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E066C6E5DE3664B6C223E24D7FDFD98 /* BaseRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		035B67DE858E15542F898D66ED21EB82 /* PeekAndPopStateObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A527D4EC48179EEEEE7290EB7A943B3B /* PeekAndPopStateObservable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		04374E7D278BCD8E3D3B43C8304A4DF2 /* TransitionsHandlerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA4866741AB4760898B249B992D2B34 /* TransitionsHandlerContainer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		05FBC116BF4F476105994B5E2B1B525F /* TransitionContextsStackImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ABA293B2CC048614B9D158B08E4508 /* TransitionContextsStackImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		071D6EA7EFB42A041E571A8DB248E5CE /* TransitionsMarkersHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E28A89908E7BEE71E440EB61E2397 /* TransitionsMarkersHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		0E5A2B5CC6AB505707B2E09F46232069 /* PeekAndPopTransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1357120A31C1B8DE25E16897B9F4DFEC /* PeekAndPopTransitionsCoordinatorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		10346BE4AF4FA0C966F4432E07334A7F /* Marshroute-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D152C38D3FA3BE42550BBEDD0F00C47 /* Marshroute-dummy.m */; };
+		105A413252321CC87FC7A9B003D717D3 /* TransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BFFE51028C44AF1AF87803C8D0A712 /* TransitionsCoordinator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		120B01943F34C6AB89AEFDB986860E55 /* PresentationTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3957F3A0C748C87D4761FF4C1F82947 /* PresentationTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		135E7BB45B7DD906A69DA53C9B36DDF4 /* PopoverNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA6D53C47FA029F0E4EA21F3E6F5CF /* PopoverNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1443052E885B6236FD77D0311D00BE34 /* PopoverTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAF7E694187E7C4D6DFBB067793370D /* PopoverTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		14BD1710363F5C6558B3099392575E37 /* MarshrouteSetupServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41972317EA584322E487DBE4BD579BEF /* MarshrouteSetupServiceImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1715380F10318DC143A984DCF961A682 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09516ED5A3CA81ECDAC9A3077038D8F /* ModalEndpointNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1768104EC873DD65178E002439596259 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646E652FF70981A72553907097026C8 /* ModalEndpointNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1834AF0BD5A0E18DE955B2812D5B1CDC /* Pods-NavigationDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ACF138226B371D2C5C23E2AA634315FD /* Pods-NavigationDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1A6E1628904E4F455F6E5670DB168FD8 /* ModalPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879CDD6E1548000B49C8D9F00DDBE720 /* ModalPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1C96109CF7BD5E6452B2ED295E95884B /* TransitionContextsStackClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69946DC2460606363EF8A7B4B32C9607 /* TransitionContextsStackClient.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1D8F45E8340138476E580F96319F0DE5 /* TopViewControllerFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5B349E7F6A8E70646829EDB02E8D62 /* TopViewControllerFinder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		234BFF45536C798EA7CE4B09DDF492A7 /* PushAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A60E46B029E02F1E2EA5B0BBC1CC8D /* PushAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		268102D6DD4877F21247837C528E09C7 /* DetailRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6967C0A3A432C5C0C8E492AB87BAEDB1 /* DetailRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2A6BDCEB5776EE4563E953AB29B4B3D8 /* ContainingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5EC1AA2235F8CC20B6C0041A5BC710 /* ContainingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2AA7A94CC05B87C171E9A9272739DADC /* PresentationTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C71AC17E9621DB36F17C1AF9121D4A /* PresentationTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2AEF04972DE5A1EFF2A84A023264DE2B /* TransitionIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6F41324711087C6881D9EA8DF79FBB /* TransitionIdGenerator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2BA3FDA5B6544B01F4D730DA9B6C26F6 /* PushAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EABCC979E299DED10CD277ADAAD091F /* PushAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2E3641791F06FA92BC031BF8BE477050 /* BaseMasterDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2648E66371E083C06E8116E14E6AF /* BaseMasterDetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2E530C56C2528C4267923360B6A9D463 /* PopoverPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EC4EABF6ADEA111D3EF18C954FB1D7 /* PopoverPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2ECF8AC426E9EAA2861842517827DC58 /* NavigationTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AF7DD09970215C27732E976D7AE91 /* NavigationTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		318D813321CEBCBA2A1EA75E3436B42F /* ModalPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F5360306659874B84A9BDA593E796F /* ModalPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		35E65DF6A7968F9B763D464403CAB28A /* MasterDetailRouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FFB47CE9F3D5538ABA7882240F96E /* MasterDetailRouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3A30EF302939E6BEBD1B807EDA092B06 /* ResettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF2F583A5BD4369B15DBEE3597A12E /* ResettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3A6A8BD7ED11C01C9C21252F76A8403D /* MarshroutePrintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D92C795A3A944DA93CCFEC3AD60C2C9 /* MarshroutePrintManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3D9EDB103661E9AF216EF6527E4D190E /* TransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1737CB605EB26A1AEFAD82822B565E27 /* TransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3E7EB088A65362B4467B5BB8D71488F2 /* TransitionsHandlersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A378F44B0877DEBD75FBECB24ED1B18 /* TransitionsHandlersProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3FA7F6A67A7EBA89713BF069C30B7BD0 /* RouterControllersProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A5B0F5E57A6EB2F68FBEEA71F3C99 /* RouterControllersProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		415573F989D9B67F9787132C88BD3952 /* Pods-MarshrouteTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B3701187A872570494BD141D8E84A /* Pods-MarshrouteTests-dummy.m */; };
+		41FD1F88A5C1A88926B3DE702DE3DE6E /* TransitionContextsStackClientProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5689C8C2B2716E686AE4CCADD56661E2 /* TransitionContextsStackClientProviderImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		42F56EDCB531D6DB434B80AF3A63503D /* TransitionIdGeneratorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07A361F64959433CA51CDE97F4521DC /* TransitionIdGeneratorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		43104C430368C0D404B9362DD6C7320F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		437A74CE2B45D5D2E43737D2EE0BF656 /* ModalNavigationDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C66BA9BD336FC335E312DDCBA9F8BFF /* ModalNavigationDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		45ADDB3B5A6829F38F6AD741B67CBD6A /* PresentationAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F048D30437CC772B3AD1CAEEFEF21 /* PresentationAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		46A5E62AD7826F38138780F1D08226BD /* MarshrouteStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B2DF9B017B049A1EC04EDA6C7AA082 /* MarshrouteStack.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		49FF0691447C4BB853D0C2EA45F2CD54 /* ModalNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E8A057D27C70718F74001AB753786 /* ModalNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4CF66D041C1C8237106C911CAEAB6591 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AF093564E28A087EA26EFFD80F5A55 /* ModalEndpointNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4E8713B9A854FE16221E67D5B9110B84 /* MarshrouteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2079F6AA2CEA7E3EBFD9208D052F713C /* MarshrouteFactory.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4EAA2C9BFFD7C37AFB2ABE9671490CF5 /* ModalNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1659F45CDFDD0F13A5518D8F60DD75A5 /* ModalNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		500C36D30424B55E954B5EF2C72AD9CC /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9411BDF1ABB8377533013FF0A82A8951 /* ResettingTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		510F3A0726D2082239B971B60EE26F9E /* ResetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F968D8352F6EE8F99EB045DEF2B546EC /* ResetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5379B581164736AF944048E2E9E0B5BE /* PopAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A252E1F11DB05449AA6CA177E46D8F9 /* PopAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		537B0D27095E88251C89DBB02B7F21B7 /* PopoverDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551B53FD8ACCDB301AF36B78CAE6CCDB /* PopoverDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		54B0065D4B78B5EE50C06BF6FB7FA1E0 /* TransitionsHandlersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F46430F5484B2C5DBEEB1DFC4A726 /* TransitionsHandlersProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		55A884AB5D54D6E0ADC5AAE33EE20E6A /* TabBarTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABBD971087EB4A05EC8E05F27270625 /* TabBarTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5624D32D650B92807D5B4222DEEAD1AE /* RouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894A29DF05C6219741C836730EAC2AD7 /* RouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5838383C0C401FAEED834FE36CB431E7 /* MarshrouteAssertionPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0601BA1DEC3D3E3FD1258F0FC29148 /* MarshrouteAssertionPlugin.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5E9C090E5C3CA7C7AD3661CB51E3706E /* ResettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68170F7513562EFCD6EF31AE9D8C673 /* ResettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6060D73B99650ADCD4173179A0A4913A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		63620BEE802469109AEA15D31287AC2C /* SettingAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B48BA352E8EAF2CEA484C50E6BCDA23 /* SettingAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		64BC617DFFDF9BB93EEC1CFB37509E8A /* RouterSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591B2722B2DF0D21ED932E90F9D63DCD /* RouterSeed.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6589C0A01DAAD38FE1751C2F588FB001 /* MarshrouteAssertionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9902E208A0F5768A224D55F57A3FAF /* MarshrouteAssertionManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		65DA3CE2735D690058D778E430C09FDD /* ModalMasterDetailTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF13A46A6348069299A394BA3966112 /* ModalMasterDetailTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		660AFD9CAA10B0AF100CB29CB55DB46F /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446B7DD46BD964C7774F7C6B6B8343F4 /* EndpointRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		66BC0B9A4AB94C3C7272BEA653622F61 /* SourceAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F2AEE9606B2B7EED2D4E485B4BB4D /* SourceAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		67CFAE236872FD4594D3AB8AC03329A5 /* PopoverTransitionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EDF902C7C41EE23C41ABDD6A3B4330 /* PopoverTransitionStyle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		67F104B32F67EC6AA8EC5C848A73CF94 /* TransitionContextsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E13E0311E3CE78D1276B3732F409C7A /* TransitionContextsStack.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6982C309C17AF7268C07DFFEA9766D71 /* PopAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0C3A1898C714D164FBAD9156096BF /* PopAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6DEAB12D1DC4A41E3651B9C0FB7391BC /* PeekAndPopDataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9A09CE97D803622D2EFAB5665E71D1 /* PeekAndPopDataHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6E7A25AA17EDAEA7BA14388500EEF344 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A633FFDE65FCBDFA6D576BDB06427520 /* ModalMasterDetailDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6F32F4D43D3B503DC2651C0F4E978080 /* RouterControllersProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D58A1A2C6A90B9D90421E8459965A11 /* RouterControllersProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		71958FE54159B5EF12CC5B89AD950ACA /* PeekAndPopUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5085619EC93F9136A9545E096DF2ABB /* PeekAndPopUtility.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		71EC00383AB74428BC54A80C98BCB65D /* RouterFocusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272832494791D847F663B5E1589DABA9 /* RouterFocusable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		79D97B9EC4B467EA0079E5FC65B96F65 /* TransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EDC990BBC0F2369E152ADF659CA3DC /* TransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7BD1A9AC1C4AE5C43D87C541BD2BEC67 /* InternalPeekAndPopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D3ED1A6079CA6551D0433C999A9D96 /* InternalPeekAndPopState.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7C0554CC62EFB25B2A08CDE1484A61C0 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CC10D7B230C1C16AC505E005960E8 /* ModalNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7C5AE5805F70F7A5B477B9F6BEED6D65 /* TransitionId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F2DB4BE0D9116E6AAB517DAB6C42DDB /* TransitionId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7CE26EB12651EF770E3FA5668771FC96 /* DismissalAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85693EF20449BBF831313A236187731A /* DismissalAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7CF7AE96769FC6D25CCB279AD601CFBA /* PeekAndPopState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D727355510B22F013DF16C38D22EDB04 /* PeekAndPopState.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		7F1219CB779DCEF71DD6F54EC87EEF50 /* TransitionsCoordinatorHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAE558B707593C0EEB214BA4D74077B /* TransitionsCoordinatorHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		817F6F5A272612CE205A172E5385521D /* ModalDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCFA3181918FBEFA2DB60CDDA42A38 /* ModalDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		85A4C9AB64C54EED7C90A32CBE1A848F /* ModalTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97B0E06A439ED45083F1EE05CAA928 /* ModalTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		85E98A88A029C3AE389F2030DC297E67 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C06634D3997CA38FFB333FFE01A7CA3 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		880EB24D6FCB7D1D4881F51A9A706134 /* TransitionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECD00B1009BD0F467D30C225F2D733 /* TransitionsTracker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		883DF9B58441E1C560A24FC68B35BB49 /* TransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A8F5855EDEC9DC127556F269DD383 /* TransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8A914A96A7E586A6CE03FA01AD599B09 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC5E8846938B65CC7E578AAF0EBC96E /* PopoverNavigationPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8D461E192EAEDE3AA197E3928C19FCE0 /* RouterControllersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC046C0F66BA1A57260C0161089DF642 /* RouterControllersProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		8F42F2587E4CE1655CBCB910FD6E5956 /* TransitionUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD768C0CA4409C0C27AB301E76AB7FC3 /* TransitionUserId.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9203785A5232D371FB3AB43633DBF523 /* NavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8229C03160244E8CB6AF9FE970BD1A6 /* NavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		924E8A08F0B3B3A1B553ED83634CB434 /* AnimatingTransitionsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EDCDF0475BB67332C72F9C784AC079 /* AnimatingTransitionsHandler.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		92AF5EE6F32F6A599A4924BAD2D2C30D /* PopoverPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC4351DE14557548BFDDA554F0D34F /* PopoverPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		92FB49C194F7573A81498E58812DFEF9 /* TransitionContextsStackClientProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5368735D0B5E6BE63A2AA30DE90645 /* TransitionContextsStackClientProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		97AF20551EB106186DAF13F2CDE1FCEB /* MarshrouteAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B078C2B4C668F1DEC1CBDE169DAC233B /* MarshrouteAssert.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		97CFCA798492E7D909FE78D6B15DAABD /* ModalPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F61829FCDC461F1D4A4C560253BA7 /* ModalPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9CA2313264560C11B6B114FACC6475C2 /* SetNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAB2A135B228E2D7AF58669DDC416AD /* SetNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9DD05675E306623B7F608F9B10AF0D19 /* TransitionContextsStackClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881711DD4B99D007A677948F75D243A /* TransitionContextsStackClientImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9F17DEB1BEE3EFE05E67F14AA482675E /* ResettingTransitionsAnimatorBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFED1147D3F46595228BDA990177E11B /* ResettingTransitionsAnimatorBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A05A3F1B433A75C92A1528EC5BDA9B85 /* RouterDismissable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92221595FB8E95E506B604F7A57CF372 /* RouterDismissable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A121D23D51442B68C5E3419194786F66 /* ViewControllerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1661975313EDD6DA1E823BCFC5F531F2 /* ViewControllerPosition.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A349A54F760CBFB576BAD896F3755E69 /* PopoverNavigationPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C5FDF073EC80137F9163E53B7D4801 /* PopoverNavigationPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A63B5AF52DD1E94D913A402069DF5696 /* RouterIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3F7924AE64FFC9211037CE76046BC /* RouterIdentifiable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A671C366C20C6713FB6052DB85D2F9EE /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA8A8A02F5FF8816E7E79E3425A8D19 /* PresentationTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A79B86B1710A40E4BFC6F1B2B7031973 /* RestoredTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC0F03900AAC51AAF789756552E1B59 /* RestoredTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A7ACC93113538831E3894C94AFD63EE2 /* TransitionsHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E9D49A0DFAAB00DC59BE39F283C31 /* TransitionsHistoryItem.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A8D455685F22EB96679AAFFEB36886F1 /* TransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE02447C2B4A464BC3F3B6BE285FA5F /* TransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AAFF2AA35E125A0D9E14EAB2BB950895 /* PeekAndPopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7830CD52D8AF394AB792689F1F1276B6 /* PeekAndPopData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ACCA2ABA033A88DE9F111C0B4D039B3A /* TransitionsCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF57BA1247EEF1E135C5B427C53C01D /* TransitionsCoordinatorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ADB39C65F2855C4F25C0B3AE8FCD13D5 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D414ADF1F4B6221DFE015D111B1FC268 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B66F0FF45AD1D58F7B585EECF6C5DD6B /* RouterPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE081CE420BBB0A68479CA758983F9 /* RouterPresentable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BA214F35A488DE000D07A0FB8B7A4FC5 /* TransitionsCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950EE74BB8BA01C5E6E2E8C29DBB407C /* TransitionsCoordinatorDelegate.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BB7BEA882C381DB046886EA811599AB4 /* SplitViewTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA2C0600A5A812FCDA9CA2C316CABDB /* SplitViewTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BCE81B920D7907DDB6332AFE645E5577 /* TransitionContextsStackClientProviderHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9E4CD7550AF5DDEB3D679989DFCA7 /* TransitionContextsStackClientProviderHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C37E700ACEC74E411C2FA268E0C48F8D /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3564EFA5617DB1FEC74A3DC167E8BAAF /* RestoredTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C5ED30755DB47A4E14C280BFC9A154FD /* RouterTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C297B218A2B38B20B81296A2E96A547 /* RouterTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C7D505AF1F4C08D1D40A59315665B6EB /* ModalMasterDetailPresentationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938F9B5BAAF3AAEC7D701BA2D948378D /* ModalMasterDetailPresentationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C98F48D3B4415DE558F513EBEF3DECED /* MarshroutePrintPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B18876D01C65B5B30D38AC1010B322D /* MarshroutePrintPlugin.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CDD4FF0E8D6492B3A4D76CAAC904B9B1 /* MasterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23146AA9C669377654604DA9B4A76B4B /* MasterRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CE689E809D0CE548A1CFBD9DFD2EAE40 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84460D19045A0FBD7055322B00F17235 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CEBB929B98425036CF93F02724166F40 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D1A11BCD9B3A15A20CAAE611EF4199 /* WeakBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D10651BD52354FDFC7022F303534F130 /* ResettingAnimationLaunchingContextBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7578164C88E8BAB8B450CF5530420 /* ResettingAnimationLaunchingContextBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D26CA83C7826BC8490C77B15613766C2 /* WeakTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1F732C7970265D2A9E45FE79B0197B /* WeakTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D280338B32450C8FCAA41E1D6A9AE458 /* ModalNavigationAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C239DEC92BE1B1139729059ACD84CE6 /* ModalNavigationAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D3812923F53AADCE96C25A36B1F4EADA /* MarshrouteFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2C70D0E72E7A40C1F93F5F871A4CA /* MarshrouteFactoryImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		D6A4C58E6C6232F9693E922BB93398C7 /* Pods-NavigationDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EB8EE2ECFD364558A7F54463E5C39 /* Pods-NavigationDemo-dummy.m */; };
+		D8261C76CD03DE848E9660017ACF0871 /* CompletedTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA15B6E400303F7BEF20E5EE2BE0BD3 /* CompletedTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DA1E8012C1B3EE4F53776AF89B2B10C8 /* Pods-MarshrouteTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AFC82D71E9BE3947B6900B91E8E559 /* Pods-MarshrouteTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB084C8EBE99308F50C7D1D04176DA9D /* TransitionsMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12812059B02C894860353FC533C608D8 /* TransitionsMarker.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DB0ACEA84E7DC8EB6F8CC1A14A41E0FE /* PopoverNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6311A71DA551E1F5D733E4F114D474CD /* PopoverNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DD2129C9CEFA79BCF92D60C93001320B /* PeekRequestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680B239416FFC0D8F9DF5E8D19E8FF04 /* PeekRequestData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DD84754324BC1E6D5BB75E08408460DD /* StrongBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0305B8A06223D782AC1038C3FFEFB /* StrongBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DDF00D0558602A4D1642D7862E4204FB /* MasterRouterTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9C63797D9AE3D4132ACE4CBD493A96 /* MasterRouterTransitionable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DE910BE7779BB5BC8537A24A153E7933 /* ResettingTransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1649CEDB101A181C9B4611A3D16E2DBD /* ResettingTransitionContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DEDDF28797F79823526A1DFA5B2C4C58 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D98188BC4024F733BC62062479407A7 /* ModalEndpointNavigationTransitionsAnimator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DFE08A490EC851F01941433709808EDD /* TransitionAnimationsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F260415F840743614324B5B82762820E /* TransitionAnimationsLauncher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EA5BA0FADE95C047CBF68979C67D3A56 /* PopoverPresentationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9806C18200D67DC83A15BDFE867B027A /* PopoverPresentationRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EB6572EFE5E261A2626EF0B1CBB42F9A /* SettingNavigationAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EA1352F9E8C34CECD726D80666ABF /* SettingNavigationAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ECAD983246E5A1CDA3372396AFAC39B1 /* TransitionsCoordinatorDelegateHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5793C05ABA79A46A0EC67E4CD078CB2 /* TransitionsCoordinatorDelegateHolder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ECF147290C54D9912BD21326C433BEB3 /* TransitionIdGeneratorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81722F66FD3C93D9F83273DB3E9CF19A /* TransitionIdGeneratorImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ED615D21E15442B34541BC9174CACF40 /* ModalDismissalAnimationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A848065E3F173E2FA99C1A4B1DFB69F /* ModalDismissalAnimationContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ED9C15890C5C5888D8EFC450BCB22A84 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA7AE9CA642FA4C3B58A1B2B58C262 /* PopoverNavigationDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EE7426FE292EDC87088CF74F486CC03C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		EEAC664D4FFF7A8D58C042705F27DABC /* Marshroute-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E43850C5FF6EC95B7AF099D0810E7C7C /* Marshroute-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0B880FA52A76C1952E6E5F20412877D /* PeekAndPopUtilityImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89800E99E7918A901B3FA545A48091A9 /* PeekAndPopUtilityImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F171042279134DB301EF682A9B95DDEA /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DCE80A88EFFE2E3FB275DC709AC48A /* CompletedTransitionTargetTransitionsHandlerBox.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F17E0FD9AC17C717A0E635EF46984A3C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1007D15FA49F0D558583F3EFFDDE36 /* DetailRouter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F407A624C6EC74CBD9CE8D4756EFBFF7 /* PeekAndPopTransitionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20EB6622980801DCABA93AA80209A91 /* PeekAndPopTransitionsCoordinator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F63180BF4885CE25BB8499D0966560D3 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE86EC32BE3574382D5F98BBD735B2D /* PopoverDismissalAnimationLaunchingContext.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F851ED728BA2E3F82EAF6B5B56B5E2A7 /* NavigationTransitionsHandlerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057565119264FDB44E0DBCE5B07E6283 /* NavigationTransitionsHandlerImpl.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F9986A73D7D96B1E05ACBC4B75641D72 /* MarshrouteSetupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8D08AD4FA1B5AC0FA313827AFABCDD /* MarshrouteSetupService.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F9FB56D2A1033D879332B6231C78F78C /* MarshroutePrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41A0999A9B0AD8900E3597535C101DB /* MarshroutePrint.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FA9A1A2F043DF556A396042A32D9C6EA /* PopoverTransitionStorableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FBFFFFFFB84D3E1A217FC4B40A4430 /* PopoverTransitionStorableParameters.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FAC6977E4CA917D752478B827FCFB31C /* WeakPeekAndPopData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063FB786B65880F949394BE3F0E8E7D5 /* WeakPeekAndPopData.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		47681074BD6C145E7579A1A130D3B026 /* PBXContainerItemProxy */ = {
+		044AD1FCF48C70CE2F7A40974446F0E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 08FA19C302E17C92F7BD7C5355508404;
+			remoteGlobalIDString = D68E901B4BEDF6B5D7F8CC81A114A44E;
 			remoteInfo = Marshroute;
 		};
-		6A5F96A780E871637896C750CB1ABD3F /* PBXContainerItemProxy */ = {
+		8B13FDF253C2E7A8B9156DDD999C6AB6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 08FA19C302E17C92F7BD7C5355508404;
+			remoteGlobalIDString = D68E901B4BEDF6B5D7F8CC81A114A44E;
 			remoteInfo = Marshroute;
 		};
 /* End PBXContainerItemProxy section */
@@ -353,27 +353,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		74500BA69FBE881D8E8A3343E6600F9E /* Frameworks */ = {
+		1CC3A91A00CB915D70495AFD8D53BE2B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43F539FBE73DDA41B2ADCBF341FF6FD5 /* Foundation.framework in Frameworks */,
+				EE7426FE292EDC87088CF74F486CC03C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE95AE358B72A4065BCAA342B6169887 /* Frameworks */ = {
+		1FAAA2E579DE36190B103216FDE27AEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				463A9CB32E3503CBFFEDE6C4A3E306C9 /* Foundation.framework in Frameworks */,
+				6060D73B99650ADCD4173179A0A4913A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F70BC5915D85D15802E1BFC8635CA674 /* Frameworks */ = {
+		F30618D483B9ACE4C3ADBD849CEB727C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CADB5E40CBE889FF6E4A2F8167986CDD /* Foundation.framework in Frameworks */,
+				43104C430368C0D404B9362DD6C7320F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1331,41 +1331,79 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2146D18E60D8A72EE486BEC33D15E0C2 /* Headers */ = {
+		C4017B8500ECE5824DD12CBBCC5648E5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB732070E9CDF1599E68F7320A62EB30 /* Pods-MarshrouteTests-umbrella.h in Headers */,
+				EEAC664D4FFF7A8D58C042705F27DABC /* Marshroute-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F62FAE8B377D8E221E1537ABA714FB7B /* Headers */ = {
+		CE896876F3B03F7DBC9DC9EDD463C82C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95A12FBC0877A34CF13F4C9A08CA736C /* Marshroute-umbrella.h in Headers */,
+				1834AF0BD5A0E18DE955B2812D5B1CDC /* Pods-NavigationDemo-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F9C563EEED96AAA7D629B6E8B3AD81BA /* Headers */ = {
+		D32B8390CD32C54B2A8DB88322835ED5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD1F46C599B13064FADF0B5EC585439D /* Pods-NavigationDemo-umbrella.h in Headers */,
+				DA1E8012C1B3EE4F53776AF89B2B10C8 /* Pods-MarshrouteTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		08FA19C302E17C92F7BD7C5355508404 /* Marshroute */ = {
+		53B3B48E8DD289504311CBF24873C713 /* Pods-NavigationDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D185C42078BFDC37C2368F019C505D7E /* Build configuration list for PBXNativeTarget "Marshroute" */;
+			buildConfigurationList = 2A9B3BAEE8E67B1EE2E2693B63D14973 /* Build configuration list for PBXNativeTarget "Pods-NavigationDemo" */;
 			buildPhases = (
-				F62FAE8B377D8E221E1537ABA714FB7B /* Headers */,
-				764997878C814998C84F507F748CCFFD /* Sources */,
-				74500BA69FBE881D8E8A3343E6600F9E /* Frameworks */,
-				A15A0658031356689AE309FE12DB24A3 /* Resources */,
+				CE896876F3B03F7DBC9DC9EDD463C82C /* Headers */,
+				47393AFA1F8940B54BDE35B506BC69CF /* Sources */,
+				1CC3A91A00CB915D70495AFD8D53BE2B /* Frameworks */,
+				A1C7E2DBE178B3C21F5B72CED3F19B36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C47F7676F80F5FD77EB2AD49DBA5381A /* PBXTargetDependency */,
+			);
+			name = "Pods-NavigationDemo";
+			productName = "Pods-NavigationDemo";
+			productReference = CADCB5EB75A618D67FF983B891715D8A /* Pods_NavigationDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		90B0D0DEF63DED6976E7DA7F7ED44F22 /* Pods-MarshrouteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C207C9C829F0EC519826A981ECF9D17C /* Build configuration list for PBXNativeTarget "Pods-MarshrouteTests" */;
+			buildPhases = (
+				D32B8390CD32C54B2A8DB88322835ED5 /* Headers */,
+				A2B73C13D83F88EB082153A1FF94E190 /* Sources */,
+				F30618D483B9ACE4C3ADBD849CEB727C /* Frameworks */,
+				6580BE1BF45595631ABF630154A157DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9E44F2C8A486F61F258652FD44A41D85 /* PBXTargetDependency */,
+			);
+			name = "Pods-MarshrouteTests";
+			productName = "Pods-MarshrouteTests";
+			productReference = 182F56C88236D6325144367F85EBAF4C /* Pods_MarshrouteTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D68E901B4BEDF6B5D7F8CC81A114A44E /* Marshroute */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E933751CBD40CBEDBE3B3589AF7471B /* Build configuration list for PBXNativeTarget "Marshroute" */;
+			buildPhases = (
+				C4017B8500ECE5824DD12CBBCC5648E5 /* Headers */,
+				1E74A23AF9A37DF669118A8E62D558D9 /* Sources */,
+				1FAAA2E579DE36190B103216FDE27AEA /* Frameworks */,
+				83577CC4291CE524417EF4F7EE440760 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -1376,52 +1414,14 @@
 			productReference = A85672BD09CF29C3FCD2949EAF6C688A /* Marshroute.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		49E3AE58B5CF3F8CF1F55A9246708493 /* Pods-MarshrouteTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 42B088110DF90B6559A8A7E44875EE55 /* Build configuration list for PBXNativeTarget "Pods-MarshrouteTests" */;
-			buildPhases = (
-				2146D18E60D8A72EE486BEC33D15E0C2 /* Headers */,
-				0EC69AE0AE6C4C9EAEE93DC630204F4A /* Sources */,
-				F70BC5915D85D15802E1BFC8635CA674 /* Frameworks */,
-				C55D69CE652A791C1C0268856DF52E7D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9CDB9EC95EB9F3D2109D0D865DF26C84 /* PBXTargetDependency */,
-			);
-			name = "Pods-MarshrouteTests";
-			productName = "Pods-MarshrouteTests";
-			productReference = 182F56C88236D6325144367F85EBAF4C /* Pods_MarshrouteTests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B244B2C1AD9DFF889B702277A0FA4B05 /* Pods-NavigationDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2E886D67D18E4B8E734B44A773533B70 /* Build configuration list for PBXNativeTarget "Pods-NavigationDemo" */;
-			buildPhases = (
-				F9C563EEED96AAA7D629B6E8B3AD81BA /* Headers */,
-				F2D9C52B41024D2B97C9E0F57A1EF261 /* Sources */,
-				BE95AE358B72A4065BCAA342B6169887 /* Frameworks */,
-				225B2879BB1A2536483B5412876EF8D3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				299F28C3EC7647F5424D8220B4696BD7 /* PBXTargetDependency */,
-			);
-			name = "Pods-NavigationDemo";
-			productName = "Pods-NavigationDemo";
-			productReference = CADCB5EB75A618D67FF983B891715D8A /* Pods_NavigationDemo.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1435,29 +1435,29 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				08FA19C302E17C92F7BD7C5355508404 /* Marshroute */,
-				49E3AE58B5CF3F8CF1F55A9246708493 /* Pods-MarshrouteTests */,
-				B244B2C1AD9DFF889B702277A0FA4B05 /* Pods-NavigationDemo */,
+				D68E901B4BEDF6B5D7F8CC81A114A44E /* Marshroute */,
+				90B0D0DEF63DED6976E7DA7F7ED44F22 /* Pods-MarshrouteTests */,
+				53B3B48E8DD289504311CBF24873C713 /* Pods-NavigationDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		225B2879BB1A2536483B5412876EF8D3 /* Resources */ = {
+		6580BE1BF45595631ABF630154A157DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A15A0658031356689AE309FE12DB24A3 /* Resources */ = {
+		83577CC4291CE524417EF4F7EE440760 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C55D69CE652A791C1C0268856DF52E7D /* Resources */ = {
+		A1C7E2DBE178B3C21F5B72CED3F19B36 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1467,193 +1467,192 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0EC69AE0AE6C4C9EAEE93DC630204F4A /* Sources */ = {
+		1E74A23AF9A37DF669118A8E62D558D9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7987F01358651D0D5451951A01024B0 /* Pods-MarshrouteTests-dummy.m in Sources */,
+				924E8A08F0B3B3A1B553ED83634CB434 /* AnimatingTransitionsHandler.swift in Sources */,
+				2E3641791F06FA92BC031BF8BE477050 /* BaseMasterDetailRouter.swift in Sources */,
+				029146231B0377B7C9B5831A5C765778 /* BaseRouter.swift in Sources */,
+				D8261C76CD03DE848E9660017ACF0871 /* CompletedTransitionContext.swift in Sources */,
+				F171042279134DB301EF682A9B95DDEA /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				2A6BDCEB5776EE4563E953AB29B4B3D8 /* ContainingTransitionsHandler.swift in Sources */,
+				F17E0FD9AC17C717A0E635EF46984A3C /* DetailRouter.swift in Sources */,
+				268102D6DD4877F21247837C528E09C7 /* DetailRouterTransitionable.swift in Sources */,
+				7CE26EB12651EF770E3FA5668771FC96 /* DismissalAnimationLaunchingContextBox.swift in Sources */,
+				660AFD9CAA10B0AF100CB29CB55DB46F /* EndpointRouter.swift in Sources */,
+				7BD1A9AC1C4AE5C43D87C541BD2BEC67 /* InternalPeekAndPopState.swift in Sources */,
+				10346BE4AF4FA0C966F4432E07334A7F /* Marshroute-dummy.m in Sources */,
+				97AF20551EB106186DAF13F2CDE1FCEB /* MarshrouteAssert.swift in Sources */,
+				6589C0A01DAAD38FE1751C2F588FB001 /* MarshrouteAssertionManager.swift in Sources */,
+				5838383C0C401FAEED834FE36CB431E7 /* MarshrouteAssertionPlugin.swift in Sources */,
+				4E8713B9A854FE16221E67D5B9110B84 /* MarshrouteFactory.swift in Sources */,
+				D3812923F53AADCE96C25A36B1F4EADA /* MarshrouteFactoryImpl.swift in Sources */,
+				F9FB56D2A1033D879332B6231C78F78C /* MarshroutePrint.swift in Sources */,
+				3A6A8BD7ED11C01C9C21252F76A8403D /* MarshroutePrintManager.swift in Sources */,
+				C98F48D3B4415DE558F513EBEF3DECED /* MarshroutePrintPlugin.swift in Sources */,
+				F9986A73D7D96B1E05ACBC4B75641D72 /* MarshrouteSetupService.swift in Sources */,
+				14BD1710363F5C6558B3099392575E37 /* MarshrouteSetupServiceImpl.swift in Sources */,
+				46A5E62AD7826F38138780F1D08226BD /* MarshrouteStack.swift in Sources */,
+				35E65DF6A7968F9B763D464403CAB28A /* MasterDetailRouterSeed.swift in Sources */,
+				CDD4FF0E8D6492B3A4D76CAAC904B9B1 /* MasterRouter.swift in Sources */,
+				DDF00D0558602A4D1642D7862E4204FB /* MasterRouterTransitionable.swift in Sources */,
+				ED615D21E15442B34541BC9174CACF40 /* ModalDismissalAnimationContext.swift in Sources */,
+				817F6F5A272612CE205A172E5385521D /* ModalDismissalAnimationLaunchingContext.swift in Sources */,
+				4CF66D041C1C8237106C911CAEAB6591 /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */,
+				1768104EC873DD65178E002439596259 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
+				85E98A88A029C3AE389F2030DC297E67 /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				1715380F10318DC143A984DCF961A682 /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
+				DEDDF28797F79823526A1DFA5B2C4C58 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
+				6E7A25AA17EDAEA7BA14388500EEF344 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
+				CE689E809D0CE548A1CFBD9DFD2EAE40 /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
+				C7D505AF1F4C08D1D40A59315665B6EB /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
+				ADB39C65F2855C4F25C0B3AE8FCD13D5 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
+				65DA3CE2735D690058D778E430C09FDD /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
+				D280338B32450C8FCAA41E1D6A9AE458 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
+				437A74CE2B45D5D2E43737D2EE0BF656 /* ModalNavigationDismissalAnimationContext.swift in Sources */,
+				7C0554CC62EFB25B2A08CDE1484A61C0 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				4EAA2C9BFFD7C37AFB2ABE9671490CF5 /* ModalNavigationPresentationAnimationContext.swift in Sources */,
+				49FF0691447C4BB853D0C2EA45F2CD54 /* ModalNavigationTransitionsAnimator.swift in Sources */,
+				97CFCA798492E7D909FE78D6B15DAABD /* ModalPresentationAnimationContext.swift in Sources */,
+				318D813321CEBCBA2A1EA75E3436B42F /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
+				1A6E1628904E4F455F6E5670DB168FD8 /* ModalPresentationRouter.swift in Sources */,
+				85A4C9AB64C54EED7C90A32CBE1A848F /* ModalTransitionsAnimator.swift in Sources */,
+				9203785A5232D371FB3AB43633DBF523 /* NavigationTransitionsAnimator.swift in Sources */,
+				F851ED728BA2E3F82EAF6B5B56B5E2A7 /* NavigationTransitionsHandlerImpl.swift in Sources */,
+				2ECF8AC426E9EAA2861842517827DC58 /* NavigationTransitionStorableParameters.swift in Sources */,
+				AAFF2AA35E125A0D9E14EAB2BB950895 /* PeekAndPopData.swift in Sources */,
+				6DEAB12D1DC4A41E3651B9C0FB7391BC /* PeekAndPopDataHolder.swift in Sources */,
+				7CF7AE96769FC6D25CCB279AD601CFBA /* PeekAndPopState.swift in Sources */,
+				035B67DE858E15542F898D66ED21EB82 /* PeekAndPopStateObservable.swift in Sources */,
+				F407A624C6EC74CBD9CE8D4756EFBFF7 /* PeekAndPopTransitionsCoordinator.swift in Sources */,
+				0E5A2B5CC6AB505707B2E09F46232069 /* PeekAndPopTransitionsCoordinatorHolder.swift in Sources */,
+				71958FE54159B5EF12CC5B89AD950ACA /* PeekAndPopUtility.swift in Sources */,
+				F0B880FA52A76C1952E6E5F20412877D /* PeekAndPopUtilityImpl.swift in Sources */,
+				DD2129C9CEFA79BCF92D60C93001320B /* PeekRequestData.swift in Sources */,
+				5379B581164736AF944048E2E9E0B5BE /* PopAnimationContext.swift in Sources */,
+				6982C309C17AF7268C07DFFEA9766D71 /* PopAnimationLaunchingContext.swift in Sources */,
+				537B0D27095E88251C89DBB02B7F21B7 /* PopoverDismissalAnimationContext.swift in Sources */,
+				F63180BF4885CE25BB8499D0966560D3 /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
+				135E7BB45B7DD906A69DA53C9B36DDF4 /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
+				ED9C15890C5C5888D8EFC450BCB22A84 /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
+				A349A54F760CBFB576BAD896F3755E69 /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
+				8A914A96A7E586A6CE03FA01AD599B09 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
+				DB0ACEA84E7DC8EB6F8CC1A14A41E0FE /* PopoverNavigationTransitionsAnimator.swift in Sources */,
+				2E530C56C2528C4267923360B6A9D463 /* PopoverPresentationAnimationContext.swift in Sources */,
+				92AF5EE6F32F6A599A4924BAD2D2C30D /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
+				EA5BA0FADE95C047CBF68979C67D3A56 /* PopoverPresentationRouter.swift in Sources */,
+				1443052E885B6236FD77D0311D00BE34 /* PopoverTransitionsAnimator.swift in Sources */,
+				FA9A1A2F043DF556A396042A32D9C6EA /* PopoverTransitionStorableParameters.swift in Sources */,
+				67CFAE236872FD4594D3AB8AC03329A5 /* PopoverTransitionStyle.swift in Sources */,
+				45ADDB3B5A6829F38F6AD741B67CBD6A /* PresentationAnimationLaunchingContextBox.swift in Sources */,
+				120B01943F34C6AB89AEFDB986860E55 /* PresentationTransitionContext.swift in Sources */,
+				2AA7A94CC05B87C171E9A9272739DADC /* PresentationTransitionsAnimatorBox.swift in Sources */,
+				A671C366C20C6713FB6052DB85D2F9EE /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				2BA3FDA5B6544B01F4D730DA9B6C26F6 /* PushAnimationContext.swift in Sources */,
+				234BFF45536C798EA7CE4B09DDF492A7 /* PushAnimationLaunchingContext.swift in Sources */,
+				510F3A0726D2082239B971B60EE26F9E /* ResetNavigationTransitionsAnimator.swift in Sources */,
+				5E9C090E5C3CA7C7AD3661CB51E3706E /* ResettingAnimationLaunchingContext.swift in Sources */,
+				D10651BD52354FDFC7022F303534F130 /* ResettingAnimationLaunchingContextBox.swift in Sources */,
+				3A30EF302939E6BEBD1B807EDA092B06 /* ResettingNavigationAnimationContext.swift in Sources */,
+				DE910BE7779BB5BC8537A24A153E7933 /* ResettingTransitionContext.swift in Sources */,
+				9F17DEB1BEE3EFE05E67F14AA482675E /* ResettingTransitionsAnimatorBox.swift in Sources */,
+				500C36D30424B55E954B5EF2C72AD9CC /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				A79B86B1710A40E4BFC6F1B2B7031973 /* RestoredTransitionContext.swift in Sources */,
+				C37E700ACEC74E411C2FA268E0C48F8D /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
+				8D461E192EAEDE3AA197E3928C19FCE0 /* RouterControllersProvider.swift in Sources */,
+				6F32F4D43D3B503DC2651C0F4E978080 /* RouterControllersProviderHolder.swift in Sources */,
+				3FA7F6A67A7EBA89713BF069C30B7BD0 /* RouterControllersProviderImpl.swift in Sources */,
+				A05A3F1B433A75C92A1528EC5BDA9B85 /* RouterDismissable.swift in Sources */,
+				71EC00383AB74428BC54A80C98BCB65D /* RouterFocusable.swift in Sources */,
+				A63B5AF52DD1E94D913A402069DF5696 /* RouterIdentifiable.swift in Sources */,
+				B66F0FF45AD1D58F7B585EECF6C5DD6B /* RouterPresentable.swift in Sources */,
+				64BC617DFFDF9BB93EEC1CFB37509E8A /* RouterSeed.swift in Sources */,
+				5624D32D650B92807D5B4222DEEAD1AE /* RouterTransitionable.swift in Sources */,
+				C5ED30755DB47A4E14C280BFC9A154FD /* RouterTransitionsHandlerBox.swift in Sources */,
+				9CA2313264560C11B6B114FACC6475C2 /* SetNavigationTransitionsAnimator.swift in Sources */,
+				63620BEE802469109AEA15D31287AC2C /* SettingAnimationLaunchingContext.swift in Sources */,
+				EB6572EFE5E261A2626EF0B1CBB42F9A /* SettingNavigationAnimationContext.swift in Sources */,
+				66BC0B9A4AB94C3C7272BEA653622F61 /* SourceAnimationLaunchingContextBox.swift in Sources */,
+				BB7BEA882C381DB046886EA811599AB4 /* SplitViewTransitionsHandlerImpl.swift in Sources */,
+				DD84754324BC1E6D5BB75E08408460DD /* StrongBox.swift in Sources */,
+				0203329ECB42FBA332264861CA4F963C /* StrongPeekAndPopData.swift in Sources */,
+				55A884AB5D54D6E0ADC5AAE33EE20E6A /* TabBarTransitionsHandlerImpl.swift in Sources */,
+				1D8F45E8340138476E580F96319F0DE5 /* TopViewControllerFinder.swift in Sources */,
+				DFE08A490EC851F01941433709808EDD /* TransitionAnimationsLauncher.swift in Sources */,
+				67F104B32F67EC6AA8EC5C848A73CF94 /* TransitionContextsStack.swift in Sources */,
+				1C96109CF7BD5E6452B2ED295E95884B /* TransitionContextsStackClient.swift in Sources */,
+				9DD05675E306623B7F608F9B10AF0D19 /* TransitionContextsStackClientImpl.swift in Sources */,
+				92FB49C194F7573A81498E58812DFEF9 /* TransitionContextsStackClientProvider.swift in Sources */,
+				BCE81B920D7907DDB6332AFE645E5577 /* TransitionContextsStackClientProviderHolder.swift in Sources */,
+				41FD1F88A5C1A88926B3DE702DE3DE6E /* TransitionContextsStackClientProviderImpl.swift in Sources */,
+				05FBC116BF4F476105994B5E2B1B525F /* TransitionContextsStackImpl.swift in Sources */,
+				7C5AE5805F70F7A5B477B9F6BEED6D65 /* TransitionId.swift in Sources */,
+				2AEF04972DE5A1EFF2A84A023264DE2B /* TransitionIdGenerator.swift in Sources */,
+				42F56EDCB531D6DB434B80AF3A63503D /* TransitionIdGeneratorHolder.swift in Sources */,
+				ECF147290C54D9912BD21326C433BEB3 /* TransitionIdGeneratorImpl.swift in Sources */,
+				79D97B9EC4B467EA0079E5FC65B96F65 /* TransitionsAnimator.swift in Sources */,
+				105A413252321CC87FC7A9B003D717D3 /* TransitionsCoordinator.swift in Sources */,
+				BA214F35A488DE000D07A0FB8B7A4FC5 /* TransitionsCoordinatorDelegate.swift in Sources */,
+				ECAD983246E5A1CDA3372396AFAC39B1 /* TransitionsCoordinatorDelegateHolder.swift in Sources */,
+				7F1219CB779DCEF71DD6F54EC87EEF50 /* TransitionsCoordinatorHolder.swift in Sources */,
+				ACCA2ABA033A88DE9F111C0B4D039B3A /* TransitionsCoordinatorImpl.swift in Sources */,
+				883DF9B58441E1C560A24FC68B35BB49 /* TransitionsHandler.swift in Sources */,
+				A8D455685F22EB96679AAFFEB36886F1 /* TransitionsHandlerBox.swift in Sources */,
+				04374E7D278BCD8E3D3B43C8304A4DF2 /* TransitionsHandlerContainer.swift in Sources */,
+				54B0065D4B78B5EE50C06BF6FB7FA1E0 /* TransitionsHandlersProvider.swift in Sources */,
+				3E7EB088A65362B4467B5BB8D71488F2 /* TransitionsHandlersProviderHolder.swift in Sources */,
+				A7ACC93113538831E3894C94AFD63EE2 /* TransitionsHistoryItem.swift in Sources */,
+				DB084C8EBE99308F50C7D1D04176DA9D /* TransitionsMarker.swift in Sources */,
+				071D6EA7EFB42A041E571A8DB248E5CE /* TransitionsMarkersHolder.swift in Sources */,
+				3D9EDB103661E9AF216EF6527E4D190E /* TransitionStorableParameters.swift in Sources */,
+				880EB24D6FCB7D1D4881F51A9A706134 /* TransitionsTracker.swift in Sources */,
+				8F42F2587E4CE1655CBCB910FD6E5956 /* TransitionUserId.swift in Sources */,
+				A121D23D51442B68C5E3419194786F66 /* ViewControllerPosition.swift in Sources */,
+				CEBB929B98425036CF93F02724166F40 /* WeakBox.swift in Sources */,
+				FAC6977E4CA917D752478B827FCFB31C /* WeakPeekAndPopData.swift in Sources */,
+				D26CA83C7826BC8490C77B15613766C2 /* WeakTransitionsHandlerBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		764997878C814998C84F507F748CCFFD /* Sources */ = {
+		47393AFA1F8940B54BDE35B506BC69CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA84BF862221EBC262183DBC2949535 /* AnimatingTransitionsHandler.swift in Sources */,
-				7E70C6E867BC06B431D21D61E75B4869 /* BaseMasterDetailRouter.swift in Sources */,
-				A01039FDC5359F4DDC7662716E43D1C3 /* BaseRouter.swift in Sources */,
-				EE08BE6795DC7F1FFCEC7892E8588E77 /* CompletedTransitionContext.swift in Sources */,
-				1853B711FC6087C9D76A4396E105EBD2 /* CompletedTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				F473721181B585AB42F7E2335CF11E16 /* ContainingTransitionsHandler.swift in Sources */,
-				F5A8F88CE094195011812D2EFA49EE0C /* DetailRouter.swift in Sources */,
-				5624BDB2D7DDBC722325DAE8B619BBE0 /* DetailRouterTransitionable.swift in Sources */,
-				22D6B95A67DC2CA64FFC4F1517C490C1 /* DismissalAnimationLaunchingContextBox.swift in Sources */,
-				85621E95CB4B28E124004F1827C66725 /* EndpointRouter.swift in Sources */,
-				23EC213AA1F1C1903C22E9B30815C5B5 /* InternalPeekAndPopState.swift in Sources */,
-				E83DC09C9F2B821F53BBBF477F1BC94D /* Marshroute-dummy.m in Sources */,
-				8C658333EAE5B7427998FBEBBA5DA474 /* MarshrouteAssert.swift in Sources */,
-				DDE3511C2957F3E844D6B0FD595D923A /* MarshrouteAssertionManager.swift in Sources */,
-				6F88057295BBA0B0D393E5B9A4F5F2EB /* MarshrouteAssertionPlugin.swift in Sources */,
-				721457E8B12CDE72462744C0DDCB2004 /* MarshrouteFactory.swift in Sources */,
-				39F818932303F323C6B4E5B21BF31975 /* MarshrouteFactoryImpl.swift in Sources */,
-				07CCD7F7BC4EABE7052155B8D5EEDD82 /* MarshroutePrint.swift in Sources */,
-				775F7F23496D7A9CD74933A15AA2D3BB /* MarshroutePrintManager.swift in Sources */,
-				4546489D7EF619BE32B5BC864C0E057F /* MarshroutePrintPlugin.swift in Sources */,
-				71FB160E57F1CB9425CC4C813ECFF7B0 /* MarshrouteSetupService.swift in Sources */,
-				3D46FB2B8AACE4ABF19C1B90AAA9F04E /* MarshrouteSetupServiceImpl.swift in Sources */,
-				76D931AE4D51E4F8E16298CAB871659D /* MarshrouteStack.swift in Sources */,
-				26380C4944CF1253FCAF6D9F8F652924 /* MasterDetailRouterSeed.swift in Sources */,
-				8340887E44BCF1DE2E1E4900DBDAF166 /* MasterRouter.swift in Sources */,
-				929D0A4D8E43BAAE00AD2BC70A30E04F /* MasterRouterTransitionable.swift in Sources */,
-				673FB6D7CD7FD07D8EB45EFF5DC58323 /* ModalDismissalAnimationContext.swift in Sources */,
-				157AE838020D58D5281CDBD3A8C1517E /* ModalDismissalAnimationLaunchingContext.swift in Sources */,
-				1F58D1F9346191F49305BFFC2526C3CD /* ModalEndpointNavigationAnimationLaunchingContext.swift in Sources */,
-				662FDF0BF2A4C86A0FE4F925AC5F7C71 /* ModalEndpointNavigationDismissalAnimationContext.swift in Sources */,
-				A0B5B593E37F9092860CF7BB556AB51B /* ModalEndpointNavigationDismissalAnimationLaunchingContext.swift in Sources */,
-				7427CEE56AF762EA52FE3077B0AA1B3E /* ModalEndpointNavigationPresentationAnimationContext.swift in Sources */,
-				74132CF60059D57B53767FE538574BC4 /* ModalEndpointNavigationTransitionsAnimator.swift in Sources */,
-				30E07977754C8034EB1AC2F6041EDD24 /* ModalMasterDetailDismissalAnimationContext.swift in Sources */,
-				3932CC4CB57DC5D815895CACF829BF8C /* ModalMasterDetailDismissalAnimationLaunchingContext.swift in Sources */,
-				227189225BE23AA6676C0EFCFEFE7744 /* ModalMasterDetailPresentationAnimationContext.swift in Sources */,
-				ED1C960B1054F99B0B084D997C7AF619 /* ModalMasterDetailPresentationAnimationLaunchingContext.swift in Sources */,
-				23E25471F3F730D47DDD78F489AC8BAF /* ModalMasterDetailTransitionsAnimator.swift in Sources */,
-				FBC2318A7B6CA196EB85673BB61C6B14 /* ModalNavigationAnimationLaunchingContext.swift in Sources */,
-				A66D0D5D92CDF298A77019B10BD8D671 /* ModalNavigationDismissalAnimationContext.swift in Sources */,
-				4D65F1749F632B2435C52B0FC4A31D55 /* ModalNavigationDismissalAnimationLaunchingContext.swift in Sources */,
-				8E92F25D0FB4AD92863A5471A6B38641 /* ModalNavigationPresentationAnimationContext.swift in Sources */,
-				9E4FED0F288EFDB2BB191C9EB0F16D25 /* ModalNavigationTransitionsAnimator.swift in Sources */,
-				313DAD139F03EF9FE062FC65C290D01A /* ModalPresentationAnimationContext.swift in Sources */,
-				F7E6936A88DC54C7248320D7B20FE7DD /* ModalPresentationAnimationLaunchingContext.swift in Sources */,
-				DDC3E2085F71BF10D1D35728D1DDC038 /* ModalPresentationRouter.swift in Sources */,
-				FE5A9C03919F8FA9D10AD41CF67409D9 /* ModalTransitionsAnimator.swift in Sources */,
-				066B7350A7C1BADB56D0786B6FCDB7EB /* NavigationTransitionsAnimator.swift in Sources */,
-				1F7E593A0E496E85DF96420F226382A5 /* NavigationTransitionsHandlerImpl.swift in Sources */,
-				0AFCBE4D45B6636BCBD6808D853E8DC2 /* NavigationTransitionStorableParameters.swift in Sources */,
-				06BEAFB6888F9F3B9C64C1539A6A1603 /* PeekAndPopData.swift in Sources */,
-				5F43600B1FF16E2540D3364B2797C401 /* PeekAndPopDataHolder.swift in Sources */,
-				CDE25D131DE10AAF236D51B6ABED61F8 /* PeekAndPopState.swift in Sources */,
-				BAF44AEDFF4AA601281A2A42022ECF7E /* PeekAndPopStateObservable.swift in Sources */,
-				699BF2EACEFFC92121F7E600AD8EC93A /* PeekAndPopTransitionsCoordinator.swift in Sources */,
-				1BB24D5DC3BB23433A6CD25EFA021AA9 /* PeekAndPopTransitionsCoordinatorHolder.swift in Sources */,
-				825D97EDE8EBD1D308C0D5C068D55904 /* PeekAndPopUtility.swift in Sources */,
-				19E096C93BB04926A27AA43DFDCE5B16 /* PeekAndPopUtilityImpl.swift in Sources */,
-				F3D995C3FE6AA2F3058431FCA8CF27B0 /* PeekRequestData.swift in Sources */,
-				6684F1852AA63C3A63895ECFCBEDF9E7 /* PopAnimationContext.swift in Sources */,
-				919A3ED340AD22F678C93D6F80CDA750 /* PopAnimationLaunchingContext.swift in Sources */,
-				6AE1BE25B8399D52972CB7CFD1B0D054 /* PopoverDismissalAnimationContext.swift in Sources */,
-				10B7764B0C9E42166F4F42477FC62FEE /* PopoverDismissalAnimationLaunchingContext.swift in Sources */,
-				A00922F1B915EFCC72C321C139777906 /* PopoverNavigationDismissalAnimationContext.swift in Sources */,
-				D01EB3E316BB222B68C1386931B816DA /* PopoverNavigationDismissalAnimationLaunchingContext.swift in Sources */,
-				547C10297412517C4916C9D44B4B174C /* PopoverNavigationPresentationAnimationContext.swift in Sources */,
-				1C7A2705D11B21C3C80C11A40656DB62 /* PopoverNavigationPresentationAnimationLaunchingContext.swift in Sources */,
-				0ECEE733CB5A1E2634E5A9432FAD8FDA /* PopoverNavigationTransitionsAnimator.swift in Sources */,
-				E3CFFC2E2DEAD73FEF2FD60218441073 /* PopoverPresentationAnimationContext.swift in Sources */,
-				BAD87A5B027095C77CB898F2BA258523 /* PopoverPresentationAnimationLaunchingContext.swift in Sources */,
-				9F027B276DB9DACC63BD716FFB64BAE2 /* PopoverPresentationRouter.swift in Sources */,
-				067DFB622D5A1A2A68780F08C46EA4AA /* PopoverTransitionsAnimator.swift in Sources */,
-				5C586D7D5478030ECEE4A0F91A214297 /* PopoverTransitionStorableParameters.swift in Sources */,
-				6A94E3828E0ADACF700EBDABB417A199 /* PopoverTransitionStyle.swift in Sources */,
-				BF9A29DED42E7DCE3492625AF4D5DD92 /* PresentationAnimationLaunchingContextBox.swift in Sources */,
-				311B7B59C12A7B83B3B04B0837622A89 /* PresentationTransitionContext.swift in Sources */,
-				C3965DC29A49200E6F5ABFB6EEF2DF93 /* PresentationTransitionsAnimatorBox.swift in Sources */,
-				1DE642B7EBD43E061DE2B9908DD02C70 /* PresentationTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				BBE935F9F5BBFBAAF3F2514C9D37329D /* PushAnimationContext.swift in Sources */,
-				A0E952D73A1425759294C043D2CCC831 /* PushAnimationLaunchingContext.swift in Sources */,
-				722CEDF57364BE955AEE94850E620945 /* ResetNavigationTransitionsAnimator.swift in Sources */,
-				F476BC8A9E06ED240ACE99C61C7DEDF4 /* ResettingAnimationLaunchingContext.swift in Sources */,
-				0A46F00BCB942C1093FC35A72D57DFDD /* ResettingAnimationLaunchingContextBox.swift in Sources */,
-				DAD744BC6B3F09937249FE168C93315C /* ResettingNavigationAnimationContext.swift in Sources */,
-				4EE8938B73D35D60A070DD2DF9072C3B /* ResettingTransitionContext.swift in Sources */,
-				D6D151D18F2CF8B30D535E1A7433C42B /* ResettingTransitionsAnimatorBox.swift in Sources */,
-				E781A2F5D0D144C9D246C3B3F6A54764 /* ResettingTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				5DBF7BCC5AE3F1595C8D5A74B53DAB28 /* RestoredTransitionContext.swift in Sources */,
-				C9D486C077562C4487EDDB6ACE6DCE03 /* RestoredTransitionTargetTransitionsHandlerBox.swift in Sources */,
-				CCD45F4D065D2968CDC83024AEC1A459 /* RouterControllersProvider.swift in Sources */,
-				BADB23EA7B02640371BFD4A02BFFD4A3 /* RouterControllersProviderHolder.swift in Sources */,
-				E53328C4EBCC63B4D58D91EEA4654AED /* RouterControllersProviderImpl.swift in Sources */,
-				0CEF6973AD059969F9C32E24AD28C822 /* RouterDismissable.swift in Sources */,
-				019217FC17A6720A382952CE311880CC /* RouterFocusable.swift in Sources */,
-				99448C93775751CAD13138C93BC0A2E8 /* RouterIdentifiable.swift in Sources */,
-				B6CA62138FCAEECB7B18657462E8BC63 /* RouterPresentable.swift in Sources */,
-				F873E80F9AAA8D6319676298A749D529 /* RouterSeed.swift in Sources */,
-				176F633E5C68560BDD08F48C3785FE6D /* RouterTransitionable.swift in Sources */,
-				24C76F208B564F0B3351189E089A8F26 /* RouterTransitionsHandlerBox.swift in Sources */,
-				6EBB7B4464A1E35FF0FFA4C22A938C56 /* SetNavigationTransitionsAnimator.swift in Sources */,
-				6AE4DA42593DBFCDB019285DF1900864 /* SettingAnimationLaunchingContext.swift in Sources */,
-				F5D0D717D337E719F33A0773641150BF /* SettingNavigationAnimationContext.swift in Sources */,
-				FAD0B5673F668BB353EC9CC33A76F872 /* SourceAnimationLaunchingContextBox.swift in Sources */,
-				6E4DFB38061D1108E60123DD8AF0C20C /* SplitViewTransitionsHandlerImpl.swift in Sources */,
-				A1AEF1E7C498B781653E84394A219D48 /* StrongBox.swift in Sources */,
-				93A409C8B519D364984B5CD6ADF275FE /* StrongPeekAndPopData.swift in Sources */,
-				47A38AD0ACE6D62F87CD6BB5DC3DEFEA /* TabBarTransitionsHandlerImpl.swift in Sources */,
-				0A5506E394B3EE96C5AED033498BA967 /* TopViewControllerFinder.swift in Sources */,
-				94949E49CC3910695A285B12FA454324 /* TransitionAnimationsLauncher.swift in Sources */,
-				1521A82B0D661E57E12F5AF0A18DF9CD /* TransitionContextsStack.swift in Sources */,
-				4F19B447BCD138D21BAB134A02855863 /* TransitionContextsStackClient.swift in Sources */,
-				7FFD8A1EC1D7680232A3BAFAF571B9DC /* TransitionContextsStackClientImpl.swift in Sources */,
-				79A6A48DDE4F5D84D28E394EFA7BD522 /* TransitionContextsStackClientProvider.swift in Sources */,
-				523D27D2D99916522860D313D8DD12FE /* TransitionContextsStackClientProviderHolder.swift in Sources */,
-				78FFC9FF23EE2E723E585F926E53C45F /* TransitionContextsStackClientProviderImpl.swift in Sources */,
-				6097DE8CFE4AF5048B9C7A60BDEE96BA /* TransitionContextsStackImpl.swift in Sources */,
-				CB3C41FB0158F266280A2901DAAB0220 /* TransitionId.swift in Sources */,
-				E7EAB2A612CDFC4E1F7874BE52257572 /* TransitionIdGenerator.swift in Sources */,
-				45E936E9752BB4F223FD7AAD74D4A31E /* TransitionIdGeneratorHolder.swift in Sources */,
-				3AA31CBEAA3BE8C20DD4D5CBA065B417 /* TransitionIdGeneratorImpl.swift in Sources */,
-				47BD58FF0386CD62D68F07DC50F57AED /* TransitionsAnimator.swift in Sources */,
-				7B94BA7AA18759E16424EE5E94D54E4E /* TransitionsCoordinator.swift in Sources */,
-				8BA63F9E3D8F9648DC068F8E02FF87BF /* TransitionsCoordinatorDelegate.swift in Sources */,
-				2C5FCA46B5675471D1AD08843116756A /* TransitionsCoordinatorDelegateHolder.swift in Sources */,
-				A1E889C852DE8A6DB8D6B17EFFC264B7 /* TransitionsCoordinatorHolder.swift in Sources */,
-				CA33E246FC11CDB16FA9FBDDC903C133 /* TransitionsCoordinatorImpl.swift in Sources */,
-				B20882E059795E41A019A149E1BEB08B /* TransitionsHandler.swift in Sources */,
-				46D58A83AF4B22389469DD6BC3786C46 /* TransitionsHandlerBox.swift in Sources */,
-				44513D7C7C03F42AD8E366CEE1FB4331 /* TransitionsHandlerContainer.swift in Sources */,
-				1C3D55213E81407D6228BED8800BD358 /* TransitionsHandlersProvider.swift in Sources */,
-				7D305C0473AEF74253DCF298D07B86E5 /* TransitionsHandlersProviderHolder.swift in Sources */,
-				51E3E875630913A3462A2ADF3DF8AB18 /* TransitionsHistoryItem.swift in Sources */,
-				E13E1F35276963A1707D81482850EBD7 /* TransitionsMarker.swift in Sources */,
-				A0AC5B04A8CCE85038D43C812AA5C7F3 /* TransitionsMarkersHolder.swift in Sources */,
-				51952B57A189E750550643F775BDDD93 /* TransitionStorableParameters.swift in Sources */,
-				FD6A3F6FC05E8CBAEEDDADC84E062544 /* TransitionsTracker.swift in Sources */,
-				1D501C5042589067930468A084F87077 /* TransitionUserId.swift in Sources */,
-				850193C0B3C2F9A279D1223BBE726176 /* ViewControllerPosition.swift in Sources */,
-				E765F45C17A60C9A066AD074EEECA4C2 /* WeakBox.swift in Sources */,
-				3E5829086337CF117E53255C8B77917A /* WeakPeekAndPopData.swift in Sources */,
-				644BE5A47D73C5A4E825D9486FE293EF /* WeakTransitionsHandlerBox.swift in Sources */,
+				D6A4C58E6C6232F9693E922BB93398C7 /* Pods-NavigationDemo-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2D9C52B41024D2B97C9E0F57A1EF261 /* Sources */ = {
+		A2B73C13D83F88EB082153A1FF94E190 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D1361E213B4A9F3B39115AD8ACBA78A /* Pods-NavigationDemo-dummy.m in Sources */,
+				415573F989D9B67F9787132C88BD3952 /* Pods-MarshrouteTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		299F28C3EC7647F5424D8220B4696BD7 /* PBXTargetDependency */ = {
+		9E44F2C8A486F61F258652FD44A41D85 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Marshroute;
-			target = 08FA19C302E17C92F7BD7C5355508404 /* Marshroute */;
-			targetProxy = 47681074BD6C145E7579A1A130D3B026 /* PBXContainerItemProxy */;
+			target = D68E901B4BEDF6B5D7F8CC81A114A44E /* Marshroute */;
+			targetProxy = 8B13FDF253C2E7A8B9156DDD999C6AB6 /* PBXContainerItemProxy */;
 		};
-		9CDB9EC95EB9F3D2109D0D865DF26C84 /* PBXTargetDependency */ = {
+		C47F7676F80F5FD77EB2AD49DBA5381A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Marshroute;
-			target = 08FA19C302E17C92F7BD7C5355508404 /* Marshroute */;
-			targetProxy = 6A5F96A780E871637896C750CB1ABD3F /* PBXContainerItemProxy */;
+			target = D68E901B4BEDF6B5D7F8CC81A114A44E /* Marshroute */;
+			targetProxy = 044AD1FCF48C70CE2F7A40974446F0E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2F4BFE293EFCF025FCC696B51082A12F /* Debug */ = {
+		2A8DBAD3B22979376FD26CE1AA7FC278 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B832F402FE51E0836AEB7E7AF8B0ADEC /* Pods-NavigationDemo.debug.xcconfig */;
+			baseConfigurationReference = 0A5015FC21AF60406E2853771CF65AB0 /* Marshroute.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1663,21 +1662,20 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NavigationDemo/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Marshroute/Marshroute-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Marshroute/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
+				MODULEMAP_FILE = "Target Support Files/Marshroute/Marshroute.modulemap";
 				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG -Onone";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_MODULE_NAME = Marshroute;
+				PRODUCT_NAME = Marshroute;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1743,6 +1741,39 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		549194FDD83A98E7FD83CF1D1B0751D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A5015FC21AF60406E2853771CF65AB0 /* Marshroute.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Marshroute/Marshroute-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Marshroute/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Marshroute/Marshroute.modulemap";
+				PRODUCT_MODULE_NAME = Marshroute;
+				PRODUCT_NAME = Marshroute;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1812,75 +1843,9 @@
 			};
 			name = Debug;
 		};
-		686D405C83676147AE9AEBE6A813F46A /* Debug */ = {
+		8EAB8577051569E197DF76B395FFE054 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A5015FC21AF60406E2853771CF65AB0 /* Marshroute.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Marshroute/Marshroute-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Marshroute/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Marshroute/Marshroute.modulemap";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG -Onone";
-				PRODUCT_MODULE_NAME = Marshroute;
-				PRODUCT_NAME = Marshroute;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		7635990DF7B9FB123FA1320FD691D687 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A5015FC21AF60406E2853771CF65AB0 /* Marshroute.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Marshroute/Marshroute-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Marshroute/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Marshroute/Marshroute.modulemap";
-				PRODUCT_MODULE_NAME = Marshroute;
-				PRODUCT_NAME = Marshroute;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C24ED1F974E52EA8BB958772310E8070 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B4B6D1659705D0D053B617D35714E9C /* Pods-MarshrouteTests.release.xcconfig */;
+			baseConfigurationReference = B832F402FE51E0836AEB7E7AF8B0ADEC /* Pods-NavigationDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -1892,14 +1857,15 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MarshrouteTests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-NavigationDemo/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D DEBUG -Onone";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1907,13 +1873,12 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		F153891B2FECC6775BC32383F4B2ADEE /* Debug */ = {
+		9810A0ECCD71ADB23C3BF584DAEB128C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45FC784A986FCD0AC03748AA650C43E2 /* Pods-MarshrouteTests.debug.xcconfig */;
 			buildSettings = {
@@ -1948,7 +1913,7 @@
 			};
 			name = Debug;
 		};
-		F9354514B7F3668C027C4D1DDFA7C0BE /* Release */ = {
+		B212DA1496143CCA93E7A0B63B3742C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3F153D7255A7E118E402FCDF201F8C84 /* Pods-NavigationDemo.release.xcconfig */;
 			buildSettings = {
@@ -1983,23 +1948,49 @@
 			};
 			name = Release;
 		};
+		C9FD4D8A8F55F1AD98953D77DF1234D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B4B6D1659705D0D053B617D35714E9C /* Pods-MarshrouteTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MarshrouteTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E886D67D18E4B8E734B44A773533B70 /* Build configuration list for PBXNativeTarget "Pods-NavigationDemo" */ = {
+		2A9B3BAEE8E67B1EE2E2693B63D14973 /* Build configuration list for PBXNativeTarget "Pods-NavigationDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2F4BFE293EFCF025FCC696B51082A12F /* Debug */,
-				F9354514B7F3668C027C4D1DDFA7C0BE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42B088110DF90B6559A8A7E44875EE55 /* Build configuration list for PBXNativeTarget "Pods-MarshrouteTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F153891B2FECC6775BC32383F4B2ADEE /* Debug */,
-				C24ED1F974E52EA8BB958772310E8070 /* Release */,
+				8EAB8577051569E197DF76B395FFE054 /* Debug */,
+				B212DA1496143CCA93E7A0B63B3742C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2013,11 +2004,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D185C42078BFDC37C2368F019C505D7E /* Build configuration list for PBXNativeTarget "Marshroute" */ = {
+		6E933751CBD40CBEDBE3B3589AF7471B /* Build configuration list for PBXNativeTarget "Marshroute" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				686D405C83676147AE9AEBE6A813F46A /* Debug */,
-				7635990DF7B9FB123FA1320FD691D687 /* Release */,
+				2A8DBAD3B22979376FD26CE1AA7FC278 /* Debug */,
+				549194FDD83A98E7FD83CF1D1B0751D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C207C9C829F0EC519826A981ECF9D17C /* Build configuration list for PBXNativeTarget "Pods-MarshrouteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9810A0ECCD71ADB23C3BF584DAEB128C /* Debug */,
+				C9FD4D8A8F55F1AD98953D77DF1234D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

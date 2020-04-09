@@ -1,7 +1,7 @@
 import Marshroute
 
 final class DemoPrintPlugin: MarshroutePrintPlugin {
-    private let demoPrefix = "NavigatonDemo:"
+    private let demoPrefix = "[NavigatonDemo] "
     
     func print(_ item: Any, separator: String, terminator: String) {
         Swift.print(demoPrefix, item, separator: separator, terminator: terminator)

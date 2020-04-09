@@ -1,4 +1,4 @@
-public protocol MarshrouteAssertionPlugin {
+public protocol MarshrouteAssertionPlugin: AnyObject {
     func assert(
         _ condition: @autoclosure () -> Bool,
         _ message: @autoclosure () -> String,
@@ -11,19 +11,23 @@ public protocol MarshrouteAssertionPlugin {
         line: UInt)
 }
 
-final class DefaultMarshrouteAssertionPlugin: MarshrouteAssertionPlugin {
-    func assert(
+public final class DefaultMarshrouteAssertionPlugin: MarshrouteAssertionPlugin {
+    public init() {}
+    
+    public func assert(
         _ condition: @autoclosure () -> Bool,
         _ message: @autoclosure () -> String,
         file: StaticString,
-        line: UInt) {
+        line: UInt)
+    {
         Swift.assert(condition(), message(), file: file, line: line)
     }
     
-    func assertionFailure(
+    public func assertionFailure(
         _ message: @autoclosure () -> String,
         file: StaticString,
-        line: UInt) {
+        line: UInt)
+    {
         Swift.assertionFailure(message(), file: file, line: line)
     }
 }

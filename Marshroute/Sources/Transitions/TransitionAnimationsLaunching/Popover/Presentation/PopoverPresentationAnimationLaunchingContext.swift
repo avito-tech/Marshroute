@@ -28,4 +28,23 @@ public struct PopoverPresentationAnimationLaunchingContext {
 
     /// контроллер, над которым появится поповер
     public weak var sourceViewController: UIViewController?
+    
+    public var isZombie: Bool
+    {
+        if targetViewController == nil {
+            // We did not check if `popoverController == nil`, because it does not matter for Marshroute navigation model
+            return true
+        }
+        
+        if popoverController?.isPopoverVisible != true { 
+            marshrouteAssertionFailure(
+                """
+                It looks like \(targetViewController as Any) did not deallocate due to some retain cycle! 
+                """
+            )
+            return true
+        }
+        
+        return false
+    }
 }

@@ -21,4 +21,26 @@ public struct PushAnimationLaunchingContext {
     
     // контроллер, с которого нужно осуществить push-переход
     public weak var sourceViewController: UIViewController?
+    
+    public var isZombie: Bool
+    {
+        if sourceViewController == nil || targetViewController == nil {
+            // We did not check if `navigationController == nil`, because it does not matter for Marshroute navigation model
+            return true
+        }
+        
+        if let navigationController = navigationController,
+            let targetViewController = targetViewController,
+            !navigationController.viewControllers.contains(targetViewController)
+        {
+            marshrouteAssertionFailure(
+                """
+                It looks like \(targetViewController) did not deallocate due to some retain cycle! 
+                """
+            )
+            return true
+        }
+        
+        return false
+    }
 }

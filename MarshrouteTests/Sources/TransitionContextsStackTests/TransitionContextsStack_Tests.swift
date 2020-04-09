@@ -8,9 +8,11 @@ final class TransitionContextsStackTests: XCTestCase {
     var neverZombieContext1: CompletedTransitionContext?
     var neverZombieContext2: CompletedTransitionContext?
     var oneDayZombieContext: CompletedTransitionContext?
-    private let targetViewController = UIViewController()
+    private let targetViewController1 = UIViewController()
+    private let targetViewController2 = UIViewController()
     private var nillableTargetViewController: UIViewController?
     private let sourceViewController = UIViewController()
+    private var navigationController: UINavigationController?
     private let dummyTransitionsHandler = DummyAnimatingTransitionsHandler()
     
     override func setUp() {
@@ -21,24 +23,34 @@ final class TransitionContextsStackTests: XCTestCase {
         
         let autoZombieViewController = UIViewController()
         
+        navigationController = UINavigationController()
+        
         autoZombieContext = TransitionContextsCreator.createCompletedTransitionContextFromPresentationTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
+            sourceViewController: sourceViewController,
             targetViewController: autoZombieViewController,
+            navigationController: nil,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
         neverZombieContext1 = TransitionContextsCreator.createCompletedTransitionContextFromPresentationTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
-            targetViewController: targetViewController,
+            sourceViewController: sourceViewController,
+            targetViewController: targetViewController1,
+            navigationController: navigationController,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
         neverZombieContext2 = TransitionContextsCreator.createCompletedTransitionContextFromPresentationTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
-            targetViewController: targetViewController,
+            sourceViewController: sourceViewController,
+            targetViewController: targetViewController2,
+            navigationController: navigationController,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
         
         oneDayZombieContext = TransitionContextsCreator.createCompletedTransitionContextFromPresentationTransitionContext(
             sourceTransitionsHandler: dummyTransitionsHandler,
+            sourceViewController: sourceViewController,
             targetViewController: nillableTargetViewController!,
+            navigationController: nil,
             targetTransitionsHandlerBox: .init(animatingTransitionsHandler: dummyTransitionsHandler))
     }
     
@@ -46,6 +58,7 @@ final class TransitionContextsStackTests: XCTestCase {
         super.tearDown()
         
         __stackImpl = nil
+        navigationController = nil
         autoZombieContext = nil
         neverZombieContext1 = nil
         neverZombieContext2 = nil
@@ -80,6 +93,8 @@ final class TransitionContextsStackTests: XCTestCase {
         guard let __stackImpl = __stackImpl
             else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
+            else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
             else { XCTFail(); return }
         
         // append not zombie. must become not empty
@@ -129,6 +144,8 @@ final class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
+            else { XCTFail(); return }
         
         // append zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -149,6 +166,8 @@ final class TransitionContextsStackTests: XCTestCase {
         guard let autoZombieContext = autoZombieContext
             else { XCTFail(); return }
         guard let neverZombieContext1 = neverZombieContext1
+            else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
             else { XCTFail(); return }
         
         // append zombie. must still be empty
@@ -192,6 +211,10 @@ final class TransitionContextsStackTests: XCTestCase {
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
+            else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
+            else { XCTFail(); return }
+        guard !neverZombieContext2.isZombie
             else { XCTFail(); return }
         
         // append not zombie. must still be empty
@@ -241,6 +264,10 @@ final class TransitionContextsStackTests: XCTestCase {
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
+            else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
+            else { XCTFail(); return }
+        guard !neverZombieContext2.isZombie
             else { XCTFail(); return }
         
         // append not zombie. must still be empty
@@ -296,6 +323,10 @@ final class TransitionContextsStackTests: XCTestCase {
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
+            else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
+            else { XCTFail(); return }
+        guard !neverZombieContext2.isZombie
             else { XCTFail(); return }
         
         // append not zombie. must still be empty
@@ -354,6 +385,10 @@ final class TransitionContextsStackTests: XCTestCase {
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
             else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
+            else { XCTFail(); return }
+        guard !neverZombieContext2.isZombie
+            else { XCTFail(); return }
         
         // append not zombie. must still be empty
         __stackImpl.append(autoZombieContext)
@@ -399,6 +434,10 @@ final class TransitionContextsStackTests: XCTestCase {
         guard let neverZombieContext1 = neverZombieContext1
             else { XCTFail(); return }
         guard let neverZombieContext2 = neverZombieContext2
+            else { XCTFail(); return }
+        guard !neverZombieContext1.isZombie
+            else { XCTFail(); return }
+        guard !neverZombieContext2.isZombie
             else { XCTFail(); return }
         
         // append not zombie. must still be empty

@@ -1533,12 +1533,12 @@
 					CC0B1D3F1CC20687006707B6 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 5PHGGKL9UQ;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 					};
 					CC4267FA1F5FF76F00F4C407 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 5PHGGKL9UQ;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CC0B1D3F1CC20687006707B6;
 					};
@@ -1549,6 +1549,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				ru,
@@ -1605,7 +1606,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Marshroute/Marshroute.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1614,7 +1615,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NavigationDemo/Pods-NavigationDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5B4EFE3BC77F057DC043A279 /* [CP] Embed Pods Frameworks */ = {
@@ -1623,7 +1624,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Marshroute/Marshroute.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1632,7 +1633,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarshrouteTests/Pods-MarshrouteTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C58F4F3EBBC4C7ECE34E4445 /* [CP] Check Pods Manifest.lock */ = {
@@ -2019,17 +2020,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 994440772A8770662209C794 /* Pods-NavigationDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
 				INFOPLIST_FILE = "$(SRCROOT)/NavigationDemo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = " -D COCOAPODS  ";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Onone";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -2037,7 +2037,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BAA56E2FDDF8BC096CA65A35 /* Pods-NavigationDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5PHGGKL9UQ;
 				INFOPLIST_FILE = "$(SRCROOT)/NavigationDemo/Resources/Info.plist";
@@ -2046,7 +2045,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Onone";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.navigation.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -2063,7 +2062,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.MarshrouteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationDemo.app/NavigationDemo";
 			};
 			name = Debug;
@@ -2080,7 +2079,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.avito.MarshrouteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NavigationDemo.app/NavigationDemo";
 			};
 			name = Release;

@@ -1,5 +1,5 @@
 # Marshroute
-[![GitHub license](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/avito-tech/Marshroute/blob/master/LICENSE) [![GitHub release](https://img.shields.io/badge/Version-0.4.3-brightgreen.svg)](https://github.com/avito-tech/Marshroute/releases)  [![Swift 4.2 support](https://img.shields.io/badge/Swift%204.2-supported-brightgreen.svg)](https://github.com/avito-tech/Marshroute/commit/278beaa9b53476315906fee1ba6555caf2e1db86) [![cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-blue.svg)](https://cocoapods.org) [![carthage compatible](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/avito-tech/Marshroute.svg?branch=master)](https://travis-ci.org/avito-tech/Marshroute) [![Code Coverage](https://img.shields.io/codecov/c/github/avito-tech/Marshroute.svg)](https://codecov.io/gh/avito-tech/Marshroute)
+[![GitHub license](https://img.shields.io/badge/License-MIT-lightgrey.svg)](https://github.com/avito-tech/Marshroute/blob/master/LICENSE) [![GitHub release](https://img.shields.io/badge/Version-0.4.4-brightgreen.svg)](https://github.com/avito-tech/Marshroute/releases)  [![Swift 5.0 support](https://img.shields.io/badge/Swift%205.0-supported-brightgreen.svg)](https://github.com/avito-tech/Marshroute/commit/278beaa9b53476315906fee1ba6555caf2e1db86) [![cocoapods compatible](https://img.shields.io/badge/Cocoapods-compatible-blue.svg)](https://cocoapods.org) [![carthage compatible](https://img.shields.io/badge/Carthage-compatible-blue.svg)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/avito-tech/Marshroute.svg?branch=master)](https://travis-ci.org/avito-tech/Marshroute) [![Code Coverage](https://img.shields.io/codecov/c/github/avito-tech/Marshroute.svg)](https://codecov.io/gh/avito-tech/Marshroute)
 
 ## Contents
 
@@ -234,7 +234,7 @@ Then run `pod install` command. For details of the installation and usage of Coc
 
 To install Marshroute using Carthage, add the following lines to your `Cartfile`:
 ```ruby
-github "avito-tech/Marshroute" ~> 0.4.3
+github "avito-tech/Marshroute" ~> 0.4.4
 ```
 
 Then run `carthage update --platform iOS` command. For details of the installation and usage of Carthage, visit [its  repo website](https://github.com/Carthage/Carthage).

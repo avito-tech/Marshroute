@@ -1,3 +1,6 @@
+[0.4.4](https://github.com/avito-tech/Marshroute/releases/tag/0.4.3)
+- Support asserting on view controller retain cycles
+
 [0.4.3](https://github.com/avito-tech/Marshroute/releases/tag/0.4.3)
 - Migrate to Swift 4.2
 

@@ -4,6 +4,7 @@
 ## Contents
 
 * [Overview](#overview)
+    * [Detailes](#overview-details)
     * [Tuning the transition animation](#tuning-the-transition-animation)
 * [3d touch support](#3d-touch-support)
     * [PeekAndPopUtility](#peek-and-pop-utility)
@@ -21,7 +22,19 @@
 
 ## <a name="overview"/> Overview
 
-This repo contains the source code for making your `Router`s  simple but extremely powerful!
+ `Marshroute` is a library that will encourage you to locate all the navigation logic in the `Router` layer, no matter which architecture you prefer. 
+ `Marshroute` helps make your `Router`s syntactically compact and clear. 
+
+Key features:
+- Every `Router`-driven transition is always forwarded to the topmost `UIViewController`. This means you can ask `Marshroute` to present a view controller from any point in your program and it will simply work!
+- No matter how you module was presented, you can simply ask your module's `Router` to dismiss this module via calling `router.dismissCurrentModule()` and it will simply work! Your parent module can change presentation style in the future (e.g. present modally instead of pushing), but `router.dismissCurrentModule()` will work anyway!
+- No matter how your module presents subsequent modules, you can simply ask your module's `Router` to return to this module via calling `router.focusOnCurrentModule()` and it will also simply work!
+- `Marshroute` allows changing transition animations in just 1 line of code (see [Tuning the transition animation](#tuning-the-transition-animation) for more details)
+- `Marshroute` supports 3d touch transitions
+- `Marshroute` detects view controller retain cycles and notifies you about them via assertions API. You can override default assertions with your implementation: e.g. print assertions to the output or do some advanced analytics (see [plugin-customization](#plugin-customization) for more details)
+- `Marshroute` features a detailed [demo](#demo) project describing key navigation principles on both iPhone and iPad
+
+### <a name="overview-detailes"/> Details
 
 Every `Router`-driven transition is always forwarded to the topmost `UIViewController`
 to make it super easy to support `DeepLink`s and for example present `Authorization` module from any point of your application. 

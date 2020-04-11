@@ -54,6 +54,9 @@ final class TouchEventObserverImpl: TouchEventObserver, TouchEventForwarder {
             
         case .stationary:
             break
+            
+        @unknown default:
+            break
         }
     }
 }

@@ -68,4 +68,30 @@ public enum PresentationAnimationLaunchingContextBox {
             self = .popoverNavigation(launchingContext: launchingContext)
         }
     }
+    
+    public var isZombie: Bool
+    {
+        switch self {
+        case .modal(let launchingContext):
+            return launchingContext.isZombie
+            
+        case .modalNavigation(let launchingContext):
+            return launchingContext.isZombie
+            
+        case .modalEndpointNavigation(let launchingContext):
+            return launchingContext.isZombie
+            
+        case .modalMasterDetail(let launchingContext):
+            return launchingContext.isZombie
+            
+        case .push(let launchingContext):
+            return launchingContext.isZombie
+            
+        case .popover(let launchingContext):
+            return launchingContext.isZombie
+            
+        case .popoverNavigation(let launchingContext):
+            return launchingContext.isZombie
+        }
+    }
 }

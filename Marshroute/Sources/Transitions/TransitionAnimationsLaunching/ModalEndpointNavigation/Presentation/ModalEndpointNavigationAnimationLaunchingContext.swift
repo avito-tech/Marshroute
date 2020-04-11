@@ -19,4 +19,22 @@ public struct ModalEndpointNavigationPresentationAnimationLaunchingContext {
     
     // контроллер, с которого нужно осуществить модальный переход
     public weak var sourceViewController: UIViewController?
+    
+    public var isZombie: Bool
+    {
+        if sourceViewController == nil || targetNavigationController == nil {
+            return true
+        }
+        
+        if sourceViewController?.presentedViewController == nil {
+            marshrouteAssertionFailure(
+                """
+                It looks like \(targetNavigationController as Any) did not deallocate due to some retain cycle! 
+                """
+            )
+            return true
+        }
+        
+        return false
+    }
 }

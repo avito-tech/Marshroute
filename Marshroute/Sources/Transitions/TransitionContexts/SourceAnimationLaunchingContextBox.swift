@@ -15,4 +15,15 @@ public enum SourceAnimationLaunchingContextBox {
             return nil
         }
     }
+    
+    public var isZombie: Bool
+    {
+        switch self {
+        case .presentation(let launchingContextBox):
+            return launchingContextBox.isZombie
+            
+        case .resetting:
+            return false
+        }
+    }
 }

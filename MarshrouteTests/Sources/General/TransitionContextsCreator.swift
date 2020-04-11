@@ -5,14 +5,19 @@ final class TransitionContextsCreator
 {
     static func createCompletedTransitionContextFromPresentationTransitionContext(
         sourceTransitionsHandler: AnimatingTransitionsHandler,
+        sourceViewController: UIViewController,
         targetViewController: UIViewController,
+        navigationController: UINavigationController?,
         targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
         -> CompletedTransitionContext
     {
-        let pushAnimationLaunchingContext = PushAnimationLaunchingContext(
+        var pushAnimationLaunchingContext = PushAnimationLaunchingContext(
             targetViewController: targetViewController,
             animator: NavigationTransitionsAnimator()
         )
+        
+        pushAnimationLaunchingContext.sourceViewController = sourceViewController
+        pushAnimationLaunchingContext.navigationController = navigationController
         
         let presentationAnimationLaunchingContextBox = PresentationAnimationLaunchingContextBox.push(
             launchingContext: pushAnimationLaunchingContext
@@ -20,6 +25,8 @@ final class TransitionContextsCreator
         
         let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
             = .presentation(launchingContextBox: presentationAnimationLaunchingContextBox)
+        
+        navigationController?.pushViewController(targetViewController, animated: false)
         
         return CompletedTransitionContext(
             transitionId: TransitionIdGeneratorImpl().generateNewTransitionId(),
@@ -33,12 +40,20 @@ final class TransitionContextsCreator
     
     static func createRegisteringCompletedTransitionContext(
         sourceTransitionsHandler: AnimatingTransitionsHandler,
-                                 targetViewController: UIViewController,
-                                 targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
+        targetViewController: UIViewController,
+        targetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
         -> CompletedTransitionContext
     {
         let sourceAnimationLaunchingContextBox: SourceAnimationLaunchingContextBox
             = .resetting(launchingContextBox: .registering)
+        
+//        let resettingAnimationLaunchingContextBox = ResettingAnimationLaunchingContextBox.settingNavigationRoot(
+//            launchingContext: <#T##SettingAnimationLaunchingContext#>)(
+//        
+//        
+//        sourceTransitionsHandler.launchResettingAnimation(
+//            launchingContextBox: &sourceAnimationLaunchingContextBox
+//        )
         
         return CompletedTransitionContext(
             transitionId: TransitionIdGeneratorImpl().generateNewTransitionId(),

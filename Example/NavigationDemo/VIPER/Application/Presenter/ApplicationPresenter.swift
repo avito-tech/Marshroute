@@ -41,6 +41,7 @@ final class ApplicationPresenter: ApplicationModuleInput {
     func showAuthorizationModule(_ completion: ((_ isAuthorized: Bool) -> ())?) {
         router.authorizationStatus { [weak self] isPresented in
             if isPresented {
+                debugPrint("Not showing second instance of Authorization module. Just replacing completion")
                 self?.authorizationModuleInput?.onComplete = completion
             } else {
                 self?.router.showAuthorization { [weak self] moduleInput in

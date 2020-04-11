@@ -13,10 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         window.isUserInteractionEnabled = false
-        window.windowLevel = UIWindow.Level.statusBar
+        window.windowLevel = .statusBar
         window.backgroundColor = .clear
         window.isHidden = false
-        window.rootViewController = self.window?.rootViewController
+        window.rootViewController = UIViewController()
         
         return window
     }()

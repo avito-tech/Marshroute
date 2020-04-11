@@ -13,8 +13,10 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
     // MARK: - Internal
     var defaultContentInsets: UIEdgeInsets = .zero {
         didSet {
-            tableView.contentInset.bottom = defaultContentInsets.bottom
-            tableView.scrollIndicatorInsets.bottom = defaultContentInsets.bottom 
+            if ProcessInfo().operatingSystemVersion.majorVersion < 13 { 
+                tableView.contentInset.bottom = defaultContentInsets.bottom
+                tableView.scrollIndicatorInsets.bottom = defaultContentInsets.bottom
+            }
         }
     }
     

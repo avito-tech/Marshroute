@@ -56,6 +56,10 @@ public final class TransitionContextsStackImpl: TransitionContextsStack {
         let restored: RestoredTransitionContext? = self[index]
         return restored
     }
+    
+    public func clearContextsDescribingScreensThatWereAlreadyDismissedWithoutInvokingMarshroute() {
+        storage = storage.filter { !$0.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute }
+    }
 }
 
 // MARK: - private

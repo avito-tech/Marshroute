@@ -1,12 +1,11 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode11_3_1
 
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
-
-  - IOS_DESTANATION="platform=iOS Simulator,OS=10.3.1,name=iPhone 7 Plus"
+  - IOS_DESTANATION="platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro"
 before_install:
   - gem install xcpretty-travis-formatter
 script:

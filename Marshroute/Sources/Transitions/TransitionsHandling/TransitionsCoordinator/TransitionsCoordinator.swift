@@ -232,6 +232,9 @@ extension TransitionsCoordinator where
         let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             ?? stackClientProvider.createStackClient(forTransitionsHandler: animatingTransitionsHandler)
         
+        // чистим артефакты от уже закрытых экранов
+        stackClient.clearTransitionsToScreensThatWereAlreadyDismissedWithoutInvokingMarshroute()
+        
         // ищем идентификатор самого первого перехода
         let transitionsToUndo = stackClient.allTransitionsForTransitionsHandler(animatingTransitionsHandler)
         let chainedTransition = transitionsToUndo.chainedTransition
@@ -257,7 +260,7 @@ extension TransitionsCoordinator where
                     lastTransition.targetViewController
                 )
             } else {
-                marshrouteDebugPrint(
+                marshroutePrint(
                     "Cannot reset `rootViewController` of a `UINavigationController`." +
                     "No `rootViewController` found. You should first set `rootViewController`." +
                     "see `ResettingAnimationLaunchingContextBox.resettingNavigationRoot`"
@@ -306,7 +309,7 @@ extension TransitionsCoordinator where
                 withStackClient: stackClient
             )
         } else {
-            marshrouteDebugPrint("resetting transition was cancelled")
+            marshroutePrint("resetting transition was cancelled")
         }
         
     }
@@ -396,6 +399,9 @@ private extension TransitionsCoordinator where
                 return
         }
         
+        // чистим артефакты от уже закрытых экранов
+        stackClient.clearTransitionsToScreensThatWereAlreadyDismissedWithoutInvokingMarshroute()
+        
         // спрашиваем делегата о разрешении выполнения анимаций `Resetting` перехода,
         // если переход помечен пользовательским идентификатором
         let transitionUserId = markers[context.transitionId]
@@ -463,7 +469,7 @@ private extension TransitionsCoordinator where
                 }
             )
         } else {
-            marshrouteDebugPrint("presentation transition was cancelled")
+            marshroutePrint("presentation transition was cancelled")
         }
     }
     
@@ -473,12 +479,15 @@ private extension TransitionsCoordinator where
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler?)
     {
         guard let animatingTransitionsHandler = animatingTransitionsHandler else {
-            marshrouteDebugPrint("обработчик, выполнивший переход с transitionId: \(transitionId), не найден. возможен лишний вызов метода отмены перехода")
+            marshroutePrint("обработчик, выполнивший переход с transitionId: \(transitionId), не найден. возможен лишний вызов метода отмены перехода")
             return
         }
         
         guard let stackClient = stackClientProvider.stackClient(forTransitionsHandler: animatingTransitionsHandler)
             else { return }
+        
+        // чистим артефакты от уже закрытых экранов
+        stackClient.clearTransitionsToScreensThatWereAlreadyDismissedWithoutInvokingMarshroute()
         
         // готовим список переходов, которые нужно отменить
         let transitionsToUndo = stackClient.transitionsAfter(
@@ -572,7 +581,7 @@ private extension TransitionsCoordinator where
             presentationAnimationLaunchingContextBox: presentationAnimationLaunchingContextBox,
             targetViewController: precedingTransition.targetViewController
         ) else {
-            marshrouteDebugPrint("FAILED TO CREATE `DismissalAnimationLaunchingContextBox` from `PresentationAnimationLaunchingContextBox`")
+            marshroutePrint("FAILED TO CREATE `DismissalAnimationLaunchingContextBox` from `PresentationAnimationLaunchingContextBox`")
             return
         }
         
@@ -1021,7 +1030,7 @@ private extension TransitionsCoordinator where
         var context = context
         
         // если при инициировании перехода не указывали targetTransitionsHander'а, то указываем анимирующий
-        if (context.needsAnimatingTargetTransitionHandler) {
+        if context.needsAnimatingTargetTransitionHandler {
             context.setAnimatingTargetTransitionsHandler(animatingTransitionsHandler)
         }
 
@@ -1064,17 +1073,17 @@ private extension TransitionsCoordinator where
         forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
         withStackClient stackClient: TransitionContextsStackClient)
     {
-        let completedTransitionContext = CompletedTransitionContext(
+        let _completedTransitionContext = CompletedTransitionContext(
             resettingTransitionContext: context,
             sourceTransitionsHandler: animatingTransitionsHandler // кем выполнен переход
         )
         
-        guard completedTransitionContext != nil
+        guard let completedTransitionContext = _completedTransitionContext
             else { marshrouteAssertionFailure(); return }
         
         // создаем новую запись о переходе
         _ = stackClient.appendTransition(
-            context: completedTransitionContext!,
+            context: completedTransitionContext,
             forTransitionsHandler: animatingTransitionsHandler
         )
     }

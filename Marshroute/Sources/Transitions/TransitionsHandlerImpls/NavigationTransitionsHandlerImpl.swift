@@ -28,7 +28,7 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
             
         case .push(var launchingContext):
             guard let navigationController = navigationController
-                else { marshrouteDebugPrint("no `UINavigationController` to `pushViewController:animated`"); return }
+                else { marshroutePrint("no `UINavigationController` to `pushViewController:animated`"); return }
             
             // `Push` could be forwarded to a topmost `UINavigationController`,
             // so we should pass our navigation controller
@@ -86,7 +86,7 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
             
         case .resettingNavigationRoot(var launchingContext):
             guard let navigationController = navigationController
-                else { marshrouteDebugPrint("no `UINavigationController` to `setViewControllers:animated`"); return }
+                else { marshroutePrint("no `UINavigationController` to `setViewControllers:animated`"); return }
             
             // `ResetNavigation` is usually done in place, where the `UINavigationController` is unreachable,
             // so we should pass our navigation controller

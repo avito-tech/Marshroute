@@ -109,6 +109,11 @@ final public class TransitionContextsStackClientImpl: TransitionContextsStackCli
         
         return (chainedTransition, pushTransitions)
     }
+    
+    public func clearTransitionsToScreensThatWereAlreadyDismissedWithoutInvokingMarshroute()
+    {
+        stack.clearContextsDescribingScreensThatWereAlreadyDismissedWithoutInvokingMarshroute()
+    }
 
     public func deleteTransitionsAfter(
         transitionId: TransitionId,

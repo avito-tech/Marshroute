@@ -3,7 +3,8 @@ import XCTest
 import UIKit.UIGestureRecognizerSubclass
 
 class BasePeekAndPopUtilityImplTestCase: XCTestCase {
-    let asyncTimeout: TimeInterval = 0.1
+    let asyncTimeout: TimeInterval = 0.5
+    let asyncDelay: TimeInterval = 0.1
     
     var peekAndPopUtility: PeekAndPopUtilityImpl!
     var sourceViewController: TestablePeekAndPopSourceViewController!

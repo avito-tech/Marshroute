@@ -29,6 +29,8 @@ public protocol TransitionContextsStackClient: class {
         includingTransitionWithId: Bool)
         -> (chainedTransition: RestoredTransitionContext?, pushTransitions: [RestoredTransitionContext]?)
 
+    func clearTransitionsToScreensThatWereAlreadyDismissedWithoutInvokingMarshroute()
+    
     func deleteTransitionsAfter(
         transitionId: TransitionId,
         forTransitionsHandler transitionsHandler: TransitionsHandler,

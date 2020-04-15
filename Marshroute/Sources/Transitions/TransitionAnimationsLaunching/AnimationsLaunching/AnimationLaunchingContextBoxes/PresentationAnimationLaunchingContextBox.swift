@@ -69,29 +69,29 @@ public enum PresentationAnimationLaunchingContextBox {
         }
     }
     
-    public var isZombie: Bool
+    public var isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute: Bool
     {
         switch self {
         case .modal(let launchingContext):
-            return launchingContext.isZombie
+            return launchingContext.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
             
         case .modalNavigation(let launchingContext):
-            return launchingContext.isZombie
+            return launchingContext.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
             
         case .modalEndpointNavigation(let launchingContext):
-            return launchingContext.isZombie
+            return launchingContext.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
             
         case .modalMasterDetail(let launchingContext):
-            return launchingContext.isZombie
+            return launchingContext.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
             
         case .push(let launchingContext):
-            return launchingContext.isZombie
+            return launchingContext.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
             
         case .popover(let launchingContext):
-            return launchingContext.isZombie
+            return launchingContext.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
             
         case .popoverNavigation(let launchingContext):
-            return launchingContext.isZombie
+            return launchingContext.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
         }
     }
 }

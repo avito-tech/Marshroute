@@ -19,9 +19,9 @@ public struct ModalMasterDetailPresentationAnimationLaunchingContext {
     // контроллер, с которого нужно осуществить модальный переход
     public weak var sourceViewController: UIViewController?
     
-    public var isZombie: Bool
+    public var isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute: Bool
     {
-        if sourceViewController == nil || targetViewController == nil {
+        if targetViewController == nil {
             return true
         }
         

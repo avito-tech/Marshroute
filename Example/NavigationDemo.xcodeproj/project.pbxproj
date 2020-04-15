@@ -183,6 +183,8 @@
 		CCA7C90D1CD9321300B7ADBD /* ApplicationModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7C90C1CD9321300B7ADBD /* ApplicationModuleInput.swift */; };
 		CCA7C9101CD9323E00B7ADBD /* AuthorizationModuleInputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA7C90F1CD9323E00B7ADBD /* AuthorizationModuleInputOutput.swift */; };
 		CCA7C9141CD9414A00B7ADBD /* TouchId.png in Resources */ = {isa = PBXBuildFile; fileRef = CCA7C9131CD9414A00B7ADBD /* TouchId.png */; };
+		CCC213382444A0F800818EE3 /* MarshrouteFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC213372444A0F700818EE3 /* MarshrouteFacade.swift */; };
+		CCC2133A2444A11700818EE3 /* SmartHistoryCleaningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC213392444A11700818EE3 /* SmartHistoryCleaningTests.swift */; };
 		CCD6F5B41F60BDDA00A3E163 /* BasePeekAndPopUtilityImplTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6F5B31F60BDDA00A3E163 /* BasePeekAndPopUtilityImplTestCase.swift */; };
 		CCD6F5BA1F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_invokesPopAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6F5B51F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_invokesPopAction.swift */; };
 		CCD6F5BB1F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD6F5B61F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers.swift */; };
@@ -408,6 +410,8 @@
 		CCA7C90C1CD9321300B7ADBD /* ApplicationModuleInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModuleInput.swift; sourceTree = "<group>"; };
 		CCA7C90F1CD9323E00B7ADBD /* AuthorizationModuleInputOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthorizationModuleInputOutput.swift; path = NavigationDemo/VIPER/Authorization/Module/AuthorizationModuleInputOutput.swift; sourceTree = SOURCE_ROOT; };
 		CCA7C9131CD9414A00B7ADBD /* TouchId.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TouchId.png; sourceTree = "<group>"; };
+		CCC213372444A0F700818EE3 /* MarshrouteFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarshrouteFacade.swift; sourceTree = "<group>"; };
+		CCC213392444A11700818EE3 /* SmartHistoryCleaningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHistoryCleaningTests.swift; sourceTree = "<group>"; };
 		CCD6F5B31F60BDDA00A3E163 /* BasePeekAndPopUtilityImplTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePeekAndPopUtilityImplTestCase.swift; sourceTree = "<group>"; };
 		CCD6F5B51F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_invokesPopAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImplTests_invokesPopAction.swift; sourceTree = "<group>"; };
 		CCD6F5B61F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeekAndPopUtilityImplTests_notifiesPeekAndPopStateObservers.swift; sourceTree = "<group>"; };
@@ -904,7 +908,8 @@
 		CC4268051F5FF8C300F4C407 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CC4268061F5FF8C300F4C407 /* General */,
+				CCC213362444A0BA00818EE3 /* SmartHistoryCleaningTests */,
+				CC4268061F5FF8C300F4C407 /* Support */,
 				CC42685F1F600C9900F4C407 /* PeekAndPopSupport */,
 				CC42680E1F5FF8C300F4C407 /* Routers */,
 				CC4268211F5FF8C300F4C407 /* TransitionContextsStackClientTests */,
@@ -915,9 +920,10 @@
 			path = ../../MarshrouteTests/Sources;
 			sourceTree = "<group>";
 		};
-		CC4268061F5FF8C300F4C407 /* General */ = {
+		CC4268061F5FF8C300F4C407 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				CCC213372444A0F700818EE3 /* MarshrouteFacade.swift */,
 				CC4268071F5FF8C300F4C407 /* AnimatingTransitionsHandlerSpy.swift */,
 				CC4268081F5FF8C300F4C407 /* ContainingTransitionsHandlerSpy.swift */,
 				CC4268091F5FF8C300F4C407 /* DummyTransitionsHandler.swift */,
@@ -926,7 +932,7 @@
 				CC42680C1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift */,
 				CC42680D1F5FF8C300F4C407 /* TransitionsCoordinatorSpyingEnums.swift */,
 			);
-			path = General;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		CC42680E1F5FF8C300F4C407 /* Routers */ = {
@@ -1383,6 +1389,14 @@
 			path = Module;
 			sourceTree = "<group>";
 		};
+		CCC213362444A0BA00818EE3 /* SmartHistoryCleaningTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCC213392444A11700818EE3 /* SmartHistoryCleaningTests.swift */,
+			);
+			path = SmartHistoryCleaningTests;
+			sourceTree = "<group>";
+		};
 		CCD6F5AC1F606EC500A3E163 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -1832,6 +1846,7 @@
 				CCD6F5BA1F60BFCF00A3E163 /* PeekAndPopUtilityImplTests_invokesPopAction.swift in Sources */,
 				CC4268501F5FF8C300F4C407 /* NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_BaseRouter.swift in Sources */,
 				CC42683D1F5FF8C300F4C407 /* TransitionsCoordinatorSpy.swift in Sources */,
+				CCC2133A2444A11700818EE3 /* SmartHistoryCleaningTests.swift in Sources */,
 				CC42685C1F5FF8C300F4C407 /* SetNavigationTransitionsAnimatorSpy.swift in Sources */,
 				CC2B55E41F6FCD1400B7B96C /* TestablePeekAndPopSourceViewController.swift in Sources */,
 				CC4268411F5FF8C300F4C407 /* EndpointRouterTests_BaseMasterDetailRouter.swift in Sources */,
@@ -1865,6 +1880,7 @@
 				CC42684D1F5FF8C300F4C407 /* AnimatingTransitionsHandlerTests.swift in Sources */,
 				CCD6F5B41F60BDDA00A3E163 /* BasePeekAndPopUtilityImplTestCase.swift in Sources */,
 				CC4268571F5FF8C300F4C407 /* ModalTransitionsAnimatorSpy.swift in Sources */,
+				CCC213382444A0F800818EE3 /* MarshrouteFacade.swift in Sources */,
 				CC4268541F5FF8C300F4C407 /* ModalEndpointNavigationTransitionsAnimatorSpy.swift in Sources */,
 				CC4268461F5FF8C300F4C407 /* PopoverPresentationRouterTests_BaseMasterDetailRouter.swift in Sources */,
 				CC42684A1F5FF8C300F4C407 /* TransitionContextsStackClient_Tests.swift in Sources */,

@@ -23,9 +23,9 @@ final class PeekAndPopUtilityImplTests_releasesPeekViewController: BasePeekAndPo
         )
         
         // Then
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + asyncDelay) {
             XCTAssert(weakPeekViewController == nil)
-            expectation.fulfill()            
+            expectation.fulfill()
         }
         
         waitForExpectations(timeout: asyncTimeout)
@@ -56,9 +56,9 @@ final class PeekAndPopUtilityImplTests_releasesPeekViewController: BasePeekAndPo
         commitPickOnRegisteredViewController()
         
         // Then
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + asyncDelay) {
             XCTAssert(weakPeekViewController == nil)
-            expectation.fulfill()            
+            expectation.fulfill()
         }
         
         waitForExpectations(timeout: asyncTimeout)
@@ -85,9 +85,9 @@ final class PeekAndPopUtilityImplTests_releasesPeekViewController: BasePeekAndPo
         interruptPeekWithAnotherTransitionOnRegisteredViewController()
         
         // Then
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + asyncDelay) {
             XCTAssert(weakPeekViewController == nil)
-            expectation.fulfill()            
+            expectation.fulfill()
         }
         
         waitForExpectations(timeout: asyncTimeout)

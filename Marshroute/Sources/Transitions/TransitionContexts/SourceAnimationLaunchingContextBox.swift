@@ -16,11 +16,11 @@ public enum SourceAnimationLaunchingContextBox {
         }
     }
     
-    public var isZombie: Bool
+    public var isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute: Bool
     {
         switch self {
         case .presentation(let launchingContextBox):
-            return launchingContextBox.isZombie
+            return launchingContextBox.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
             
         case .resetting:
             return false

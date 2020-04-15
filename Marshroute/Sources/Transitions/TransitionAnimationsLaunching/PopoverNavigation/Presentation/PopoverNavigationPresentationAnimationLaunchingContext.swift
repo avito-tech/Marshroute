@@ -34,11 +34,9 @@ public struct PopoverNavigationPresentationAnimationLaunchingContext {
     /// контроллер, над которым появится поповер
     public weak var sourceViewController: UIViewController?
     
-    public var isZombie: Bool
+    public var isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute: Bool
     {
         if targetViewController == nil {
-            // We did not check if `popoverController == nil` or if `targetNavigationController == nil`,
-            // because it does not matter for Marshroute navigation model
             return true
         }
         

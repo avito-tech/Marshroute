@@ -25,4 +25,12 @@ public protocol TransitionContextsStack: class {
     /// возвращает, но не удаляет запись, предшествующую записи с переданным Id
     func preceding(transitionId: TransitionId)
         -> RestoredTransitionContext?
+    
+    /// очищает записи, оставшиеся от экранов, которые по каким-то причинам не деаллоцировались после их исчезновения
+    /// из навигационного стека, если это исчезновение произошло в обход методов Marshroute'a:
+    /// - swipe'нули назад
+    /// - нажали < Back
+    /// - нажали на таб
+    /// - свайпнули вниз по модальному экрану 
+    func clearContextsDescribingScreensThatWereAlreadyDismissedWithoutInvokingMarshroute()
 }

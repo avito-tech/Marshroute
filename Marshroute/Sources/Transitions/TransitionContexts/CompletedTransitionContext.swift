@@ -30,7 +30,11 @@ public struct CompletedTransitionContext {
     /// т.е. чтобы спокойно пользоваться кнопкой `< Back`, например, и targetViewController освободится.
     /// запись об таком переходе очищается лениво
     public var isZombie: Bool {
-        return targetViewController == nil || sourceAnimationLaunchingContextBox.isZombie
+        return targetViewController == nil
+    }
+    
+    public var isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute: Bool {
+        return sourceAnimationLaunchingContextBox.isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute
     }
     
     // MARK: - Init

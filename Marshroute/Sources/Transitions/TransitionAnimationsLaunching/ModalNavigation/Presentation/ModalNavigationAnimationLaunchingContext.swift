@@ -24,10 +24,9 @@ public struct ModalNavigationPresentationAnimationLaunchingContext {
     // контроллер, с которого нужно осуществить модальный переход
     public weak var sourceViewController: UIViewController?
     
-    public var isZombie: Bool
+    public var isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute: Bool
     {
-        if sourceViewController == nil || targetViewController == nil {
-            // We did not check if `targetNavigationController == nil`, because it does not matter for Marshroute navigation model
+        if targetViewController == nil {
             return true
         }
         

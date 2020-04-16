@@ -20,9 +20,9 @@ public struct ModalEndpointNavigationPresentationAnimationLaunchingContext {
     // контроллер, с которого нужно осуществить модальный переход
     public weak var sourceViewController: UIViewController?
     
-    public var isZombie: Bool
+    public var isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute: Bool
     {
-        if sourceViewController == nil || targetNavigationController == nil {
+        if targetNavigationController == nil {
             return true
         }
         

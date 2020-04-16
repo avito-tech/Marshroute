@@ -20,7 +20,9 @@ public final class DefaultMarshrouteAssertionPlugin: MarshrouteAssertionPlugin {
         file: StaticString,
         line: UInt)
     {
-        Swift.assert(condition(), message(), file: file, line: line)
+        if !condition() {
+            Swift.print("\(message()), file: \(file), line: \(line)")
+        }
     }
     
     public func assertionFailure(
@@ -28,6 +30,6 @@ public final class DefaultMarshrouteAssertionPlugin: MarshrouteAssertionPlugin {
         file: StaticString,
         line: UInt)
     {
-        Swift.assertionFailure(message(), file: file, line: line)
+        Swift.print("\(message()), file: \(file), line: \(line)")
     }
 }

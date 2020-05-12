@@ -9,6 +9,7 @@ public struct MasterDetailRouterSeed {
     public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider
+    public private(set) weak var routerTransitionDelegate: RouterTransitionDelegate?
     
     public init(
         masterTransitionsHandlerBox: RouterTransitionsHandlerBox,
@@ -17,8 +18,9 @@ public struct MasterDetailRouterSeed {
         presentingTransitionsHandler: TransitionsHandler?,
         transitionsHandlersProvider: TransitionsHandlersProvider,
         transitionIdGenerator: TransitionIdGenerator,
-        controllersProvider: RouterControllersProvider)
-    {
+        controllersProvider: RouterControllersProvider,
+        routerTransitionDelegate: RouterTransitionDelegate?)
+    {        
         self.masterTransitionsHandlerBox = masterTransitionsHandlerBox
         self.detailTransitionsHandlerBox = detailTransitionsHandlerBox
         self.transitionId = transitionId
@@ -26,5 +28,6 @@ public struct MasterDetailRouterSeed {
         self.transitionsHandlersProvider = transitionsHandlersProvider
         self.transitionIdGenerator = transitionIdGenerator
         self.controllersProvider = controllersProvider
+        self.routerTransitionDelegate = routerTransitionDelegate
     }
 }

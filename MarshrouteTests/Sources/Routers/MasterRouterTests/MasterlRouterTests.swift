@@ -44,7 +44,8 @@ final class MasterlRouterTests: XCTestCase
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
     }

@@ -18,7 +18,14 @@ public protocol DetailRouter: class {
 }
 
 // MARK: - DetailRouter Default Impl
-extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdentifiable, Self: TransitionIdGeneratorHolder, Self: TransitionsHandlersProviderHolder, Self: RouterControllersProviderHolder {
+extension DetailRouter where
+    Self: DetailRouterTransitionable,
+    Self: RouterIdentifiable,
+    Self: TransitionIdGeneratorHolder,
+    Self: TransitionsHandlersProviderHolder,
+    Self: RouterControllersProviderHolder,
+    Self: RouterTransitionDelegateHoder
+{
     
     public func setViewControllerDerivedFrom(
         _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
@@ -36,13 +43,16 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
             else { marshrouteAssertionFailure(); return }
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: transitionId)
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
             transitionId: transitionId,
             presentingTransitionsHandler: nil,
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -75,6 +85,8 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
         let detailTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
             transitionsHandlerBox: self.detailTransitionsHandlerBox
         )
+
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: detailTransitionsHandlerBox,
@@ -82,7 +94,8 @@ extension DetailRouter where Self: DetailRouterTransitionable, Self: RouterIdent
             presentingTransitionsHandler: detailTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)

@@ -64,7 +64,8 @@ extension PopoverPresentationRouter where
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
     Self: TransitionsHandlersProviderHolder,
-    Self: RouterControllersProviderHolder
+    Self: RouterControllersProviderHolder,
+    Self: RouterTransitionDelegateHoder
 {
     // MARK: - UIViewController in UIPopoverController
     public func presentPopoverFromRect(
@@ -98,13 +99,16 @@ extension PopoverPresentationRouter where
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -162,13 +166,16 @@ extension PopoverPresentationRouter where
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: animatingTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -247,13 +254,16 @@ extension PopoverPresentationRouter where
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -330,13 +340,16 @@ extension PopoverPresentationRouter where
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)

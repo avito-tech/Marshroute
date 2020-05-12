@@ -18,12 +18,14 @@ open class BaseMasterDetailRouter:
     MasterRouter,
     DetailRouterTransitionable,
     DetailRouter,
-    RouterControllersProviderHolder
+    RouterControllersProviderHolder,
+    RouterTransitionDelegateHoder
 {
     public let masterTransitionsHandlerBox: RouterTransitionsHandlerBox
     public let detailTransitionsHandlerBox: RouterTransitionsHandlerBox
     public let transitionId: TransitionId
     open fileprivate(set) weak var presentingTransitionsHandler: TransitionsHandler?
+    open fileprivate(set) weak var routerTransitionDelegate: RouterTransitionDelegate?
     public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider

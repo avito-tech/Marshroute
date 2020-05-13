@@ -19,7 +19,8 @@ extension EndpointRouter where
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
     Self: TransitionsHandlersProviderHolder,
-    Self: RouterControllersProviderHolder
+    Self: RouterControllersProviderHolder,
+    Self: RouterTransitionDelegateHoder
 {
     public func presentModalEndpointNavigationController(
         _ navigationController: UINavigationController,
@@ -47,13 +48,16 @@ extension EndpointRouter where
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: transitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         do {

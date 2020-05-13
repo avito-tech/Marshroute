@@ -49,7 +49,8 @@ extension ModalPresentationRouter where
     Self: RouterIdentifiable,
     Self: TransitionIdGeneratorHolder,
     Self: TransitionsHandlersProviderHolder,
-    Self: RouterControllersProviderHolder
+    Self: RouterControllersProviderHolder,
+    Self: RouterTransitionDelegateHoder
 {
     // MARK: - UIViewController
     public func presentModalViewControllerDerivedFrom(
@@ -76,6 +77,8 @@ extension ModalPresentationRouter where
         )
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
+
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
         
         let routerSeed = RouterSeed(
             transitionsHandlerBox: animatingTransitionsHandlerBox,
@@ -83,7 +86,8 @@ extension ModalPresentationRouter where
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -175,6 +179,8 @@ extension ModalPresentationRouter where
         // один на master и detail модули. см описание `TransitionId`
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
 
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         do {
             let masterRouterSeed = MasterDetailRouterSeed(
                 masterTransitionsHandlerBox: masterTransitionsHandlerBox,
@@ -183,7 +189,8 @@ extension ModalPresentationRouter where
                 presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
                 transitionsHandlersProvider: transitionsHandlersProvider,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: controllersProvider
+                controllersProvider: controllersProvider,
+                routerTransitionDelegate: routerTransitionDelegate
             )
             
             let masterViewController = deriveMasterViewController(masterRouterSeed)
@@ -199,6 +206,8 @@ extension ModalPresentationRouter where
             masterTransitionsHandler.resetWithTransition(context: resetMasterContext)
         }
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         do {
             let detailRouterSeed = RouterSeed(
                 transitionsHandlerBox: detailTransitionsHandlerBox,
@@ -206,7 +215,8 @@ extension ModalPresentationRouter where
                 presentingTransitionsHandler: transitionsHandlerBox.unbox(),
                 transitionsHandlersProvider: transitionsHandlersProvider,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: controllersProvider
+                controllersProvider: controllersProvider,
+                routerTransitionDelegate: routerTransitionDelegate
             )
             
             let detailViewController = deriveDetailViewController(detailRouterSeed)
@@ -272,13 +282,16 @@ extension ModalPresentationRouter where
         
         let generatedTransitionId = transitionIdGenerator.generateNewTransitionId()
         
+        routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: generatedTransitionId)
+        
         let routerSeed = RouterSeed(
             transitionsHandlerBox: navigationTransitionsHandlerBox,
             transitionId: generatedTransitionId,
             presentingTransitionsHandler: presentingTransitionsHandlerBox.unbox(),
             transitionsHandlersProvider: transitionsHandlersProvider,
             transitionIdGenerator: transitionIdGenerator,
-            controllersProvider: controllersProvider
+            controllersProvider: controllersProvider,
+            routerTransitionDelegate: routerTransitionDelegate
         )
         
         let viewController = deriveViewController(routerSeed)

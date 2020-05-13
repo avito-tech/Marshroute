@@ -16,11 +16,13 @@ open class BaseRouter:
     RouterDismissable,
     DetailRouterTransitionable,
     DetailRouter,
-    RouterControllersProviderHolder
+    RouterControllersProviderHolder,
+    RouterTransitionDelegateHoder
 {
     public let transitionsHandlerBox: RouterTransitionsHandlerBox
     public let transitionId: TransitionId
     open fileprivate(set) weak var presentingTransitionsHandler: TransitionsHandler?
+    open fileprivate(set) weak var routerTransitionDelegate: RouterTransitionDelegate?
     public let transitionsHandlersProvider: TransitionsHandlersProvider
     public let transitionIdGenerator: TransitionIdGenerator
     public let controllersProvider: RouterControllersProvider
@@ -30,6 +32,7 @@ open class BaseRouter:
         self.transitionId = seed.transitionId
         self.transitionsHandlerBox = seed.transitionsHandlerBox
         self.presentingTransitionsHandler = seed.presentingTransitionsHandler
+        self.routerTransitionDelegate = seed.routerTransitionDelegate
         self.transitionsHandlersProvider = seed.transitionsHandlersProvider
         self.transitionIdGenerator = seed.transitionIdGenerator
         self.controllersProvider = seed.controllersProvider

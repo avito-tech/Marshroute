@@ -17,7 +17,8 @@ extension RouterSeed {
             presentingTransitionsHandler: moduleSeed.presentingTransitionsHandler,
             transitionsHandlersProvider: moduleSeed.marshrouteStack.transitionsHandlersProvider,
             transitionIdGenerator: moduleSeed.marshrouteStack.transitionIdGenerator,
-            controllersProvider: moduleSeed.marshrouteStack.routerControllersProvider
+            controllersProvider: moduleSeed.marshrouteStack.routerControllersProvider,
+            routerTransitionDelegate: nil
         )
     }
 }
@@ -35,7 +36,8 @@ extension MasterDetailRouterSeed {
             presentingTransitionsHandler: moduleSeed.presentingTransitionsHandler,
             transitionsHandlersProvider: moduleSeed.marshrouteStack.transitionsHandlersProvider,
             transitionIdGenerator: moduleSeed.marshrouteStack.transitionIdGenerator,
-            controllersProvider: moduleSeed.marshrouteStack.routerControllersProvider
+            controllersProvider: moduleSeed.marshrouteStack.routerControllersProvider,
+            routerTransitionDelegate: nil
         )
     }
 }

@@ -31,7 +31,8 @@ final class EndpointRouterTests_BaseRouter: XCTestCase
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
     }

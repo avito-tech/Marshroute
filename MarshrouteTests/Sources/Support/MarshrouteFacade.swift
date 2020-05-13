@@ -33,7 +33,8 @@ final class MarshrouteFacade {
             presentingTransitionsHandler: nil,
             transitionsHandlersProvider: marshrouteStack.transitionsHandlersProvider,
             transitionIdGenerator: marshrouteStack.transitionIdGenerator,
-            controllersProvider: marshrouteStack.routerControllersProvider
+            controllersProvider: marshrouteStack.routerControllersProvider,
+            routerTransitionDelegate: nil
         )
         
         let viewController = deriveViewController(routerSeed)
@@ -75,7 +76,8 @@ final class MarshrouteFacade {
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: marshrouteStack.transitionsHandlersProvider,
                 transitionIdGenerator: marshrouteStack.transitionIdGenerator,
-                controllersProvider: marshrouteStack.routerControllersProvider
+                controllersProvider: marshrouteStack.routerControllersProvider,
+                routerTransitionDelegate: nil
             )
         }
         
@@ -179,7 +181,8 @@ final class MarshrouteFacade {
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: marshrouteStack.transitionsHandlersProvider,
                 transitionIdGenerator: marshrouteStack.transitionIdGenerator,
-                controllersProvider: marshrouteStack.routerControllersProvider
+                controllersProvider: marshrouteStack.routerControllersProvider,
+                routerTransitionDelegate: nil
             )
         }
         

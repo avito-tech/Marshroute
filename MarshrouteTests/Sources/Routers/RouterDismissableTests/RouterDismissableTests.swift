@@ -40,7 +40,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: presentingTransitionsHandlerSpy, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -67,7 +68,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -100,7 +102,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: presentingTransitionsHandlerSpy, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -132,7 +135,8 @@ final class RouterDismissableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         

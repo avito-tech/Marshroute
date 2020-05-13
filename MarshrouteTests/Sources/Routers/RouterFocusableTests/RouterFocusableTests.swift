@@ -59,7 +59,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -85,7 +86,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -111,7 +113,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -137,7 +140,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -167,7 +171,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -198,7 +203,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: dummyPresentingTransitionsHandler, // Not Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -229,7 +235,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         
@@ -260,7 +267,8 @@ final class RouterFocusableTests: XCTestCase
                 presentingTransitionsHandler: nil, // Root Router
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
         

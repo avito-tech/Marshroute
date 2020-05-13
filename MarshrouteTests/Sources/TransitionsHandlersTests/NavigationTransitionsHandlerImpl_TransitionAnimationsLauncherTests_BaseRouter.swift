@@ -53,7 +53,8 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
                 presentingTransitionsHandler: nil,
                 transitionsHandlersProvider: transitionsCoordinator,
                 transitionIdGenerator: transitionIdGenerator,
-                controllersProvider: RouterControllersProviderImpl()
+                controllersProvider: RouterControllersProviderImpl(),
+                routerTransitionDelegate: nil
             )
         )
     }

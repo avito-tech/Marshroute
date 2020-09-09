@@ -27,11 +27,11 @@ public enum WeakTransitionsHandlerBox {
     // MARK: - Public
     public func unbox() -> TransitionsHandler? {
         switch self {
-        case .animating(let animatingTransitionsHandlerBox):
-            return animatingTransitionsHandlerBox.unbox()
+        case .animating(let weakBox):
+            return weakBox.unbox()
             
-        case .containing(let containingTransitionsHandlerBox):
-            return containingTransitionsHandlerBox.unbox()
+        case .containing(let weakBox):
+            return weakBox.unbox()
         }
     }
 }
@@ -39,13 +39,13 @@ public enum WeakTransitionsHandlerBox {
 public extension WeakTransitionsHandlerBox {
     func transitionsHandlerBox() -> TransitionsHandlerBox? {
         switch self {
-        case .animating(let animatingTransitionsHandlerBox):
-            if let animatingTransitionsHandler = animatingTransitionsHandlerBox.unbox() {
+        case .animating(let weakBox):
+            if let animatingTransitionsHandler = weakBox.unbox() {
                 return TransitionsHandlerBox(animatingTransitionsHandler: animatingTransitionsHandler)
             }
             
-        case .containing(let containingTransitionsHandlerBox):
-            if let containingTransitionsHandler = containingTransitionsHandlerBox.unbox() {
+        case .containing(let weakBox):
+            if let containingTransitionsHandler = weakBox.unbox() {
                 return TransitionsHandlerBox(containingTransitionsHandler: containingTransitionsHandler)
             }
         }
@@ -57,11 +57,11 @@ public extension WeakTransitionsHandlerBox {
 public extension TransitionsHandlerBox {
     func weakTransitionsHandlerBox() -> WeakTransitionsHandlerBox {
         switch self {
-        case .animating(let animatingTransitionsHandlerBox):
-            return WeakTransitionsHandlerBox(animatingTransitionsHandler: animatingTransitionsHandlerBox.unbox())
+        case .animating(let weakBox):
+            return WeakTransitionsHandlerBox(animatingTransitionsHandler: weakBox.unbox())
             
-        case .containing(let containingTransitionsHandlerBox):
-            return WeakTransitionsHandlerBox(containingTransitionsHandler: containingTransitionsHandlerBox.unbox())
+        case .containing(let weakBox):
+            return WeakTransitionsHandlerBox(containingTransitionsHandler: weakBox.unbox())
         }
     }
 }

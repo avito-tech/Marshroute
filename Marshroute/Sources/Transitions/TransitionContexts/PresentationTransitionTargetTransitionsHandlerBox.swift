@@ -20,11 +20,11 @@ public extension PresentationTransitionTargetTransitionsHandlerBox {
     func unbox() -> TransitionsHandler?
     {
         switch self {
-        case .animating(let weakBox):
-            return weakBox.unbox()
+        case .animating(let strongBox):
+            return strongBox.unbox()
             
-        case .containing(let weakBox):
-            return weakBox.unbox()
+        case .containing(let strongBox):
+            return strongBox.unbox()
             
         case .pendingAnimating:
             return nil
@@ -34,8 +34,8 @@ public extension PresentationTransitionTargetTransitionsHandlerBox {
     func unboxAnimatingTransitionsHandler() -> AnimatingTransitionsHandler?
     {
         switch self {
-        case .animating(let weakBox):
-            return weakBox.unbox()
+        case .animating(let strongBox):
+            return strongBox.unbox()
             
         case .containing:
             return nil
@@ -51,8 +51,8 @@ public extension PresentationTransitionTargetTransitionsHandlerBox {
         case .animating:
             return nil
             
-        case .containing(let weakBox):
-            return weakBox.unbox()
+        case .containing(let strongBox):
+            return strongBox.unbox()
             
         case .pendingAnimating:
             return nil

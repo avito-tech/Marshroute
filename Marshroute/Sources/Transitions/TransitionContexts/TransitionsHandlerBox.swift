@@ -31,19 +31,19 @@ public enum TransitionsHandlerBox {
     public func unbox() -> TransitionsHandler
     {
         switch self {
-        case .animating(let weakBox):
-            return weakBox.unbox()
+        case .animating(let strongBox):
+            return strongBox.unbox()
             
-        case .containing(let weakBox):
-            return weakBox.unbox()
+        case .containing(let strongBox):
+            return strongBox.unbox()
         }
     }
     
     public func unboxAnimatingTransitionsHandler() -> AnimatingTransitionsHandler?
     {
         switch self {
-        case .animating(let weakBox):
-            return weakBox.unbox()
+        case .animating(let strongBox):
+            return strongBox.unbox()
             
         default:
             return nil
@@ -53,8 +53,8 @@ public enum TransitionsHandlerBox {
     public func unboxContainingTransitionsHandler() -> ContainingTransitionsHandler?
     {
         switch self {
-        case .containing(let weakBox):
-            return weakBox.unbox()
+        case .containing(let strongBox):
+            return strongBox.unbox()
             
         default:
             return nil

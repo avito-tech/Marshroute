@@ -1,6 +1,6 @@
 import Foundation
 
-protocol TimerService: class {
+protocol TimerService: AnyObject {
     func startTimer(
         seconds: TimeInterval,
         onTick: ((_ secondsLeft: TimeInterval) -> ())?,

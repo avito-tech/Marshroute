@@ -1,7 +1,7 @@
 import UIKit
 import Marshroute
 
-protocol RecursionAssembly: class {
+protocol RecursionAssembly: AnyObject {
     func module(routerSeed: RouterSeed)
         -> UIViewController
     

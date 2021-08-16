@@ -1,7 +1,7 @@
 import UIKit
 
 /// Роутер, работающий с одним UINavigationController'ом, и выполняющий push- и reset-переходы
-public protocol DetailRouter: class {
+public protocol DetailRouter: AnyObject {
     func setViewControllerDerivedFrom(
         _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
     

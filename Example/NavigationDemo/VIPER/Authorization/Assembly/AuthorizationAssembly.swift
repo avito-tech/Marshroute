@@ -1,7 +1,7 @@
 import UIKit
 import Marshroute
 
-protocol AuthorizationAssembly: class {
+protocol AuthorizationAssembly: AnyObject {
     func module(routerSeed: RouterSeed)
         -> (viewController: UIViewController, moduleInput: AuthorizationModuleInput)
 }

@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AuthorizationModuleInput: class {
+protocol AuthorizationModuleInput: AnyObject {
     var onComplete: ((_ isAuthorized: Bool) -> ())? { get set }
 }

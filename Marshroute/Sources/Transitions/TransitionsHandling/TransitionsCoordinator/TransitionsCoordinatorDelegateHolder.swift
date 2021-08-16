@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol TransitionsCoordinatorDelegateHolder: class {
+public protocol TransitionsCoordinatorDelegateHolder: AnyObject {
     var transitionsCoordinatorDelegate: TransitionsCoordinatorDelegate? { get set }
 }

@@ -1,6 +1,6 @@
 import Marshroute
 
-protocol RootModulesProvider: class {
+protocol RootModulesProvider: AnyObject {
     func detailModule(
         moduleSeed: ApplicationModuleSeed,
         deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)

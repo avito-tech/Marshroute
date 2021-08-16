@@ -8,7 +8,7 @@ struct Category {
     let subcategories: [Category]?
 }
 
-protocol CategoriesProvider: class {
+protocol CategoriesProvider: AnyObject {
     func topCategory() -> Category
     func categoryForId(_ categoryId: CategoryId) -> Category
 }

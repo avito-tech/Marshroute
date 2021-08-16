@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AssemblyFactory: class {
+protocol AssemblyFactory: AnyObject {
     func applicationAssembly() -> ApplicationAssembly
 
     func categoriesAssembly() -> CategoriesAssembly

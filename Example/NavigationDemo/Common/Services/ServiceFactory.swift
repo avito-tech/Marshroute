@@ -1,7 +1,7 @@
 import Foundation
 
 // non-singletons
-protocol ServiceFactory: class {
+protocol ServiceFactory: AnyObject {
     func categoriesProvider() -> CategoriesProvider
     func searchResultsProvider() -> SearchResultsProvider
     func advertisementProvider() -> AdvertisementProvider

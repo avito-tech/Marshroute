@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ApplicationViewInput: class, ViewLifecycleObservable {
+protocol ApplicationViewInput: AnyObject, ViewLifecycleObservable {
     func showBanner(_ completion: (() -> ())?)
     func hideBanner()
     

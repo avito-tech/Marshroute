@@ -6,7 +6,7 @@ struct SearchResultsViewData {
     let onTap: () -> ()
 }
 
-protocol SearchResultsViewInput: class, ViewLifecycleObservable {
+protocol SearchResultsViewInput: AnyObject, ViewLifecycleObservable {
     func setSearchResults(_ searchResults: [SearchResultsViewData])
     func setTitle(_ title: String?)
     var onRecursionButtonTap: ((_ sender: AnyObject) -> ())? { get set }

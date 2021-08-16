@@ -1,5 +1,5 @@
 import Foundation
 
-protocol TouchEventObserver: class {
+protocol TouchEventObserver: AnyObject {
     func addListener(_ listener: TouchEventListener)
 }

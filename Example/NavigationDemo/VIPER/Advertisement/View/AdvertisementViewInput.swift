@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AdvertisementViewInput: class, ViewLifecycleObservable {
+protocol AdvertisementViewInput: AnyObject, ViewLifecycleObservable {
     func setTitle(_ title: String?)
     func setPatternAssetName(_ assetName: String?)
     func setPlaceholderAssetName(_ assetName: String?)

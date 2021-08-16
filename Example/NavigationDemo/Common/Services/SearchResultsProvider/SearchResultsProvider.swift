@@ -11,7 +11,7 @@ struct SearchResult {
     let placeholderAssetName: String?
 }
 
-protocol SearchResultsProvider: class {
+protocol SearchResultsProvider: AnyObject {
     func searchResults(categoryId: CategoryId, count: Int) -> [SearchResult]
     func searchResult(searchResultId: SearchResultId) -> SearchResult
     func recommendedSearchResults(searchResultId: SearchResultId) -> [SearchResult]

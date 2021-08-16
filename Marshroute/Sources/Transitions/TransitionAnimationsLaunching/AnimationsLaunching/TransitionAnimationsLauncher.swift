@@ -1,4 +1,4 @@
-public protocol TransitionAnimationsLauncher: class {
+public protocol TransitionAnimationsLauncher: AnyObject {
     func launchPresentationAnimation(
         launchingContextBox: inout PresentationAnimationLaunchingContextBox)
  

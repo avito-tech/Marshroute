@@ -1,5 +1,5 @@
 import Marshroute
 
-protocol ModuleRegisteringService: class {
+protocol ModuleRegisteringService: AnyObject {
     func registerTrackedModule(_ trackedModule: TrackedModule)
 }

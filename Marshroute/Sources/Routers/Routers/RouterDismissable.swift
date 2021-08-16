@@ -1,7 +1,7 @@
 import UIKit
 
 /// Методы, чтобы вернуться на экран модуля, показавшего экран текущего модуля
-public protocol RouterDismissable: class {
+public protocol RouterDismissable: AnyObject {
     func dismissCurrentModule(completion: (() -> ())?)
 }
 

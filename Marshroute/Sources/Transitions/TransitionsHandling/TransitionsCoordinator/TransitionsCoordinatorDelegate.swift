@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol TransitionsCoordinatorDelegate: class {
+public protocol TransitionsCoordinatorDelegate: AnyObject {
     // Permissions
     func transitionsCoordinator(
         coordinator: TransitionsCoordinator,

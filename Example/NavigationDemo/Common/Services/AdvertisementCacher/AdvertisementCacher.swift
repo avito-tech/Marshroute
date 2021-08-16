@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AdvertisementCacher: class {
+protocol AdvertisementCacher: AnyObject {
     func cache(advertisement: Advertisement)
     func cached(advertisementId: AdvertisementId) -> Advertisement?
 }

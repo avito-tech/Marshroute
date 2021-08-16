@@ -1,6 +1,6 @@
 import UIKit
 
-protocol TopViewControllerFindingService: class {
+protocol TopViewControllerFindingService: AnyObject {
     func topViewControllerAndItsContainerViewController()
         -> (UIViewController, UIViewController)?
 }

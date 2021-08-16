@@ -1,7 +1,7 @@
 import UIKit
 
 /// Методы, чтобы вернуться на экран текущего модуля
-public protocol RouterFocusable: class {
+public protocol RouterFocusable: AnyObject {
     func focusOnCurrentModule(completion: (() -> ())?)
 }
 

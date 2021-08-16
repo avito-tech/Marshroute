@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol MarshrouteSetupService: class {
+public protocol MarshrouteSetupService: AnyObject {
     func marshrouteStack()
         -> MarshrouteStack
 }

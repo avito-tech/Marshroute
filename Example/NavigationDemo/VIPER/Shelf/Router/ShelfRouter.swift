@@ -1,5 +1,5 @@
 import Marshroute
 
-protocol ShelfRouter: class {
+protocol ShelfRouter: AnyObject {
     
 }

@@ -1,4 +1,4 @@
-public protocol TransitionsAnimator: class {
+public protocol TransitionsAnimator: AnyObject {
     associatedtype PresentationAnimationContext
     associatedtype DismissalAnimationContext
     
@@ -6,7 +6,7 @@ public protocol TransitionsAnimator: class {
     func animateUndoingTransition(animationContext context: DismissalAnimationContext)
 }
 
-public protocol ResetTransitionsAnimator: class {
+public protocol ResetTransitionsAnimator: AnyObject {
     associatedtype ResettingAnimationContext
     
     func animateResettingWithTransition(animationContext context: ResettingAnimationContext)

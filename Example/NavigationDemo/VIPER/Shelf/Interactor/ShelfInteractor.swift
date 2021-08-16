@@ -1,5 +1,5 @@
 import Foundation
 
-protocol ShelfInteractor: class {
+protocol ShelfInteractor: AnyObject {
 
 }

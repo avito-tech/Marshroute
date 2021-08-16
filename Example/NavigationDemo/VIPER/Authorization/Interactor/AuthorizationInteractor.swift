@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AuthorizationInteractor: class {
+protocol AuthorizationInteractor: AnyObject {
 
 }

@@ -52,9 +52,9 @@ final class TouchEventObserverImpl: TouchEventObserver, TouchEventForwarder {
                 touchListenerBox.listener?.touchesEnded(touches, withEvent: event)
             }
             
-        case .stationary:
+        case .stationary, .regionEntered, .regionMoved, .regionExited:
             break
-            
+
         @unknown default:
             break
         }

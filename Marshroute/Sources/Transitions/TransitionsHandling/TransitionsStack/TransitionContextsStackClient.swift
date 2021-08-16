@@ -1,6 +1,6 @@
 /// Удобный клиент для работы с TransitionContextsStack.
 /// Используется TransitionsCoordinator'ом, чтобы искать самого последнего TransitionsHandler'а в цепочке
-public protocol TransitionContextsStackClient: class {
+public protocol TransitionContextsStackClient: AnyObject {
     func lastTransitionForTransitionsHandler(_ transitionsHandler: TransitionsHandler)
         -> RestoredTransitionContext?
     

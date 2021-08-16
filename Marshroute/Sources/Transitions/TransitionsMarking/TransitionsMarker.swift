@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol TransitionsMarker: class {
+public protocol TransitionsMarker: AnyObject {
     func markTransitionId(_ transitionId: TransitionId, withUserId userId: TransitionUserId)
 }

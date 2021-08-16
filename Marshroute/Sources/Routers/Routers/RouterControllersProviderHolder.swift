@@ -1,3 +1,3 @@
-public protocol RouterControllersProviderHolder: class {
+public protocol RouterControllersProviderHolder: AnyObject {
     var controllersProvider: RouterControllersProvider { get }
 }

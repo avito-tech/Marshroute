@@ -1,7 +1,7 @@
 import UIKit
 import Marshroute
 
-protocol CategoriesAssembly: class {
+protocol CategoriesAssembly: AnyObject {
     func module(routerSeed: RouterSeed)
         -> UIViewController
     
@@ -12,7 +12,7 @@ protocol CategoriesAssembly: class {
         -> UIViewController
 }
 
-protocol SubcategoriesAssembly: class {
+protocol SubcategoriesAssembly: AnyObject {
     func module(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     

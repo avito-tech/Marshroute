@@ -13,7 +13,7 @@ public struct TrackedTransition {
     }
 }
 
-public protocol TransitionsTracker: class {
+public protocol TransitionsTracker: AnyObject {
     func countOfTransitionsAfterTrackedTransition(
         _ trackedTransition: TrackedTransition,
         untilLastTransitionOfTransitionsHandler targetTransitionsHandler: TransitionsHandler)

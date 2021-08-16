@@ -5,7 +5,7 @@ enum BannerType {
     case categories
 }
 
-protocol ApplicationInteractor: class {
+protocol ApplicationInteractor: AnyObject {
     func bannerType(_ completion: ((_ bannerType: BannerType) -> ())?)
     func switchBannerType()
 }

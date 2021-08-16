@@ -5,7 +5,7 @@ struct CategoriesViewData {
     let onTap: () -> ()
 }
 
-protocol CategoriesViewInput: class, ViewLifecycleObservable {
+protocol CategoriesViewInput: AnyObject, ViewLifecycleObservable {
     func setCategories(_ categories: [CategoriesViewData])
     func setTitle(_ title: String?)
     

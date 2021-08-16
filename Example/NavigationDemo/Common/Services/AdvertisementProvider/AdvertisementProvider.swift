@@ -11,6 +11,6 @@ struct Advertisement {
     let recommendedSearchResults: [SearchResult]
 }
 
-protocol AdvertisementProvider: class {
+protocol AdvertisementProvider: AnyObject {
     func advertisement(advertisementId: AdvertisementId) -> Advertisement
 }

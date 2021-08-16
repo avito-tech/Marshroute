@@ -10,7 +10,7 @@ import UIKit
 /// 2. The transition will be continued only if a user commits the `peek` (i.e. the view controller gets `popped`).
 /// 
 /// If no active `peek` session exists, the transition will be performed as usually (without any intercepting)
-public protocol PeekAndPopUtility: class {
+public protocol PeekAndPopUtility: AnyObject {
     /// Use this function to register your view controller for previewing.
     ///
     /// In your `onPeek` closure you should do the following things:

@@ -1,7 +1,7 @@
 import UIKit
 import Marshroute
 
-protocol SearchResultsAssembly: class {
+protocol SearchResultsAssembly: AnyObject {
     func module(categoryId: CategoryId, routerSeed: RouterSeed)
         -> UIViewController
     

@@ -1,3 +1,3 @@
-public protocol TransitionsCoordinatorHolder: class {
+public protocol TransitionsCoordinatorHolder: AnyObject {
     var transitionsCoordinator: TransitionsCoordinator { get }
 }

@@ -7,7 +7,7 @@ struct ApplicationModule {
     var transitionsHandler: ContainingTransitionsHandler
 }
 
-protocol ApplicationAssembly: class {
+protocol ApplicationAssembly: AnyObject {
     func module(moduleSeed: ApplicationModuleSeed)
         -> ApplicationModule
     

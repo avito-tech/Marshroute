@@ -1,6 +1,6 @@
 import Foundation
 
-protocol BannerModuleInput: class {
+protocol BannerModuleInput: AnyObject {
     func setTitle(_ title: String)
     func setPresented()
     

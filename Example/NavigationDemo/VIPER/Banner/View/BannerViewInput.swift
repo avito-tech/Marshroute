@@ -1,6 +1,6 @@
 import Foundation
 
-protocol BannerViewInput: class {
+protocol BannerViewInput: AnyObject {
     func setTitle(_ title: String)
     
     var onTouchDown: (() -> ())? { get set }

@@ -1,6 +1,6 @@
 import Marshroute
 
-protocol AuthorizationModuleRegisteringService: class {
+protocol AuthorizationModuleRegisteringService: AnyObject {
     func registerAuthorizationModuleAsBeingTracked(
         transitionsHandlerBox: TransitionsHandlerBox,
         transitionId: TransitionId)

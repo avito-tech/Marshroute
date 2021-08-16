@@ -1,7 +1,7 @@
 import UIKit
 
 /// Протокол описывает передачу обработки и отмены переходов в центр управления переходами
-public protocol TransitionsCoordinator: class {
+public protocol TransitionsCoordinator: AnyObject {
     func coordinatePerformingTransition(
         context: PresentationTransitionContext,
         forAnimatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler)

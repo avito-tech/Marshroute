@@ -1,6 +1,6 @@
 import Foundation
 
-protocol RecursionViewInput: class, ViewLifecycleObservable {
+protocol RecursionViewInput: AnyObject, ViewLifecycleObservable {
     func setTitle(_ title: String?)
     
     func setTimerButtonVisible(_ visible: Bool)

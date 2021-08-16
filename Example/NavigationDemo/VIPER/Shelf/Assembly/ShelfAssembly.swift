@@ -1,7 +1,7 @@
 import UIKit
 import Marshroute
 
-protocol ShelfAssembly: class {
+protocol ShelfAssembly: AnyObject {
     func module(routerSeed: RouterSeed)
         -> UIViewController
 }

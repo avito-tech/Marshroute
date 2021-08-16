@@ -1,7 +1,7 @@
 import UIKit
 
 /// Роутер, показывающий UIPopoverController с UIViewController'ом, обернутым или необернутым в UINavigationController
-public protocol PopoverPresentationRouter: class {
+public protocol PopoverPresentationRouter: AnyObject {
     // MARK: - UIViewController in UIPopoverController
     func presentPopoverFromRect(
         _ rect: CGRect,

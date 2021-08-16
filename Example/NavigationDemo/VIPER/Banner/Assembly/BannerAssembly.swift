@@ -1,6 +1,6 @@
 import UIKit
 import Marshroute
 
-protocol BannerAssembly: class {
+protocol BannerAssembly: AnyObject {
     func module() -> (view: UIView, moduleInput: BannerModuleInput)
 }

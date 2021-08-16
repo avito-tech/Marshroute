@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AdvertisementInteractor: class {
+protocol AdvertisementInteractor: AnyObject {
     func advertisement(_ completion: () -> ())
     func advertisementTitle(_ completion: (_ title: String?) -> ())
     func advertisementPatternAssetName(_ completion: (_ assetName: String?) -> ())

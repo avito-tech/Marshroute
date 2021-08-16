@@ -1,5 +1,5 @@
 import Foundation
 
-protocol AuthorizationModuleTrackingService: class {
+protocol AuthorizationModuleTrackingService: AnyObject {
     func isAuthorizationModulePresented() -> Bool
 }

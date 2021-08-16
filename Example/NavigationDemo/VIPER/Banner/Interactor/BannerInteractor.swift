@@ -1,6 +1,6 @@
 import Foundation
 
-protocol BannerInteractor: class {
+protocol BannerInteractor: AnyObject {
     func startTimer(onTick: ((_ secondsLeft: TimeInterval) -> ())?, onFire: (() -> ())?)
     func invalidateTimer()
 }

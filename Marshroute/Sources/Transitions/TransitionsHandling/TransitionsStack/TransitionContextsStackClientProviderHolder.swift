@@ -1,3 +1,3 @@
-public protocol TransitionContextsStackClientProviderHolder: class {
+public protocol TransitionContextsStackClientProviderHolder: AnyObject {
     var stackClientProvider: TransitionContextsStackClientProvider { get }
 }

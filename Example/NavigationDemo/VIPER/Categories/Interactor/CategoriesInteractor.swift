@@ -1,6 +1,6 @@
 import Foundation
 
-protocol CategoriesInteractor: class {
+protocol CategoriesInteractor: AnyObject {
     func category(_ completion: () -> ())
     func categoryTitle(_ completion: (_ title: String?) -> ())
     func subcategories(_ completion: (_ subcategories: [Category]) -> ())

@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol TransitionsHandlersProvider: class {
+public protocol TransitionsHandlersProvider: AnyObject {
     func animatingTransitionsHandler()
         -> AnimatingTransitionsHandler
     

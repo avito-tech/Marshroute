@@ -1,5 +1,5 @@
 import Foundation
 
-protocol ModuleTrackingService: class {
+protocol ModuleTrackingService: AnyObject {
     func doesTrackedModuleExistInHistory(_ trackedModule: TrackedModule) -> Bool?
 }

@@ -7,14 +7,22 @@ public protocol TransitionsCoordinatorDelegate: AnyObject {
         canForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchResettingAnimationOfTransition context: ResettingTransitionContext,
         markedWithUserId userId: TransitionUserId)
-    -> Bool
+        -> Bool
     
     func transitionsCoordinator(
         coordinator: TransitionsCoordinator,
         canForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchPresentationAnimationOfTransition context: PresentationTransitionContext,
         markedWithUserId userId: TransitionUserId)
-    -> Bool
+        -> Bool
+    
+    func transitionsCoordinator(
+        coordinator: TransitionsCoordinator,
+        canUndoChainedTransition chainedTransition: RestoredTransitionContext?,
+        andPushTransitions pushTransitions: [RestoredTransitionContext]?,
+        forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
+        transitionId: TransitionId)
+        -> Bool
     
     // Notifications
     func transitionsCoordinator(

@@ -150,6 +150,17 @@ final class ModuleRegisteringServiceImpl:
     
     func transitionsCoordinator(
         coordinator: TransitionsCoordinator,
+        canUndoChainedTransition chainedTransition: RestoredTransitionContext?,
+        andPushTransitions pushTransitions: [RestoredTransitionContext]?,
+        forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
+        transitionId: TransitionId)
+        -> Bool
+    {
+        return true
+    }
+    
+    func transitionsCoordinator(
+        coordinator: TransitionsCoordinator,
         willForceTransitionsHandler transitionsHandler: TransitionsHandler,
         toLaunchResettingAnimationOfTransition context: ResettingTransitionContext)
     {}

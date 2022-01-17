@@ -520,6 +520,18 @@ private extension TransitionsCoordinator where
         includingTransitionWithId: Bool,
         withStackClient stackClient: TransitionContextsStackClient)
     {
+        if shouldCancelUndoingTransitionDueToPresentationAnimation(
+            chainedTransition: chainedTransition,
+            pushTransitions: pushTransitions,
+            forTransitionsHandler: animatingTransitionsHandler,
+            transitionId: transitionId)
+        {
+            marshroutePrint(
+                "обратный переход отменен, потому что в настоящий момент модально показывается другой контроллер"
+            )
+            return
+        }
+        
         // скрываем модальные окна и поповеры, показанные внутри модальных окон и поповеров текущего обработчика
         coordinateUndoingChainedTransitionsWithoutAnimations(forTransitionsHandler: animatingTransitionsHandler)
         
@@ -552,6 +564,41 @@ private extension TransitionsCoordinator where
             forTransitionsHandler: animatingTransitionsHandler,
             withStackClient: stackClient
         )
+    }
+    
+    func shouldCancelUndoingTransitionDueToPresentationAnimation(
+        chainedTransition: RestoredTransitionContext?,
+        pushTransitions: [RestoredTransitionContext]?,
+        forTransitionsHandler animatingTransitionsHandler: AnimatingTransitionsHandler,
+        transitionId: TransitionId)
+        -> Bool
+    {
+        let isCheckForBugFixAllowed = transitionsCoordinatorDelegate?.transitionsCoordinator(
+            coordinator: self,
+            canUndoChainedTransition: chainedTransition,
+            andPushTransitions: pushTransitions,
+            forTransitionsHandler: animatingTransitionsHandler,
+            transitionId: transitionId
+        )
+        
+        guard isCheckForBugFixAllowed != false else { return false }
+        
+        // Чиним баг в следующем сценарии:
+        // С экрана "А" показывается action sheet, alert или модальный экран с кастомным presentation style,
+        // и в этот момент экран "А" хочет себя закрыть.
+        // UIKit часто такие переходы отменяет и пишет в лог сообщения вида
+        // 'popToViewController:transition: called on <UINavigationController 0x7fe26d029600> while an existing transition or presentation is occurring; the navigation stack will not be updated.'
+        // или другие сообщения. Иногда ничего не пишет.
+        //
+        // Если не отменить закрытие экрана "А", то после вызова `commitUndoingTransitionsAfter`, 
+        // Marshroute отметит экран "А" как уже закрытый, после чего на нем начнутся проблемы с навигацией.
+        // Например, попытка закрыть экран "А" еще раз закончится неудачей, т.к. Marshroute напишет
+        // 'обработчик, выполнивший переход с transitionId: A0422DB7-1D27-4BBB-A103-D94AFB13AA43, не найден. возможен лишний вызов метода отмены перехода'
+        
+        return chainedTransition?.targetViewController.isBeingPresented == true
+            || chainedTransition?.targetViewController.navigationController?.isBeingPresented == true
+            || pushTransitions?.last?.targetViewController.presentedViewController?.isBeingPresented == true
+            || pushTransitions?.last?.targetViewController.navigationController?.presentedViewController?.isBeingPresented == true
     }
     
     func initiateUndoingTransition(

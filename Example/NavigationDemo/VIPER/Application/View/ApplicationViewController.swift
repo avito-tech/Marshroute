@@ -12,6 +12,8 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
         self.bannerView = bannerView
         
         super.init()
+        
+        setupApperance()
     }
     
     // MARK: - Lifecycle
@@ -89,5 +91,24 @@ final class ApplicationViewController: BaseTabBarController, ApplicationViewInpu
                 bannerView.removeFromSuperview()
             }
         )
+    }
+    
+    private func setupApperance() {
+        if #available(iOS 13.0, *) {
+            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithDefaultBackground()
+            tabBarAppearance.backgroundColor = .white
+            UITabBar.appearance().standardAppearance = tabBarAppearance
+            
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+            }
+            
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            navigationBarAppearance.backgroundColor = .white
+            UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+            UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        }
     }
 }

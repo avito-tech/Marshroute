@@ -1,3 +1,6 @@
+[0.5.0](https://github.com/avito-tech/Marshroute/releases/tag/0.4.5)
+- Add tvos support. Bump minimum supported ios version to 9.0. Add ability to cancel transition undoing if another transition is in progress (enabled by default). Clean some warnings. 
+
 [0.4.5](https://github.com/avito-tech/Marshroute/releases/tag/0.4.5)
 - Fix bugs of the previous version. Write complex unit tests. Remove `marshrouteDebugPrint` function
 

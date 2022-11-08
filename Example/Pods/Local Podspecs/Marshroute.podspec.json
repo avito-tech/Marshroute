@@ -1,7 +1,7 @@
 {
   "name": "Marshroute",
   "module_name": "Marshroute",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "summary": "Marshroute by Timur Yusipov",
   "homepage": "https://github.com/avito-tech/Marshroute",
   "license": "MIT",
@@ -10,10 +10,11 @@
   },
   "source": {
     "git": "https://github.com/avito-tech/Marshroute.git",
-    "tag": "0.4.5"
+    "tag": "0.5.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.0",
+    "tvos": "9.0"
   },
   "requires_arc": true,
   "swift_versions": "5.0",

@@ -1,5 +1,9 @@
+/// Протокол, описывающий обработчики переходов для обычных модулей, у которых одна ветвь навигации (вьюконтроллер, навигационный контроллер).
+/// см также ContainingTransitionsHandler
+public protocol AnimatingTransitionsHandler: AnyObject, TransitionsHandler, TransitionAnimationsLauncher {}
+
 /// Базовый класс для анимирующих обработчиков переходов
-open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, TransitionsCoordinatorHolder, TransitionsHandler {
+open class BaseAnimatingTransitionsHandler: AnimatingTransitionsHandler, TransitionsCoordinatorHolder {
     // MARK: - TransitionsCoordinatorHolder
     public let transitionsCoordinator: TransitionsCoordinator
     
@@ -80,7 +84,7 @@ open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transition
             }
             
         case .push:
-            marshroutePrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
+            marshrouteAssertionFailure("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
         case .popover(let launchingContext):
             let popoverPresentationAnimationContext = PopoverPresentationAnimationContext(
@@ -169,7 +173,7 @@ open class AnimatingTransitionsHandler: TransitionAnimationsLauncher, Transition
             }
             
         case .resettingNavigationRoot:
-            marshroutePrint("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
+            marshrouteAssertionFailure("you were supposed to create `NavigationTransitionsHandlerImpl`"); return
             
         case .registering:
             break; // no need for animations

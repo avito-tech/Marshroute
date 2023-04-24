@@ -6,11 +6,11 @@ public struct ModalMasterDetailDismissalAnimationContext {
     public let targetViewController: UIViewController
     
     /// контроллер, с которого нужно осуществить обратный модальный переход
-    public let sourceViewController: UISplitViewController
+    public let sourceViewController: SplitViewControllerProtocol & UIViewController
     
     public init(
         targetViewController: UIViewController,
-        sourceViewController: UISplitViewController)
+        sourceViewController: SplitViewControllerProtocol & UIViewController)
     {
         self.targetViewController = targetViewController
         self.sourceViewController = sourceViewController

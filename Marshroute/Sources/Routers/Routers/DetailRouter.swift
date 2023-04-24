@@ -40,7 +40,7 @@ extension DetailRouter where
         _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     {
-        guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
+        guard let detailNavigationTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler() as? NavigationTransitionsHandler
             else { marshrouteAssertionFailure(); return }
         
         routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: transitionId)
@@ -59,12 +59,12 @@ extension DetailRouter where
         
         let resetContext = ResettingTransitionContext(
             resettingRootViewController: viewController,
-            animatingTransitionsHandler: animatingDetailTransitionsHandler,
+            navigationTransitionsHandler: detailNavigationTransitionsHandler,
             animator: animator,
             transitionId: transitionId
         )
         
-        animatingDetailTransitionsHandler.resetWithTransition(context: resetContext)
+        detailNavigationTransitionsHandler.resetWithTransition(context: resetContext)
     }
     
     public func pushViewControllerDerivedFrom(

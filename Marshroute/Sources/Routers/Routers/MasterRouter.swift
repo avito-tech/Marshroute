@@ -55,7 +55,7 @@ extension MasterRouter where
         _ deriveViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     {
-        guard let animatingMasterTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
+        guard let masterNavigationTransitionsHandler = masterTransitionsHandlerBox.unboxAnimatingTransitionsHandler()  as? NavigationTransitionsHandler
             else { marshrouteAssertionFailure(); return }
 
         routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: transitionId)
@@ -75,12 +75,12 @@ extension MasterRouter where
         
         let resetMasterContext = ResettingTransitionContext(
             resettingRootViewController: viewController,
-            animatingTransitionsHandler: animatingMasterTransitionsHandler,
+            navigationTransitionsHandler: masterNavigationTransitionsHandler,
             animator: animator,
             transitionId: transitionId
         )
         
-        animatingMasterTransitionsHandler.resetWithTransition(context: resetMasterContext)
+        masterNavigationTransitionsHandler.resetWithTransition(context: resetMasterContext)
     }
     
     public func pushMasterViewControllerDerivedFrom(
@@ -139,7 +139,7 @@ extension MasterRouter where
         _ deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController,
         animator: ResetNavigationTransitionsAnimator)
     {
-        guard let animatingDetailTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler()
+        guard let detailNavigationTransitionsHandler = detailTransitionsHandlerBox.unboxAnimatingTransitionsHandler() as? NavigationTransitionsHandler
             else { marshrouteAssertionFailure(); return }
 
         routerTransitionDelegate?.routerWillPerformTransitionWith(transitionId: transitionId)
@@ -158,12 +158,12 @@ extension MasterRouter where
         
         let resetDetailContext = ResettingTransitionContext(
             resettingRootViewController: viewController,
-            animatingTransitionsHandler: animatingDetailTransitionsHandler,
+            navigationTransitionsHandler: detailNavigationTransitionsHandler,
             animator: animator,
             transitionId: transitionId
         )
         
-        animatingDetailTransitionsHandler.resetWithTransition(context: resetDetailContext)
+        detailNavigationTransitionsHandler.resetWithTransition(context: resetDetailContext)
     }
     
     public func pushDetailViewControllerDerivedFrom(

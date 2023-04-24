@@ -25,7 +25,7 @@ final class AnimatingTransitionsHandlerTransitionAnimationsLauncherTests_BaseRou
             peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
         )
         
-        let animatingTransitionsHandler = AnimatingTransitionsHandler(
+        let animatingTransitionsHandler = BaseAnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator
         )
         

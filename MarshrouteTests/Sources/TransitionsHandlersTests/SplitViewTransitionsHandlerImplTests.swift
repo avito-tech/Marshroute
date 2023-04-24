@@ -93,8 +93,8 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
     
     func testThatSplitViewTransitionsHandlerReturnsAllTransitionsHandlersOn_AllTransitionsHandlers_Call() {
         // Given
-        let masterTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
-        let detailTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let masterTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let detailTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
         splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
         
@@ -108,8 +108,8 @@ final class SplitViewTransitionsHandlerImplTests: XCTestCase {
     
     func testThatSplitViewTransitionsHandlerReturnsAllTransitionsHandlersOn_VisibleTransitionsHandlers_Call() {
         // Given
-        let masterTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
-        let detailTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let masterTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let detailTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
         splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
         

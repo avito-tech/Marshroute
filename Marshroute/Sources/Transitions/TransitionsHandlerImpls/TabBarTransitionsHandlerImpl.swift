@@ -1,28 +1,22 @@
 import UIKit
-private func < <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+
+public protocol TabBarControllerProtocol: AnyObject {
+    var viewControllers: [UIViewController]? { get }
+    var selectedIndex: Int { get }
 }
 
-private func > <T: Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
+extension UITabBarController: TabBarControllerProtocol {}
+
+public protocol TabBarTransitionsHandler: ContainingTransitionsHandler {
+    var animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler]? { get set }
+    var containingTransitionsHandlers: [Int: ContainingTransitionsHandler]? { get set }
 }
 
-final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
-    private weak var tabBarController: UITabBarController?
+final public class TabBarTransitionsHandlerImpl: BaseContainingTransitionsHandler, TabBarTransitionsHandler {
+    private weak var tabBarController: (TabBarControllerProtocol & UIViewController)?
     
-    public init(tabBarController: UITabBarController,
+    public init(
+        tabBarController: (TabBarControllerProtocol & UIViewController),
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.tabBarController = tabBarController
@@ -47,7 +41,7 @@ final public class TabBarTransitionsHandlerImpl: ContainingTransitionsHandler {
     }
     
     override public var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        guard tabBarController?.viewControllers?.count > 0
+        guard (tabBarController?.viewControllers?.count ?? 0) > 0
             else { return nil }
         guard let selectedIndex = tabBarController?.selectedIndex
             else { return nil }

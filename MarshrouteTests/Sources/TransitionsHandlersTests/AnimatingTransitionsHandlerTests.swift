@@ -11,7 +11,7 @@ final class AnimatingTransitionsHandlerTests: XCTestCase {
         
         transitionsCoordinatorSpy = TransitionsCoordinatorSpy()
         
-        animatingTransitionsHandler = AnimatingTransitionsHandler(
+        animatingTransitionsHandler = BaseAnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinatorSpy
         )
     }

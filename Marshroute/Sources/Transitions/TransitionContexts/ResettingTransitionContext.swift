@@ -1,6 +1,6 @@
 import UIKit
 
-/// Описание reset-перехода
+/// Описание reset-перехода (смотри init'ы для более полного описания)
 public struct ResettingTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
@@ -25,10 +25,11 @@ public struct ResettingTransitionContext {
 // MARK: - Init
 public extension ResettingTransitionContext {
     /// Контекст описывает первоначальную настройку обработчика переходов
-    /// при первом проставления корневого контроллера в UINavigationController
-    init(settingRootViewController rootViewController: UIViewController,
+    /// при первом проставлении корневого контроллера в UINavigationController
+    init(
+        settingRootViewController rootViewController: UIViewController,
         forNavigationController navigationController: UINavigationController,
-        animatingTransitionsHandler transitionsHandler: NavigationTransitionsHandlerImpl,
+        navigationTransitionsHandler transitionsHandler: NavigationTransitionsHandler,
         animator: SetNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
@@ -51,14 +52,15 @@ public extension ResettingTransitionContext {
     
     /// Контекст описывает сброс истории обработчика переходов
     /// для проставления нового корневого контроллера в UINavigationController
-    init(resettingRootViewController rootViewController: UIViewController,
-        animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler,
+    init(
+        resettingRootViewController rootViewController: UIViewController,
+        navigationTransitionsHandler: NavigationTransitionsHandler,
         animator: ResetNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
         self.targetViewController = rootViewController
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: transitionsHandler)
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: navigationTransitionsHandler)
 
         self.storableParameters = nil
         
@@ -73,29 +75,31 @@ public extension ResettingTransitionContext {
     }
     
     /// Контекст описывает регистрацию конечного UINavigationController'а,
-    /// например, c MFMailComposeViewController'а, UIImagePickerController'а
-    init(registeringEndpointNavigationController navigationController: UINavigationController,
-        animatingTransitionsHandler transitionsHandler: NavigationTransitionsHandlerImpl,
+    /// например, c MFMailComposeViewController'а, UIImagePickerController'а.
+    /// "Конечный" здесь означает, что дальше навигация управляется чисто UIKIt'овым флоу и Marshroute там не при делах
+    init(
+        registeringEndpointNavigationController navigationController: UINavigationController,
+        navigationTransitionsHandler: NavigationTransitionsHandler,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
         self.targetViewController = navigationController
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: transitionsHandler)
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: navigationTransitionsHandler)
         
         self.storableParameters = nil
         
         self.resettingAnimationLaunchingContextBox = .registeringEndpointNavigation
     }
     
-    /// Контекст описывает регистрацию конечного UINavigationController'а,
-    /// например, c MFMailComposeViewController'а, UIImagePickerController'а
-    init(registeringViewController viewController: UIViewController,
-        animatingTransitionsHandler transitionsHandler: AnimatingTransitionsHandler,
+    /// Контекст описывает регистрацию обычного UIViewController'а, не обернутого в UINavigationController показывамого модально или поповером
+    init(
+        registeringViewController viewController: UIViewController,
+        animatingTransitionsHandler: AnimatingTransitionsHandler,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
         self.targetViewController = viewController
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: transitionsHandler)
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: animatingTransitionsHandler)
         
         self.storableParameters = nil
         

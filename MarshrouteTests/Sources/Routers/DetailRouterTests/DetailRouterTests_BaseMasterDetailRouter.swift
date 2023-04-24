@@ -131,3 +131,21 @@ final class DetailRouterTests_BaseMasterDetailRouter: XCTestCase
         } else { XCTFail() }
     }
 }
+
+extension ResettingTransitionTargetTransitionsHandlerBox {
+    func unbox() -> TransitionsHandler
+    {
+        switch self {
+        case .animating(let animatingTransitionsHandler):
+            return animatingTransitionsHandler
+        }
+    }
+    
+    func unboxAnimatingTransitionsHandler() -> AnimatingTransitionsHandler
+    {
+        switch self {
+        case .animating(let animatingTransitionsHandler):
+            return animatingTransitionsHandler
+        }
+    }
+}

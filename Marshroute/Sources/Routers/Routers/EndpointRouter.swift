@@ -63,7 +63,7 @@ extension EndpointRouter where
         do {
             let resetContext = ResettingTransitionContext(
                 registeringEndpointNavigationController: navigationController,
-                animatingTransitionsHandler: navigationTransitionsHandler,
+                navigationTransitionsHandler: navigationTransitionsHandler,
                 transitionId: transitionId
             )
             

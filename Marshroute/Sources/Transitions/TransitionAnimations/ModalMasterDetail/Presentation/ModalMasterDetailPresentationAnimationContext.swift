@@ -3,13 +3,13 @@ import UIKit
 /// Описание параметров анимаций прямого модального перехода на UISplitViewController
 public struct ModalMasterDetailPresentationAnimationContext {
     /// контроллер, на который нужно осуществить прямой модальный переход
-    public let targetViewController: UISplitViewController
+    public let targetViewController: SplitViewControllerProtocol & UIViewController
     
     /// контроллер, с которого нужно осуществить прямой модальный переход
     public let sourceViewController: UIViewController
     
     public init(
-        targetViewController: UISplitViewController,
+        targetViewController: SplitViewControllerProtocol & UIViewController,
         sourceViewController: UIViewController)
     {
         self.targetViewController = targetViewController

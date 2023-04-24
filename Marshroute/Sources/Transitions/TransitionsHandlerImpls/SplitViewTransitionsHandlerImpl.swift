@@ -1,9 +1,21 @@
 import UIKit
 
-final public class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler {
-    private weak var splitViewController: UISplitViewController?
+
+public protocol SplitViewControllerProtocol: AnyObject {
+    var viewControllers: [UIViewController] { get set }
+}
+
+extension UISplitViewController: SplitViewControllerProtocol {}
+
+public protocol SplitViewTransitionsHandler: ContainingTransitionsHandler {
+    var masterTransitionsHandler: AnimatingTransitionsHandler? { get set }
+    var detailTransitionsHandler: AnimatingTransitionsHandler? { get set }
+}
+
+final public class SplitViewTransitionsHandlerImpl: BaseContainingTransitionsHandler, SplitViewTransitionsHandler {
+    private weak var splitViewController: SplitViewControllerProtocol?
     
-    public init(splitViewController: UISplitViewController,
+    public init(splitViewController: SplitViewControllerProtocol,
         transitionsCoordinator: TransitionsCoordinator)
     {
         self.splitViewController = splitViewController
@@ -15,11 +27,13 @@ final public class SplitViewTransitionsHandlerImpl: ContainingTransitionsHandler
     
     // MARK: - TransitionsHandlerContainer
     override public var allTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        return bothTransitionsHandlers // все == видимые
+        // все и видимые для сплитвью считаем одним и и тем же (хотя у сплит вью и можно спрятать master)
+        return bothTransitionsHandlers
     }
     
     override public var visibleTransitionsHandlers: [AnimatingTransitionsHandler]? {
-        return bothTransitionsHandlers // все == видимые
+        // все и видимые для сплитвью считаем одним и и тем же (хотя у сплит вью и можно спрятать master)
+        return bothTransitionsHandlers
     }
 }
 

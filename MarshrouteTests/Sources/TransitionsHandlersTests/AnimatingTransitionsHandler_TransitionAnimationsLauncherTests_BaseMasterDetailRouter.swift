@@ -26,7 +26,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
             peekAndPopTransitionsCoordinator: peekAndPopTransitionsCoordinator
         )
         
-        let masterAnimatingTransitionsHandler = AnimatingTransitionsHandler(
+        let masterAnimatingTransitionsHandler = BaseAnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator
         )
         
@@ -39,7 +39,7 @@ final class AnimatingTransitionsHandler_TransitionAnimationsLauncherTests_BaseMa
         // set root view controller for a master transitions handler
         masterAnimatingTransitionsHandler.resetWithTransition(context: setMasterRootViewControllerContext)
         
-        let detailAnimatingTransitionsHandler = AnimatingTransitionsHandler(
+        let detailAnimatingTransitionsHandler = BaseAnimatingTransitionsHandler(
             transitionsCoordinator: transitionsCoordinator
         )
         

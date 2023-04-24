@@ -100,7 +100,7 @@ public final class TransitionsCoordinatorImpl:
     }
     
     public func navigationTransitionsHandler(navigationController: UINavigationController)
-        -> NavigationTransitionsHandlerImpl
+        -> NavigationTransitionsHandler
     {
         return navigationTransitionsHandlerImpl(navigationController: navigationController)
     }
@@ -111,14 +111,14 @@ public final class TransitionsCoordinatorImpl:
         return topTransitionsHandlerBoxImpl(transitionsHandlerBox: transitionsHandlerBox)
     }
     
-    public func splitViewTransitionsHandler(splitViewController: UISplitViewController)
-        -> SplitViewTransitionsHandlerImpl
+    public func splitViewTransitionsHandler(splitViewController: SplitViewControllerProtocol & UIViewController)
+        -> SplitViewTransitionsHandler
     {
         return splitViewTransitionsHandlerImpl(splitViewController: splitViewController)
     }
     
-    public func tabBarTransitionsHandler(tabBarController: UITabBarController)
-        -> TabBarTransitionsHandlerImpl
+    public func tabBarTransitionsHandler(tabBarController: TabBarControllerProtocol & UIViewController)
+        -> TabBarTransitionsHandler
     {
         return tabBarTransitionsHandlerImpl(tabBarController: tabBarController)
     }

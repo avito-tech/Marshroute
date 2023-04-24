@@ -42,7 +42,7 @@ final class MarshrouteFacade {
         let resetContext = ResettingTransitionContext(
             settingRootViewController: viewController,
             forNavigationController: navigationController,
-            animatingTransitionsHandler: navigationTransitionsHandler,
+            navigationTransitionsHandler: navigationTransitionsHandler,
             animator: SetNavigationTransitionsAnimator(),
             transitionId: transitionId
         )
@@ -59,9 +59,9 @@ final class MarshrouteFacade {
     }
     
     func tabBarController(
-        _ tabBarController: UITabBarController? = nil,
+        _ tabBarController: (TabBarControllerProtocol & UIViewController)? = nil,
         tabControllerDeriviationFunctionTypes: [TabControllerDeriviationFunctionType])
-        -> UITabBarController
+        -> (TabBarControllerProtocol & UIViewController)
     {
         // MARK: - Preimplementation
         let transitionId = marshrouteStack.transitionIdGenerator.generateNewTransitionId()
@@ -155,7 +155,7 @@ final class MarshrouteFacade {
             let resetContext = ResettingTransitionContext(
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
-                animatingTransitionsHandler: navigationTransitionsHandler,
+                navigationTransitionsHandler: navigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: transitionId
             )
@@ -267,7 +267,7 @@ final class MarshrouteFacade {
             let resetContext = ResettingTransitionContext(
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
-                animatingTransitionsHandler: navigationTransitionsHandler,
+                navigationTransitionsHandler: navigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: transitionId
             )
@@ -282,7 +282,7 @@ final class MarshrouteFacade {
         func deriveMasterDetailController(
             tabIndex: Int,
             masterDetailControllerDeriviationFuctionTypes: MasterDetailControllerDeriviationFuctionTypes)
-            -> (UIViewController, SplitViewTransitionsHandlerImpl)
+            -> (SplitViewControllerProtocol & UIViewController, SplitViewTransitionsHandler)
         {
             let (detailController, detaillTransitionHandler) = deriveDetailController(
                 tabIndex: tabIndex,

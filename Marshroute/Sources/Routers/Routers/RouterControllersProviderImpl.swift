@@ -6,7 +6,12 @@ public final class RouterControllersProviderImpl: RouterControllersProvider {
     public func navigationController() -> UINavigationController {
         return UINavigationController()
     }
-    public func splitViewController() -> UISplitViewController {
+    
+    public func splitViewController() -> SplitViewControllerProtocol & UIViewController {
         return UISplitViewController()
+    }
+    
+    public func tabBarViewController() -> TabBarControllerProtocol & UIViewController {
+        return UITabBarController()
     }
 }

@@ -1,5 +1,9 @@
+/// Протокол, описывающий обработчики переходов для модулей-контейнеров, у которых более одной ветви навигации (таббар, сплитвью).
+/// см также AnimatingTransitionsHandler
+public protocol ContainingTransitionsHandler: TransitionsHandlerContainer, TransitionsHandler {}
+
 /// Базовый класс для содержащих обработчиков переходов
-open class ContainingTransitionsHandler: TransitionsHandlerContainer, TransitionsCoordinatorHolder, TransitionsHandler {
+open class BaseContainingTransitionsHandler: ContainingTransitionsHandler, TransitionsCoordinatorHolder {
     // MARK: - TransitionsCoordinatorHolder    
     public let transitionsCoordinator: TransitionsCoordinator
     
@@ -35,16 +39,16 @@ open class ContainingTransitionsHandler: TransitionsHandlerContainer, Transition
     
     open func undoAllChainedTransitions()
     {
-        marshroutePrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
+        marshrouteAssertionFailure("Метод \(#function) нельзя посылать контейнеру обработчиков переходов. Только анимирующему обработчику")
     }
     
     open func undoAllTransitions()
     {
-        marshroutePrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
+        marshrouteAssertionFailure("Метод \(#function) нельзя посылать контейнеру обработчиков переходов. Только анимирующему обработчику")
     }
     
     open func resetWithTransition(context: ResettingTransitionContext)
     {
-        marshroutePrint("такой метод нельзя посылать контейнеру обработчиков переходов. только анимирующему обработчику")
+        marshrouteAssertionFailure("Метод \(#function) нельзя посылать контейнеру обработчиков переходов. Только анимирующему обработчику")
     }
 }

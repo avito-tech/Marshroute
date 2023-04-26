@@ -1,7 +1,7 @@
 /// Варианты хранения обработчика переходов показанного модуля
 public enum TransitionsHandlerBox {
-    case animating(strongBox: StrongBox<AnimatingTransitionsHandler>)
-    case containing(strongBox: StrongBox<ContainingTransitionsHandler>)
+    case animating(AnimatingTransitionsHandler)
+    case containing(ContainingTransitionsHandler)
 
     // MARK: - Init
     public init?(completedTransitionTargetTransitionsHandlerBox: CompletedTransitionTargetTransitionsHandlerBox)
@@ -20,30 +20,30 @@ public enum TransitionsHandlerBox {
     }
     
     public init(animatingTransitionsHandler: AnimatingTransitionsHandler) {
-        self = .animating(strongBox: StrongBox<AnimatingTransitionsHandler>(animatingTransitionsHandler))
+        self = .animating(animatingTransitionsHandler)
     }
     
     public init(containingTransitionsHandler: ContainingTransitionsHandler) {
-        self = .containing(strongBox: StrongBox<ContainingTransitionsHandler>(containingTransitionsHandler))
+        self = .containing(containingTransitionsHandler)
     }
 
     // MARK: - helpers
     public func unbox() -> TransitionsHandler
     {
         switch self {
-        case .animating(let weakBox):
-            return weakBox.unbox()
+        case .animating(let animatingTransitionsHandler):
+            return animatingTransitionsHandler
             
-        case .containing(let weakBox):
-            return weakBox.unbox()
+        case .containing(let containingTransitionsHandler):
+            return containingTransitionsHandler
         }
     }
     
     public func unboxAnimatingTransitionsHandler() -> AnimatingTransitionsHandler?
     {
         switch self {
-        case .animating(let weakBox):
-            return weakBox.unbox()
+        case .animating(let animatingTransitionsHandler):
+            return animatingTransitionsHandler
             
         default:
             return nil
@@ -53,11 +53,22 @@ public enum TransitionsHandlerBox {
     public func unboxContainingTransitionsHandler() -> ContainingTransitionsHandler?
     {
         switch self {
-        case .containing(let weakBox):
-            return weakBox.unbox()
+        case .containing(let containingTransitionsHandler):
+            return containingTransitionsHandler
             
         default:
             return nil
+        }
+    }
+    
+    // MARK: - Convenience
+    public func weakTransitionsHandlerBox() -> WeakTransitionsHandlerBox {
+        switch self {
+        case .animating(let animatingTransitionsHandler):
+            return WeakTransitionsHandlerBox(animatingTransitionsHandler: animatingTransitionsHandler)
+            
+        case .containing(let containingTransitionsHandler):
+            return WeakTransitionsHandlerBox(containingTransitionsHandler: containingTransitionsHandler)
         }
     }
 }

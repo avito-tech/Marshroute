@@ -36,7 +36,7 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
         let setRootViewControllerContext = ResettingTransitionContext(
             settingRootViewController: sourceViewController,
             forNavigationController: navigationController,
-            animatingTransitionsHandler: navigationTransitionsHandler,
+            navigationTransitionsHandler: navigationTransitionsHandler,
             animator: SetNavigationTransitionsAnimator(),
             transitionId: transitionIdGenerator.generateNewTransitionId()
         )

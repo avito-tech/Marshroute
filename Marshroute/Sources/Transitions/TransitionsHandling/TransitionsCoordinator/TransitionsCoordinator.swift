@@ -309,9 +309,12 @@ extension TransitionsCoordinator where
                 withStackClient: stackClient
             )
         } else {
-            marshroutePrint("resetting transition was cancelled")
+            var message = "Переход с установкой корневого модуля (resetting transition) был отменен"
+            if let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+                message += " делегатом transitions coordinator delegate: \(transitionsCoordinatorDelegate)"
+            }
+            marshroutePrint(message)
         }
-        
     }
 }
 
@@ -469,7 +472,11 @@ private extension TransitionsCoordinator where
                 }
             )
         } else {
-            marshroutePrint("presentation transition was cancelled")
+            var message = "Переход вперед (presentation transition) был отменен"
+            if let transitionsCoordinatorDelegate = transitionsCoordinatorDelegate {
+                message += " делегатом transitions coordinator delegate: \(transitionsCoordinatorDelegate)"
+            }
+            marshroutePrint(message)
         }
     }
     
@@ -1145,13 +1152,13 @@ extension TransitionsCoordinator where
     func animatingTransitionsHandlerImpl()
         -> AnimatingTransitionsHandler
     {
-        return AnimatingTransitionsHandler(
+        return BaseAnimatingTransitionsHandler(
             transitionsCoordinator: self
         )
     }
     
     func navigationTransitionsHandlerImpl(navigationController: UINavigationController)
-        -> NavigationTransitionsHandlerImpl
+        -> NavigationTransitionsHandler
     {
         return NavigationTransitionsHandlerImpl(
             navigationController: navigationController,
@@ -1180,14 +1187,14 @@ extension TransitionsCoordinator where
         )
         
         if let animatingTransitionsHandler = deepestChainedAnimatingTransitionsHandler {
-            return .init(animatingTransitionsHandler: animatingTransitionsHandler)
+            return TransitionsHandlerBox(animatingTransitionsHandler: animatingTransitionsHandler)
         }
         
         return transitionsHandlerBox
     }
     
-    func splitViewTransitionsHandlerImpl(splitViewController: UISplitViewController)
-        -> SplitViewTransitionsHandlerImpl
+    func splitViewTransitionsHandlerImpl(splitViewController: SplitViewControllerProtocol & UIViewController)
+        -> SplitViewTransitionsHandler
     {
         return SplitViewTransitionsHandlerImpl(
             splitViewController: splitViewController,
@@ -1195,8 +1202,8 @@ extension TransitionsCoordinator where
         )
     }
     
-    func tabBarTransitionsHandlerImpl(tabBarController: UITabBarController)
-        -> TabBarTransitionsHandlerImpl
+    func tabBarTransitionsHandlerImpl(tabBarController: TabBarControllerProtocol & UIViewController)
+        -> TabBarTransitionsHandler
     {
         return TabBarTransitionsHandlerImpl(
             tabBarController: tabBarController,

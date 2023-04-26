@@ -1,6 +1,6 @@
 import UIKit
 
-/// Описание перехода `вперед` на следующий модуль
+/// Описание перехода `вперед` на следующий модуль (смотри init'ы для более полного описания)
 public struct PresentationTransitionContext {
     /// идентификатор перехода
     /// для точной отмены нужного перехода и возвращения на предыдущий экран через
@@ -29,7 +29,8 @@ public extension PresentationTransitionContext {
     /// Контекст описывает последовательный переход внутри UINavigationController'а
     /// если UINavigationController'а не является самым верхним, то переход будет прокинут
     /// в самый верхний UINavigationController
-    init(pushingViewController targetViewController: UIViewController,
+    init(
+        pushingViewController targetViewController: UIViewController,
         animator: NavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
@@ -52,7 +53,8 @@ public extension PresentationTransitionContext {
     // MARK: - Modal
     
     /// Контекст описывает переход на простой модальный контроллер
-    init(presentingModalViewController targetViewController: UIViewController,
+    init(
+        presentingModalViewController targetViewController: UIViewController,
         targetTransitionsHandler: AnimatingTransitionsHandler,
         animator: ModalTransitionsAnimator,
         transitionId: TransitionId)
@@ -87,17 +89,18 @@ public extension PresentationTransitionContext {
     
     /// Контекст описывает переход на модальный контроллер, который нельзя! положить в UINavigationController:
     /// UISplitViewController
-    init(presentingModalMasterDetailViewController targetViewController: UISplitViewController,
-        targetTransitionsHandler: ContainingTransitionsHandler,
+    init(
+        presentingModalMasterDetailViewController targetViewController: SplitViewControllerProtocol & UIViewController,
+        targetTransitionsHandler splitViewTransitionsHandler: SplitViewTransitionsHandler,
         animator: ModalMasterDetailTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
         self.targetViewController = targetViewController
-        self.targetTransitionsHandlerBox = .init(containingTransitionsHandler: targetTransitionsHandler)
+        self.targetTransitionsHandlerBox = .init(containingTransitionsHandler: splitViewTransitionsHandler)
         
         self.storableParameters = NavigationTransitionStorableParameters(
-            presentedTransitionsHandler: targetTransitionsHandler
+            presentedTransitionsHandler: splitViewTransitionsHandler
         )
         
         let animationLaunchingContext = ModalMasterDetailPresentationAnimationLaunchingContext(
@@ -111,23 +114,27 @@ public extension PresentationTransitionContext {
     }
     
     /// Контекст описывает переход на модальный контроллер, который положен в UINavigationController
-    init(presentingModalViewController targetViewController: UIViewController,
+    init(
+        presentingModalViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
-        targetTransitionsHandler: NavigationTransitionsHandlerImpl,
+        targetTransitionsHandler navigationTransitionsHandler: NavigationTransitionsHandler,
         animator: ModalNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         marshrouteAssert(
-            !(targetViewController is UISplitViewController) && !(targetViewController is UITabBarController),
+            !(targetViewController is UISplitViewController)
+            && !(targetViewController is SplitViewControllerProtocol)
+            && !(targetViewController is UITabBarController)
+            && !(targetViewController is TabBarControllerProtocol),
             "use presentingModalMasterDetailViewController:targetTransitionsHandler:animator:transitionId:"
         )
         
         self.transitionId = transitionId
         self.targetViewController = targetViewController
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: targetTransitionsHandler)
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: navigationTransitionsHandler)
         
         self.storableParameters = NavigationTransitionStorableParameters(
-            presentedTransitionsHandler: targetTransitionsHandler
+            presentedTransitionsHandler: navigationTransitionsHandler
         )
         
         let animationLaunchingContext = ModalNavigationPresentationAnimationLaunchingContext(
@@ -143,17 +150,18 @@ public extension PresentationTransitionContext {
     
     /// Контекст описывает переход на конечный модальный UINavigationController
     /// использовать для MFMailComposeViewController, UIImagePickerController
-    init(presentingModalEndpointNavigationController navigationController: UINavigationController,
-        targetTransitionsHandler: NavigationTransitionsHandlerImpl,
+    init(
+        presentingModalEndpointNavigationController navigationController: UINavigationController,
+        targetTransitionsHandler navigationTransitionsHandler: NavigationTransitionsHandler,
         animator: ModalEndpointNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {        
         self.transitionId = transitionId
         self.targetViewController = navigationController
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: targetTransitionsHandler)
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: navigationTransitionsHandler)
         
         self.storableParameters = NavigationTransitionStorableParameters(
-            presentedTransitionsHandler: targetTransitionsHandler
+            presentedTransitionsHandler: navigationTransitionsHandler
         )
         
         let animationLaunchingContext = ModalEndpointNavigationPresentationAnimationLaunchingContext(
@@ -169,7 +177,8 @@ public extension PresentationTransitionContext {
     // MARK: - Popover
 
     /// Контекст описывает вызов поповера, содержащего простой UIViewController
-    init(presentingViewController targetViewController: UIViewController,
+    init(
+        presentingViewController targetViewController: UIViewController,
         inPopoverController popoverController: UIPopoverController,
         fromRect rect: CGRect,
         inView view: UIView,
@@ -198,22 +207,23 @@ public extension PresentationTransitionContext {
     }
     
     /// Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
-    init(presentingViewController targetViewController: UIViewController,
+    init(
+        presentingViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromRect rect: CGRect,
         inView view: UIView,
-        targetTransitionsHandler: NavigationTransitionsHandlerImpl,
+        targetTransitionsHandler navigationTransitionsHandler: NavigationTransitionsHandler,
         animator: PopoverNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.targetViewController = targetViewController
         self.transitionId = transitionId
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: targetTransitionsHandler)
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: navigationTransitionsHandler)
         
         self.storableParameters = PopoverTransitionStorableParameters(
             popoverController: popoverController,
-            presentedTransitionsHandler: targetTransitionsHandler
+            presentedTransitionsHandler: navigationTransitionsHandler
         )
         
         let animationLaunchingContext = PopoverNavigationPresentationAnimationLaunchingContext(
@@ -257,21 +267,22 @@ public extension PresentationTransitionContext {
     }
     
     /// Контекст описывает вызов поповера, содержащего контроллер, который положен в UINavigationController
-    init(presentingViewController targetViewController: UIViewController,
+    init(
+        presentingViewController targetViewController: UIViewController,
         inNavigationController navigationController: UINavigationController,
         inPopoverController popoverController: UIPopoverController,
         fromBarButtonItem buttonItem: UIBarButtonItem,
-        targetTransitionsHandler: AnimatingTransitionsHandler,
+        targetTransitionsHandler navigationTransitionsHandler: NavigationTransitionsHandler,
         animator: PopoverNavigationTransitionsAnimator,
         transitionId: TransitionId)
     {
         self.transitionId = transitionId
         self.targetViewController = targetViewController
-        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: targetTransitionsHandler)
+        self.targetTransitionsHandlerBox = .init(animatingTransitionsHandler: navigationTransitionsHandler)
 
         self.storableParameters = PopoverTransitionStorableParameters(
             popoverController: popoverController,
-            presentedTransitionsHandler: targetTransitionsHandler
+            presentedTransitionsHandler: navigationTransitionsHandler
         )
         
         let animationLaunchingContext = PopoverNavigationPresentationAnimationLaunchingContext(

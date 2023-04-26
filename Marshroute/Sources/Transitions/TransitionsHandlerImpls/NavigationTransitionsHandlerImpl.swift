@@ -1,10 +1,14 @@
 import UIKit
 
-final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler {
+// Marker protocol as of now
+public protocol NavigationTransitionsHandler: AnimatingTransitionsHandler {}
+
+final public class NavigationTransitionsHandlerImpl: BaseAnimatingTransitionsHandler, NavigationTransitionsHandler {
     private weak var navigationController: UINavigationController?
     
-    public init(navigationController: UINavigationController,
-                transitionsCoordinator: TransitionsCoordinator)
+    public init(
+        navigationController: UINavigationController,
+        transitionsCoordinator: TransitionsCoordinator)
     {
         self.navigationController = navigationController
         super.init(transitionsCoordinator: transitionsCoordinator)
@@ -28,7 +32,7 @@ final public class NavigationTransitionsHandlerImpl: AnimatingTransitionsHandler
             
         case .push(var launchingContext):
             guard let navigationController = navigationController
-                else { marshroutePrint("no `UINavigationController` to `pushViewController:animated`"); return }
+                else { marshrouteAssertionFailure("no `UINavigationController` to `pushViewController:animated`"); return }
             
             // `Push` could be forwarded to a topmost `UINavigationController`,
             // so we should pass our navigation controller

@@ -272,7 +272,7 @@ extension PopoverPresentationRouter where
             let resetContext = ResettingTransitionContext(
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
-                animatingTransitionsHandler: navigationTransitionsHandler,
+                navigationTransitionsHandler: navigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
@@ -358,7 +358,7 @@ extension PopoverPresentationRouter where
             let resetContext = ResettingTransitionContext(
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
-                animatingTransitionsHandler: navigationTransitionsHandler,
+                navigationTransitionsHandler: navigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )

@@ -4,18 +4,18 @@ final class RootModulesProviderImpl: RootModulesProvider {
     func detailModule(
         moduleSeed: ApplicationModuleSeed,
         deriveViewController: (_ routerSeed: RouterSeed) -> UIViewController)
-        -> (navigationController: UINavigationController, animatingTransitionsHandler: AnimatingTransitionsHandler)
+        -> NavigationModule
     {
         let marshrouteStack = moduleSeed.marshrouteStack
         
         let navigationController = marshrouteStack.routerControllersProvider.navigationController()
         
-        let animatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let navigationTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: navigationController
         )
         
         let animatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
-            animatingTransitionsHandler: animatingTransitionsHandler
+            animatingTransitionsHandler: navigationTransitionsHandler
         )
         
         let routerSeed = RouterSeed(
@@ -30,43 +30,46 @@ final class RootModulesProviderImpl: RootModulesProvider {
         let resetContext = ResettingTransitionContext(
             settingRootViewController: viewController,
             forNavigationController: navigationController,
-            animatingTransitionsHandler: animatingTransitionsHandler,
+            navigationTransitionsHandler: navigationTransitionsHandler,
             animator: SetNavigationTransitionsAnimator(),
             transitionId: moduleSeed.transitionId
         )
         
-        animatingTransitionsHandler.resetWithTransition(
+        navigationTransitionsHandler.resetWithTransition(
             context: resetContext
         )
         
-        return (navigationController, animatingTransitionsHandler)
+        return NavigationModule(
+            navigationController: navigationController,
+            navigationTransitionsHandler: navigationTransitionsHandler
+        )
     }
     
     func masterDetailModule(
         moduleSeed: ApplicationModuleSeed,
         deriveMasterViewController: (_ routerSeed: MasterDetailRouterSeed) -> UIViewController,
         deriveDetailViewController: (_ routerSeed: RouterSeed) -> UIViewController)
-        -> (splitViewController: UISplitViewController, containingTransitionsHandler: ContainingTransitionsHandler)
+        -> SplitViewModule
     {
         let marshrouteStack = moduleSeed.marshrouteStack
         
         let masterNavigationController = marshrouteStack.routerControllersProvider.navigationController()
         let detailNavigationController = marshrouteStack.routerControllersProvider.navigationController()
         
-        let masterAnimatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let masterNavigationTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: masterNavigationController
         )
         
-        let detailAnimatingTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
+        let detailNavigationTransitionsHandler = marshrouteStack.transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: detailNavigationController
         )
         
         let masterAnimatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
-            animatingTransitionsHandler: masterAnimatingTransitionsHandler
+            animatingTransitionsHandler: masterNavigationTransitionsHandler
         )
         
         let detailAnimatingTransitionsHandlerBox = RouterTransitionsHandlerBox(
-            animatingTransitionsHandler: detailAnimatingTransitionsHandler
+            animatingTransitionsHandler: detailNavigationTransitionsHandler
         )
         
         do { // master
@@ -83,12 +86,12 @@ final class RootModulesProviderImpl: RootModulesProvider {
             let resetContext = ResettingTransitionContext(
                 settingRootViewController: masterViewController,
                 forNavigationController: masterNavigationController,
-                animatingTransitionsHandler: masterAnimatingTransitionsHandler,
+                navigationTransitionsHandler: masterNavigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: moduleSeed.transitionId
             )
             
-            masterAnimatingTransitionsHandler.resetWithTransition(
+            masterNavigationTransitionsHandler.resetWithTransition(
                 context: resetContext
             )
         }
@@ -106,12 +109,12 @@ final class RootModulesProviderImpl: RootModulesProvider {
             let resetContext = ResettingTransitionContext(
                 settingRootViewController: viewController,
                 forNavigationController: detailNavigationController,
-                animatingTransitionsHandler: detailAnimatingTransitionsHandler,
+                navigationTransitionsHandler: detailNavigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: moduleSeed.transitionId
             )
             
-            detailAnimatingTransitionsHandler.resetWithTransition(
+            detailNavigationTransitionsHandler.resetWithTransition(
                 context: resetContext
             )
         }
@@ -123,9 +126,12 @@ final class RootModulesProviderImpl: RootModulesProvider {
             splitViewController: splitViewController
         )
         
-        splitViewTransitionsHandler.masterTransitionsHandler = masterAnimatingTransitionsHandler
-        splitViewTransitionsHandler.detailTransitionsHandler = detailAnimatingTransitionsHandler
+        splitViewTransitionsHandler.masterTransitionsHandler = masterNavigationTransitionsHandler
+        splitViewTransitionsHandler.detailTransitionsHandler = detailNavigationTransitionsHandler
         
-        return (splitViewController, splitViewTransitionsHandler)
+        return SplitViewModule(
+            splitViewController: splitViewController,
+            splitViewTransitionsHandler: splitViewTransitionsHandler
+        )
     }
 }

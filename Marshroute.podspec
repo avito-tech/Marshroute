@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name                   = 'Marshroute'
   s.module_name            = 'Marshroute'
-  s.version                = '0.5.0'
+  s.version                = '1.0.0'
   s.summary                = 'Marshroute by Timur Yusipov'
   s.homepage               = 'https://github.com/avito-tech/Marshroute'
   s.license                = 'MIT'

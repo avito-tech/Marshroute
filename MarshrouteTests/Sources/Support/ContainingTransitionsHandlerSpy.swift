@@ -1,6 +1,6 @@
 @testable import Marshroute
 
-final class ContainingTransitionsHandlerSpy: ContainingTransitionsHandler
+final class ContainingTransitionsHandlerSpy: BaseContainingTransitionsHandler
 {
     // MARK: - TransitionsHandler
     var performTransitionCalled = false

@@ -93,8 +93,8 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
     
     func testThatTabBarTransitionsHandlerReturnsAllTransitionsHandlersOn_AllTransitionsHandlers_Call_IfAllAreAnimating() {
         // Given
-        let animatingTransitionsHandler1 = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
-        let animatingTransitionsHandler2 = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let animatingTransitionsHandler1 = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let animatingTransitionsHandler2 = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         
         tabBarController.viewControllers = [UIViewController(), UIViewController()]
         tabBarTransitionsHandler.animatingTransitionsHandlers = [
@@ -112,10 +112,10 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
     
     func testThatTabBarTransitionsHandlerUnboxesContainingTransitionsHandlersAndReturnsAllTransitionsHandlersOn_AllTransitionsHandlers_Call() {
         // Given
-        let animatingTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let animatingTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         
-        let masterTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
-        let detailTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let masterTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let detailTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         
         let splitViewController = UISplitViewController()
         let splitViewTransitionsHandler = SplitViewTransitionsHandlerImpl(
@@ -145,8 +145,8 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
     
     func testThatTabBarTransitionsHandlerReturnsVisibleTransitionsHandlerOn_VisibleTransitionsHandlers_Call_IfVisibleIsAnimating() {
         // Given
-        let animatingTransitionsHandler1 = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
-        let animatingTransitionsHandler2 = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let animatingTransitionsHandler1 = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let animatingTransitionsHandler2 = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         
         tabBarController.viewControllers = [UIViewController(), UIViewController()]
         tabBarTransitionsHandler.animatingTransitionsHandlers = [
@@ -165,10 +165,10 @@ final class TabBarTransitionsHandlerImplTests: XCTestCase {
     
     func testThatTabBarTransitionsHandlerUnboxesContainingTransitionsHandlerAndReturnsAllItsTransitionsHandlerOn_VisibleTransitionsHandlers_Call_IfVisibleIsContaining() {
         // Given
-        let animatingTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let animatingTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         
-        let masterTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
-        let detailTransitionsHandler = AnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let masterTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
+        let detailTransitionsHandler = BaseAnimatingTransitionsHandler(transitionsCoordinator: transitionsCoordinatorSpy)
         
         let splitViewController = UISplitViewController()
         let splitViewTransitionsHandler = SplitViewTransitionsHandlerImpl(

@@ -27,7 +27,7 @@ public protocol ModalPresentationRouter: AnyObject {
         animator: ModalMasterDetailTransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
-        splitViewController: UISplitViewController)
+        splitViewController: SplitViewControllerProtocol & UIViewController)
 
     // MARK: - UIViewController in UINavigationController
     func presentModalNavigationControllerWithRootViewControllerDerivedFrom(
@@ -145,7 +145,7 @@ extension ModalPresentationRouter where
         animator: ModalMasterDetailTransitionsAnimator,
         masterNavigationController: UINavigationController,
         detailNavigationController: UINavigationController,
-        splitViewController: UISplitViewController)
+        splitViewController: SplitViewControllerProtocol & UIViewController)
     {
         splitViewController.viewControllers = [masterNavigationController, detailNavigationController]
         
@@ -153,7 +153,7 @@ extension ModalPresentationRouter where
             navigationController: masterNavigationController
         )
         
-        let detailTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
+        let detailNavigationTransitionsHandler = transitionsHandlersProvider.navigationTransitionsHandler(
             navigationController: detailNavigationController
         )
         
@@ -162,7 +162,7 @@ extension ModalPresentationRouter where
         )
         
         let detailTransitionsHandlerBox = RouterTransitionsHandlerBox(
-            animatingTransitionsHandler: detailTransitionsHandler
+            animatingTransitionsHandler: detailNavigationTransitionsHandler
         )
         
         let splitViewTransitionsHandler = transitionsHandlersProvider.splitViewTransitionsHandler(
@@ -170,7 +170,7 @@ extension ModalPresentationRouter where
         )
         
         splitViewTransitionsHandler.masterTransitionsHandler = masterTransitionsHandler
-        splitViewTransitionsHandler.detailTransitionsHandler = detailTransitionsHandler
+        splitViewTransitionsHandler.detailTransitionsHandler = detailNavigationTransitionsHandler
         
         let presentingTransitionsHandlerBox = transitionsHandlersProvider.topTransitionsHandlerBox(
             transitionsHandlerBox: transitionsHandlerBox
@@ -198,7 +198,7 @@ extension ModalPresentationRouter where
             let resetMasterContext = ResettingTransitionContext(
                 settingRootViewController: masterViewController,
                 forNavigationController: masterNavigationController,
-                animatingTransitionsHandler: masterTransitionsHandler,
+                navigationTransitionsHandler: masterTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
@@ -224,12 +224,12 @@ extension ModalPresentationRouter where
             let resetDetailContext = ResettingTransitionContext(
                 settingRootViewController: detailViewController,
                 forNavigationController: detailNavigationController,
-                animatingTransitionsHandler: detailTransitionsHandler,
+                navigationTransitionsHandler: detailNavigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )
             
-            detailTransitionsHandler.resetWithTransition(context: resetDetailContext)
+            detailNavigationTransitionsHandler.resetWithTransition(context: resetDetailContext)
         }
         
         let modalContext = PresentationTransitionContext(
@@ -300,7 +300,7 @@ extension ModalPresentationRouter where
             let resetContext = ResettingTransitionContext(
                 settingRootViewController: viewController,
                 forNavigationController: navigationController,
-                animatingTransitionsHandler: navigationTransitionsHandler,
+                navigationTransitionsHandler: navigationTransitionsHandler,
                 animator: SetNavigationTransitionsAnimator(),
                 transitionId: generatedTransitionId
             )

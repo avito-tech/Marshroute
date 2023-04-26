@@ -39,7 +39,7 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
         let setMasterRootViewControllerContext = ResettingTransitionContext(
             settingRootViewController: sourceViewController,
             forNavigationController: masterNavigationController,
-            animatingTransitionsHandler: masterNavigationTransitionsHandler,
+            navigationTransitionsHandler: masterNavigationTransitionsHandler,
             animator: SetNavigationTransitionsAnimator(),
             transitionId: transitionId
         )
@@ -55,7 +55,7 @@ final class NavigationTransitionsHandlerImpl_TransitionAnimationsLauncherTests_B
         let setDetailRootViewControllerContext = ResettingTransitionContext(
             settingRootViewController: sourceViewController,
             forNavigationController: detailNavigationController,
-            animatingTransitionsHandler: detailNavigationTransitionsHandler,
+            navigationTransitionsHandler: detailNavigationTransitionsHandler,
             animator: SetNavigationTransitionsAnimator(),
             transitionId: transitionId
         )

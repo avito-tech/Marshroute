@@ -1,11 +1,13 @@
 [1.0.0](https://github.com/avito-tech/Marshroute/releases/tag/1.0.0)
-- В кострукторах `ResettingTransitionContext` параметр `animatingTransitionsHandler` переименован в `navigationTransitionsHandler` там, где мы работаем с `UINavigationController`.
-- `AnimatingTransitionsHandler` переименован в `BaseAnimatingTransitionsHandler`, появился протокол `AnimatingTransitionsHandler`.
-- `ContainingTransitionsHandler` переименован в `BaseContainingTransitionsHandler`, появился протокол `ContainingTransitionsHandler`.
-- Появились протоколы `NavigationTransitionsHandler`, `SplitViewTransitionsHandler`, `TabBarTransitionsHandler` для лучшей типизации кода.
-- Вместо прямой завязки на `UITabBarController` и `UISplitViewController` теперь есть протоколы `TabBarControllerProtocol` и `SplitViewControllerProtocol`. Теперь можно работать с Marshroute, подставив кастомные реализации таб бара и сплит вью. Заметка: аналогичную работу можно проделать и для `UINavigationController`'а, но на практике еще не встречалось случаев, когда кто-то реализовывал аналоги навигационного контроллера своими силами.
-- Удалены `WeakBox` и `StrongBox`
-- Некоторые `marshroutePrint` заменены на `marshrouteAssertionFailure`
+- In `ResettingTransitionContext` initializers the parameter `animatingTransitionsHandler` was renamed into `navigationTransitionsHandler` in places where we work with `UINavigationController`.
+- `AnimatingTransitionsHandler` was renamed into `BaseAnimatingTransitionsHandler` and `AnimatingTransitionsHandler` became a protocol.
+- `ContainingTransitionsHandler` was renamed into в `BaseContainingTransitionsHandler` and `ContainingTransitionsHandler` became a protocol.
+- Got new `NavigationTransitionsHandler`, `SplitViewTransitionsHandler`, `TabBarTransitionsHandler` protocols for cleaner code.
+- Instead of using `UITabBarController` и `UISplitViewController` directly Marshroute now relies on `TabBarControllerProtocol` и `SplitViewControllerProtocol` protocols. That allows you to use a custom tab bar or a split view controller (which can not even inherit from `UITabBarController` or `UISplitViewController`). Note: we can do the same job for `UINavigationController`, but this has never been required so far.
+- Removed `WeakBox` и `StrongBox`.
+- Some `marshroutePrint` were replaced by `marshrouteAssertionFailure`
+- Travis CI was removed
+- tv os 9.0 is now supported
 
 [0.5.0](https://github.com/avito-tech/Marshroute/releases/tag/0.4.5)
 - Add tvos support. Bump minimum supported ios version to 9.0. Add ability to cancel transition undoing if another transition is in progress (enabled by default). Clean some warnings. 

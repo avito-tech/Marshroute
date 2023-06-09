@@ -36,11 +36,7 @@ public struct PopoverPresentationAnimationLaunchingContext {
         }
         
         if popoverController?.isPopoverVisible != true { 
-            marshrouteAssertionFailure(
-                """
-                It looks like \(targetViewController as Any) did not deallocate due to some retain cycle! 
-                """
-            )
+            assertPossibleRetainCycle(ofViewController: targetViewController)
             return true
         }
         

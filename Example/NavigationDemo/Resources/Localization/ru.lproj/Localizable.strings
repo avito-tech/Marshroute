@@ -3,7 +3,12 @@
 "recursion" = "Рекурсия";
 "advertisements" = "Объявления";
 "shelves" = "Полочки";
+"shelves.root" = "Полочки (корень)";
+"shelves.modal" = "Полочки (модалка)";
+"shelves.buttomSheet" = "Полочки (шторка)";
 "categories" = "Категории";
 "categories.selectCategory" = "Выберите категорию";
 "notification.toRecursion" = "Перейти на Рекурсию";
 "notification.toCategories" = "Перейти на Категории";
+"cancel" = "Отмена";
+"login" = "Войти";

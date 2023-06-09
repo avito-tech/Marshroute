@@ -32,11 +32,7 @@ public struct PushAnimationLaunchingContext {
             let targetViewController = targetViewController,
             !navigationController.viewControllers.contains(targetViewController)
         {
-            marshrouteAssertionFailure(
-                """
-                It looks like \(targetViewController) did not deallocate due to some retain cycle! 
-                """
-            )
+            assertPossibleRetainCycle(ofViewController: targetViewController)
             return true
         }
         

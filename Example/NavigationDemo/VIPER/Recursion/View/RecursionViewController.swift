@@ -53,7 +53,7 @@ final class RecursionViewController: BasePeekAndPopViewController, RecursionView
     }
     
     override func viewWillLayoutSubviews() {
-        super .viewWillLayoutSubviews()
+        super.viewWillLayoutSubviews()
         
         recursionView.defaultContentInsets = defaultContentInsets
     }

@@ -1,8 +1,12 @@
 import UIKit
 
 final class ShelfView: UIView {
+    // MARK: - Private properties
     private let shelfImage = UIImage(named: "Shelf.png")
     private var shelfImageViews = [UIImageView]()
+    
+    // MARK: - Internal properties
+    var defaultContentInsets: UIEdgeInsets = .zero
     
     // MARK: - Init
     init() {
@@ -14,18 +18,23 @@ final class ShelfView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Layout
     override var frame: CGRect {
         didSet {
-            guard let shelfImage = shelfImage
-                else { return }
+            guard let shelfImage, shelfImage.size.width > 0 else { return }
             
-            for shelfImageView in shelfImageViews {
-                shelfImageView.removeFromSuperview()
+            guard frame != oldValue else { return }
+            
+            let shelfHeight = shelfHeightForWidth(frame.size.width)
+            
+            let shelvesNeededToTileAllView = Int(ceil(frame.size.height / shelfHeight))
+            
+            while shelfImageViews.count > shelvesNeededToTileAllView {
+                let imageView = shelfImageViews.removeLast()
+                imageView.removeFromSuperview()
             }
             
-            shelfImageViews.removeAll()
-            
-            for _ in 0 ..< 15 {
+            while shelfImageViews.count < shelvesNeededToTileAllView {
                 let shelfImageView = UIImageView(image: shelfImage)
                 
                 shelfImageView.contentMode = .scaleAspectFill
@@ -40,13 +49,30 @@ final class ShelfView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let height = 125.6 * bounds.width / 703
-        var y = bounds.origin.y + height - 64
+        let shelfHeight = shelfHeightForWidth (bounds.width)
+        
+        guard shelfHeight > 0 else { return }
+        
+        guard let shelfImage, shelfImage.size.width > 0 else { return }
+        
+        var y = defaultContentInsets.top
         
         for shelfImageView in shelfImageViews {
-            shelfImageView.frame = CGRect(x: bounds.origin.x, y: y, width: bounds.width, height: height)
-            
-            y += height
+            shelfImageView.frame = CGRect(x: bounds.origin.x, y: y, width: bounds.width, height: shelfHeight)
+            y += shelfHeight
         }
+    }
+    
+    // MARK: - Private
+    private func shelfHeightForWidth(_ width: CGFloat) -> CGFloat {
+        guard let shelfImage, width > 0 else { return 0 }
+        
+        let ratio = shelfImage.size.width / width
+        
+        guard ratio != 0 else { return 0 }
+        
+        let shelfHeight = shelfImage.size.height / ratio
+        
+        return shelfHeight
     }
 }

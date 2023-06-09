@@ -84,7 +84,7 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         presenter.view = tabBarController
         presenter.bannerModuleInput = bannerModuleInput
         
-        let tabs = self.tabs(moduleSeed: moduleSeed)
+        let tabs = self.tabs(moduleSeed: moduleSeed, ipad: ipad)
         
         tabBarController.viewControllers = tabs.viewControllers
         tabBarTransitionsHandler.animatingTransitionsHandlers = tabs.animatingTransitionsHandlers
@@ -101,12 +101,12 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         return applicationModule
     }
 
-    private func tabs(moduleSeed: ApplicationModuleSeed)
+    private func tabs(moduleSeed: ApplicationModuleSeed, ipad: Bool)
         -> (viewControllers: [UIViewController],
         animatingTransitionsHandlers: [Int: AnimatingTransitionsHandler],
         containingTransitionsHandlers: [Int: ContainingTransitionsHandler])
     {
-        if case .pad = UIDevice.current.userInterfaceIdiom {
+        if ipad {
             return ipadTabs(moduleSeed: moduleSeed)
         } else {
             return iphoneTabs(moduleSeed: moduleSeed)
@@ -154,7 +154,10 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
             deriveDetailViewController: { routerSeed -> UIViewController in
                 let shelfAssembly = assemblyFactory.shelfAssembly()
                 
-                let viewController = shelfAssembly.module(routerSeed: routerSeed)
+                let (_, viewController) = shelfAssembly.module(
+                    style: .root,
+                    routerSeed: routerSeed
+                )
                 
                 return viewController
         })
@@ -189,15 +192,18 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
     {
         let firstTab = iphoneFirstTab(moduleSeed: moduleSeed)
         let secondTab = iphoneSecondTab(moduleSeed: moduleSeed)
+        let thirdTab = iphoneThirdTab(moduleSeed: moduleSeed)
         
         let viewControllers: [UIViewController] = [
             firstTab.navigationController,
-            secondTab.navigationController
+            secondTab.navigationController,
+            thirdTab.navigationController
         ]
         
         let animatingTransitionsHandlers = [
             0: firstTab.navigationTransitionsHandler,
-            1: secondTab.navigationTransitionsHandler
+            1: secondTab.navigationTransitionsHandler,
+            2: thirdTab.navigationTransitionsHandler
         ]
         
         let containingTransitionsHandlers = [Int: ContainingTransitionsHandler]()
@@ -235,6 +241,26 @@ final class ApplicationAssemblyImpl: BaseAssembly, ApplicationAssembly {
         }
         
         recursionModule.navigationController.tabBarItem.title = "recursion".localized
+        
+        return recursionModule
+    }
+    
+    private func iphoneThirdTab(moduleSeed: ApplicationModuleSeed) -> NavigationModule
+    {
+        let rootModulesProvider = serviceFactory.rootModulesProvider()
+        
+        let recursionModule = rootModulesProvider.detailModule(moduleSeed: moduleSeed) { routerSeed -> UIViewController in
+            let shelfAssembly = assemblyFactory.shelfAssembly()
+            
+            let (_, viewController) = shelfAssembly.module(
+                style: .root,
+                routerSeed: routerSeed
+            )
+            
+            return viewController
+        }
+        
+        recursionModule.navigationController.tabBarItem.title = "shelves".localized
         
         return recursionModule
     }

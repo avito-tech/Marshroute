@@ -1,5 +1,7 @@
 import Marshroute
 
-protocol ShelfRouter: AnyObject {
-    
+protocol ShelfRouter: RouterDismissable {
+    func showShelf(
+        style: ShelfStyle,
+        configure: (ShelfModule) -> ())
 }

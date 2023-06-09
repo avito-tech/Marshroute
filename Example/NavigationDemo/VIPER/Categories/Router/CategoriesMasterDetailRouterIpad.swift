@@ -34,7 +34,10 @@ final class CategoriesMasterDetailRouterIpad: BaseDemoMasterDetailRouter, Catego
         setDetailViewControllerDerivedFrom { routerSeed -> UIViewController in
             let shelfAssembly = assemblyFactory.shelfAssembly()
             
-            let viewController = shelfAssembly.module(routerSeed: routerSeed)
+            let (_, viewController) = shelfAssembly.module(
+                style: .root,
+                routerSeed: routerSeed
+            )
             
             return viewController
         }

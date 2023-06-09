@@ -3,7 +3,12 @@
 "recursion" = "Recursion";
 "advertisements" = "Advertisements";
 "shelves" = "Shelves";
+"shelves.root" = "Shelves (root)";
+"shelves.modal" = "Shelves (modal)";
+"shelves.buttomSheet" = "Shelves (sheet)";
 "categories" = "Categories";
 "categories.selectCategory" = "Select category";
 "notification.toRecursion" = "Tap to open `Recursion";
 "notification.toCategories" = "Tap to open `Categories";
+"cancel" = "Cancel";
+"login" = "Log in";

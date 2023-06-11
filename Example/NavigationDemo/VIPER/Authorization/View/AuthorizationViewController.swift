@@ -12,14 +12,14 @@ final class AuthorizationViewController: BaseViewController, AuthorizationViewIn
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Отмена",
+            title: "cancel".localized,
             style: .plain,
             target: self,
             action: #selector(onCancelButtonTap(_:))
         )
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Войти",
+            title: "login".localized,
             style: .done,
             target: self,
             action: #selector(onSubmitButtonTap(_:))
@@ -27,7 +27,7 @@ final class AuthorizationViewController: BaseViewController, AuthorizationViewIn
     }
     
     override func viewWillLayoutSubviews() {
-        super .viewWillLayoutSubviews()
+        super.viewWillLayoutSubviews()
         
         authorizationView.defaultContentInsets = defaultContentInsets
     }

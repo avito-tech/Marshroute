@@ -3,8 +3,10 @@ import Marshroute
 
 final class ShelfAssemblyImpl: BaseAssembly, ShelfAssembly {
     // MARK: - ShelfAssembly
-    func module(routerSeed: RouterSeed)
-        -> UIViewController
+    func module(
+        style: ShelfStyle,
+        routerSeed: RouterSeed)
+        -> (ShelfModule, UIViewController)
     {
         let interactor = ShelfInteractorImpl()
         
@@ -14,15 +16,18 @@ final class ShelfAssemblyImpl: BaseAssembly, ShelfAssembly {
         )
         
         let presenter = ShelfPresenter(
+            style: style,
             interactor: interactor,
             router: router
         )
         
-        let viewController = ShelfViewController()
+        let viewController = ShelfViewController(
+            style: style
+        )
         viewController.addDisposable(presenter)
         
         presenter.view = viewController
         
-        return viewController
+        return (presenter, viewController)
     }
 }

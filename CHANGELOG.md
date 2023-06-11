@@ -1,3 +1,7 @@
+[1.0.1](https://github.com/avito-tech/Marshroute/releases/tag/1.0.1)
+- Fixed falsepositive assertions on view controller retain cycles. They are falsepositive in rare cases when UIKit clears screen memory with a delay
+- Added bottom sheet example in a demo app (third tab on iphone and detail view of split view of a first tab on ipad). This helps us to to test Marshroute's feature not to dismiss a modal screen if it is already dismissed. In a demo this is a case when a Shelf module is opened via a bottom sheet and then dismissed via a swipe down gesture or via a tap on a dimmed area around the bottom sheet. In a demo this first dismissal is invoked via UIKit directly and second one is invoked using Marshroute. This Marshroute's feature works only if second dismissal is triggered asynchronously from the first one (i.e. in a completion block of a first dismissal)
+
 [1.0.0](https://github.com/avito-tech/Marshroute/releases/tag/1.0.0)
 - In `ResettingTransitionContext` initializers the parameter `animatingTransitionsHandler` was renamed into `navigationTransitionsHandler` in places where we work with `UINavigationController`.
 - `AnimatingTransitionsHandler` was renamed into `BaseAnimatingTransitionsHandler` and `AnimatingTransitionsHandler` became a protocol.

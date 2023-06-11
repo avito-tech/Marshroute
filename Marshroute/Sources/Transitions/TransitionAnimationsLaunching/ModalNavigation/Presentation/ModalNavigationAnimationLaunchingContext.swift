@@ -31,11 +31,7 @@ public struct ModalNavigationPresentationAnimationLaunchingContext {
         }
         
         if sourceViewController?.presentedViewController == nil {
-            marshrouteAssertionFailure(
-                """
-                It looks like \(targetViewController as Any) did not deallocate due to some retain cycle! 
-                """
-            )
+            assertPossibleRetainCycle(ofViewController: targetViewController)
             return true
         }
         

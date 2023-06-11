@@ -122,7 +122,7 @@ final class AdvertisementView: UIView, UITableViewDelegate, UITableViewDataSourc
                 CGFloat(recommendedSearchResults.count) * tableView.rowHeight
                     + CGFloat(tableView.numberOfSections) * tableHeaderHeight
             
-            let tableTop = bounds.height - tableHeight
+            let tableTop = bounds.height - tableHeight - defaultContentInsets.bottom
             
             let tableFrame = CGRect(x: 0, y: tableTop, width: bounds.width, height: tableHeight)
             tableView.frame = tableFrame

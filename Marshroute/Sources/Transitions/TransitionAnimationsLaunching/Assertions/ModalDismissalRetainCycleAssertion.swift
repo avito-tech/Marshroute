@@ -1,7 +1,7 @@
 import Foundation
 
-func assertPossibleRetainCycle(ofViewController viewController: UIViewController?) {
-    if viewController == nil { return }
+func assertPossibleRetainCycle(for object: AnyObject?) {
+    if object == nil { return }
     
     // Добавляем задержку в 1 секунду на всякий случай, чтобы точно дать UIKit'у очистить память.
     // Если даже через 1 секунду UIKit не очистил память от закрытого экрана, то, вероятно, он утек.
@@ -14,11 +14,11 @@ func assertPossibleRetainCycle(ofViewController viewController: UIViewController
     // разберется, что экран уже закрыт (через логику `isDescribingScreenThatWasAlreadyDismissedWithoutInvokingMarshroute`).
     // Однако, в этот момент сам модуль Shelf будет еще в памяти (UIKit его до сих пор не очистит, непонятно почему).
     // Поэтому даем UIKit'у время на очистку и откладываем проверку перед ассертом.
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak viewController] in
-        if let viewController {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak object] in
+        if let object {
             marshrouteAssertionFailure(
                 """
-                It looks like \(viewController as Any) did not deallocate due to some retain cycle!
+                It looks like \(object as Any) did not deallocate due to some retain cycle!
                 """
             )
         }

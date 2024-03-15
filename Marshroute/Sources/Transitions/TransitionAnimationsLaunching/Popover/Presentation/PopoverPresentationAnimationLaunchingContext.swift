@@ -36,7 +36,7 @@ public struct PopoverPresentationAnimationLaunchingContext {
         }
         
         if popoverController?.isPopoverVisible != true { 
-            assertPossibleRetainCycle(ofViewController: targetViewController)
+            assertPossibleRetainCycle(for: targetViewController)
             return true
         }
         

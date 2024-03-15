@@ -31,7 +31,7 @@ public struct ModalNavigationPresentationAnimationLaunchingContext {
         }
         
         if sourceViewController?.presentedViewController == nil {
-            assertPossibleRetainCycle(ofViewController: targetViewController)
+            assertPossibleRetainCycle(for: targetViewController)
             return true
         }
         

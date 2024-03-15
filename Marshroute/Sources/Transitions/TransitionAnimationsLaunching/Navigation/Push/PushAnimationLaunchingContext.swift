@@ -32,7 +32,7 @@ public struct PushAnimationLaunchingContext {
             let targetViewController = targetViewController,
             !navigationController.viewControllers.contains(targetViewController)
         {
-            assertPossibleRetainCycle(ofViewController: targetViewController)
+            assertPossibleRetainCycle(for: targetViewController)
             return true
         }
         
